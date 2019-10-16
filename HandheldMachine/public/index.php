@@ -13,5 +13,12 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
+//定义图片目录
+define('PICTURE', __DIR__ . '/../public/static/uploads/');
+
+//定义地图目录
+define('MAP', __DIR__ . '/../public/static/uploads');
+//定义地图目录
+define('MAPList', __DIR__ . '/../public/map/List');
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';

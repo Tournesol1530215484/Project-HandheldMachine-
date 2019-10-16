@@ -62,8 +62,11 @@ class Base extends Controller
         $imgurl=array();
         if($id==''&&$list!=''){
             //获取某个文件下所有的地图信息
-            $dir='http://139.224.8.92/public'.'\\'.'map'.'\\'.'List'.$list;
-            $sitepath='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'\\';
+            //$dir='http://139.224.8.92/public'.'\\'.'map'.'\\'.'List'.$list;
+            //$sitepath='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'\\';
+            $dir=MAP.'\\'.'map'.'\\'.'List'.$list;
+            $sitepath=MAPList.$list.'\\';
+
             //遍历文件夹下所有文件
             if (false != ($handle = opendir ( $dir ))) {
                 $i = 0;
@@ -78,9 +81,12 @@ class Base extends Controller
             return 111;
         }else{  //获取某个文件夹下的指定文件
                 //只做常见的三种处理
-            $dir='http://139.224.8.92/zhaowei/HandheldMachine/public'.'\\'.'map'.'\\'.'List'.$list.'\\'.'img'.$id.'.png';
-            $dir1='http://139.224.8.92/zhaowei/HandheldMachine/public'.'\\'.'map'.'\\'.'List'.$list.'\\'.'img'.$id.'.jpeg';
-            $dir2='http://139.224.8.92/zhaowei/HandheldMachine/public'.'\\'.'map'.'\\'.'List'.$list.'\\'.'img'.$id.'.gif';
+            //$dir='http://139.224.8.92/zhaowei/HandheldMachine/public'.'\\'.'map'.'\\'.'List'.$list.'\\'.'img'.$id.'.png';
+            //$dir1='http://139.224.8.92/zhaowei/HandheldMachine/public'.'\\'.'map'.'\\'.'List'.$list.'\\'.'img'.$id.'.jpeg';
+            //$dir2='http://139.224.8.92/zhaowei/HandheldMachine/public'.'\\'.'map'.'\\'.'List'.$list.'\\'.'img'.$id.'.gif';
+            $dir=MAPList.$list.'\\'.'img'.$id.'.png';
+            $dir1=MAPList.$list.'\\'.'img'.$id.'.jpeg';
+            $dir2=MAPList.$list.'\\'.'img'.$id.'.gif';
             if(file_exists($dir)){
 
                 $imgurl=$dir;
