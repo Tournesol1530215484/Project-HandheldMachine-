@@ -1,0 +1,456 @@
+{template 'common/header'}
+<title>发表话题</title>
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.min.css">
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.picker.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/match.css?'.time();?>" />
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.picker.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<!-- 位置相关 -->
+<!-- <script src="../addons/sz_yi/plugin/match/res/js/jquery.cookie.js"></script> -->
+<script src="../addons/sz_yi/plugin/match/res/js/cookie.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+
+
+<!-- 添加一个css -->
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/supp
+liermenu/res/baidu.js?'.time();?>"></script>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/jquery.form.js?'.time();?>"></script>
+
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/s.js?'.time();?>"></script>
+
+
+
+<link rel="stylesheet" href="../addons/sz_yi/template/mobile/default/member/merch/css/dropload.css">
+
+<script src="../addons/sz_yi/template/mobile/default/member/merch/js/dropload.min.js"></script>
+
+
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/mediaelement-and-player.min.js"></script> -->
+
+<script type="text/javascript">
+
+    System.config({
+
+        map:{
+
+            systemJsText:'<?php echo MODULE_URL.'plugin/suppliermenu/res/txt.js';?>',
+
+        systemJsCss:'<?php echo MODULE_URL.'plugin/suppliermenu/res/css.js';?>',
+
+        systemJsJson:'<?php echo MODULE_URL.'plugin/suppliermenu/res/json.js';?>'
+
+    },
+
+    baseURL: '<?php echo MODULE_URL.'plugin/suppliermenu/res/';?>',
+
+    });
+
+    System['import']('<?php echo MODULE_URL.'static/css/mui.min.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/mui.picker.min.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/mediaelementplayer.min.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/ion.rangeSlider.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/ion.rangeSlider.skinNice.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/css/adadd.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box1.html!systemJsText';?>').then(function (a){$("body").append(a)});
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box2.html!systemJsText';?>').then(function (a){$("body").append(a)});
+
+</script>
+<!-- 添加一个css -->
+
+<style type="text/css">
+    body{
+        background: white
+    }
+    p{margin:0;}
+    .search-box .activity-search-inp,.search-box .activity-search-btn,.search-box .activity-search-inp .keywords{
+        background: #eee
+    }
+    .search-box .activity-search-inp{
+        width: calc(100% - 145px);    
+        border-top-right-radius: 5px;border-bottom-right-radius: 5px;border-top-left-radius: 0px;border-bottom-left-radius: 0px
+    }
+    .search-box .activity-search-btn{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px
+    }
+    .mui-slider .mui-slider-group .mui-slider-item img{
+        height: 130px;
+    }
+    .kinds{
+        position: relative;
+    }
+    .kinds-top{
+        border-bottom: 1px solid #eee;
+        margin: 0 0 5px 0;
+        padding: 3px 0;
+    }
+    .kinds-top img{
+        width: 60px;
+        height: 55px;
+        position: absolute;
+        left: 10px;
+        top: -35px;z-index: 9;
+    }
+    .kinds-top p {
+        padding-left: 85px;
+    }
+    .kinds-top p a{
+        float: right;
+        margin-right: 10px;
+        color: #333;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .kinds-kind{
+        padding:0 10px;
+    }
+    .kinds-kind span{
+        width: 20%;
+        margin: 4px 2%;
+        display: inline-block;
+        line-height: 24px;
+        border: 1px solid #009BF8;
+        text-align: center;
+        font-size: 13px;box-shadow: 0px 0px 0.01px 0px #009BF8;
+    }
+    .kinds-kind span.active{
+        background:#009BF8;color:white;box-shadow: 0px 0px 0.01px 0px white;
+    }
+    .list-box{
+        margin:10px;
+    }
+    .list-box li{
+        margin:10px 0;
+    }
+    .list-box li .li-top{
+        display: flex;position: relative;
+    }
+    .list-box li .li-top img{
+        width: 50px;height:50px;border-radius: 50%;    position: relative;
+        top: -6px;
+    }
+    .list-box li .li-top .user-info{
+        margin:0 10px;color:#999;
+    }
+    .list-box li .li-top .edit{
+        position: absolute;
+        right: 10px;
+        font-size: 21px;
+        font-weight: bold;
+        height: 34px;
+        width: 35px;
+        text-align: center;
+    }
+    .li-content .content-title{
+        color: #333;
+        margin: 3px 0;
+    }
+    .li-content .content video{
+        width: 100%;
+        height: 200px; 
+        object-fit: cover;
+    }
+
+    /*视频控件*/
+    .progressTime{
+        width: 80%;
+        margin-top: 6px;
+        margin-right: 10px;
+    }
+    .progressBar
+    {
+       position: relative;
+       width: 100%;
+       height:10px;
+       background-color: #000;
+    }
+    .timeBar
+    {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 0;
+       height: 100%;
+       background-color: rgba(255,255,255,.5);border-top-right-radius:25px;border-bottom-right-radius:25px
+    }
+    /*小方块*/
+    /*.timeBari{
+        display: inline-block;
+        width: 30px;height: 100%;border-radius:50px;float: right;background: white;
+    }*/
+    .control{
+        display: none;
+    }
+    .control img{
+        width: 25px;
+    }
+    .onSubmit{
+    	background: #ff6600;color:white;width: 100%;border-radius:5px;text-align: center;
+    	position: absolute;    	bottom: 2%;
+	    line-height: 25px;
+	    font-size: 16px;
+    }
+    .adress{
+	    color: #009BF8;
+	    padding: 0 10px;
+	    margin: 7px;
+    }
+</style>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">发表话题</div>
+    </div>
+ 
+
+   
+    <div class="list-box">
+        <p>
+        	<input type="text" name="" id="title" placeholder="标题3-25个字">
+        </p>
+        <p>
+        	<textarea id="content" placeholder="内容10-1025个字" height="300" width="100%"></textarea>
+        </p>
+
+       <div class="tab_con" style="border: 1px solid #999;">
+                <div class="ad-base-info con conon" id="con_1">
+
+                    <ul class="ad-base-info-ul">
+                        <!-- 新增一个广告主图 -->
+
+                        <li class="info-item clearfloat upload-img-container">
+
+                             <div id="upload-img-box1" class="upload-img-box">
+
+                                <div class="btn-icon"></div>
+
+                                <input type="file" id="file2" name="filed[]" onchange="handleFile(this,'2')" multiple="true" value="BusinessLicensePics" />
+
+                            </div>
+                         
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+
+    <p class="adress">
+    	<!-- <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/b-adress.png" width="20">
+    	XX市 XX街道 -->
+        <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/adress.png" style="width: 20px;">
+        <span class="current-city" id="current-city"></span>
+    </p>
+
+
+
+    <div class="kinds-kind">
+            <!--<span class="active" data-type='0'>全部</span>-->
+             {loop $cate $v}
+            <span data-type='{$v['id']}'>{$v['title']}</span>
+             {/loop}
+    </div>
+    <button class="onSubmit">
+    	发表
+    </button>
+    <div style="width: 100%; height: 55px;"></div>
+</div>
+
+
+<script type="text/javascript">
+	var type=0;
+
+    //图片上传
+    function  handleFile(q,id)
+
+    {
+        if($("input[name='file2[]']").length > 2){
+
+            alert("最多添加3张大图!");
+
+            return false;
+
+        }
+
+
+        var files =  q.files;
+
+        if(files.length)
+
+        {
+
+           // console.log(files.length);
+
+            for(var x =0 ;x<files.length;x++ ){
+
+                var file = files[x];
+
+                if(!/image\/\w+/.test(file.type)){
+
+                    alert("文件必须为图片！"+file.type);
+
+                    return ;
+
+                }
+
+            }
+
+            $.ajaxFileUpload({
+
+                url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',
+
+            secureuri:false,
+
+            fileElementId:$(q).attr('id'), //file的id
+
+            data:{ggggtttt:1},
+
+            dataType:"text", // 返回数据类型为文本
+
+            success:function(data,status){
+
+            console.log(status);
+            console.log(data);
+
+            var obj = JSON.parse(data);
+
+            for(var x in obj.result.url){
+
+                $("#file"+id).parent().before( baidu.template('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+
+            }
+
+        }
+
+        });
+
+        }
+
+    }
+
+
+
+
+    $('.kinds-kind span').click(function(){
+        // 获取选择的种类
+        type = $(this).data('type');
+//        console.log(type);
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+    // 发表
+    $('.onSubmit').click(function(){
+
+        //接收图片信息
+
+        var filed1 = new Array();
+
+        $("input[name='file2[]']").each(function(){
+                filed1.push($(this).val());
+                });
+
+         console.log(filed1);
+
+        var city=$('#current-city').html();
+        console.log(city);
+
+    	var title = $('#title').val();
+
+    	var content = $('#content').val();
+        if( type==""){
+            alert('请选择分类');
+            return;
+        }
+        if( title==""){
+           alert('请输入论坛标题');
+            return;
+        }
+        if( content==""){
+            alert('请输入论坛内容!');
+            return;
+        }
+    	let obj = {
+    		title:title,
+    		content:content,
+    		type:type,
+            thumb:filed1,
+            city:city,
+    	}
+        url="{php echo $this->createPluginMobileUrl('bartact/forum',array(op=>"add"))}";
+
+        console.log(url);
+    	$.ajax({
+    		type:"post",
+    		url:url,
+    		data:obj,
+    		dataType:'json',
+    		success:function(data){
+              if(data.status==1){
+                 alert('发帖成功');
+                 location.href="{php echo $this->createPluginMobileUrl('bartact/forum')}"
+              }
+    		},error(e){
+    			console.log(e)
+    		}
+    	})
+    })
+
+    
+    getPosition();
+    function getPosition(){
+        var myComponents2;
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                var rp = new BMap.Point(r.point.lng,r.point.lat);
+                lng = r.point.lng; //lng
+//                        console.log(lng);
+                lat = r.point.lat; //lat
+                var gc = new BMap.Geocoder();
+                gc.getLocation(rp,function(rs){
+                    var addComp = rs.addressComponents;
+                    //区不准
+                    //alert('您的位置：'+addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street);
+                    myComponents2=addComp.district;
+                    //console.log("baidu: "+myComponents2);
+                    city = addComp.city;
+//                        console.log(city);
+                    page = 1;
+                    loaded = false;
+                    stop = true;
+                    $(".current-city").html(city);
+                    changeLoading();
+
+                    getActivitys();
+
+                    cascdeInit(province,city,'');
+                });
+            }
+            else {
+                city = "武汉市";
+                $(".current-city").html(city);
+            }
+        },{enableHighAccuracy: true});
+
+    }
+</script>

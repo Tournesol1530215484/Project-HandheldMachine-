@@ -1,0 +1,20 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'dealmerch.dealmerch'}<li {if $_GPC['method']=='dealmerch'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch')}">商家管理</a></li>{/if}
+
+    {ifp 'dealmerch.dealinfo_for'}<li {if $_GPC['method']=='dealinfo_for'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealinfo_for')}">本地商家审核</a></li>{/if}
+
+   <li {if $_GPC['method']=='supplier_list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/supplier_list')}">换货商家订单</a></li>
+
+    {ifp 'dealmerch.dealmerch_work_number'}
+    <li {if $_GPC['method']=='dealmerch_work_number'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_work_number')}">开户工号管理</a></li>{/if}
+    {ifp 'dealmerch.dealmerch_for'}<li {if $_GPC['method']=='dealmerch_for'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_for')}">会员申请商家</a></li>{/if}
+    {ifp 'dealmerch.dealmerch_for_resu'}<li {if $_GPC['method']=='dealmerch_for_resu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_for_resu')}">申请结果</a></li>{/if}
+    {ifp 'dealmerch.query'}
+    {/if}  
+        <li {if $_GPC['method']=='query'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/query')}">会员信息查询</a></li>
+
+    {ifp 'dealmerch.setmenu'}<li {if $_GPC['method']=='setmenu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/setmenu')}">菜单设置</a></li>
+    {/if}                                                                                              
+</ul>
+</div>

@@ -1,0 +1,206 @@
+{template 'common/header'}
+    <title>易货码激活</title>
+    <style type="text/css">
+		body{background:#fff;}
+    	.customer_top {height:44px; width:100%;  background:#009BF8;  border-bottom:1px solid #ccc;}
+	    .customer_top .title {height:44px; width:auto;margin-left:10px; float:left; font-size:16px; line-height:44px; color:#fff;}
+	    .customer_top .title1{height: 44px;line-height: 44px;display: inline-block;width: 70%;text-align: center;color:#fff;font-size:16px;}
+		.back{width: 18px;height: 20px;font-size: 22px;border-radius: 50%;float: left;line-height: 44px; font-family: serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;font-weight: bold;}
+		.content{width: 100%;height: auto;padding-bottom: 10px;}
+		.content .img{width: 120px;height: 140px;background: #fff;margin: 0 auto;padding-top:15px;} 
+		.content .img>img{width:120px;}
+		.inputLi{width: 98%;height: auto;background: #fff;margin: 0 auto;border-radius: 8px;padding: 13px;}
+		.inputLi>span{display: block;height: 52px;font-size: 1.6em;;line-height:40px;text-align:center;}
+		.inputLi>p{border: 1px solid #3A3A3A;border-radius: 20px;height: 35px;line-height: 30px;text-indent: 12px;width: 100%;}
+		/* .inputLi>p:nth-child(2)>span,.inputLi>p:nth-child(3)>span{letter-spacing: 0.37em;} */
+		.inputLi p input{border: 0;color: #ccc;margin-left: 6px;width: auto;height:33px;}
+		input:focus{outline:none;}
+		.submit{width: 50%;background:#009BF8 ;border-radius: 24px;margin: 0 auto;text-align: center;padding: 7px;font-size: 1.3em;margin-top: 30px;}
+		.submit input{border: 0;background: none;color: #fff;}
+        .inputLi p .active-num{
+            width: calc(100% - 170px);
+        }
+    </style> 
+    <div class="customer_top">
+		<div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+		<div class="title1">
+			易货码激活
+		</div>
+	</div>
+	<div class="content">
+    	<div class="img">
+			<img src="../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/edpsw.png" />
+		</div>
+    	<div class="inputLi">  
+    		<span>Barter code activation</span> 
+    		<p><span>激活易货码数量：</span><input class="active-num" type="number" min="1000" name="activation"  placeholder="0" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"></p>  
+            <p><span>需要支付手续费：</span>￥<span class="pay-money">0</span>元</p> 
+            <p>
+                <span>支付方式：</span>
+                <label>余额支付</label>
+                <i class="fa fa-circle-o paytype"  data-type="4"></i>
+                {if $iswechat==1}
+                    <label>微信支付</label> 
+                    <i class="fa fa-circle-o paytype" data-type="5"></i> 
+                {/if} 
+            </p> 
+                <input type="hidden" name="logid" id="logid" value="">
+                <input type="hidden" name="payed" value="0">
+                <div class="button btn btn-block btn-success col-sm-3 balance_sub1" style="display:none;" >微信支付</div>
+                <div class="fa fa-check-circle" style="color:#62b900;font-size:45px;margin-left:18%;display:none;"> 
+                    支付完成  
+                </div> 
+	        <div class="submit">         
+	    		 <input type="submit" class="act-btn" name="确认激活" value="确认激活">   
+	    	</div>    
+            <h5 style="text-align:center;">冻结易货码数量:<span style="color:#f00;">{$freeze_credit3}</span></h5>  
+            <!-- <h4 style="color:#f00;">微信扣除手续费正在测试，为避免损失请暂时使用余额支付</h4>   -->
+    	</div>        
+    </div> 
+    
+    <script>
+        var decimal={$decimal}; 
+
+        $(function(){
+            var uidmark = 0;//0转入方不正确 1正确
+            $('.paytype').click(function(){  
+                $('.paytype').each(function(i,e){ 
+                    $(e).hasClass('fa-dot-circle-o') && $(e).removeClass('fa-dot-circle-o').addClass('fa-circle-o');
+                }); 
+                console.log($(this).prev().html());
+                if ($(this).prev().html() == '微信支付') {  
+                    $(this).removeClass('fa-circle-o').addClass('fa-dot-circle-o');
+                    $('.balance_sub1').show();
+                }else{
+                    $('.balance_sub1').hide();
+                    $(this).removeClass('fa-circle-o').addClass('fa-dot-circle-o');
+                }
+
+            }); 
+            $('[data-type="4"]').click(); 
+            $('input[name="activation"]').keyup(function () {
+                var num = $('[name="activation"]').val();
+                if(num.length==1){
+                    $('[name="activation"]').val(num.replace(/[^1-9]/g,''));
+                }else{
+                    $('[name="activation"]').val(num.replace(/\D/g,''));
+                }
+                num = $('[name="activation"]').val();
+                if(num == null || num == ''){
+                    num = 0; 
+                }  
+                
+                var money = (decimal * parseInt(num)).toFixed(2); 
+                $(".pay-money").text(money); 
+            });
+
+
+            require(['core'], function( core) {  
+                $('input[type="submit"]').click(function(){  
+                    var actnum = $('input[name="activation"]').val();   
+                    var paytype = $('.fa-dot-circle-o').data('type');
+                    if(actnum == null || actnum == '' || parseInt(actnum) < 1000){ 
+                        core.tip.show("每次最少激活易货码数量不低于1000");  
+                        return false;  
+                    } 
+                    if (!paytype) {  
+                        core.tip.show("请选择支付类型");   
+                        return false; 
+                    } 
+                    var payed=$('[name="payed"]').val();
+                    var data = { 
+                        op:'editpwd', 
+                        'activation'  : actnum, 
+                        'paytype' :paytype ,
+                        'payed':payed
+                    };  
+                    core.pjson('suppliermenu/activa', data, function(json) {
+                        if (json.status == 1) {
+                            core.tip.show('激活成功！');
+                            window.location.href="{php echo $this->createPluginMobileUrl('suppliermenu/index',array('merch'=>5))}";
+                        } else if (json.status == 0) {
+                            core.tip.show(json.result);
+                        }
+                    }, true);
+                });
+
+
+
+                core.pjson('suppliermenu/activa', {openid:"{$openid}",op:'display'}, function (json) {
+                    var result = json.result; 
+                    if (json.status != 1) { 
+                        core.message(result, "{php echo $this->createMobileUrl('member')}", 'error');
+                        return;
+                    }
+                    if (result.wechat.success) { 
+                        $('#logid').val(result.logid);
+                    $('.balance_sub1').click(function () { 
+                        if ($(this).attr('submitting') == '1') { 
+                            return; 
+                        }
+                        var actnum = $('input[name="activation"]').val();
+                        if(actnum == null || actnum == '' || parseInt(actnum) < 1000){ 
+                            core.tip.show("每次最少激活易货码数量不低于1000");   
+                            return;   
+                        } 
+                        var money = $('.pay-money').html(); 
+                        if (!$('[name="activation"]').isNumber()) {
+                            core.tip.show('请输入数字金额!'); 
+                            return;
+                        }
+
+                        var logid = $('#logid').val(); 
+                        if (logid == '') { 
+                            core.tip.show('请刷新重试!'); 
+                            return;
+                        }
+
+                        $('.button').attr('submitting', 1);         //获取参数
+                        core.pjson('suppliermenu/activa', {op: 'deduct', type: 'weixin',actnum:actnum, money: money, logid: logid}, function (rjson) {
+                            if(rjson.status!=1){
+                                $('.button').removeAttr('submitting');
+                                core.tip.show(rjson.result);
+                                return;
+                            } 
+                        return false;
+                            var wechat = rjson.result.wechat;
+                            WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                                        'appId': wechat.appid ? wechat.appid : wechat.appId,
+                                        'timeStamp': wechat.timeStamp,
+                                        'nonceStr': wechat.nonceStr,
+                                        'package': wechat.package,
+                                        'signType': wechat.signType,
+                                        'paySign': wechat.paySign,
+                                    }, function (res) {
+                                        if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                                            $('[name="payed"]').val(1);
+                                            core.tip.show('支付成功!');  
+                                            $('.balance_sub1').remove(); 
+                                            $('.fa-check-circle').show();
+                                            $('input[type="submit"]').hide();
+                                            setTimeout(function(){  
+                                                $('input[type="submit"]').click();
+                                            },100);
+                                        } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+                                            $('.button').removeAttr('submitting');
+                                            
+                                            core.tip.show('取消支付');
+                                        } else {  
+                                            $('.button').removeAttr('submitting'); 
+                                            alert(res.err_msg);
+                                        }
+                               });
+ 
+                        }, true, true);
+
+                    });
+                }
+            }, true)
+            })
+    });
+        
+
+    </script>
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

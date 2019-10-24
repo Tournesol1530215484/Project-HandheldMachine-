@@ -1,0 +1,6 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'bartact.bartact'}{/if}<li {if $_GPC['method']=='slide'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/slide')}">幻灯片</a></li>
+    {ifp 'bartact.bartact'}{/if}<li {if $_GPC['method']=='poster'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/poster')}">海报</a></li>
+</ul>  	
+</div>                                   

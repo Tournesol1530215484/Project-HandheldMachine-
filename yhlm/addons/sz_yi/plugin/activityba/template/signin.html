@@ -1,0 +1,113 @@
+{template 'mycommon/header-intact'}
+<title>签到墙</title>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/plugin/activityba/res/css/signwall.css">
+<style type="text/css">
+	body{
+		background: transparent;
+	}
+</style>
+<div class="m-container">
+	<ul class="listbox">
+		
+	</ul>
+</div>
+<script id="tpl_list" type="text/html">
+	<li class="list-item">
+        <div class="header-box"> 
+            <span class="header_wrap">
+            	<span class="header init" <%if header%>style="background: url(<%header%>) no-repeat center;background-size: 95px 95px;"<%/if%> ></span>           
+            	<span class="name" style="opacity: 1;"><%name%></span>
+            </span>
+        </div>
+    </li>
+</script>
+<script type="text/javascript">
+	require(['tpl', 'core'], function(tpl, core) {
+		$(function(){
+			var d = true;
+		    page=0;
+			var signQueue = [];
+			//window.animateIndex = 0;
+			function fillData(h){
+				var g = h;
+		        $(".list-item").removeClass("rotate");
+		        g.closest("li").addClass("rotate");
+			}
+		    function pdData(){
+		        if (signQueue.length == 0) {
+		            return;
+		        }else{
+		            var i = signQueue.pop();
+		            var $listbox = $(".listbox");
+		            var h = tpl("tpl_list",i);
+		            //var h = '<li><div><span class="header_wrap"><span class="header init"></span><span class="name"></span></span></div></li>';
+		            var f = $(h);
+		            $listbox.prepend(f);
+		            f.css("zIndex", $listbox.find("li").length + 1);
+		            fillData(f);
+		        }
+		    }
+			//初步获取签到墙数据 要传递的数据对应的id
+			core.pjson('activityba/wall', {op:'signin',page:page}, function(json){
+				/*json = {"ret":1,"model":{"total":"2","start":120,"record":[{"head":"","nickname":"\u8f69\u7080"},{"head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/	 	 	WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null"}]}};*/
+				
+				//console.log(json);
+				if(json.ret == 1){
+					d = false;
+					page=json.model.total;	 	 	
+					var nowtotal = json.model.total;
+					var startnum = json.model.start;//start字段目测在这里不起作用
+                	//console.log(json.model.record);
+	                $("#signinnum", window.parent.document).html(nowtotal);
+	                nowtotal = nowtotal > 0 ? nowtotal : 1;
+	                var record = json.model.record;
+	                for (var h = 0; h < record.length; h++) {
+		                var j = record[h];
+		                var g = {
+		                    header: j.head ? j.head: ("../addons/sz_yi/plugin/activityba/res/images/defaulticon_1211.png"),
+		                    name: j.nickname
+		                };
+		                signQueue.unshift(g)
+		            }
+		            setInterval(function() {
+		                if (d) {
+		                    return
+		                }
+		                try {
+		                    pdData();
+		                } catch(i) {}
+		            },3500);
+		            pdData();
+				}
+			});
+			setInterval(function() {
+		        if(d){
+		            return;	 	 		 
+		        }
+		        var lastTotal = $("#signinnum", window.parent.document).html();
+		        //需要传递的数据 签到墙id 和 上一次最新签到次数
+		        core.pjson('activityba/wall', {op:'signin',page:page}, function(json){
+		        	//ret 1 表示有新的签到数据
+		        	//json.ret = 0;	 			 		 	
+		        	//json = {"ret":1,"model":{"total":"5","start":120,"record":[{"head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7\/132","nickname":"\u8f69\u7080"},{"head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null"}]}};
+		        	if (json.ret == 1) {
+		        		page=json.model.total;	 	 		 	 		 	 		 	 	 	
+		                var k = json.model.total;
+		                $("#signinnum", window.parent.document).html(k);
+		                var f = json.model.record;
+		                for (var h = 0; h < f.length; h++) {
+		                    var j = f[h];
+		                    var g = {
+		                        header: j.head ? j.head: ("../addons/sz_yi/plugin/activityba/res/images/defaulticon_1211.png"),
+		                        name: j.nickname
+		                    };
+		                    signQueue.unshift(g);
+		                    //animateIndex = 0	 			 	 	 	
+		                }
+		            }
+		        });
+		    },5000);
+		});
+	});
+</script>
+{template 'mycommon/footer-intact'}

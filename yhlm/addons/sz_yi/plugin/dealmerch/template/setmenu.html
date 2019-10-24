@@ -1,0 +1,109 @@
+﻿{template 'common/header'}
+{template 'tabs2'}
+<div class="panel panel-info">
+    {if $op == 'display'}
+        <div class="panel-heading">易货菜单管理</div>
+        <div class="panel-body">
+            <table class="table table-hover" > 
+                <tr style="; margin-left: 15px;"> 
+                    <th>id</th>
+                    <th>菜单图标</th>
+                    <th>菜单名称</th>
+                    <th>菜单链接</th>
+                    <th>操作</th>
+                </tr>
+                {loop $list $k $v}
+                    <tr>
+                        <td>{$v['id']}</td>
+                        <td><img src="{php echo tomedia($v['thumb'])}" width="50px" height="50px" alt="not fund photo"></td>
+                        <td>{$v['title']}</td>
+                        <td>{$v['url']}</td>
+                        <td><a href="{php echo $this->createPluginWebUrl('dealmerch/setmenu',array('op'=>'edit','id'=>$v['id']))}">编辑</a></td>
+                    </tr>
+                {/loop}
+            </table>
+            {$pager}
+        </div>
+    {else}
+        <div class="panel-heading">易货菜单编辑</div>
+            <div class="panel-body col-md-8">
+                <form action="" method="post">
+                    <input type="hidden" name="a" value="entry">
+                    <input type="hidden" name="c" value="site">
+                    <input type="hidden" name="op" value="post">
+                    <input type="hidden" name="m" value="sz_yi">
+                    <input type="hidden" name="do" value="plugin">
+                    <input type="hidden" name="p" value="dealmerch">
+                    <input type="hidden" name="method" value="setmenu">
+                    <input type="hidden" name="id" value="{$_GPC['id']}">
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">菜单图标</label>
+                    <div class="col-sm-9 col-md-10 detail-logo">
+                        {ife 'shop.goods' $item}
+                        {php echo tpl_form_field_image('thumb', $item['thumb'])}
+                        <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+                        {else} 
+                        {if !empty($item['thumb'])}
+                        <a href='{php echo tomedia($item['thumb'])}' target='_blank'>
+                        <img src="{php echo tomedia($item['thumb'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                        </a>
+                        {/if}
+                        {/if}
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">菜单名称</label>
+                    <div class="col-sm-9 col-md-10">
+                        {ife 'shop.goods' $item} 
+                        <input type="text" name="title" id="" class="form-control" value="{$item['title']}" />
+                        {else} 
+                        <div class='form-control-static'>{$item['title']}</div> 
+                        {/if}
+                    </div>
+                </div> 
+
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">菜单链接</label>
+                    <div class="col-sm-9 col-md-10"> 
+                        {ife 'shop.goods' $item} 
+                        <input type="text" name="url" id="" class="form-control" value="{$item['url']}" />
+                        {else}
+                        <div class='form-control-static'>{$item['url']}</div> 
+                        {/if}
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">是否显示</label>
+                    <div class="col-sm-9 col-md-10">
+                        <label for="ye">
+                            <input id="ye" {if $item['isdisplay'] == 0}checked{/if} type="radio" name="isdisplay" value="0">不显示
+                        </label>
+                        <label for="no">
+                            <input id="no" {if $item['isdisplay'] == 1}checked{/if} type="radio" name="isdisplay" value="1">显示
+                        </label>
+                    </div>
+                </div>
+ 
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">排序</label>
+                    <div class="col-sm-9 col-md-10">
+                        {ife 'shop.goods' $item}
+                        <input type="number" name="displayorder" id="" class="form-control" value="{$item['displayorder']}" />
+                        <span style="color: #ccc">数字越大越靠前</span>
+                        {else}
+                        <div class='form-control-static'>{$item['displayorder']}</div>
+                        {/if}
+                    </div>
+                </div>
+
+                <button type="submit" class="col-md-offset-3 btn btn-primary">提交表单</button>
+                </form>
+            </div>
+    {/if}
+</div>
+ 
+</div> 
+</div>
+{template 'common/footer'}

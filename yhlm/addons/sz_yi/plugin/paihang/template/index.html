@@ -1,0 +1,541 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+    <li {if $_GPC['op']=='' || $_GPC['op']=='display'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('paihang')}" style="cursor: pointer;">基础设置</a></li>
+    <li {if $_GPC['op']=='category'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('paihang',array('op'=>'category'))}" style="cursor: pointer;">更新佣金排名</a></li>
+</ul><style type="text/css">
+	@media  (min-width: 768px){
+		.control_label{ text-align: right; }
+	}
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        直接连接 <span class="text-muted">直接进入的URL</span>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-1 control-label control_label">直接URL</label>
+            <div class="col-sm-9 col-xs-12 ">
+                <input type="text" class="form-control" readonly="readonly" value=" {php echo $this->createMobileUrl('member/paihang')}" />
+                        <span class="help-block">
+                            <strong>直接指向到入口的URL。您可以在自定义菜单（有oAuth权限）或是其它位置直接使用。</strong>
+                        </span>
+            </div>
+        </div>
+    </div>
+</div>
+{if $operation == 'display'}
+    <div class="panel panel-info">
+        <div class="panel-heading">排行榜设置</div>
+        <div class="panel-body">
+            <form action="" method="post" class="form-horizontal" role="form">
+                <div class="form-group">					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">开启排行榜</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input type="radio" value="0" name="btn" {if $status['phstatus'] == 0}checked="checked"{/if}><span style="color:black;margin-right:5px"> 关闭</span>	
+	                                    <input type="radio" value="1" name="btn" {if $status['phstatus'] == 1}checked="checked"{/if}><span style="color:black"> 开启</span>	
+	                                    <p></p>	
+	                                    <p>选择开启则在会员中心显示排行榜选项</p>	
+	                                    <p>排行榜总开关开启并且以下三个排行榜最少开启一个才会在会员中心显示排行榜选项</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>	
+	                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">排行榜名称</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input name="p_name" id="" type="text" value="{$status['p_name']}" >	
+	                                    <p></p>	
+	                                    <p>自定义会员中心显示的排行榜名称，前台最多显示8个中文字符</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>
+                    </div>				</div>
+                
+            
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">积分排行榜</div>
+        <div class="panel-body">
+            <div class="form-horizontal" role="form">
+                <div class="form-group">					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">积分排行榜</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input type="radio" value="0" name="j_btn" {if $status['jifen'] == 0}checked="checked"{/if}><span style="color:black;margin-right:5px"> 关闭</span>	
+	                                    <input type="radio" value="1" name="j_btn" {if $status['jifen'] == 1}checked="checked"{/if}><span style="color:black"> 开启</span>	
+	                                    <p></p>	
+	                                    <p>在排行榜中显示积分排行榜</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>	
+	                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">排行榜名称</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input name="j_name" id="" type="text" value="{$status['j_name']}" >	
+	                                    <p></p>	
+	                                    <p>自定义积分排行榜名称，前台最多显示8个中文字符</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>
+                    </div>				</div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">消费排行榜</div>
+        <div class="panel-body">
+            <div class="form-horizontal" role="form">
+                <div class="form-group">					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">消费排行榜</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input type="radio" value="0" name="x_btn" {if $status['xiaofei'] == 0}checked="checked"{/if}><span style="color:black;margin-right:5px"> 关闭</span>	
+	                                    <input type="radio" value="1" name="x_btn" {if $status['xiaofei'] == 1}checked="checked"{/if}><span style="color:black"> 开启</span>	
+	                                    <p></p>	
+	                                    <p>在排行榜中显示消费排行榜</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>	
+	                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">排行榜名称</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input name="x_name" id="" type="text" value="{$status['x_name']}" >	
+	                                    <p></p>	
+	                                    <p>自定义消费排行榜名称，前台最多显示8个中文字符</p>	
+	                            </div>
+	                        </div>	
+	                    </div>
+                    </div>				</div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">佣金排行榜</div>
+        <div class="panel-body">
+            <div class="form-horizontal" role="form">
+                <div class="form-group">					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">佣金排行榜</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input type="radio" value="0" name="y_btn" {if $status['yongjin'] == 0}checked="checked"{/if}><span style="color:black;margin-right:5px"> 关闭</span>	
+	                                    <input type="radio" value="1" name="y_btn" {if $status['yongjin'] == 1}checked="checked"{/if}><span style="color:black"> 开启</span>	
+	                                    <p></p>	
+	                                    <p>在排行榜中显示佣金排行榜</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>	
+	                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.1em">排行榜名称</label>	
+	                    <div class="col-sm-9 col-xs-12">	
+	                        <div class="row row-fix tpl-category-container">	
+	                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+	                                    <input name="y_name" id="" type="text" value="{$status['y_name']}" >	
+	                                    <p></p>	
+	                                    <p>自定义佣金排行榜名称，前台最多显示8个中文字符</p>	
+	                            </div>	
+	                            	
+	                        </div>	
+	                    </div>
+                    </div>				</div>
+                
+            </div>
+        </div>
+    </div>
+    <div>
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ></label>
+        <div class="col-sm-9 col-xs-12">
+            
+            <input type="submit" name="submit" id="save" value="提交" class="btn btn-primary col-lg-1"  />
+            
+        </div>
+    </div>
+    </form>
+</div>
+<script>    
+    $(function(){
+        $("#save").click(function(){
+            var phstatus = $("input[name=btn]:checked").val();
+            var p_name = $("input[name=p_name]").val();
+            var jifen = $("input[name=j_btn]:checked").val();
+            var j_name = $("input[name=j_name]").val();
+            var xiaofei = $("input[name=x_btn]:checked").val();
+            var x_name = $("input[name=x_name]").val();
+            var yongjin = $("input[name=y_btn]:checked").val();
+            var y_name = $("input[name=y_name]").val();
+            
+            
+            
+
+            $.ajax({
+                type: 'POST',
+                url: "{php echo $this->createPluginWebUrl('paihang',array('method'=>'api','apido'=>'savesys'))}",
+                data: {
+                    phstatus:phstatus,
+                    p_name:p_name,
+                    jifen:jifen,
+                    j_name:j_name,
+                    xiaofei:xiaofei,
+                    x_name:x_name,
+                    yongjin:yongjin,
+                    y_name:y_name
+                }, 
+                dataType:'json',
+                success: function(data){
+                    if(data.result=='success'){
+                        alert("保存成功！");
+                        //console.log()
+                    }else{                    
+                        alert("保存失败！")
+                        //console.log(data.desc);
+                    }
+                }
+            });
+        });
+    });
+</script>
+{elseif $operation == 'category'}
+    <div >
+     
+        <div class="panel-body">
+            <form action="" method="get" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:black;font-size:1.3em">更新店铺排行榜设置及更新排名</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-category-container">
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                                    <input type="submit" value="更新" id="sta" class="btn btn-primary">
+                                    
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+            
+        </div>
+    </div>
+    <script>    
+        $(function(){
+            $("#sta").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: "{php echo $this->createPluginWebUrl('paihang',array('method'=>'api','apido'=>'sta'))}",
+                    data: {
+                        status:1   
+                    }, 
+                    dataType:'json',
+                    success: function(data){
+                        if(data.result=='success'){
+                            alert("设置成功！");
+                            //console.log()
+                        }else{                    
+                            alert("设置失败！")
+                            //console.log(data.desc);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{elseif $operation == 'post'}
+<link href="../addons/sz_yi/plugin/article/template/imgsrc/article.css" rel="stylesheet">
+<script type="text/javascript" src="../addons/sz_yi/plugin/article/template/imgsrc/jquery.json.js"></script>
+<script type="text/javascript" src="./resource/components/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="./resource/components/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="./resource/components/ueditor/ueditor.parse.js"></script>
+<script type="text/javascript" src="./resource/components/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+
+
+<script>
+    $(function(){
+        $("#save").click(function(){
+            var article_message = $("input[name=article_message]").val();
+            var article_title = $("input[name=article_title]").val();
+            var article_image = $("input[name=article_image]").val();
+            var article_shownum = $("input[name=article_shownum]").val();
+            var article_keyword = $("input[name=article_keyword]").val();
+            var article_temp = $("input[name=article_temp]:checked").val();
+			
+			//读取区域设置的：
+			var article_province = '';
+			$('.tpl-province').each(function(){
+				article_province += $(this).val() + ',';
+			});
+			
+			var article_city = '';
+			$('.tpl-city').each(function(){
+				article_city += $(this).val() + ',';
+			});
+		
+			
+			
+            if(!article_title){
+                $("input[name=article_title]").focus();
+                alert('文章封面标题不能为空！');
+                return;
+            }
+            if(!article_keyword){
+                $("input[name=article_keyword]").focus();
+                alert('文章列表页面关键字不能为空！');
+                return;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "{php echo $this->createPluginWebUrl('article',array('method'=>'api','apido'=>'savesys'))}",
+                data: {
+                    article_message:article_message,
+                    article_title:article_title,
+                    article_image:article_image,
+                    article_shownum:article_shownum,
+                    article_keyword:article_keyword,
+                    article_temp:article_temp,
+                    article_province:article_province,
+                    article_city:article_city
+                }, 
+                dataType:'json',
+                success: function(data){
+                    if(data.result=='success'){
+                        alert("保存成功！");
+                        //console.log()
+                    }
+                    else if(data.result=='err-key'){
+                        alert("保存失败！关键字已存在")
+                        //console.log(data.desc);
+                    }
+                }
+            });
+        });
+    });
+</script>
+{elseif $operation == 'list_read'}
+<div class="panel panel-default">
+    <div class="panel-heading"> 数据统计 (id: {$aid})</div>
+    <div class="panel-body">
+        <div class="alert alert-info">
+            <p>文章标题：{$article['article_title']}</p>
+            <p>文章分类：{$article['category_name']}</p>
+            <p>触发关键字：{$article['article_keyword']}</p>
+            <p>创建时间：{$article['article_date']}</p>
+            <p>阅读量(真实+虚拟=总数)：{php echo intval($article['article_readnum'])} + {php echo intval($article['article_readnum_v'])} = {php echo intval($article['article_readnum_v'])+intval($article['article_readnum'])}</p>
+            <p>点赞数(真实+虚拟=总数)：{php echo intval($article['article_likenum'])} + {php echo intval($article['article_likenum_v'])} = {php echo intval($article['article_likenum_v'])+intval($article['article_likenum'])}</p>
+            <p>积分累计发放数量：{$add_credit} 积分</p>
+            <p>余额累计发放数量：{$add_money} 元</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">记录ID</th>
+                    <th style="width:300px;">会员昵称</th>
+                    <th style="width:100px; text-align:center;">阅读次数</th>
+                    <th style="width:100px; text-align:center;">点赞状态</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                 {if empty($list_reads)}
+                        <tr>
+                            <td  colspan="7" style="line-height:30px;">没有查询到记录！</td>
+                        </tr>
+                 {else}
+                    {loop $list_reads $list_read}
+                       <tr style="border-bottom:0px;">
+                           <td>{$list_read['id']}</td>
+                           <td>{if !empty($list_read['nickname'])}{$list_read['nickname']}{else}* 未更新用户信息{/if}</td>
+                           <td style="text-align:center;">{$list_read['read']}</td>
+                           <td style="text-align:center;">
+                           {if $list_read['like']==1}
+                               <label class="label label-success">已点赞</label>
+                           {else}
+                               <label class="label label-default">未点赞</label>
+                           {/if}
+                           </td>
+                           <td></td>
+                       </tr>
+                   {/loop}
+                       <tr>
+                           {if !empty($pager)}
+                               <td colspan="5">{$pager}</td>
+                           {/if}
+                       </tr>
+                {/if}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-default" href="{php echo $this->createPluginWebUrl('article')}"><i class="fa fa-reply"></i> 返回文章列表</a>
+        <a class="btn btn-default" href="{php echo $this->createPluginWebUrl('article',array('op'=>'list_share','aid'=>$_GPC['aid']))}" style="margin-left:10px;"><i class="fa fa-list"></i> 查看分享记录</a>
+    </div>
+</div>
+{elseif $operation == 'list_share'}
+<div class="panel panel-default">
+    <div class="panel-heading"> 数据统计 (id: {$aid})</div>
+    <div class="panel-body">
+        <div class="alert alert-info">
+            <p>文章标题：{$article['article_title']}</p>
+            <p>文章分类：{$article['category_name']}</p>
+            <p>触发关键字：{$article['article_keyword']}</p>
+            <p>创建时间：{$article['article_date']}</p>
+            <p>阅读量(真实+虚拟=总数)：{php echo intval($article['article_readnum'])} + {php echo intval($article['article_readnum_v'])} = {php echo intval($article['article_readnum_v'])+intval($article['article_readnum'])}</p>
+            <p>点赞数(真实+虚拟=总数)：{php echo intval($article['article_likenum'])} + {php echo intval($article['article_likenum_v'])} = {php echo intval($article['article_likenum_v'])+intval($article['article_likenum'])}</p>
+            <p>积分累计发放数量：{$add_credit} 积分</p>
+            <p>余额累计发放数量：{$add_money} 元</p>
+        </div>
+        <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width:80px;">记录ID</th>
+                            <th style="width:300px;">分享者</th>
+                            <th style="width:300px;">点击者</th>
+                            <th style="width:150px; text-align:center;">点击时间</th>
+                            <th style="width:150px; text-align:center;">为分享者增加的积分</th>
+                            <th style="width:150px; text-align:center;">为分享者增加的余额</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {if empty($list_shares)}
+                        <tr>
+                            <td  colspan="7" style="line-height:30px;">没有查询到记录！</td>
+                        </tr>
+                        {else}
+                            {loop $list_shares $list_share}
+                                <tr style="border-bottom:0px;">
+                                    <td>{$list_share['id']}</td>
+                                    <td>{if !empty($list_share['share_user'])}{$list_share['share_user']}{else}* 未更新用户信息{/if}</td>
+                                    <td>{if !empty($list_share['click_user'])}{$list_share['click_user']}{else}* 未更新用户信息{/if}</td>
+                                    <td style="text-align:center;">{php echo date("Y-m-d H:m:s",$list_share['click_date'])}</td>
+                                    <td style="text-align:center;">{$list_share['add_credit']}</td>
+                                    <td style="text-align:center;">{$list_share['add_money']}元</td>
+                                    <td></td>
+                                </tr>
+                            {/loop}
+                            <tr>
+                                {if !empty($pager)}
+                                    <td colspan="7">{$pager}</td>
+                                {/if}
+                            </tr>
+                        {/if}
+                    </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-default" href="{php echo $this->createPluginWebUrl('article')}"><i class="fa fa-reply"></i> 返回文章列表</a>
+        <a class="btn btn-default" href="{php echo $this->createPluginWebUrl('article',array('op'=>'list_read','aid'=>$_GPC['aid']))}" style="margin-left:10px;"><i class="fa fa-list"></i> 查看阅读/点赞记录</a>
+    </div>
+</div>
+{elseif $operation == 'report'}
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">筛选</div>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site">
+                <input type="hidden" name="a" value="entry">
+                <input type="hidden" name="m" value="sz_yi">
+                <input type="hidden" name="do" value="plugin">
+                <input type="hidden" name="p" value="article">
+                <input type="hidden" name="op" value="report">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-1 control-label">筛选</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-category-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                    <select class="form-control tpl-category-parent" name="aid">
+                                            <option value="">全部文章</option>
+                                            {loop $articles $article}
+                                                <option value="{$article['id']}" {if $_GPC['aid']==$article['id']}selected="selected"{/if}>{$article['article_title']}</option>
+                                            {/loop}
+                                    </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style='padding:0px 10px;'>
+                                    <select class="form-control tpl-category-parent" name="cid">
+                                            {loop $categorys $ccid $cname}
+                                                <option value="{$ccid}" {if $_GPC['cid']==$ccid}selected="selected"{/if}>{$cname}</option>
+                                            {/loop}
+                                    </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-lg-9" style="width:400px;">
+                                <input class="form-control" name="keyword" id="" type="text" value="{$_GPC['keyword']}" placeholder="请输入举报内容关键字进行检索（选择分类减小检索范围）">
+                            </div>
+                            <div class="col-xs-12 col-sm-2 col-lg-2">
+                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 举报列表 -->
+<div class='panel panel-default'>
+    <div class='panel-heading'> 举报记录 {if $reportnum}(总数: {$reportnum}){/if}</div>
+    <div class='panel-body'>
+        <table class="table" style="width:1190px;">
+            <thead>
+                <tr>
+                    <th style="width:60px; text-align: center;">ID</th>
+                    <th style="width:100px; text-align: center;">会员ID</th>
+                    <th style="width:150px;">会员名字</th>
+                    <th style="width:100px; text-align: center;">文章ID</th>
+                    <th style="width:250px;">文章标题</th>
+                    <th style="width:150px; text-align: center;">违规分类</th>
+                    <th style="width:600px;">举报描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                {if !empty($datas)}
+                    {loop $datas $data}
+                        <tr>
+                            <td style="text-align: center;">{$data['id']}</td>
+                            <td style="text-align: center;">{$data['mid']}</td>
+                            <td>{$data['nickname']}</td>
+                            <td style="text-align: center;">{$data['aid']}</td>
+                            <td>{$data['article_title']}</td>
+                            <td style="text-align: center;">{$data['cate']}</td>
+                            <td style="word-break:break-all">{$data['cons']}</td>
+                        </tr>
+                    {/loop}
+                {else}
+                    <tr> 
+                        <td style="text-align: center; line-height: 100px;" colspan="7">{if !empty($_GPC['cid']) || !empty($_GPC['keyword']) || !empty($_GPC['aid'])}啊哦~没有搜索到相关记录哦~{else}亲~您的文章还没有被举报过哦~{/if}</td>
+                    </tr>
+                {/if}     
+                <tr><td colspan="7" style="padding:0px; margin: 0px;">{$pager}</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('article')}"><i class="fa fa-reply"></i> 返回文章列表</a>
+    </div>
+</div>
+{/if}
+
+{template 'web/_footer'}

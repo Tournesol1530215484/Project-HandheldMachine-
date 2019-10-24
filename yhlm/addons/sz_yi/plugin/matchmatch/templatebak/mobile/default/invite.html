@@ -1,0 +1,139 @@
+{template 'common/header'}
+<title>邀约汇总</title>
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/invite.css?'.time();?>" />
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">邀约汇总</div> 
+    </div>      
+    <div class="search-filter-container">       
+        <div class="search-box flex-center">
+            <div class="match-search-inp">
+                <input type="text" name="keywords" class="keywords" placeholder="请输入要查询的用户">
+            </div>
+            <div class="match-search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="list-item list-hd flex-center">
+            <div class="list-item-cot list-item-cot1 for-nowrap"><!-- 用户 -->
+                用户
+            </div>                      
+            <div class="list-item-cot for-nowrap"><!-- 报名数 -->
+                报名数
+            </div> 
+            <div class="list-item-cot for-nowrap"><!-- 点赞数 -->
+                点赞数
+            </div> 
+            <div class="list-item-cot for-nowrap"><!-- 支持数 -->
+                支持数
+            </div> 
+            <div class="list-item-cot for-nowrap"><!-- 分享数 -->
+                分享数
+            </div> 
+        </div>
+        <ul class="list-ul">      
+            <!-- 下拉加载数据容器 -->
+        </ul> 
+    </div>
+</div>
+<!-- 两种模板 文章列表 或者 文章暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <a href="javascript:void(0);" class="do-link-or-not flex-center">
+                <div class="list-item-cot list-item-cot1 for-nowrap"><!-- 用户 -->
+                    <%g.title%>
+                </div> 
+                <div class="list-item-cot for-nowrap"><!-- 报名数 -->
+                    1000
+                </div> 
+                <div class="list-item-cot for-nowrap"><!-- 点赞数 -->
+                    671000
+                </div> 
+                <div class="list-item-cot for-nowrap"><!-- 支持数 -->
+                    1000
+                </div> 
+                <div class="list-item-cot for-nowrap"><!-- 分享数 -->
+                    800
+                </div> 
+            </a>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">没有更多的活动列表了</div>
+</script>
+<script type="text/javascript">
+    var loaded = false;
+    var stop = true;
+    var def_args = args  = {
+        page:"{$_GPC['page']}",
+        keywords: "{$_GPC['keywords']}",
+        ac:'get'
+    }; 
+    require(['tpl', 'core'], function(tpl, core) {
+        function getList() {
+            if(args.page=='' || args.page=='undefined'){
+                args.page = 1;
+            }
+            core.pjson('match/match', args, function (json) {
+                if (json.result.list.length <= 0) {
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+                    return;
+                }
+                $('.list-box .list-ul').html(tpl('tpl_list',json.result));
+                $('.list-box .list-ul').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+                bindMore();
+            }, true);
+        }
+        function getArticleMore() {
+            core.pjson('match/match', args, function (json) {
+                stop = true;  
+                $('#list_loading').remove();
+                $(".list-box .list-ul").append(tpl('tpl_list',json.result));
+                //if(json.result.list.length <json.result.pagesize) { //最好用这种数据结构
+                if (json.status == 0){
+                    $('.list-box .list-ul').append('<div id="list_loading">已经加载全部</div>');
+                    loaded = true;
+                    return;
+                }else{
+                    $('.list-box .list-ul').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+                    bindMore();
+                } 
+            });
+        }
+        function bindMore() {
+            $(".getmore").unbind("click").click(function(){ 
+                if(loaded){
+                    return;
+                }
+                if(stop == true) {
+                    stop = false;
+                    args.page++;
+                    getArticleMore();
+                }
+            });
+        }
+        getList();
+        $('.match-search-btn').unbind('click').click(function(){
+            if($('.keywords').isEmpty()){
+                core.tip.show('请输入搜索词');
+                return false;
+            }
+            var keywords = $.trim($('.keywords').val());
+            args  = {
+                page:1,
+                keywords: keywords,
+                ac:'get'
+            };
+            loaded = false;
+            stop = true;
+            getList();
+        });
+    });
+    
+</script>
+{template 'common/footer'}

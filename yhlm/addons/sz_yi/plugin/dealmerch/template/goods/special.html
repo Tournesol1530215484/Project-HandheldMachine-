@@ -1,0 +1,11 @@
+<div class="form-group">
+	<label class="col-xs-12 col-sm-3 col-md-1 control-label">特色卖点</label>
+	<div class="col-sm-9 col-xs-12">
+        {ife 'dealmerch.goods.edit' $item}
+            {php echo tpl_ueditor('special',$item['special'])}
+        {else}
+        <textarea id='special' style='display:none'>{$item['special']}</textarea>
+        <a href='javascript:preview_html("#special")' class="btn btn-default">查看内容</a>
+        {/if}
+	</div>
+</div>

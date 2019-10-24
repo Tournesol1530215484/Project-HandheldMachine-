@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title></title>
+    <meta name="format-detection" content="telephone=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" /> 
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style type="text/css">
+	*{ margin: 0;padding: 0;}
+	body{  color: #411c20; font-size: 14px;}
+	#content{ width: 100%; margin: 0 auto; max-width: 640px;}
+	a, a:link,a:visited ,a:hover ,a:active,a:focus{ color: #411c20;}
+	.ypym{ padding:0 15px;}
+	.ypym a,.ypym a:link,.ypym a:visited,.ypym a:hover,.ypym a:active{ color: #380108;}
+	.ypym .p2{ text-indent: 2em;}
+	.colf63e3e{ color: #f63e3e;}
+	.ypymList{ margin:8px 0 25px; border-right: 1px solid #380007; border-bottom: 1px solid #380007;}
+	.ypymList li{ display: table;border-top: 1px solid #380007;  width:100%; }
+	.ypymList li>span{ display: table-cell; vertical-align: middle;  text-align: center; border-left: 1px solid #380007; padding:3px;}
+	.ypymList{ width:100%;}
+	.ypymList .span1{ width: 22%; font-size: .857em;}
+	.ypymList .span2{ width:28%;}
+	.ypymList .span3{ width:50%;}
+	.ypymList_title{ font-weight: 700;}
+	.footer-ypym{ padding-top: 50px;  line-height: 32px; }
+
+	.animateDiv{ position: relative; width: 100%;height: 100%;margin-bottom: 50px;}
+	.aImgText{ position: absolute; color: #fff100; font-size: 16px !important; top: 25%;  font-weight: 700; width: 100%; text-align: center;font-family:'microsoft yahei',"微软雅黑";-webkit-text-shadow: 0 11px 11px #770013;
+-moz-text-shadow: 0 11px 11px #770013;
+text-shadow: 0 11px 11px #770013;}
+	.aImgText b{ color: #fff; font-size: 3.125em;}
+	@media screen and (min-width:320px){.aImgText{font-size:16px !important;}}
+	@media screen and (min-width:400px){.aImgText{font-size:22px !important;}}
+	@media screen and (min-width:480px){.aImgText{font-size:26px !important;}}
+	@media screen and (min-width:640px){.aImgText{font-size:32px !important;}}
+
+	.detailLink{ position: absolute; width: 26.72%;height: 34%; left: 67%; top: 61.22%; z-index: 6;}
+	</style>
+</head>
+<!--背景颜色-->
+<body style="background:{$item['bgColor']}">
+<div id="content">
+	<div class="animateDiv">
+		<!--背景图-->
+		{if empty($item['headthumb'])}
+		<img src=<?php echo  $_W['siteroot']?>addons/sz_yi/plugin/yipinyima/img/mos.jpg width="100%">
+		{else}
+		<img src=<?php echo  $_W['siteroot']?>attachment/{$item['headthumb']} width="100%">
+		{/if}
+		<div class="aImgText"><b>20积分</b><br>已经转入您的积分账号</div>
+	</div>
+	<div class="ypym">
+		<p class="p1"><strong>{$item['first_desc']}</strong></p>
+		<br>
+		<p class="p2">{$item['score_desc']}<strong class="colf63e3e">20积分</strong> 已经转入您的积分账户，更多积分的使用说明请<a href="">点击详情</a></p>
+		<br>
+		<ul class="ypymList">
+	        <li class="ypymList_title">
+	          <span class="span1">扫码次数</span>
+              <span class="span2">扫描者</span>
+              <span class="span3">扫描时间</span>
+	        </li>        
+	        <li>
+              <span class="span1">第一次</span>
+              <span class="span2">张三</span>
+              <span class="span3">2015-05-01 16:00:00</span>
+	        </li>  
+	    </ul>
+	    <!--广告和链接-->
+		{if empty($item['adthumb'])}
+		<img src=<?php echo  $_W['siteroot']?>addons/sz_yi/plugin/yipinyima/img/dibu.jpg width="100%">
+		{else}
+	    <a href=""><img src="<?php echo $_W['siteroot']?>attachment/{$item['adthumb']}" width="100%"></a>
+		{/if}
+		<div class="footer-ypym text-right">如有疑问请致电：<a  href="tel:66220909">66220909</a></div>
+	</div>
+	
+</div>
+</body>
+</html>

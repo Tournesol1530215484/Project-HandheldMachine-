@@ -1,0 +1,568 @@
+{template 'common/header'}
+{template 'tabs2'}
+{if $operation == 'display'}
+<div class="panel panel-info">
+    <div class="panel-heading">查询</div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="ac" value="query" />      
+            <input type="hidden" name="p" value="dealmerch" />
+            <input type="hidden" name="method" value="query" />
+
+            <div class="form-group notice">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">查询对象</label>
+                    <div class="col-sm-9 col-xs-12">
+                     {ife 'dealmerch.goods.edit' $item}
+                        <input type='hidden' id='noticeopenid' name='noticeopenid' value="{$item['noticeopenid']}" />
+                        <div class='input-group'>
+                            <input type="text" name="saler" maxlength="30" value="{if !empty($saler)}{$saler['nickname']}/{$saler['realname']}/{$saler['mobile']}{/if}" id="saler" class="form-control" readonly />
+                            <div class='input-group-btn'>
+                                <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus-notice').modal();">选择用户</button>
+                                <button class="btn btn-danger" type="button" onclick="$('#noticeopenid').val('');$('#saler').val('');$('#saleravatar').hide()">清除选择</button>
+                            </div> 
+                        </div>
+                        <span id="saleravatar" class='help-block' {if empty($saler)}style="display:none"{/if}><img  style="width:100px;height:100px;border:1px solid #ccc;padding:1px" src="{$saler['avatar']}"/></span>
+                        <!-- <span class="help-block">单品下单通知，可制定某个用户，通知商品下单备货通知,如果商品为同一商家，建议使用系统统一设置</span> -->
+                        <div id="modal-module-menus-notice"  class="modal fade" tabindex="-1">
+                            <div class="modal-dialog" style='width: 920px;'>
+                                <div class="modal-content">
+                                    <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择用户</h3></div>
+                                    <div class="modal-body" >
+                                        <div class="row">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="keyword" value="" id="search-kwd-notice" placeholder="请输入用户昵称/姓名/手机号" />
+                                                <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_members();">搜索</button></span>
+                                            </div>
+                                        </div>
+                                        <div id="module-menus-notice" style="padding-top:5px;"></div>
+                                    </div>
+                                    <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {else}
+                        <div class='form-control-static'>
+                            {if !empty($saler)}<img  style="width:100px;height:100px;border:1px solid #ccc;padding:1px" src="{$saler['avatar']}"/>{else}无{/if}
+                         </div>
+                        {/if}
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+                    <div class="col-sm-9 col-xs-12">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                           <button class="btn btn-default"><i class="fa fa-search"></i>查询</button>
+                           <input type="hidden" name="token" value="{$_W['token']}" />
+                       </div>
+                    </div>
+                </div>
+            </div>
+<script language='javascript'>
+         function search_members() {
+             if( $.trim($('#search-kwd-notice').val())==''){
+                 Tip.focus('#search-kwd-notice','请输入关键词');
+                 return;
+             }
+        $("#module-menus-notice").html("正在搜索....")
+        $.get('{php echo $this->createWebUrl('member/query')}', {
+            keyword: $.trim($('#search-kwd-notice').val())
+        }, function(dat){
+            $('#module-menus-notice').html(dat);
+        });
+    }
+    function select_member(o) {
+        $("#noticeopenid").val(o.openid);
+        $("#saleravatar").show();
+        $("#saleravatar").find('img').attr('src',o.avatar);
+        $("#saler").val( o.nickname+ "/" + o.realname + "/" + o.mobile );
+        $("#modal-module-menus-notice .close").click();
+    }
+</script>
+        </form>
+    </div>
+
+</div>
+
+
+<div class="clearfix">
+
+<!-- 账户余额 -->
+<div class="panel panel-default">
+    <div class="panel-heading">账号余额</div>
+    <div class="">           
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:auto;'>积分</th>
+                    <th style='width:auto;'>余额</th>
+                    <th style='width:auto;'>换货码</th>
+                    <th style='width:auto;'>冻结换货码</th>
+                    <th style='width:auto;'>换货额度</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr>
+                    <td>{$credit1}</td>
+                    <td>{$credit2}</td>
+                    <td>{$credit3}</td>
+                    <td>{$freeze_credit3}</td>
+                    <td>{$currency_credit3}</td>
+                </tr>
+
+            </tbody>
+        </table>
+           {$pager}
+    </div>
+</div>
+
+
+    <!-- 现金 -->
+<div class="panel panel-default">
+    <div class="panel-heading">现金</div>
+    <div class="">           
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:auto;'>现金充值记录</th>
+                    <th style='width:auto;'>提现记录</th>
+                    <th style='width:auto;'>拆红包/推广粉丝奖励</th>
+                    <th style='width:auto;'>购物消费的</th>
+                    <th style='width:auto;'>其他收支</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr>
+                    <td><label class="label label-danger mytag" data-type="recharge">{$cash['total']['recharge']}</label></td>
+                    <td><label class="label label-danger mytag" data-type="withdraw">{$cash['total']['withdraw']}</label></td>
+                    <td><label class="label label-danger mytag" data-type="fans" data-status="1" data-cash="1">{$cash['total']['fans']}</label></td>
+                    <td><label class="label label-danger mytag" data-type="shop">{$cash['total']['shop']}</label></td>
+                    <td><label class="label label-danger mytag" data-type="others">0</label></td>
+            </tbody>
+        </table>
+           {$pager}
+    </div>
+</div>
+
+
+<!-- 换货码 -->
+<div class="panel panel-default">
+    <div class="panel-heading">换货码</div>
+    <div class="">           
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:auto;'>好友转入</th>
+                    <th style='width:auto;'>看广告、推广奖励</th>
+                    <th style='width:auto;'>销售获得</th>
+                    <th style='width:auto;'>退款退单记录(商家)</th>
+                    <th style='width:auto;'>退款退单记录(用户)</th>
+                    <th style='width:auto;'>换货消耗的</th>
+                    <th style='width:auto;'>好友转出</th>
+                    <th style='width:auto;'>易货码充值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>    
+                    <td><label class="label label-success mytag" data-type="put">{$code['total']['friend']['put']}</label></td>
+                    <td><label class="label label-success mytag" data-type="fans" data-status="1" data-cash="2">{$code['total']['fans']}</label></td>
+                    <td><label class="label label-success mytag" data-type="saler">{$code['total']['saler']}</label></td>
+                    <td><label class="label label-success mytag" data-type="refund">{$code['total']['refund']}</label></td>
+                    <td><label class="label label-success mytag" data-type="refunduse">{$code['total']['refunduse']}</label></td>
+                    <td><label class="label label-success mytag" data-type="use">{$code['total']['use']}</label></td>
+                    <td><label class="label label-success mytag" data-type="get">{$code['total']['friend']['get']}</label></td>
+                    <td><label class="label label-success mytag" data-type="others">{$code['total']['recharge']}</label></td>
+                </tr>
+            </tbody>                         
+        </table>
+           {$pager}
+    </div>
+</div>
+
+    <!-- 换货码 -->
+    <div class="panel panel-default">
+        <div class="panel-heading">换货额度</div>
+        <div class="">
+            <table class="table table-hover" style="overflow:visible;">
+                <thead class="navbar-inner">
+                <tr>
+                    <th style='width:auto;'>充值</th>
+                    <th style='width:auto;'>消费</th>
+                    <th style='width:auto;'>退款退单</th>
+                    <th style='width:auto;'>其他收支</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><label class="label label-success mytag" data-type="put">{$code['total']['friend']['put']}</label></td>
+                    <td><label class="label label-success mytag" data-type="fans" data-status="1" data-cash="2">{$code['total']['fans']}</label></td>
+                    <td><label class="label label-success mytag" data-type="saler">{$code['total']['saler']}</label></td>
+                    <td><label class="label label-success mytag" data-type="others">0</label></td>
+                </tr>
+                </tbody>
+            </table>
+            {$pager}
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+
+<!-- modal -->
+<div class="modal fade" tabindex="-1" id="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:60%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">预览图片</h4>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="" width="100%">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <!-- <button type="button" class="btn btn-primary">保存</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-module-menus" class="modal fade" tabindex="-1" aria-hidden="false" >
+    <div class="modal-dialog" style="width: 920px;">
+        <div class="modal-content">
+            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>驳回原因</h3></div>
+            <div class="modal-body">
+                <div class="row">
+                        <textarea name="note" style="width: 100%;height:168px; "></textarea>
+                </div>
+                <div id="module-menus" style="padding-top:5px;"></div>
+            </div>
+            <div class="modal-footer"><a href="#" data-id="" class="btn btn-default sub" aria-hidden="true">确认</a></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(".preview").click(function(){
+        var src = $(this).find("img").attr("src");
+        // alert(src);
+        $(".modal-body").find("img").attr("src",src);
+        $('#modal').modal('toggle');
+    });
+
+    function note(id) {
+        $('#modal-module-menus').modal('show');
+        $('.sub').data('id',id);
+    }
+
+    $('.sub').click(function () {
+        id=$(this).data('id');
+        note=$('textarea').val();
+        $.post(
+            '{php echo $this->createPluginWebUrl("dealmerch/dealinfo_for",array("op"=>"check"))}',
+            {id:id,status:2,note:note},
+            function (re) {
+                if(re.status == 0){
+                    alert(re.result);
+                    return false;
+                }
+                alert(re.result);
+                location.reload();
+            },"json");
+    });
+
+    $('.mytag').click(function(){
+        var type = $(this).data('type');
+        var url='{php echo $this->createPluginWebUrl('dealmerch/query',array('op'=>'query'))}&ac=';
+        url+=type;
+        if (type == 'fans') {
+            var cash=$(this).data('cash');
+            var status=$(this).data('status');
+            url+='&type='+cash+'&status='+status;
+        }
+        location.href=url;
+        return;   
+    });
+</script>
+{elseif $operation == 'query'}
+<div class="panel panel-info">
+    <div class="panel-heading">       
+        {if $ac == 'recharge'}
+            充值记录
+        {else if $ac == 'withdraw'}
+            提现记录
+        {else if $ac == 'fans'}
+            拆红包/推广粉丝奖励记录
+        {else if $ac == 'shop'}
+            购物消费记录
+        {else if $ac == 'put'}
+            好友转入记录
+        {else if $ac == 'saler'}
+            销售获得记录
+        {else if $ac == 'refund'}
+            退款退单记录(商家)
+        {else if $ac == 'refunduse'}
+            退款退单记录(用户)
+        {else if $ac == 'use'}
+            换货消耗的记录
+        {else if $ac == 'get'}
+            好友转出记录
+        {else if $ac == 'others'}
+            其他记录
+        {/if}
+
+        一共 <span style="color: #f00">{$total}</span>  条
+    </div>
+    <div class="panel-body">   
+    <a class="btn btn-primary" href="{php echo $this->createPluginWebUrl('dealmerch/query')}" style="width: 10%">返回选择用户</a>
+ 
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+
+                {if $ac == 'recharge'} 
+                    <tr>
+                        <th style='width:auto;'>用户名</th>
+                        <th style='width:auto;'>充值单号</th>
+                        <th style='width:auto;'>充值日期</th>
+                        <th style='width:auto;'>充值方式</th>
+                        <th style='width:auto;'>金额</th>
+                    </tr>
+                {else if $ac == 'withdraw'}
+                    <tr>
+                        <th style='width:auto;'>用户名</th>
+                        <th style='width:auto;'>提现单号</th>
+                        <th style='width:auto;'>提现日期</th>
+                        <th style='width:auto;'>金额</th>
+                    </tr>
+                {else if $ac == 'fans'}
+                    <tr>
+                        <th style='width:auto;'>拆红包人</th>
+                        <th style='width:auto;'>广告名称</th>
+                        <th style='width:auto;'>广告主图</th>
+                        <th style='width:auto;'>领取时间</th>
+                        <th style='width:auto;'>金额</th>
+                        <th style='width:auto;'>币种</th>
+                    </tr>
+                {else if $ac == 'shop'}
+                    <tr>
+                        <th style='width:auto;'>用户名</th>
+                        <th style='width:auto;'>商品名称</th>
+                        <th style='width:auto;'>订单号</th>
+                        <th style='width:auto;'>下单时间</th>
+                        <th style='width:auto;'>金额</th>
+                    </tr>
+                {else if $ac == 'put'}
+                    <tr>
+                        <th style='width:auto;'>转入方姓名</th>
+                        <th style='width:auto;'>转入时间</th>
+                        <th style='width:auto;'>转账单号</th>
+                        <th style='width:auto;'>金额</th>
+                        <th style='width:auto;'>备注</th>
+                    </tr>
+                {else if $ac == 'saler'}
+                    <tr>
+                        <th style='width:auto;'>下单时间</th>
+                        <th style='width:auto;'>订单编号</th>
+                        <th style='width:auto;'>金额</th>
+                        <th style='width:auto;'>备注</th>
+                    </tr>
+                {else if $ac == 'refund'}
+                    <tr>
+                        <th style='width:auto;'>购买人</th>
+                        <th style='width:auto;'>下单时间</th>
+                        <th style='width:auto;'>订单编号</th>
+                        <th style='width:auto;'>退款时间</th>
+                        <th style='width:auto;'>金额</th>
+                    </tr>
+                {else if $ac == 'refunduse'}
+                    <tr>
+                        <th style='width:auto;'>购买人</th>
+                        <th style='width:auto;'>下单时间</th>
+                        <th style='width:auto;'>订单编号</th>
+                        <th style='width:auto;'>退款时间</th>
+                        <th style='width:auto;'>金额</th>
+                    </tr>
+                {else if $ac == 'use'}
+                    <tr>
+                        <th style='width:auto;'>商品名称</th>
+                        <th style='width:auto;'>下单时间</th>
+                        <th style='width:auto;'>订单编号</th>
+                        <th style='width:auto;'>金额</th>
+                        <th style='width:auto;'>备注</th>
+                    </tr>
+                {else if $ac == 'get'}
+                    <tr>
+                        <th style='width:auto;'>收账方姓名</th>
+                        <th style='width:auto;'>转账时间</th>
+                        <th style='width:auto;'>转账单号</th>
+                        <th style='width:auto;'>金额</th>
+                        <th style='width:auto;'>备注</th>
+                    </tr>
+                {else if $ac == 'others'}
+                    <tr>
+                        <th style='width:auto;'>收入类型</th>
+                        <th style='width:auto;'>时间</th>
+                        <th style='width:auto;'>单号</th>
+                        <th style='width:auto;'>金额</th>
+                        <th style='width:auto;'>充值方式</th>
+                    </tr>
+                {/if}
+
+                
+            </thead>
+            <tbody>
+                {if $ac == 'recharge'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}</td>
+                            <td>{$row['logno']}</td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['createtime'])}</td>
+                            <td>{$row['money']}</td>
+                            <td>{if $row['rechargetype'] == 'system'}
+                                    <label class="label label-success">后台</label>
+                                {else if $row['rechargetype'] == 'wechat'}
+                                    <label class="label label-success">微信</label>
+                                {/if}                
+                            </td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'withdraw'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}</td>
+                            <td>{$row['logno']}</td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['createtime'])}</td>
+                            <td>{$row['money']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'fans'}
+                    {loop $list $row}
+                    <tr>             
+                        <td>{$row['nickname']}/{$row['realname']}</td>
+                        <td>{$row['title']}</td>
+                        <td><img width="35px;" height="35px;" src="{$row['thumb'][0]}"></td>  
+                        <td>{$row['ctime']}</td>
+                        <td>{$row['money']}</td>
+                        <td>{if $_GPC['type'] == 1}
+                                现金
+                            {else if $_GPC['type'] == 2}
+                                换货码
+                            {/if}
+                        </td>
+                    </tr>
+                    {/loop}
+                {else if $ac == 'shop'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}</td>
+                            <td>{$row['title']}</td>
+                            <td>{$row['ordersn']}</td>  
+                            <td>{php echo date('Y-m-d H:i:s',$row['createtime'])}</td>
+                            <td>{$row['money']}</td>
+                        </tr>
+                    {/loop} 
+                {else if $ac == 'put'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}/{$row['realname']}</td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['transfertime'])}</td>
+                            <td>{$row['ordersn']}</td>  
+                            <td>{$row['currency']}</td>
+                            <td>{$row['note']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'saler'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{php echo date('Y-m-d H:i:s',$row['dealtime'])}</td>
+                            <td>{$row['dealsn']}</td>  
+                            <td>{$row['currency']}</td>
+                            <td>{$row['note']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'refund'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}</td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['createtime'])}</td>
+                            <td>{$row['ordersn']}</td>  
+                            <td>{php echo date('Y-m-d H:i:s',$row['refundtime'])}</td>
+                            <td>{$row['price']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'refunduse'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}</td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['createtime'])}</td>
+                            <td>{$row['ordersn']}</td>  
+                            <td>{php echo date('Y-m-d H:i:s',$row['refundtime'])}</td>
+                            <td>{$row['goodsprice']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'use'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>
+                                {php $count=count($row['goods'])}
+                                {loop $row['goods'] $i $v}
+                                    {$v['title']}
+                                    {if ($i+1) == $count}
+
+                                    {else}
+                                    &nbsp;/&nbsp;
+                                    {/if}
+                                {/loop}
+                            </td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['dealtime'])}</td>
+                            <td>{$row['dealsn']}</td>  
+                            <td>{$row['currency']}</td>
+                            <td>{$row['note']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'get'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}/{$row['realname']}</td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['transfertime'])}</td>
+                            <td>{$row['ordersn']}</td>  
+                            <td>{$row['currency']}</td>
+                            <td>{$row['note']}</td>
+                        </tr>
+                    {/loop}
+                {else if $ac == 'others'}
+                    {loop $list $row}
+                        <tr>             
+                            <td>{$row['nickname']}/{$row['realname']}</td>
+                            <td>{$row['createtime']}</td>
+                            <td>{$row['logno']}</td>
+                            <td>{$row['money']}</td>
+                            <td>{$row['rechargetype']}</td>
+                            
+                        </tr>
+                    {/loop}
+                {/if}
+                
+            </tbody>
+        </table>
+        {$pager}
+
+    </div>
+
+
+</div>
+
+{/if}
+
+{template 'web/_footer'}

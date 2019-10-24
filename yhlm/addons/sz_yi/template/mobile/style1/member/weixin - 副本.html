@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="stylesheet" href="css/login.css"> -->
+  <title>微信登录</title>
+</head>
+<style type="text/css">
+  
+  body{
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+}
+a{
+  text-decoration: none;
+}
+#content{
+  max-width: 1080px;
+  margin: 0 auto;
+  /* background: #999999; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+.logo{
+  width: 100%;
+  /* background: red; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo .logo_img{
+  width: 81px;
+  margin: 0 auto;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 15%;
+}
+.logo div:nth-of-type(1){
+  font-size: 18px;
+  font-weight: bold;
+}
+.logo div:nth-of-type(2){
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.login{
+  width: 100%;
+
+}
+.login .buttom{
+  width: 80%;
+  height: 42px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  color: white;
+  background: #FF4B01;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.login div:nth-of-type(2){
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+.login .buttom img{
+  width: 24px;
+}
+/* .bottom{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+} */
+.bottom div{
+  text-align: center;
+  font-size: 14px;
+}
+.bottom div:nth-of-type(2) a{
+  color: #DA4304;
+}
+
+</style>
+
+
+<body>
+  <div id="content">
+    <div class="logo">
+      <img src="http://pv1bvwzpq.bkt.clouddn.com/logo.png" class="logo_img" alt="">
+      <div>易货联盟平台</div>
+      <div>换商品、换策划、换人脉、换现金、换广告</div>
+    </div>
+    <div class="login">
+      <div class="buttom" onclick="WeChatlogin();">
+        <img src="http://pv1bvwzpq.bkt.clouddn.com/weixin.png" alt="">
+      <div>微信授权登录</div>
+    </div>
+      <div>微信登录可同步公众号</div>
+    </div>
+    <div class="bottom">
+      <div><a href="../addons/sz_yi/cert/yhlm.apk ">安卓APP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://copy.im/a/rvYRoj">苹果APP</a></div>
+      <div style="text-align: center;"><a href="<?php echo $this->createMobileUrl('member/login') ?>">手机号登录</a></div>
+    </div>
+  </div>
+
+
+  <script>
+    //获取uniacid  进行存储
+    function WeChatlogin(){
+
+        core.json('member/weixin',
+                       //    , {
+                       // 'memberdata':{
+                       //      'mobile': $('#mobile').val(),
+                       //      'password': $('#password').val()
+                       //     } 
+                       // },
+                        function(json) {
+                        if(json.status==1){
+                            // open_id = json.result.open_id;
+                            // if (typeof PINGPP_IOS_SDK !== 'undefined') {
+                            //     PINGPP_IOS_SDK.appLogin(open_id);
+                            // } else if (typeof PINGPP_ANDROID_SDK !== 'undefined') {
+                            //     PINGPP_ANDROID_SDK.appLogin(open_id);
+                            // }
+
+                            //  core.tip.show('登录成功');
+                            //  //console.log(json.result.preurl);
+                            //  location.href=json.result.preurl;
+                            console.log("success");
+                        }
+                        else{
+                            core.tip.show('用户不存在或密码错误!');
+                        }
+
+                    },true,true)
+     
+    }
+
+
+  </script>
+
+  <script>
+   let appHeight = window.screen.height;
+   let aContent = document.getElementById("content");
+   aContent.style.height=appHeight+"px";
+   console.log(appHeight)
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+{template 'common/header'}
+<title>发布活动提示页</title><!-- 这里的标签动态获取 发布活动提示页 发布文章提示页 -->
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .tips-box{
+        width: 96%;
+        margin: 10px auto;
+        border: 1px solid #eee;
+    }
+    .tips-box .tips-title{
+        font-size: 14px;
+        color: #000;
+        font-weight: 600;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        padding: 8px;
+    }
+    .tips-box .tips-content{
+        font-size: 14px;
+        padding: 5px;
+        color: #333;
+    }
+    .tips-box .tips-content .btn-link{
+        display: block;
+        font-size: 14px;
+        padding: 8px;
+        width: 100%;
+        background: #009BF8;
+        text-align: center;
+        color: #fff;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">发布活动提示页</div><!-- 这里的标签动态获取 发布活动提示页 发布文章提示页 -->
+    </div>
+    <div class="tips-box">
+        <div class="tips-title">电脑端发布</div>
+        <div class="tips-content">
+            <!-- 用内置标签控制显示 活动部分 start -->
+            【发布活动】<br />
+            1、登录易货后台(jhzh66.com或zz11.com.cn)。<br />
+            2、进入活动管理,发布活动。<br />
+            3、填写活动基本信息及正文。<br />
+            4、进入我发布的活动,点击"预览",输入自己的手机号,预览给自己看。<br />
+            5、在我发布的活动里,继续修改活动,直到完成。<br />
+            <!-- 用内置标签控制显示 活动部分 end -->
+
+            <!-- 用内置标签控制显示 文章部分 start -->
+            【发布文章】<br />
+            1、登录易货后台(jhzh66.com或zz11.com.cn)。<br />
+            2、进入文章管理,发布文章。<br />
+            3、填写文章内容。<br />
+            4、保存文章。<br />
+            5、进入我发布的文章,点击"预览",输入自己的手机号,预览给自己看。<br />
+            6、在我发布的文章里,继续修改文章,直到完成。
+            <!-- 用内置标签控制显示 文章部分 end -->
+        </div>
+    </div>
+    <div class="tips-box">
+        <div class="tips-title">手机端发布</div>
+        <div class="tips-content">
+            <a class="btn-link" href="{php echo $this->createPluginMobileUrl('match/match',array('op'=>'add'))}">发布活动</a>
+            <a class="btn-link" href="{php echo $this->createPluginMobileUrl('match/article',array('op'=>'add'))}">发布文章</a>
+        </div>
+    </div>
+</div>
+{template 'common/footer'}

@@ -1,0 +1,17 @@
+setting: oksign: ok
+-------------------------------------------------
+orderno: SH201901171722428820
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"5543","type":"wechat","uniacid":"8","acid":"0","openid":"7455","uniontid":"","tid":"SH201901171722428820","fee":"53.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201901051928068222
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"5545","type":"","uniacid":"8","acid":"0","openid":"6863","uniontid":"","tid":"SH201901051928068222","fee":"500.00","status":"0","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}corelog: okpayResult: {"result":"success","order":{"id":"2752","uniacid":"8","openid":"oSI4Lj7eHfnqTh2CT_idH-42BgYI","agentid":"8185","ordersn":"SH201901051928068222","price":"500.00","goodsprice":"500.00","discountprice":"0.00","status":"0","paytype":"21","transid":"","remark":"","addressid":"0","dispatchprice":"0.00","dispatchid":"0","createtime":"1546687686","dispatchtype":"1","carrier":"a:5:{s:16:\"carrier_realname\";s:6:\"\u65b9\u6881\";s:14:\"carrier_mobile\";s:11:\"18627792287\";s:8:\"realname\";s:0:\"\";s:6:\"mobile\";s:0:\"\";s:7:\"address\";s:0:\"\";}","refundid":"0","iscomment":"0","creditadd":"0","deleted":"0","userdeleted":"0","finishtime":"0","paytime":"0","expresscom":"","expresssn":"","express":"","sendtime":"0","fetchtime":"0","cash":"0","canceltime":null,"cancelpaytime":"0","refundtime":"0","isverify":"0","verified":"0","verifyopenid":"","verifycode":"","verifytime":"0","verifystoreid":"0","deductprice":"0.00","deductcredit":"0","deductcredit2":"0.00","deductenough":"0.00","virtual":"0","virtual_info":null,"virtual_str":null,"address":null,"sysdeleted":"0","ordersn2":"0","changeprice":"0.00","changedispatchprice":"0.00","oldprice":"500.00","olddispatchprice":"0.00","isvirtual":"0","couponid":"0","couponprice":"0.00","diyformid":"0","storeid":"21","diyformdata":null,"diyformfields":null,"printstate":"0","printstate2":"0","supplier_uid":"1142","special":"0","special_status":"","isexchange":"0","credit3_fee":"0.00"},"address":false,"carrier":{"carrier_realname":"\u65b9\u6881","carrier_mobile":"18627792287","realname":"","mobile":"","address":""},"virtual":"0","goods":{"dispatchprice":"0.00","ordersn":"SH201901051928068222","price":"500.00","optiontitle":"","optionid":"0","total":"1","goods1":[{"goodsid":"3401","total":"1","title":"\u54c8\u5c14\u6ee8\u5357\u5c97\u533a\u521b\u5ba2\u793c\u5305\u5546\u57ce\u521d\u7ea7\u4ee3\u7406\/\u54c8\u5c14\u6ee8\u6613\u8d27\u8054\u76df\u5e74\u5ea6\u4f1a\u5458\u805a\u9910\u8d39\u9001\u4ea7\u54c1","thumb":"http:\/\/jhzh66.com\/addons\/sz_yi\/attachment\/images\/8\/2018\/12\/B9yeeQqC2RRN9Qc9zttA2erLKqToRe.jpg","price":"500.00","optiontitle":"","optionid":"0"}],"goodscount":1}}.
+setting: oksign: ok
+-------------------------------------------------
+orderno: SH201901171722428820
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"5543","type":"wechat","uniacid":"8","acid":"0","openid":"7455","uniontid":"","tid":"SH201901171722428820","fee":"53.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}

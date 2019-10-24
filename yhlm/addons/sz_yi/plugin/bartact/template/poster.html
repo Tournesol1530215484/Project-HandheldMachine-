@@ -1,0 +1,205 @@
+{template 'common/header'}
+
+{template 'advtabs'}
+
+{if $operation == 'display'}
+
+     <form action="" method="post">
+    <input type="hidden" name="op" value="sort">
+<div class="panel panel-default">
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style="width:60px;">ID</th>
+                    <th style='width:90px'>显示顺序</th>					
+                    <th>标题</th>
+                    <th>类型</th>
+                    <th>状态</th>
+                    <th >操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['id']}</td>
+                    <td> 
+                        {ifp 'shop.adv.edit'}
+                           <input type="text" class="form-control" name="displayorder[{$row['id']}]" value="{$row['displayorder']}">
+                        {else}
+                           {$row['displayorder']}
+                        {/if}
+                    </td> 
+                    
+                    <td>{$row['advname']}</td>
+                    <td>
+                        {if $row['type'] ==1}
+                            签到海报
+                        {elseif $row['type'] == 2}
+                            邀请海报    
+                        {elseif $row['type'] == 3}
+                            通用   
+                        {elseif $row['type'] == 4}
+                            节假日
+                        {/if}
+                    </td>
+                       <td>
+                                    {if $row['enabled']==1}
+                                    <span class='label label-success'>显示</span>
+                                    {else}
+                                    <span class='label label-danger'>隐藏</span>
+                                    {/if}           
+                                </td>
+                    <td style="text-align:left;">
+                        {ifp 'shop.adv.view|shop.adv.edit'}                        <a href="{php echo $this->createPluginWebUrl('bartact/poster', array('op' => 'post', 'id' => $row['id']))}" class="btn btn-default btn-sm"  title="{ifp 'shop.adv.edit'}修改{else}查看{/if}" style="background-color: #ffb034; color:#fff;"><i class="fa fa-edit"></i></a>{/if}
+                        {ifp 'shop.adv.delete'}<a href="{php echo $this->createPluginWebUrl('bartact/poster', array('op' => 'delete', 'id' => $row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此海报?')" title="删除" style="background-color: #000; color:#fff;"><i class="fa fa-times"></i></a>{/if}
+                    </td>
+                </tr>
+                {/loop} 
+                <tr>
+                    <td colspan='6'>
+                        {ifp 'shop.adv.add'}
+                          <a class='btn btn-primary' href="{php echo $this->createPluginWebUrl('bartact/poster',array('op'=>'post'))}"><i class='fa fa-plus'></i> 添加海报</a>
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+                       {/if}
+                        {ifp 'shop.adv.edit'}
+                          <input name="submit" type="submit" class="btn btn-default" value="提交排序">
+                        {/if}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</form>
+</div>
+<script>
+    require(['bootstrap'], function ($) {
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+    });
+</script>
+
+{elseif $operation == 'post'}
+
+<div class="main rightlist">
+    <form {ife 'shop.adv' $item}action="" method="post"{/if} class="form-horizontal form" enctype="multipart/form-data" onsubmit='return formcheck()'>
+        <input type="hidden" name="id" value="{$item['id']}" />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                海报设置       
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">排序</label>
+                    <div class="col-sm-9 col-xs-12">
+                        {ife 'shop.adv' $item}
+                                <input type="text" name="displayorder" class="form-control" value="{$item['displayorder']}" />
+                                <span class='help-block'>数字越大，排名越靠前</span>
+                        {else}
+                            <div class='form-control-static'>{$item['displayorder']}</div> 
+                        {/if}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style="color:red">*</span>海报标题</label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'shop.adv' $item}
+                        <input type="text" id='advname' name="advname" class="form-control" value="{$item['advname']}" /> 
+                         {else}
+                        <div class='form-control-static'>{$item['advname']}</div>
+                        {/if}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">海报图片</label>
+                    <div class="col-sm-9 col-xs-12">             
+                        {php echo tpl_form_field_image('thumb', $item['thumb'])}
+                        <span class='help-block'>建议尺寸:640 * 1008, 请将所有海报图片尺寸保持一致</span>
+                    </div>
+                </div>
+               
+                <!-- <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">海报链接</label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'shop.adv' $item}
+                        <input type="text" name="link" class="form-control" value="{$item['link']}" />
+                        {else}
+                        <div class='form-control-static'>{$item['link']}</div>
+                        {/if}
+                    </div>
+                </div> --> 
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否显示</label>
+                    <div class="col-sm-9 col-xs-12">
+                            {ife 'shop.adv' $item}
+                        <label class='radio-inline'>
+                            <input type='radio' name='enabled' value=1' {if $item['enabled']==1}checked{/if} /> 是
+                        </label>
+                        <label class='radio-inline'> 
+                            <input type='radio' name='enabled' value=0' {if $item['enabled']==0}checked{/if} /> 否
+                        </label>
+                     {else}
+                            <div class='form-control-static'>{if empty($item['enabled'])}否{else}是{/if}</div>
+                        {/if}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">作用于</label>
+                    <div class="col-sm-9 col-xs-12">
+                            {ife 'shop.adv' $item}
+                        <label class='radio-inline'>
+                            <input type='radio' name='type' value=1' {if $item['type']==1}checked{/if} /> 签到海报
+                        </label>
+                        <label class='radio-inline'>        
+                            <input type='radio' name='type' value=2' {if $item['type']==2}checked{/if} /> 邀请海报
+                        </label>
+                        <label class='radio-inline'>        
+                            <input type='radio' name='type' value=3' {if $item['type']==3}checked{/if} /> 通用
+                        </label>                        
+                        <label class='radio-inline'>        
+                            <input type='radio' name='type' value=4' {if $item['type']==4}checked{/if} /> 节假日
+                        </label>                
+                     {else}
+                            <div class='form-control-static'>{if empty($item['enabled'])}否{else}是{/if}</div>
+                        {/if}
+                    </div>
+                </div>
+
+                
+                    <div class="form-group"></div>
+            <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                           {ife 'shop.adv' $item}
+                            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                            <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'shop.adv.add|shop.adv.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+            </div>
+                
+                
+            </div>
+        </div>
+         
+    </form>
+</div>
+</div>
+<script language='javascript'>
+    function formcheck() {
+        if ($("#advname").isEmpty()) {
+            Tip.focus("advname", "请填写海报名称!");
+            return false;
+        }
+        return true;
+    }
+</script>
+{/if}
+{template 'web/_footer'}

@@ -1,0 +1,178 @@
+{template 'common/header'}
+{template 'tabs'} 
+
+<script language='javascript' src="../addons/sz_yi/plugin/poster/static/js/designer.js"></script>
+<script language='javascript' src="../addons/sz_yi/plugin/poster/static/js/jquery.contextMenu.js"></script>
+<link href="../addons/sz_yi/plugin/poster/static/js/jquery.contextMenu.css" rel="stylesheet">
+<style type='text/css'>
+    #poster {
+        width:320px;height:504px;border:1px solid #ccc;position:relative
+    }
+   #poster .bg { position:absolute;width:100%;z-index:0}
+   #poster .drag[type=img] img,#poster .drag[type=thumb] img { width:100%;height:100%; }
+   {ife 'poster' $item} 
+   #poster .drag { position: absolute; width:80px;height:80px; border:1px solid #000; }
+   {else}
+   #poster .drag { position: absolute; width:80px;height:80px; }
+   {/if}
+    
+    #poster .drag[type=nickname] { width:80px;height:40px; font-size:16px; font-family: 黑体;}
+    #poster .drag img {position:absolute;z-index:0;width:100%; }
+    
+    #poster .rRightDown,.rLeftDown,.rLeftUp,.rRightUp,.rRight,.rLeft,.rUp,.rDown{
+            position:absolute;
+            width:7px;
+            height:7px;
+            z-index:1;
+            font-size:0;
+    }    
+ 
+    {ife 'poster' $item} 
+       #poster .rRightDown,.rLeftDown,.rLeftUp,.rRightUp,.rRight,.rLeft,.rUp,.rDown{
+              background:#C00;
+       }
+    {/if}
+    .rLeftDown,.rRightUp{cursor:ne-resize;}
+    .rRightDown,.rLeftUp{cursor:nw-resize;}
+    .rRight,.rLeft{cursor:e-resize;}
+    .rUp,.rDown{cursor:n-resize;}
+    .rLeftDown{left:-4px;bottom:-4px;}
+    .rRightUp{right:-4px;top:-4px;}
+    .rRightDown{right:-4px;bottom:-4px;}
+       {ife 'poster' $item} 
+            .rRightDown{background-color:#00F;}   
+       {/if}
+    
+    .rLeftUp{left:-4px;top:-4px;}
+    .rRight{right:-4px;top:50%;margin-top:-4px;}
+    .rLeft{left:-4px;top:50%;margin-top:-4px;}
+    .rUp{top:-4px;left:50%;margin-left:-4px;}
+    .rDown{bottom:-4px;left:50%;margin-left:-4px;}
+    .context-menu-layer { z-index:9999;}
+    .context-menu-list { z-index:9999;}
+
+</style>
+
+
+
+<div class='panel panel-default'>
+        <div class='panel-heading'>
+            经销商查询
+        </div>
+<script type="text/javascript">
+/* alert({$rule['status']}); */
+function check(browser){
+  		if(browser==1){
+			alert("开启");
+		}else{
+			alert("关闭");
+		}	
+		document.getElementById("do0").submit();
+}
+  
+</script>
+{ifp 'dis.notice.update'}
+<form  id="do0"  action="{php echo $this->createPluginWebUrl('dis/set', array( 'op' => 'update'))}" method="post"  >
+		<div class="form-group" style=" margin-top:5px;">
+                <label style="margin-left:14%; float:left;" >状态</label>
+                <div class="col-sm-9" style="padding-left:30px;">
+                    <label class="radio-inline"><input type="radio" name="browser"  {if empty($rule['status'])} checked="checked"{/if}  onclick="check(this.value)" value="0" />关闭</label>
+					<label class="radio-inline"><input type="radio" name="browser"   {if $rule['status']==1} checked="checked"{/if}  onclick="check(this.value)" value="1" />启用</label>
+                </div>
+         </div>
+</form>
+{/if}
+
+<form id="setform"  action="{php echo $this->createPluginWebUrl('dis/set', array( 'op' => 'insert'))}" method="post" class="form-horizontal form">
+		
+		<div class="form-group" > </div>
+        <div class='panel-body'>
+				<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">分销层级</label>
+						<div class="col-sm-4">
+							<select  class="form-control" name="level">
+								<option value="0" {if empty($set['level'])}selected{/if}>请选择</option>
+								 {loop $commission_level $row} 
+								<option value="{$row['id']}">{$row['levelname']}</option>
+								 {/loop}
+							</select>
+						</div>
+			   </div>   
+		 </div>
+		 
+		 <div class='panel-body'>
+				<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">分红层级</label>
+						<div class="col-sm-4">
+						
+							<select  class="form-control" name="level_name">
+								<option value="0" {if empty($set['level'])}selected{/if}>请选择</option>
+								 {loop $bonus_level $row} 
+									<option value="{$row['id']}" >{$row['levelname']}</option>
+								 {/loop} 
+							</select>
+					
+						</div>
+			   </div>
+		 </div>
+		 
+		  <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">经销商证件图片</label>
+                <div class="col-sm-9 col-xs-12">
+                     {php echo tpl_form_field_image('thumb',$cover['thumb'])}
+                </div>
+            </div>
+		 
+        <div class='panel-body'>
+            <div class="form-group"></div>
+               <div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+					<div class="col-sm-9">
+						<input type="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+						<input type="hidden" name="token" value="{$_W['uniacid']}" />
+					</div>
+			  </div>	
+        </div>
+		
+    </div>
+
+</form>
+
+<!-- Author:Y.yang Date:2016-04-08 Content:购买指定商品成为分销商，（选择商品的输入框和JS） -->
+
+
+<script language='javascript'>
+
+      function search_goods() {
+             if( $.trim($('#search-kwd-goods').val())==''){
+                 Tip.focus('#search-kwd-goods','请输入关键词');
+                 return;
+             }
+        $("#module-goods").html("正在搜索....")
+        $.get('{php echo $this->createWebUrl('shop/query')}', {
+            keyword: $.trim($('#search-kwd-goods').val())
+        }, function(dat){
+            $('#module-menus-goods').html(dat);
+        });
+    }
+
+    function select_good(o) {
+                              $("#goodsid").val(o.id);
+                               $("#goods").val( "[" + o.id + "]" + o.title);
+                   $("#modal-goods .close").click();
+    } 
+    function formcheck(){
+        var become_child =$(":radio[name='setdata[become_child]']:checked").val();
+        if( become_child=='1'  || become_child=='2' ){
+            if( $(":radio[name='setdata[become]']:checked").val() =='0'){
+              alert('成为下线条件选择了首次下单/首次付款，成为分销商条件不能选择无条件!')   ;
+              return false;
+            }
+        }
+        return true;
+    }
+
+</script>
+
+{template 'web/_footer'}
+

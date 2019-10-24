@@ -1,0 +1,467 @@
+{template 'common/header'}
+<style type="text/css">
+	#topbar-id.page_topbar{
+	    background: #f00605;
+	}
+	.page_topbar .back.white{
+		color: #fff;
+	}
+	#topbar-id .title{
+		color: #fff;
+	}
+	#descript-link-id.descript-link{
+	    position: absolute;
+	    right: 15px;
+	    top: 0;
+	    color: #fff;
+	    font-size: 12px;
+	    text-decoration: none;
+	}
+	.descript-link:visited,
+	.descript-link:active{
+		text-decoration: none;
+		color: #fff;
+	}
+	.balance-whole-box{
+		padding: 15px 10px;
+		background-color: #eee;
+	}
+	.balance-whole-box .balance-num{
+		font-size: 14px;
+	}
+	.balance-whole-box .balance-num-value{
+		margin-left: 10px;
+		color: #f00605;
+		font-size: 18px;
+	}
+	 
+	.balance-part-box{
+		height: auto;
+	    width: 100%;
+	    background: #fff;
+	    margin-bottom: 10px;
+	}
+	.list1 {
+	    height: 50px;
+	    width: 94%;
+	    background: #fff;
+	    margin: 0px 3%;
+	    border-bottom: 1px solid #eee;
+	    line-height: 50px;
+	    color: #666;
+	}
+	.list1:last-child {
+		border-bottom: 0;
+	}
+	.balance-part-box a.go-link{
+		display: block;
+		color: #000;
+		font-size: 14px;
+		text-decoration: none;
+	}
+	.balance-part-box a.go-link:visited,
+	.balance-part-box a.go-link:active{
+		text-decoration: none;
+	}
+	.list1 i.trun-right {
+	    font-size: 20px;
+	    margin-right: 10px;
+	    color: #969696;
+	}
+	.balance-part-box .balance-value{
+		float: right;
+	    margin-top: 15px;
+	    margin-right: 10px; 
+	    font-size: 12px;
+	    line-height: 16px;
+	    text-align: center;
+	    color: #969696;
+	}
+	.description_layer{
+	    height: 100%;
+	    width: 100%;
+	    background: rgba(0, 0, 0, 0.6);
+	    position: fixed;
+	    top: 0px;
+	    left: 0px;
+	    z-index: 9;
+	    display: none;
+	}
+	.description{
+	    height: auto;
+	    width: 100%;
+	    background: #fff;
+	    position: fixed;
+	    bottom: 0px;
+	    left: 0px;
+	    z-index: 10;
+	    display: none;
+	}
+	.description .description-tag{
+	    font-size: 14px;
+	    padding: 10px;
+	    background-color: #f1f1f1;
+	    position: fixed;
+	    width: 100%;
+	}
+	.description .description-cont{
+	    padding: 50px 10px 10px;
+	    height: 500px;
+	    width: 100%;
+	    font-size: 12px;
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	}
+	.description .close.icon{
+	    position: absolute;
+	    right: 10px;
+	    top: 10px;
+	    color: #666;
+	    font-weight: normal;
+	    z-index: 11;
+	    margin-top:0;
+		margin-left:0;
+		width:24px;
+		height:24px
+	}
+	.description .close.icon:before{
+		content:'';
+		position:absolute;
+		top:10px;
+		width:24px;
+		height:2px;
+		background-color: #666;
+		-webkit-transform:rotate(-45deg);
+		transform:rotate(-45deg);
+	}
+	.description .close.icon:after {
+  		content: '';
+		position: absolute;
+		top: 10px;
+		width: 24px;
+		height: 2px;
+		background-color: #666;
+		-webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+	}
+	input { -webkit-appearance: none; outline: none; }
+	.money{height:38px; font-size:16px; margin-top:5%; border:1px solid #eee; padding:0px 2%; text-align:center;width: 100%}
+	.balance{width: 94%;margin: 0 3%}
+	.balance_sub1 {width: 100%; height:40px; margin: 14px 0px; background:#00c1ff; border-radius:4px; text-align:center; font-size:16px; line-height:40px; color:#fff;}
+	.balance_sub2 {width: 100%; height:40px; margin: 14px 0px; background:#f49c06; border-radius:4px; text-align:center; font-size:16px; line-height:40px; color:#fff;}
+	.balance_sub10 {width: 100%; height:40px; margin: 14px 0px; background:#F60; border-radius:4px; text-align:center; font-size:16px; line-height:40px; color:#fff;}
+	.balance_sub4 {width: 100%; height: 40px; margin: 14px 0px; background: #85d115; border-radius: 4px; text-align: center; font-size: 16px; line-height: 40px; color: #fff; }
+</style>
+<!-- 我的现金 -->
+<title>我的现金</title>
+<div id="container"><!-- 把container的内容删掉 -->
+	 
+</div>
+<script id="my_cash" type="text/html">
+	<div class="page_topbar" id="topbar-id">
+		<a href="javascript:;" class="back white" onclick="history.go(-1)"><i class="fa fa-angle-left"></i></a>
+		<div class="title">我的现金</div>
+		<a href="javascript:void(0);" class="descript-link" id="descript-link-id" onClick="showdescription()">现金说明</a>
+	</div>
+	<div class="balance-whole-box">
+		<div class="balance-num">现金余额
+			<span class="balance-num-value">￥<%info.credit2%></span>
+		</div>
+	</div>
+	<!-- 充值提现 -->
+	<div class="balance">
+		<input type="number" class="money" id="money" placeholder="请输入充值/提现的金额"/>
+		<!-- 这个和充值有关 -->
+		<input type="hidden" id="logid" value="<%logid%>" /> 
+		<%if yunpay.success%><div class="button balance_sub10" >云支付 </div><%/if%>
+   		<%if wechat.success%><div class="button balance_sub1">微信支付</div><%/if%>
+   		<%if alipay.success%><div class="button balance_sub2" >支付宝支付</div><%/if%>
+		<div class="button balance_sub4">确认提现</div>
+	</div>    
+	<ul class="balance-part-box">  
+		<!--现金充值记录-->
+	    <li class="list1"> <a href="{php echo $this->createMobileUrl('barter/cash',array('op'=>'detail','ac'=>'recharge'))}" class="go-link">现金充值记录<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.recharge%><%info.total.recharge%><%else%>0<%/if%></span></a></li> 
+		<!--提现记录-->
+		<li class="list1"> <a href="{php echo $this->createMobileUrl('barter/cash',array('op'=>'detail','ac'=>'withdrawal'))}" class="go-link">提现记录<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.withdraw%><%info.total.withdraw%><%else%>0<%/if%></span></a></li>   
+		
+		<!--粉丝购物奖励-->
+		<li class="list1"> <a href="#" class="go-link">粉丝购物奖励<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.fans%><%info.total.fans%><%else%>0<%/if%></span></a></li>    
+	    <!--购物消费的-->
+		<li class="list1"> <a href="{php echo $this->createMobileUrl('barter/cash',array('op'=>'detail','ac'=>'shop'))}" class="go-link">购物消费的<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.shop%><%info.total.shop%><%else%>0<%/if%></span></a></li>  
+	    <!--我的货款-->
+		<li class="list1"> <a href="#" class="go-link">我的货款<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.goods%><%info.total.goods%><%else%>0<%/if%></span></a></li>  
+		<!--其他收支--> 
+		<li class="list1"> <a href="#" class="go-link">其他收支<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.other%><%info.total.other%><%else%>0<%/if%></span></a></li>  
+  	</ul>
+  	<div class="description_layer"></div> 
+    <div class="description">
+        <div class="description-tag">现金说明</div>
+
+        <div class="description-cont"><!-- 这里加载现金说明 -->
+        	待更新... 
+        </div>
+        <div class="close icon" onClick="closedescription()"></div>
+    </div>
+</script>
+<style type="text/css">
+    .pop-dialog {position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 999;display: none;}
+    .pop-dialog .bg {width: 100%;height: 100%;position: absolute;top: 0;left: 0;opacity: 0.9;background-color: #000;}
+    .pop-dialog .body {position: absolute;top: 0;right: 10%;width: 80%;padding-top: 46px;color: #fff;}
+    .pop-dialog .body > p {line-height: 1.4;font-size: 14px;padding: 6px 0;}
+    .pop-dialog .body img.icon {width: 36px;margin: 0 5px;display: inline-block;}
+    .pop-dialog .body img.arrow {position: absolute;right: -10%;top: 0;display: block;margin-right: -13px;width: 70px;}
+    i.icon {padding: 4px 12px;margin: 0 3px;border-radius: 3px;background-color: #3b3b3b;font-size: 14px;}
+    a.btn {background-color: #3b3b3b;color: #fff;margin-top:15px;display: block;margin: 0 auto;padding: 10px 20px;border-radius: 3px;text-align: center;text-decoration: none;font-size: 16px;}
+</style>
+<div class="pop-dialog" onclick="$(this).hide();">
+    <div class="bg"></div>
+    <div class="body">
+        <img class="arrow" src="../addons/sz_yi/template/mobile/default/static/images/arrow.png">
+        <p>1. 点击右上角 <i class="fa fa-ellipsis-h"></i> 或 <i class="fa fa-ellipsis-v"></i></p>
+        <p>2. 由于在微信中无法打开支付宝付款页面，请选择在浏览器中打开，即可访问充值页面</p>
+        <p>3. 充值成功后，请返回到这里点击下面的返回按钮</p>
+        <a href="{php echo $this->createMobileUrl('member')}" class="btn">返回</a>&nbsp;
+
+    </div>
+</div>
+<script language="javascript">
+	function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){ 
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    require(['tpl', 'core'], function(tpl, core) {
+        core.json('barter/cash',{op:'get'},function(json){
+            if (json.result) {
+                var info = json.result;  
+                $('#container').html(tpl('my_cash', info));
+                $('#logid').val(info.logid);
+                $('.balance_sub4').click(function () {
+                	withdraw();
+                });
+                recharge(info);               
+            }
+        });
+        //提现
+        function withdraw(){
+        	core.json('member/withdraw', {}, function (json) {
+	            var result = json.result;
+	            if (json.status != 1) {
+	                core.tip.show(json.result);
+	                return;
+	            }
+	            if(result.noinfo){
+	                core.message('请补充您的资料后才能申请提现!',result.infourl,'warning');
+	                return;
+	            }
+	            var withdrawmoney = {php echo empty($set['trade']['withdrawmoney'])?0:floatval($set['trade']['withdrawmoney'])};
+	            //提现手续费比例 内置标签获取 同上
+	            var withdrawrate = {$ratio};
+	            console.log("withdrawmoney: "+withdrawmoney + "withdrawrate: "+ withdrawrate);
+	            if(result.credit<=0){
+	                core.message('无余额，无法申请提现!',"{php echo $this->createMobileUrl('member')}",'warning');
+	                return;
+	            }
+	            if(withdrawmoney>0 && result.credit<withdrawmoney){
+	                core.message('余额不足 '+ withdrawmoney +' 元，无法申请提现!',"{php echo $this->createMobileUrl('member')}",'warning');
+	                return;
+	            }
+	            
+            	var $w_btn = $(".balance_sub4");
+                if ($w_btn.attr('submitting') == '1') {
+                   return;
+                }
+                var money = $('#money').val();
+                if (!$('#money').isNumber()) {
+                    core.tip.show('请输入提现数字金额!');
+                    return;
+                }
+                if( parseFloat(money) < withdrawmoney){
+                    core.tip.show('满 '+ withdrawmoney +' 元才能申请提现!');
+                    return;
+                }
+                //提现手续费 这里提现金额跟手续费不做任何处理 只做提示作用
+				var withdrawfee = parseFloat(money)*withdrawrate;
+				core.tip.confirm("确认花费" + withdrawfee + "元提现?",function(){
+					$w_btn.attr('submitting', 1);
+	                core.json('member/withdraw', {op: 'submit', money: money}, function (rjson) {
+	                    if(rjson.status!=1){
+	                        $w_btn.removeAttr('submitting');
+	                        core.tip.show(rjson.result);
+	                        return;
+	                    }
+	                    core.message('提现申请提交成功，请等待审核!',"{php echo $this->createMobileUrl('member')}",'success');
+	                    return false;
+	                }, true, true);
+				});
+	        }, true);
+        }
+        //充值部分 函数
+        function rechargeok(type) {
+            var logid = $('#logid').val();
+            core.json('member/recharge', {
+                op: 'complete',
+                logid: logid,type:type
+            }, function (pay_json) {
+                if (pay_json.status == 1) {
+                    core.tip.show('充值成功!');
+                    location.href = core.getUrl('member');
+                    return;
+                }
+                core.tip.show(pay_json.result);
+                $('.button').removeAttr('submitting');
+            }, true, true);
+        }
+        function recharge(result){
+        	//core.json('member/recharge', {openid:"{$openid}"}, function (json) {
+            //var result = json.result;
+            //这个充值页面原本有的，现注释掉 08-14
+            // if (json.status != 1) {
+            //     core.message(result, "{php echo $this->createMobileUrl('member')}", 'error');
+            //     return;
+            // }
+            //$('#logid').val(result.logid);
+            if (result.alipay.success) {
+                $('.balance_sub2').click(function () {
+                   
+                    var money = $('#money').val();
+                    if (!$('#money').isNumber()) {
+                        core.tip.show('请输入数字金额!');
+                        return;
+                    }
+                    var logid = $('#logid').val();
+                    if (logid == '') {
+                        core.tip.show('请刷新重试!');
+                        return;
+                    }
+                    
+                   core.json('member/recharge', {op: 'recharge', openid:"{$openid}",type: 'alipay', money: money, logid: logid}, function (rjson) {
+                        if(rjson.status!=1){
+                            $('.button').removeAttr('submitting');
+                            core.tip.show(rjson.result);
+                            return;
+                        }
+                       //virtual
+                       location.href = core.getUrl('order/pay_alipay',{logid:logid});
+                       return;
+                    },true,true);
+                    
+                })
+            }
+			if (result.yunpay.success) {
+                $('.balance_sub10').click(function () {
+                   
+                    var money = $('#money').val();
+                    if (!$('#money').isNumber()) {
+                        core.tip.show('请输入数字金额!');
+                        return;
+                    }
+                    var logid = $('#logid').val();
+                    if (logid == '') {
+                        core.tip.show('请刷新重试!');
+                        return;
+                    }
+                   core.json('member/recharge', {op: 'recharge', openid:"{$openid}",type: 'yunpay', money: money, logid: logid}, function (rjson) {
+                        if(rjson.status!=1){
+                            $('.button').removeAttr('submitting');
+                            core.tip.show(rjson.result);
+                            return;
+                        }
+                       //virtual
+                       location.href = core.getUrl('order/pay_yunpay',{logid:logid});
+                       return;
+                    },true,true);
+                    
+                })
+            }
+            if (result.wechat.success) {
+                $('.balance_sub1').click(function () {
+                    if ($(this).attr('submitting') == '1') {
+                        return;
+                    }
+                    var money = $('#money').val();
+                    if (!$('#money').isNumber()) {
+                        core.tip.show('请输入数字金额!');
+                        return;
+                    }
+                    var logid = $('#logid').val();
+                    if (logid == '') {
+                        core.tip.show('请刷新重试!');
+                        return;
+                    }
+
+                    $('.button').attr('submitting', 1);
+                    core.json('member/recharge', {op: 'recharge', openid:"{$openid}",type: 'weixin', money: money, logid: logid}, function (rjson) {
+                        if(rjson.status!=1){
+                            $('.button').removeAttr('submitting');
+                            core.tip.show(rjson.result);
+                            return;
+                        }
+                        
+                        var wechat = rjson.result.wechat;
+                        WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                                    'appId': wechat.appid ? wechat.appid : wechat.appId,
+                                    'timeStamp': wechat.timeStamp,
+                                    'nonceStr': wechat.nonceStr,
+                                    'package': wechat.package,
+                                    'signType': wechat.signType,
+                                    'paySign': wechat.paySign,
+                                }, function (res) {
+                                    if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                                        rechargeok('wechat');
+                                    } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+                                        $('.button').removeAttr('submitting');
+                                        core.tip.show('取消支付');
+                                    } else {
+                                        $('.button').removeAttr('submitting');
+                                    	alert(res.err_msg);
+                                    }
+                            });
+//                      require(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function (wx) {
+//                         
+//                          jssdkconfig = {php echo json_encode($_W['account']['jssdkconfig']); } || {jsApiList: []};
+//                          jssdkconfig.debug = false;
+//                          jssdkconfig.jsApiList = ['checkJsApi', 'chooseWXPay'];
+//                          wx.config(jssdkconfig);
+//                          wx.ready(function () {
+//                              $('.button').removeAttr('submitting');
+//                              var appid = wechat.appid?wechat.appid:wechat.appId;
+//                              wx.chooseWXPay({
+//                                  'appId': appid,
+//                                  'timestamp': wechat.timeStamp,
+//                                  'nonceStr': wechat.nonceStr,
+//                                  'package': wechat.package,
+//                                  'signType': wechat.signType,
+//                                  'paySign': wechat.paySign,
+//                                  success: function (res) {
+//                                       rechargeok('wechat');
+//                                  }, fail: function (res) {
+//                                      alert(res.errMsg);
+//                                  }
+//                              });
+//                          }); 
+//                      }); 
+                    }, true, true);
+
+                });
+            }
+	        //}, true)
+        }
+
+    })
+</script>
+{template 'common/footer'}

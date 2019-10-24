@@ -1,0 +1,123 @@
+{template 'common/header'}
+<title>{php echo $this->set['texts']['center']}</title>
+<style type="text/css">
+    body {margin:0px; background:#eee; font-family:'微软雅黑'; }
+    a {text-decoration:none;}
+    .topbar {height:60px; padding:10px 34px; background: #bd1e44;}
+    .topbar .user_face {height: 50px; width: 50px; margin-top: 5px; border-radius: 50%; float: left;}
+    .topbar .user_face img { width:100%; border-radius: 50%;}
+    .topbar .user_info {height:40px; float:left; margin-left:12px;}
+    .topbar .user_info .user_name { float: left; height:24px; font-size:16px; line-height:24px; color:#fff; max-width: 178px;overflow:hidden; text-overflow: ellipsis; white-space: nowrap;}
+    .topbar .user_info .user_name span { font-size:14px; color:#bd1e44;    background: #fff; padding: 2px 10px; border-radius: 10px;}
+	.topbar .user_info .user_other { padding-left:5px;padding-right: 5px;
+		background: #fff; border-radius: 10px; color: #FF0000; text-align: center; margin: 4px;
+		float: left; height: 16px; line-height: 16px; font-size: 12px; }
+    .topbar .user_info .user_date { margin-top: 40px; height:14px; font-size:14px; line-height:14px; color:#fff; clear: both;}
+
+    .top {height:100px; padding:5px; background:#fff; border-bottom: 1px #ccc solid; margin-bottom: 20px;}
+    .top div{ line-height:50px; height: 50px; font-size:18px;  width:94%;color:#000; margin: 0px 3%;}
+    .top .top_1 { border-bottom: 1px #ccc solid;}
+    
+    .top p{ margin:0px; width: 70%; float: left; }
+	.top a{ display: inline-block;margin-top:10px; line-height: 30px; background: #bd1e44; padding:2px 10px; color: #fff; width:auto; font-size:14px;  float: right; border-radius:5px;  }
+    .top .span_font{ font-size: 30px; color:#bd1e44;line-height: 30px;}
+
+    .menu {overflow:hidden; background:#fff; border-top: 1px #ccc solid; border-bottom: 1px #ccc solid;}
+    .menu a{ display:block; height: 41px; border-bottom: 1px #ccc solid; margin: 0px 3%; width: 94%;}
+    .menu a:last-of-type{ border-bottom: none; }
+    .menu a .span_bg{  background: url(../addons/sz_yi/plugin/commission/template/mobile/default/static/images/icon_fa_angle_right.png) no-repeat center center;
+    		background-size: 100% 100%; display: inline-block; width: 10px; height: 16px;margin-right: 10px; float: right; margin-top: 12px;opacity: 0.6; }
+    
+
+    .menu .nav i{ display: inline-block; width: 24px; height:24px;line-height: 24px; text-align: center; margin-left: 10px;margin-right:10px;  margin-top: 10px; }
+    .menu .nav .title { display: inline; height:24px; width:100%;font-size:14px; color:#666; line-height: 41px;}
+    .menu .nav .con { display: inline-block; height:41px; margin-right: 10px; width:auto;font-size:12px; color:#000; float: right; line-height: 41px;}
+    .menu .nav .con span {color:#bd1e44;}
+
+	@font-face {
+	  font-family: 'iconfont';
+	  src: url('//at.alicdn.com/t/font_1468556249_287995.eot'); /* IE9*/
+	  src: url('//at.alicdn.com/t/font_1468556249_287995.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	  url('//at.alicdn.com/t/font_1468556249_287995.woff') format('woff'), /* chrome、firefox */
+	  url('//at.alicdn.com/t/font_1468556249_287995.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	  url('//at.alicdn.com/t/font_1468556249_287995.svg#iconfont') format('svg'); /* iOS 4.1- */
+	}
+	
+	.iconfont_2{ float:left; color:#ecf0f1; vertical-align: middle; border-radius: 6px;
+		
+			font-family:"iconfont";
+			font-style:normal;
+			-webkit-font-smoothing: antialiased;
+			-webkit-text-stroke-width: 0.2px;
+			-moz-osx-font-smoothing: grayscale; }
+</style>
+<div id='container'></div>
+    <div class="topbar">
+        <div class="user_face"><img src="{$member['avatar']}"></div>
+        <div class="user_info">
+            <div class="user_name">{$member['nickname']}</div>
+            <div class="user_other" >
+                [{if $level}
+                    {$level['levelname']}
+                {else}
+                    {if $set['levelname']!=''}{$set['levelname']}{else}普通等级{/if}
+                {/if}] 
+                {if $member['bonus_area']==1}
+                    [{php echo $this->set['texts']['agent_province']}]
+                {/if}
+                {if $member['bonus_area']==2}
+                    [{php echo $this->set['texts']['agent_city']}]
+                {/if}
+                {if $member['bonus_area']==3}
+                    [{php echo $this->set['texts']['agent_district']}]
+                {/if}
+                {if $set['levelurl']!=''}<i class='fa fa-question-circle' {if !empty($set['levelurl'])}onclick='location.href="{$set['levelurl']}"'{/if}></i>{/if}</div>
+            <div class="user_date">加入时间：{php echo date("Y-m-d", $member['agenttime'])}</div>
+        </div>
+    </div> 
+    <div class="top">
+        <div class="top_1">
+
+            <p>{php echo $this->set['texts']['commission_total']}：<span class='span_font'>{$member['commission_total']}</span></p>
+
+            <a href="{php echo $this->createPluginMobileUrl('bonus/withdraw')}"><span class='span_bg'>查看明细</span></a>
+        </div>
+        <div>
+        	<p>{php echo $this->set['texts']['commission_ok']}：<span class='span_font'>{$member['commission_ok']}</span></p>
+        	<!--<a href="javascritp:void(0);"><span class='span_bg'>查看明细</span></a>-->
+        	
+        	<!--下面A标签为不明标签，因为不懂，保留原样-->
+        	<!--<a {if $member['commission_ok']<=0 || $member['commission_ok']}{/if}></a>-->
+        </div>
+    </div> 
+    <div class="menu">  
+        <a href="{php echo $this->createPluginMobileUrl('bonus/withdraw')}">
+        	<div class="nav">
+        		<i class="iconfont_2" style="background:#e84675;">&#xe623;</i>
+        		<div class="title">分红{php echo $this->set['texts']['commission']}</div><span class="span_bg"></span>
+        		<div class="con"><span>{$member['commission_total']}</span> 元</div></div></a>
+        <a href="{php echo $this->createPluginMobileUrl('bonus/order')}">
+        	<div class="nav">
+        		<i class="iconfont_2" style="background:#ffdbbf;">&#xe622;</i>
+        		<div class="title">{php echo $this->set['texts']['order']}</div><span class="span_bg"></span>
+        		<div class="con"><span>{$member['ordercount0']}</span> 个</div></div></a>
+        <a href="{php echo $this->createPluginMobileUrl('bonus/log')}">
+        	<div class="nav">
+        		<i class="iconfont_2" style="background:#67af9f;">&#xe621;</i>
+        		<div class="title">{php echo $this->set['texts']['commission_detail']}</div><span class="span_bg"></span>
+        	</div></a>        
+        <a href="{php echo $this->createPluginMobileUrl('bonus/customer')}">
+        	<div class="nav">
+        		<i class="iconfont_2" style="background:#dc7186 ">&#xe624;</i>
+        		<div class="title">{php echo $this->set['texts']['mycustomer']}</div><span class="span_bg"></span>
+        		<div class="con"><span>{$member['customercount']}</span> 人</div></div></a> 
+        {if $member['bonus_area']}
+        <a href="{php echo $this->createPluginMobileUrl('bonus/order_area')}">
+        	<div class="nav">
+        		<i class="iconfont_2" style="background:#a171a3;">&#xe614;</i>
+        		<div class="title">{php echo $this->set['texts']['order_area']}</div><span class="span_bg"></span>
+        		<div class="con"><span>{$member['ordercount_area']}</span> 个</div></div></a>
+        {/if}
+    </div>
+{php $show_footer=true;$footer_current ='member'}
+{template 'common/footer'}

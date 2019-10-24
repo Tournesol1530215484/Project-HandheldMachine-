@@ -1,0 +1,316 @@
+{template 'common/header'}
+{template 'tabs3'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>商家设置</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">激活手续费百分比</label>
+                <div class="col-sm-9 col-md-8">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">%</div> 
+                          <input type="text" name="ratio" value="{$set['bart']['ratio']}" class="form-control" id="exampleInputAmount" placeholder="请输入百分比">  
+                          <div class="input-group-addon">%</div>
+                        </div>
+                      </div>
+
+                </div> 
+            </div>
+
+
+            <div class="form-group notice">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">平台账号</label>
+                    <div class="col-sm-4">
+                        <input type='hidden' id='noticeopenid' name='data[openid]' value="{$supplierinfo['openid']}" />
+                        <div class='input-group'>
+                            <input type="text" name="saler" maxlength="30" value="{if !empty($saler)}{$saler['nickname']}/{$saler['realname']}/{$saler['mobile']}{/if}" id="saler" class="form-control" readonly />
+                            <div class='input-group-btn'>
+                                <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus-notice').modal();">选择角色</button>
+                                <button class="btn btn-danger" type="button" onclick="$('#noticeopenid').val('');$('#saler').val('');$('#saleravatar').hide()">清除选择</button>
+                            </div>
+                        </div>
+                        <span id="saleravatar" class='help-block' {if empty($saler)}style="display:none"{/if}><img  style="width:100px;height:100px;border:1px solid #ccc;padding:1px" src="{$saler['avatar']}"/></span>
+
+                        <span style="color:eee;">此账号用于接收平台的广告分红</span>
+                        <div id="modal-module-menus-notice"  class="modal fade" tabindex="-1">
+                            <div class="modal-dialog" style='width: 920px;'>
+                                <div class="modal-content">
+                                    <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择角色</h3></div>
+                                    <div class="modal-body" >
+                                        <div class="row">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="keyword" value="" id="search-kwd-notice" placeholder="请输入昵称/姓名/手机号" />
+                                                <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_members();">搜索</button></span>
+                                            </div>
+                                        </div>
+                                        <div id="module-menus-notice" style="padding-top:5px;"></div>
+                                    </div>
+                                    <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>              
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+            </div>
+            <script language='javascript'>
+              function search_members() {
+                         if( $.trim($('#search-kwd-notice').val())==''){
+                            $('#search-kwd-notice').attr('placeholder','请输入关键词');
+                             <!-- Tip.focus('#search-kwd-notice','请输入关键词'); -->
+                             return;
+                         }
+                $("#module-menus-notice").html("正在搜索....")
+                $.get('{php echo $this->createWebUrl('member/query')}', {
+                  keyword: $.trim($('#search-kwd-notice').val())
+                }, function(dat){
+                  $('#module-menus-notice').html(dat);
+                });
+              }
+              function select_member(o) {
+                $("#noticeopenid").val(o.openid);
+                                            $("#saleravatar").show();
+                                             $("#saleravatar").find('img').attr('src',o.avatar);
+                $("#saler").val( o.nickname+ "/" + o.realname + "/" + o.mobile );
+                $("#modal-module-menus-notice .close").click();
+              }
+            </script>
+
+            {if false}
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">是否开启转账分红</label>
+                <div class="col-sm-9 col-md-8">
+                    <div class="form-group">
+                    <label class="radio-inline">
+                      <input type="radio" {if $set['bart']['trbonus'] == 1}checked{/if} name="trbonus" id="inlineRadio2" value="1"> 是
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" {if $set['bart']['trbonus'] == 0}checked{/if} name="trbonus" id="inlineRadio3" value="0"> 否
+                    </label>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">转账手续费百分比</label>
+                <div class="col-sm-9 col-md-8">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">%</div> 
+                          <input type="text" name="tratio" value="{$set['bart']['tratio']}" class="form-control" id="exampleInputAmount" placeholder="请输入百分比">  
+                          <div class="input-group-addon">%</div>
+                        </div>
+                      </div>
+                </div> 
+            </div>
+            {/if}
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">提现手续费百分比</label>
+                <div class="col-sm-9 col-md-8">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">%</div> 
+                          <input type="text" name="withdraw" value="{$set['bart']['withdraw']}" class="form-control" id="exampleInputAmount" placeholder="请输入百分比">  
+                          <div class="input-group-addon">%</div>
+                        </div>
+                      </div>
+
+                </div> 
+            </div>
+
+            
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">赠送易货额度</label>
+                <div class="col-sm-9 col-md-8">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">成为易货商家赠送</div> 
+                          <input type="text" name="get" value="{$set['bart']['get']}" class="form-control" id="exampleInputAmount" placeholder="请输入百分比">  
+                          <div class="input-group-addon">易货额度</div>
+                        </div>
+                      </div>
+                </div> 
+            </div>
+            
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">首页标题</label>
+                <div class="col-sm-9 col-md-8"> 
+                    <input type="text" name="title" value="{$set['bart']['title']}" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">分享描述</label>
+                <div class="col-sm-9 col-md-8">  
+                    <input type="text" name="share" value="{$set['bart']['share']}" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享封面</label>
+                <div class="col-sm-9 col-xs-12">
+                     {ife 'shop.adv' $item}
+                    {php echo tpl_form_field_image('thumb', $set['bart']['thumb'])}
+                    <span class='help-block'></span>
+                    {else}
+                        {if !empty($set['bart']['thumb'])}
+                              <a href='{php echo tomedia($set['bart']['thumb'])}' target='_blank'>
+                        <img src="{php echo tomedia($set['bart']['thumb'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                              </a>
+                        {/if}
+                    {/if}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">平台动态</label>
+                <div class="col-sm-9 col-md-8"> 
+                    <input type="text" name="state" value="{$set['bart']['state']}" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"> 
+                <label class="col-sm-3 col-md-2 control-label"><span style="color:#f00">*</span>协议</label>
+                <div class="col-sm-9 col-md-8"> 
+                    {php echo tpl_ueditor('')} 
+                    {if !empty($set['bart']['protocol'])}  
+                        {loop $set['bart']['protocol'] $key $val} 
+                            <input type='hidden' name='protocol[{$key}][title]' value="{$val['title']}" class='form-control'>
+                            <label class='control-label'>"{$val['title']}"↓↓↓</label>
+                            <textarea id='protocol[{$key}][content]' name='protocol[{$key}][content]' style='margin-bottom:10px'>{$val['content']}</textarea>
+                            <script>
+                                var editor = UE.getEditor("protocol[{$key}][content]", ueditoroption);
+                            </script>
+                        {/loop}
+                    {/if}
+                    <b class="btn btn-primary fa fa-plus addProtocol"> 添加协议</b>
+                </div>
+            </div>
+
+
+        <div class="panel-body table-responsive">
+        <table class="table table-hover"> 
+            <thead class="navbar-inner">
+                <tr>
+                    <th style="width:60px;">ID</th>
+                    <th style='width:90px'>显示顺序</th>                    
+                    <th>标题</th>
+                    <th>连接</th>
+                    <th>状态</th>
+                    <th >操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['id']}</td>
+                    <td> 
+                        {ifp 'shop.adv.edit'}
+                           <input type="text" class="form-control sort" data-id="{$row['id']}" value="{$row['displayorder']}">
+                        {else}
+                           {$row['displayorder']}
+                        {/if}
+                    </td>
+                    
+                    <td>{$row['advname']}</td>
+                    <td>{$row['link']}</td>
+                       <td>
+                                    {if $row['status']==1}
+                                    <span class='label label-success'>显示</span>
+                                    {else}
+                                    <span class='label label-danger'>隐藏</span> 
+                                    {/if}
+                                </td>
+                    <td style="text-align:left;">
+                        {ifp 'shop.adv.view|shop.adv.edit'}                        <a href="{php echo $this->createPluginWebUrl('dealmerch/adv', array('op' => 'post', 'id' => $row['id']))}" class="btn btn-default btn-sm"  title="{ifp 'shop.adv.edit'}修改{else}查看{/if}" style="background-color: #ffb034; color:#fff;"><i class="fa fa-edit"></i></a>{/if}
+                        {ifp 'shop.adv.delete'}<a href="{php echo $this->createPluginWebUrl('dealmerch/adv', array('op' => 'delete', 'id' => $row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此幻灯片?')" title="删除" style="background-color: #000; color:#fff;"><i class="fa fa-times"></i></a>{/if}  
+                    </td>  
+                </tr>
+                {/loop} 
+                <tr>
+                    <td colspan='6'>
+                        {ifp 'shop.adv.add'}
+                          <a class='btn btn-primary' href="{php echo $this->createPluginWebUrl('dealmerch/adv',array('op'=>'post'))}"><i class='fa fa-plus'></i> 添加幻灯片</a>
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+                       {/if} 
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+
+
+
+
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="col-sm-9">
+                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </div>
+</form> 
+</div>
+</div>
+<script language='javascript'>
+    var Protocolnum=0;
+    {if $max!=0 }
+    Protocolnum={$max};
+    {/if}
+    $('.addProtocol').click(function () {
+         name = prompt('请输入协议名');
+         protocolname="<input type='hidden' name='protocol["+Protocolnum+"][title]' value='"+name+"' class='form-control'>";
+         protocoldesc="<textarea id='protocol["+Protocolnum+"][content]' name='protocol["+Protocolnum+"][content]' style='margin-bottom:10px'></textarea>";
+         protocoltip="<label class='control-label'>"+name+"↓↓↓</label>";
+        if ( name && name!=undefined && name!=null && name.length>0 && name!="" && name!='null'){
+            $(this).before(protocolname);
+            $(this).before(protocoltip); 
+            $(this).before(protocoldesc); 
+            var editor = UE.getEditor("protocol["+Protocolnum+"][content]", ueditoroption);
+            editor.addListener('contentChange', function() {
+                //此处增加了侦听编辑器内容变化的事件
+                //do something
+            });
+            editor.addListener('ready', function(){
+                //此处增加了侦听编辑器初始化的事件
+                //do something
+            });
+            Protocolnum++;
+        }
+
+    });
+    
+    $('.sort').blur(function(){
+        id=$(this).data('id');
+        num=$(this).val();
+        $.post(
+            "{php echo $this->createPluginWebUrl('dealmerch/adv',array('op'=>'sort'))}",
+            {id:id,num:num},
+            function(data){ 
+                console.log(data.result);
+            },'json');
+    });
+    function showtip(n) {
+        if (n == 1) {
+            var tip = document.getElementById('tip');
+            tip.style.display = "block";
+        } else {
+            var tip = document.getElementById('tip');
+            tip.style.display = "none";
+        }
+    }
+</script>
+{template 'web/_footer'}

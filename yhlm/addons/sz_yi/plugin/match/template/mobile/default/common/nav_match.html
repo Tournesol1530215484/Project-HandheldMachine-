@@ -1,0 +1,170 @@
+<style type="text/css">
+	.nav-container-com{ 
+        position: fixed; 
+        margin: 0px;
+        padding: 0px; 
+        bottom: 0px;
+        width: 100%;
+        height: 49px;
+        z-index: 1000;
+        max-width: 720px;
+        background: #009BF8;
+    }
+    .nav-container-com .nav-box{
+        position: relative;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+    }
+    .nav-container-com .nav-box .navitemlink{
+        display: block;
+        float: left;
+        width: 20%;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+    }
+    .nav-container-com .nav-box .nav-item{
+    	height: 100%;
+        color: #fff;
+    }
+    .nav-container-com .nav-box .nav-item .i-box,
+    .nav-container-com .nav-box .nav-item .nav-name{
+    	display: block;
+    	width: 100%;
+    	text-align: center;
+    }
+    .nav-container-com .nav-box .nav-item .i-box{
+    	font-size: 16px;
+		padding-top: 5px;
+		line-height: 21px;
+    }
+    .nav-container-com .navitemlink-rel{
+        position: relative;
+    }
+    .nav-container-com .navitemlink-rel .nav-child-ul{
+        display: none;
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+        top: -99px;
+        text-align: center;
+        background: rgba(0, 0, 0,.7);
+    }
+    .nav-container-com .navitemlink-rel .nav-child-ul4{
+        top: -132px;
+    }
+    .nav-container-com .navitemlink-rel .nav-child-item{
+        color: #fff;
+        font-size: 12px;
+        padding: 10px 3px;
+        border-bottom: 1px solid #fff;
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .nav-container-com .navitemlink-rel .nav-child-item:last-child{
+        border: 0;
+    } 
+</style>
+<div class="nav-container-com">
+    <ul class="nav-box">
+        <!-- <a class="navitemlink index-page" href="{php echo $this->createPluginMobileUrl('match/match')}">
+            <li class="nav-item">
+                <span class="i-box"><i class="fa fa-home"></i></span>
+                <span class="nav-name">首页</span>
+            </li>
+        </a> -->
+        <!-- <a class="navitemlink mynotice-page navitemlink-rel" href="{php echo $this->createPluginMobileUrl('match/match')}" >
+            <li class="nav-item">
+                <span class="i-box"><i class="fa fa-home"></i></span>
+                <span class="nav-name">比赛广场</span>
+                <ul class="nav-child-ul">
+                    <li class="nav-child-item" onclick="alert('开发中');">我的风采</li>
+                    <li class="nav-child-item" onclick="alert('开发中');">我报名的活动</li>
+                    <li class="nav-child-item" onclick="alert('开发中');">我发起</li>
+                </ul>
+            </li>
+        </a> -->
+
+        <a class="navitemlink mynotice-page navitemlink-rel" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=index&do=shop&m=sz_yi" >
+            <li class="nav-item">
+                <span class="i-box"><i class="fa fa-home"></i></span>
+                <span class="nav-name">首页</span>
+                <ul class="nav-child-ul">
+                    <li class="nav-child-item" onclick="alert('开发中');">我的风采</li>
+                    <li class="nav-child-item" onclick="alert('开发中');">我报名的活动</li>
+                    <li class="nav-child-item" onclick="alert('开发中');">我发起</li>
+                </ul>
+            </li>
+        </a>
+
+        <a class="navitemlink mynotice-page navitemlink-rel" href="{php echo $this->createPluginMobileUrl('match/match')}" >
+            <li class="nav-item">
+                <span class="i-box"><i class="fa fa-laptop"></i></span>
+                <span class="nav-name">比赛广场</span>
+                <ul class="nav-child-ul">
+                    <li class="nav-child-item" onclick="alert('开发中');">我的风采</li>
+                    <li class="nav-child-item" onclick="alert('开发中');">我报名的活动</li>
+                    <li class="nav-child-item" onclick="alert('开发中');">我发起</li>
+                </ul>
+            </li>
+        </a>
+        
+        
+        <a class="navitemlink mycenter-page navitemlink-rel" href="{php echo $this->createPluginMobileUrl('match/match',array('op'=>'add'))}">
+            <li class="nav-item">
+                <!-- <span class="i-box"><i class="fa fa-tasks"></i></span> -->
+                <span class="i-box"><img src="http://jhzh66.com/attachment/images/match.png" style="    width: 46px;position: absolute;background: #009BFB;border-radius: 50%;padding: 1px;left: 21%;top: -22px">
+                <span class="nav-name" style="    display: block;width: 100%;font-size: 15px;
+    margin-top: 20px;text-align: center">发比赛</span>
+                <!-- <span class="nav-name">发比赛</span> -->
+                <!-- <ul class="nav-child-ul">
+                    <li class="nav-child-item" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'myAct','status'=>'2'))}'">转发文章</li>
+                    <li class="nav-child-item" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'myAct','status'=>'1'))}'">我的文章</li>
+                    <li class="nav-child-item" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'add'))}'">发文章</li>
+                </ul> -->
+            </li>
+        </a>
+
+        <a class="navitemlink" href="{php echo $this->createPluginMobileUrl('activity/activity')}">
+            <li class="nav-item">
+                <span class="i-box"><i class="fa fa-newspaper-o"></i></span>
+                <span class="nav-name">活动</span>
+            </li>
+        </a>
+
+            <a class="navitemlink navitemlink-rel" href="{php echo $this->createPluginMobileUrl('match/match',array('op'=>'mymatch','status'=>'1'))}" >
+            <li class="nav-item">
+                <span class="i-box"><i class="fa fa-user"></i></span>
+                <span class="nav-name">我的比赛</span>
+                <!-- <ul class="nav-child-ul">
+                    <li class="nav-child-item" onclick="location.href='{php echo $this->createPluginMobileUrl('match/picture',array('op'=>'oneself','status'=>'1'))}'">我的图片</li>     
+                    <li class="nav-child-item" onclick="location.href='{php echo $this->createPluginMobileUrl('match/picture',array('op'=>'oneself','status'=>'3'))}'">转发图片</li>
+                    <li class="nav-child-item" onclick="location.href='{php echo $this->createPluginMobileUrl('match/picture',array('op'=>'add'))}'">发图片</li>
+                </ul> -->
+            </li>
+        </a>
+
+
+        
+    </ul>       
+</div>
+<script type="text/javascript">
+    /*$(function(){
+        $(".navitemlink-rel").unbind("click").click(function(){
+            $(this).siblings(".navitemlink-rel").find(".nav-child-ul").hide();
+            $(this).find(".nav-child-ul").toggle();
+            $(this).unbind("click").click(function(){
+                $(this).siblings(".navitemlink-rel").find(".nav-child-ul").hide();
+                $(this).find(".nav-child-ul").toggle();
+            });
+        });
+    })*/
+</script>

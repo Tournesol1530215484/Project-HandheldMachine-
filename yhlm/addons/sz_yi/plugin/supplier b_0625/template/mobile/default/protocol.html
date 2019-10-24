@@ -1,0 +1,19 @@
+{template 'common/header'}
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<style>
+    #content{
+        padding:5px;
+    }
+</style>
+<title>{$v['title']}</title>
+<div class="page_topbar" style="background:#10BDFF ;">
+    <a href="javascript:;" class="back" onclick="history.back()" style="color: white;"><i class="fa fa-angle-left"></i><text style="font-size: 15px;width: 64px;top: 2px;position: absolute;">返回</text></a>
+
+    <div class="title" style="color: white;">
+        {$v['title']}
+    </div>
+</div>
+<div id="content">
+    {$v['content']}
+</div>
+{template 'common/footer'}

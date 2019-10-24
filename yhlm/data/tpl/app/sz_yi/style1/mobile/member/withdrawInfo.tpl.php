@@ -1,0 +1,117 @@
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('common/header', TEMPLATE_INCLUDEPATH)) : (include template('common/header', TEMPLATE_INCLUDEPATH));?>
+<!-- 提现资料 -->
+<title>提现资料</title>
+<style type="text/css">
+    body {margin:0px; background:#efefef; font-family:'微软雅黑'; -moz-appearance:none;}
+    .info_main {height:auto;  background:#fff; margin-top:14px; border-bottom:1px solid #e8e8e8; border-top:1px solid #e8e8e8;}
+    .info_main .line {margin:0 10px; height:40px; border-bottom:1px solid #e8e8e8; line-height:40px; color:#999;}
+    .info_main .line .title {height:40px; width:90px; line-height:40px; color:#444; float:left; font-size:16px;padding-left:25px }
+    .info_main .line .info { width: 100%; float: right; margin-left: -100px; height: 39px; overflow: hidden; }
+    .info_main .line .inner { margin-left:100px; }
+    .info_main .line input {height:39px; width:100%;display:block; padding:0px; margin:0px; border:0px; float:left; font-size:16px;}
+    .info_main .line .inner .user_sex {line-height:40px;}
+    .info_sub {height:44px; margin:14px 5px; background:#15a9ff; border-radius:4px; text-align:center; font-size:16px; line-height:44px; color:#fff;}
+    .info_main{margin-top: 0}
+    .select { border: 1px solid #ccc; height: 30px; margin-top: 6px; line-height: 20px; background: #5c5c5c; color: #fff; padding: 0 5px; border-radius: 3px; }
+    .page_topbar{background:#15a9ff;}
+    .home{position: absolute;right: 15px;top: 0;color: #fff}
+    /*覆盖样式*/
+    .page_topbar .title,
+    .page_topbar a.back{color: #fff;}
+</style>
+<div id="container"></div>
+<script id="withdraw_info" type="text/html">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">提现资料</div>
+        <a href="javascript:;" class="home"><i class="iconfont shouye"></i></a>
+    </div>
+    <div style="margin:10px;color:#999">提现资料设置</div>
+    <div class="info_main">
+        <%if member.realname%>
+        <div class="line">
+            <div class="title">姓名</div>
+            <div class='info'>
+                <div class='inner'><%member.realname%></div>
+            </div>
+        </div>
+        <input type="hidden" id='username' value="<%member.realname%>" />
+        <%else%>
+        <div class="line">
+            <div class="title">姓名</div>
+            <div class='info'>
+                <div class='inner'>
+                    <input type="text" id='username' placeholder="请输入您的姓名" value="<%member.realname%>" />
+                </div>
+            </div>
+        </div>
+        <%/if%>
+        <div class="line">
+            <div class="title">银行名称</div>
+            <div class='info'>
+                <div class='inner'>
+                    <input type="text" id='bankname' placeholder="请输入银行名称"  value="<%member.bankname%>" />
+                </div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="title">银行卡号</div>
+            <div class='info'>
+                <div class='inner'>
+                    <input type="text" id='account'  placeholder="请输入您的银行卡号"  value="<%member.bank%>"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info_sub">确认修改</div>
+    <div class="copyright">版权所有 ©<?php  if(empty($set['shop']['name'])) { ?><?php  echo $_W['account']['name'];?><?php  } else { ?><?php  echo $set['shop']['name'];?><?php  } ?></div>
+</script>
+<script language="javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        core.json('member/info',{},function(json){
+            if (json.result.member) {
+                var data = json.result;
+                $('#container').html(tpl('withdraw_info', data));
+                $('.info_sub').click(function() {
+                    if($(this).attr('saving')=='1')
+                    {
+                        return;
+                    }
+                   
+                    if($('#username').isEmpty()){
+                        core.tip.show('请输入您的姓名');
+                        return;
+                    }
+                    if($('#bankname').isEmpty()){
+                        core.tip.show('请输入银行名称');
+                        return;
+                    }
+                     
+                    if($('#account').isEmpty()){
+                        core.tip.show('请输入您的银行卡号');
+                        return;
+                    }
+                  
+                    $(this).html('正在处理...').attr('saving',1);
+                    core.json('member/withdraw', {
+                       		'op':'info',
+                            'realname': $('#username').val(),
+                            'bankname': $('#bankname').val(),
+                            'bank': $('#account').val()
+                    }, function(json) {
+                        if(json.status==1){
+                             core.tip.show('保存成功');
+                             setTimeout(function(){
+                             	location.reload();
+                             },250);
+                        }else{
+                            $('.info_sub').html('确认修改').removeAttr('saving');
+                            core.tip.show('保存失败!');
+                        }
+                    },true,true);
+                });
+            }
+        });
+    })
+</script>
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('common/footer', TEMPLATE_INCLUDEPATH)) : (include template('common/footer', TEMPLATE_INCLUDEPATH));?>

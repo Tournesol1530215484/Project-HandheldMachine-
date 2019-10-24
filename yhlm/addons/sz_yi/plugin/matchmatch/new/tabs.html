@@ -1,0 +1,14 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'match.match'}<li {if $_GPC['method']=='match'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match')}">商家管理</a></li>{/if}
+    {ifp 'match.applyfor'}<li {if $_GPC['method']=='applyfor'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/applyfor')}">申请中</a></li>{/if}
+    {ifp 'match.enter'}<li {if $_GPC['method']=='enter'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/enter')}">入驻中</a></li>{/if}
+    {ifp 'match.match_list'}<li {if $_GPC['method']=='match_list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match_list')}">商家订单</a></li>{/if}
+    {ifp 'match.match_apply'}<li {if $_GPC['method']=='match_apply'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match_apply')}">商家提现申请</a></li>{/if}
+    {ifp 'match.match_finish'}<li {if $_GPC['method']=='match_finish'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match_finish')}">商家提现完成</a></li>{/if}
+    {ifp 'match.match_for'}<li {if $_GPC['method']=='match_for'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match_for')}">会员申请商家</a></li>{/if}
+    {ifp 'match.match_for_resu'}<li {if $_GPC['method']=='match_for_resu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match_for_resu')}">申请结果</a></li>{/if}
+    {ifp 'match.notice'}<li {if $_GPC['method']=='notice'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/notice')}">通知设置</a></li>{/if}
+    {ifp 'match.set'}<li {if $_GPC['method']=='set'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/set')}">基础设置</a></li>{/if}
+</ul>
+</div>

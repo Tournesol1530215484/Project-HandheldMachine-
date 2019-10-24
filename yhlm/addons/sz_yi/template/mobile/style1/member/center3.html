@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+			@charset "UTF-8";
+			[ng\:cloak],
+			[ng-cloak],
+			[data-ng-cloak],
+			[x-ng-cloak],
+			.ng-cloak,
+			.x-ng-cloak,
+			.ng-hide:not(.ng-hide-animate) {
+				display: none !important;
+			}
+			
+			ng\:form {
+				display: block;
+			}
+		</style>
+		<meta charset="utf-8">
+		<link href="../addons/sz_yi/static/css/font-awesome.min3.css" rel="stylesheet">
+		<link href="../addons/sz_yi/static/css/iconfont3.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/style3.css">
+	</head>
+
+	<body>
+		<script language="javascript">
+			require(['core', 'tpl'], function(core, tpl) {
+				core.init({
+					siteUrl: "http://www.yunzshop.com/",
+					baseUrl: "http://www.yunzshop.com/app/index.php?i=3&c=entry&do=ROUTES&m=sz_yi"
+				});
+
+			})
+		</script>
+		<title>个人中心 </title>
+		<style type="text/css">
+			body {
+				margin: 0px;
+				background: #f9f9f9;
+				-moz-appearance: none;
+				font: 12px/1.5 tahoma, "microsoft yahei", "\5FAE\8F6F\96C5\9ED1";
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.header {
+				height: auto;
+				padding: 0px;
+				background: #f15353;
+				background-size: 100% 100%;
+				padding: 10px;
+				position: relative;
+			}
+			
+			.header .user {
+				height: 100px;
+				text-align: center;
+			}
+			
+			.header .user .user-head {
+				height: 48px;
+				width: 48px;
+				background: #fff;
+				border-radius: 50%;
+				border: 2px solid #fff;
+				margin: 6px auto;
+			}
+			
+			.header .user .user-head img {
+				height: 48px;
+				width: 48px;
+				border-radius: 50%;
+			}
+			
+			.header .user .user-info {
+				height: 48px;
+				width: 100%;
+				float: left;
+				color: #fff;
+			}
+			
+			.header .user .user-info .user-name {
+				height: 20px;
+				width: auto;
+				font-size: 14px;
+				line-height: 20px;
+			}
+			
+			.header .user .user-info .user-other {
+				height: 24px;
+				width: auto;
+				font-size: 12px;
+			}
+			
+			.header .user-gold {
+				height: 35px;
+				width: 94%;
+				padding: 5px 3%;
+				border-bottom: 1px solid #e3e3e3;
+				background: #fff;
+				font-size: 14px;
+				line-height: 35px;
+			}
+			
+			.header .user-gold .title {
+				height: 35px;
+				width: auto;
+				float: left;
+				color: #666;
+			}
+			
+			.header .user-gold .num {
+				height: 35px;
+				width: auto;
+				float: left;
+				color: #f90;
+			}
+			
+			.header .user-gold .draw {
+				width: 80px;
+				height: 30px;
+				background: #6c9;
+				float: right;
+			}
+			
+			.header .user .set {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				color: #fff;
+				font-size: 14px
+			}
+			
+			.header .user-op {
+				height: 35px;
+				width: 94%;
+				padding: 5px 3%;
+				border-bottom: 1px solid #e3e3e3;
+				background: #fff;
+				font-size: 14px;
+				line-height: 35px;
+			}
+			
+			.take {
+				height: 22px;
+				width: auto;
+				padding: 0 12px;
+				line-height: 22px;
+				font-size: 12px;
+				float: right;
+				margin-top: 4px;
+				border-radius: 50px;
+				color: #fff;
+				border: 1px #fff solid
+			}
+			
+			.order {
+				height: 116px;
+				width: 100%;
+				background: #fff;
+				margin-top: 10px;
+				border-bottom: 1px solid #e3e3e3;
+			}
+			
+			.order_all {
+				height: 100px;
+				width: 100%;
+				padding: 14px 0px;
+				color: #666;
+			}
+			
+			.order_all a i {
+				font-size: 20px;
+				margin-bottom: 4px
+			}
+			
+			.order_pub {
+				height: 38px;
+				float: left;
+				border-left: 1px solid #eee;
+				padding-top: 2px;
+				text-align: center;
+				color: #8c8c8c;
+				position: relative;
+				font-size: 14px
+			}
+			
+			.order_pub span {
+				height: 14px;
+				background: #f30;
+				border-radius: 8px;
+				position: absolute;
+				top: 0;
+				right: 6%;
+				padding: 0 5px;
+				font-size: 12px;
+				color: #fff;
+				line-height: 14px;
+			}
+			
+			.order_1 {
+				width: 24%;
+			}
+			
+			.order_2 {
+				width: 25%;
+			}
+			
+			.order_3 {
+				width: 25%;
+			}
+			
+			.order_4 {
+				width: 25%;
+			}
+			
+			.list1 {
+				height: 44px;
+				width: 97%;
+				background: #fff;
+				padding: 0 0 0 3%;
+				margin-top: 10px;
+				border-bottom: 1px solid #e3e3e3;
+				border-top: 1px solid #e3e3e3;
+				font-size: 16px;
+				line-height: 44px;
+				color: #242424;
+			}
+			
+			.list1 i {
+				font-size: 16px;
+				margin-right: 6px;
+				color: #929292;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+			}
+			
+			.allorder {
+				float: right;
+				color: #909090;
+				margin-right: 10px;
+				text-decoration: none;
+				font-size: 12px
+			}
+			
+			.cart {
+				height: auto;
+				width: 100%;
+				background: #fff;
+				margin-top: 10px;
+				border-bottom: 1px solid #e3e3e3;
+			}
+			
+			.address {
+				height: 38px;
+				width: 100%;
+				background: #fff;
+				margin-top: 10px;
+				border-bottom: 1px solid #e3e3e3;
+				border-top: 1px solid #e3e3e3;
+				line-height: 38px;
+			}
+			
+			.copyright {
+				height: 40px;
+				width: 100%;
+				text-align: center;
+				line-height: 40px;
+				font-size: 12px;
+				color: #999;
+				margin-top: 10px;
+			}
+			
+			span.count {
+				float: right;
+				margin-top: 16px;
+				margin-right: 4px;
+				height: 14px;
+				background: #f30;
+				border-radius: 8px;
+				font-size: 12px;
+				color: #fff;
+				line-height: 14px;
+				text-align: center;
+				padding: 0 5px
+			}
+		</style>
+
+		<div id="container">
+			<div class="header">
+				<div class="user">
+					<div class="user-head"><img src="{$member['avatar']}"></div>
+					<div class="user-info">
+						<div class="user-name">{$member['nickname']}[会员ID:{$member['id']}]</div>
+						<div class="user-other">[{$level['levelname']}]
+							<br>[推荐人：总店]
+
+						</div>
+					</div>
+					<div class="set" onClick=""><i class="iconfont icon-cog"></i></div>
+				</div>
+			</div>
+			<div class="money-center">
+				<ul>
+					<li>
+						<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}"><span>{$member['credit2']}</span><br>余额</a>
+					</li>
+					<li>
+						<a href=""><span>{$member['credit1']}</span><br>积分</a>
+					</li>
+					<li>
+						<a href="{php echo $this->createPluginMobileUrl('coupon/my')}"><span>{$counts['couponcount']}</span><br>优惠券</a>
+					</li>
+					{if empty($set['trade']['closerecharge'])}
+					<li>
+						<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}" class="recharge" >充值</a>
+					</li>
+					{/if}
+				</ul>
+			</div>
+			<div class="order">
+				<a href="{php echo $this->createMobileUrl('order')}">
+					<div class="list1" style="margin-top:0px;">
+						<i class="fa fa-reorder" style="float:left; line-height:44px;"></i>
+						<span style="float:left;">我的订单</span>
+						<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i>
+						<div class="allorder">查看我的全部订单</div>
+					</div>
+				</a>
+				<div class="order_all">
+					<a href="{php echo $this->createMobileUrl('order',array('status'=>0))}">
+						<div class="order_pub order_1" style="border:0px;"><i class="fa"></i><br>待付款{if $order['status0']}<span>{$order['status0']}</span>{/if}</div>
+					</a>
+					<a href="{php echo $this->createMobileUrl('order',array('status'=>1))}">
+						<div class="order_pub order_2"><i class="fa"></i><br>待发货{if $order['status1']}<span>{$order['status1']}</span>{/if}</div>
+					</a>
+					<a href="{php echo $this->createMobileUrl('order',array('status'=>2))}">
+						<div class="order_pub order_3"><i class="fa"></i><br>待收货{if $order['status2']}<span>{$order['status2']}</span>{/if}</div>
+					</a>
+					<a href="{php echo $this->createMobileUrl('order',array('status'=>4))}">
+						<div class="order_pub order_4"><i class="fa"></i><br>待退款{if $order['status4']}<span>{$order['status4']}</span>{/if}</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="cart new-ullist">
+				<ul>
+					<li>
+						<a href="{php echo $this->createMobileUrl('member/info')}">
+							<i class="fa iconfont icon-user" style="background:#BC7BFF"></i><br>我的资料
+						</a>
+					</li>
+					<li>
+						<a href="{php echo $this->createMobileUrl('shop/cart')}">
+							<i class="fa iconfont icon-cart" style="background:#43BFF1"></i><br>购物车
+						</a>
+					</li>
+					{if isset($set['trade']) && $set['trade']['withdraw']==1}
+					<li>
+						<a href="javascript:;" id="btnwithdraw">
+							<i class="fa iconfont icon-cny" style="background:#ff6e03"></i><br>佣金提现
+						</a>
+					</li>
+					{/if}
+					<li>
+						<a href="{php echo $this->createMobileUrl('shop/favorite')}">
+							<i class="fa iconfont icon-heart" style="background:#58d5d9"></i><br>我的收藏
+						</a>
+					</li>
+					<li>
+						<a href="{php echo $this->createMobileUrl('shop/history')}">
+							<i class="fa iconfont icon-paw" style="background:#ffb13b"></i><br>我的足迹
+						</a>
+					</li>
+					<li>
+						<a href="{php echo $this->createMobileUrl('member/transfer',array('op'=>'display'))}">
+							<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f9b979;">&#xf155;</i><span>转账</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+						</a>
+					</li>
+					{if $hascouponcenter}
+					<li>
+						<a href="{php echo $this->createPluginMobileUrl('coupon')}">
+							<i class="fa iconfont icon-tags" style="background:#ff3877"></i><br>优惠券
+						</a>
+					</li>
+					{/if}
+					{if $hascom}
+					<li>
+						<a href="{php echo $this->createPluginMobileUrl('commission')}">
+							<i class="fa iconfont icon-tags" style="background:#ff3877"></i><br>{php echo $pset['texts']['center']}
+						</a>
+					</li>
+					{/if}
+					{if $pluginbonus}
+						{if !empty($bonus_set['start'])}
+							{if empty($bonus_set['bonushow'])}
+					<li>
+						<a href="{php echo $this->createPluginMobileUrl('bonus/index')}">
+							<i class="fa iconfont icon-tags" style="background:#ff3877"></i><br>分红中心
+						</a>
+					</li>
+							{/if}
+						{/if}
+					{/if}
+				</ul>
+
+			</div>
+			<div class="cart">
+				<!--供应商申请-->
+				{if p('supplier')}
+				{if empty($supplier) }
+				<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier')}"> <i class="hs hs-shenqing"></i>供应商申请  <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+				{else}
+				<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu')}"> <i class="hs hs-shenqing"></i>供应商管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>	
+				{/if}    
+				{/if}
+
+	 
+					<!--经销商查询-->
+  				 <a href="{php echo $this->createPluginMobileUrl('dis')}"><div class="list1" style="margin:0px; border-bottom:0px;"><i class="fa fa-home" style="color:#f10;"></i>经销商查询<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div></a>
+				{if p('return')}
+				<a href="{php echo $this->createPluginMobileUrl('return/return_log')}">
+					<div class="list1" style="margin:0px; border-bottom:0px;"><i class="fa fa-piechart"></i>全返明细<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div>
+				</a>
+				{/if}
+				<a href="">
+					<div class="list1" style="margin:0px; border-bottom:0px;"><i class="iconfont icon-ranking"></i>排行榜<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div>
+				</a>
+
+				<a href="">
+					<div class="list1" style="margin:0px;"><i class="iconfont icon-cny"></i>佣金明细 <i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div>
+				</a>
+
+			</div>
+			<a href="{php echo $this->createMobileUrl('member/notice')}">
+				<div class="list1"><i class="iconfont icon-volume-up"></i>消息提醒设置<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div>
+			</a>
+			<a href="{php echo $this->createMobileUrl('shop/address')}">
+				<div class="list1" style="margin:0px; border-top:0px;"><i class="iconfont icon-street-view"></i>收货地址管理<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div>
+			</a>
+			<a href="{php echo $this->createMobileUrl('member/logout')}">
+				<div class="list1"><i class="iconfont icon-sign-out"></i>退出<i class="fa fa-angle-right" style="color:#999; font-size:26px; float:right; line-height:44px;"></i></div>
+			</a>
+
+			<div class="copyright">版权所有 ©{if empty($set['shop']['name'])}{$_W['account']['name']}{else}{$set['shop']['name']}{/if} </div>
+		</div>
+		
+		<script language="javascript">
+			require(['tpl', 'core'], function(tpl, core) {
+
+				core.json('member/center', {}, function(json) {
+
+					$('#container').html(tpl('member_center', json.result));
+					var withdrawmoney = 0;
+					$('#btnwithdraw').click(function() {
+
+						if(json.result.member.credit2 <= 0) {
+							core.tip.show('无佣金可提!');
+							return;
+						}
+						if(withdrawmoney > 0 && json.result.member.credit2 < withdrawmoney) {
+							core.tip.show('满' + withdrawmoney + "元才能提现!");
+							return;
+						}
+						location.href = core.getUrl('member/withdraw');
+					})
+
+				}, true);
+
+			})
+		</script>
+		<div style="height:50px; width:100%;margin:0;padding:0;float:left;display:block;"></div>
+
+		<link href="../addons/sz_yi/static/css/menu3.css" rel="stylesheet">
+		<script type="text/javascript" src="../addons/sz_yi/static/js/angular.min3.js"></script>
+
+		<div id="core_loading" style="top: 50%; left: 50%; margin-left: -35px; margin-top: -30px; position: absolute; width: 80px; z-index: 999999; display: none;"><img src="../addons/sz_yi/static/images/loading.svg" width="80"></div>
+		
+
+		<script type="text/javascript">
+			var app = angular.module('myApp', []);
+
+			app.controller('MenuCtrl', ['$scope', function($scope) {
+
+				$scope.menus = [{
+					"id": 1,
+					"title": "",
+					"icon": "fa fa-home",
+					"url": "",
+					"subMenus": [{
+						"title": "首页",
+						"type": "url",
+						"url": "http://www.yunzshop.com/app/index.php?i=3&c=home&t=3",
+						"forward": ""
+					}, {
+						"title": "商城",
+						"type": "url",
+						"url": "http://www.yunzshop.com/app/index.php?i=3&c=entry&p=index&do=shop&m=sz_yi",
+						"forward": ""
+					}],
+					"textcolor": "#666666",
+					"bgcolor": "#fafafa",
+					"bordercolor": "#bfbfbf",
+					"iconcolor": "#666666"
+				}, {
+					"id": "menu_1468403369814",
+					"title": "",
+					"icon": "fa fa-list",
+					"url": "http://www.yunzshop.com/app/index.php?i=3&c=entry&p=category&do=shop&m=sz_yi",
+					"subMenus": [],
+					"textcolor": "#666666",
+					"bgcolor": "#fafafa",
+					"iconcolor": "#666666",
+					"bordercolor": "#bfbfbf"
+				}, {
+					"id": "menu_1468403370477",
+					"title": "",
+					"icon": "fa fa-refresh",
+					"url": "",
+					"subMenus": [],
+					"textcolor": "#666666",
+					"bgcolor": "#fafafa",
+					"iconcolor": "#666666",
+					"bordercolor": "#bfbfbf"
+				}, {
+					"id": "menu_1468403370989",
+					"title": "",
+					"icon": "fa fa-shopping-cart",
+					"url": "http://www.yunzshop.com/app/index.php?i=3&c=entry&p=cart&do=shop&m=sz_yi",
+					"subMenus": [],
+					"textcolor": "#666666",
+					"bgcolor": "#fafafa",
+					"iconcolor": "#666666",
+					"bordercolor": "#bfbfbf"
+				}, {
+					"id": "menu_1468403372030",
+					"title": "",
+					"icon": "fa fa-user",
+					"url": "",
+					"subMenus": [{
+						"title": "个人中心",
+						"type": "url",
+						"url": "http://www.yunzshop.com/app/index.php?i=3&c=entry&do=member&m=sz_yi",
+						"forward": ""
+					}, {
+						"title": "分销中心",
+						"type": "url",
+						"url": "http://www.yunzshop.com/app/index.php?i=3&c=entry&p=commission&m=sz_yi&do=plugin",
+						"forward": ""
+					}, {
+						"title": "分红中心",
+						"type": "url",
+						"url": "http://www.yunzshop.com/app/index.php?i=3&c=entry&p=bonus&m=sz_yi&do=plugin",
+						"forward": ""
+					}],
+					"textcolor": "#666666",
+					"bgcolor": "#fafafa",
+					"iconcolor": "#666666",
+					"bordercolor": "#bfbfbf"
+				}];
+				$scope.params = {
+					"previewbg": "#999999",
+					"height": "49px",
+					"textcolor": "#666666",
+					"textcolorhigh": "#666666",
+					"iconcolor": "#666666",
+					"iconcolorhigh": "#666666",
+					"bgcolor": "#fafafa",
+					"bgcolorhigh": "#fafafa",
+					"bordercolor": "#bfbfbf",
+					"bordercolorhigh": "#bfbfbf",
+					"showtext": 1,
+					"showborder": 1,
+					"showicon": 1,
+					"textcolor2": "#666666",
+					"bgcolor2": "#fafafa",
+					"bordercolor2": "#bfbfbf",
+					"showborder2": 1
+				};
+				$scope.clear = function(m) {
+					angular.forEach($scope.menus, function(m, index) {
+
+						m.textcolor = $scope.params.textcolor;
+						m.bgcolor = $scope.params.bgcolor;
+						m.iconcolor = $scope.params.iconcolor;
+						m.bordercolor = $scope.params.bordercolor;
+
+					});
+				}
+				$scope.clear();
+				$scope.openMenu = function(menu, event) {
+					if(menu.subMenus.length <= 0) {
+						if(menu.url == '') {
+							return;
+						}
+						location.href = menu.url;
+						return;
+					}
+
+					var current = $(event.currentTarget).closest('li').find('.sub');
+					var h = current.height();
+					$scope.clear();
+					var bgalpha = $scope.params.bgalpha;
+					if(!$.isNumeric(bgalpha) || parseFloat(bgalpha) > 1) {
+						bgalpha = 1;
+					}
+
+					if(bgalpha != 1) {
+						//有透明度
+						if(parseInt(current.css('opacity')) >= 1) { //弹出后隐藏
+							current.animate({
+								opacity: 0,
+								bottom: -h - 50
+							}, 200);
+						} else {
+							current.css('bottom', 50).animate({
+								opacity: 1
+							}, 200);
+							menu.textcolor = $scope.params.textcolorhigh;
+							menu.bgcolor = $scope.params.bgcolorhigh;
+							menu.iconcolor = $scope.params.iconcolorhigh;
+							menu.bordercolor = $scope.params.bordercolorhigh;
+						}
+						$(event.currentTarget).siblings().closest('li').find('.sub').each(function() {
+							var h = $(this).height();
+							$(this).animate({
+								opacity: 0
+							}, 200);
+						});
+					} else {
+						if(parseInt(current.css('bottom')) > 0) {
+							current.animate({
+								bottom: -h - 50,
+								opacity: 0
+							}, 200);
+						} else {
+							current.animate({
+								bottom: 50,
+								opacity: 1
+							}, 200);
+							menu.textcolor = $scope.params.textcolorhigh;
+							menu.bgcolor = $scope.params.bgcolorhigh;
+							menu.iconcolor = $scope.params.iconcolorhigh;
+							menu.bordercolor = $scope.params.bordercolorhigh;
+						}
+						$(event.currentTarget).siblings().closest('li').find('.sub').each(function() {
+							var h = $(this).height();
+							$(this).animate({
+								bottom: -h - 50,
+								opacity: 0
+							}, 200);
+						});
+					}
+
+				}
+			}]);
+			$(function() {
+				var len = $('.designer-menu .sub').length;
+
+				$('.designer-menu .sub').each(function(i) {
+					var h = $(this).height();
+					var w = $(this).closest('li').width();
+
+					$(this).css('bottom', -h - 50);
+					var left = parseFloat($(this).offset().left.toString().replace('px', ''));
+					if(i == 0) {
+						if(left < 0) {
+							left = Math.abs(left);
+							$(this).offset({
+								left: 5
+							});
+
+							var corner = $(this).find('.corner');
+							var cornerleft = (parseFloat($(this).css('left').replace('px', '')) - left) / 2 + 5;
+							corner.css('left', cornerleft);
+							$(this).find('.corner2').css('left', cornerleft);
+						}
+					} else if(i + 1 == len) {
+
+						var right = $(this).width() + left;
+						if(right >= $(document).width()) {
+							var newoffset = $(document).width() - $(this).width() - 5;
+							$(this).offset({
+								left: newoffset
+							});
+
+							var corner = $(this).find('.corner');
+							var cornerleft = ($(this).width() - $(this).closest('li').width()) / 2 + $(this).width() / 2 + 5;
+							corner.css('left', cornerleft);
+							$(this).find('.corner2').css('left', cornerleft);
+
+						}
+					}
+
+				})
+			})
+		</script>
+
+		<script id="tpl_show_message" type="text/html">
+			<div class="sweet-alert" style="display:block;">
+				<%if type=='error'%>
+				<div class="icon error animateErrorIcon" style="display: block;"><span class="x-mark animateXMark"><span class="line left"></span><span class="line right"></span></span>
+				</div>
+				<%/if%>
+				<%if type=='warning'%>
+				<div class="icon warning pulseWarning" style="display: block;"><span class="body pulseWarningIns"></span><span class="dot pulseWarningIns"></span></div>
+				<%/if%>
+				<%if type=='success'%>
+				<div class="icon success animate" style="display: block;"><span class="line tip animateSuccessTip"></span><span class="line long animateSuccessLong"></span>
+					<div class="placeholder"></div>
+					<div class="fix"></div>
+				</div>
+				<%/if%>
+				<div class="info">
+					<%message%>
+					<%if url%><br><span>如果您的浏览器没有自动跳转请点击此处</span>
+					<%/if%>
+				</div>
+
+				<div class="sub" <%if url%>
+					onclick="location.href='
+					<%url%>'"
+					<%else%>
+					<%if js%> onclick="
+					<%js%>"
+					<%else%> onclick="history.back()"
+					<%/if%>
+					<%/if%> >
+					<%if type=='success'%>
+					<div class="green">确认</div>
+					<%/if%>
+					<%if type=='warning'%>
+					<div class="grey">确认</div>
+					<%/if%>
+					<%if type=='error'%>
+					<div class="red">确认</div>
+					<%/if%>
+				</div>
+		</script>
+		<span style="display:none">
+	  
+	 </span>
+		<script language="javascript">
+			/*
+				    $(function(){
+				        $.ajax({
+				            url: "http://www.yunzshop.com/app/index.php?i=3&c=entry&do=runtasks&m=sz_yi",
+				            cache:false 
+				        });
+				    })
+				    */
+		</script>
+		<script>
+			require(['js/jweixin-1.0.0.js'], function(wx) {
+				window.shareData = {
+					"title": "\u82b8\u4f17\u5546\u57ce",
+					"imgUrl": "http:\/\/www.yunzshop.com\/attachment\/images\/3\/2016\/06\/WOfPoLtGpscpQqzhlF2UZlLSLfHcLL.jpg",
+					"desc": null,
+					"link": "http:\/\/www.yunzshop.com\/app\/index.php?i=3&c=entry&do=shop&m=sz_yi"
+				};
+
+				jssdkconfig = null || {
+					jsApiList: []
+				};
+				jssdkconfig.debug = false;
+				jssdkconfig.jsApiList = ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'showOptionMenu', ];
+				wx.config(jssdkconfig);
+				wx.ready(function() {
+					wx.showOptionMenu();
+					wx.onMenuShareAppMessage(window.shareData);
+					wx.onMenuShareTimeline(window.shareData);
+					wx.onMenuShareQQ(window.shareData);
+					wx.onMenuShareWeibo(window.shareData);
+				});
+			});
+		</script>
+		<script language="javascript" type="text/javascript">
+		</script>
+	</body>
+
+</html>
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

@@ -1,0 +1,57 @@
+{template 'common/header'}
+{template 'tabs'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>商家设置</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">其他图片</label>
+                <div class="col-sm-9 col-md-8">
+                    {ife 'shop.goods' $item}
+                    {php echo tpl_form_field_multi_image('thumbs',$set['shop']['thumbs'])}
+                    <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+                    {else}
+                    {loop $set['shop']['thumbs'] $p $v}
+                    <a href='{php echo tomedia($v)}' target='_blank'>
+                        <img src="{php echo tomedia($v)}" style='height:100px;border:1px solid #ccc;padding:1px;float:left;margin-right:5px;' />
+                    </a>
+                    {/loop}
+                    {/if}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">一句话简介</label>
+                <div class="col-sm-9 col-md-8">
+                    <input type="text" name="title" value="{$set['shop']['title']}" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"></div>
+
+
+
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="col-sm-9">
+                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+<script language='javascript'>
+    function showtip(n) {
+        if (n == 1) {
+            var tip = document.getElementById('tip');
+            tip.style.display = "block";
+        } else {
+            var tip = document.getElementById('tip');
+            tip.style.display = "none";
+        }
+    }
+</script>
+{template 'web/_footer'}

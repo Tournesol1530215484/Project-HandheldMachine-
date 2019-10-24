@@ -1,0 +1,7791 @@
+2018-08-26 00:12:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2pxulDFiYuTuLn-eAPV2jQ ;
+createtime : 1535213537 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=mc&a=store& ;
+menuid : 426966533 ;
+from : oSI4Lj2pxulDFiYuTuLn-eAPV2jQ ;
+to : gh_0c02969f70a6 ;
+time : 1535213537 ;
+type : event ;
+
+2018-08-26 00:12:17 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 00:12:17 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 00:12:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2pxulDFiYuTuLn-eAPV2jQ ;
+createtime : 1535213556 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj2pxulDFiYuTuLn-eAPV2jQ ;
+to : gh_0c02969f70a6 ;
+time : 1535213556 ;
+type : event ;
+
+2018-08-26 00:12:36 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 00:12:36 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 03:04:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+createtime : 1535223859 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 5141e420449e42c7df87975ef87074b6 ;
+ticket : gQHp8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZjNCWkJmOGU4YmYxMDAwMDAwN2oAAgTj86RaAwQAAAAA ;
+from : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+to : gh_0c02969f70a6 ;
+time : 1535223859 ;
+type : subscribe ;
+scene : 5141e420449e42c7df87975ef87074b6 ;
+
+2018-08-26 03:04:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+createtime : 1535223861 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 33.353043 ;
+longitude : 115.058525 ;
+precision : 90.000000 ;
+from : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+to : gh_0c02969f70a6 ;
+time : 1535223861 ;
+type : trace ;
+location_x : 33.353043 ;
+location_y : 115.058525 ;
+
+2018-08-26 03:04:21 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 03:04:21 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 03:04:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+createtime : 1535223865 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+to : gh_0c02969f70a6 ;
+time : 1535223865 ;
+type : event ;
+
+2018-08-26 03:04:25 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 03:04:25 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 03:08:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+createtime : 1535224095 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 33.353043 ;
+longitude : 115.058525 ;
+precision : 70.000000 ;
+from : oSI4Lj57rDwQijjOnoFiSy7FGv2I ;
+to : gh_0c02969f70a6 ;
+time : 1535224095 ;
+type : trace ;
+location_x : 33.353043 ;
+location_y : 115.058525 ;
+
+2018-08-26 03:08:15 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 03:08:15 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 05:35:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+createtime : 1535232943 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+to : gh_0c02969f70a6 ;
+time : 1535232943 ;
+type : event ;
+
+2018-08-26 05:35:43 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 05:35:43 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 08:32:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+createtime : 1535243553 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+to : gh_0c02969f70a6 ;
+time : 1535243553 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-08-26 08:32:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+createtime : 1535243564 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+to : gh_0c02969f70a6 ;
+time : 1535243564 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-08-26 08:32:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+createtime : 1535243566 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 33.271881 ;
+longitude : 114.245422 ;
+precision : 30.000000 ;
+from : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+to : gh_0c02969f70a6 ;
+time : 1535243566 ;
+type : trace ;
+location_x : 33.271881 ;
+location_y : 114.245422 ;
+
+2018-08-26 08:32:46 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 08:32:46 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 08:32:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+createtime : 1535243568 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+to : gh_0c02969f70a6 ;
+time : 1535243568 ;
+type : event ;
+
+2018-08-26 08:32:48 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 08:32:48 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 08:32:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+createtime : 1535243572 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 33.271881 ;
+longitude : 114.245422 ;
+precision : 30.000000 ;
+from : oSI4LjyUPvrAN-fAQTIQvIg93mG0 ;
+to : gh_0c02969f70a6 ;
+time : 1535243572 ;
+type : trace ;
+location_x : 33.271881 ;
+location_y : 114.245422 ;
+
+2018-08-26 08:32:52 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 08:32:52 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 08:47:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535244453 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434937 ;
+longitude : 116.626778 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535244453 ;
+type : trace ;
+location_x : 35.434937 ;
+location_y : 116.626778 ;
+
+2018-08-26 08:47:33 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 08:47:33 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 08:47:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535244453 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535244453 ;
+type : event ;
+
+2018-08-26 08:47:33 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 08:47:33 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 08:48:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535244504 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434937 ;
+longitude : 116.626778 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535244504 ;
+type : trace ;
+location_x : 35.434937 ;
+location_y : 116.626778 ;
+
+2018-08-26 08:48:24 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 08:48:24 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 08:48:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535244504 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434872 ;
+longitude : 116.626648 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535244504 ;
+type : trace ;
+location_x : 35.434872 ;
+location_y : 116.626648 ;
+
+2018-08-26 08:48:25 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 08:48:25 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 08:48:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535244505 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535244505 ;
+type : event ;
+
+2018-08-26 08:48:25 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 08:48:25 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 08:49:32 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+createtime : 1535244571 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+to : gh_9aac6b6c619f ;
+time : 1535244571 ;
+type : subscribe ;
+
+2018-08-26 08:49:32 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 08:49:32 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城，请回复“平台”
+2、对接人脉进全国通讯录，请回复“人脉”
+3、入驻商城卖货（得现金），请回复“卖货”
+4、参加本地活动，/勾引请回复“活动”
+5、入驻平台易货（换采购产品、换广告），/强请回复“易货”
+6、申请代理商、广告合作、业务对接，请回复“合作”
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-08-26 08:49:49 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+createtime : 1535244589 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 秒盟操作 ;
+from : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+to : gh_9aac6b6c619f ;
+time : 1535244589 ;
+type : event ;
+
+2018-08-26 08:49:49 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 08:49:49 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 08:50:00 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+createtime : 1535244600 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 易货 ;
+from : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+to : gh_9aac6b6c619f ;
+time : 1535244600 ;
+type : event ;
+
+2018-08-26 08:50:00 params :
+------------
+Array:
+message : Array ;
+module : sz_yi ;
+rule : 1069 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 08:50:00 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vpE6ir0Ur5Cv7cokXlujuQU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2018-08-26 09:04:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+createtime : 1535245457 ;
+msgtype : event ;
+event : TEMPLATESENDJOBFINISH ;
+msgid : 430389048750997509 ;
+status : success ;
+from : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+to : gh_0c02969f70a6 ;
+time : 1535245457 ;
+type : event ;
+
+2018-08-26 09:04:17 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:04:17 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 09:04:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535245457 ;
+msgtype : event ;
+event : TEMPLATESENDJOBFINISH ;
+msgid : 430389049774391296 ;
+status : success ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535245457 ;
+type : event ;
+
+2018-08-26 09:04:17 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:04:17 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 09:09:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1535245746 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1535245746 ;
+type : event ;
+
+2018-08-26 09:09:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 09:09:06 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 09:10:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1535245811 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1535245811 ;
+type : event ;
+
+2018-08-26 09:10:12 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 09:10:12 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 09:25:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246740 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.416054 ;
+longitude : 116.618050 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246740 ;
+type : trace ;
+location_x : 35.416054 ;
+location_y : 116.618050 ;
+
+2018-08-26 09:25:40 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:25:40 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:25:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246742 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246742 ;
+type : event ;
+
+2018-08-26 09:25:42 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 09:25:42 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 09:26:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246782 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.413288 ;
+longitude : 116.617638 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246782 ;
+type : trace ;
+location_x : 35.413288 ;
+location_y : 116.617638 ;
+
+2018-08-26 09:26:22 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:26:22 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:26:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246785 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246785 ;
+type : event ;
+
+2018-08-26 09:26:25 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 09:26:25 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 09:26:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246787 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.413288 ;
+longitude : 116.617638 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246787 ;
+type : trace ;
+location_x : 35.413288 ;
+location_y : 116.617638 ;
+
+2018-08-26 09:26:27 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:26:27 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:26:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246806 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.413250 ;
+longitude : 116.617699 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246806 ;
+type : trace ;
+location_x : 35.413250 ;
+location_y : 116.617699 ;
+
+2018-08-26 09:26:46 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:26:46 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:26:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8szfLaHVWsvXW51AaUtQA8 ;
+createtime : 1535246809 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4Lj8szfLaHVWsvXW51AaUtQA8 ;
+to : gh_0c02969f70a6 ;
+time : 1535246809 ;
+type : subscribe ;
+
+2018-08-26 09:26:50 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 09:26:50 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj8szfLaHVWsvXW51AaUtQA8 ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城，请回复“平台”
+2、对接人脉进全国通讯录，请回复“人脉”
+3、入驻商城卖货（得现金），请回复“卖货”
+4、参加本地活动，/勾引请回复“活动”
+5、入驻平台易货（换采购产品、换广告），/强请回复“易货”
+6、申请代理商、广告合作、业务对接，请回复“合作”
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-08-26 09:26:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8szfLaHVWsvXW51AaUtQA8 ;
+createtime : 1535246815 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj8szfLaHVWsvXW51AaUtQA8 ;
+to : gh_0c02969f70a6 ;
+time : 1535246815 ;
+type : event ;
+
+2018-08-26 09:26:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:26:56 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 09:28:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246920 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.413250 ;
+longitude : 116.617699 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246920 ;
+type : trace ;
+location_x : 35.413250 ;
+location_y : 116.617699 ;
+
+2018-08-26 09:28:41 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:28:41 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:28:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535246922 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535246922 ;
+type : event ;
+
+2018-08-26 09:28:42 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:28:42 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 09:30:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535247013 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.413277 ;
+longitude : 116.617607 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535247013 ;
+type : trace ;
+location_x : 35.413277 ;
+location_y : 116.617607 ;
+
+2018-08-26 09:30:13 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:30:13 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:36:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9j9mouUyJLULPdfVR-ATQQ ;
+createtime : 1535247386 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 25.033859 ;
+longitude : 102.752586 ;
+precision : 30.000000 ;
+from : oSI4Lj9j9mouUyJLULPdfVR-ATQQ ;
+to : gh_0c02969f70a6 ;
+time : 1535247386 ;
+type : trace ;
+location_x : 25.033859 ;
+location_y : 102.752586 ;
+
+2018-08-26 09:36:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:36:26 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 09:59:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8Z8IGNh72ssSj61ZlZkHDM ;
+createtime : 1535248799 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj8Z8IGNh72ssSj61ZlZkHDM ;
+to : gh_0c02969f70a6 ;
+time : 1535248799 ;
+type : event ;
+
+2018-08-26 09:59:59 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 09:59:59 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 10:02:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8Z8IGNh72ssSj61ZlZkHDM ;
+createtime : 1535248921 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj8Z8IGNh72ssSj61ZlZkHDM ;
+to : gh_0c02969f70a6 ;
+time : 1535248921 ;
+type : event ;
+
+2018-08-26 10:02:01 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 10:02:01 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj8Z8IGNh72ssSj61ZlZkHDM ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 10:36:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+createtime : 1535251011 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+to : gh_0c02969f70a6 ;
+time : 1535251011 ;
+type : event ;
+
+2018-08-26 10:36:51 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 10:36:51 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:03:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252586 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619064 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252586 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619064 ;
+
+2018-08-26 11:03:06 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:03:06 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:03:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252587 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252587 ;
+type : event ;
+
+2018-08-26 11:03:07 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:03:07 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 11:04:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252674 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252674 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:04:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:04:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:04:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252678 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252678 ;
+type : event ;
+
+2018-08-26 11:04:38 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:04:38 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:05:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252704 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252704 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:05:04 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:05:04 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:05:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252734 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.417297 ;
+longitude : 116.593681 ;
+precision : 30.000000 ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252734 ;
+type : trace ;
+location_x : 35.417297 ;
+location_y : 116.593681 ;
+
+2018-08-26 11:05:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:05:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:05:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252738 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.417370 ;
+longitude : 116.593674 ;
+precision : 30.000000 ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252738 ;
+type : trace ;
+location_x : 35.417370 ;
+location_y : 116.593674 ;
+
+2018-08-26 11:05:39 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:05:39 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:05:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252744 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252744 ;
+type : event ;
+
+2018-08-26 11:05:44 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:05:44 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:06:03 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252763 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619270 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252763 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619270 ;
+
+2018-08-26 11:06:03 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:06:03 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:06:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252766 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252766 ;
+type : event ;
+
+2018-08-26 11:06:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:06:06 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:06:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252803 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : d6ad1ccf7703de95064fff27d5b0da91 ;
+ticket : gQEr8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZDFGUUI0OGU4YmYxMDAwMHcwN1cAAgQZy1pbAwQAAAAA ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252803 ;
+type : subscribe ;
+scene : d6ad1ccf7703de95064fff27d5b0da91 ;
+
+2018-08-26 11:06:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535252804 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535252804 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:06:44 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:06:44 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:06:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252808 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.417259 ;
+longitude : 116.593681 ;
+precision : 30.000000 ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252808 ;
+type : trace ;
+location_x : 35.417259 ;
+location_y : 116.593681 ;
+
+2018-08-26 11:06:48 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:06:48 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:06:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252813 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.417263 ;
+longitude : 116.593681 ;
+precision : 30.000000 ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252813 ;
+type : trace ;
+location_x : 35.417263 ;
+location_y : 116.593681 ;
+
+2018-08-26 11:06:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:06:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:06:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+createtime : 1535252815 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+to : gh_0c02969f70a6 ;
+time : 1535252815 ;
+type : event ;
+
+2018-08-26 11:06:55 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:06:55 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6G15FP3Q5dt-p_AcjqSHbE ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:10:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253018 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253018 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:10:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:10:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:10:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253020 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253020 ;
+type : event ;
+
+2018-08-26 11:10:20 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:10:20 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 11:11:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253113 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431667 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253113 ;
+type : trace ;
+location_x : 35.431667 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:11:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:11:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:11:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253119 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431667 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253119 ;
+type : trace ;
+location_x : 35.431667 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:11:59 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:11:59 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:12:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253120 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253120 ;
+type : event ;
+
+2018-08-26 11:12:00 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:12:00 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:12:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253166 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253166 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:12:46 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:12:46 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:21:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253702 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253702 ;
+type : subscribe ;
+
+2018-08-26 11:21:42 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:21:42 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城，请回复“平台”
+2、对接人脉进全国通讯录，请回复“人脉”
+3、入驻商城卖货（得现金），请回复“卖货”
+4、参加本地活动，/勾引请回复“活动”
+5、入驻平台易货（换采购产品、换广告），/强请回复“易货”
+6、申请代理商、广告合作、业务对接，请回复“合作”
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-08-26 11:21:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253704 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431667 ;
+longitude : 116.619217 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253704 ;
+type : trace ;
+location_x : 35.431667 ;
+location_y : 116.619217 ;
+
+2018-08-26 11:21:44 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:21:44 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:21:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253708 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431667 ;
+longitude : 116.619064 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253708 ;
+type : trace ;
+location_x : 35.431667 ;
+location_y : 116.619064 ;
+
+2018-08-26 11:21:48 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:21:48 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:21:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253708 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253708 ;
+type : event ;
+
+2018-08-26 11:21:48 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:21:48 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:22:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253733 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431667 ;
+longitude : 116.619064 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253733 ;
+type : trace ;
+location_x : 35.431667 ;
+location_y : 116.619064 ;
+
+2018-08-26 11:22:13 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:22:13 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:22:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253735 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253735 ;
+type : event ;
+
+2018-08-26 11:22:15 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:22:15 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:23:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253811 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431679 ;
+longitude : 116.619156 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253811 ;
+type : trace ;
+location_x : 35.431679 ;
+location_y : 116.619156 ;
+
+2018-08-26 11:23:32 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:23:32 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:23:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253823 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431713 ;
+longitude : 116.619186 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253823 ;
+type : trace ;
+location_x : 35.431713 ;
+location_y : 116.619186 ;
+
+2018-08-26 11:23:43 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:23:43 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253902 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431660 ;
+longitude : 116.619148 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253902 ;
+type : trace ;
+location_x : 35.431660 ;
+location_y : 116.619148 ;
+
+2018-08-26 11:25:02 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:02 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253907 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619232 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253907 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619232 ;
+
+2018-08-26 11:25:07 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:07 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253908 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431660 ;
+longitude : 116.619171 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253908 ;
+type : trace ;
+location_x : 35.431660 ;
+location_y : 116.619171 ;
+
+2018-08-26 11:25:08 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:08 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253914 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431660 ;
+longitude : 116.619171 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253914 ;
+type : trace ;
+location_x : 35.431660 ;
+location_y : 116.619171 ;
+
+2018-08-26 11:25:14 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:14 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253918 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253918 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:25:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253920 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431664 ;
+longitude : 116.619247 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253920 ;
+type : trace ;
+location_x : 35.431664 ;
+location_y : 116.619247 ;
+
+2018-08-26 11:25:20 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:20 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535253926 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431664 ;
+longitude : 116.619247 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535253926 ;
+type : trace ;
+location_x : 35.431664 ;
+location_y : 116.619247 ;
+
+2018-08-26 11:25:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:26 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253937 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253937 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:25:37 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:25:37 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:25:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253938 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253938 ;
+type : event ;
+
+2018-08-26 11:25:38 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:25:38 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 11:26:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535253960 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431648 ;
+longitude : 116.619049 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535253960 ;
+type : trace ;
+location_x : 35.431648 ;
+location_y : 116.619049 ;
+
+2018-08-26 11:26:01 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:26:01 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:27:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+createtime : 1535254039 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.431667 ;
+longitude : 116.619064 ;
+precision : 30.000000 ;
+from : oSI4Ljzkndm082D4xVfiN5pZy2e0 ;
+to : gh_0c02969f70a6 ;
+time : 1535254039 ;
+type : trace ;
+location_x : 35.431667 ;
+location_y : 116.619064 ;
+
+2018-08-26 11:27:19 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:27:19 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 11:34:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+createtime : 1535254481 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+to : gh_0c02969f70a6 ;
+time : 1535254481 ;
+type : event ;
+
+2018-08-26 11:34:41 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 11:34:41 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 11:36:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+createtime : 1535254561 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+to : gh_0c02969f70a6 ;
+time : 1535254561 ;
+type : event ;
+
+2018-08-26 11:36:01 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 11:36:01 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 12:54:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1535259257 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1535259257 ;
+type : event ;
+
+2018-08-26 12:54:17 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 12:54:17 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 12:56:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1535259413 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1535259413 ;
+type : event ;
+
+2018-08-26 12:56:53 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 12:56:53 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:30:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljwk7LIlmKYKA9qjBqEKreuM ;
+createtime : 1535261415 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : ee395d04ec5fadc2f67c47c95fdc0447 ;
+ticket : gQFT8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycGRmMEJPOGU4YmYxMDAwMDAwN2YAAgRE9rxaAwQAAAAA ;
+from : oSI4Ljwk7LIlmKYKA9qjBqEKreuM ;
+to : gh_0c02969f70a6 ;
+time : 1535261415 ;
+type : subscribe ;
+scene : ee395d04ec5fadc2f67c47c95fdc0447 ;
+
+2018-08-26 13:30:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljwk7LIlmKYKA9qjBqEKreuM ;
+createtime : 1535261426 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4Ljwk7LIlmKYKA9qjBqEKreuM ;
+to : gh_0c02969f70a6 ;
+time : 1535261426 ;
+type : event ;
+
+2018-08-26 13:30:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:30:26 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 13:46:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_nd3DqV2W4SVk_bA7XpZHM ;
+createtime : 1535262361 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 24.515541 ;
+longitude : 118.188278 ;
+precision : 490.000000 ;
+from : oSI4Lj_nd3DqV2W4SVk_bA7XpZHM ;
+to : gh_0c02969f70a6 ;
+time : 1535262361 ;
+type : trace ;
+location_x : 24.515541 ;
+location_y : 118.188278 ;
+
+2018-08-26 13:46:01 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:46:01 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:49:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262559 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262559 ;
+type : event ;
+
+2018-08-26 13:49:19 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 13:49:19 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:49:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262572 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262572 ;
+type : event ;
+
+2018-08-26 13:49:32 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 13:49:32 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:50:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262602 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186752 ;
+longitude : 114.244530 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262602 ;
+type : trace ;
+location_x : 30.186752 ;
+location_y : 114.244530 ;
+
+2018-08-26 13:50:02 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:02 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262607 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186672 ;
+longitude : 114.244492 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262607 ;
+type : trace ;
+location_x : 30.186672 ;
+location_y : 114.244492 ;
+
+2018-08-26 13:50:07 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:07 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262613 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186506 ;
+longitude : 114.244484 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262613 ;
+type : trace ;
+location_x : 30.186506 ;
+location_y : 114.244484 ;
+
+2018-08-26 13:50:13 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:13 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262618 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186577 ;
+longitude : 114.244553 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262618 ;
+type : trace ;
+location_x : 30.186577 ;
+location_y : 114.244553 ;
+
+2018-08-26 13:50:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:23 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262623 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186602 ;
+longitude : 114.244598 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262623 ;
+type : trace ;
+location_x : 30.186602 ;
+location_y : 114.244598 ;
+
+2018-08-26 13:50:23 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:23 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262629 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186600 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262629 ;
+type : trace ;
+location_x : 30.186600 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:50:29 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:29 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262634 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186600 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262634 ;
+type : trace ;
+location_x : 30.186600 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:50:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262640 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186600 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262640 ;
+type : trace ;
+location_x : 30.186600 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:50:40 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:40 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:50:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262645 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186600 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262645 ;
+type : trace ;
+location_x : 30.186600 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:50:45 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:50:45 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262677 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186600 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262677 ;
+type : trace ;
+location_x : 30.186600 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:51:17 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:17 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262677 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186600 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262677 ;
+type : trace ;
+location_x : 30.186600 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:51:17 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:17 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262692 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186451 ;
+longitude : 114.244530 ;
+precision : 100.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262692 ;
+type : trace ;
+location_x : 30.186451 ;
+location_y : 114.244530 ;
+
+2018-08-26 13:51:32 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:32 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262698 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186611 ;
+longitude : 114.244576 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262698 ;
+type : trace ;
+location_x : 30.186611 ;
+location_y : 114.244576 ;
+
+2018-08-26 13:51:38 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:38 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262703 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186260 ;
+longitude : 114.244308 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262703 ;
+type : trace ;
+location_x : 30.186260 ;
+location_y : 114.244308 ;
+
+2018-08-26 13:51:43 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:43 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262703 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262703 ;
+type : event ;
+
+2018-08-26 13:51:43 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 13:51:43 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:51:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262709 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186262 ;
+longitude : 114.244362 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262709 ;
+type : trace ;
+location_x : 30.186262 ;
+location_y : 114.244362 ;
+
+2018-08-26 13:51:49 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:49 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:51:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262715 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186188 ;
+longitude : 114.244293 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262715 ;
+type : trace ;
+location_x : 30.186188 ;
+location_y : 114.244293 ;
+
+2018-08-26 13:51:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:51:55 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262720 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186188 ;
+longitude : 114.244293 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262720 ;
+type : trace ;
+location_x : 30.186188 ;
+location_y : 114.244293 ;
+
+2018-08-26 13:52:00 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:00 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262725 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186188 ;
+longitude : 114.244293 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262725 ;
+type : trace ;
+location_x : 30.186188 ;
+location_y : 114.244293 ;
+
+2018-08-26 13:52:05 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:05 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262730 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186188 ;
+longitude : 114.244293 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262730 ;
+type : trace ;
+location_x : 30.186188 ;
+location_y : 114.244293 ;
+
+2018-08-26 13:52:10 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:10 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262736 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186188 ;
+longitude : 114.244293 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262736 ;
+type : trace ;
+location_x : 30.186188 ;
+location_y : 114.244293 ;
+
+2018-08-26 13:52:16 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:16 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262741 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186201 ;
+longitude : 114.244301 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262741 ;
+type : trace ;
+location_x : 30.186201 ;
+location_y : 114.244301 ;
+
+2018-08-26 13:52:21 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:21 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262747 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186193 ;
+longitude : 114.244286 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262747 ;
+type : trace ;
+location_x : 30.186193 ;
+location_y : 114.244286 ;
+
+2018-08-26 13:52:27 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:27 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262753 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186230 ;
+longitude : 114.244301 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262753 ;
+type : trace ;
+location_x : 30.186230 ;
+location_y : 114.244301 ;
+
+2018-08-26 13:52:33 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:33 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262754 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262754 ;
+type : event ;
+
+2018-08-26 13:52:34 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 13:52:34 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:52:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262759 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186232 ;
+longitude : 114.244308 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262759 ;
+type : trace ;
+location_x : 30.186232 ;
+location_y : 114.244308 ;
+
+2018-08-26 13:52:39 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:39 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262764 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186232 ;
+longitude : 114.244308 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262764 ;
+type : trace ;
+location_x : 30.186232 ;
+location_y : 114.244308 ;
+
+2018-08-26 13:52:44 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:44 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262770 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186232 ;
+longitude : 114.244308 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262770 ;
+type : trace ;
+location_x : 30.186232 ;
+location_y : 114.244308 ;
+
+2018-08-26 13:52:50 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:50 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:52:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262775 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186232 ;
+longitude : 114.244308 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262775 ;
+type : trace ;
+location_x : 30.186232 ;
+location_y : 114.244308 ;
+
+2018-08-26 13:52:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:52:55 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262786 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186232 ;
+longitude : 114.244308 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262786 ;
+type : trace ;
+location_x : 30.186232 ;
+location_y : 114.244308 ;
+
+2018-08-26 13:53:06 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:06 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262792 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186253 ;
+longitude : 114.244331 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262792 ;
+type : trace ;
+location_x : 30.186253 ;
+location_y : 114.244331 ;
+
+2018-08-26 13:53:12 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:12 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262798 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262798 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:21 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vtI6-tR_v2TrJawLaS2vD6o ;
+createtime : 1535262801 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://mp.weixin.qq.com/s?__biz=MzIwMDA3NzAyNQ==&mid=2651319665&idx=1&sn=5cabadbf5382048ca3a215b1e369f499&scene=1&srcid=0724SAfbWsIwRQE2386iXXg2#wechat_redirect ;
+menuid : 425178868 ;
+from : o4Uy9vtI6-tR_v2TrJawLaS2vD6o ;
+to : gh_9aac6b6c619f ;
+time : 1535262801 ;
+type : event ;
+
+2018-08-26 13:53:21 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 13:53:21 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vtI6-tR_v2TrJawLaS2vD6o ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:53:23 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262803 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262803 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:23 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:23 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262809 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262809 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:29 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:29 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262815 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262815 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:36 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:36 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262822 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262822 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:42 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:42 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262827 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262827 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:53:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262834 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186291 ;
+longitude : 114.244339 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262834 ;
+type : trace ;
+location_x : 30.186291 ;
+location_y : 114.244339 ;
+
+2018-08-26 13:53:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:53:55 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262840 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186338 ;
+longitude : 114.244331 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262840 ;
+type : trace ;
+location_x : 30.186338 ;
+location_y : 114.244331 ;
+
+2018-08-26 13:54:00 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:00 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262847 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262847 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:07 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:07 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262854 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262854 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:14 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:14 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262859 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262859 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:19 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:19 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262865 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262865 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:25 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:25 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262873 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262873 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:33 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:33 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262879 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262879 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:39 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:39 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262885 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262885 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:45 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:45 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262890 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186352 ;
+longitude : 114.244347 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262890 ;
+type : trace ;
+location_x : 30.186352 ;
+location_y : 114.244347 ;
+
+2018-08-26 13:54:50 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:50 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:54:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262896 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186335 ;
+longitude : 114.244377 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262896 ;
+type : trace ;
+location_x : 30.186335 ;
+location_y : 114.244377 ;
+
+2018-08-26 13:54:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:54:56 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262901 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186335 ;
+longitude : 114.244377 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262901 ;
+type : trace ;
+location_x : 30.186335 ;
+location_y : 114.244377 ;
+
+2018-08-26 13:55:01 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:01 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262906 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186331 ;
+longitude : 114.244415 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262906 ;
+type : trace ;
+location_x : 30.186331 ;
+location_y : 114.244415 ;
+
+2018-08-26 13:55:06 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:06 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262912 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186331 ;
+longitude : 114.244423 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262912 ;
+type : trace ;
+location_x : 30.186331 ;
+location_y : 114.244423 ;
+
+2018-08-26 13:55:12 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:12 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262918 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186359 ;
+longitude : 114.244438 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262918 ;
+type : trace ;
+location_x : 30.186359 ;
+location_y : 114.244438 ;
+
+2018-08-26 13:55:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:23 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262923 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186396 ;
+longitude : 114.244438 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262923 ;
+type : trace ;
+location_x : 30.186396 ;
+location_y : 114.244438 ;
+
+2018-08-26 13:55:23 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:23 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262928 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186396 ;
+longitude : 114.244431 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262928 ;
+type : trace ;
+location_x : 30.186396 ;
+location_y : 114.244431 ;
+
+2018-08-26 13:55:28 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:28 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262934 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186403 ;
+longitude : 114.244446 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262934 ;
+type : trace ;
+location_x : 30.186403 ;
+location_y : 114.244446 ;
+
+2018-08-26 13:55:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262940 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262940 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:55:40 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:40 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262945 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262945 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:55:45 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:45 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262951 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262951 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:55:51 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:51 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:55:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262956 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262956 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:55:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:55:56 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262962 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262962 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:56:02 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:02 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262967 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262967 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:56:07 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:07 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262973 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262973 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:56:13 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:13 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262978 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262978 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:56:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262984 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186453 ;
+longitude : 114.244499 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262984 ;
+type : trace ;
+location_x : 30.186453 ;
+location_y : 114.244499 ;
+
+2018-08-26 13:56:24 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:24 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:30 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262990 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262990 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:56:30 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:30 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535262995 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535262995 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:56:35 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:35 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263001 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263001 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:56:41 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:41 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263007 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263007 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:56:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263012 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263012 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:56:52 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:52 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:56:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263018 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263018 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:56:58 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:56:58 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:03 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263023 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263023 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:03 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:03 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263029 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186480 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263029 ;
+type : trace ;
+location_x : 30.186480 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:09 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:09 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263034 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186487 ;
+longitude : 114.244514 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263034 ;
+type : trace ;
+location_x : 30.186487 ;
+location_y : 114.244514 ;
+
+2018-08-26 13:57:14 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:14 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263039 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186489 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263039 ;
+type : trace ;
+location_x : 30.186489 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:19 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:19 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263045 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186489 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263045 ;
+type : trace ;
+location_x : 30.186489 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:25 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:25 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263051 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186489 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263051 ;
+type : trace ;
+location_x : 30.186489 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:31 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:31 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263057 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186489 ;
+longitude : 114.244507 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263057 ;
+type : trace ;
+location_x : 30.186489 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:37 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:37 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263062 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186560 ;
+longitude : 114.244514 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263062 ;
+type : trace ;
+location_x : 30.186560 ;
+location_y : 114.244514 ;
+
+2018-08-26 13:57:42 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:42 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263067 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186604 ;
+longitude : 114.244507 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263067 ;
+type : trace ;
+location_x : 30.186604 ;
+location_y : 114.244507 ;
+
+2018-08-26 13:57:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263071 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263071 ;
+type : event ;
+
+2018-08-26 13:57:51 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 13:57:51 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 13:57:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263073 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186584 ;
+longitude : 114.244492 ;
+precision : 30.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263073 ;
+type : trace ;
+location_x : 30.186584 ;
+location_y : 114.244492 ;
+
+2018-08-26 13:57:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:57:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263078 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186583 ;
+longitude : 114.244492 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263078 ;
+type : trace ;
+location_x : 30.186583 ;
+location_y : 114.244492 ;
+
+2018-08-26 13:57:58 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:57:58 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263085 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186583 ;
+longitude : 114.244492 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263085 ;
+type : trace ;
+location_x : 30.186583 ;
+location_y : 114.244492 ;
+
+2018-08-26 13:58:05 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:05 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263097 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186583 ;
+longitude : 114.244492 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263097 ;
+type : trace ;
+location_x : 30.186583 ;
+location_y : 114.244492 ;
+
+2018-08-26 13:58:17 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:17 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263102 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186558 ;
+longitude : 114.244591 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263102 ;
+type : trace ;
+location_x : 30.186558 ;
+location_y : 114.244591 ;
+
+2018-08-26 13:58:22 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:22 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263107 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186537 ;
+longitude : 114.244583 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263107 ;
+type : trace ;
+location_x : 30.186537 ;
+location_y : 114.244583 ;
+
+2018-08-26 13:58:27 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:27 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263114 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186560 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263114 ;
+type : trace ;
+location_x : 30.186560 ;
+location_y : 114.244614 ;
+
+2018-08-26 13:58:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263119 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186535 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263119 ;
+type : trace ;
+location_x : 30.186535 ;
+location_y : 114.244614 ;
+
+2018-08-26 13:58:39 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:39 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263125 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263125 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:58:45 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:45 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263130 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263130 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:58:50 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:50 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:58:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263136 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263136 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:58:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:58:56 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263142 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263142 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:02 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:02 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263148 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263148 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:08 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:08 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263154 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263154 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:14 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:14 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263159 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263159 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:19 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:19 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263165 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263165 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:25 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:25 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263174 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263174 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263180 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263180 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:40 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:40 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263185 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263185 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:45 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:45 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263194 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263194 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:54 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:54 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 13:59:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263199 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263199 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 13:59:59 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 13:59:59 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263204 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186548 ;
+longitude : 114.244621 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263204 ;
+type : trace ;
+location_x : 30.186548 ;
+location_y : 114.244621 ;
+
+2018-08-26 14:00:04 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:04 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263209 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263209 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:09 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:09 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263215 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263215 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:15 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:15 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263221 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263221 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:21 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:21 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263226 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263226 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:26 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263231 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263231 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:31 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:31 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263237 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263237 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:37 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:37 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263242 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263242 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:42 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:42 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263247 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263247 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263253 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244606 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263253 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244606 ;
+
+2018-08-26 14:00:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:00:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263258 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263258 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244614 ;
+
+2018-08-26 14:00:58 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:00:58 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:01:03 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263263 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263263 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244614 ;
+
+2018-08-26 14:01:03 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:01:03 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:01:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263268 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263268 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244614 ;
+
+2018-08-26 14:01:08 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:01:08 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:01:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263278 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263278 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244614 ;
+
+2018-08-26 14:01:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:01:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:01:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263286 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263286 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244614 ;
+
+2018-08-26 14:01:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:01:26 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:01:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+createtime : 1535263292 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.186596 ;
+longitude : 114.244614 ;
+precision : 10.000000 ;
+from : oSI4Lj6tnumhWy8zdvl9wZXRCby4 ;
+to : gh_0c02969f70a6 ;
+time : 1535263292 ;
+type : trace ;
+location_x : 30.186596 ;
+location_y : 114.244614 ;
+
+2018-08-26 14:01:32 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 14:01:32 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 14:44:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7hSSkwNBliFyB7MrtpHqrw ;
+createtime : 1535265871 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_e10fa43148e69ad406feb9ec05a727f9 ;
+ticket : gQGh8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyOXhiakI5OGU4YmYxMDAwMDAwN3gAAgS34QBbAwQAAAAA ;
+from : oSI4Lj7hSSkwNBliFyB7MrtpHqrw ;
+to : gh_0c02969f70a6 ;
+time : 1535265871 ;
+type : subscribe ;
+scene : e10fa43148e69ad406feb9ec05a727f9 ;
+
+2018-08-26 14:44:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7hSSkwNBliFyB7MrtpHqrw ;
+createtime : 1535265877 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj7hSSkwNBliFyB7MrtpHqrw ;
+to : gh_0c02969f70a6 ;
+time : 1535265877 ;
+type : event ;
+
+2018-08-26 14:44:37 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 14:44:37 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7hSSkwNBliFyB7MrtpHqrw ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 15:41:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+createtime : 1535269304 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+to : gh_0c02969f70a6 ;
+time : 1535269304 ;
+type : event ;
+
+2018-08-26 15:41:44 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 15:41:44 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjyzXPKFjb2E0bxO9ISSzasA ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 15:59:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1535270377 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1535270377 ;
+type : event ;
+
+2018-08-26 15:59:37 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 15:59:37 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 16:00:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270415 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183729 ;
+longitude : 113.260101 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270415 ;
+type : trace ;
+location_x : 23.183729 ;
+location_y : 113.260101 ;
+
+2018-08-26 16:00:15 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:00:15 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:00:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270421 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183722 ;
+longitude : 113.260155 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270421 ;
+type : trace ;
+location_x : 23.183722 ;
+location_y : 113.260155 ;
+
+2018-08-26 16:00:21 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:00:21 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:00:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270427 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183722 ;
+longitude : 113.260155 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270427 ;
+type : trace ;
+location_x : 23.183722 ;
+location_y : 113.260155 ;
+
+2018-08-26 16:00:27 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:00:27 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:00:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270433 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183691 ;
+longitude : 113.260239 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270433 ;
+type : trace ;
+location_x : 23.183691 ;
+location_y : 113.260239 ;
+
+2018-08-26 16:00:33 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:00:33 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:00:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270439 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183691 ;
+longitude : 113.260239 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270439 ;
+type : trace ;
+location_x : 23.183691 ;
+location_y : 113.260239 ;
+
+2018-08-26 16:00:39 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:00:39 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:01:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270483 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183729 ;
+longitude : 113.260109 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270483 ;
+type : trace ;
+location_x : 23.183729 ;
+location_y : 113.260109 ;
+
+2018-08-26 16:01:24 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:01:24 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:01:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270488 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183741 ;
+longitude : 113.260056 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270488 ;
+type : trace ;
+location_x : 23.183741 ;
+location_y : 113.260056 ;
+
+2018-08-26 16:01:28 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:01:28 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:01:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270497 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183741 ;
+longitude : 113.260056 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270497 ;
+type : trace ;
+location_x : 23.183741 ;
+location_y : 113.260056 ;
+
+2018-08-26 16:01:37 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:01:37 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:02:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270538 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183743 ;
+longitude : 113.260056 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270538 ;
+type : trace ;
+location_x : 23.183743 ;
+location_y : 113.260056 ;
+
+2018-08-26 16:02:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:02:18 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 16:02:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1535270542 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.183741 ;
+longitude : 113.260056 ;
+precision : 10.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1535270542 ;
+type : trace ;
+location_x : 23.183741 ;
+location_y : 113.260056 ;
+
+2018-08-26 16:02:22 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 16:02:22 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 17:54:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1OyCNupcFKrB2bkHc2w_6k ;
+createtime : 1535277240 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_a360befa95f8e830d75cf629e49b0b13 ;
+ticket : gQFy8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyM0hVNkFyOGU4YmYxMDAwME0wN1AAAgRk4c1aAwQAAAAA ;
+from : oSI4Lj1OyCNupcFKrB2bkHc2w_6k ;
+to : gh_0c02969f70a6 ;
+time : 1535277240 ;
+type : subscribe ;
+scene : a360befa95f8e830d75cf629e49b0b13 ;
+
+2018-08-26 19:07:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8W52rnb021OBC0ylr87MRs ;
+createtime : 1535281676 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.506420 ;
+longitude : 114.296928 ;
+precision : 30.000000 ;
+from : oSI4Lj8W52rnb021OBC0ylr87MRs ;
+to : gh_0c02969f70a6 ;
+time : 1535281676 ;
+type : trace ;
+location_x : 30.506420 ;
+location_y : 114.296928 ;
+
+2018-08-26 19:07:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 19:07:56 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 19:13:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+createtime : 1535282017 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.766708 ;
+longitude : 116.321121 ;
+precision : 570.000000 ;
+from : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+to : gh_0c02969f70a6 ;
+time : 1535282017 ;
+type : trace ;
+location_x : 35.766708 ;
+location_y : 116.321121 ;
+
+2018-08-26 19:13:37 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 19:13:37 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 19:13:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+createtime : 1535282027 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.766708 ;
+longitude : 116.321121 ;
+precision : 570.000000 ;
+from : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+to : gh_0c02969f70a6 ;
+time : 1535282027 ;
+type : trace ;
+location_x : 35.766708 ;
+location_y : 116.321121 ;
+
+2018-08-26 19:13:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 19:13:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 19:13:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+createtime : 1535282029 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+to : gh_0c02969f70a6 ;
+time : 1535282029 ;
+type : event ;
+
+2018-08-26 19:13:49 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 19:13:49 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 19:14:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+createtime : 1535282061 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.766708 ;
+longitude : 116.321121 ;
+precision : 570.000000 ;
+from : oSI4LjxIfCOB5C_ReNML-K9Cai_8 ;
+to : gh_0c02969f70a6 ;
+time : 1535282061 ;
+type : trace ;
+location_x : 35.766708 ;
+location_y : 116.321121 ;
+
+2018-08-26 19:14:22 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 19:14:22 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 20:00:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535284836 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434860 ;
+longitude : 116.626907 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535284836 ;
+type : trace ;
+location_x : 35.434860 ;
+location_y : 116.626907 ;
+
+2018-08-26 20:00:36 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 20:00:36 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 20:00:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535284838 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535284838 ;
+type : event ;
+
+2018-08-26 20:00:38 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 20:00:38 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 20:00:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535284839 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434860 ;
+longitude : 116.626793 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535284839 ;
+type : trace ;
+location_x : 35.434860 ;
+location_y : 116.626793 ;
+
+2018-08-26 20:00:39 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 20:00:39 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 20:01:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535284871 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434860 ;
+longitude : 116.626793 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535284871 ;
+type : trace ;
+location_x : 35.434860 ;
+location_y : 116.626793 ;
+
+2018-08-26 20:01:11 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 20:01:11 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 20:01:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535284871 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535284871 ;
+type : event ;
+
+2018-08-26 20:01:11 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 20:01:11 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 20:01:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1535284885 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 426966533 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1535284885 ;
+type : event ;
+
+2018-08-26 20:01:25 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 20:01:25 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 20:03:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1535285039 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434849 ;
+longitude : 116.626747 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1535285039 ;
+type : trace ;
+location_x : 35.434849 ;
+location_y : 116.626747 ;
+
+2018-08-26 20:03:59 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 20:03:59 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 21:07:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1535288830 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi ;
+menuid : 426966533 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1535288830 ;
+type : event ;
+
+2018-08-26 21:07:11 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 21:07:11 response :
+------------
+Array:
+params : Array ;
+
+2018-08-26 21:29:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1535290154 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 34.194447 ;
+longitude : 113.766121 ;
+precision : 940.000000 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1535290154 ;
+type : trace ;
+location_x : 34.194447 ;
+location_y : 113.766121 ;
+
+2018-08-26 21:29:14 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 21:29:14 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 21:29:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1535290154 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 426966533 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1535290154 ;
+type : event ;
+
+2018-08-26 21:29:14 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-08-26 21:29:14 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+MsgType : text ;
+Content : 平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+6月27-28日全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-08-26 21:51:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljym73_hE4AF0rsF6HmQzFAc ;
+createtime : 1535291510 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 32.996193 ;
+longitude : 114.008820 ;
+precision : 67.000000 ;
+from : oSI4Ljym73_hE4AF0rsF6HmQzFAc ;
+to : gh_0c02969f70a6 ;
+time : 1535291510 ;
+type : trace ;
+location_x : 32.996193 ;
+location_y : 114.008820 ;
+
+2018-08-26 21:51:50 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 21:51:50 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 21:51:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljym73_hE4AF0rsF6HmQzFAc ;
+createtime : 1535291515 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 32.996078 ;
+longitude : 114.008965 ;
+precision : 28.000000 ;
+from : oSI4Ljym73_hE4AF0rsF6HmQzFAc ;
+to : gh_0c02969f70a6 ;
+time : 1535291515 ;
+type : trace ;
+location_x : 32.996078 ;
+location_y : 114.008965 ;
+
+2018-08-26 21:51:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 21:51:55 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 21:52:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljym73_hE4AF0rsF6HmQzFAc ;
+createtime : 1535291539 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 32.996113 ;
+longitude : 114.008965 ;
+precision : 23.000000 ;
+from : oSI4Ljym73_hE4AF0rsF6HmQzFAc ;
+to : gh_0c02969f70a6 ;
+time : 1535291539 ;
+type : trace ;
+location_x : 32.996113 ;
+location_y : 114.008965 ;
+
+2018-08-26 21:52:19 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 21:52:19 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:08:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0KnPdFqkPN6JJTchGf1M8g ;
+createtime : 1535296080 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.422703 ;
+longitude : 116.601959 ;
+precision : 30.000000 ;
+from : oSI4Lj0KnPdFqkPN6JJTchGf1M8g ;
+to : gh_0c02969f70a6 ;
+time : 1535296080 ;
+type : trace ;
+location_x : 35.422703 ;
+location_y : 116.601959 ;
+
+2018-08-26 23:08:00 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:08:00 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:34:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297681 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607447 ;
+longitude : 114.260414 ;
+precision : 20.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297681 ;
+type : trace ;
+location_x : 30.607447 ;
+location_y : 114.260414 ;
+
+2018-08-26 23:34:41 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:34:41 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:34:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297687 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607807 ;
+longitude : 114.260307 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297687 ;
+type : trace ;
+location_x : 30.607807 ;
+location_y : 114.260307 ;
+
+2018-08-26 23:34:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:34:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:35:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297729 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607807 ;
+longitude : 114.260307 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297729 ;
+type : trace ;
+location_x : 30.607807 ;
+location_y : 114.260307 ;
+
+2018-08-26 23:35:29 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:35:29 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:35:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297735 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607792 ;
+longitude : 114.260292 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297735 ;
+type : trace ;
+location_x : 30.607792 ;
+location_y : 114.260292 ;
+
+2018-08-26 23:35:35 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:35:35 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:35:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297741 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607738 ;
+longitude : 114.260307 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297741 ;
+type : trace ;
+location_x : 30.607738 ;
+location_y : 114.260307 ;
+
+2018-08-26 23:35:41 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:35:41 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:35:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297747 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607779 ;
+longitude : 114.260292 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297747 ;
+type : trace ;
+location_x : 30.607779 ;
+location_y : 114.260292 ;
+
+2018-08-26 23:35:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:35:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:35:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297753 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607779 ;
+longitude : 114.260292 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297753 ;
+type : trace ;
+location_x : 30.607779 ;
+location_y : 114.260292 ;
+
+2018-08-26 23:35:54 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:35:54 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-08-26 23:35:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+createtime : 1535297759 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.607828 ;
+longitude : 114.260284 ;
+precision : 30.000000 ;
+from : oSI4Lj7HwkBCuORzZlkP5zBAEjhc ;
+to : gh_0c02969f70a6 ;
+time : 1535297759 ;
+type : trace ;
+location_x : 30.607828 ;
+location_y : 114.260284 ;
+
+2018-08-26 23:35:59 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-08-26 23:35:59 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+

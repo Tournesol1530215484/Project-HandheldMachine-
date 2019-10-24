@@ -1,0 +1,7 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'bartact.bartact'}{/if}<li {if $_GPC['method']=='picture'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/picture')}">图片</a></li>
+    {if true}<li {if $_GPC['method']=='picture_type'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/picture_type')}">图片分类</a></li>{/if}
+    {if true}<li {if $_GPC['method']=='picture_title'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/picture_title')}">图片快捷语</a></li>{/if}		 
+</ul> 	 	 
+</div>                                   	 	

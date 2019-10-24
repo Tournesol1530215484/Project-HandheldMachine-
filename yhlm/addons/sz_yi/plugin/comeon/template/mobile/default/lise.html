@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- start-smoth-scrolling -->
+    <title>{$list['xi_name']}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+
+        /*设置全局样式*/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {margin: 0;padding: 0;}
+        body {font: 16px/1.5 "微软雅黑",Arial;color: #444;}
+        div {box-sizing: border-box;}
+        a {text-decoration: none;color: #002f7b;}
+        ul { list-style: none;}
+        img {border: none;vertical-align: middle;}
+        /*公用样式*/
+        .fl {float: left;}
+        .fr {float: right;}
+        /*容器*/
+        .container { max-width: 750px;min-width: 320px;margin: 50px auto 0 auto;background: white;}
+        .distance {margin-top: 10px;}
+        /*头部*/
+        .header {width: 100%;background: white;position: fixed;top: 0;left: 0;height: 50px;line-height: 40px;border-bottom: 3px solid #8693b3;}
+        .header img {margin-left: 10px;width: 150px;}
+        /*banner*/
+        .banner img {width: 100%;}
+        /*关于*/
+        .about {font-size: 20px;text-align: right; margin: 0px 0 0px 0;border-bottom: 1px solid #eee;}
+        .about span {color: #8693b3;font-size: 17px;font-weight: 400;}
+        /*推荐*/
+        /*.recommend{padding: 0 10px;}*/
+        .top {background: #e4e4e4;font-size: 16px;padding-left: 10px;line-height: 30px;margin-top:20px;}
+        .oil {position: relative;overflow: hidden;padding: 10px 0;border-bottom: 1px solid #e4e4e4;}
+        .ol {position: absolute;top: 10px;left: 10px;}
+        .or {margin-left: 100px;word-break: break-all;color: #002f7b;}
+        /*感谢*/
+        .thanks {margin: 30px 0 40px 0;padding: 0 10px;word-break: break-all;text-align: justify;}
+        /*选择*/
+        .choice {text-align: center; margin-bottom: 100px;}
+        .choice .btnOK {border: medium none;border-radius: 5px;font-size: 13px;outline: medium none;padding: 10px 20px;width: 120px; border:1px solid #666;}
+        input[type="reset"], input[type="submit"] {cursor: pointer;}
+        .choice .btnOK:hover {color: #A2A2A2;text-decoration: none; background: #4A515B;transition: .5s all;-webkit-transition: .5s all;-moz-transition: .5s all;-o-transition: .5s all;-ms-transition: .5s all;}
+        .style1 {width: 24%;}
+        .style2{width: 24%;height: 27px;}
+        .style3{width: 60%;height: 27px;}
+        #ddds img{width: 371px;height: 350px;}
+    </style>
+</head>
+<body>
+<div class="aspNetHidden">
+</div>
+
+<div class="aspNetHidden">
+</div>
+<div class="container">
+    <!--头部-->
+    <!--头部结束-->
+    <!--banner-->
+    <div class="banner">
+        <img  src="<?php echo ($_W['siteroot'])?>attachment/{$list['xi_logo']}">
+    </div>
+    <!--banner结束-->
+    <!--关于-->
+    <div class="top">您的爱车相关信息</div>
+    <table style="width: 100%">
+        <tbody>
+        <tr align="left">
+            <td class="style1" style="text-align: left; border-bottom: 1px solid #eee;">&nbsp;&nbsp;&nbsp; 品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 牌：</td>
+            <td style="width: 60%; text-align: left; border-bottom: 1px solid #eee;">{$items['cat_biaoshi']}{$items['cat_name']}<span>
+                <span style="color:Red;" id="lblBrand"></span></span></td>
+        </tr>
+        <tr align="left">
+            <td class="style1" style="text-align: left; border-bottom: 1px solid #eee;">&nbsp;&nbsp;&nbsp; 车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 型：</td>
+            <td style="width: 60%; text-align: left; border-bottom: 1px solid #eee;">{$items['x_name']}<span>
+                <span style="color:Red;" id="lblModels"></span></span></td>
+        </tr>
+        <tr align="left">
+            <td class="style1" style="text-align: left; border-bottom: 1px solid #eee;">&nbsp;&nbsp;&nbsp; 排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 量：</td>
+            <td style="width: 60%; text-align: left; border-bottom: 1px solid #eee;">{$items['pai_name']}<span>
+                <span style="color:Red;" id="lblDisplacement"></span></span></td>
+        </tr>
+        <tr align="left">
+            <td class="style2" style="text-align: left; border-bottom: 1px solid #eee;">&nbsp;&nbsp;&nbsp;生产日期：</td>
+            <td class="style3" style="text-align: left; border-bottom: 1px solid #eee;">{$items['ri_name']}<span>
+                <span style="color:Red;" id="lblProductionTime"></span></span></td>
+        </tr>
+        <tr align="left">
+            <td rowspan="1" class="style1" style="text-align: left; border-bottom: 1px solid #eee;">&nbsp; 自动变速箱:</td>
+            <td style="width: 60%; text-align: left; border-bottom: 1px solid #eee;">{$items['box']}<span>
+                <label runat="server" style="color:Red" id="lblTransmissionType"></label></span></td></tr>
+        </tbody>
+    </table>
+
+    <!--关于结束-->
+    <!--用油推荐-->
+    <div class="recommend">
+        <div class="top">
+            {$list['xi_name']}公司为您用油推荐
+        </div>
+        <table width="100%" cellspacing="0px" cellpadding="0px" style="border: 1px solid #ccc; line-height: 35px; margin-top: 10px; text-indent: 5px;">
+            <tbody>
+            <tr>
+                <td style="width: 20%; border-right: 1px solid #ccc;" rowspan="2" align="center">变<br>速<br>箱<br>油</td>
+                <td style="width: 20%; border-right: 1px solid #ccc;" align="center">加注量(机器更换)</td>
+                <td style="width: 60%;"><font color="red" >{$items['amount']}</font></td>
+            </tr>
+            <tr>
+                <td style="width: 20%; border-right: 1px solid #ccc;border-top: 1px solid #ccc;" align="center">型号</td>
+                <td style="width: 60%; border-top: 1px solid #ccc;"><font color="red" >{$items['xinghao']}</font></td>
+            </tr>
+
+
+            <tr>
+                <td style="width: 20%; border-right: 1px solid #ccc;border-top: 1px solid #ccc;" align="center">发</td>
+                <td style="width: 20%; border-right: 1px solid #ccc;border-top: 1px solid #ccc;" align="center">加注量</td>
+                <td style="width: 60%; border-top: 1px solid #ccc;"><font color="red" >{$items['amountg']}</font></td>
+            </tr>
+            <tr>
+                <td style="width: 20%; border-right: 1px solid #ccc;" align="center">动</td>
+                <td style="width: 20%; border-right: 1px solid #ccc;border-top: 1px solid #ccc;" align="center">原厂标准</td>
+                <td style="width: 60%; border-top: 1px solid #ccc;"><font color="red" >{$items['biaozhun']}</font></td>
+            </tr>
+            <tr>
+                <td style="width: 20%; border-right: 1px solid #ccc;" align="center">机</td>
+                <td style="width: 20%; border-right: 1px solid #ccc;border-top: 1px solid #ccc;" align="center">行驶里程<br/>10万以下</td>
+                <td style="width: 60%; border-top: 1px solid #ccc;"><font color="red" >{$items['mileage']}</font></td>
+            </tr>
+            <tr>
+                <td style="width: 20%; border-right: 1px solid #ccc;" align="center">油</td>
+                <td style="width: 20%; border-right: 1px solid #ccc;border-top: 1px solid #ccc;" align="center">行驶里程<br/>10万以上</td>
+                <td style="width: 60%; border-top: 1px solid #ccc;"><font color="red" >{$items['mileages']}</font></td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+    <div id="ddds">
+        <img  src="<?php echo ($_W['siteroot'])?>attachment/{$items['ulogo']}">
+        <img  src="<?php echo ($_W['siteroot'])?>attachment/{$items['glogo']}">
+    </div>
+    <div>
+        <p>商品链接</p><a href="{$items['link']}">点击购买此产品</a>
+    </div>
+    <!--用油推荐结束-->
+    <div style="padding: 0 10px;">{$list['zhuyi']}</div>
+    <div style="color:red;padding: 0 10px;">{$list['prompt']}</div>
+    <!--感谢-->
+    <div class="thanks">感谢您对{$list['xi_name']}的信任<br>在使用中如有问题，请咨询 <a href="{$list['xi_phone']}"></a> {$list['xi_phone']}服务热线。</div>
+    <!--感谢结束-->
+    <!--选择-->
+    <div class="choice">
+        <a class="btnOK" href="{php echo $this->createPluginMobileUrl('comeon/index',array('cate'=>$item['id']))}">重新选择</a>
+    </div>
+    <!--选择结束-->
+</div>

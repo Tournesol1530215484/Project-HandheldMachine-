@@ -1,0 +1,111 @@
+﻿{template 'common/header'}
+{template 'tabs2'}
+<div class="panel panel-info">
+    <div class="panel-heading">开户工号管理</div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                      
+                <div class='input-group' style="margin: 0.5em 0;"> 
+                    <div class='input-group-addon'>商家</div>
+                    <div class='input-group'>                                        
+                        <input type="text" name="saler" disabled="true" maxlength="30" value="{if !empty($selmerch)}{$selmerch['username']}/{$selmerch['realname']}/{$selmerch['mobile']}{/if}" id="saler" class="form-control" readonly />             
+                        <div class='input-group-btn'>                           
+                            <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus1').modal();">选择商家</button>
+                            <input type="hidden" name="supplier_uid" id="supplier" value="{if !empty($selmerch)}{$selmerch['uid']}{/if}">
+                            <input type="hidden" name="openid" id="openid" value="{$selmerch['openid']}">
+                        </div>                                                                                        
+                    </div>                                                                
+                    <!-- modal start-->
+                        <div id="modal-module-menus1"  class="modal fade" tabindex="-1">
+                            <div class="modal-dialog" style='width: 920px;'>
+                                <div class="modal-content">
+                                    <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择商家</h3></div>
+                                    <div class="modal-body" >
+                                        <div class="row">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="keyword" value="" id="search-kwd" placeholder="请输入用户名/姓名/手机号" />
+                                                <span class='input-group-btn'><button type="button" class="btn btn-default mysearch">搜索</button></span>
+                                            </div>                                     
+                                        </div>                                             
+                                        <div id="module-menus" style="padding-top:5px;"></div>
+                                    </div>               
+                                    <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                </div>
+                            </div>       
+                        </div>                  
+
+                        <script language='javascript'>
+                            $('.mysearch').click(function(){
+                                if( $.trim($('#search-kwd').val())==''){
+                                         Tip.focus('#search-kwd','请输入关键词');
+                                         return;
+                                }
+                                $("#module-menus").html("正在搜索....")
+                                $.get('{php echo $this->createWebUrl('member/selmerch')}', {
+                                    keyword: $.trim($('#search-kwd').val()),
+                                    type:'goods'                
+                                }, function(dat){
+                                    $('#module-menus').html(dat);
+                                });                             
+                            });                     
+
+                            function select_member1(o) {         
+                                $("#supplier").val(o.uid);                                                             
+                                $("#openid").val(o.openid);                                                             
+                                $("#saler").val( o.username+ "/" + o.realname + "/" + o.mobile );
+                                $(".close").click();                                                 
+                            }
+                           </script>                        
+
+                    <!-- modal end -->
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top: 7.5px;">
+                <button class="btn btn-default searchbtn"><i class="fa fa-search"></i> 查询</button>
+            </div>  
+    {if 0}          
+    <select name="uid" class="form-control">
+        {loop $merch $row}
+        <option value="{$row['uid']}">{$row['username']}/{$row['realname']}/{$row['merchname']}</option>
+        {/loop}
+    </select>
+        {/if}               
+        <br>
+        <br>        
+    <div class="panel-body">
+        <table >
+            <tr style="; margin-left: 2rem;">
+                <td style="display: block ; margin-bottom: 15px;">所属易货渠道 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">所属易货运营商/经纪人 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">运营商/经纪人工号 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">运营商/经纪人电话 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">易货开拓工号 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">开拓日期 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">易货服务工号 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">服务开始时间 : <span></span></td>
+            </tr>
+        </table>
+    </div>
+</div>              
+
+</div>
+</div>
+<script>
+    $('.searchbtn').click(function () {
+        var uid=$('#supplier').val();
+        if (!uid) {
+            alert('请选择商家!');
+            return;
+        }
+        $.post(
+            '{php echo $this->createPluginWebUrl("dealmerch/dealmerch_work_number",array("op"=>"getinfo"))}',
+            {uid:uid},
+            function (data) {
+                $('tr td:nth-child(1) span').html(data.result.city);
+                $('tr td:nth-child(2) span').html(data.result.operat);
+                $('tr td:nth-child(4) span').html(data.result.operatmobile);
+
+            },'json');
+    });
+</script>
+{template 'common/footer'}

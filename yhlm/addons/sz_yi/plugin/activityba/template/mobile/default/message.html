@@ -1,0 +1,389 @@
+{template 'common/header'}
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<title>短信充值</title>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    .tips-box{
+        width: 96%;
+        margin: 10px auto;
+    }
+    .tips-box .tips-title{
+        font-size: 14px;
+        color: #000;
+        font-weight: 600;
+        text-align: center;
+        padding: 8px;
+    }
+    .tips-box .little-tips{
+        font-size: 14px;
+        color: #666;
+        padding: 5px;
+        line-height: 22px;
+        background: #fff4e9;
+    }
+    .tips-box .little-tips i{
+        color: red;
+        font-size: 18px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .tips-box .tips-content{
+        font-size: 14px;
+        padding: 5px;
+        color: #333;
+    }
+    .pay-info .pay-info-item{
+        padding: 5px 0 5px 10px;
+
+    }
+    .pay-info .info-tag{
+        width: 100%;/*110px;*/
+        float: left;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    .pay-info .info-val{
+        float: left;
+        width: 100%;/*calc(100% - 110px)*/;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .normal-label{
+        font-weight: normal;
+    }
+    /*覆盖样式 s*/
+    .radio-box .mui-input-row{
+        height: 31px;
+        margin-bottom: 5px;
+    }
+    .radio-box .mui-radio.mui-left label{
+        padding-left: 38px;
+    }
+    .radio-box .mui-input-row label{
+        padding: 8px 5px;
+    }
+    .radio-box .mui-radio.mui-left input[type=radio]{
+        left: 0px;
+        margin-top: 0;
+    }
+    .radio-box .mui-radio input[type=radio]{
+        top: 1px;
+    }
+    .radio-box .mui-input-row:after{
+        height: 0;
+    }
+    .pay-info input[type=text]{
+        width: 100px;
+        background: #fff;
+        height: 30px;
+        line-height: 30px;
+        outline: none;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+    }
+    /*覆盖样式 e*/
+    .pay-btn,
+    .other-pay-btn{
+        width: 96%;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 5px;
+        background: #009BF8;
+        color: #fff;
+        text-align: center;
+        border: 0;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">短信充值</div>
+    </div>
+    <div class="tips-box">
+        <div class="tips-title">短信充值</div>
+        <div class="little-tips"><i class="fa fa-volume-down" aria-hidden="true"></i>须自行购买短信包，低于市价，多买更优惠</div>
+        <div class="tips-content">
+            <ul class="pay-info">
+                <li class="pay-info-item clearfloat">
+                    <div class="info-tag">请选择购买条数</div>
+                    <div class="info-val radio-box">
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">100条</label>
+                            <input class="message-num" name="message_num" type="radio" value="100" checked>
+                        </div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">5000条</label>
+                            <input class="message-num" name="message_num" type="radio" value="5000">
+                        </div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">10000条</label>
+                            <input class="message-num" name="message_num" type="radio" value="10000">
+                        </div>
+                    </div>
+                </li>
+                <li class="pay-info-item clearfloat">
+                    <input type="hidden" name="message_price" id="message_price" value="0.1">
+                    <input type="hidden" id="logid" value="0.1">
+
+                    <div class="info-val">
+                        自定义<input type="text" name="customize_num" class="customize-num" onkeyup="this.value=(this.value).replace(/\D/ig, '');" onpaste="pasteNum">条(单价: 0.1元/条)
+                    </div>
+                </li>
+                <li class="pay-info-item clearfloat">
+                    <div class="info-tag">支付方式</div>
+                    <div class="info-val radio-box">
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">微信支付</label>
+                            <input class="paytype-inp" name="paytype" type="radio" value="1">
+                        </div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">余额支付</label>
+                            <input class="paytype-inp" name="paytype" type="radio" value="2" checked>
+                        </div>
+                    </div>
+                </li>
+                <li class="pay-info-item clearfloat">
+                    <div class="info-tag">所需支付金额</div>
+                    <div class="info-val total-money">￥10.00</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pay-btn">点击进行微信支付</div>
+    <div class="other-pay-btn">点击进行余额支付</div>
+</div>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        //注意: 这里到时候赋值上短信的单价，暂时写死了
+        var message_price = 0.1;
+        function ajsubmit(){  
+            var e_flag = true,
+                l_flag = true;
+            var message_num = 0.00; 
+            if($("input[name='message_num']:checked").isEmpty()){
+                message_num = $(".customize-num").val();
+                if($(".customize-num").isEmpty()){
+                    e_flag = false;
+                }
+                if(!$(".customize-num").isInt()){
+                    l_flag = false;
+                }
+            }else{
+                message_num = $("input[name='message_num']:checked").val();
+                if(!$("input[name='message_num']:checked").isInt()){
+                    l_flag = false;
+                }
+            } 
+            if(!e_flag){
+                $("#loading").remove();
+                core.tip.show('短信条数不能为空');
+                return;
+            }    
+            if(!l_flag){
+                $("#loading").remove();
+                core.tip.show('请输入整数格式的短信条数');
+                return;
+            }
+            if($("input[name='paytype']:checked").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('请选择支付方式');
+                return;
+            }
+            //总价格
+            var money = (parseFloat(message_num)*parseFloat(message_price)).toFixed(2);
+            var paytype = $("input[name='paytype']:checked").val();
+            //提交的相关字段: 总价格 支付方式 购买短信条数(有用的字段是支付方式和购买短信条数,后台自己重新自己计算一遍)
+            data={               
+                op:'message',                  
+                ac:'sub',        
+                money:money,         
+                // ordersn:'{$ordersn}',         
+                // type:'{$_GPC["type"]}',             
+                paytype: paytype,        
+                message_num: message_num
+            };   
+            //console.table(data);                     
+            $('.other-pay-btn').attr('submitting', 1); //获取参数
+            core.pjson('activity/center',data, function (json) {
+                if (json.status==1) {                        
+                    core.tip.show(json.result);                            
+                    setTimeout(function(){                        
+                        //跳转链接地址                       
+                        location.href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'center'))}";
+                    },250);                          
+                    $('.other-pay-btn').removeAttr('submitting');                                                          
+                    return false;                   
+                }else{          
+                    core.tip.show(json.result);
+                    $('.other-pay-btn').removeAttr('submitting');
+                }                
+            });                     
+        }
+        //余额支付
+        $(".other-pay-btn").click(function(){
+            if ($(this).attr('submitting') == '1') { 
+                return; 
+            }  
+            var paytype = $("input[name='paytype']:checked").val();
+            if(paytype == 1){        
+                core.tip.show("请点击-点击进行微信支付-按钮进行支付"); 
+                return;
+            }
+            //余额支付
+            ajsubmit();
+        }); 
+        //处理短信条数单选按钮被选事件
+        $(".message-num").click(function(){
+            var message_num = $("input[name='message_num']:checked").val();
+            //总价格
+            var money = (parseFloat(message_num)*parseFloat(message_price)).toFixed(2);
+            $(".total-money").text("￥"+money);
+            $(".customize-num").val("");
+        });
+        //处理短息条数自定义处理-手动输入
+        $(".customize-num").focus(function(){
+            $("input[name='message_num']").prop("checked",false);
+            var message_num = $(this).val();
+            if(message_num == null || message_num == ''){
+                message_num = 0; 
+            }  
+            //总价格
+            var money = (parseFloat(message_num)*parseFloat(message_price)).toFixed(2);
+            $(".total-money").text("￥"+money);
+        });
+        $(".customize-num").keyup(function(){
+            $("input[name='message_num']").prop("checked",false);
+            var message_num = $(this).val();
+            if(message_num == null || message_num == ''){
+                message_num = 0; 
+            }  
+            //总价格
+            var money = (parseFloat(message_num)*parseFloat(message_price)).toFixed(2);
+            $(".total-money").text("￥"+money);
+        });
+
+        core.pjson('activity/center', {openid:"{$openid}",op:'getinfo'}, function (json) {
+            var result = json.result; 
+            if (json.status != 1) { 
+                core.message(result, "{php echo $this->createMobileUrl('member')}", 'error');
+                return;
+            }      
+            if (result.wechat.success) { 
+                $('#logid').val(result.logid);
+                $(".pay-btn").click(function(){            
+                    if ($(this).attr('submitting') == '1') { 
+                        return; 
+                    }                        
+                    var e_flag = true,
+                        l_flag = true;
+                    var message_num = 0.00; 
+                    if($("input[name='message_num']:checked").isEmpty()){
+                        message_num = $(".customize-num").val();
+                        if($(".customize-num").isEmpty()){
+                            e_flag = false;
+                        }
+                        if(!$(".customize-num").isInt()){
+                            l_flag = false;
+                        }
+                    }else{
+                        message_num = $("input[name='message_num']:checked").val();
+                        if(!$("input[name='message_num']:checked").isInt()){
+                            l_flag = false;
+                        }
+                    } 
+                    if(!e_flag){
+                        $("#loading").remove();
+                        core.tip.show('短信条数不能为空');
+                        return;
+                    }    
+                    if(!l_flag){
+                        $("#loading").remove();
+                        core.tip.show('请输入整数格式的短信条数');
+                        return;
+                    }
+                    //总价格
+                    var money = (parseFloat(message_num)*parseFloat(message_price)).toFixed(2);
+                    var paytype = $("input[name='paytype']:checked").val();
+                    if(paytype != 1){
+                        core.tip.show('请先选择微信支付方式!'); 
+                        return;
+                    }
+                    var logid = $('#logid').val(); 
+                    if (logid == '') {          
+                        core.tip.show('请刷新重试!'); 
+                        return;
+                    }
+                    //这里用内置标签变量处理文章或者活动的id 取名为aid
+                    var aid = "1";
+                    $('.pay-btn').attr('submitting', 1); //获取参数
+                    core.pjson('activity/center', {op: 'deduct', type: 'weixin', money: money, logid: logid}, function (rjson) {
+                        if(rjson.status!=1){
+                            $('.pay-btn').removeAttr('submitting');      
+                            core.tip.show(rjson.result);
+                            return;
+                        }       
+                        // return false;//这行代码你到时候注意吧,我是参考易货码激活那个页面做的,搬过来,正常要去掉的吧
+                        var wechat = rjson.result.wechat;
+                        WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                            'appId': wechat.appid ? wechat.appid : wechat.appId,
+                            'timeStamp': wechat.timeStamp,
+                            'nonceStr': wechat.nonceStr,
+                            'package': wechat.package,
+                            'signType': wechat.signType,
+                            'paySign': wechat.paySign,
+                        }, function (res) {
+                            if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                                core.tip.show('支付成功!');
+                                //支付成功后的代码
+
+                                ajsubmit();
+                                    
+                                //.....  
+                            } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+                                $('.pay-btn').removeAttr('submitting');
+                                core.tip.show('取消支付');
+                            } else {  
+                                $('.pay-btn').removeAttr('submitting'); 
+                                alert(res.err_msg);
+                            }
+                        });
+                    }, true, true);
+               });
+            };
+        });
+    });
+    function pasteNum(){
+        $("input[name='message_num']").prop("checked",false);
+        var message_num = $(this).val();
+        if(message_num == null || message_num == ''){
+            message_num = 0; 
+        }  
+        //总价格
+        var money = (parseFloat(message_num)*parseFloat(message_price)).toFixed(2);
+        $(".total-money").text("￥"+money);
+    }
+</script>
+{template 'common/footer'}

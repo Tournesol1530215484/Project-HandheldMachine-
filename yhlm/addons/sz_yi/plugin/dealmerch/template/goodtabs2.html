@@ -1,0 +1,19 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+   
+    {ifp 'shop.goods.view'}<li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'goods' } class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/goods')}">商品管理</a></li>{/if}
+    {ifp 'shop.goods.view'}<li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'dealgoods_for' } class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealgoods_for')}">商品审核</a></li>{/if}
+
+    <li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'dealmerch_sales_statis' } class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_sales_statis')}">商品销售统计</a></li>
+
+    <li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'dealmerch_stockchange' } class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_stockchange')}">库存变更记录</a></li>
+
+     <li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'report_goods_type' && $operation == 'display' ||$operation == 'post'} class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/report_goods_type')}">投诉类型</a></li>
+
+    <li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'report_goods_type' && $operation == 'list' } class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/report_goods_type',array('op'=>'list'))}">投诉商品信息</a></li>
+
+
+
+    			 		 		  	 	 	 	       
+</ul> 		 	 	 
+</div>

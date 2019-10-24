@@ -1,0 +1,18 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    
+    <li {if $_GPC['method']=='merch'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/merch')}">活动商管理</a></li>	 	
+
+    <li {if $_GPC['method']=='merch_add'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/merch_add',array('op'=>'post'))}">添加活动商</a></li> 
+
+    <li {if $_GPC['method']=='member' && $_GPC['op'] == 'recharge'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/member',array('op'=>'recharge'))}">会员充值明细</a></li>	 	 	 	 	 	
+      
+    <li {if $_GPC['method']=='member' && $_GPC['op'] == 'list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/member',array('op'=>'list'))}">会员名单</a></li> 
+
+    <li {if $_GPC['method']=='member' && $_GPC['op'] == 'reward'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/member',array('op'=>'reward'))}">打赏明细</a></li> 		 	  	 		
+    {if $_GPC['debug']}
+    <li {if $_GPC['method']=='report_type' && $_GPC['op'] == 'list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/report_type',array('op'=>'list'))}">举报信息</a></li> 		 	  	 		
+    {/if}
+
+</ul>
+</div>                                   

@@ -1,0 +1,183 @@
+{template 'common/header'}
+<title>客服消息</title><!-- 这里要动态获取标题，内置标签变量？ -->
+<link rel="stylesheet" href="../addons/sz_yi/template/mobile/default/member/merch/css/dropload.css">
+<script src="../addons/sz_yi/template/mobile/default/member/merch/js/dropload.min.js"></script>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    #big_body{width:100%;margin:0px; float: left;}
+  	.customer_top {height: 44px; width: 100%; background: #f00605;  border-bottom: 1px solid #ccc;}
+  	.back{
+        height: 100%;
+        line-height: 44px;
+        width: 44px;
+        margin-left: 10px;
+        float: left;
+        font-size: 16px;
+        color: #fff;
+        position: relative;
+    }
+    /*返回大于号按钮样式*/
+    .back:after {
+      content: "";
+      display: block;
+      clear: both;
+      width: 10px;
+      height: 10px;
+      border-left: 2px solid rgb(255,255,255);
+      border-bottom: 2px solid rgb(255,255,255);
+      position: absolute;
+      left: 10%;
+      top: 50%;
+      margin-top: -2px;
+      -moz-transform: rotate(45deg) translateY(-50%);
+      -ms-transform: rotate(45deg) translateY(-50%);
+      -o-transform: rotate(45deg) translateY(-50%);
+      -webkit-transform: rotate(45deg) translateY(-50%);
+      transform: rotate(45deg) translateY(-50%);
+    }
+  	.customer_top .title1{height: 100%;line-height: 44px;display: inline-block;width: calc(100% - 60px);text-align: center;color:#fff;font-size: 1.6rem;}
+  	.back{width: 30px; height: 100%;font-size: 22px;border-radius: 50%;float: left;line-height: 44px; font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;font-weight: bold;}
+    .msg-list{
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+    .msg-list .msg-box{
+        background: #fff;
+        padding: 10px 3% 20px;
+        margin-top: 10px;  
+        font-size: 1.2rem;  
+    }
+    .msg-list .msg-box .msg-time{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        color: #9c9c9c;
+        margin-bottom: 10px;
+    }
+    .msg-list .msg-box .msg-title{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        color: #f3403f;
+    }
+    .no-msg{
+        text-align: center;
+        color: #9c9c9c;
+        margin-top: 100px;
+    }      
+</style>
+
+<div id="big_body">
+    <div class="customer_top">
+  		<div class="back" onclick='history.back()'></div>
+  		<div class="title1">消息中心</div>
+	</div> 
+    <div class="msg-list">
+        <!-- 这里循环消息记录 -->
+       <!--  <div class="msg-box">
+            <div class="msg-time">2018-06-11 16:09</div>
+            <div class="msg-title">重要通知来了</div>
+            <div class="msg-content">无非相遇别离、无非是找到自己的位置，并安然地待下去。除此之外，别无其他。值得庆幸的是，我们依然能够剔除掉表面的玩意，内敛而踏实地活着。在灿烂的夜晚里，依然能够笑着流出了泪。</div>
+        </div>
+        <div class="msg-box">
+            <div class="msg-time">2018-06-11 16:09</div>
+            <div class="msg-title">重要通知来了</div>
+            <div class="msg-content">无非相遇别离、无非是找到自己的位置，并安然地待下去。除此之外，别无其他。值得庆幸的是，我们依然能够剔除掉表面的玩意，内敛而踏实地活着。在灿烂的夜晚里，依然能够笑着流出了泪。</div>
+        </div>
+        <div class="no-msg">你暂无消息哦~</div> -->
+        <!-- 循环end 后要删 -->
+    </div>
+</div>
+<script id="tpl_msg" type="text/html">
+    <%if op=='post'%>
+        <%each list as g%> 
+            <div class="msg-box">
+                <div class="msg-time"><%g.createtime%></div>
+                <div class="msg-title"><%g.title%></div> 
+                <div class="msg-content">数量 : <%g.total%>  总价格 : <%g.price%>  状态: <%g.sure%> 买家 : <%g.nickname%>/<%g.realname%></div>
+            </div>   
+        <%/each%>
+    <%else if op == 'local'%> 
+    <%each list as g%> 
+        <div class="msg-box"> 
+            <div class="msg-time"><%g.createtime%></div> 
+            <div class="msg-title"><%g.title%></div>  
+            <div class="msg-content">数量 : <%g.total%>  总价格 : <%g.price%>  状态: <%g.sure%> 买家 : <%g.nickname%>/<%g.realname%></div>
+        </div>
+        <%/each%>
+    <%else if op == 'goods'%>
+        <%each list as g%> 
+       <div class="msg-box"> 
+            <div class="msg-time">商品名 : <%g.title%></div> 
+            <div class="msg-title">申请时间 : <%g.sub_time%></div>  
+            <div class="msg-content">
+                <%if g.status == 0%>  
+                    申请审核中
+                <%else if g.status == 1%>
+                    审核通过
+
+                    审核时间 : <%g.audit_time%>  
+                <%else if g.status == 2%>
+                    审核失败 
+
+                    原因 : <%g.note%>
+  
+                    审核时间 : <%g.audit_time%> 
+                <%/if%>
+            </div> 
+        </div>  
+         <%/each%> 
+    <%else if op == 'friend'%>  
+        <%each list as g%>        
+        <div class="msg-box">  
+            <div class="msg-time">好友转账</div>  
+            <div class="msg-title">单号 : <%g.ordersn%></div>   
+            <div class="msg-content">  
+                您的好友 <%g.nickname%>/<%g.realname%> 向您转账了<%g.currency%> 换货码 
+            </div>     
+        </div>     
+         <%/each%>   
+     <%else if op == 'consult'%>  
+        <%each list as g%>
+            <a href="<%g.url%>">
+                <div class="msg-box">  
+                    <div class="msg-time">商家 : <%g.merchname%></div>  
+                    <div class="msg-title"> 最新消息   <%g.time%></div>   
+                    <div class="msg-content">   
+                        <%if g.type == 1%>回复消息<%else%>内容<%/if%> : <%g.content%>         
+                    </div>     
+                </div> 
+            </a>     
+        <%/each%>  
+    <%/if%>   
+</script>  
+<script id="tpl_null" type="text/html">
+    <div class="no-msg">你暂无消息~</div>
+</script> 
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        var page = 0; 
+        $('#big_body').dropload({
+            scrollArea : window,
+            loadDownFn : function(me){ 
+                if(page<0) {me.noData();return ;} 
+                core.json('barter/message', {op:'{$_GPC['op']}',page:page}, function(json) {
+                        
+                    if (json.status == 0) {
+                        alert('你还不是换货商家,快去申请商家吧');
+                    }  
+                    if(json.result.count != json.result.pageNum || json.status == 0){ 
+                        page=-1;  
+                        me.lock(); 
+                        me.noData();  
+                    }else{ 
+                        page++;
+                    }  
+                    json.result.count!=0 && json.status != 0 && $(".msg-list").append(tpl('tpl_msg',json.result) );
+                    me.resetload(); 
+                }, true);
+            }
+        });
+    });
+</script>
+{template 'common/footer'}

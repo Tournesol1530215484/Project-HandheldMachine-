@@ -1,0 +1,383 @@
+﻿{template 'common/header'}
+<div class="panel panel-info">
+    {if $op == 'list'}
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="op" value="list" />
+            <input type="hidden" name="p" value="agency" />
+            <input type="hidden" name="method" value="ad" />
+            <div class="form-group">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告编号</label>
+                    <div class="col-sm-10 col-lg-10 col-xs-10">
+                        <input type="" name="adsn" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告名称</label>
+                    <div class="col-sm-10 col-lg-10 col-xs-10">
+                        <input type="" name="title" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <button class="btn btn-default" ><i class="fa fa-search"></i> 搜索</button>
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    {if 'statistics.export.order'}          
+                    <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                    {/if}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">共计 <span style="color:red; ">{$totalcount}</span> 条广告 </div>
+    <div class="">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+            <tr><th style="width:13%">广告编号</th>
+                <th style="width:34%">广告名称</th>
+                <th style="width:8%">核心记忆词</th>
+                <th style="width:8%;">创建时间</th>
+                <th style="width:8%">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $list $item}
+            <tr style="background: #eee">
+                <td>{$item['adsn']}</td>
+                <td>{$item['title']}</td>
+                <td>{$item['core']}</td>
+                <td>{php echo date('Y-m-d H:i:s',$item['ctime'])}</td>
+                <td></td>
+            </tr>
+            {/loop}
+        </table>
+        {$pager}
+    </div>
+</div>
+{elseif $op == 'draft'}
+    <div class="panel-heading"></div>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="sz_yi" />
+                <input type="hidden" name="do" value="plugin" />
+                <input type="hidden" name="op" value="draft" />
+                <input type="hidden" name="p" value="agency" />
+                <input type="hidden" name="method" value="ad" />
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告编号</label>
+                        <div class="col-sm-10 col-lg-10 col-xs-10">
+                            <input type="" name="adsn" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告名称</label>
+                        <div class="col-sm-10 col-lg-10 col-xs-10">
+                            <input type="" name="title" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <button class="btn btn-default" ><i class="fa fa-search"></i> 搜索</button>
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {if 'statistics.export.order'}          
+                        <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                        {/if}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">共计 <span style="color:red; ">{$totalcount}</span> 条广告 </div>
+        <div class="">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                <tr><th style="width:13%">广告编号</th>
+                    <th style="width:34%">广告名称</th>
+                    <th style="width:8%">核心记忆词</th>
+                    <th style="width:8%;">创建时间</th>
+                    <th style="width:8%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {loop $list $item}
+                <tr style="background: #eee">
+                    <td>{$item['ordersn']}</td>
+                    <td>{$item['realname']}</td>
+                    <td>{$item['mobile']}</td>
+                    <td>{$item['title']}</td>
+                    <td>{$item['title']}</td>
+                </tr>
+                {/loop}
+            </table>
+            {$pager}
+        </div>
+    </div>
+{elseif $op == 'bonus'}
+     <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="sz_yi" />
+                <input type="hidden" name="do" value="plugin" />
+                <input type="hidden" name="op" value="code" />
+                <input type="hidden" name="p" value="agency" />
+                <input type="hidden" name="method" value="ad" />
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告编号</label>
+                        <div class="col-sm-10 col-lg-10 col-xs-10">
+                            <input type="" name="adsn" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告名称</label>
+                        <div class="col-sm-10 col-lg-10 col-xs-10">
+                            <input type="" name="title" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <button class="btn btn-default" ><i class="fa fa-search"></i> 搜索</button>
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {if 'statistics.export.order'}          
+                        <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                        {/if}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">共计 <span style="color:red; ">{$totalcount}</span> 条广告 </div>
+        <div class="">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                <tr><th style="width:13%">广告编号</th>
+                    <th style="width:8%">用户名</th>
+                    <th style="width:24%">广告名称</th>
+                    <th style="width:8%">核心记忆词</th>
+                    <th style="width:8%">获得红包</th>
+                    <th style="width:9%">领取时间</th>
+                    <th style="width:8%">红包类型</th>
+                    <th style="width:8%">版本</th>
+                    <th style="width:8%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {loop $list $item}
+                <tr style="background: #eee">
+                    <td>{$item['adsn']}</td>
+                    <td>{$item['realname']}</td>
+                    <td>{$item['title']}</td>
+                    <td>{$item['core']}</td>
+                    <td>{$item['money']}</td>
+                    <td>{php echo date('Y-m-d H:i:s',$item['ctime'])}</td>
+                    <td>{if $item['putInType'] == 1}
+                            现金红包
+                        {else}
+                            易货码红包
+                        {/if}
+                    </td>
+                    <td>{$item['version']}</td>
+                    <td> <label class="label label-control label-success showmodal" data-id="{$item['id']}">查看详细</label></td>
+                </tr>
+                {/loop}
+            </table>
+            {$pager}
+        </div>
+    </div>
+{elseif $op == 'consume'}
+    <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="sz_yi" />
+                <input type="hidden" name="do" value="plugin" />
+                <input type="hidden" name="op" value="bonus" />
+                <input type="hidden" name="p" value="agency" />
+                <input type="hidden" name="method" value="ad" />
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告编号</label>
+                        <div class="col-sm-10 col-lg-10 col-xs-10">
+                            <input type="" name="adsn" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">广告名称</label>
+                        <div class="col-sm-10 col-lg-10 col-xs-10">
+                            <input type="" name="title" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <button class="btn btn-default" ><i class="fa fa-search"></i> 搜索</button>
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {if 'statistics.export.order'}          
+                        <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                        {/if}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">共计 <span style="color:red; ">{$totalcount}</span> 条广告 </div>
+        <div class="">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                <tr><th style="width:13%">广告编号</th>
+                    <th style="width:24%">广告名称</th>
+                    <th style="width:8%">核心记忆词</th>
+                    <th style="width:8%">审核状态</th>
+                    <th style="width:9%">投入条数/人数</th>
+                    <th style="width:8%">投放类型</th>
+                    <th style="width:8%">用户收到数</th>
+                    <th style="width:8%">用户已拆数</th>
+                    <th style="width:8%">剩余条数</th>
+                    <th style="width:9%">投放开始时间</th>
+                    <th style="width:8%">有效期</th>
+                    <th style="width:9%;">实际结束时间</th>
+                    {if false}
+                    <th style="width:8%">操作</th>
+                    {/if}
+                </tr>
+                </thead>
+                <tbody>
+                {loop $list $item}
+                <tr style="background: #eee">
+                    <td>{$item['adsn']}</td>
+                    <td>{$item['title']}</td>
+                    <td>{$item['core']}</td>
+                    <td>
+                        {if $item['status'] == 1 && now == 1}
+                            {if $item['stime'] > time()}
+                                未开始
+                            {elseif $item['etime'] < time()}
+                                已结束
+                            {else}
+                                播放中
+                            {/if}
+                        {elseif $item['status'] == 0}
+                            审核中
+                        {/if}
+                    </td>
+                    <td>{$item['bonus']}</td>
+                    <td>{if $item['putIntype'] == 1}
+                            现金红包
+                        {else}
+                            易货码红包
+                        {/if}
+                    </td>
+                    <td>{$item['receive']}</td>
+                    <td>{$item['got']}</td>
+                    <td>{$item['residual']}</td>
+                    <td>{php echo date('Y-m-d H:i:s',$item['stime'])}</td>
+                    <td>{$item['time']}</td>
+                    <td>{php echo date('Y-m-d H:i:s',$item['etime'])}</td>
+                    {if false}
+                    <td>null</td>
+                    {/if}
+                </tr>
+                {/loop}
+            </table>
+            {$pager}
+        </div>
+    </div>
+{/if}
+<div id="modal-module-menus"  class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>查看广告</h3></div>
+            <div class="modal-body" >
+                <div class="panel-body">
+                    <table class="table table-hover bonusDetail">
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $('.showmodal').click(function(){
+        var o  = $(this);
+        var data={id:o.data('id'),uid:'{$_W['uid']}'};
+        $.post('{php echo $this->createPluginWebUrl('agency/ad',array('op'=>'detail'))}',data,function(e){
+
+            var html='';
+            html+='<tr>';
+            html+='<th style="width:15%;">用户名</th>';
+            html+='<th style="width:15%;">角色</th>';
+            html+='<th style="width:15%;">分红类型</th>';
+            html+='<th style="width:15%;">金额</th>';
+            html+='<th style="width:25%;">时间</th>';
+            html+='</tr>';
+            if (e.result) {
+                for (var i = 0; i <= e.result.length -1; i++) {
+                    html+='<tr>';
+                    html+='<td>'+e.result[i].realname+'</td>';
+
+                    if (e.result[i].level == 1) {
+                        html+='<td>1级代理</td>';
+                    }else if(e.result[i].level == 2){
+                        html+='<td>二级代理</td>';
+                    }else if(e.result[i].level == 3){
+                        html+='<td>区域代理</td>';
+                    }else if(e.result[i].level == 4){
+                        html+='<td>市级代理</td>';
+                    }else if(e.result[i].level == 5){
+                        html+='<td>省级代理</td>';
+                    }else if(e.result[i].level == 6){
+                        html+='<td>经纪人</td>';
+                    }else if(e.result[i].level == 7){
+                        html+='<td>平台</td>';
+                    }
+
+                    if (e.result[i].bonusType == 1) {
+                        html+='<td>现金红包</td>';
+                    }else{
+                        html+='<td>易货码红包</td>';
+                    }
+                    html+='<td>'+e.result[i].money+'</td>';
+                    html+='<td>'+e.result[i].ctime+'</td>';
+                }
+            }else{
+                html+='<td>暂</td>';
+                html+='<td>无</td>';
+                html+='<td>分</td>';
+                html+='<td>红</td>';
+            }
+            html+='</tr>';
+            $('.bonusDetail').html(html);
+            $('#modal-module-menus').modal('show');
+        },'json');
+    });         
+
+</script>
+
+</div>
+</div>
+{template 'common/footer'}

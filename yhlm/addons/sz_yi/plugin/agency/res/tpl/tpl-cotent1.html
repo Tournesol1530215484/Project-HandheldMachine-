@@ -1,0 +1,83 @@
+<style type="text/css">
+	input[type=file] {
+	    opacity: 0;
+
+	    width: 100%;
+	    height: 100%;
+	   
+	}
+	.finish {
+	    float: right;
+	    width: 50%;
+	    background: #FD6A0A;
+	    position: fixed;
+	    right: 0;
+	    bottom: 0;
+	    text-align: center;
+	    height: 50px;
+	    line-height: 50px;
+	}
+	.Add_picture{
+		float: left;
+	    width: 50%;
+	    background: #fff;
+	    position: fixed;
+	    left: 0;
+	    bottom: 0;
+	    text-align: center;
+	    border-top: 1px solid #ccc;
+	     height: 50px;
+	    line-height: 50px;
+	}
+	.Add_picture>button {
+	    background: transparent;
+	    border: none;
+	    color: #000;
+	    line-height: 40px;
+	    font-size: 16px;
+	}
+	.msbox{width: 96%;text-align: left;box-sizing: border-box;min-height:80%;}
+	.customer_top .title1 {
+		width: 48%;
+	    padding-left: 3%;
+	    color: #000;
+	   
+	}
+	.customer_top {
+	    height: 44px;
+	    width: 100%;
+	    background: #fff;
+	    border-bottom: 1px solid #ccc;
+	    color: #000;
+	}
+	.back{color: #000;}
+	.msbox img{
+		width: 100%;
+		margin: 24px 0;
+		height: auto;
+		padding-bottom: 10px;
+	
+	}
+
+	
+</style>
+
+<div id="big_body" style="overflow-y:scroll ;height:100% ;" class="content">
+    <div class="customer_top">
+		<div class="title" onclick=" $('input[name=\''+'content'+'\']').val($('#content').html()); $('.content').remove(); $('#big_body').show(); "><span class="back">&lt;</span></div>
+		<div class="title1">
+			<p style="float:left;width:48%;">宝贝描述</p>
+		</div>
+		<div class="Add_picture">
+			<img style="width: 20px;height: 20px;" src="/addons/sz_yi/plugin/suppliermenu/res/add_picture.png"/>
+			<button>添加图片</button>
+			<input style="display: line-block;" type="file" id='imgfile' name="describe" />
+		</div>
+		<div class="finish"><button onclick=" $('input[name=\''+'content'+'\']').val($('#content').html()); $('.content').remove(); $('#big_body').show(); ">完成</button></div>
+	</div>
+    <div contenteditable="true" id="content" class="msbox" style="border:1px solid red">
+    	
+    </div>
+</div>
+<script type="text/javascript">
+</script>

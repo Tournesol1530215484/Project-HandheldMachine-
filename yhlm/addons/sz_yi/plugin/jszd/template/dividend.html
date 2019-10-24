@@ -1,0 +1,202 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $operation == 'post'}
+{elseif $operation == 'display'}
+<!-- 筛选区域 -->
+<form action="" method="post" name='accounting_from' class="form-inline form" onsubmit="return formcheck(this)"  id="do0">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="quick-link" style=" margin: 15px 0px!important;">
+                <span>快捷浏览：</span>
+					<button type="submit" style=" background-color:#FFFFFF"  value="<?php echo time();?>"  name="day1" id="day1" onclick="copyText()" st >今天</button> | 
+               		<button type="submit" style=" background-color:#FFFFFF"  value="<?php echo date("Y-m-d",time());?>"  name="day2" id="day2" onclick="copyText()" >最近三天</button> |
+               		<button type="submit" style=" background-color:#FFFFFF"  value="<?php echo date("Y-m-d",time());?>"  name="day3" id="day3" onclick="copyText()" >本周</button> |
+                	<button type="submit" style=" background-color:#FFFFFF"  value="<?php echo date("Y-m-d",time());?>"  name="day4" id="day4" onclick="copyText()" >本月</button> |
+              		<button type="submit" style=" background-color:#FFFFFF"  value="<?php echo date("Y-m-d",time());?>"  name="day5" id="day5" onclick="copyText()" >最近三个月</button>
+				
+                <div class="btn-group">
+                    <a href="javascript:;" class="btn btn-primary">流水账单</a>
+                    <a href="./index.php?c=fenxiao&a=accounting&view_type=base&createtime_start=2016-07-21&createtime_end=2016-07-22&view_type=stat" class="btn btn-default">汇总账单</a>
+                </div>   
+            </div>
+            <div class="form-group mr10">
+                <span>筛选类型：</span>
+                <select name='first_input' id='first_input' class="form-control" onchange="set_div_display(this.value)">
+					<option value='0'>请选择</option>
+                    <option value='id'>分红员ID</option>
+                    <option value='nickname'>分红员姓名</option>
+                    <option value='realname'>客户名称</option>
+                    <option value='ordersn'>订单编号</option>
+                </select>
+                <input type='text' name='input_value' value="" class="form-control">
+            </div>
+            <div class="form-group mr10">
+                <span>结算时间：</span>
+                
+		<script type="text/javascript">
+			require(["daterangepicker"], function($){
+				$(function(){
+					$(".daterange").each(function(){
+						var elm = this;
+						$(this).daterangepicker({
+							startDate: $(elm).prev().prev().val(),
+							endDate: $(elm).prev().val(),
+							format: "YYYY-MM-DD",
+						}, function(start, end){
+							$(elm).find(".date-title").html(start.toDateStr() + " 至 " + end.toDateStr());
+							$(elm).prev().prev().val(start.toDateStr());
+							$(elm).prev().val(end.toDateStr());
+						});
+					});
+				});
+			});
+		</script>
+	<input name="time[start]" type="hidden" value="2016-07-21" />
+	<input name="time[end]" type="hidden" value="<?php echo date( 'Y-m-d',time());?>" />
+	
+	<button class="btn btn-default daterange " type="button"><span class="date-title">2016-07-21 至 <?php echo date( 'Y-m-d',time());?></span> <i class="fa fa-calendar"></i></button>
+	        
+	<span style="float:left; margin-right:15px; margin-top:5px;">
+			<label  style="margin-right:6px;">
+				<input type='radio' value='0' name='searchtime' {if $_GPC['searchtime']=='0'}checked{/if}>不搜索
+			</label>
+			 <label >
+				<input type='radio' value='1' name='searchtime' {if $_GPC['searchtime']=='1'}checked{/if}>搜索
+			</label>
+    </span>  
+	  
+	    
+            </div>
+            <div class="form-group">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> 搜索</button>
+					<input type="hidden" name="token" value="{$_W['token']}" />
+					{ifp 'jszd.temp.export'}
+                  <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+				   {/if}
+                    <script>
+                    function set_href()
+                    {
+                    var _href = './index.php?c=fenxiao&a=accounting&do=accountprint';
+                    var _order = '';
+                    var _user = '';
+                    //遍历指定form表单所有元素
+                    for(var i = 0; i < document.accounting_from.length; i++)
+                    {
+                        var element = document.accounting_from[i];
+                        if(element.type == "checkbox" && element.checked)
+                        {
+                            if(element.value != 'check_all')
+                            {
+                                _order += ',' + document.getElementById('orderid_' + element.value).value;
+                                _user += ',' + document.getElementById('user_' + element.value).value;
+                            }
+                        }
+                    }
+
+                    if(_order == '')document.getElementById('search_href').href = 'javascript:;';
+                    else document.getElementById('search_href').href = _href + '&_order=' + _order + '&_user=' + _user;
+                    }
+                    function setchecked()
+                    {
+                    if(document.getElementById('check_all').checked == false)
+                        $('.account_print').attr('checked', false);
+                    else
+                        $('.account_print').attr('checked', true);
+                    //set_href();
+                    }
+                    </script>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="panel panel-default">
+        <div class="panel-body table-responsive nopadding">
+		<style>
+			th{ text-align:center;BORDER-RIGHT: #cccccc 1PX double;}
+		td{BORDER-RIGHT: #cccccc 1PX double;}
+		</style>
+<table class="table table-hover" id="tab_mall" style='min-width:770px;BORDER: #cccccc 1PX double; text-align:center' >
+    <thead >
+    <tr>
+                                <th style=" width:220px;">订单号</th>
+                                <th  style=" width:120px;">购买员</th>
+                                <th  style=" width:120px;">分红级</th>
+								<th   style=" width:120px;">分红员</th>
+								<th >分红等级</th>
+                                <th style=" width:130px;">订单类型</th>
+                                <th    style=" width:130px;">金额(元)</th>
+                                <th >下单时间</th>
+                                <th >结算时间</th>
+                                <th >结算佣金（元）</th>
+    </tr>
+    </thead>
+    <tbody id="level-list">
+			{loop $list $item}
+							{if $item['realname']}
+                            <tr>
+                                    <td style=" width:100%">{$item['ordersn']}</td>
+                                    <td><label class='label label-primary'></label> {$item['realname']}</td>
+                                    <td><label class='label label-primary'></label> 一层</td>
+									<td><label class='label label-primary'></label> {$item['realname_1']}</td>
+										<td><label class='label label-primary'></label>{$item['levelname']}</td>
+                                    {if $item['hile']>0}
+                                    <td><label class='label label-primary'></label>供应商订单</td>
+                                    {else}
+                                    <td><label class='label label-primary'></label>商城订单</td>
+                                    {/if}
+                                    <td><label class='label label-primary'></label> ￥{php echo number_format($item['price'],2)}</td>
+                                    <td><label class='label label-primary'></label> {php echo date('Y-m-d H:i:s', $item['createtime'])}</td>
+									<td><label class='label label-primary'></label>{if $item['paytime']} {php echo date('Y-m-d H:i:s', $item['paytime'])}{else}{/if}</td>
+									<td><label class='label label-primary'></label> ￥{php echo $item['money']}</td>
+                                    
+                            </tr>
+							{/if}
+                 {/loop}
+	
+    <tr>
+        <td>汇总</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>{php echo number_format($cum,2);}(元)</td>
+
+    </tr>
+
+    </tbody>
+	  	
+</table>
+<div align="center">{$pager}</div>
+        </div>
+    </div>
+    <div class="quotes"></div>
+<script>
+function get_order_detail(url)
+{
+	$.post(url, {}, function(resp)
+	{
+		document.getElementById('order_detail').innerHTML = resp;
+	});
+}
+</script>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+{else if $operation == 'addtype'}
+
+{elseif $operation == 'postdata'}
+   
+
+
+{elseif $operation == 'list'}
+   
+ 
+{/if}
+{template 'web/_footer'}

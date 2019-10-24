@@ -1,0 +1,164 @@
+{template 'common/header'}
+
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="{php echo $this->createWebUrl('sysset',array('op'=>'shop'))}">会员设置</a></li>
+</ul> 
+</div>
+
+<link href="../addons/sz_yi/plugin/article/template/imgsrc/article.css" rel="stylesheet">
+<style type="text/css">
+    .setmenu .form-group{margin-bottom: 0;}
+    .border_bg{ border: 1px #ccc solid;border-radius: 4px; margin-bottom: 10px; background-color: #fff; }
+    .border_bg .panel-heading{ background-color: #e8ecef; color: #000; }
+</style>
+<div class="main rightlist">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" >
+        <input type='hidden' name='setid' value="{$set['id']}" />
+        <input type='hidden' name='op' value="oks" />
+        <div class="panel panel-default" style="background-color: transparent; border: none;">
+        	<div class="border_bg">
+        		<div class='panel-heading'>基本设置</div>
+        		<div class='panel-body'>
+	                <div class="form-group">
+	                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">邀请码开关</label>
+		                    <div class="col-sm-9 col-xs-12">
+		                        <label class='radio-inline'><input type='radio' name='oks[yaoqing]' value='1' {if $set['shop']['yaoqing']==1}checked{/if}/> 开启</label>
+		                        <label class='radio-inline'><input type='radio' name='oks[yaoqing]' value='0' {if $set['shop']['yaoqing']==0}checked{/if} /> 关闭</label>
+								<span class='help-block'>开启后,请填写文字广告区，邀请码自动获取</span>
+		                    </div>
+	                	</div>
+	                </div>
+					 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">广告语</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <textarea rows="5" cols="50" style=" width:100%;" class="form-control"  name="oks[guanggao]">{$set['shop']['guanggao']}</textarea>
+                    </div>
+                </div>
+
+	            </div>
+        	</div>
+
+	        <div class="border_bg">
+            	<div class='panel-heading'>奖励设置</div>
+	            <div class='panel-body'>
+					                <div class="form-group">
+	                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">奖励开关</label>
+		                    <div class="col-sm-9 col-xs-12">
+		                        <label class='radio-inline'><input type='radio' name='oks[jiangli]' value='1' {if $set['shop']['jiangli']==1}checked{/if}/> 开启</label>
+		                        <label class='radio-inline'><input type='radio' name='oks[jiangli]' value='0' {if $set['shop']['jiangli']==0}checked{/if} /> 关闭</label>
+								<span class='help-block'>开启后,会员注册成功后，奖得到系统设置的奖励</span>
+		                    </div>
+							
+	                	</div>
+	                </div>
+					<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">推荐人获得</label>
+                     <div class="col-sm-9 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="oks[reccredit]" class="form-control" value="{$set['shop']['reccredit']}" />
+                            <div class="input-group-addon">积分</div>
+                            <input type="text" name="oks[recmoney]" class="form-control" value="{$set['shop']['recmoney']}" />
+                            <div class="input-group-addon">元现金送优惠券</div>
+			   
+			<div class='input-group-btn recgroup'>
+				<input type='hidden' name='oks[reccouponid]' id='reccouponid' value="{$set['shop']['reccouponid']}" class="reccouponid"/>
+				<button type='button' onclick='selectCoupon("rec")'  class='btn btn-default' style='border-radius:0'>
+				{if !empty($reccouponid)}[{$reccouponid['id']}]{$reccouponid['couponname']} {$set['shop']['reccouponnum']} 张{else}请选择{/if}
+				</button>
+			</div>
+    		  <input type="text" name="oks[reccouponnum]" class="form-control" value="{$set['shop']['reccouponnum']}" />
+                <div class="input-group-addon">张</div>
+             
+                        </div>
+                            
+            
+                            
+                    </div>
+                </div>
+				  <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">关注者获得</label>
+                     <div class="col-sm-9 col-xs-12">   
+                        <div class="input-group">
+                            <input type="text" name="oks[subcredit]" class="form-control" value="{$set['shop']['subcredit']}" />
+                            <div class="input-group-addon">积分</div>
+                            <input type="text" name="oks[submoney]" class="form-control" value="{$set['shop']['submoney']}" />
+                            <div class="input-group-addon">元现金送优惠券</div>
+			  
+			<div class='input-group-btn subgroup'>
+				<input type='hidden' name='oks[subcouponid]' id='subcouponid' value="{$set['shop']['subcouponid']}" class="subcouponid"/>
+				<button type='button' onclick='selectCoupon("sub")' class='btn btn-default' style='border-radius:0'>
+				{if !empty($subcoupon)}[{$subcoupon['id']}]{$subcoupon['couponname']} {$set['shop']['subcouponnum']} 张{else}请选择{/if}
+				</button>
+			</div>
+    		        <input type="text" name="oks[subcouponnum]" class="form-control" value="{$set['shop']['subcouponnum']}" />
+                            <div class="input-group-addon">张</div>
+                              
+							  
+                        </div>
+              
+                    </div>
+                </div>
+				       <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">奖励现金方式</label>
+			                    <div class="col-sm-9 col-xs-12">
+			                        <label class="radio-inline"><input type="radio" name="oks[paytype]" value="0" {if empty($set['shop']['paytype'])}checked{/if} /> 余额</label>
+			                        <label class="radio-inline"><input type="radio" name="oks[paytype]" value="1" {if $set['shop']['paytype']==1}checked{/if} /> 微信钱包</label>
+			                        <span class='help-block'>如果奖励现金，是打到零钱包还是余额<i style="color: red;font-style: normal;">( 打到零钱包需要微信支付，并在后台上传证书 )</i></span>
+			                    </div>
+                </div>
+					            
+	            	<div class="form-group">
+	                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+	                    <div class="col-sm-9 col-xs-12">
+                        	{ifp 'sysset.save.shop'}
+                            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                            <input type="hidden" name="token" value="{$_W['token']}" />
+                        	{/if}
+	                     </div>
+	            	</div> 
+	            </div>
+	        </div>
+        </div>     
+    </form>
+</div>
+<div id="modal-module-menus-coupon"  class="modal fade" tabindex="-1">
+    <div class="modal-dialog" style='width: 920px;'>
+        <div class="modal-content">
+            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择优惠券</h3></div>
+            <div class="modal-body" >
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" value="" id="search-kwd-goods" placeholder="请输入优惠券名称" />
+                        <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_coupons();">搜索</button></span>
+                    </div>
+                </div>
+                <div id="module-menus-coupon" style="padding-top:5px;"></div>
+            </div>
+            <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+        </div>
+   </div>
+</div>
+<script>
+function selectCoupon(type){
+	currentCouponType = type;
+	$('#modal-module-menus-coupon').modal();
+}
+function search_coupons() {
+	$("#module-menus-coupon").html("正在搜索....")
+	$.get('{php echo $this->createPluginWebUrl('coupon/coupon',array('op'=>'query'))}', {
+		keyword: $.trim($('#search-kwd').val())
+		}, function (dat) {
+	$('#module-menus-coupon').html(dat);
+	});
+}
+function select_coupon(o) {
+	$("." + currentCouponType + "couponid").val(o.id);
+	$("."+currentCouponType + "group").find('button').html( "[" + o.id + "]" + o.couponname );
+	$("#modal-module-menus-coupon .close").click();
+}
+</script>		
+
+{template 'web/_footer'}

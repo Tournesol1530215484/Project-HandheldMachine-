@@ -1,0 +1,357 @@
+{template 'common/header'}
+{template 'tabs'}
+<style type='text/css'>
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+</style>
+{if $operation == 'post'}
+<div class="main rightlist">
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+        <input type="hidden" name="id" value="{$su_info['id']}" />
+        <div class='panel panel-default'>
+            <div class='panel-heading'>商家设置</div>
+            <div class='panel-body'>
+                 <div class="form-group">
+                 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span> 商家用户名</label>
+	                    <div class="col-sm-9 col-xs-12">
+	                        {ife 'perm.user' $su_info}
+	                        <input type="text" placeholder="默认加入前缀{$_W['uniacid']}_" name="username" class="form-control"   value="{$su_info['username']}"       {if !empty($su_info)}readonly{/if}/>
+	                        <span class='help-block'>您可以直接输入系统已存在用户，且保证用户密码正确才能添加</span>
+	                        {else}
+	                        <div class='form-control-static'>{$su_info['username']}</div>
+	                        {/if}
+	                    </div>
+	                </div>
+	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                </div>
+	            </div>
+
+	            <div class="form-group">
+                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  商家密码</label>
+	                    <div class="col-sm-9 col-xs-12">
+	                        {ife 'perm.user' $su_info}
+	                        <input type="password" name="password" class="form-control" value="" autocomplete="off" />
+	                        {else}
+	                        <div class='form-control-static'>********</div>
+	                        {/if}
+	                    </div>
+	                </div>
+	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                </div>
+                </div>
+
+				{if empty($id)}
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  商家名称</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="text" name="merchname" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  经营类目</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<select class="form-control" name="typeid" id="">
+								{loop $type $k $v}
+								<option value="{$v[id]}">{$v[title]}</option>
+								{/loop}
+							</select>
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系电话</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="number" name="mobile" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label">所在地区</label>
+						<div class="input-group" style="left: 15px;">
+							<div class="input-group-addon" >区域选择</div>
+							{php echo tpl_fans_form('reside',array('province' =>'','city' =>'','district' =>''));}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label">商家位置</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'verify.store' $item}
+							{php echo tpl_form_field_coordinate('map',array('lng'=>$item['lng'],'lat'=>$item['lat']))}
+							{else}
+							<div class='form-control-static'>lng={$item['lng']},lat={$item['lat']}</div>
+							{/if}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  详细地址</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="text" name="address" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  营业时间</label>
+						<div class="col-sm-9 col-xs-12">
+							<input type="text" name="hours" id="hours" class="form-control" value="{$item['hours']}" />
+							<span class='help-block'>如:07:00 - 22:00</span>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  一句话简介</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="text" name="title" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  排序</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="number" name="display" class="form-control" value="" autocomplete="off" />
+							<span class='help-block'>数字越大越靠前</span>
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  浏览量</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="number" name="browse" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  人均消费</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'perm.user' $su_info}
+							<input type="number" name="average" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-11 col-md-10 col-sm-10 col-xs-12">
+						<div class="col-sm-9 col-xs-12">
+							<div class="tab-pane " id="tab_des">{template 'goods/des'}</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  logo</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'shop.goods' $item}
+							{php echo tpl_form_field_image('logo', $item['logo'])}
+							{else}
+							{if !empty($item['thumb'])}
+							<a href='{php echo tomedia($item['logo'])}' target='_blank'>
+							<img src="{php echo tomedia($item['logo'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+							</a>
+							{/if}
+							{/if}
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  首页图</label>
+					<div class="col-sm-9 col-xs-12">
+						{ife 'shop.goods' $item}
+						{php echo tpl_form_field_image('img', $item['img'])}
+						<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+						{else}
+						{if !empty($item['thumb'])}
+						<a href='{php echo tomedia($item['img'])}' target='_blank'>
+						<img src="{php echo tomedia($item['img'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+						</a>
+						{/if}
+						{/if}
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						</div>
+					</div>
+					</div>
+				</div>
+				{/if}
+                <div class="form-group"></div>
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'perm.user' $su_info}
+                            <input type="hidden" name="uid" value="{$su_info['uid']}" />
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'perm.user.add|perm.user.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+         
+        </div>
+    </form>
+</div>
+
+{/if}
+</div>
+<script language='javascript'>
+ 
+   $(function(){
+     
+        $('#dataform').ajaxForm();
+
+        $(':input[name=submit]').click(function(){
+            if($(this).attr('submitting')=='1'){
+                return;
+            }
+           if ($(':input[name=username]').isEmpty()) {
+                Tip.focus($(':input[name=username]'), '请填写用户名!');
+                return;
+            }
+
+            {if empty($su_info)}
+              if ($(':input[name=password]').isEmpty()) {
+                Tip.focus($(':input[name=password]'), '请输入用户密码!');
+                return;
+            }
+            {/if}
+
+			{if empty($id)}
+            if ($(':input[name=merchname]').isEmpty()) {
+                Tip.focus($(':input[name=merchname]'), '请输入商家名!');
+                return;
+            }
+            if ($(':input[name=typeid]').isEmpty()) {
+                Tip.focus($(':input[name=typeid]'), '请输入经营类目!');
+                return;
+            }
+            if ($(':input[name=mobile]').isEmpty()) {
+                Tip.focus($(':input[name=mobile]'), '请输入联系电话!');
+                return;
+            }
+            if ($(':input[name=address]').isEmpty()) {
+                Tip.focus($(':input[name=address]'), '请输入详细地址!');
+                return;
+            }
+            if ($(':input[name=hours]').isEmpty()) {
+                Tip.focus($(':input[name=hours]'), '请输入营业时间!');
+                return;
+            }
+            if ($(':input[name=browse]').isEmpty()) {
+                Tip.focus($(':input[name=browse]'), '请输入浏览量!');
+                return;
+            }
+            if ($(':input[name=content]').isEmpty()) {
+                Tip.focus($(':input[name=browse]'), '请输入商家描述!');
+                return;
+            }
+            if ($(':input[name=logo]').isEmpty()) {
+                Tip.focus($(':input[name=logo]'), '请选择商家logo!');
+                return;
+            }
+            if ($(':input[name=img]').isEmpty()) {
+                Tip.focus($(':input[name=img]'), '请选择首页大图!');
+                return;
+            }
+
+			{/if}
+            $(this).attr('submitting','1').removeClass('btn-primary');
+            $('#dataform').ajaxSubmit(function(data){
+                data = eval("(" +  data  +")");
+                if(data.result!=1){
+                      $(this).removeAttr('submitting').addClass('btn-primary');
+                      Tip.select($(':input[name=username]'), data.message );
+                      return;
+                }
+                location.href= "{php echo $this->createPluginWebUrl('merchant/merchant')}";
+            })
+        })
+
+   })
+  
+</script>
+{template 'common/footer'}

@@ -1,0 +1,383 @@
+{template 'common/header'}
+<style>
+    .panel-heading{background: #E8ECEF;padding:5px 0px 5px 40px;margin: 20px 0px 0 0;border: 1px solid #CFCFCF;
+        border-bottom: none;font-size: 16px;font-weight: 200;}
+    .panel-body{padding:20px 0;margin-bottom: 20px;border: 1px solid #CFCFCF;border-top: none;background: #fff;}
+    .mag{margin: 10px 0;}
+    .iga-lal{padding: 5px 12px;color: #555;background-color: #f9f9f9;  border: 1px solid #ccc;  border-radius: 4px;}
+    .panel-footer { border-top:none;}
+</style>
+<div class="ulleft-nav">
+    <ul class="nav nav-tabs">
+        {ifp 'bonus.level'}<li {if $_GPC['method']=='level'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonus/level')}">代理商等级</a></li>{/if}
+    </ul>
+</div>
+{if $operation == 'post'}
+<div class="main">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$level['id']}" />
+        <div class=''>
+            <div class='panel-heading'>
+                等级权重
+            </div>
+            <div class='panel-body'>
+                <div class="form-group row" style="margin: 20px;">
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon">等级权重</label>
+                            <input class="form-control" type="text" value="{$level['level']}" name="level">
+                        </div>
+                        <span class="help-block">等级权重，数字越大级别越高。自动升级必填此项，否则不能正常升级</span>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon"><span style='color:red'>*</span> 等级名称</label>
+                            <input type="text" name="levelname" class="form-control" value="{$level['levelname']}" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon">代理比例</label>
+                            <div class='input-group'>
+                                <input type="text" name="agent_money" class="form-control" value="{$level['agent_money']}" />
+                                <span class='input-group-addon'>%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='panel-heading'>
+               <p>升级条件<span class='help-block' style="display: inline-block;padding-left: 15px;padding-top: 20px;">代理商升级条件，不填写默认为不自动升级</span></p>
+            </div>
+            <div class='panel-body'>
+                <div class="col-lg-12">
+                    <div class="col-md-12 col-lg-8 mag">
+                        <div class="input-group">
+                            <label class="input-group-addon">条件满足</label>
+                            <select name="conditions" class="form-control">
+                                <option value="1" {if $level['conditions'] == 1 } selected {/if}>下面条件满足任意一个</option>
+                                <option value="2" {if $level['conditions'] == 2 } selected {/if}>满足所有条件</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>一级分销订单金额满</span>
+                            <input type="text" {if 0}name="ordermoney"{/if} name="update[1]" class="form-control" value="{$update[1]}" />
+                            <span class='input-group-addon'>元</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>分销订单数量满</span>
+                            <input type="text" {if 0}name="ordercount"{/if} name="update[2]" class="form-control" value="{$update[2]}" />
+                            <span class='input-group-addon'>个</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>一级分销订单数量满</span>
+                            <input type="text" {if 0}name="ordercount"{/if} name="update[3]" class="form-control" value="{$update[3]}" />
+                            <span class='input-group-addon'>个</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>自购订单金额满</span>
+                            <input type="text" {if 0}name="ordermoney"{/if} name="update[4]" class="form-control" value="{$update[4]}" />
+                            <span class='input-group-addon'>元</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>自购订单数量满</span>
+                            <input type="text" {if 0}name="ordercount"{/if} name="update[5]" class="form-control" value="{$update[5]}" />
+                            <span class='input-group-addon'>个</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>下级总人数满</span>
+                            <input type="text" {if 0}name="downcount"{/if} name="update[6]" class="form-control" value="{$update[6]}" />
+                            <span class='input-group-addon'>个（分销商+非分销商）</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>一级下级人数满</span>
+                            <input type="text" {if 0}name="downcount"{/if} name="update[7]" class="form-control" value="{$update[7]}" />
+                            <span class='input-group-addon'>个（分销商+非分销商）</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>团队总人数满</span>
+                            <input type="text" {if 0}name="downcount"{/if} name="update[8]" class="form-control" value="{$update[8]}" />
+                            <span class='input-group-addon'>个（分销商）</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>一级团队人数满</span>
+                            <input type="text" {if 0}name="downcountlevel1"{/if} name="update[9]" class="form-control" value="{$update[9]}" />
+                            <span class='input-group-addon'>个（分销商）</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>已提现佣金总金额满</span>
+                            <input type="text" {if 0}name="commissionmoney"{/if} name="update[10]" class="form-control" value="{$update[10]}" />
+                            <span class='input-group-addon'>元</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>分销订单金额满</span>
+                            <input type="text" {if 0}name="commissionmoney"{/if} name="update[11]" class="form-control" value="{$update[11]}" />
+                            <span class='input-group-addon'>元</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mag">
+                        <div class='input-group'>
+                            <span class='input-group-addon'>指定等级</span>
+
+                            <select name='update[12]' class='form-control'>
+                                <option value='0' >请选择</option>
+                                {loop  $commission_level $l}
+                                <option value="{$l['id']}" {if $update[12]==$l['id']}selected{/if}>{$l['levelname']}</option>
+                                {/loop}
+                            </select>
+
+                            <span class='input-group-addon'>一级下级人数</span>
+                            <input type="text" name="update[commission_level]" class="form-control" value="{$update['commission_level']}" />
+                            <span class='input-group-addon'>个</span>
+                        </div>
+                        <span class='help-block'>分红商升级条件，不填写默认为0</span>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+            <div class='panel-heading'>
+               全球分红
+            </div>
+            <div class='panel-body'>
+                <div class="row" style="margin: 0 30px;">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon">全球分红</label>
+                            <div class="iga-lal">
+                                <label class="radio-inline"><input type="radio"  name="premier" value="0" {if $level['premier'] ==0} checked="checked"{/if} /> 否</label>
+                                <label class="radio-inline"><input type="radio"  name="premier" value="1" {if $level['premier'] ==1} checked="checked"{/if} /> 是</label>
+                            </div>
+                        </div>
+                        <span class="help-block">享受全球分红比例</span>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class='input-group'>
+                            <label class="input-group-addon">全球分红比例</label>
+                            <input type="text" name="pcommission" class="form-control" value="{$level['pcommission']}" />
+                            <span class='input-group-addon'>%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon">微信消息</label>
+                            <input class="form-control" type="text" value="{$level['msgtitle']}" name="msgtitle">
+                        </div>
+                        <span class="help-block">微信消息标题</span>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="input-group">
+                            <textarea class="form-control" name="msgcontent">{$level['msgcontent']}</textarea>
+                        </div>
+                        <div class="help-block">模板变量: [昵称] [旧等级] [旧分红比例] [新等级] [新分红比例] [时间] </div>
+                        <div class="help-block">独立微信消息通知。不填写则默认使用通知设置内容</div>
+                    </div>
+                </div>
+            </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-md-3 col-lg-4 control-label"> </label>
+            <div class="col-sm-10 col-md-9 col-lg-8">
+                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+            </form>
+        </div>
+    </form>
+</div>
+<script language='javascript'>
+    $('form').submit(function(){
+        if($(':input[name=levelname]').isEmpty()){
+            Tip.focus($(':input[name=levelname]'),'请输入等级名称!');
+            return false;
+        }
+        return true;
+    })
+    $('table')
+    </script>
+{elseif $operation == 'display'}
+            <form action="" method="post" onsubmit="return formcheck(this)">
+     <div class=''>
+            <div class='panel-heading'>
+                代理商等级设置
+            </div>
+         <style>
+             @media (max-width: 767px){
+                 .table-responsive>.table{width:auto;}
+             }
+         </style>
+         <div class='table-responsive'>
+
+   
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:10%;">等级名称</th>
+                        <th style="width:10%;">分红比例</th>
+                        <th style="width:70%;">升级条件</th>
+                        <th style="width:10%;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loop $list $row}
+                    <tr>
+                        <td>{$row['levelname']}</td>
+                        <td>{$row['agent_money']}%</td>
+                        <td class="condition">
+						<?php $update_con =  json_decode($row['update_con'],true); ?>
+                        <span>
+                            {if $row['conditions']==1}
+                                满足任意一个条件
+                            {else}
+                                满足所有条件
+                            {/if}
+                        </span>
+                        <br>
+                        {if !empty($update_con[1])}
+                        <span>
+                            一级分销订单金额满{$update_con[1]}元 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                         
+                        {if !empty($update_con[2])}
+                        <span>
+                            分销订单数量满{$update_con[2]}个 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                        
+                        {if !empty($update_con[3])}
+                        <span>
+                            一级分销订单数量满{$update_con[3]}个 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                        
+                        {if !empty($update_con[4])}
+                        <span>
+                            自购订单金额满{$update_con[4]}元 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                  
+                        {if !empty($update_con[5])}
+                        <span>
+                            自购订单数量满{$update_con[5]}个 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+
+                      
+                        {if !empty($update_con[6])}
+                        <span>
+                            下级总人数满{$update_con[6]}个（分销商+非分销商）&nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                  
+                        {if !empty($update_con[7])}
+                        <span>
+                            一级下级人数满{$update_con[7]}个（分销商+非分销商）&nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                      
+                        {if !empty($update_con[8])}
+                        <span>
+                           团队总人数满{$update_con[8]}个（分销商 ）&nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                     
+                        {if !empty($update_con[9])}
+                        <span>
+                           一级团队人数满{$update_con[9]}个（分销商 ）&nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                   
+                        {if !empty($update_con[10])}
+                        <span>
+                            已提现佣金总金额满{$update_con[10]}元 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+                      
+                        {if !empty($update_con[11])}
+                        <span>
+                            分销订单金额满{$update_con[11]}元 &nbsp;&nbsp;
+                        </span>
+                        <br>
+                        {/if}
+ 
+
+                        {if !empty($update_con[12])}
+                        <span>
+                            指定等级:
+                            {loop $list $r}
+                                 {if $update_con[12]==$r['id'] }
+                                      {$r['levelname']}
+                                 {/if}
+                            {/loop}
+                            ,一级下级人数满{$update_con['commission_level']}
+                             
+                        </span>
+                        {/if}
+
+
+
+
+
+
+
+
+
+
+			 	 
+                        </td>
+                        <td>
+                            {ifp 'bonus.level.edit'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('bonus/level', array('op' => 'post', 'id' => $row['id']))}">编辑</a>{/if}
+                            {ifp 'bonus.level.delete'}<a class='btn btn-default'  href="{php echo $this->createPluginWebUrl('bonus/level', array('op' => 'delete', 'id' => $row['id']))}" onclick="return confirm('确认删除此等级吗？');return false;">删除</a></td>{/if}
+                           
+
+                    </tr>
+                    {/loop}
+                
+                </tbody>
+            </table>
+
+         </div>
+         <div class='panel-footer'>
+            {ifp 'bonus.level.add'}
+                <a class='btn btn-primary' href="{php echo $this->createPluginWebUrl('bonus/level', array('op' => 'post'))}"><i class="fa fa-plus"></i> 添加新等级</a>
+            {/if}
+         </div>
+     </div>
+         </form>
+{/if}
+</div>
+</div>
+{template 'web/_footer'}

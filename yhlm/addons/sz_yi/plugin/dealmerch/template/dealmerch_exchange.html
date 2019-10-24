@@ -1,0 +1,865 @@
+{template 'common/header'}
+
+{template 'tabs3'}
+
+
+
+<!-- <div class="panel panel-info">
+
+    <div class="panel-heading">按时间查询订单数和订单金额</div>
+
+    <div class="panel-body">
+
+        <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+
+            <input type="hidden" name="c" value="site" />
+
+            <input type="hidden" name="a" value="entry" />
+
+            <input type="hidden" name="m" value="sz_yi" />
+
+            <input type="hidden" name="do" value="plugin" />
+
+            <input type="hidden" name="p" value="dealmerch" />
+
+            <input type="hidden" name="method" value="dealmerch_list" />
+
+            <div class="form-group">
+
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                	<label class="col-xs-12 col-sm-2 col-md-3 col-lg-3 control-label">商家</label>
+
+	                <div class="col-sm-8 col-lg-9 col-xs-12">
+
+	                    <select name='dealmerch_uid' class='form-control'>
+
+	                        <option value=''></option>
+
+	                        {loop $dealmerchs $row}
+
+	                        <option value='{$row['uid']}' {if $_GPC['dealmerch_uid']==$row['uid']}selected{/if}>{$row['username']}</option>
+
+	                        {/loop}
+
+	                    </select>
+
+	                </div>
+
+            	</div>
+
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-2 col-md-3 col-lg-3 control-label">订单号</label>
+
+	                <div class="col-sm-8 col-lg-9 col-xs-12">
+
+	                    <input name="ordersn" type="text"  class="form-control" value="{$_GPC['ordersn']}">
+
+	                </div>
+
+	            </div>
+
+            </div>
+
+             
+
+            <div class="form-group">
+
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-2 col-md-3 col-lg-3 control-label">订单时间</label>
+
+	                <div class="col-sm-2">
+
+	                    <label class="radio-inline"><input type="radio" name="searchtime" value="0" {if empty($_GPC['searchtime'])}checked{/if}>不搜索</label> 
+
+	                    <label class="radio-inline"><input type="radio" name="searchtime" value="1" {if !empty($_GPC['searchtime'])}checked{/if}>搜索</label>
+
+	                </div>	
+
+	                <div class="col-sm-7 col-lg-7 col-xs-12">
+
+	                        {php echo tpl_form_field_daterange('datetime', array('starttime'=>date('Y-m-d H:i',$starttime),'endtime'=>date('Y-m-d H:i',$endtime)), true)}
+
+	                </div>
+
+            	</div>
+
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                    <button class="btn btn-default" ><i class="fa fa-search"></i> 搜索</button>	
+
+	                    <input type="hidden" name="token" value="{$_W['token']}" />
+
+	                    {if 'statistics.export.order'}
+
+	                    <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+
+	                    {/if}
+
+	            </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div> -->
+
+
+
+<!-- 查询 -->
+
+<div class="panel panel-default" style="display:block;" id="list">
+
+	<div class="panel-body">
+
+    	<a class='btn btn-default' style="background-color: #1E95C9; color: #fff; border-radius: 6px;" href="javasctipt:;"  id="add">添加兑换点</a>
+
+    	<a class='btn btn-default' style="background-color: #1E95C9; color: #fff; border-radius: 6px;" href="http://jhzh66.com/web/index.php?c=site&a=entry&method=dealmerch_adminset&p=dealmerch&do=plugin&m=sz_yi"  id="add">兑换管理员管理</a>
+
+	</div> 
+
+   <!--  <div class="form-group">				<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+
+            <div class="col-sm-8 col-lg-9">
+
+                <input type="text" class="form-control"  name="titormob" placeholder='请输入名称或号码'/>
+
+               	<div class="col-sm-3 col-md-3 col-xs-6">
+
+	               	<select name="status" class="form-control" id="stat">
+
+	                	<option>所有</option>
+
+	                	<option name="启用" value="1">启用</option>
+
+	                	<option name="禁用" value="0">禁用</option>
+
+	                </select>
+
+            	</div>
+
+            </div>
+
+        </div>
+
+		<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+
+            <button class="btn btn-default" id="search"><i class="fa fa-search"></i> 搜索</button>
+
+			<input type="hidden" name="token" value="{$_W['token']}" />
+
+        </div>
+
+   </div> -->
+
+   <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12"></div>
+
+    <!-- <div class="panel-heading">共计 <span style="color:red; ">{$totalcount}</span> 个订单 , 金额共计 <span style="color:red; ">{$totalmoney}</span> 元</div> -->
+
+    <div class="">
+
+	<table class="table table-hover">
+
+            <thead class="navbar-inner">
+
+                <tr>
+
+                    <th style='width:50px;'></th>
+
+                    <th style='width:150px;'>兑换点名称</th>
+
+                    <th style='width:150px;'>兑换点地址</th>
+
+                    <th style='width:150px;'>联系电话</th>
+
+                    <th style='width:150px;'>兑换日期</th>
+
+                    <th style='width:150px;'>兑换时间</th>
+
+                    <th style='width:150px;'>状态</th>
+
+                    <th>操作</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {loop $info $row}
+
+                <tr>
+
+		            <td><input type="checkbox" name="id" value="{$row['id']}"> </td>
+
+		            <td>{$row['title']}</td>
+
+               		<td>{$row['address']}</td>
+
+					<td>{$row['mobile']}</td>
+
+					<td>{$row['exchangeDate']}</td>
+
+					<td>{$row['exchangeTime']}</td>
+
+					<td>{if $row['status'] == 1 }<label class="label label-info">启用</label>  {else} <label class="label label-danger">禁用 </label> {/if} </td>
+
+					<td>
+
+						<span class="btn btn-default" style="color: #fff; background-color: #8db98d;" data-id="{$row['id']}"> 编辑 </span>  
+
+						<a class="btn btn-danger" data-id="{$row['id']}" onclick="return window.confirm('确定删除？');" href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange', array('op' => 'delete', 'id'=>$row['id'])); }"> 删除 </a>
+
+						
+
+					</td>
+
+                </tr>
+
+            	{/loop}
+
+            </tbody> 
+
+    </table>
+
+    <span class="btn btn-default" id="sel"> 全选 </span>
+
+    <a href="jasscript:;" class="btn btn-danger" id="del"> 删除 </a>
+
+    </div>
+
+    {$pager}
+
+</div>
+
+
+
+<!-- 添加 -->
+
+
+
+<form action="" method='post' class='form-horizontal' style="display:none;" id="moredata">
+
+    <input type="hidden" name="id" value="{$dealmerchinfo['id']}">
+
+    <input type="hidden" name="op" value="">
+
+    <input type="hidden" name="c" value="site" />
+
+    <input type="hidden" name="a" value="entry" />
+
+    <input type="hidden" name="m" value="sz_yi" />
+
+    <input type="hidden" name="p" value="dealmerch" />
+
+    <input type="hidden" name="method" value="dealmerch_exchange" />
+
+    <div class='panel panel-default'>
+
+        <div class='panel-heading' id="tips">兑换点添加</div>
+
+        <div class='panel-body'>
+
+            <div class="form-group notice">
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+             
+
+                    <div class="col-sm-4">
+
+                        <input type='hidden' id='noticeopenid' name='data[openid]' value="{$dealmerchinfo['openid']}" />
+
+              	
+
+                    </div>				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+            </div>
+
+			<div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换点名称</label>	
+
+	                <div class="col-sm-9 col-xs-12">	
+
+	                       <input type="text" name="title" class="form-control"  />
+
+	                </div>	
+
+	            </div>				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+			</div>	
+
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换点地址</label>	
+
+	                <div class="col-sm-9 col-xs-12">	
+
+	                       	<div class="input-group" style="left: 15px;">
+
+	                       		<input type="text" name="address" class="form-control" />
+
+							</div>
+
+	                </div>				
+
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+            </div>
+
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	            	<label class="col-xs-12 col-sm-3 col-md-3 control-label">联系电话</label>	
+
+	            	<div class="col-sm-9 col-xs-12">	
+
+	                       <input type="text" name="mobile" class="form-control" />
+
+	            	</div>				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label">商家位置</label>
+
+						<div class="col-sm-9 col-xs-12">
+
+							{ife 'verify.store' $item}
+
+							{php echo tpl_form_field_coordinate('map',array('lng'=>$item['lng'],'lat'=>$item['lat']))}
+
+							{else}
+
+							<div class='form-control-static'>lng={$item['lng']},lat={$item['lat']}</div>
+
+							{/if}
+
+						</div>
+
+					</div>
+
+			</div>
+
+
+
+            <div class="form-group">
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换日期</label>	
+
+	                <div class="col-sm-9 col-xs-12 week">
+
+						<label for="week1" style="user-select:none;">
+
+							<input id="week1" type="checkbox" name="exchangeDate[]" value="1"/>周一
+
+						</label>
+
+						<label for="week2" style="user-select:none;">
+
+							<input id="week2" type="checkbox" name="exchangeDate[]" value="2"/>周二
+
+						</label>
+
+						<label for="week3" style="user-select:none;">
+
+							<input id="week3" type="checkbox" name="exchangeDate[]" value="3"/>周三
+
+						</label>
+
+						<label for="week4" style="user-select:none;">
+
+							<input id="week4" type="checkbox" name="exchangeDate[]" value="4"/>周四
+
+						</label>
+
+						<label for="week5" style="user-select:none;">
+
+							<input id="week5" type="checkbox" name="exchangeDate[]" value="5"/>周五
+
+						</label>
+
+						<label for="week6" style="user-select:none;">
+
+							<input id="week6" type="checkbox" name="exchangeDate[]" value="6"/>周六
+
+						</label>
+
+						<label for="week7" style="user-select:none;">
+
+							<input id="week7" type="checkbox" name="exchangeDate[]" value="7"/>周日
+
+						</label>
+
+	                </div>
+
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+            </div>
+
+
+
+    <!--  时间js插件  -->
+
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换时间</label>	
+
+	                <div class="col-sm-9 col-xs-12">	
+
+	                    <input type="text" name="exchangeTime" class="form-control" value="{php echo $dealmerchinfo['exchangeTime']}"  />
+
+	                    	<span class='help-block'>如:07:00 - 22:00</span>
+
+	                </div>				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+            </div>
+
+            <div class="form-group"></div>
+
+
+
+             <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">状态</label>	
+
+	                <div class="col-sm-9 col-xs-12">	
+
+	                       <input type="radio" name="status" value="1" />启用  &nbsp;&nbsp;&nbsp;
+
+	                       <input type="radio" name="status" value="0"/>禁用
+
+	                </div>				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+				</div>
+
+            </div>
+
+            <div class="form-group"></div>
+
+
+
+            <div class="form-group">
+
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+
+                    <div class="col-sm-9 col-xs-12">
+
+                           <div type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  id="onlyone">提交</div>
+
+                           <input type="hidden" name="token" value="{$_W['token']}" />
+
+                       <input type="button" name="back" onclick='history.back()' {ifp 'dealmerch.dealmerch_exchange'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+
+                    </div>
+
+            </div>
+
+   		 </div>
+
+   	</div>   
+
+</form>
+
+<!-- </div> -->
+
+<!-- </div> -->
+
+{template 'common/footer'}
+
+<script type="text/javascript">
+
+	//数据拼接
+
+	var dealdates = document.querySelector('.week');
+
+	var arr;
+
+	dealdates.addEventListener('click', function (e) {
+
+		var el = e.target || e.srcElement;
+
+		if (el.nodeName.toLowerCase() === 'input' && el.type === 'checkbox') {
+
+			arr = select();
+
+		}
+
+	});
+
+	function select () {
+
+		var weekList = [];
+
+		var checkList = document.querySelectorAll('.week input[type=checkbox]');
+
+		for (var i = 0; i < checkList.length; i++) {
+
+			if (checkList[i].checked) {
+
+				weekList.push(checkList[i].getAttribute('value'));
+
+			}
+
+		}
+
+		// console.log(weekList.toString()); 
+
+		return weekList.toString();
+
+	}
+
+</script>
+
+
+
+<script type="text/javascript">
+
+	//编辑
+
+	$('tbody td span').click(function() {
+
+		$('#list').hide();
+
+		$('form').show();
+
+		$('#tips').html('修改兑换点');
+
+		var num = $(this).data('id');
+
+		$.ajax({
+
+			type: "get",
+
+			dataType: "json",
+
+			data: {id: num},
+
+			url: "{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange', array('op'=>'get'))}",
+
+			success: function (msg) {
+
+				// console.log(msg.result.lat);
+
+				if (msg.status == 1) {
+
+					// alert('ok');
+
+					$("input[name='map[lat]']").attr({'placeholder': msg.result.lat, 'value': msg.result.lat});
+
+					$("input[name='map[lng]']").attr({'placeholder': msg.result.lng, 'value': msg.result.lng});
+
+					$("input[name='title']").attr({'placeholder': msg.result.title, 'value':  msg.result.title});
+
+					$("input[name='address']").attr({'placeholder': msg.result.address, 'value': msg.result.address});
+
+					$("input[name='mobile']").attr({'placeholder' : msg.result.mobile, 'value': msg.result.mobile});
+
+					$("input[name='exchangeTime']").attr({'placeholder': msg.result.exchangeTime, 'value': msg.result.exchangeTime});
+
+					// $("input[name='mobile']").attr('placeholder', 'msg.result.mobile');
+
+					if (msg.result.status == 1) { $("[name='status']:eq(0)").prop("checked",true); }
+
+					else { $("[name='status']:eq(1)").prop("checked",true); }
+
+					var arr = msg.result.exchangeDate.split(",");
+
+					var boxes = $("input[name='exchangeDate[]']");
+
+					// console.log(boxes.val());
+
+					for (var j = 0; j < boxes.length; j++) {
+
+						for (var i = 0; i < arr.length; i++) {
+
+							if (arr[i] == boxes[j].value) {
+
+								boxes[j].checked = true;
+
+							}
+
+						}
+
+					}
+
+					
+
+				} 
+
+			}
+
+		});
+
+		$('#onlyone').click(function () {
+
+			transport(num);
+
+		});
+
+	});
+
+
+
+	//提交
+
+	function transport(num) {
+
+		// if (num != 0 ) {  if (num > 1 ) {
+
+		if (num != undefined ) {
+
+			// alert(num);
+
+			//执行修改
+
+			var dates = $('#moredata').serialize();
+
+			$.ajax({
+
+				type: "post",
+
+				data: {op: "post", id: num, data: dates},
+
+				dataType: "json",
+
+				url: "{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange', array('op'=>'post')) }"+dates+'&id='+num,
+
+				// contentType: "application/x-www-form-urlencoded",
+
+				// contentType: false,
+
+				// processData: false,
+
+				success: function (msg) {
+
+					if (msg.status != 1) {
+
+						alert(msg.result);
+
+					} else {
+
+						alert('修改成功');
+
+						window.location.reload();
+
+					}
+
+				}
+
+			});
+
+		} else {
+
+			// alert('add');
+
+			var dates = $('#moredata').serialize();
+
+			// console.log(dates);
+
+			$.ajax({
+
+				type: "post",
+
+				data: {
+
+					op: 'post',
+
+					forms: dates
+
+				},
+
+				dataType: "json" ,	
+
+				url: "{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange',array('op'=>'post')) }"+dates ,
+
+				success: function (msg) {
+
+					// console.log(msg);
+
+					if (msg.status != 1) {
+
+						alert(msg.result);
+
+					} else {
+
+						alert('添加成功');
+
+						window.location.reload();
+
+					}
+
+				}
+
+			});
+
+		}
+
+	}
+
+	//添加
+
+	$('#add').click(function() {
+
+			$('#list').hide();
+
+			$('form').show();
+
+			$('#tips').html('添加兑换点');
+
+			// $("input[name='op']").val('add');
+
+			var num = $(this).data('id');
+
+			// console.log(num);
+
+			//提交
+
+			$("#onlyone").click(function() {
+
+				 transport();
+
+			});
+
+	});
+
+
+
+	//全选
+
+	$("#sel").click(function() {
+
+		$("input[name='id']").prop('checked',true);
+
+	});
+
+
+
+	//删除多条
+
+	$("#del").click(function(ids) {
+
+		var arr=[] ;
+
+		$('input[name="id"]:checked').each(function() {
+
+			arr.push( $(this).val());
+
+			console.log(arr);
+
+		});
+
+		if (window.confirm("确定删除所选记录？") == true) {
+
+			$.ajax({
+
+				type: "get",
+
+				dataType: 'json',
+
+				url: "{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange',array('op'=>'delete'))}"+'&id='+arr,
+
+				success: function(msg){
+
+					if (msg.message == '删除成功') {
+
+						alert(msg.message);
+
+						window.location.reload();
+
+					} else {
+
+						alert(msg.message);
+
+					}
+
+				}
+
+			});
+
+		}
+
+	});
+
+
+
+	//搜索
+
+	$("#search").click(function() {
+
+		// alert('qwewr');
+
+		var titleorn = $("input[name='titormob']").val();
+
+		var tok = $(":hidden[name='token']").val();
+
+		var stat = $("#stat").val();
+
+		// var stat = $('#testSelect option:selected').val(); 
+
+		console.log(titleorn, stat);
+
+		$.ajax({
+
+			type: 'get',
+
+			dataType: "json",
+
+			data: {
+
+				token: tok ,
+
+				status: stat , 
+
+				title: titleorn
+
+			},
+
+			url: "{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange')}",
+
+			success: function(msg) {
+
+				alert('ok');
+
+			}
+
+		})
+
+	});
+
+</script>

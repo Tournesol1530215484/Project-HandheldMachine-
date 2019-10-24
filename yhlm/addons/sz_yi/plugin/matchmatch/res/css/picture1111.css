@@ -1,0 +1,292 @@
+html{
+    font-size: 10px;
+}
+body{
+    background: #efeff4;
+}
+.page_topbar{
+   background: #009BF8;
+}
+.page_topbar a.back{
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    padding-right: 15px;
+    color: #fff;
+}
+.page_topbar .title{
+    color: #fff;
+}
+/*flex居中*/
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.flex-box{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.line-clamp2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.search-box{
+    padding: 5px 3px;
+    background: #fff;
+    margin-bottom: 5px;
+}
+.search-box .activity-icon-box{
+    width: 70px;
+    height: 35px;
+    font-size: 18px;
+    color: #666;
+    line-height: 35px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.search-box .activity-icon-box .current-city{
+    font-size: 14px;
+}
+.search-box .activity-search-btn{
+    width: 40px;
+    height: 35px;
+    font-size: 18px;
+    background: #ccc;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.search-box .activity-user-btn{
+    width: 55px;
+    height: 35px;
+    font-size: 18px;
+    background: #fff;
+    color: #666;
+    line-height: 1.1;/*35px;*/
+    text-align: center;
+}
+.activity-user-btn .activity-bg{
+    display: block;
+    font-size: 10px;
+    line-height: 1.1;
+    margin-top: 1px;
+}
+.search-box .activity-search-inp{
+    width: calc(100% - 165px);
+    margin: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background: #ccc;
+}
+.search-box .activity-search-inp .keywords{
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    padding: 5px;
+    margin: 0;
+    border: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background: #ccc;
+}
+.list-box{
+    margin-bottom: 55px;
+}
+.no-list{
+    padding: 10px;
+    text-align: center;
+    color: #999;
+}
+.list-box .list-ul .list-item{
+    padding: 10px 5px;
+    width: 48%;
+    background: #fff;
+    margin: 0 1% 5px;
+}
+.list-box .list-ul .list-item .pic-box{
+    position: relative;
+}
+.list-box .list-ul .list-item .pic-box .pic{
+    width: 100%;
+}
+.list-box .list-ul .list-item .pic-box .wechat-name{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,.4);
+    font-size: 14px;
+    color: #fff;
+    padding: 3px 0 3px 20px;
+}
+.list-box .list-ul .list-item .bottom-box{
+    margin-top: 5px;
+}
+.list-box .list-ul .list-item .signature{
+    width: calc(100% - 45px);
+    font-size: 12px;
+    color: #999;
+    line-height: 1.4;
+    padding: 0 5px 0 0;
+}
+.list-box .list-ul .list-item .givetop-btn{
+    font-size: 14px;
+    width: 45px;
+    text-align: center;
+    background: #57b367;
+    color: #fff;
+    padding: 2px 15px;
+    position: relative;
+    z-index: 100;
+}
+#list_loading{ 
+    width: 94%;
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}
+/*回到底部*/
+.go-to-top-con{
+    position: fixed;
+    right: 0px;
+    bottom: 15%;
+    z-index: 105;
+}
+.go-to-top-con .gotop{
+    display: none;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 0px 0 0 5px;
+    background: rgba(0,0,0,.5);
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+.go-to-top-con .gotop .icon-block{
+    font-size: 20px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+/*城市选择弹出框*/
+.description_layer{
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 998;
+    display: none;
+}
+.description{
+    height: auto;
+    width: 96%;
+    background: #fff;
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.description .description-tag{
+    font-size: 14px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    position: fixed;
+    width: 100%;
+}
+.description .description-cont{
+    padding: 50px 10px 10px;
+    height: auto;
+    width: 100%;
+    font-size: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.description .close.icon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #666;
+    font-weight: normal;
+    z-index: 11;
+    margin-top:0;
+    margin-left:0;
+    width:24px;
+    height:24px
+}
+.description .close.icon:before{
+    content:'';
+    position:absolute;
+    top:10px;
+    width:24px;
+    height:2px;
+    background-color: currentColor;
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+.description .close.icon:after{
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.mark-tips{
+    margin: 10px 10px 5px;
+    font-size: 12px;
+    color: #666;
+    padding: 0px 5px;
+}
+.city-p-c-a-sle{
+    padding: 5px 10px;
+}
+.add-select {
+    font-size: 14px;
+    border: 1px solid #eee !important;
+    margin-bottom: 5px;
+}
+.select-hide {
+    display: none;
+}
+.city-confirm-btn{
+    font-size: 14px;
+    text-align: center;
+    width: 96%;
+    margin: 10px auto;
+    padding: 10px;
+    background: #009BF8;
+    color: #fff;
+    border-radius: 5px;
+}

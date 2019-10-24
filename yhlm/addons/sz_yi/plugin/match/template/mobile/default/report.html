@@ -1,0 +1,171 @@
+{template 'common/header'}
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.min.css">
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<title>举报</title>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #f00605;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*举报页面*/
+    .report-page .mui-table-view:before{
+        background-color: transparent;
+    }
+    .report-page .report-type-box{
+        font-size: 14px;
+    }
+    .report-page .report-type{
+        text-decoration: none;
+    }
+    .report-page .other-reason-box{
+        width: 94%;
+        margin: 3% auto;
+    }
+    .other-reason-box .other-reason-content{
+        width: 100%;
+        height: 100px;
+        margin: 3% auto;
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid #eee;
+        resize: none;
+    }
+    .other-reason-box .other-reason-content:disabled{
+        background-color: rgb(235, 235, 228);
+    }
+    .report-page .report-confirm-btn{
+        width: 94%;
+        margin: 3% auto;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #eee;
+        background: #ef6867;
+        color: #fff;
+        border-radius: 5px;
+    }
+</style>
+{if empty($_GPC['status'])}
+    {php $_GPC['status'] =1}
+{/if}
+<div id="big_body" class="report-page">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">举报</div>
+    </div>
+    <div class="mui-content report-type-box">
+        <ul class="mui-table-view mui-table-view-radio">
+            {loop $report_type $k $v}
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right report-type {if $v['title'] == '其他原因'}other-report-type{/if}" data-rtype="{$v['id']}"><!-- data-rtype 举报类型-->
+                    {$v['title']}       
+                </a>
+            </li>           
+            {/loop}
+            {if 0}
+            <!-- 测试,到时候true改为false -->
+            <li class="mui-table-view-cell"><!-- mui-selected -->
+                <a class="mui-navigate-right report-type" data-rtype="2">
+                    欺诈信息
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right report-type" data-rtype="3">
+                    散播谣言
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right report-type" data-rtype="4">
+                    信息违法
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right report-type" data-rtype="5">
+                    语言粗俗
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right report-type" data-rtype="6">
+                    涉嫌收集隐私信息
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right report-type other-report-type" data-rtype="7"><!-- other-report-type -->
+                    其他原因
+                </a>
+            </li>
+            {/if}
+        </ul>
+    </div>
+    <div class="other-reason-box">
+        <textarea name="other_reason_content" class="other-reason-content" placeholder="请输入其他原因,最多50个字" maxlength="50" disabled="disabled"></textarea>
+    </div>
+    <div class="report-confirm-btn">提交</div>
+</div>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        //提交举报
+        $('.report-confirm-btn').unbind('click').click(function(){
+            if ($(this).attr('submitting') == '1') {
+                return; 
+            }
+            var $report_dom = $(".report-page .mui-selected .report-type");
+            if($report_dom.length == 0){
+                core.tip.show('请选择举报类型');
+                return false;
+            }else{
+                var report_type = $report_dom.data("rtype");
+                if($report_dom.hasClass("other-report-type") && $(".other-reason-content").isEmpty()){
+                    core.tip.show("请填写其他原因");
+                    return false;
+                }
+                //只有选择其他原因的时候，才可以并且必须填写其他原因内容
+                var content = $(".other-reason-content").val();
+                if(!$report_dom.hasClass("other-report-type")){
+                    content = "";
+                }
+                $(this).attr('submitting', 1); //获取参数
+                //提交举报 提交数据包括(举报类型 举报原因内容 举报文章类型[活动/文章/图片/比赛] 举报文章id)
+                core.pjson('match/center', {op:'report',id:'{$_GPC["id"]}',type:'{$_GPC['type']}',report_type: report_type, content:content}, function (json) {
+                        //json.result.status == 1 代表举报成功成功
+                        if(json.status == 1){
+                            //举报成功执行的代码
+                            core.tip.show(json.result);
+                            $('.report-confirm-btn').removeAttr('submitting');
+                            setTimeout(function(){
+                                location.reload();
+                            },250);          
+                        }else{
+                            core.tip.show(json.result);
+                            $('.report-confirm-btn').removeAttr('submitting');
+                        }
+                }, true);
+            }                       
+        });                             
+        //监听举报类型选择
+        document.querySelector('.report-page .mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+            var $report_dom = $(".report-page .mui-selected .report-type");
+            if($report_dom.hasClass("other-report-type")){
+                $(".other-reason-content").attr("disabled",false);
+            }else{
+                $(".other-reason-content").attr("disabled",true);
+            }
+        });
+    });
+</script>
+{template 'common/footer'}

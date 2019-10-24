@@ -1,0 +1,56 @@
+﻿{template 'common/header'}
+<div class="panel panel-info">
+    <div class="panel-heading">邮费收支明细</div>
+    <div class="panel-body">
+                <label class="col-sm-3 col-md-3 control-label">邮费总额 
+                    <span class="credit3" style="color: #f00;">{$postprice}</span>
+                </label>
+
+                <label class="col-sm-3 col-md-3 control-label">可提现金额 
+                    <span class="credit3" style="color: #f00;">{$costmoney}</span>
+                </label>
+
+                <!-- <label class="col-sm-3 col-md-3 control-label">提现审核金额 
+                    <span class="credit3" style="color: #f00;">{$shenhemoney}</span>
+                </label> -->
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="">
+	<table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style="width:20%">订单编号</th>
+                    <th style="width:10%">商品ID</th>
+                    <th style="width:30%">商品名称</th>
+                    <!-- <th style="width:20%">商品数量</th> -->
+                    <th style="width:10%">邮费</th>                    
+                    <th style="width:20%">交易日期</th>
+                    <!--<th style="width:20%">交易说明</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                {loop $sp_goods $row}
+                <tr style="background: #eee">
+                    <td>{$row['ordersn']}</td>
+                    <td>{$row['id']}</td>
+                    <td>
+                        {$row['goodstitle']}
+                    </td>
+                    <!-- <td>
+                        {$row['optionname']}
+                    </td> -->
+                    <td>{$row['dispatchprice']}</td>
+
+                    <td><b>{php echo date('Y-m-d H:i',$row['paytime'])}</b></td>
+                    <!--<td>{$row['note']}</td>-->
+                </tr>
+            {/loop}
+        </table>
+        {$pager}
+    </div>
+</div>
+</div>
+</div>
+
+{template 'common/footer'}

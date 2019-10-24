@@ -1,0 +1,83 @@
+
+-------------------------------------------------
+orderno: SH201812241551140228
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4922","type":"","uniacid":"8","acid":"0","openid":"7224","uniontid":"","tid":"SH201812241551140228","fee":"4000.00","status":"0","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}corelog: okpayResult: {"result":"success","order":{"id":"2483","uniacid":"8","openid":"oSI4LjyLfIubLevHVLLZfaDa2b2g","agentid":"22752","ordersn":"SH201812241551140228","price":"4000.00","goodsprice":"4000.00","discountprice":"0.00","status":"0","paytype":"21","transid":"","remark":"","addressid":"0","dispatchprice":"0.00","dispatchid":"0","createtime":"1545637874","dispatchtype":"0","carrier":"a:2:{s:16:\"carrier_realname\";s:9:\"\u738b\u745e\u6d9b\";s:14:\"carrier_mobile\";s:11:\"13325238336\";}","refundid":"0","iscomment":"0","creditadd":"0","deleted":"0","userdeleted":"0","finishtime":"0","paytime":"0","expresscom":"","expresssn":"","express":"","sendtime":"0","fetchtime":"0","cash":"0","canceltime":null,"cancelpaytime":"0","refundtime":"0","isverify":"0","verified":"0","verifyopenid":"","verifycode":"","verifytime":"0","verifystoreid":"0","deductprice":"0.00","deductcredit":"0","deductcredit2":"0.00","deductenough":"0.00","virtual":"0","virtual_info":null,"virtual_str":null,"address":null,"sysdeleted":"0","ordersn2":"0","changeprice":"0.00","changedispatchprice":"0.00","oldprice":"4000.00","olddispatchprice":"0.00","isvirtual":"1","couponid":"0","couponprice":"0.00","diyformid":"0","storeid":"0","diyformdata":null,"diyformfields":null,"printstate":"0","printstate2":"0","supplier_uid":"261","special":"0","special_status":"","isexchange":"0","credit3_fee":"0.00"},"address":false,"carrier":{"carrier_realname":"\u738b\u745e\u6d9b","carrier_mobile":"13325238336"},"virtual":"0","goods":{"dispatchprice":"0.00","ordersn":"SH201812241551140228","price":"4000.00","optiontitle":"\u533a\u53bf\u4f53\u9a8c\u8fd0\u8425\u5546","optionid":"10932","total":"1","goods1":[{"goodsid":"3042","total":"1","title":"\u6613\u8d27\u8054\u76df\u603b\u90e8\u4f53\u9a8c\u4ee3\u7406\u8d39\uff0c\u9001\u76f8\u5e94\u4ea7\u54c1\u5728\u6362\u8d27\u4e13\u533a\u4efb\u9009\uff08\u8ba9\u4f60\u4f4e\u98ce\u9669\u521b\u4e1a\u505a\u8001\u677f\uff09","thumb":"http:\/\/jhzh66.com\/addons\/sz_yi\/attachment\/images\/8\/2018\/10\/c9ArBJjhr9iT111RcWQQZQQv4J96Vw.png","price":"4000.00","optiontitle":"\u533a\u53bf\u4f53\u9a8c\u8fd0\u8425\u5546","optionid":"10932"}],"goodscount":1}}.
+
+-------------------------------------------------
+orderno: SH201812241621216886
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4924","type":"","uniacid":"8","acid":"0","openid":"7224","uniontid":"","tid":"SH201812241621216886","fee":"500.00","status":"0","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}corelog: okpayResult: {"result":"success","order":{"id":"2484","uniacid":"8","openid":"oSI4LjyLfIubLevHVLLZfaDa2b2g","agentid":"22752","ordersn":"SH201812241621216886","price":"500.00","goodsprice":"500.00","discountprice":"0.00","status":"0","paytype":"21","transid":"","remark":"","addressid":"535","dispatchprice":"0.00","dispatchid":"0","createtime":"1545639681","dispatchtype":"0","carrier":"a:0:{}","refundid":"0","iscomment":"0","creditadd":"0","deleted":"0","userdeleted":"0","finishtime":"0","paytime":"0","expresscom":"","expresssn":"","express":"","sendtime":"0","fetchtime":"0","cash":"0","canceltime":null,"cancelpaytime":"0","refundtime":"0","isverify":"0","verified":"0","verifyopenid":"","verifycode":"","verifytime":"0","verifystoreid":"0","deductprice":"0.00","deductcredit":"0","deductcredit2":"0.00","deductenough":"0.00","virtual":"0","virtual_info":null,"virtual_str":null,"address":"a:7:{s:2:\"id\";s:3:\"535\";s:8:\"realname\";s:9:\"\u738b\u745e\u6d9b\";s:6:\"mobile\";s:11:\"13325238336\";s:7:\"address\";s:36:\"\u4eba\u6c11\u4e1c\u8def42\u53f7\u6052\u6da6\u56ed2-6-502\u53f7\";s:8:\"province\";s:9:\"\u5c71\u4e1c\u7701\";s:4:\"city\";s:9:\"\u6dc4\u535a\u5e02\";s:4:\"area\";s:9:\"\u5f20\u5e97\u533a\";}","sysdeleted":"0","ordersn2":"0","changeprice":"0.00","changedispatchprice":"0.00","oldprice":"500.00","olddispatchprice":"0.00","isvirtual":"0","couponid":"0","couponprice":"0.00","diyformid":"0","storeid":"0","diyformdata":null,"diyformfields":null,"printstate":"0","printstate2":"0","supplier_uid":"261","special":"0","special_status":"","isexchange":"0","credit3_fee":"0.00"},"address":{"realname":"\u738b\u745e\u6d9b","mobile":"13325238336","address":"\u4eba\u6c11\u4e1c\u8def42\u53f7\u6052\u6da6\u56ed2-6-502\u53f7"},"carrier":false,"virtual":"0","goods":{"dispatchprice":"0.00","ordersn":"SH201812241621216886","price":"500.00","optiontitle":"","optionid":"0","total":"50","goods1":[{"goodsid":"3350","total":"50","title":"\u6613\u8d27\u8054\u76df\u603b\u90e8\u5e73\u79fb\u670d\u52a1\u8d39","thumb":"http:\/\/jhzh66.com\/addons\/sz_yi\/attachment\/images\/8\/2018\/12\/C4yX82NT5KLLD5QYc00VGxGl4FvDtx.png","price":"500.00","optiontitle":"","optionid":"0"}],"goodscount":1}}.
+
+-------------------------------------------------
+orderno: SH201812241636468954
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4927","type":"","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241636468954","fee":"47.00","status":"0","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241636468954
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4927","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241636468954","fee":"47.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241636468954
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4927","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241636468954","fee":"47.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241636468954
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4927","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241636468954","fee":"47.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241636468954
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4927","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241636468954","fee":"47.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241650271360
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4928","type":"","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241650271360","fee":"120.00","status":"0","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241650271360
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4928","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241650271360","fee":"120.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241650271360
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4928","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241650271360","fee":"120.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241650271360
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4928","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241650271360","fee":"120.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241650271360
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4928","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241650271360","fee":"120.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241658432148
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4929","type":"","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241658432148","fee":"140.00","status":"0","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241658432148
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4929","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241658432148","fee":"140.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241658432148
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4929","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241658432148","fee":"140.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}
+-------------------------------------------------
+orderno: SH201812241658432148
+paytype: alipay
+data: []
+setting: oksign: oklog: {"plid":"4929","type":"wechat","uniacid":"8","acid":"0","openid":"4929","uniontid":"","tid":"SH201812241658432148","fee":"140.00","status":"1","module":"sz_yi","tag":"","is_usecard":"0","card_type":"0","card_id":"","card_fee":"0.00","encrypt_code":""}

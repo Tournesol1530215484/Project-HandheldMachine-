@@ -1,0 +1,586 @@
+{template 'common/header'}
+<title>商家信息</title>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/baidu.js?'.time();?>"></script> 
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/jquery.form.js?'.time();?>"></script>
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/s.js?'.time();?>"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<script type="text/javascript">
+    System.config({
+        map:{
+          systemJsText:'<?php echo MODULE_URL.'plugin/suppliermenu/res/txt.js';?>',
+          systemJsCss:'<?php echo MODULE_URL.'plugin/suppliermenu/res/css.js';?>',
+          systemJsJson:'<?php echo MODULE_URL.'plugin/suppliermenu/res/json.js';?>'
+        },
+        baseURL: '<?php echo MODULE_URL.'plugin/suppliermenu/res/';?>',
+    });
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/css/merchant.css!systemJsCss';?>').then(function (a){});
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box1.html!systemJsText';?>').then(function (a){$("body").append(a)});
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box2.html!systemJsText';?>').then(function (a){$("body").append(a)});
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box.html!systemJsText';?>').then(function (a){$("body").append(a)});
+</script>
+
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <form method="post" enctype="multipart/form-data" id="showDataForm">
+            <div class="customer_top">
+                <div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+                <div class="title1">商家信息</div>
+            </div>
+            <div class="merchant-base-info">
+                <div class="merchant-base-type">商家基本信息</div>
+                <ul>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">商家名称 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" value="{$Info['merchname']}" type="text" name="merchname" value="" placeholder="商家名称" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">联系人 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" value="{$Info['contact']}" name="contact" value="" placeholder="联系人" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">联系电话 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" value="{$Info['mobile']}" name="mobile" value="" placeholder="联系电话" autocomplete="off">
+                        </div>
+                    </li>
+
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">所在地区 : </div>
+                        <div class="float-r info-value">
+                            <!--<select name="reside[province]" value="{$Info['province']}" id="sel-provance" onChange="selectCity();" class="select sel-select">
+                                <option value="" selected="true">省/直辖市</option>
+                            </select>
+                            <select name="reside[city]" value="{$Info['city']}" id="sel-city" onChange="selectcounty()" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                            <select name="reside[district]" value="{$Info['district']}" id="sel-area" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>-->
+                            <select name="" id="">
+                            	<option value="">{$Info['province']}</option>
+                            </select>
+                            <select name="" id="">
+                            	<option value="">{$Info['city']}</option>
+                            </select>
+                            <select name="" id="">
+                            	<option value="">{$Info['district']}</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">详细地址 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" value="{$Info['address']}" name="address" value="" placeholder="详细地址" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">商家网址 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" value="{$Info['merchsite']}" name="merchsite" value="" placeholder="商家网址" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">精准定位 : </div>
+                        <div class="float-r info-value">
+                            <input class="location input-lng" type="text" name="map[lng]" value="{$Info['lng']}" placeholder="地理经度" autocomplete="off">
+                            <input class="location input-lat" type="text" name="map[lat]" value="{$Info['lat']}" placeholder="地理纬度">
+                            {if false}
+                            <button onclick="showCoordinate(this);" class="btn btn-default location" type="button">选择坐标</button>
+                            {/if}
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">行业大类 : </div>
+                        <!-- 内置标签循环行业大类 -->
+                        <div class="float-r info-value">
+                            <select class="whole-select" name="typeid">
+                            	<option>{$Info['cate']}</option>
+                                <!-- <option value="13">美食</option>
+                                <option value="15">娱乐</option>
+                                <option value="16">拍摄</option>
+                                <option value="17">母婴</option>
+                                <option value="18">家装/建材</option>
+                                <option value="19">丽人</option>
+                                <option selected="" value="20">生活服务</option>
+                                <option value="21">电影/培训</option>
+                                <option value="22">旅游出行</option>
+                                <option value="23">超市</option>
+                                <option value="24">商品</option> -->
+
+                                <!-- <%each typeidlist as l%>
+                                <option class="typeid-item"> <%if typeid == 当前id%>selected<%/if%> value="<%l.id%>"><%l.name%></option>
+                                <%/each%> -->
+                            </select>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">商家简介 : </div>
+                        {if false}
+                        <div class="add-picture">
+                            <img class="add-picture-icon" src="/addons/sz_yi/plugin/suppliermenu/res/add_picture.png">
+                            <button>添加图片</button>
+                            <input class="add-picture-input" type="file" id="imgfile" name="details_describe">
+                        </div>
+                        {/if}
+                        <div class="float-r float-whole info-value merchant-intro-box">
+                            <div contenteditable="true" id="merchant-intro" class="msbox">
+                            	{php echo html_entity_decode($Info['details'])}<!-- 商家简介赋值这里 html代码应该不能用异步获取的字符串,需要jquery来实现  jquery已做处理--></div>
+                            <textarea name="details" type="text/plain" style="height: 200px; display: none;"><!-- 商家简介赋值这里 html代码 --><!-- merchant.details --></textarea>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">商家特色 : </div>
+                        {if false}
+                        <div class="add-picture">
+                            <img class="add-picture-icon" src="/addons/sz_yi/plugin/suppliermenu/res/add_picture.png">
+                            <button>添加图片</button>
+                            <input class="add-picture-input" type="file" id="imgfile2" name="special_describe">
+                        </div>
+                        {/if}
+                        <div class="float-r float-whole info-value merchant-special-box">
+                            <div contenteditable="true" id="merchant-special" class="msbox"><!-- 商家特色赋值这里 html代码 jquery已做处理 -->
+                            	{php echo html_entity_decode($Info['special'])}
+                            </div>
+                            <textarea name="special" type="text/plain" style="height: 200px; display: none;"><!-- 商家特色赋值这里 html代码 --><!-- merchant.special --></textarea>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">所属运营商 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="operat" value="{$Info['operat']}" placeholder="所属运营商" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">运营商电话 : </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="operatmobile" value="{$Info['operatmobile']}" placeholder="运营商电话" autocomplete="off">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="merchant-base-qualification">
+                <div class="merchant-base-type">基本资质</div>
+                <ul>
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="help-box">
+                            <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+                        </div>
+                        <!--<div id="upload-img-box1" class="upload-img-box">-->
+                            <!--<div class="btn-icon">+</div>-->
+                            <!--<div class="btn-tag btn-tag2">企业证照</div>-->
+                            <!--<input type="file" id="file1" name="files[]" {if false}onchange="handleFiles(this,'1')"{/if} multiple="true" value="BusinessLicensePic" style="display: none;" />-->
+                        <!--</div>-->
+                        <!--<div id="upload-img-box1" class="upload-img-box">-->
+                        {loop $Info['BusinessLicensePic'] $k1 $v1}
+                        	<!-- <img src="{php echo tomedia($v1)}" alt="" /> -->
+                            <div class="img-container" >
+                               <div class="img-box">
+                                   <img src="{php echo tomedia($v1)}" style="width:100%; height:100%;"/>
+                                   <input type="text" name="file1[]" value="{php echo tomedia($v1)}" style="display:none;" readonly="readonly" />
+                               </div>
+                            </div>
+                        {/loop}
+                        <!--</div>-->
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">执照到期时间 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input datetimepicker" type="text" name="licenseoverdue" value="{php echo date('Y年m月d日 H:i:s',$Info['licenseoverdue'])}" placeholder="日期时间" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">营业执照编号 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="businessLicenseNo" value="{$Info['businessLicenseNo']}" placeholder="营业执照编号">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="help-box">
+                            <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+                        </div>
+                        {loop $Info['ImageDetailFile'] $k1 $v1}
+                        	<!-- <img src="{php echo tomedia($v1)}" alt="" /> -->
+                            <div class="img-container" >
+                               <div class="img-box">
+                                   <img src="{php echo tomedia($v1)}" style="width:100%; height:100%;"/>
+                                   <input type="text" name="file2[]" value="{php echo tomedia($v1)}" style="display:none;" readonly="readonly" />
+                               </div>
+                            </div>
+                        {/loop}
+                        <!--<div id="upload-img-box2" class="upload-img-box">
+                            <div class="btn-icon">+</div>
+                            <div class="btn-tag">经营场所照片</div>
+                            <input type="file" id="file2" name="files[]" {if false}onchange="handleFiles(this,'2')"{/if} multiple="true" value="ImageDetailFile" style="display: none;"/>
+                        </div>-->
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                {if false}
+                <div class="post-btn" onclick='a(1);'>确认修改</div>
+                {/if}
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </form>
+    </div>
+</script>
+
+<script type="text/html" id="tpl-loading">
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+         <img   src="<?php echo MODULE_URL.'plugin/suppliermenu/res/loading.gif?'.time();?>"/>
+    </div>
+</script>
+
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {       
+        core.pjson('suppliermenu/goods', {id:'<?php echo empty($_GPC['id'])?0:$_GPC['id'];?>',op:'post','ac':'get' }, function(json) {
+            var data = json.result.merchinfo;  
+            $('body').append(tpl('tpl-big-body',json.result));
+            //初始化所在地区//cascdeInit(data.province,data.city,data.dist);
+            //cascdeInit('','','');
+            
+            //初始化商家简介和商家特色防编辑器
+            // $('#merchant-intro').html( $('textarea[name=\''+'details'+'\']').val());
+            // $('#merchant-special').html( $('textarea[name=\''+'special'+'\']').val());
+
+            //初始化时间插件
+            // require(["datetimepicker"], function(){
+            //     $(".datetimepicker").each(function(){
+            //         var option = {
+            //             lang : "zh",
+            //             step : "10",
+            //             timepicker : true,closeOnDateSelect : true,
+            //             format : "Y-m-d H:i:s"};
+            //         $(this).datetimepicker(option);
+            //     });
+            // });
+            //初始化企业证照和经营场所照片
+            if(json.result.status){
+                for(var x in json.result.merchant.thumb_url1 ){
+                    $("#file1").parent().before( baidu.template('tpl-img-box1',{data:{img:json.result.merchant.thumb_url1[x]}}));
+                }
+                for(var x in json.result.merchant.thumb_url2 ){
+                    $("#file2").parent().before( baidu.template('tpl-img-box2',{data:{img:json.result.merchant.thumb_url2[x]}}));
+                }
+            }
+       }, true,true);
+    });
+</script>
+
+<script type="text/javascript">
+//防编辑器图片上传
+require(['tpl', 'core'], function(tpl, core) {
+    //商家简介图片上传
+    $(document).on('change','#imgfile',function(){
+        core.loading('正在上传');
+        $.ajaxFileUpload({
+            url: core.getUrl('util/uploader'),
+            data: {file: "details_describe"},
+            secureuri: false, 
+            fileElementId: 'imgfile', 
+            dataType: 'json', 
+            success: function(res, status) {
+                console.log(res);
+                core.removeLoading();                                               
+                var img = document.createElement("img");
+                img.src = res.url;
+                $('#merchant-intro').append(img);
+            },
+            error: function(data, status, e) {
+                core.removeLoading();
+                core.tip.show('上传失败!');
+            }
+        });
+    });
+    //商家特色图片上传
+    $(document).on('change','#imgfile2',function(){
+        core.loading('正在上传');
+        $.ajaxFileUpload({
+            url: core.getUrl('util/uploader'),
+            data: {file: "special_describe"},
+            secureuri: false, 
+            fileElementId: 'imgfile2', 
+            dataType: 'json', 
+            success: function(res, status) {
+                console.log(res);
+                core.removeLoading();                                               
+                var img = document.createElement("img");
+                img.src = res.url;
+                $('#merchant-special').append(img);
+            },
+            error: function(data, status, e) {
+                core.removeLoading();
+                core.tip.show('上传失败!');
+            }
+        });
+    });
+})
+//上传图片
+function  handleFiles(q,id)
+{
+    var files =  q.files;
+    if(files.length)
+    {
+        console.log(files.length);
+        for(var x =0 ;x<files.length;x++ ){
+            var file = files[x];
+            if(!/image\/\w+/.test(file.type)){
+                alert("文件必须为图片！"+file.type);
+                return ;
+            }
+        }
+        $.ajaxFileUpload({  
+            url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+            secureuri:false,  
+            fileElementId:$(q).attr('id'), //file的id  
+            dataType:"text", // 返回数据类型为文本  
+            success:function(data,status){  
+                console.log(data);
+                console.log(status);
+                var obj = JSON.parse(data);
+                for(var x in obj.result.url){
+                    $("#file"+id).parent().before( baidu.template('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+                }   
+
+           }  
+        });
+    }
+}
+//获取精准定位
+function showCoordinate(elm) {
+    require(["util"], function(util){
+        var val = {};
+        val.lng = parseFloat($(elm).prev().prev().val());
+        val.lat = parseFloat($(elm).prev().val());
+        util.map(val, function(r){
+            $(elm).prev().prev().val(r.lng);
+            $(elm).prev().val(r.lat);
+        });
+
+    });
+}
+
+
+function  handleFiles1(q)
+    {
+      var files =  q.files;
+      if(files.length)
+      {
+          console.log(files.length);
+          for(var x =0 ;x<files.length;x++ ){
+             var file = files[x];
+             if(!/image\/\w+/.test(file.type)){
+                  alert("文件必须为图片！"+file.type);
+                  return ;
+             }
+          }
+          $.ajaxFileUpload({  
+              url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+              secureuri:false,  
+              fileElementId:$(q).attr('id'), //file的id  
+              dataType:"text", // 返回数据类型为文本  
+              success:function(data,status){  
+                console.log(data);
+                console.log(status);
+                  var obj = JSON.parse(data);
+                  for(var x in obj.result.url){
+                    $("#select-box").parent().before( baidu.template('tpl-img-box',{data:{img:obj.result.url[x]}}  ));
+                  }   
+
+              }  
+          }) ;
+      }
+    }
+</script>
+
+<script type="text/javascript">
+  
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {type:mime});
+}
+ 
+
+function a(status){
+
+    require(['tpl', 'core'], function(tpl, core) { 
+        $('#big_body').append(tpl('tpl-loading')); 
+
+        var data = {};
+        if($("input[name='merchname']").val()==''){
+            $("#loading").remove();
+            core.tip.show('商家名称不能为空');
+            return;
+        }
+        data['merchname'] = {data:[$("input[name='merchname']").val()]};
+
+        if($("input[name='contact']").val()==''){
+            $("#loading").remove();
+            core.tip.show('联系人不能为空');
+            return;
+        }
+        data['contact'] = {data:[$("input[name='contact']").val()]};
+
+        if($("input[name='mobile']").val()==''){
+            $("#loading").remove();
+            core.tip.show('联系电话不能为空');
+            return;
+        }
+        data['mobile'] = {data:[$("input[name='mobile']").val()]};
+
+        if($("select[name='province']").val()==''){
+            $("#loading").remove();
+            core.tip.show('省/直辖市不能为空');
+            return;
+        }
+        data['province'] = {data:[$("select[name='province']").val()]};
+
+        if($("select[name='city']").val()==''){
+            $("#loading").remove();
+            core.tip.show('城市不能为空');
+            return;
+        }
+        data['city'] = {data:[$("select[name='city']").val()]};
+
+        if($("select[name='district']").val()==''){
+            $("#loading").remove();
+            core.tip.show('区不能为空');
+            return;
+        }
+        data['district'] = {data:[$("select[name='district']").val()]};
+
+        if($("input[name='address']").val()==''){
+            $("#loading").remove();
+            core.tip.show('详细地址不能为空');
+            return;
+        }
+        data['address'] = {data:[$("input[name='address']").val()]};
+
+        if($("input[name='merchsite']").val()==''){
+            $("#loading").remove();
+            core.tip.show('商家网址不能为空');
+            return;
+        }
+        data['merchsite'] = {data:[$("input[name='merchsite']").val()]};
+
+        //经纬度暂时不判空
+        data['lng'] = {data:[$("input[name='map[lng]']").val()]};
+        data['lat'] = {data:[$("input[name='map[lat]']").val()]};
+
+        if($("select[name='typeid']").val()==''){
+            $("#loading").remove();
+            core.tip.show('行业大类不能为空');
+            return;
+        }
+        data['typeid'] = {data:[$("select[name='typeid']").val()]};
+
+        if($("textarea[name='details']").val()==''){
+            $("#loading").remove();
+            core.tip.show('商家简介不能为空');
+            return;
+        }
+        data['details'] = {data:[$("textarea[name='details']").val()]};
+
+        if($("textarea[name='special']").val()==''){
+            $("#loading").remove();
+            core.tip.show('商家特色不能为空');
+            return;
+        }
+        data['special'] = {data:[$("textarea[name='special']").val()]};
+
+        if($("input[name='operat']").val()==''){
+            $("#loading").remove();
+            core.tip.show('所属运营商不能为空');
+            return;
+        }
+        data['operat'] = {data:[$("input[name='operat']").val()]};
+
+        if($("input[name='operatmobile']").val()==''){
+            $("#loading").remove();
+            core.tip.show('运营商电话不能为空');
+            return;
+        }
+        data['operatmobile'] = {data:[$("input[name='operatmobile']").val()]};
+
+        if($("input[name='licenseoverdue']").val()==''){
+            $("#loading").remove();
+            core.tip.show('执照到期时间不能为空');
+            return;
+        }
+        data['licenseoverdue'] = {data:[$("input[name='licenseoverdue']").val()]};
+
+        if($("input[name='businessLicenseNo']").val()==''){
+            $("#loading").remove();
+            core.tip.show('营业执照编号不能为空');
+            return;
+        }
+        data['businessLicenseNo'] = {data:[$("input[name='businessLicenseNo']").val()]};
+
+        var files1 = new Array();
+        $("input[name='file1[]']").each(function(){
+            files1.push($(this).val());
+        });
+
+        var files2 = new Array();
+        $("input[name='file2[]']").each(function(){
+            files2.push($(this).val());
+        });
+        
+        
+        data['post1[]'] = {data:files1 };
+        data['post2[]'] = {data:files2 };
+       
+
+        //把商家简介和商家特色防编辑器里面的html内容扔回去给textarea
+        $('textarea[name=\''+'details'+'\']').val($('#merchant-intro').html());
+        $('textarea[name=\''+'special'+'\']').val($('#merchant-special').html());
+        //获取textarea商家简介和商家特色内容进行判断
+        var details = $('textarea[name=\''+'details'+'\']').val();
+        var special = $('textarea[name=\''+'special'+'\']').val();
+        if($.trim(details).length == 0){ 
+             $("#loading").remove();
+             core.tip.show('商家简介不能为空');
+             return;
+        }
+        if($.trim(special).length == 0){ 
+             $("#loading").remove();
+             core.tip.show('商家特色不能为空');
+             return;
+        }
+        data['details']   = {data:[details]};
+        data['special'] = {data:[special]};
+
+        console.log(data);
+
+        data['status']  = {data:[status]};
+        System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+            var fd =  a.append( data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '<?php echo $this->createPluginMobileUrl('suppliermenu/dealgoods',array( 'op'=>'post','ac'=>'sub','id'=>$id)) ;?>', true);
+            xhr.send(fd); 
+            xhr.onreadystatechange=function(){
+              if (xhr.readyState==4 && xhr.status==200)
+              { 
+                    var obj = JSON.parse(xhr.responseText);
+                    console.log(obj);
+                    if(!obj)  {core.tip.show('提交失败');return;}
+                    if(!obj.result.status) {core.tip.show(obj.result.msg); return;}
+                    alert('成功');
+              }
+            };
+            $("#loading").remove();
+        });
+     });
+}
+</script>
+<!--编辑文字图片-->

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<title>{php if(isset($title)) $_W['page']['title'] = $title}{if !empty($_W['page']['title'])}{$_W['page']['title']} - {/if}{if empty($_W['page']['copyright']['sitename'])}{if IMS_FAMILY != 'x'}{$site['sitetitle']}{/if}{else}{$_W['page']['copyright']['sitename']}{/if}</title>
+
+<meta name="keywords" content="{if empty($_W['page']['copyright']['keywords'])}{if IMS_FAMILY != 'x'}{$site['sitetitle']}QQ：583489939{/if}{else}{$_W['page']['copyright']['keywords']}{/if}" />
+
+<meta name="description" content="{if empty($_W['page']['copyright']['description'])}{if IMS_FAMILY != 'x'}{$site['sitetitle']}QQ：583489939{/if}{else}{$_W['page']['copyright']['description']}{/if}" />
+
+<link rel="shortcut icon" href="{$_W['siteroot']}{$_W['config']['upload']['attachdir']}/{if !empty($_W['setting']['copyright']['icon'])}{$_W['setting']['copyright']['icon']}{else}images/global/wechat.jpg{/if}" />
+
+
+
+<link rel="shortcut icon" href="http://www.biezao.com/attachment/images/global/wechat.jpg" />
+
+<link href="./resource/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="./resource/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="./resource/css/typicons.min.css" rel="stylesheet">
+
+<link href="./resource/css/login.css" rel="stylesheet">
+
+<script type="text/javascript">
+
+if(navigator.appName == 'Microsoft Internet Explorer'){
+
+    if(navigator.userAgent.indexOf("MSIE 5.0")>0 || navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0) {
+
+        alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+
+    }
+
+}
+
+window.sysinfo = {
+
+{if !empty($_W['uniacid'])}
+
+    'uniacid': '{$_W['uniacid']}',
+
+{/if}
+
+{if !empty($_W['acid'])}
+
+    'acid': '{$_W['acid']}',
+
+{/if}
+
+{if !empty($_W['openid'])}
+
+    'openid': '{$_W['openid']}',
+
+{/if}
+
+{if !empty($_W['uid'])}
+
+    'uid': '{$_W['uid']}',
+
+{/if}
+
+    'siteroot': '{$_W['siteroot']}',
+
+    'siteurl': '{$_W['siteurl']}',
+
+    'attachurl': '{$_W['attachurl']}',
+
+    'attachurl_local': '{$_W['attachurl_local']}',
+
+{if defined('MODULE_URL')}
+
+    'MODULE_URL': '{MODULE_URL}',
+
+{/if}
+
+    'cookie' : {'pre': '{$_W['config']['cookie']['pre']}'}
+
+};
+
+</script>
+
+
+
+</head>
+
+<body data-spy="scroll" data-target=".navMenuCollapse">
+
+<div class="header">
+
+  <div class="warper clearfix wryh">
+
+    <div class="logo "><a href="index.php"><img src="{if $site['sitelogo']}../attachment/{$site['sitelogo']}{else}./resource/images/logo.png{/if}" alt="" height="65px"/></a></div>
+
+    <div class="header_text pull-left"></div>
+
+  </div>
+
+</div>
+
+<div class="loginCon">
+
+  <div class="warper clearfix">
+
+    <div class="loginForm">
+
+      <div class="loginFormTop text-center"> 
+
+        <!--<a href="#tab-code" class="nav-code" onclick="document.getElementById('tab_type').value='shortcut';"></a>--> 
+
+        <a href="#tab-password" class="nav-password on" onClick="document.getElementById('tab_type').value='password';"></a> </div>
+
+      <div id="tab-password" class="tabcontent">
+
+        <div class="loginForm-text text-left">账户登录</div>
+
+        <!--<div class="loginForm-text-in text-left">密码错误，请重新输入密码</div>-->
+
+        <form action="" method="post" role="form" onSubmit="return formcheck();" class="loginFormMiddle" >
+
+          <div class="loginInput">
+
+            <div class="input-icon"> <i class="icon icon-user"></i>
+
+              <input name="username" type="text" id="inputName" placeholder="请输入用户名" value="">
+
+            </div>
+
+          </div>
+
+          <div class="loginInput mt15">
+
+            <div class="input-icon"> <i class="icon icon-lock"></i>
+
+              <input name="password" type="password" id="inputPassword" placeholder="请输入用户密码" value="">
+
+            </div>
+
+          </div>
+
+          <div class="btns clearfix text-right">
+
+            <input type="hidden" value="true" name="rember" checked='true'>
+
+            <a href="{url 'user/register'}" class="loginForm-zc">免费注册</a>
+
+            <input type="submit" name="submit" value="登 录" class="btn btn-blue " />
+
+            <input type='hidden' id='tab_type' value='password'/>
+
+            <input name="token" value="{$_W['token']}" type="hidden" />
+
+          </div>
+
+        </form>
+
+        <div class="loginForm-Bottom text-left mt20"> <span>提示：忘记密码请联系客服</span><br>
+
+          <i class="icon icon-tel"></i> 客服热线：{if $site['servicemobile']}{$site['servicemobile']}{else}020-888888{/if}</div>
+
+      </div>
+
+      <div id="tab-code" class="tabcontent text-center" style="display:none">
+
+        <div class="loginForm-text text-left">快速登录</div>
+
+        <img class="codeImg" src="./resource/images/ewm.jpg" alt="">
+
+        <p class="codetext"><span style="color: #3cc5f8;">O2O一站式电商平台</span><br>
+
+          使用<span class="red">微信</span>扫描二维码登录</p>
+
+      </div>
+
+    </div>
+
+    <div class="loginImg"> <img src="{if $site['backgroup']}../attachment/{$site['backgroup']}{else}./resource/images/loginrr.png{/if}" alt="" width="100%"> </div>
+
+  </div>
+
+</div>
+
+<script>window.onload = function(){var oInput = document.getElementById("inputName");oInput.focus();}</script> 
+
+<script src="./resource/js/lib/jquery-1.7.2.min.js"></script> 
+
+<script src="./resource/js/lib/bootstrap.min.js"></script> 
+
+<script>
+
+$(function(){
+
+	$('.loginFormTop a').click(function(e) {
+
+		e.preventDefault();//取消事件默认动作
+
+		$(e.target).addClass('on').siblings('.on').removeClass('on');
+
+		$(".tabcontent").hide();
+
+		$(this.hash).show();
+
+	});
+
+	/*弹出扫码后的第一次进入*/
+
+	$('#codefirst').modal('show');
+
+	/*弹出失败*/
+
+	//$('#alert_fail').modal('show')
+
+	/*弹出成功*/
+
+	//$('#alert_success').modal('show')
+
+})
+
+function set_qrcode_content()
+
+{
+
+	$.post("./index.php?c=user&a=login&do=qrcode_relogin&", function(resp)
+
+	{
+
+		var qrcode_success = '<div class="loginForm-text text-left">快速登录</div>';
+
+		qrcode_success += '<img class="codeImg" src="./app/qr.php?url=http%3A%2F%2Fwx176092.biezao.com%2Fapp%2Findex.php%3Fi%3D71%26j%3D%26c%3Duser%26a%3Dgetopenid%26login_code%3D" alt="">';
+
+		qrcode_success += '<p class="codetext">O2O一站式电商平台<br>使用<span class="red">微信</span>扫描二维码登录</p>';
+
+		document.getElementById('tab-code').innerHTML = qrcode_success;
+
+	});
+
+}
+
+function GetRTime()
+
+{
+
+	window.setInterval(function()
+
+	{
+
+		if(document.getElementById('tab_type').value == 'shortcut')
+
+		{
+
+			$.post("./index.php?c=user&a=login&do=fresh_login&", function(resp)
+
+			{
+
+				if(resp == 'login_ok')
+
+				{
+
+					var qrcode_success = '<div class="loginForm-text text-left">快速登录</div>';
+
+					qrcode_success += '<span class="phoneImg"></span>';
+
+					qrcode_success += '<p class="codetext">扫码成功！<br> <big>请在手机端确认登陆</big></p>';
+
+					qrcode_success += '<a href="javascript:;" class="red" onclick="set_qrcode_content()">返回二维码登陆</a>';
+
+					document.getElementById('tab-code').innerHTML = qrcode_success;
+
+				}
+
+				else
+
+				{
+
+					if(resp != 'error')location = resp;
+
+				}
+
+			});
+
+		}
+
+	},1000);
+
+}
+
+GetRTime();
+
+	</script>
+
+<div class="footer-bottom clearfix mt40">
+
+  <div class="warper">{if $site['copyrights']}{$site['copyrights']}{else}Copyright ©2015-2016 All Rights Reserved. 广州海生网络科技有限公司 版本所有{/if}<br>{if $site['registercode']}{$site['registercode']}{else}粤ICP备11035598号{/if}</div>
+
+</div>
+
+</body>
+
+</html>
+

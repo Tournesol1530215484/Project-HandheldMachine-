@@ -1,0 +1,11 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'match.match'}<li {if $_GPC['method']=='match' && $_GPC['op'] == 'add'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match',array('op'=>'add'))}">发布评选</a></li>{/if}
+    {ifp 'match.match'}
+        <li {if $_GPC['method']=='match' && $_GPC['op'] != 'add'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('match/match')}">我发布的评选</a></li>
+        {if $_GPC['op'] == 'NetMap'}	 		 
+        <li {if $_GPC['method']=='match' && $_GPC['op'] == 'NetMap'}class="active"{/if}><a href="javascirpt:void(0);">报名网络图</a></li>
+        {/if}	 	 			 	 		 	 	 	 
+    {/if}		 	 	 		 	 
+</ul>	 		 				 		 
+</div>		 	 	 

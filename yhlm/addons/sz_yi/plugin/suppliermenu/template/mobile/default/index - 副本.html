@@ -1,0 +1,207 @@
+{template 'common/header'}
+<title>商家管理</title>
+<style type="text/css">
+    th{font-weight: 200;}
+    body {margin:0px; background:#eee; padding:0px; -moz-appearance:none; font-family:微软雅黑;overflow-x: hidden;}
+    #big_body{width:100%;margin:0px;}
+    #header{ width:100%; border-bottom:1px solid #A1A1A1;  }
+    #user div{ font-family:Arial, Helvetica, sans-serif; }
+    #user-info{width: 100%; height: auto; float: left;background: #10BDFF;color: #fff;  background-size: 100% 150px; padding-bottom: 5px;}
+    #user-info .left{ margin:0 auto;width:102px; height:102px; border-radius:50%; }
+	#user-info .left img{ border: 2px #fff solid; display: block;width:100px; height:100px; border-radius:50%;  }
+    #user-info .title{width:120px;font-size:18px; padding-top: 5px;padding-bottom: 16px; text-align: center;margin: 0px auto;}
+    #data{ float:left; width: 100%; padding-top: 15px; padding-bottom: 15px; background: #10BDFF; text-align:center; text-align: center;color: #fff;  }
+    #data table{ width: 100%; height:25px; margin:auto; text-align:center;  color:#999;  }
+    #data table th{ color:#fff; height:100%;position: relative; border-right:#ececee 1px solid;}
+    #data table th>#top{display: block;width: 100%; text-align: center; }
+    #data table th>#bottom {display: block; width: 100%;text-align: center;color: #fff; font-weight: 600; }
+
+    #list-button{ width:100%; border-bottom:1px solid #CBCBCB; padding-top:10px; padding-bottom: 10px; background: #fff; float: left; margin-top: 10px; text-align: center;}
+    #list-button table{width:100%;margin: 0 auto;display: inline-block;}
+    #list-button table tbody{display: -webkit-box;display: flex;display:-webkit-flex;justify-content:  flex-start;flex-wrap:wrap;-webkit-flex-wrap:wrap;}
+    #list-button table  tr{ width: 25%;}
+    #list-button table  tr:last-child{border-bottom:none;}
+    #list-button table  th{    padding-bottom: 10px;  padding-top: 10px; color: #818181; font-size: 16px; display: block; width: 100%;}
+    #list-button table a{ color: #000;font-size: 14px;    display: block; width: 100%; min-height: 24px; }
+    #list-button table  th .left1{    text-align: center; float: left; width: 100%; }
+    #list-button table  th #right{ float: right; }
+    #list-button table  th #right img{ display: block; width: 9px;height: 15px; margin-top: 5px; }
+   	#list-button table  th .left1 .img1{ padding-left:3px; padding-right:3px; border-radius:50%; text-align: center;  }
+   	#list-button table  th .left1 img {  margin:auto; width:15px; height:15px; }
+    .f-left-box{
+        width: 50%;
+        float: left;
+        margin-top: 50px;
+    }
+    .f-right-box{
+        width: 50%;
+        float: right;
+        margin-top: 50px;
+        font-size: 18px;
+        border-left: 1px solid #fff;
+    }
+    .f-right-box .barter-code-b{
+        margin-left: 20px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    .button-type-tag{
+        text-align: left;
+        font-size: 16px;
+        padding: 5px 20px 5px 25px;
+        color: #de232a;
+        position: relative;
+    }
+    .button-type-tag:after {
+        content: "";
+        display: block;
+        clear: both;
+        width: 14px;
+        height: 14px;
+        border-right: 2px solid #de232a;
+        border-top: 2px solid #de232a;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        margin-left: -5px;
+        margin-top: -2px;
+        -moz-transform: rotate(45deg) translateY(-50%);
+        -ms-transform: rotate(45deg) translateY(-50%);
+        -o-transform: rotate(45deg) translateY(-50%);
+        -webkit-transform: rotate(45deg) translateY(-50%);
+        transform: rotate(45deg) translateY(-50%);
+    }
+</style>
+
+<script id="tpl_header" type="text/html">
+    <div id="header" >
+        <div id="user-info" style="position: relative;">
+        	<div style="width: 30px;height: 30px;position: absolute;right:8px;top: 20px;" onclick="window.location.href=' {php echo $this->createPluginMobileUrl('suppliermenu/info',array('op'=>'edit'));} '  ">
+        		<img src="../addons/sz_yi/plugin/suppliermenu/res/edit.png" style="width: 100%;height: 100%;"/>
+        	</div>
+            <div class="f-left-box">
+                <div class="left">
+                    <img src="<%member.avatar%>" {if $info['changed'] == '0'}onclick="location.href='{php echo $this->createPluginMobileUrl('suppliermenu/editaddr',array('merch'=>$_GPC['merch']))}'"{/if} />
+                </div>
+                <div class="title">
+                    <div ><%member.nickname%>/<%member.realname%></div>
+                    <div style="line-height:150%; color: #fff; font-size: 12px;">{$username}</div>
+
+                    <div style="line-height:150%;  font-size: 12px;" onclick="location.href='{php echo $this->createPluginMobileUrl('suppliermenu/recharge',array('merch'=>'5'))}'">
+                        {if $title['level'] > 0}
+                            {if $title['status'] == 0}
+                                你所在的会员等级被禁用
+                            {else}
+                                <span style="color: red;">头衔: {$title['title']}</span>
+                            {/if}
+                        {else}
+                            点击此处获取头衔
+                        {/if}
+                    </div>
+                </div>
+            </div>
+            <div class="f-right-box">
+                <div class="barter-code-available barter-code-b">换货码: <%member.credit3%></div>
+                <div class="barter-code-noactive barter-code-b">未激活换货码: <%member.freeze_credit3%></div>
+                <div class="barter-code-amount barter-code-b">免换货服务费: <%member.currency_credit3%></div>
+            </div>
+        </div>
+        <div id="data">
+        	<table>
+	        	<tr>
+	        		<th style="width:25%">
+	        		    <div id="bottom"><%allprice%></div>
+	        		    <div id="top">成交总额</div>
+	        		</th>
+                    <th style="width:20%" >
+                        <div id="bottom" ><%postprice%></div>
+                        <div id="top" >邮费总额</div>
+                    </th>
+	                <th style="width:30%">
+	        		    <div id="bottom"><%todayprice%></div>
+	        		    <div id="top">今日成交总额</div>
+	                </th>
+	                <th style="width:25%;border:0px;">
+	        		    <div id="bottom"><%todaycount%></div>
+	        		    <div id="top">今日订单</div>
+	                </th>
+	            <tr>
+           	</table>
+        </div>
+    </div>
+</script>
+
+<script id="tpl_list-buttons" type="text/html">
+    <div id="list-button">
+        <!-- 从这里开始循环 先循环类型 再循环类型下面的button -->
+        <div class="button-type-box">
+            <div class="button-type-tag">商家信息</div> <!-- button 类型 -->
+            <table>
+                <%each pageInfo as item%>
+                  <tr>
+                       <th>
+                           <a class="clearfloat" href="<%item.url%>">
+                                <div class="left1">
+                                     <span class="img1" style="background:<%item.color%>;display: block;width: 45px;height:45px;position: relative;margin: auto;"><img src="<%item.img%>" style="width: 80%;height: 80%;top: 6px;position: absolute;left: 4px;"/></span>
+                                     <span style=" display: block;margin-top:5px ;"><%item.name%></span>
+                                </div>
+                            </a>
+                       </th>
+                  </tr>
+                <%/each%>
+            </table>
+        </div>
+        <!-- 从这里循环结束 下面相同结构再删除 只是提供看样式-->
+        <!-- start 以下相同结构要删除 只是提供看样式-->
+	    <div class="button-type-box">
+            <div class="button-type-tag">换货商品</div> <!-- button 类型 -->
+            <table>
+                <%each productInfo as item%>
+                  <tr>
+                       <th>
+                           <a class="clearfloat" href="<%item.url%>">
+                                <div class="left1">
+                                     <span class="img1" style="background:<%item.color%>;display: block;width: 45px;height:45px;position: relative;margin: auto;"><img src="<%item.img%>" style="width: 80%;height: 80%;top: 6px;position: absolute;left: 4px;"/></span>
+                                     <span style=" display: block;margin-top:5px ;"><%item.name%></span>
+                                </div>
+                            </a>
+                       </th>
+                  </tr>
+                <%/each%>
+            </table>
+        </div>
+        <div class="button-type-box">
+            <div class="button-type-tag">账户信息</div> <!-- button 类型 -->
+            <table>
+                <%each accountInfo as item%>
+                  <tr>
+                       <th>
+                           <a class="clearfloat" href="<%item.url%>">
+                                <div class="left1">
+                                     <span class="img1" style="background:<%item.color%>;display: block;width: 45px;height:45px;position: relative;margin: auto;"><img src="<%item.img%>" style="width: 80%;height: 80%;top: 6px;position: absolute;left: 4px;"/></span>
+                                     <span style=" display: block;margin-top:5px ;"><%item.name%></span>
+                                </div>
+                            </a>
+                       </th>
+                  </tr>
+                <%/each%>
+            </table>
+        </div>
+        <!-- end 以上相同结构要删除 只是提供看样式-->
+
+    </div>
+</script>
+<div id="big_body"></div>
+
+<script type="text/javascript">
+require(['tpl', 'core'], function(tpl, core) {
+	core.pjson('suppliermenu/index', {op:'getinfo',merch:{$_GPC['merch']}}, function(json) {
+        $("#big_body").append(tpl('tpl_list-buttons', json.result));
+		$("#big_body").prepend(tpl('tpl_header',json.result));
+	}, true);
+})
+</script>
+
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

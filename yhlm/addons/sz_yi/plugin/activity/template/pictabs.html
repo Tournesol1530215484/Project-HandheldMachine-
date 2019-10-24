@@ -1,0 +1,16 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'activity.picture'}<li {if $_GPC['method']=='picture' && $_GPC['op'] == 'post'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/picture',array('op'=>'post'))}">发布图片</a></li>{/if}
+    {ifp 'activity.picture'}  	 	
+        <li {if $_GPC['method']=='picture' && $_GPC['op'] == ''}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/picture')}">我发布的图片</a></li>
+
+        {if false}
+        
+        <li {if $_GPC['method']=='picture' && $_GPC['op'] == 'draft'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/picture',array('op'=>'draft'))}">草稿箱</a></li>
+
+        <li {if $_GPC['method']=='picture' && $_GPC['op'] == 'comment'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/picture',array('op'=>'comment'))}">评论审核</a></li>	 	
+        {/if}
+        
+    {/if}
+</ul>
+</div>

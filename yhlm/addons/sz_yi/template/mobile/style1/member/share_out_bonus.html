@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>分红中心</title>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+    <script language="javascript" src="js/require.js"></script>
+    <script language="javascript" src="js/config.js?v=2"></script>
+    <script language="javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script language="javascript" src="js/jquery.gcjs.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core" src="js/core.js?v=201510211500"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tpl" src="js/tmodjs.js?v=201510211500"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/jweixin-1.0.0.js" src="js/jweixin-1.0.0.js?v=201510211500"></script>
+	<style type="text/css">
+		body {margin:0px; background:#eee; -moz-appearance:none;}
+		a {text-decoration:none;}
+		img{  width: 100%; }
+		
+		#container .top_bg{ height:50px; background: #000; color: #fff; }
+		
+		#container  .center_title{ display: inline-block; font-size: 18px; margin-top: 4%; margin-left: 7%; }
+		#container .div_1{ width: 5%; display:　inline-block; }
+		#container .div_2{ margin-top: 5%; margin-left: 5%; }
+		#container .div_3{ width: 4%; margin-top: 4%; margin-right: 3%; }
+		#container .div_3 img{ width: 40%; }
+		
+		.header {height: 100px; width:100%; padding:0px; background: #bd1e44;background-size: 100% 100%;}
+		.header .user {height:48px; margin-left:10%; padding-top: 18px;}
+		
+		
+		.header .user .user-head {height:48px; width:48px; background:#fff; border-radius:50%; float:left;border:2px solid #fff;}
+		.header .user .user-head img {height:48px; width:48px; border-radius:24px;}
+		.header .user .user-info { line-height: 24px; height:60px; width:60%; float:left; margin-left:14px; color:#fff;padding-top:5px;}
+		.header .user .user-info .user_name { float: left; height:24px; width: 50%; overflow-x: hidden; font-size:18px; line-height:24px;}
+		.header .user .user-info .user_other { background: #fff; border-radius: 10px; color: red; text-align: center; float: left; height:18px; line-height: 18px; width:50%; font-size:12px;}
+		.header .user .user-info .user_balance{ font-size: 12px; clear: both; }
+		.header .user-gold {height:35px; width:94%; padding:5px 3%; border-bottom:1px solid #ddd; background:#fff; font-size:16px; line-height:35px;}
+		.header .user-gold .title {height:35px; width:auto; float:left; color:#666;}
+		.header .user-gold .num {height:35px; width:auto; float:left; color:#f90;}
+		
+		.header .user-gold .draw {width:80px; height:30px; background:#6c9; float:right;}
+		
+		.header .user-op { height:35px; width:94%; padding:5px 3%; border-bottom:1px solid #ddd; background:#fff; font-size:16px; line-height:35px; }
+		.take {height:30px; width:auto; padding:0 10px; line-height:30px; font-size:16px; float:right; background:#ff6600; border-radius:5px; margin-top:5px; color:#fff;}
+		.take1 {height:30px; width:auto; padding:0 10px; line-height:30px; font-size:16px; float:right; background:#00cc00; border-radius:5px; margin-top:5px; color:#fff;}
+		
+		.order {height:92px; width:100%; background:#fff; border-bottom:1px solid #ddd;}
+		.order p{ line-height: 44px; display: inline-block; margin:0px; }
+		.order p span{ color: #bd1e44; display: inline-block; }
+		.order .p_1{ float: left; }
+		.order .p_2{ float: right; margin-top: 7px; color:#fff; background: #bd1e44; line-height: 30px; border-radius: 5px; width: 24%; text-align: center; }
+		
+		
+		.a_list{ display:inline-block; width: 30%; font-size: 14px; }
+		
+		.list1 {height:44px; width:94%; background:#fff; margin:0px 3%; border-top:1px solid #ddd; line-height:44px; color:#000;}
+		.list1 i {font-size:20px; margin-right:10px;}
+		.list1 .fa_angle_right{ color:#666; font-size:26px; float:right; line-height:44px;}
+		
+		.cart a:first-child div{ border-top: none; }
+		.cart a:last-child div{  border-bottom: none; }
+		
+		.list2{ border-bottom:0px;}
+		
+		.allorder {float:right; color:#aaa; margin-right:45px; text-decoration:none;}
+		
+		.cart {height:auto; width:100%; background:#fff; margin-top:20px; border-bottom:1px solid #ddd;}
+		.address {height:38px; width:100%; background:#fff; margin-top:20px; border-bottom:1px solid #ddd; border-top:1px solid #ddd; line-height:38px;}
+		
+		.copyright {height:40px; width:100%; text-align:center; line-height:40px; font-size:12px; color:#999; margin-top:10px;}
+		
+		span.count {float:right; margin-top:15px; margin-right: 5px; height:16px; width:60px; background:#bd1e44; border-radius:8px; font-size:12px; color:#fff; line-height:16px; text-align: center;}
+		
+		
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<script language="javascript">
+	    require(['core','tpl'],function(core,tpl){
+	        core.init({
+	            siteUrl: "http://m1.47cu.com/",
+	            baseUrl: "http://m1.47cu.com/app/index.php?i=6&c=entry&do=ROUTES&m=sz_yi"
+	        });
+	       
+	    })
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div class="top_bg">
+			<div class="div_1 div_2" style=" float:left; " ><a href="javascript:void(0);"><img src="img/icon_shut_down.png"/></a></div>
+			<div class="center_title">分红中心</div>
+			<div class="div_1 div_3" style=" float: right; "><a href="javascript:void(0);"><img src="img/icon_menu.png"/></a></div>
+		</div>
+		<div class="header">
+	        <div class="user">
+	            <div class="user-head"><img src="img/0.jpg"></div>
+	            <div class="user-info">
+	                <div class="user_name">雨晨。</div>
+	                <div class="user_other">西瓜收割阶层</div>
+	                <div class="user_balance">加入时间：2016-05 18 ： 30</div>
+	            </div>
+	        </div>
+		</div>
+		
+		<div class="order">
+	        <div class="list1" style="margin-top:0px; border-top:none;">
+	        	<p class="p_1 ">累计分红佣金：<span style=" font-size: 19px;">798.12</span></p>
+	        	<a href="javacript:void(0);"><p class="p_2">查看明细</p></a></div>
+		    <div class="list1" style="margin-top:0px;">
+	        	<p class="p_1 ">待分红佣金：<span style=" font-size: 19px;">76.18</span></p>
+	        	<a href="javacript:void(0);"><p class="p_2">申请明细</p></a></div>
+		</div>
+		
+		<div class="cart">
+		    <a href="javacript:void(0);"><div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #e84675;">&#xe624;</i>分红佣金<i class="fa fa-angle-right fa_angle_right"></i><span class="count">0.00 元</span></div></a>
+		    <a href="javacript:void(0);"><div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #ffdbbf;">&#xe61c;</i>分销订单<i class="fa fa-angle-right fa_angle_right"></i><span class="count">0 个</span></div></a>
+		    <a href="javacript:void(0);"><div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #67af9f;">&#xe620;</i>分红明细<i class="fa fa-angle-right fa_angle_right"></i></div></a>
+		    <a href="javacript:void(0);"><div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #dc7186;">&#xe61f;</i>我的客户<i class="fa fa-angle-right fa_angle_right"></i><span class="count">0 个</span></div></a>
+		    <a href="javacript:void(0);"><div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #a171a3;">&#xe621;</i>区域分红 <i class="fa fa-angle-right fa_angle_right"></i><span class="count">0.00 元</span></div></a>
+		</div>
+	</div>
+	
+	<script language="javascript">
+	    require(['tpl', 'core'], function(tpl, core) {
+	        core.json('member/center',{},function(json){
+	           $('#container').html(  tpl('member_center',json.result) );
+	           var withdrawmoney = 0;
+	           $('#btnwithdraw').click(function(){
+	 
+	               if(json.result.member.credit2<=0){
+	                   core.tip.show('无余额可提!');
+	                   return;
+	               }
+	               if(withdrawmoney>0 && json.result.member.credit2<withdrawmoney){
+	                   core.tip.show('满' +withdrawmoney + "元才能提现!" ); 
+	                   return;
+	               }
+	               location.href = core.getUrl('member/withdraw');
+	           })
+	            
+	        },true);
+	        
+	    })
+	</script> 
+    <div style="height:50px; width:100%;margin:0;padding:0;float:left;display:block;"></div>
+    
+	<style type="text/css">
+	
+    	footer#footer-nav .menu-list li { width:20%} 
+    
+    </style>
+    
+    <footer id="footer-nav">
+    	<ul class="menu-list" style="margin:0">
+        	<li><a href=""><i class="fa fa-home"></i><span>首页</span></a></li>
+        	<li><a href=""><i class="fa fa-list"></i><span>分类</span></a></li>
+        	<li class="active"><a href=""><i class="fa fa-sitemap"></i><span>成为分销商</span></a></li>
+            <li><a href=""><i class="fa fa-shopping-cart"></i><span>购物车</span></a></li>
+        	<li><a href=""><i class="fa fa-user"></i><span>会员中心</span></a></li>
+    	</ul>
+    </footer>
+    
+    <script id="tpl_show_message" type="text/html"><div class="sweet-alert" style="display:block;">
+        <%if type=='error'%><div class="icon error animateErrorIcon" style="display: block;"><span class="x-mark animateXMark"><span class="line left"></span><span class="line right"></span></span></div><%/if%>
+        <%if type=='warning'%><div class="icon warning pulseWarning" style="display: block;"><span class="body pulseWarningIns"></span><span class="dot pulseWarningIns"></span></div><%/if%>
+        <%if type=='success'%><div class="icon success animate" style="display: block;"><span class="line tip animateSuccessTip"></span><span class="line long animateSuccessLong"></span><div class="placeholder"></div><div class="fix"></div></div><%/if%>
+        <div class="info"><%message%><%if url%><br><span>如果您的浏览器没有自动跳转请点击此处</span><%/if%></div>
+        
+        <div class="sub" 
+             <%if url%>
+                    onclick="location.href='<%url%>'"
+             <%else%>
+                    <%if js%>
+                        onclick="<%js%>"
+                    <%else%>
+                        onclick="history.back()"
+                    <%/if%>
+             <%/if%>
+             >
+        <%if type=='success'%><div class="green">确认</div><%/if%>
+        <%if type=='warning'%><div class="grey">确认</div><%/if%>
+        <%if type=='error'%><div class="red">确认</div><%/if%>
+        </div>
+    </script></span>
+    
+	<script language="javascript">
+		$(function(){
+			$.ajax({
+				url: "http://m1.47cu.com/app/index.php?i=6&c=entry&do=runtasks&m=sz_yi",
+				cache:false 
+			});
+		})
+	</script>
+	
+	<script>
+	    require(['js/jweixin-1.0.0.js'],function(wx){
+	                 window.shareData = {"title":"\u9753\u6cb9\u5546\u57ce","imgUrl":"http:\/\/m1.47cu.com\/attachment\/images\/6\/2016\/06\/S6IDXIKxUK94XYUDOgsXnNyuLFygsC.jpg","desc":null,"link":"http:\/\/m1.47cu.com\/app\/index.php?i=6&c=entry&do=shop&m=sz_yi"};
+	               
+		jssdkconfig = {"appId":"wx5a4a5143ea93277c","nonceStr":"b9994z4ubl4I2UTs","timestamp":"1467705143","signature":"577822d9bd834090c9a49b839376360703bb8aed"} || { jsApiList:[] };
+	                          jssdkconfig.debug = false;
+		jssdkconfig.jsApiList = ['checkJsApi','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','showOptionMenu',		];
+			wx.config(jssdkconfig);
+			wx.ready(function () {
+				wx.showOptionMenu();
+				wx.onMenuShareAppMessage(window.shareData);
+				wx.onMenuShareTimeline(window.shareData);
+				wx.onMenuShareQQ(window.shareData);
+				wx.onMenuShareWeibo(window.shareData);
+			});
+	      });
+	</script>
+
+	<div id="core_loading" style="top: 50%; left: 50%; margin-left: -35px; margin-top: -30px; position: absolute; width: 80px; z-index: 999999; display: none;">
+		<img src="img/loading.svg" width="80">
+	</div>
+</body></html>

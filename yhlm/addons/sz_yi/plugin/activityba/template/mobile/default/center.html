@@ -1,0 +1,482 @@
+﻿{template 'common/header1111'}
+<title>易活动中心</title>
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/iconfontby.css';?>"/>
+<style type="text/css">
+	.page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .center-hd-box{
+		background: #fff;
+		padding: 20px 10px;
+	}
+	.center-hd-box .hd-icon-box{
+		width: 60px;
+		height: 60px;
+		margin-right: 10px;
+		overflow: hidden;
+	}
+	.center-hd-box .hd-icon-box .hd-icon{
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+	}
+	.center-hd-box .hd-brief-box{
+		width: calc(100% - 70px);
+	}
+	.center-hd-box .hd-title{
+		font-size: 16px;
+		font-weight: 600;
+		white-space: nowrap;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	}
+	.center-hd-box .activity-account{
+		font-size: 14px;
+		font-weight: normal;
+	}
+	.center-hd-box .hd-btn-box .hd-btn{
+		width: 100px;
+		border-radius: 25px;
+		text-align: center;
+		margin-right: 5px;
+		margin-top: 5px;
+	}
+	.center-hd-box .hd-btn-box .hd-btn-link{
+		display: block;
+		color: #fff;
+		padding: 3px;
+		text-decoration: none;
+	}
+	.center-hd-box .hd-btn-box .vip-btn,
+	.center-hd-box .hd-btn-box .vip-had-btn{
+		background: #e8401f;
+	}
+	.center-hd-box .hd-btn-box .certify-btn,
+	.center-hd-box .hd-btn-box .certify-had-btn{
+		background: #f19419;
+	}
+	.center-data-box{
+		background: #fff;
+		padding: 10px 0;
+		margin-top: 5px;
+	}
+	.center-data-box .center-data-item{
+		width: 25%;/*calc(100% / 3);*/
+		text-align: center;
+		font-size: 14px;
+		color: #999;
+		padding: 5px 0;
+		border-right: 1px solid #eee;
+	}
+	.center-data-box .center-data-val{
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    font-size: 16px;
+	    font-weight: 600;
+	    color: #333;
+	}
+	.center-data-box .recharge-link{
+		display: block;
+		padding: 2px;
+		color: #26b528;
+		text-decoration: none;
+	}
+	.tool-type-box{
+		background: #fff;
+	}
+	.personal-info{
+  		margin-top: 5px;
+  		background: #fff;
+  	}
+  	/*覆盖center.css里面的样式*/
+  	.personal-info .info-edit-box{
+  		margin-top: 0px;
+  		border-bottom: 0px;
+  	}
+  	.tool-type-tag{
+  		padding: 10px 20px 0px 10px;
+  		/*border-bottom: 1px solid #ddd;*/
+  	}
+  	.tool-type-tag .tool-type-name{
+  		font-size: 16px;
+  		color: #000;
+  	}
+  	.flex-box1{
+  		display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+  		flex-wrap: wrap;
+  	}
+  	.t-overflow{
+  		display: block;
+  		white-space: nowrap;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+  	}
+  	.info-edit-box .info-edit-item{
+  		width: 20%;
+  		text-align: center;
+  		margin: 10px 0 0;
+  	}
+  	.info-edit-box .info-edit-item a{
+  		text-decoration: none;
+  		color: #999;
+	    line-height: 30px;
+	    font-size: 13px;
+  	}
+  	.info-edit-box .info-edit-item .hs-item{
+  		height: 40px;
+	    width: 40px;
+	    line-height: 40px;
+	    background: #00c1ff;
+	    color: #fff;
+	    font-size: 25px;
+	    margin: 0 auto;
+	    border-radius: 10px;
+	    position: relative;
+  	}
+  	.other-tool-box{
+  		padding-bottom: 10px;
+  		margin-bottom: 10px;/*55px;*/
+  	}
+	.actfun .actfun-ul,
+	.other-tool-box .other-ul{
+		width: 100%;
+	}
+	.actfun .actfun-ul li,
+	.other-tool-box .other-ul li{
+		width: 20%;
+		float: left;
+		padding-bottom: 10px;
+    	padding-top: 10px;
+    	text-align: center;
+	}
+	.tool-type-box .item-link{
+		color: #000;
+	    font-size: 14px;
+	    display: block;
+	    width: 100%;
+	    height: 100%;
+	    text-decoration: none;
+	}
+	.item-link .img1-box {
+	    border-radius: 50%;
+	    background: #10BDFF;
+	    display: block;
+	    width: 45px;
+	    height:45px;
+	    margin: 0 auto;
+	    position: relative;
+	    padding-left: 3px;
+    	padding-right: 3px;
+	}
+	.item-link .img1-box .img1{
+	    width: 80%;
+	    height: 80%;
+	    top: 6px;
+	    position: absolute;
+	    left: 4px;
+	}
+	.actfun .actfun-ul .item-link .img1-box{
+		background: transparent;
+	}
+	.actfun .actfun-ul .item-link .img1-box .img1{
+		width: 100%;
+	    height: 100%;
+	    top: 0px;
+	    left: 0px;
+	}
+	.item-link .tool-name-box{
+		display: block;
+		margin-top: 3px;
+		white-space: nowrap;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	}
+	.tips-box{
+		font-size: 14px;
+		color: #f94949;
+		padding: 5px 15px;
+		margin-bottom: 10px;
+	}
+	.tips-box .tips-title{
+		text-align: center;
+	}
+</style>
+<div id="container"></div>
+<script id="activity_center" type="text/html">
+	<div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">易活动中心</div>
+    </div>
+    <div class="center-hd-box">
+    	<div class="flex-center">
+    		<div class="hd-icon-box"><!-- 头像 -->
+    			<img class="hd-icon" src="{$member['avatar']}">
+    		</div>
+    		<div class="hd-brief-box"><!-- 名称 -->	
+    			<div class="hd-title">{if $tmu}{$tmu['realname']}{/if}</div>  
+    			<div class="hd-title"><span class="activity-account">活动账号: {if $tmu}{$tpu['username']}{else}暂未申请活动商{/if}</span></div>	 
+    			<div class="hd-btn-box flex-box1"><!-- 分不同状态的按钮 再赋值上对应的跳转链接 --> 		 
+    				{if $tmu['level'] == 0} 	 	 	 	 		 
+    				<div class="hd-btn vip-btn">	  	 	
+    					<a class="hd-btn-link" href="{php echo $this->createPluginMobileUrl('activity')}"> 		 
+    						<i class="iconfontby icon-huangguanguanjundiyihuiyuan icon-size"></i> 开通VIP
+    					</a>
+    				</div>
+    				{else}
+    				<div class="hd-btn vip-had-btn">
+    					<a class="hd-btn-link" href="javascript:void(0);">
+    						<i class="iconfontby icon-huangguanguanjundiyihuiyuan icon-size"></i> 已开通VIP
+    					</a>	  
+    				</div>	 
+    				{/if}
+    				{if true}
+    				<div class="hd-btn certify-btn">
+    					<a class="hd-btn-link" href="javascript:void(0);">
+    						<i class="iconfontby icon-v1 icon-size"></i> 立即认证
+    					</a>
+    				</div>
+    				{else}
+    				<div class="hd-btn certify-had-btn">
+    					<a class="hd-btn-link" href="javascript:void(0);">
+    						<i class="iconfontby icon-v1 icon-size"></i> 已认证
+    					</a>
+    				</div>
+    				{/if}
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="center-data-box">
+    	<ul class="flex-center">
+    		<li class="center-data-item">
+    			<div class="center-data-val">{$activityTotals}</div>
+    			<div class="center-data-nam">活动数</div>
+    		</li>
+    		<li class="center-data-item">
+    			<div class="center-data-val">{$favorite}</div>
+    			<div class="center-data-nam">粉丝数</div>
+    		</li>
+    		<li class="center-data-item">	 	 	 	
+    			<div class="center-data-val">{$muser['msgnum']}</div><!-- 短信余额这里一定要赋值 -->
+    			<div class="center-data-nam">短信余额</div>
+    			<div class="recharge-btn"><a class="recharge-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'message'))}" class="take take1">充值</a></div>	 	
+    		</li>	 				 		 	 	 	 	  	 	 	 
+    		<li class="center-data-item">	 	 		 	 	 
+    			<div class="center-data-val">{$credit}</div><!-- 账户余额这里一定要赋值 -->
+    			<div class="center-data-nam">账户余额</div>	 	 
+    			<div class="recharge-btn"><a class="recharge-link" href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}" class="take take1">充值</a></div>
+    		</li>
+    	</ul>
+    </div>
+  	<div class="personal-info">
+  	  	<div class="tool-type-tag">
+		  	<div class="tool-type-name">资料修改</div>
+	  	</div>
+	  	<ul class="info-edit-box flex-box1">
+			<!--账号信息-->
+		    <li class="info-edit-item"> 
+		    	<a href="{php echo $this->createPluginMobileUrl('activity')}">
+		    		<div class="hs-item" style="background:#c1c554"><i class="hs hs-wodeziliao"></i></div>
+		    		<span class="t-overflow">账号信息</span>
+		    	</a> 
+		    </li>
+			<!--设计名片--> 
+		    <li class="info-edit-item"> 
+		    	<a href="{php echo $this->createPluginMobileUrl('activity/card')}">
+		    		<div class="hs-item" style="background:#44b9c0"><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
+		    		<span class="t-overflow">设计名片</span>
+		    	</a>
+		    </li>
+			<!--每日打卡--> 
+		    <li class="info-edit-item"> 
+		    	<a href="{php echo $this->createPluginMobileUrl('activity/center')}">
+		    		<div class="hs-item" style="background:#e23088"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+		    		<span class="t-overflow">每日打卡</span>
+		    	</a>
+			</li>
+			<!--PC端密码--> 
+		    <li class="info-edit-item"> 
+		    	<a href="{php echo $this->createPluginMobileUrl('activity',array('op'=>'edit','what'=>'pwd'))}">
+		    		<div class="hs-item" style="background:#0680a9"><i class="fa fa-key" aria-hidden="true"></i></div>
+		    		<span class="t-overflow">PC端密码</span>
+		    	</a> 
+		    </li>
+			<!--电脑界面-->
+		    <li class="info-edit-item"> 
+		    	<a href="{php echo $this->createPluginMobileUrl('commission')}">
+		    		<div class="hs-item" style="background:#10BDFF;"><i class="fa fa-users" aria-hidden="true"></i></div>
+		    		<span class="t-overflow">推广赚钱</span>
+		    	</a> 
+		    </li>
+	  	</ul>
+  	</div>
+  	<!--功能使用-->
+  	<div class="actfun tool-type-box">
+	  	<div class="tool-type-tag">
+	  	  <div class="tool-type-name">功能使用</div>
+	  	</div>
+	  	<ul class="actfun-ul clearfloat">
+			<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'myAct','status'=>'3'))}">
+		          <div class="left1">	 	 	 	 
+		              <span class="img1-box"><img class="img1" src="../addons/sz_yi/static/img/act_admin.png"></span>
+		              <span class="tool-name-box">活动管理</span>
+		          </div>
+		        </a>
+		    </li>
+			<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'myAct','status'=>'1'))}">
+		          <div class="left1">
+		              <span class="img1-box"><img class="img1" src="../addons/sz_yi/static/img/art_admin.png"></span>
+		              <span class="tool-name-box">文章管理</span>
+		          </div>
+		        </a>
+		    </li>
+		    <li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'comment'))}">
+		          <div class="left1">	 	 
+		              <span class="img1-box"><img class="img1" src="../addons/sz_yi/static/img/comment_review.png"></span>
+		              <span class="tool-name-box">评论审核</span>
+		          </div>
+		        </a>
+		    </li>
+			<li> 
+			  	<a class="item-link" href="javascript:void(0);">
+		          <div class="left1">
+		              <span class="img1-box"><img class="img1" src="../addons/sz_yi/static/img/local_business.png"></span>
+		              <span class="tool-name-box">用户管理</span>
+		          </div>
+		        </a>
+		    </li>
+		  	<li> 	 	 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'withdraw'))}">
+		          <div class="left1">
+		              <span class="img1-box"><img class="img1" src="../addons/sz_yi/static/img/regional_agent.png"></span>
+		              <span class="tool-name-box">活动提现</span>
+		          </div>
+		        </a>
+	      	</li>
+		</ul>	
+  	</div>
+  	<div class="other-tool-box tool-type-box">
+	  	<div class="tool-type-tag">
+	  	  <div class="tool-type-name">商家更多功能</div>
+	  	</div>
+  		<ul class="other-ul clearfloat"> 
+		  	<!--卖货入驻 用标签判断用户是否已经申请该对应商家-->
+		  	{if false}
+		  	<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('supplier/af_supplier',array('merch'=>2))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#F78C39;"><img class="img1" src="../addons/sz_yi/plugin/suppliermenu/res/9.png"></span>
+		              <span class="tool-name-box">卖货入驻</span>
+		          </div>
+		        </a>
+	      	</li>
+	      	{else}
+	      	<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('suppliermenu/indexOld',array('merch'=>2))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#F78C39;"><img class="img1" src="../addons/sz_yi/plugin/suppliermenu/res/9.png"></span>
+		              <span class="tool-name-box">卖货入驻</span>
+		          </div>
+		        </a>
+	      	</li>
+	      	{/if}
+		  	<!--换货入驻 用标签判断用户是否已经申请该对应商家-->
+		  	{if false} 
+		  	<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('supplier/af_supplier',array('merch'=>5))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#18C684;"><img class="img1" src="../addons/sz_yi/plugin/suppliermenu/res/11.png"></span>
+		              <span class="tool-name-box">换货入驻</span>
+		          </div>
+		        </a>
+	      	</li>
+	      	{else}
+	      	<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('suppliermenu',array('merch'=>5))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#18C684;"><img class="img1" src="../addons/sz_yi/plugin/suppliermenu/res/11.png"></span>
+		              <span class="tool-name-box">换货入驻</span>
+		          </div>
+		        </a>
+	      	</li>
+	      	{/if}
+		  	<!--广告投放--> 
+		  	<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('merch'=>1))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#ff333c;"><img class="img1" src="../addons/sz_yi/static/img/putad.png"></span>
+		              <span class="tool-name-box">广告投放</span>
+		          </div>
+		        </a>
+	      	</li>
+	      	<!--网络开发-->
+		  	<li> 
+			  	<a class="item-link" href="{php echo $this->createMobileUrl('shop/list',array('pcate'=>783,'ccate'=>785))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#8a89ce;"><img class="img1" src="../addons/sz_yi/static/img/net_develop.png"></span>
+		              <span class="tool-name-box">网络开发</span>
+		          </div>
+		        </a>
+	      	</li>
+	      	<!--地区加盟-->
+		  	<li> 
+			  	<a class="item-link" href="{php echo $this->createPluginMobileUrl('article',array('aid'=>28))}">
+		          <div class="left1">
+		              <span class="img1-box" style="background:#10BDFF;"><img class="img1" src="../addons/sz_yi/static/img/join.png"></span>
+		              <span class="tool-name-box">地区加盟</span>
+		          </div>
+		        </a>
+	      	</li>
+  		</ul>
+  	</div>
+  	<div class="tips-box">
+  		<div class="tips-title">电脑版登陆</div>
+  		<div class="tips-content">
+  			1、请搜"易货联盟"进入"商家后台"<br />
+  			2、输入jhzh66.com/web
+  		</div>
+  	</div>
+  	<div style="height: 55px; width: 100%;"></div>
+  	{template 'common/nav_activity1'}
+</script>
+<!-- js --> 
+<script type="text/javascript">
+require(['tpl', 'core'], function(tpl, core) { 
+	//更改对应的访问链接 
+	core.json('member/center',{},function(json){     
+		$('#container').html(  tpl('activity_center',json.result) );
+	},true);   
+})
+</script> 
+{template 'common/footer'}

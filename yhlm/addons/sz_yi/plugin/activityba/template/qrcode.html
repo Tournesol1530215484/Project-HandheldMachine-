@@ -1,0 +1,50 @@
+{template 'mycommon/header-intact'}
+<title>二维码</title>
+<script type="text/javascript">
+	//二维码从父窗口的变量qrcode拿过来的
+	var qrcode = window.parent.qrcode;
+</script>
+<style type="text/css">
+
+	.m-container{
+		margin-left:1px;
+		width:960px;
+		height:463px;
+		background: rgba(255,255,255,.7);
+	}
+	.m-container .nav{
+		width:825px;
+		height:80px;
+		line-height:100px;
+		margin:0 68px;
+		font-size:25px;
+		color:#000;
+		border-bottom:1px solid #333;
+	}
+	.m-container .qrcode{
+		padding-left:68px;
+		padding-top:28px;
+	}
+	.m-container .qrcode .big{
+		width:310px;
+	}
+	.m-container .qrcode .middle{
+		width:225px;
+		margin-left:40px;
+	}
+	.m-container .qrcode .small{
+		width:150px;
+		margin-left:40px;
+	}
+</style>
+<div class="m-container">
+	<div class="nav">打开微信扫描以下任意二维码，参与现场互动</div>
+    <div class="qrcode">
+        <script type="text/javascript">
+	        document.writeln('<img class="big" src="'+qrcode+'">');
+	        document.writeln('<img class="middle" src="'+qrcode+'">');
+	        document.writeln('<img class="small" src="'+qrcode+'">');
+        </script>
+    </div>
+</div>
+{template 'mycommon/footer-intact'}

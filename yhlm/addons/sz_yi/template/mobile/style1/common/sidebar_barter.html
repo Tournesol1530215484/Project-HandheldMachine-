@@ -1,0 +1,160 @@
+<style type="text/css">
+
+	.sidebar-container{
+
+        position: fixed;
+
+        right: 20px;
+
+        bottom: 68px;
+
+        width: 42px;
+
+        z-index: 999;
+
+    }
+
+    .sidebar-container .sidebar-box{
+
+        margin: 0;
+
+        padding: 0;
+
+        list-style: none;
+
+    }
+
+    .sidebar-container .sidebar-item-link{
+
+        display: block;
+
+        width: 40px;
+
+        text-decoration: none;
+
+    }
+
+    .sidebar-container .sidebar-item-link .sidebar-item{
+
+        text-align: center;
+
+    }
+
+    .sidebar-container .sidebar-item-link .icon-boxx{
+
+        display: block;
+
+        width: 38px;
+
+        height: 38px;
+
+        margin: 0 auto;
+
+        border-radius: 50%;
+
+        border: 1px solid #eee;
+
+        background: #fff;
+
+    }
+
+    .sidebar-container .sidebar-item-link .icon-boxx .icon-font{
+
+        font-size: 22px;
+
+        line-height: 38px;
+
+        color: #333;
+
+    }
+
+    .sidebar-name{
+
+        display: block;
+
+        font-size: 12px;
+
+        text-align: center;
+
+        color: red;
+
+        line-height: 18px;
+
+    }
+
+</style>
+
+<div class="sidebar-container">
+
+    <ul class="sidebar-box">
+
+        <!--<a class="sidebar-item-link" href="{php echo $this->createPluginMobileUrl('suppliermenu/dealgoods',array('op'=>'post','merch'=>5));}">-->
+
+            <!--<li class="sidebar-item">-->
+
+                <!--<span class="icon-boxx"><i class="fa fa-plus icon-font" aria-hidden="true"></i></span>-->
+
+                <!--<span class="sidebar-name">发产品</span>-->
+
+            <!--</li>-->
+
+        <!--</a>-->
+
+        <a class="sidebar-item-link" href="{php echo $this->createMobileUrl('barter/ad')}">
+
+            <li class="sidebar-item" >
+
+                <span class="icon-boxx " style="background:transparent url(../addons/sz_yi/template/mobile/style1/static/images/packetimg_190220.png) no-repeat center ; background-size: 100% 100%;">
+
+                </span>
+
+                <span class="sidebar-name">红包</span>
+
+            </li>
+
+        </a>
+
+        <a class="sidebar-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&method=forum&p=bartact&m=sz_yi&do=plugin">
+
+            <li class="sidebar-item"  style="background: #f4e4e400 ">
+
+                <span class="icon-boxx" style="background: #f4e4e400 "><i class="fa fa-refresh icon-font" aria-hidden="true"></i></span>
+               <!-- <span class="icon-boxx icon-img" style="background: #f4e4e400 url(../addons/sz_yi/template/mobile/style1/static/images/sx.png) no-repeat center; background-size: 70% 70%;"> -->
+
+                <span class="sidebar-name" >发帖</span>
+
+            </li>
+
+        </a>
+
+
+        <a id="gotop" class="sidebar-item-link" href="javascript:void(0);">
+
+            <li class="sidebar-item" style="background: #f4e4e400 ">
+
+                <span class="icon-boxx" style="background: #f4e4e400 "><i class="fa fa-long-arrow-up icon-font" aria-hidden="true"></i></span>
+
+                <!-- <span class="icon-boxx icon-img" style="background: #f4e4e400 url(../addons/sz_yi/template/mobile/style1/static/images/jt.png) no-repeat center; background-size: 70% 70%;"> -->
+
+            </li>
+
+        </a>
+
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+
+    $(function(){
+
+        $("#gotop").click(function(){
+
+            $("html,body").stop().animate({scrollTop: 0}, 500);
+
+        });
+
+    });
+
+</script>
+

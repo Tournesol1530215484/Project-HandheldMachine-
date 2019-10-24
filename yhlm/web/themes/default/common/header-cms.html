@@ -1,0 +1,110 @@
+{template 'common/header-base'}
+<style type="text/css">
+    .app,.app body {
+	width:100%;
+	height:100%;
+	overflow:auto;
+}
+</style>
+<div class="gw-container">
+	{if !defined('NO_HEADER')}
+	<div class="navbar navbar-inverse navbar-static-top  bg-dark " role="navigation" style="z-index:1001; margin-bottom:0;position: absolute;top:0;width:100%;">
+		<div class="container-fluid">
+                          
+                       
+			<ul class="nav navbar-nav">
+				 
+                            <li >
+                                {php $logo = !empty($_W['setting']['copyright']['blogo'])?tomedia($_W['setting']['copyright']['blogo']):'./themes/default/style/images/gw-logo.png'}
+                                <a  href="./?refresh" style='padding:3px 0 5px 0'><img src='{$logo}' style='height:40px;' /></a>
+                            </li>
+                                 
+				{if !empty($_W['uniacid'])}
+                                <li><a href="{url 'home/welcome/platform'}" target="_blank"><i class="fa fa-share"></i>继续管理公众号（{$_W['account']['name']}）</a></li>
+                                {/if}
+                                
+                                    <li class="{if $controller == 'account'} active{/if}"><a href="{url 'account/display'}">
+					<i class="fa fa-comments"></i>
+					<span>公众号管理</span>
+				</a></li>
+                                <li class="{if $controller == 'system'} active{/if}"><a href="{url 'system/welcome'}" >
+					<i class="fa fa-sitemap"></i>
+					<span>系统管理</span>
+				</a></li>
+                                
+				{if $_W['isfounder']}{/if}
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+                            {if !empty($_W['uniacid'])}
+				<li class="dropdown">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"  style="display:block; width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; "><i class="fa fa-group"></i> {$_W['account']['name']} <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						{if $_W['role'] != 'operator'}
+						<li><a href="{url 'account/post' array('uniacid' => $_W['uniacid'])}" target="_blank"><i class="fa fa-weixin fa-fw"></i> 编辑当前账号资料</a></li>
+						{/if}
+						<li><a href="{url 'account/display'}" target="_blank"target="_blank"><i class="fa fa-cogs fa-fw"></i> 管理其它公众号</a></li>
+						<li><a href="{url 'utility/emulator'}" target="_blank"><i class="fa fa-mobile fa-fw"></i> 模拟测试</a></li>
+					</ul>
+				</li>
+                                {/if}
+				<li class="dropdown">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {$_W['user']['username']} ({if $_W['role'] == 'founder'}系统管理员{elseif $_W['role'] == 'manager'}公众号管理员{else}公众号操作员{/if}) <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="{url 'user/profile/profile'}" target="_blank"><i class="fa fa-weixin fa-fw"></i> 我的账号</a></li>
+						{if $_W['role'] != 'operator'}
+						<li class="divider"></li>
+						<li><a href="{url 'system/welcome'}" target="_blank"><i class="fa fa-sitemap fa-fw"></i> 系统管理</a></li>
+						<li><a href="{url 'system/updatecache'}" target="_blank"><i class="fa fa-refresh fa-fw"></i> 更新缓存</a></li>
+						<li class="divider"></li>
+						{/if}
+						<li><a href="{url 'user/logout'}"><i class="fa fa-sign-out fa-fw"></i> 退出系统</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+ 
+	 {/if}
+	<div class="container-fluid">
+		{if defined('IN_MESSAGE')}
+		<div  style='margin-top:60px;'>
+			<div class="jumbotron clearfix alert alert-{$label}">
+				<div class="row">
+					<div class="col-sm-4 col-md-3 col-lg-2" style='text-align:right'>
+						<i style="font-size:10em" class="fa fa-5x fa-{if $label=='success'}check-circle{/if}{if $label=='danger'}times-circle{/if}{if $label=='info'}info-circle{/if}{if $label=='warning'}exclamation-triangle{/if}"></i>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+						{if is_array($msg)}
+							<h2>MYSQL 错误：</h2>
+							<p>{php echo cutstr($msg['sql'], 300, 1);}</p>
+							<p><b>{$msg['error'][0]} {$msg['error'][1]}：</b>{$msg['error'][2]}</p>
+						{else}
+						<h2>{$caption}</h2>
+						<p>{$msg}</p>
+						{/if}
+						{if $redirect}
+						<p><a href="{$redirect}" class="alert-link">如果你的浏览器没有自动跳转，请点击此链接</a></p>
+						<script type="text/javascript">
+							setTimeout(function () {
+								location.href = "{$redirect}";
+							}, 2000);
+						</script>
+						{else}
+						<p>[<a href="javascript:history.go(-1);" class="alert-link">点击这里返回上一页</a>] &nbsp; [<a href="./?refresh" class="alert-link">首页</a>]</p>
+						{/if}
+					</div>
+				</div>
+			</div>
+		{else}
+		<div class="well" style="margin-top:60px;overflow:auto;">
+		{/if}
+<script>
+    function res(){
+       require(['jquery'],function($){
+		var h = document.documentElement.clientHeight;
+		$(".gw-container").css('min-height',h);
+	});
+    }
+	window.onresize = res;
+        res();
+</script>

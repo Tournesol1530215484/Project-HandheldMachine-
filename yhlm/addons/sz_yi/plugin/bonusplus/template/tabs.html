@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs">
+	{ifp 'bonusplus.agent'}<li {if $_GPC['method']=='agent'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonusplus/agent')}">代理商管理</a></li>{/if}
+	{ifp 'bonusplus.level'}<li {if $_GPC['method']=='level'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonusplus/level')}">代理商等级</a></li>{/if}
+
+	{ifp 'bonusplus.detail'}<li {if $_GPC['method']=='detail'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonusplus/detail/list')}">分红明细</a></li>{/if}
+    {ifp 'bonusplus.notice'}<li  {if $_GPC['method']=='notice'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonusplus/notice')}">通知设置</a></li>{/if}
+    {ifp 'bonusplus.cover'}<li {if $_GPC['method']=='cover'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonusplus/cover')}">静态全返入口设置</a></li>{/if}
+    {ifp 'bonusplus.set'}<li {if $_GPC['method']=='set'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bonusplus/set')}">基础设置</a></li>{/if}
+</ul>

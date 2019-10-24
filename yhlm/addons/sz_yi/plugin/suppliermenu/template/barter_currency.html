@@ -1,0 +1,97 @@
+﻿{template 'common/header'}
+<div class="panel panel-info">
+    <div class="panel-heading">易货额度收支查询</div>
+    <div class="panel-body">
+        <form action="">
+            <input type="hidden" name="c" value="site">
+            <input type="hidden" name="a" value="entry">
+            <input type="hidden" name="m" value="sz_yi">
+            <input type="hidden" name="p" value="suppliermenu">
+            <input type="hidden" name="do" value="plugin">
+            <input type="hidden" name="method" value="barter_currency">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <select name="type" class="form-control col-sm-3 col-md-3" style="margin-bottom: 15px">
+                        <option {if $_GPC['type']==0}selected{/if} value="0">全部</option>
+                        <option {if $_GPC['type']==1}selected{/if} value="1">购买易货额度</option>
+                        <option {if $_GPC['type']==2}selected{/if} value="2">下架解冻</option>
+                        <option {if $_GPC['type']==3}selected{/if} value="3">人工冻结</option>
+                        <!-- <option {if $_GPC['type']==4}selected{/if} value="4">上架冻结</option> -->
+                        <option {if $_GPC['type']==5}selected{/if} value="5">购买会员赠送</option>
+                        <!-- <option {if $_GPC['type']==6}selected{/if} value="6">首次注册商家成功赠送</option>
+                        <option {if $_GPC['type']==7}selected{/if} value="7">定向易货退回</option>
+                        <option {if $_GPC['type']==8}selected{/if} value="8">广告资源置换所得</option> -->
+                        <option {if $_GPC['type']==9}selected{/if} value="9">购买获取</option>
+                        <option {if $_GPC['type']==10}selected{/if} value="10">平台赠送</option> 	 		 	 	
+                        <option {if $_GPC['type']==11}selected{/if} value="11">销售收入易货码自动激活</option>
+                </select>
+                <label class="col-sm-3 col-md-3 control-label">可用易货额度 <span class="credit3" style="color: #f00;">{$member['currency_credit3']}</span></label>
+                <label class="col-sm-3 col-md-3 control-label">已消耗易货额度 <span class="freeze_credit3" style="color: #f00;">{$member['use']}</span></label>
+                <label class="col-sm-3 col-md-3 control-label">上架冻结易货额度 <span style="color: #f00;"></span></label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-sm-2">
+                    <label class="radio-inline"><input type="radio" name="searchtime" value="0" {if empty($_GPC['searchtime'])}checked{/if}>不搜索</label>
+                    <label class="radio-inline"><input type="radio" name="searchtime" value="1" {if !empty($_GPC['searchtime'])}checked{/if}>搜索</label>
+                </div>
+                <div class="col-sm-7 col-lg-7 col-xs-12">
+                    {php echo tpl_form_field_daterange('datetime', array('starttime'=>date('Y-m-d H:i',$starttime),'endtime'=>date('Y-m-d H:i',$endtime)), true)}
+                </div>
+                <button class="btn btn-default"><i class="fa fa-search"></i> 查询</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="">
+	<table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style="width:20%">用户名</th>
+                    <th style="width:20%">交易类型</th>
+                    <th style="width:20%">交易额度</th>
+                    <th style="width:20%">交易日期</th>
+                    <th style="width:20%">交易说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr style="background: #eee">
+                    <td>{$row['username']}/{$row['realname']}</td>
+                    <td>
+                       {if $row['type'] == 1}
+                			购买易货额度
+            			{else if $row['type']  == 2}
+        				下架解冻
+        				{else if $row['type']  == 3}
+        				人工冻结
+        				{else if $row['type']  == 4}
+        				上架解冻
+        				{else if $row['type']  == 5}
+        				购买会员赠送
+        				{else if $row['type']  == 6}
+        				首次注册商家成功赠送
+        				{else if $row['type']  == 7}
+        				定向易货退回
+        				{else if $row['type']  == 8}
+        				广告资源置换所得
+        				{else if $row['type']  == 9}
+        				购买获取
+        				{else if $row['type']  == 10}
+        				平台赠送
+        				{else if $row['type']  == 11}
+            			商家冻结易货码激活
+                        {/if}
+                    </td>
+                    <td>{$row['currency']}</td>
+                    <td><b>{php echo date('Y-m-d H:i',$row['dealtime'])}</b></td>
+                    <td>{$row['note']}</td>
+                </tr>
+            {/loop}
+        </table>
+        {$pager}
+    </div>
+</div>
+</div>
+</div>
+
+{template 'common/footer'}

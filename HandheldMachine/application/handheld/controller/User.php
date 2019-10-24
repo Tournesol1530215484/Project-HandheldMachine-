@@ -42,7 +42,7 @@ class User extends Base
     }
 
 
-    //获取主界面,获取当天的巡检计划以及
+    //获取主界面,获取当天的巡检计划(任务列表)
     public function get_duty(){
         if(request()->isPost()){
             //根据传过来的workerID获取巡检班组的id
@@ -90,7 +90,7 @@ class User extends Base
 
  
 
-    //获取巡检界获取标点
+    //获取巡检界获取点
     public function get_duty_points(){
         if(request()->isPost()){
             $data=input('post.');
@@ -108,6 +108,7 @@ class User extends Base
                     $templist[$i]['arrive_time']=$duty_route[0]['arrive_time'.$i];
                     $templist[$i]['leave_time']=$duty_route[0]['leave_time'.$i];
                     $templist[$i]['routeurl']=$this->get_routeurl($routelist,$i);
+                    $templist[$i]['project']=$this->get_inspec_data($duty_route[0]['point'.$i]);
                     if(empty($templist[$i]['routeurl'])){
                         $templist[$i]['routeurl']='';
                     }
@@ -139,7 +140,48 @@ class User extends Base
 
     }
 
-    //获取巡检界面巡检点列表，获取地图 返回下载地址
+    //根据巡检点获取巡检点的巡检项目
+    public function get_inspec_data($pointID){
+        
+        $point_details=db('inspection_point')->where(['list'=>$pointID])->select();
+        $templist=array();
+        $retunlist=array();
+        if($point_details){
+            for($i=1;$i<21;$i++){
+
+                if($point_details[0]['check'.$i]==''){
+                        unset($point_details[0]['process'.$i]);
+                        unset($point_details[0]['check'.$i]);
+                        unset($point_details[0]['range'.$i]);
+                        unset($point_details[0]['update'.$i]);
+                        unset($point_details[0]['state'.$i]);
+
+                    }else{
+                        $templist[$i]['point']=$i;
+                        $templist[$i]['process']=$point_details[0]['process'.$i];
+                        $templist[$i]['check']=$point_details[0]['check'.$i];
+                        $templist[$i]['range']=$point_details[0]['range'.$i];
+                        $templist[$i]['update']=$point_details[0]['update'.$i];
+                        $templist[$i]['state']=$point_details[0]['state'.$i];
+                        unset($point_details[0]['process'.$i]);
+                        unset($point_details[0]['check'.$i]);
+                        unset($point_details[0]['range'.$i]);
+                        unset($point_details[0]['update'.$i]);
+                        unset($point_details[0]['state'.$i]);
+                    }
+
+            }
+            $templist=array_values($templist);  //去除数组的建
+        }
+        $retunlist['Projectpoint']=$templist;
+        $retunlist['IC'] =$point_details[0]['IC'];  //增加返回IC卡号信息
+        return $retunlist;
+
+
+
+    }
+
+    //获取巡检界面巡检点列表，获取地图 返回下载地址(接口已经被合并)
     public function get_duty_map(){
 
 
@@ -195,23 +237,29 @@ class User extends Base
             $data=input('post.');
             $IC=$data['IC'];    //获取传过来的ic卡
             $point_details=db('inspection_point')->where(['IC'=>$IC])->select();
+
             //重组数组
-                $templist=array();
+            if($point_details){
+
+                //扫描IC卡后，inspection_report，开始时间
+                $times=data("Y-m-d H:i:s",time());
+                db('inspection_report')->where(['list'=>$point_details[0]['list']])->update(['reachTime' => $times]);
+                 $templist=array();
                 for($i=1;$i<21;$i++){
 
                     if($point_details[0]['check'.$i]==''){
-
                         unset($point_details[0]['process'.$i]);
                         unset($point_details[0]['check'.$i]);
                         unset($point_details[0]['range'.$i]);
                         unset($point_details[0]['update'.$i]);
                         unset($point_details[0]['state'.$i]);
+
                     }else{
                         $templist[$i]['process']=$point_details[0]['process'.$i];
                         $templist[$i]['check']=$point_details[0]['check'.$i];
                         $templist[$i]['range']=$point_details[0]['range'.$i];
                         $templist[$i]['update']=$point_details[0]['update'.$i];
-                         $templist[$i]['state']=$point_details[0]['state'.$i];
+                        $templist[$i]['state']=$point_details[0]['state'.$i];
                         unset($point_details[0]['process'.$i]);
                         unset($point_details[0]['check'.$i]);
                         unset($point_details[0]['range'.$i]);
@@ -221,8 +269,13 @@ class User extends Base
 
                 }
                 $templist=array_values($templist);  //去除数组的建
+
+                
                 $returnlist=$point_details[0];
                 $returnlist['pointList']=$templist; //合并数组
+
+            }
+               
 
             if($point_details){
                 if($point_details[0]['point_state']==0){
@@ -247,6 +300,7 @@ class User extends Base
             //判断是新增还是更新
             $res=db('inspection_report')->where(['pointID'=>$data['pointID']])->select();
             $data['report_date']=date("Y-m-d H:i:s",time());    //完成时间
+            $data['leaveTime']=date("Y-m-d H:i:s",time());    //离开的时间，完成时间
             if(!empty($res)){
                  $data['list']=$res[0]['list'];
                  $res=db('inspection_report')->update($data);

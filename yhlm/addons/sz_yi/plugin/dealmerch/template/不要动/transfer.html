@@ -1,0 +1,183 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $op=='add'}
+<form action="" method="post" class="form-horizontal form">
+    <input type="hidden" name="op" value="transfer">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>易货码转账</div>
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label"><b>商家信息 :</b></label>
+                <div class="col-sm-9 col-md-8">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">转出方账号(id)</label>
+                <div class="col-sm-9 col-md-8">
+                    <input type="text" name="sponsor_uid" value="" placeholder="将转出方手中扣除手续费{$sets['bart']['tratio']}%" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">易货码余额</label>
+                <div class="col-sm-9 col-md-8 credit3">
+                    <label class="control-label" for="">易货码余额 :<span style="color: #f00">0.00</span>(未冻结) | 余额<p style="display:inline-block;color:#0f0;">0.00</p> </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label"><b>转入方信息 :</b></label>
+                <div class="col-sm-9 col-md-8">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">转入方账号(id)</label>
+                <div class="col-sm-9 col-md-8">
+                    <input type="text" name="recipient_uid" value="" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">转出易货码数量</label>
+                <div class="col-sm-9 col-md-8">
+                    <input type="number" name="currency" value="" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">备注</label>
+                <div class="col-sm-9 col-md-8">  
+                    <textarea name="note" class="form-control" cols="30" rows="10" style="width: 100%;"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group"></div>
+
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="col-sm-9">
+                <input type="submit" name="submit" value="确认转账" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+
+    $('[name="sponsor_uid"]').blur(function () {
+        var o=$(this);
+        var val=o.val();
+        $.post(
+            '{php echo $this->createPluginWebUrl("dealmerch/transfer")}',
+            {op:'getInfo',uid:val,who:'sponsor'},
+            function (data) {
+                if(data.status== '0'){
+                    confirm('没有该用户!,请重新输入');
+                }else{
+                    confirm('发起人 ：'+data.result.realname+',手机 ：'+data.result.mobile);
+                    $('.credit3 span').html(data.result.credit3);
+                    $('.credit3 p').html(data.result.credit2);
+
+                }
+            },'json');
+    });
+
+    $('[name="recipient_uid"]').blur(function () {
+        var o=$(this);
+        var val=o.val();
+        $.post(
+            '{php echo $this->createPluginWebUrl("dealmerch/transfer")}',
+            {op:'getInfo',uid:val},
+            function (data) {
+                if(data.status== '0'){
+                    confirm('没有该用户!,请重新输入');
+                }else{
+                    confirm('收账人 ：'+data.result.realname+',手机 ：'+data.result.mobile);
+                }
+            },'json');
+    });
+
+</script> 
+{else}
+<a class="btn btn-primary" href="{php echo $this->createPluginWebUrl('dealmerch/transfer',array('op'=>'add'))}" style="margin-bottom: 15px;width:80px;"> 转 账 </a>
+
+<div class='panel panel-default'>
+    <div class='panel-heading'>易货码转账</div>
+    <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" name="m" value="sz_yi" />
+        <input type="hidden" name="do" value="plugin" />
+        <input type="hidden" name="p" value="dealmerch" />
+        <input type="hidden" name="method" value="transfer" />
+
+        <div class="form-group" style="margin-top: 15px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-xs-12 col-sm-2 col-md-3 col-lg-3 control-label">订单时间</label>
+                <div class="col-sm-2">
+                    <label class="radio-inline"><input type="radio" name="searchtime" value="0" {if empty($_GPC['searchtime'])}checked{/if}>不搜索</label>
+                    <label class="radio-inline"><input type="radio" name="searchtime" value="1" {if !empty($_GPC['searchtime'])}checked{/if}>搜索</label>
+                </div>
+                <div class="col-sm-7 col-lg-7 col-xs-12">
+                    {php echo tpl_form_field_daterange('datetime', array('starttime'=>date('Y-m-d H:i',$starttime),'endtime'=>date('Y-m-d H:i',$endtime)), true)}
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <button class="btn btn-default" ><i class="fa fa-search"></i> 搜索</button>
+                <input type="hidden" name="token" value="{$_W['token']}" />
+                {if 'statistics.export.order'}
+                <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                {/if}
+            </div>
+        </div>
+    </form>
+</div>
+<div class='panel panel-default'>
+    <div class='panel-heading'>转账详情</div>
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th>发起人</th>
+                    <th>接收人</th>
+                    <th>易货码数量</th>
+                    <th>时间</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $k}
+                <tr>
+                    <td>{$k['sponsor_name']}</td>
+                    <td>{$k['recipient_name']}</td>
+                    <td>{$k['currency']}</td>
+                    <td>{php echo date('Y-m-d H:i:s',$k['transfertime'])}</td>
+                    <td>{$k['note']}</td>
+                </tr>
+                {/loop}
+            </tbody>
+        </table>
+    </div>
+    {$pager}
+</div>
+{/if}
+<script language='javascript'>
+    function showtip(n) {
+        if (n == 1) {
+            var tip = document.getElementById('tip');
+            tip.style.display = "block";
+        } else {
+            var tip = document.getElementById('tip');
+            tip.style.display = "none";
+        }
+    }
+
+
+
+</script>
+{template 'web/_footer'}

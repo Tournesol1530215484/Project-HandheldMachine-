@@ -1,0 +1,546 @@
+{template 'common/header'}
+
+<title>
+
+    {if $_GPC['status'] == 1}
+
+        粉丝数量
+
+    {else if $_GPC['status'] == 2}
+
+        商品换货
+
+    {else if $_GPC['status'] == 3}
+
+        赚取现金
+
+    {else if $_GPC['status'] == 4}
+
+        卖货提成
+
+    {else if $_GPC['status'] == 5}
+
+                赚取产品
+
+    {/if}                      
+
+    排行榜
+
+</title><!-- 粉丝数量榜/商品换货榜/赚取现金排行榜/卖货提成排行榜/赚取产品排行榜 五种类型标题 这里内置标签动态获取标题 -->
+
+<style type="text/css">
+
+    html{
+
+        font-size: 10px;
+
+    }
+
+    body{
+
+        background: #fff;
+
+    }
+
+    .page_topbar{
+
+       background: #009BF8;
+
+    }
+
+    .page_topbar a.back{
+
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+
+        font-weight: bold;
+
+        padding-right: 15px;
+
+        color: #fff;
+
+    }
+
+    .page_topbar .title{
+
+        color: #fff;
+
+    }
+
+    .page_topbar .home {
+
+        position: absolute;
+
+        right: 15px;
+
+        top: 0;
+
+        color: #fff;
+
+        font-size: 14px;
+
+        text-decoration: none;
+
+    }
+
+    /*flex居中*/
+
+    .flex-center {
+
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        display: flex;
+
+        -webkit-box-pack: center;
+
+        -ms-flex-pack: center;
+
+        -webkit-justify-content: center;
+
+        justify-content: center;
+
+        -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+        -webkit-align-items: center;
+
+        align-items: center;
+
+    }
+
+    .nowrap-box{
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+    }
+
+    .sort-time-nav{
+
+        width: 100%;
+
+        margin: 10px 0;
+
+    }
+
+    .sort-time-nav .nav-time{
+
+        width: 25%;
+
+        font-size: 14px;
+
+        border-bottom: 1px solid #eee;
+
+        padding: 5px;
+
+        text-align: center;
+
+    }
+
+    .sort-time-nav .nav-time.nav-active{
+
+        border-bottom: 1px solid #009BF8;
+
+        color: #009BF8;
+
+    }
+
+    .list-box{
+
+        margin-bottom: 10px;
+
+        padding: 0 10px;
+
+        background: #fff;
+
+    }
+
+    .no-list{
+
+        padding: 10px;
+
+        text-align: center;
+
+        color: #999;
+
+    }
+
+    /*除打卡排行榜外的记录样式*/
+
+    .list-box .record-item{
+
+        font-size: 14px;
+
+        /*margin-bottom: 10px;*/
+
+        padding: 8px 0;
+
+        border-bottom: 1px solid #eee;
+
+    }
+
+    .record-item .sort-num-box{
+
+        width: 40px;
+
+        font-size: 12px;
+
+        text-align: center;
+
+    }
+
+    .record-item .avatar-box{
+
+        width: 40px;
+
+        height: 40px;
+
+        margin-right: 5px;
+
+        margin-left: 5px;
+
+    }
+
+    .record-item .avatar-box .avatar-cot{
+
+        width: 100%;
+
+        height: 100%;
+
+    }
+
+    .record-item .text-box{
+
+        width: calc(100% - 90px);
+
+    }
+
+    .text-box .nickname-box{
+
+        color: #000;
+
+    }
+
+    .text-box .sort-type-cot{
+
+        width: 50%;
+
+        color: red;
+
+    }
+
+    .text-box .sort-type-cot .for-color{
+
+        color: #333;
+
+    }
+
+    .text-box .s-time-box{
+
+        width: 50%;
+
+        font-size: 12px;
+
+    }
+
+    #list_loading{ 
+
+        width: 100%;
+
+        padding: 10px;
+
+        color: #666;
+
+        text-align: center;
+
+    }
+
+</style>
+
+
+
+<div id="big_body">
+
+    <div class="page_topbar">
+
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+
+        <div class="title">
+
+            {if $_GPC['status'] == 1}
+
+                粉丝数量
+
+            {else if $_GPC['status'] == 2}
+
+                商品换货
+
+            {else if $_GPC['status'] == 3}
+
+                赚取现金
+
+            {else if $_GPC['status'] == 4}
+
+                卖货提成
+
+            {else if $_GPC['status'] == 5}
+
+                赚取产品
+
+            {/if}                      
+
+            排行榜
+
+        </div><!-- 粉丝数量榜/商品换货榜/赚取现金排行榜/卖货提成排行榜/赚取产品排行榜 五种类型标题 这里内置标签动态获取标题 -->
+
+    </div>
+
+    <!-- 时间导航栏 -->
+
+    <div class="sort-time-nav">
+
+        <ul class="flex-center">
+
+            <li class="nav-time nav-active" data-time="4">{if $_GPC['status'] == 1}总数{else}总数{/if}</li>
+
+             <li class="nav-time" data-time="3">月</li>
+
+              <li class="nav-time" data-time="2">周</li>
+
+            <li class="nav-time " data-time="1">日</li>
+
+
+        </ul>
+
+    </div>
+
+    <div class="list-box">
+
+        <ul class="list-ul">      
+
+            <!-- 这里循环排行记录 或者 排行记录暂无数据为空 两种选择-->
+
+            <!-- 这里循环排行记录 或者 排行记录暂无数据为空end 后要删 只是看样式 -->
+
+        </ul> 
+
+    </div>
+
+</div>
+
+<!-- 排行榜记录模板 -->
+
+<script id="tpl_sort" type="text/html">
+
+    <%each list as g index%>
+
+    <li class="record-item flex-center">
+
+        <div class="sort-num-box nowrap-box"><%g.no%></div> <!-- 排行名次 -->
+
+        <div class="avatar-box">
+
+            <img class="avatar-cot" src="<%g.avatar%>"> <!-- 头像 -->
+
+        </div>
+
+        <div class="text-box">
+
+            <div class="nickname-box"><%g.nickname%></div> <!-- 微信名 -->
+
+            <div class="sort-type-time flex-center">
+
+                <div class="sort-type-cot nowrap-box" style="width:60%;">  <!-- 这里用模板标签判断赋值 : 粉丝数/换货量/拆红包金额/卖货提成/拆换货码红包金额-->
+
+                    {if $_GPC['status'] == 1}
+
+                        <span class="for-color">粉丝数: </span><%g.fans%>
+
+                    {else if $_GPC['status'] == 2}
+
+                        <span class="for-color">换货金额: </span><%g.price%>
+
+                    {else if $_GPC['status'] == 3}                                                     
+
+                        <span class="for-color"><!-- 拆红包 -->金额: </span><%g.bonus%>
+
+                    {else if $_GPC['status'] == 4}                                                 
+
+                        <span class="for-color">卖货提成: </span>￥<%g.bonus%>
+
+                    {else if $_GPC['status'] == 5}                                                 
+
+                        <span class="for-color"><!-- 拆换货码红包 -->换货码: </span><%g.bonus%> 
+
+                    {/if}                            
+
+                </div>                   
+
+                <div class="s-time-box nowrap-box"><%g.ctime%></div>  <!-- 注册时间 -->
+
+            </div>
+
+        </div>
+
+    </li>
+
+    <%/each%>
+
+</script>
+
+<script id="tpl_null" type="text/html">
+
+    <div class="no-list">暂无记录</div>
+
+</script>
+
+<script type="text/javascript">
+
+    //各类型排行榜的请求标志字段status,同种类型的不同时间标志字段time,到时候修改status的赋值，现在只是测试
+
+    var args  = {
+
+        tpl: "tpl_sort",//默认进入页面加载的模板
+
+        page: 1,                   
+
+        ac:'get',                                                   
+
+        op:'sort',                                                   
+
+        status:'{$_GPC['status']}',      
+
+        time: 4 //默认进入页面加载的时间类型      
+
+    }; 
+
+    var loaded = false;
+
+    var stop = true;
+
+    require(['tpl', 'core'], function(tpl, core) {
+
+        getSortList(args);
+
+        //处理同一排行榜的时间导航栏
+
+        $(".nav-time").unbind("click").click(function(){
+
+            var time = $(this).data('time');
+
+            $(this).addClass("nav-active").siblings().removeClass("nav-active");
+
+            args.page = 1;   
+
+            args.time = time;      
+
+            getSortList(args);       
+
+        });
+
+        
+
+        //获取除打卡排行榜外的排行榜记录数据函数 改异步请求连接
+
+        function getSortList(page){
+
+            core.pjson("activity/center", args, function(json) {
+
+                if (json.result.list.length <= 0) {
+
+                    loaded = true;
+
+                    $(window).scroll = null;
+
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+
+                    return;
+
+                }            
+
+                $(".list-box .list-ul").html(tpl(args.tpl,json.result));
+
+                //var loaded = false;
+
+                //var stop = true;
+
+                loaded = false;
+
+                stop =true;         
+
+                getSortMore();
+
+            }, true);
+
+        }           
+
+        //获取除打卡排行榜外的排行榜记录数据的相关函数 改异步请求连接 //其实两个getmore和getSortMore函数是一样的
+
+        function getSortMore(){
+
+            $(window).scroll(function () { 
+
+                if(loaded){
+
+                    return;
+
+                }
+
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+
+                if($(document).height() <= totalheight) {
+
+                    if(stop==true){ 
+
+                        stop=false;
+
+                        $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载更多记录</div>');      
+
+                        args.page++;
+
+                        core.pjson("activity/center", args, function(morejson) {
+
+                            $(".list-box .list-ul").append(tpl(args.tpl, morejson.result));
+
+                            $('#list_loading').remove();
+
+                            //到时候返回数据用下面这种数据结构          
+
+                            if (morejson.result.list.length <morejson.result.pagesize) {
+
+                                $('.list-box .list-ul').append('<div id="list_loading">已经加载全部</div>');
+
+                                loaded = true;
+
+                                $(window).scroll = null;
+
+                                return;
+
+                            }
+
+                            stop = true;
+
+                            getSortMore();
+
+                        },true); 
+
+                    } 
+
+                }
+
+            });
+
+        }
+
+    });
+
+</script>
+
+{template 'common/footer'}

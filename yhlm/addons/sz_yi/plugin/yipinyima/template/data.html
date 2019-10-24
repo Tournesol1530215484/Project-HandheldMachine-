@@ -1,0 +1,168 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $operation == 'post'}
+{elseif $operation == 'display'}
+<ul class="nav nav-tabs">
+    <li ><a href="{php echo $this->createWebUrl('shop/goods',array('op'=>'post'))}"><i class='fa fa-plus'></i> 添加商品</a></li>
+    <li><a href="{php echo $this->createWebUrl('shop/goods')}">管理商品</a></li>
+    <li class="active"><a href="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'display', 'goodsid' => $_GPC['goodsid']))}">管理产品二维码</a></li>
+</ul>
+<form class="form-horizontal form"  action=""  method="post">
+		<div class="">
+			<div class="modal-header" style="padding-bottom:0px;padding-top:0px;">
+				<!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+				<h3 style="margin-bottom:8px; margin-top:8px;">扫码记录</h3>
+			</div>
+			<div class="modal-body" style="">
+		<!--		<div class="panel panel-default ">
+					<div class="panel-body">
+						<div class="form-group">
+							<div class="col-sm-3 col-xs-8">
+								<select class="form-control" name="type" onchange='set_div_display(this.value)'>
+									<option   selected="selected" value="realname">姓名</option>
+									<option   value="mobile">手机号码</option>
+									<option value="group">角色名称</option>
+								</select>
+							</div>
+							<div class="col-sm-5 col-xs-8" id="common_div" style='display:block'>
+								<input type="text" name="keyword" value=""  placeholder="请输入关键字" class="form-control">
+							</div>
+							<div class="col-sm-4 col-md-4 col-lg-3 col-xs-8" id='group_div' style='display:none'>
+								<select name="groupid" class="form-control">
+									<option value="1728">会员</option>
+									<option value="1763">创业店</option>
+									<option value="1790">标准店</option>
+									<option value="1850">旗舰店</option>
+								</select>
+							</div>
+							<div class="col-sm-4 col-xs-8">
+								<button class="btn btn-default"   type="submit" name="submit"><i class="fa fa-search"></i> 搜索</button>
+								<input type="hidden" name="token" value="{$_W['token']}" />
+							</div>
+						</div>
+					</div>
+				</div>-->
+
+					<div class="panel panel-default">
+						<div class="panel-body table-responsive nopadding">
+							<table class="table table-hover" style="min-width:500px;">
+								<thead class="navbar-inner">
+									<tr>
+										<th style="width:30px;">
+											<input type="checkbox" name="checked-smjl-all"  class="check_all">
+										</th>
+										<th style="width:45px;">序号</th>
+										<th style="width:90px;">二维码编号</th>
+										<th style="width:60px;">积分值</th>
+                                        <th style="width:60px;">现金</th>
+                                        <th style="width:60px;">优惠券</th>
+										<th style="width:80px;">扫码次数</th>
+										<th style="width:150px;">扫码人/手机号码</th>
+										<th style="width:90px;">扫码时间</th>
+									</tr>
+								</thead>
+								<tbody>
+					
+                                {loop $item  $iems}
+									<tr>
+										<td>
+											<input type="checkbox" name="check" value="{$iems['id']}">	</td>
+										<td>{$iems['erweibianhao']}</td>
+										<td><a href="javascript:;" data-toggle="modal" onclick="document.getElementById('img_qrcode_id').src='<?php echo  $_W['siteroot']?>{$iems['erweiurl']}';" data-target="#qrcode_div">{$iems['erweibianhao']}</a></td>
+                                        <td>{$iems['jifen']}</td>
+                                        <td>{$iems['xianjin']}</td>
+                                        <td>{$iems['coupon']}</td>
+										<td>{$iems['shaomashu']}</td>
+										<td>{$iems['shaomaren']}</td>
+										<td>{$iems['shaomashijian']}</td>
+									</tr>
+                                {/loop}
+								</tbody>
+							
+							</table>
+							{$pager}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="button" class="btn btn-primary col-lg-2" name="deleteall" value="删除" />
+						</div>
+
+                        <tr>
+                        </tr>
+						<div class="col-sm-6">
+							<div style="margin:-20px 0;" class="pull-right">
+
+                            </div>
+                        </div>
+			</div>
+		</div>
+</form>
+<div id="qrcode_div" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalName" aria-hidden="true" >
+	<div class="modal-dialog" style="width:250px;;margin:200px auto;">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="form-group"><img src="" id="img_qrcode_id" border="0" width="200"/></div>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+#TB_window{ border-radius: 10px !important; overflow: hidden; width: 290px !important;}
+#TB_window img#TB_Image{ border: 0;width: 250px !important;height: auto !important; margin: 15px 15px 0 !important;}
+#TB_closeWindow{ display: none !important;}
+</style>
+<script>
+$(function(){
+		$(".check_all").click(function(){
+		var checked = $(this).get(0).checked;
+		$("input[type=checkbox]").attr("checked",checked);
+		});
+
+		$("input[name=deleteall]").click(function(){
+
+		var check = $("input:checked");
+		if(check.length<1){
+			alert('请选择要删除的记录!');
+			return false;
+		}
+		if( confirm("确认要删除选择的记录?")){
+		var id = new Array();
+		check.each(function(i){
+			id[i] = $(this).val();
+		});
+		$.post("{php echo $this->createPluginWebUrl('yipinyima/data',array('op'=>'delete'))",
+                {idArr:id},function(data)
+                {
+			if (data.errno ==0)
+			{
+				location.reload();
+			} else {
+				alert(data.msg);
+			}
+		},'json');
+}
+
+});
+});
+
+function set_div_display(obj_value)
+{
+	$('#common_div').css('display', 'none');
+	$('#group_div').css('display', 'none');
+	if(obj_value == 'group')
+	{
+		$('#group_div').css('display', 'block');
+	}
+	else
+	{
+		$('#common_div').css('display', 'block');
+	}
+}
+</script>
+		</div>
+	</div>
+	</div>
+</div>
+{/if}
+{template 'common/footer'}

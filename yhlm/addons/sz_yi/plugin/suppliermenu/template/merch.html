@@ -1,0 +1,154 @@
+{template 'common/header'}
+
+<link rel="stylesheet" href="./resource/css/bootstrap-switch.min.css" type="text/css" />
+
+<script type="text/javascript" src="./resource/js/lib/bootstrap-switch.js"></script>
+
+<style>    
+
+#edui1{ width: auto}.panel-heading{background: #E8ECEF;padding:5px 0px 5px 40px;margin: 20px 0px 0 0;border: 1px solid #CFCFCF;border-bottom: none;font-size: 16px;font-weight: 200;}    .panel-body{padding:20px 0;margin-bottom: 20px;border: 1px solid #CFCFCF;border-top: none;background: #fff;}    .form-group>.row>.col-xs-12.col-sm-6.col-md-4{  padding-right: 50px;  margin-bottom: 20px;  }    .form-group>div>span>b, .clr>span>b,    .form-group>span>b,.myrow>span>b,.myrow>div>span>b,.myrow>span>b,.myrow>span>b{color:red;}    .form-group>span,.myrow>span{float: left;padding-left: 15px;padding-top: 7px;}    .clr:after{content: "";display: block;  clear: both;}.fl{float: left;}.fr{float: right;}    div.btn-radio-group label.btn-default.active {  background-color: #1e95c9;  border-color: #357ebd;  color: #fff;  }    .form-group div.boostrap-switch,.myrow div.boostrap-switch{float: left;padding-left: 15px;}    .font-set{margin: 10px 0px;}    .power-set{margin: 10px 0;padding-left: 0px;padding-right: 0px;height:35px;}    .hidden-item{display: none;}    .subcol{width:6%;}    @media(max-width:1580px) {        .myrow {            margin-right: 0px;        }    }    @media(min-width:1580px) {        .myrow {            margin-right: 150px;        }    }
+
+</style>
+
+<script type="text/javascript" src="resource/js/lib/jquery-ui-1.10.3.min.js"></script>
+
+<div class="main rightlist">
+    <style>
+        .label{cursor:pointer;}
+    </style>
+    <form action="" method="post" class="form-horizontal form">
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" name="m" value="sz_yi" />
+        <input type="hidden" name="do" value="plugin" />
+        <input type="hidden" name="token" value="{$_W['token']}" />
+        <input type="hidden" name="p" value="suppliermenu" />
+        <input type="hidden" name="method" value="merch" />
+        <input type="hidden" name="op" value="post" />
+        <input type="hidden" name="id" value="{$item['id']}">
+        <div class='panel-heading'> 商家详情 </div>
+        <div class="panel-body">
+          <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>商家名称</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="merchname" id="merchname" class="form-control" value="{$item['merchname']}" />
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页显示商品数</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="num" id="num" class="form-control" value="{$item['num']}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">联系电话</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="mobile" id="mobile" class="form-control" value="{$item['mobile']}" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">经营类目</label>
+                <div class="col-sm-9 col-xs-12">
+                    <select class="form-control" name="typeid" id="">
+                        {loop $type $k $v}
+                              <option {if $v[id] == $item[typeid]}selected{/if} value="{$v[id]}">{$v[title]}</option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">商家位置</label>
+                <div class="col-sm-9 col-xs-12">
+                    {php echo tpl_form_field_coordinate('map',array('lng'=>$item['lng'],'lat'=>$item['lat']))}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">所在地区</label>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="input-group" >
+                        <div class="input-group-addon" >区域选择</div>
+                        {php echo tpl_fans_form('reside',array('province' =>$item['province'],'city' =>$item['city'],'district' =>$item['district']));}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">详细地址</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="address" id="address" class="form-control" value="{$item['address']}" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">营业时间</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="hours" id="hours" class="form-control" value="{$item['hours']}" />
+                    <span class='help-block'>如:07:00 - 22:00</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">一句话简介</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="title" id="title" class="form-control" value="{$item['title']}" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">人均消费</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="number" name="average" id="average" class="form-control" value="{$item['average']}" />
+                </div>
+            </div>
+
+            <div class="tab-content" style="overflow:inherit">
+
+                <div class="tab-pane active" id="tab_des">{template 'goods/des'}</div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">LOGO</label>
+                <div class="col-sm-9 col-xs-12 detail-logo">
+                    {ife 'shop.goods' $item}
+                    {php echo tpl_form_field_image('logo', $item['logo'])}
+                    <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+                    {else}
+                    {if !empty($item['logo'])}
+                    <a href='{php echo tomedia($item['logo'])}' target='_blank'>
+                    <img src="{php echo tomedia($item['logo'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                    </a>
+                    {/if}
+                    {/if}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">大图</label>
+                <div class="col-sm-9 col-xs-12 detail-logo">
+                       {ife 'shop.goods' $item}
+                    {php echo tpl_form_field_image('img', $item['img'])}
+                    <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+                      {else}
+                          {if !empty($item['img'])}
+                          <a href='{php echo tomedia($item['img'])}' target='_blank'>
+                          <img src="{php echo tomedia($item['img'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                           </a>
+                          {/if}
+                      {/if}
+                </div>
+            </div>
+
+        </div>
+        <div class="" style="background: #fff;position:fixed;bottom: 0px;z-index: 10;padding: 5px 0;width: 100%;text-align: center;">
+        <div class="col-xs-12 col-sm-11">
+          <input type="submit" name="submit" value="提交" class="btn btn-primary subcol" onclick="return formcheck()" data-original-title="" title="">
+        </div>
+      </div>
+  </form>
+</div>
+
+</script>{template 'web/_footer'}

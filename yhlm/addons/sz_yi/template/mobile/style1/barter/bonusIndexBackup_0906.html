@@ -1,0 +1,241 @@
+{template 'common/header'}
+<title>收红包</title>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/bonus_index.css" />
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">收红包</div>
+        <a href="javascript:;" class="home" onClick="showdescription()">说明</a>
+    </div>
+    <div id="list-type-box">
+        <ul class="list-type">
+            <li id="type-tag1" class="type-tag action" onclick="tab(1)" data-type="1">
+                <span class="type-nav-tag block-span">现金收入</span>
+                <span class="value-nav-tag block-span">￥
+                {if $info['totalCash']}
+                    {$info['totalCash']}
+                    {else}
+                    0.000
+                    {/if}</span>
+            </li>
+            <li id="type-tag2" class="type-tag" onclick="tab(2)" data-type="2">
+                <span class="type-nav-tag block-span">易货码收入</span>
+                <span class="value-nav-tag block-span">
+                    {if $info['code']}
+                    {$info['code']}
+                    {else}
+                    0.000
+                    {/if}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <div class="con active" id="con_1" style='display:block'>
+            <ul class="menu-part-box"> 
+                <!--新增广告-->
+                <li class="list1 in-type"> <a href="{php echo $this->createMobileUrl('barter/bonus',array('op'=>'bonusAd','who'=>'cash'))}" class="go-link">看红包广告赚的<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="num-value">￥
+                    {if $info['cash']}
+                    {$info['cash']}
+                    {else}
+                    0.000
+                    {/if}
+                </span></a></li> 
+                <!--草稿箱-->
+                <li class="list1 in-type"> <a href="{php echo $this->createMobileUrl('barter/bonus',array('op'=>'fans','who'=>'cash'))}" class="go-link">粉丝帮我赚的<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="num-value">￥
+                    {if $info['fanscash']}
+                    {$info['fanscash']}
+                    {else}
+                    0.000
+                    {/if}
+                </span></a></li>
+            </ul> 
+        </div>
+        <div class="con" id="con_2">
+            <ul class="menu-part-box"> 
+                <!--新增广告-->
+                <li class="list1 in-type"> <a href="{php echo $this->createMobileUrl('barter/bonus',array('op'=>'bonusAd','who'=>'code'))}" class="go-link">我拆红包的<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="num-value">
+                    {if $info['code']}
+                    {$info['code']}
+                    {else}
+                    0.000
+                    {/if}
+                易货码</span></a></li> 
+                <li class="list1 in-type"> <a href="{php echo $this->createMobileUrl('barter/bonus',array('op'=>'fans','who'=>'code'))}" class="go-link">粉丝帮我赚的<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="num-value">
+                    {if $info['fanscode']}
+                    {$info['fanscode']}
+                    {else}
+                    0.000
+                    {/if}
+                易货码</span></a></li> 
+            </ul> 
+        </div>
+    </div>
+    <div class="nav-container status-nav-container">
+        <ul class="nav-box clearfloat">
+            <a class="nav-item-link {if $_GPC['status']=='' || $_GPC['status']=='1'}nav-on{/if}" href="javascript:void(0);" data-status="1">
+                <li class="nav-item nav-name">
+                   未拆(
+                   {if $info['status0']}
+                   {$info['status0']}
+                   {else}
+                   0
+                   {/if}
+                   )
+                </li>
+            </a>
+            <a class="nav-item-link {if $_GPC['status']=='2'}nav-on{/if}" href="javascript:void(0);" data-status="2">
+                <li class="nav-item nav-name">
+                   已拆(
+                   {if $info['status1']}
+                    {$info['status1']}
+                   {else}
+                   0
+                   {/if}
+                   )
+                </li>
+            </a>
+            <a class="nav-item-link {if $_GPC['status']=='3'}nav-on{/if}" href="javascript:void(0);" data-status="3">
+                <li class="nav-item nav-name">
+                   已错过(
+                   {if $info['status2']}
+                    {$info['status2']}
+                   {else}
+                   0
+                   {/if}
+                   )
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="list-box">
+        <ul class="list-ul">      
+            <!-- 下拉加载数据容器 -->
+        </ul> 
+    </div>
+    <div class="description_layer"></div> 
+    <div class="description">
+        <div class="description-tag">收红包说明</div>
+
+        <div class="description-cont"><!-- 这里加载收红包说明 -->
+            {php echo html_entity_decode($sets['bart']['protocol'][4]['content'])} 
+        </div>
+        <div class="close icon" onClick="closedescription()"></div>
+    </div>
+</div>
+<!-- 两种模板 排行记录 或者 排行记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <div class="clearfloat flex-center">
+                <a href="<%g.url%>" class="goods-link floatl"><!-- 红包广告图片封面图(背景图形式) 根据红包类型字段来标志是现金红包还是易货码红包,通过类名cash-pic-box/barter-pic-box来控制-->
+                    <div class="pic-box <%if g.bonusType == 1%>cash-pic-box<%else%>barter-pic-box<%/if%>" style="background: url('<%g.thumb[0]%>') no-repeat center; background-size: cover;">
+                    </div>
+                </a>
+                <div class="content-box floatr">
+                    <div class="goods-tag">
+                        <a href="<%g.url%>" class="goods-link line-clamp2"><!-- 红包广告名称 -->
+                        <%g.title%>
+                        </a> 
+                    </div>
+                    <div class="show-tag"><%g.merchname%></div><!-- 不知道是地址还是店铺公司 -->
+                    <div class="show-tag show-value-tag">
+                        <%if g.bonustype == 1%>
+                            ￥ <%g.money%>
+                        <%else if g.bonustype == 2%>
+                             <%g.money%> 易货码 
+                        <%/if%>
+                    </div><!-- 红包价值,根据红包类型选择显示 易货码 还是 ￥ -->
+                    <div class="show-tag"><%g.ctime%></div><!-- 时间 -->
+                </div>
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无该类型红包</div>
+</script>
+<script type="text/javascript">
+    var page = 1; 
+    require(['tpl', 'core'], function(tpl, core) {
+        function bindEvents(){
+            $('.look-detail').unbind('click').click(function() {
+                var adid = $(this).data('adid');
+                location.href = core.getUrl('plugin/suppliermenu/ad', {op:'detail',id: adid});
+            });
+            $('.delivery-now').unbind('click').click(function() {
+                var theadid = $(this).data('adid');
+                //立即投递异步请求
+                core.json('order/op',{'op':'', id:theadid},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        return;
+                    }
+                    core.tip.show(json.result);
+                 },true,true);
+            });
+        }
+        core.json('barter/bonus', {page:page,op:'bonusIndex',ac:'getBonus', status: '{$_GPC['status']}'}, function(json) {
+            $('.nav-item-link').click(function() { 
+                var status = $(this).data('status');
+                location.href = core.getUrl('barter/bonus', {op:'bonusIndex',status: status});
+            })
+            if (json.result.list.length <= 0) {
+                $(".list-box .list-ul").html(tpl('tpl_null'));
+                return;
+            }
+            $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+            bindEvents();
+            
+            var loaded = false;
+            var stop=true; 
+            $(window).scroll(function(){ 
+                if(loaded){
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                if($(document).height() <= totalheight){
+                    if(stop==true){ 
+                        stop=false; 
+                        $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                        page++;
+                        core.json('barter/bonus', {page:page,op:'bonusIndex',ac:'getBonus',status:'{$_GPC['status']}'}, function(morejson) {  
+                            stop = true;
+                            $('#list_loading').remove();
+                            $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                            bindEvents();
+                            if (morejson.status == 0) {
+                                $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                loaded = true;
+                                return;
+                            }
+                        },true); 
+                    } 
+                } 
+            });
+
+        }, true);
+    });
+</script>
+<script language="javascript">
+    function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+    //现金收入 易货码收入 标签切换
+    function tab(n){
+        $('#con_'+n).fadeIn().addClass('active');;
+        $('#con_'+n).siblings().hide().removeClass('active');
+        $('#type-tag'+n).addClass('action');
+        $('#type-tag'+n).siblings().removeClass('action');
+    }
+</script>
+{template 'common/footer'}

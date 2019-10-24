@@ -1,0 +1,210 @@
+{template 'common/header'}
+<style type="text/css">
+	#topbar-id.page_topbar{
+	    background: #f00605;
+	}
+	.page_topbar .back.white{
+		color: #fff;
+	}
+	#topbar-id .title{
+		color: #fff;
+	}
+	#descript-link-id.descript-link{
+	    position: absolute;
+	    right: 15px;
+	    top: 0;
+	    color: #fff;
+	    font-size: 12px;
+	    text-decoration: none;
+	}
+	.descript-link:visited,
+	.descript-link:active{
+		text-decoration: none;
+		color: #fff;
+	}
+	.balance-whole-box{
+		padding: 15px 10px;
+		background-color: #eee;
+	}
+	.balance-whole-box .balance-num{
+		font-size: 14px;
+	}
+	.balance-whole-box .balance-num-value{
+		margin-left: 10px;
+		color: #f00605;
+		font-size: 18px;
+	}
+	 
+	.balance-part-box{
+		height: auto;
+	    width: 100%;
+	    background: #fff;
+	    margin-bottom: 10px;
+	}
+	.list1 {
+	    height: 50px;
+	    width: 94%;
+	    background: #fff;
+	    margin: 0px 3%;
+	    border-bottom: 1px solid #eee;
+	    line-height: 50px;
+	    color: #666;
+	}
+	.list1:last-child {
+		border-bottom: 0;
+	}
+	.balance-part-box a.go-link{
+		display: block;
+		color: #000;
+		font-size: 14px;
+		text-decoration: none;
+	}
+	.balance-part-box a.go-link:visited,
+	.balance-part-box a.go-link:active{
+		text-decoration: none;
+	}
+	.list1 i.trun-right {
+	    font-size: 20px;
+	    margin-right: 10px;
+	    color: #969696;
+	}
+	.balance-part-box .balance-value{
+		float: right;
+	    margin-top: 15px;
+	    margin-right: 10px; 
+	    font-size: 12px;
+	    line-height: 16px;
+	    text-align: center;
+	    color: #969696;
+	}
+	.description_layer{
+	    height: 100%;
+	    width: 100%;
+	    background: rgba(0, 0, 0, 0.6);
+	    position: fixed;
+	    top: 0px;
+	    left: 0px;
+	    z-index: 9;
+	    display: none;
+	}
+	.description{
+	    height: auto;
+	    width: 100%;
+	    background: #fff;
+	    position: fixed;
+	    bottom: 0px;
+	    left: 0px;
+	    z-index: 10;
+	    display: none;
+	}
+	.description .description-tag{
+	    font-size: 14px;
+	    padding: 10px;
+	    background-color: #f1f1f1;
+	    position: fixed;
+	    width: 100%;
+	}
+	.description .description-cont{
+	    padding: 50px 10px 10px;
+	    height: 500px;
+	    width: 100%;
+	    font-size: 12px;
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	}
+	.description .close.icon{
+	    position: absolute;
+	    right: 10px;
+	    top: 10px;
+	    color: #666;
+	    font-weight: normal;
+	    z-index: 11;
+	    margin-top:0;
+		margin-left:0;
+		width:24px;
+		height:24px
+	}
+	.description .close.icon:before{
+		content:'';
+		position:absolute;
+		top:10px;
+		width:24px;
+		height:2px;
+		background-color: #666;
+		-webkit-transform:rotate(-45deg);
+		transform:rotate(-45deg);
+	}
+	.description .close.icon:after {
+  		content: '';
+		position: absolute;
+		top: 10px;
+		width: 24px;
+		height: 2px;
+		background-color: #666;
+		-webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+	}
+</style>
+<!-- 我的现金 -->
+<title>我的现金</title>
+<div id="container"><!-- 把container的内容删掉 -->
+	 
+</div>
+<script id="my_cash" type="text/html">
+	<div class="page_topbar" id="topbar-id">
+		<a href="javascript:;" class="back white" onclick="history.go(-1)"><i class="fa fa-angle-left"></i></a>
+		<div class="title">我的现金</div>
+		<a href="javascript:void(0);" class="descript-link" id="descript-link-id" onClick="showdescription()">现金说明</a>
+	</div>
+	<div class="balance-whole-box">
+		<div class="balance-num">现金余额
+			<span class="balance-num-value">￥<%info.credit2%></span>
+		</div>
+	</div>    
+	<ul class="balance-part-box">  
+		<!--现金充值记录-->
+	    <li class="list1"> <a href="{php echo $this->createMobileUrl('barter/cash',array('op'=>'detail','ac'=>'recharge'))}" class="go-link">现金充值记录<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.recharge%><%info.total.recharge%><%else%>0<%/if%></span></a></li> 
+		<!--提现记录-->
+		<li class="list1"> <a href="{php echo $this->createMobileUrl('barter/cash',array('op'=>'detail','ac'=>'withdrawal'))}" class="go-link">提现记录<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.withdraw%><%info.total.withdraw%><%else%>0<%/if%></span></a></li>   
+		
+		<!--粉丝购物奖励-->
+		<li class="list1"> <a href="#" class="go-link">粉丝购物奖励<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.fans%><%info.total.fans%><%else%>0<%/if%></span></a></li>    
+	    <!--购物消费的-->
+		<li class="list1"> <a href="{php echo $this->createMobileUrl('barter/cash',array('op'=>'detail','ac'=>'shop'))}" class="go-link">购物消费的<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.shop%><%info.total.shop%><%else%>0<%/if%></span></a></li>  
+	    <!--我的货款-->
+		<li class="list1"> <a href="#" class="go-link">我的货款<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.goods%><%info.total.goods%><%else%>0<%/if%></span></a></li>  
+		<!--其他收支--> 
+		<li class="list1"> <a href="#" class="go-link">其他收支<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="balance-value">￥<%if info.total.other%><%info.total.other%><%else%>0<%/if%></span></a></li>  
+  	</ul>
+  	<div class="description_layer"></div> 
+    <div class="description">
+        <div class="description-tag">现金说明</div>
+
+        <div class="description-cont"><!-- 这里加载现金说明 -->
+        	待更新... 
+        </div>
+        <div class="close icon" onClick="closedescription()"></div>
+    </div>
+</script>
+<script language="javascript">
+	function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){ 
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+    require(['tpl', 'core'], function(tpl, core) {
+        core.json('barter/cash',{op:'get'},function(json){
+            if (json.result) {
+                var info = json.result;  
+                $('#container').html(tpl('my_cash', info));               
+            }
+        });
+    })
+</script>
+{template 'common/footer'}

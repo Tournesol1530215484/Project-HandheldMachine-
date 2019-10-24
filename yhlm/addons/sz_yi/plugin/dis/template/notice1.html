@@ -1,0 +1,103 @@
+{template 'common/header'}
+
+{template 'tabs'}
+{if $operation == 'post'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-hover table-responsive">
+            <thead class="navbar-inner" >
+            <tr>
+                <th style='width:5%;'>ID</th>
+                <th style='width:12%;'>分销商等级</th>
+                <th style='width:12%;'>分红等级</th>
+                <th style='width:8%;'>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+       {loop $level_name3 $row}
+            <tr>
+			
+                <td>{$row['id']}</td>
+                <td>{$row['levelname1']} </td>
+                <td>{$row['levelname2']}</td>
+                <td>
+				{ifp 'dis.notice.update'}<a href="{php echo $this->createPluginWebUrl('dis/notice', array('id' => $row['id'], 'op' => 'update'))}"class="btn btn-sm btn-default" title="{ifp 'dis.notice.edit'}编辑{else}查看{/if}"><i class="fa fa-pencil"></i></a>{/if}
+			{ifp 'dis.notice.delete'}<a href="{php echo $this->createPluginWebUrl('dis/notice', array('id' => $row['id'], 'op' => 'delete'))}" onclick="return confirm('确认删除此商品？');return false;" class="btn btn-default  btn-sm" title="删除"><i class="fa fa-times"></i></a>{/if}
+										</td>
+				
+            </tr>
+           {/loop}
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</form>
+{/if}
+
+{if $operation == 'update'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+
+    <div class='panel panel-default'>
+
+        <div class='panel-heading'>
+            经销商查询
+        </div>
+        <div class='panel-body'>
+				<div class="form-group">
+				<input type="hidden" name="id" value="{$_GPC['id']}" />
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">分销层级</label>
+						<div class="col-sm-4">
+							<select  class="form-control" name="level">
+								<option value="0" {if empty($set['level'])}selected{/if}>请选择</option>
+								 {loop $commission_level $row} 
+								<option value="{$row['id']}" {if $row['id'] == $row11['commission_level'] }selected{/if}>{$row['levelname']}</option>
+								 {/loop}
+							</select>
+						</div>
+			   </div>   
+		 </div>
+		 
+		 <div class='panel-body'>
+				<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">分红层级</label>
+						<div class="col-sm-4">
+
+							<select  class="form-control" name="level_name">
+								<option value="0" {if empty($set['level'])}selected{/if}>请选择</option>
+								 {loop $bonus_level $row} 
+									<option value="{$row['id']}" {if $row['id'] == $row11['bonus_level'] }selected{/if}>{$row['levelname']}</option>
+								 {/loop} 
+							</select>
+						</div>
+			   </div>
+		 </div>
+		 
+		  <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">经销商证件图片</label>
+                <div class="col-sm-9 col-xs-12">
+                     {php echo tpl_form_field_image('thumb',$row11['thumb'])}
+                </div>
+            </div>
+		 
+        <div class='panel-body'>
+            <div class="form-group"></div>
+               <div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+					<div class="col-sm-9">
+						<input type="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+						<input type="hidden" name="token" value="{$_W['uniacid']}" />
+					</div>
+			  </div>	
+        </div>
+		
+    </div>
+
+</form>
+
+{/if}
+
+</div>
+</div>
+{template 'web/_footer'}

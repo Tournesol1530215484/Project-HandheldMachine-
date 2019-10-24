@@ -1,0 +1,72 @@
+{template 'common/header'}
+<title>{if $cover['title']}{$cover['title']}{else}经销商查询{/if}</title>
+<style type="text/css">
+    body {margin:0px; background:#eee; font-family:'微软雅黑'; }
+    a {text-decoration:none;}
+    .topbar {height:40px; padding:10px; background:#fff;}
+    .topbar .user_face {height:40px; width:40px; background:#ccc; float:left;}
+    .topbar .user_face img {height:100%; width:100%;}
+    .topbar .user_info {height:40px; width:auto; float:left; margin-left:12px;}
+    .topbar .user_info .user_name {height:24px; width:100%; font-size:16px; line-height:24px; color:#666;}
+       .topbar .user_info .user_name span { font-size:14px; color:#ff6600}
+    .topbar .user_info .user_date {height:14px; width:100%; font-size:14px; line-height:14px; color:#999;}
+
+    .top {height:180px;padding:5px; background:#cc3431;}
+    .top .top_1 {height:114px; width:100%;}
+    .top .top_1 .text {height:114px; width:auto; float:left; color:#fff; line-height:50px; font-size:14px; color:#fff;}
+    .top .top_1 .ico {height:40px; width:30px; background:url(../addons/sz_yi/plugin/commission/template/mobile/default/static/images/gold_ico2.png) 0px 10px no-repeat; margin-bottom:74px; float:right;}
+    .topbonus {height:40px;padding:5px; background:#cc3431;}
+    .topbonus .top_1 {height:40px; width:100%;}
+    .topbonus .top_1 .text {height:40px; width:auto; float:left; color:#fff; line-height:20px; font-size:14px; color:#fff;}
+    .topbonus .top_1 .ico {height:40px; width:30px; background:url(../addons/sz_yi/plugin/commission/template/mobile/default/static/images/gold_ico2.png) 0px 10px no-repeat; margin-bottom:74px; float:right;}
+    .top .top_2 {height:66px; width:100%; font-size:40px; line-height:66px; color:#fff;}
+    .top .top_2 span {height:32px; color:#fff; width:auto; border:1px solid #fff; font-size:14px; line-height:32px; margin-top:17px; padding:0px 15px;  float:right; border-radius:5px;}
+    .top .top_2 .disabled { color:#999;border:1px solid #999;}
+    .menu {overflow:hidden; background:#fff;}
+    .menu .nav { width:33%; float:left;padding-top:10px;padding-bottom:10px; text-align: center;}
+    
+    .menu .nav .title {height:24px; width:100%; text-align:center; font-size:14px; color:#666;}
+    .menu .nav .con {height:20px; width:100%; text-align:center; font-size:12px; color:#999;}
+    .menu .nav .con span {color:#f90;}
+    .menu .nav1 {border-bottom:1px solid #f1f1f1; border-right:1px solid #f1f1f1;   }
+    .menu .nav2 {border-bottom:1px solid #f1f1f1; }
+ 
+</style>
+
+<style type="text/css">
+	  	body{background-color: #0A0202;}
+		header{margin-bottom: 40px;padding-top:15px;}
+		.am-btn-danger{width: 100%;background-color:{$cover['description']};height: 60px; }
+		.am-form input[type=number], .am-form input[type=search], .am-form input[type=text], .am-form input[type=password], .am-form input[type=datetime], .am-form input[type=datetime-local], .am-form input[type=date], .am-form input[type=month], .am-form input[type=time], .am-form input[type=week], .am-form input[type=email], .am-form input[type=url], .am-form input[type=tel], .am-form input[type=color], .am-form select, .am-form textarea, .am-form-field{background-color: transparent;border: 0px;color: #999999;}
+		.checkbox{font-size: 14px;color: #999999;}
+		a{color: #fff;}
+		.register{height: 100%;width: 100%;max-width: 640px;min-width: 320px;position: relative;z-index: 10;
+		background: url( ../attachment/<?php echo $cover['thumb'] ;?> ) no-repeat;background-size:100%;text-align: center;}
+</style>
+
+
+<div class="register">
+	  <div id="find">
+	    <header>
+	      <div class="logo"><img src="../addons/sz_yi/static/img/577914694b9c9.png"></div>
+	    </header>
+	    <div class="regmsg">
+	      <form class="am-form am-form-horizontal" id="form-admin-add" action="{php echo $this->createPluginMobileUrl('dis/log')}" method="post" name="from1" enctype="multipart/form-data">
+	        <div class="am-form-group">
+	          <label for="tel" class="am-u-sm-2 am-form-label anniu2"></label>
+	          <div class="am-u-sm-10">
+	            <input type="text" id="tel" placeholder="请输入您要查询的手机号或者微信号" name="thumb">
+	          </div>
+	        </div>
+	        <div class="am-form-group" style="margin-top: 30px">
+	            <button type="submit" class="am-btn am-btn-danger">查 询</button>
+	        </div>
+	      </form>
+	    </div>
+	  </div>
+</div>
+
+ 
+
+{php $show_footer=true;$footer_current ='dis'}
+{template 'common/footer'}

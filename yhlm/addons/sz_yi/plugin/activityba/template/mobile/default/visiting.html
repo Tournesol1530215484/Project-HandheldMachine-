@@ -1,0 +1,317 @@
+{template 'common/header'}
+<title>{$tuser['realname']}的名片</title><!-- 赋值上卡片主人的真实名称 格式 XXX的名片 -->
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/cardvisiting.css';?>">
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/html" id="tpl-big-body">                             
+    <div id="big_body" >                           
+        <div class="page_topbar">
+            <a href="javascript:;" class="back" onclick="history.go(-1)"><i class="fa fa-angle-left"></i></a>
+            <div class="title">{$tuser['realname']}</div><!-- 赋值上卡片主人的真实名称 -->
+            <!-- 看谁访问的名片 如果是本人就显示编辑名片(对应链接),非本人的话显示创建名片(赋上对应的创建名片链接) -->
+            <a href="{php echo $this->createPluginMobileUrl('activity/card',array('op'=>'edit'))}" class="home">编辑名片</a>
+        </div>           
+        <!-- 幻灯片展示和添加幻灯片区域 -->                
+        <div class="slide-show-edit">
+            <!-- 如果用户未上传幻灯片则显示 上传幻灯片的功能块 -->                                                                   
+            {if empty($banner)}
+            {if $tember['openid'] == $openid}
+            <div class="slide-edit-box upload-img-container">              
+                <div class="slide-edit-tag">
+                    快来添加你的图片        
+                </div>       
+                <div class="upload-wrapper flex-center"><!-- clearfloat -->
+                    <div id="upload-img-box1" class="upload-img-box">
+                        <div class="btn-icon">+</div>           
+                        <div class="btn-tag">点击添加</div>
+                        <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" value="" />
+                    </div>               
+                </div>      
+                <div class="slide-confirm-btn" onclick='a();'>提交图片</div>
+            </div>      
+            {/if}       
+            {else}
+            <!-- 轮播图  用户提交图片后以后都显示轮播图 除非后台有修改-->
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点 最大的元素-->
+                    {php $max=count($banner)-1}
+                    {if $banner}
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="javascript:void(0);"><img src="{$banner[$max]}" /></a>
+                    </div>              
+                    {/if}       
+                    {loop $banner $key $val}                 
+                        <div class="mui-slider-item">        
+                            <a href="javascript:void(0);"><img src="{$val}" /></a>
+                        </div>  
+                    {/loop}                       
+                    <!--支持循环，需要重复图片节点 最小的元素-->       
+                    {if $banner}                                 
+                    <div class="mui-slider-item mui-slider-item-duplicate">              
+                        <a href="javascript:void(0);"><img src="{$banner[0]}" /></a>
+                    </div>       
+                    {/if}        
+                </div>
+                <!-- 轮播图圆点 --> 
+                <div class="mui-slider-indicator"> 
+                    {loop $banner $key $val}         
+                        <div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+                    {/loop}
+                </div> 
+            </div>
+            {/if}
+        </div>
+        <div class="card-info-box">
+            <div class="card-info-main flex-center">
+                <div class="hd-icon-box">
+                    <img class="hd-icon" src="{php echo $tmember['avatar']}">
+                </div>       
+                <div class="info-base-box">
+                    <div class="hd-info-box">
+                        {$tuser['realname']}
+                        <span class="job-box">{$tuser['job']}</span>&nbsp;
+                        <span class="reputation-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
+                        <span class="reputation">知名度:{$tuser['browse']}</span>       
+                    </div>       
+                    <div class="tel-box">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <a class="telphone-box1" href="tel:{$tuser['mobile']}">{$tuser['mobile']}</a>&nbsp;&nbsp;
+                        <i class="fa fa-phone" aria-hidden="true"></i>                                                                              
+                        <a class="telphone-box2" href="tel:{$tuser['mobile']}">拨打电话</a>      
+                    </div>
+                </div>      
+            </div>                                   
+            <ul class="card-info-other">         
+                <li class="info-other-item company">{$tuser['orgName']}</li> <!-- 公司 -->
+                <li class="info-other-item address1">{$tuser['province']}-{$tuser['city']}-{$tuser['area']}</li> <!-- 省-市-区 -->
+                <li class="info-other-item address2">{$tuser['address']}</li> <!-- 具体地址 -->
+                <li class="info-other-item business">公司业务: {$tuser['business']}</li> <!-- 公司业务 -->
+                <li class="info-other-item signature">{$tuser['title']}</li> <!-- 签名 -->
+                <li class="info-other-item provide-res flex-b">      
+                    <div class="flex-l">我提供资源</div>               
+                    <div class="flex-r">{$tuser['supplier']}</div>
+                </li>
+                <li class="info-other-item provide-res flex-b">
+                    <div class="flex-l">我所需资源</div>
+                    <div class="flex-r">{$tuser['need']}</div>
+                </li>
+            </ul>
+        </div>
+        <!-- 这个按钮对应链接的判断跟右上角按钮判断一样吧?????? -->
+        <div class="card-btn-box">
+            <a class="card-btn-link" href="{php echo $this->createPluginMobileUrl('activity/card',array('op'=>'edit'))}">创建名片加入联盟</a>
+        </div>
+        <div class="card-btn-box">
+            <a class="card-btn-link" href="{php echo $this->createPluginMobileUrl('activity/card',array('op'=>'cardlist','tid'=>$tid))}">生成{if $muser['uid'] == $tuser['uid']}我{else}他{/if}的名片</a>
+        </div>      
+        <div class="message-box">
+            <ul class="message-ul">      
+                <!-- 这里循环留言 -->     
+                {loop $msg $k $v}            
+                <li class="message-item flex-center">
+                    <div class="user-icon-box">
+                        <img class="user-icon" src="{$v['avatar']}">
+                    </div>                               
+                    <div class="user-message">            
+                        <div class="user-info">
+                            <!-- 标签链接到对应留言用户的名片 -->
+
+                            <a class="card-link" href="{$v['link']}">{$v['realname']}</a>
+                            <span class="msg-time">{$v['ctime']}</span><!-- 时间 -->
+                            {if $muser['uid'] == $tuser['uid']}             
+                                <span class="del-msg-btn" data-msgid="{$v['id']}">[删除]</span> <!-- 如果是本人的页面则显示留言删除按钮,否则不显示 data-msgid赋值上留言的id-->
+                            {/if}
+                        </div>       
+                        <div class="msg-content"> <!-- 内容 -->
+                            {$v['content']}      
+                        </div>
+                    </div>
+                </li> 
+                {/loop}          
+            </ul>
+        </div>
+        <div style="height:107px; width:100%;margin:0;padding:0;"></div>
+        <div class="bottom-box">
+            <div class="leave-msg-box flex-center">      
+                <input class="msg-cot" type="text" name="message" maxlength="100" placeholder="留言: (100字内)">
+                <div class="msg-post" data-uid="{$tuser['uid']}">提交</div>                  
+            </div>    
+        </div> 
+        {template 'common/nav_activity'}      
+    </div>
+</script>
+<!-- 留言模板 -->
+<script type="text/html" id="tpl-leave-msg">     
+    <li class="message-item flex-center">
+        <div class="user-icon-box">      
+            <img class="user-icon" src="<%data.avatar%>">
+        </div>
+        <div class="user-message">          
+            <div class="user-info">                                             
+                <!-- 标签链接到对应留言用户的名片 -->                           
+                <a class="card-link" href="javascript:void(0);"><%data.realname%></a>
+                <span class="msg-time"><%data.ctime%></span><!-- 时间 -->              
+                <span class="del-msg-btn" data-msgid="<%data.id%>">[删除]</span> <!-- 如果是本人的页面则显示留言删除按钮,否则不显示 data-msgid赋值上留言的id-->
+            </div>
+            <div class="msg-content"> <!-- 内容 -->
+                <%data.content%>
+            </div>
+        </div>
+    </li>
+</script>
+<script type="text/html" id="tpl-img-box1">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" class="minus" data-img='<%=data.img[0]%>'>X</div>
+           <input type="text" name="file1[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+
+        $('{php echo $this->createPluginMobileUrl('activity/card',array('op'=>'browse','tid'=>$_GPC['tid']))}',{},function(){
+           
+        },'json');                   
+
+        //异步请求,到时候修改请求链接,毕竟这个链接无关    
+        core.pjson('suppliermenu/ad', {op:'bonusAd',ac:'getbonus',status: '{$_GPC['status']}',merchtype:'{$_GPC["merchtype"]}'}, function(json) {           
+            $('body').append(tpl('tpl-big-body',json.result));   
+            //轮播图
+            var gallery = mui('.mui-slider');
+            gallery.slider({
+              interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+            });
+            //提交留言
+            $(".msg-post").click(function(){
+                if($(".msg-cot").isEmpty()){
+                    core.tip.show('留言不能为空');
+                    return;
+                }
+                var msg = $(".msg-cot").val();
+                var uid = $(this).data('uid');
+                //提交留言           
+                core.pjson('activity/card',{msg:msg,uid:uid,op:'leave'},function(json){
+                    if(json.status==1){              
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result.msg);      
+                        $(".message-ul").append(tpl('tpl-leave-msg',json.result));
+                        //重新绑定删除留言事件                 
+                        bindDelMsg();       
+                        return;
+                    }
+                    core.tip.show(json.result.msg);         
+                },true,true);
+            });
+            bindDelMsg();
+            function bindDelMsg(){
+               //用户在自己的名片页面可删除留言
+                $(".del-msg-btn").unbind("click").click(function(){
+                    var msgid = $(this).data("msgid");
+                    console.log(msgid);
+                    var $this = $(this);
+                    //提交留言      
+                    core.pjson('activity/card',{msgid: msgid,op:'delete'},function(json){
+                        if(json.status==1){     
+                            //执行成功 需要运行的代码...
+                            core.tip.show(json.result);
+                            $this.parent().parent().parent().remove();
+                            return;      
+                        }       
+                        core.tip.show(json.result);
+                    },true,true);
+                }); 
+            }
+        }, true,true);
+    });
+</script>
+<script type="text/javascript">
+    //上传图片
+
+    $.post('{php echo $this->createPluginMobileUrl('activity/card',array('tid'=>$tid,'op'=>'browse'))}',{},function(data){
+        console.log(data.result);       
+    },'json');
+    function  handleFiles(q,id)
+    {
+        require(['tpl', 'core'], function(tpl, core) {
+            var files =  q.files;
+            if(files.length)
+            {
+                console.log(files.length);
+                for(var x =0 ;x<files.length;x++ ){
+                    var file = files[x];
+                    if(!/image\/\w+/.test(file.type)){
+                        alert("文件必须为图片！"+file.type);
+                        return ;
+                    }
+                }
+                $.ajaxFileUpload({  
+                    url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+                    secureuri:false,  
+                    fileElementId:$(q).attr('id'), //file的id  
+                    dataType:"text", // 返回数据类型为文本  
+                    success:function(data,status){  
+                        console.log(data);
+                        console.log(status);
+                        var obj = JSON.parse(data);
+                        for(var x in obj.result.url){
+                            $("#file"+id).parent().before(tpl('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+                        }
+                        //$("#file"+id).parent().hide();
+                        //增加删除服务器存储照片的功能,而不是简单地删除页面的dom元素
+                        $('.minus').unbind("click").click(function() {
+                            var $reObj = $(this).parent().parent();
+                            var $curObj = $(this);
+                            require(['core'], function(core) {
+                                core.json('util/uploader', {op: 'remove', file: $curObj.data('img')}, function(rjson) {
+                                    //删除成功
+                                    if (rjson.status == 1) {
+                                        $reObj.remove();
+                                        $("#file"+id).parent().show();
+                                    }
+                                }, false, true);
+                            });
+                        });   
+                   }  
+                });
+            }
+        });
+    }
+    //提交轮播图图片函数
+    function a(){
+        require(['tpl', 'core'], function(tpl, core) { 
+            //判断是否已经上传图片
+            if($("input[name='file1[]']").length == 0){
+                $("#loading").remove();
+                core.tip.show('请上传轮播图');
+                return;
+            }
+            var files1 = new Array();
+            $("input[name='file1[]']").each(function(){
+                files1.push($(this).val());
+            });
+            //提交的数据
+            var data = {
+                op:'banner' ,
+                logo: files1
+            };
+            //console.log(data);
+            //提交轮播图图片
+            core.pjson('activity/card',data,function(json){
+                if(json.status==1){
+                    //执行成功 需要运行的代码...        
+                    core.tip.show(json.result);
+                    setTimeout(function(){      
+                        location.reload();
+                    },250);     
+                    return;
+                }
+                core.tip.show(json.result);
+            },true,true);
+        });
+    }
+</script>
+{template 'common/footer'}

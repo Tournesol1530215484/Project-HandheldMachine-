@@ -1,0 +1,466 @@
+{template 'common/header'}
+<title>帖子信息</title>
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.min.css">
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.picker.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/match.css?'.time();?>" />
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.picker.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<!-- 位置相关 -->
+<!-- <script src="../addons/sz_yi/plugin/match/res/js/jquery.cookie.js"></script> -->
+<script src="../addons/sz_yi/plugin/match/res/js/cookie.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/activity_detail.css';?>"/>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/activity/res/js/jQueryRotate.js';?>"></script>
+
+<style type="text/css">
+    body{
+        background: white
+    }
+    .flex{
+        display: flex;
+    }
+    .flex1{
+        flex:1;
+    }
+    .flex2{
+        flex:2;
+    }
+    p{margin:0;}
+    .page_topbar{
+        border:none;
+    }
+    .list-box{
+        margin:10px;
+    }
+    .list-box li{
+        margin:10px 0;
+    }
+    .list-box li .li-top{
+        display: flex;position: relative;
+    }
+    .list-box li .li-top img{
+        width: 50px;height:50px;border-radius: 50%;    position: relative;
+        top: -6px;
+    }
+    .list-box li .li-top .user-info{
+        margin:0 10px;color:#999;
+    }
+    .list-box li .li-top .edit{
+        text-align: center;
+    }
+    .li-content .content-title{
+        color: #333;
+        margin: 3px 0;
+    }
+    .li-content .content video{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .guanzhu{
+        border:1px solid #36c1f0;
+        color:#36c1f0;    padding: 0 3px;border-radius: 10px;position: absolute;
+        right: 10px;
+    }
+    .guanzhuTop{
+        height: 24px;
+        line-height: 24px;
+        font-size: 13px;
+        padding: 0 13px;
+        border-radius: 5px;    top: 11px;
+    }
+    .guanzhuta{
+        background: #c5f7fc;
+    }
+    .icon1{
+        width: 18px!important;height:18px!important;vertical-align: middle;
+    }
+    .set{
+        text-align: right;
+    }
+    .set span{
+        margin:0 6px;
+    }
+    .hudong1{
+        color:#49c9f8;border-bottom:2px solid #49c9f8;padding: 4px 0;
+    }
+    .hudong li{
+        padding: 0 0px 16px 0;    margin: 15px 0;
+    }
+    .hudong li .li-top img{
+        width: 43px;
+        height: 42px;    top: -2px;
+    }
+    .hudong li .name{
+        color: #5489c5;
+    }
+    .hudong li .name span:first-child{
+        color: white;
+        background: #59d40e;
+        margin: 0 5px;
+        padding: 0 3px;
+        font-size: 12px;
+    }
+    .hudong li .name .speak{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .hudong li .time{
+        color: #999;
+    }
+    .hudong li .content{
+        color: #333;padding-left: 50px;margin: 0 0 10px 0
+    }
+    .hudong li .caozuo{
+        padding-left: 50px;
+    }
+    .hudong li .zan{
+        position: absolute;
+        right: 50px;
+    }
+    .footer{
+        text-align: center;
+        position: fixed;
+        bottom: 0px;
+        border-top: 1px solid #eee;
+        line-height: 44px;
+        width: 100%;    background: white;
+    }
+    .footer input{
+        line-height: 21px;
+        margin: 5px 10px;
+        width: 100%;
+        height: 35px;
+        font-size: 13px;
+    }
+    .zeroBox{
+        background: #f5f5f5;height:30px;
+    }
+    .jiazaiAll{
+        text-align: center;color:#999;line-height: 30px;
+    }
+    .reply{
+        margin:10px 0;display: none;
+    }
+    .reply button{
+        float: right;font-size: 12px;margin: 3px 7px;
+    }
+    .reply-content{
+        width: 100%;font-size:13px;margin:0;border: 1px solid #eee;
+        padding: 10px 0;
+    }
+    .recoment{
+        margin-left: 54px;
+        padding: 0px 8px;
+        background: lightcyan;
+    }
+    .recoment li{
+        padding:0; margin:5px 0;
+    }
+</style>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">{$detail['typetitle']}</div>
+        <!--<span class="guanzhu guanzhuTop">关注</span>-->
+    <!--</div>-->
+    <!--<div class="search-container">-->
+        <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/guanzhu.png" width="100%">-->
+    </div>
+
+
+    <div class="list-box">
+        <ul class="list-ul">
+            <!-- 下拉加载数据容器 -->
+            <li data-id="">
+                <!-- 用户信息及帖子操作 -->
+                <div class="li-top">
+                    {if empty($m['avatar'])}
+                    <img src="https://f11.baidu.com/it/u=2282481429,82123937&fm=72">
+                    {else}
+                    <img src="{$m['avatar']}">
+                    {/if}
+                    <div class="user-info">
+                        <p>{if empty($m['realname'])}{$m['nickname']}{else}{$m['realname']}{/if}</p>
+                        <p>{php echo date('m-d H:i',$detail['ctime'])}</p>
+                    </div>
+                    <!--<span class="edit guanzhu guanzhuta">关注TA</span>-->
+                </div>
+                <!-- 帖子内容 -->
+                <div class="li-content">
+                    <p class="content-title">{$detail['title']}</p>
+                    <p class="content">
+                        {$detail['content']}
+                        <!--<video controls  preload="auto" id="myVideo">-->
+                            <!--<source src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/fly.mp4" type="video/mp4">-->
+                        <!--</video>-->
+                    </p>
+                </div>
+                <div class="activity-content-box can-user-select">
+                    <div class="activity-content">
+                        <!-- 活动内容 内置标签在这里赋值-->
+                        {php echo html_entity_decode($detail['desc'])}
+                    </div>
+                </div>
+                <!--<p class="set">-->
+                    <!--<span class="report">举报</span>-->
+                    <!--<span class="star">-->
+                        <!--&lt;!&ndash; 未收藏 &ndash;&gt;-->
+                        <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/shoucang0.png" class="icon1">-->
+                        <!--&lt;!&ndash; 已收藏 &ndash;&gt;-->
+                        <!--&lt;!&ndash; <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/shoucang.png" class="icon1"> &ndash;&gt;-->
+                        <!--收藏-->
+                    <!--</span>-->
+                    <!--<span class="more">-->
+                        <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/more.png" class="icon1">-->
+                        <!--更多-->
+                    <!--</span>-->
+                <!--</p>-->
+            </li>
+        </ul>
+    </div>
+    <div class="zeroBox"></div>
+    <div class="hudong list-box">
+        <p style="margin: 0 0 18px 0px;"><span class="hudong1">全部互动</span></p>
+        <ul>
+            {loop $list $v}
+            <li>
+                <!-- 楼层 -->
+
+                <div class="li-top">
+                    {if empty($v['avatar'])}
+                    <img src="https://f11.baidu.com/it/u=2282481429,82123937&fm=72">
+                    {else}
+                    <img src="{$v['avatar']}">
+                    {/if}
+                    <div class="user-info">
+                        <p class="name">{if empty($v['realname'])}{$v['nickname']}{else}{$v['realname']}{/if}<span>楼主</span><!-- <span>游客</span> -->
+                            <span class="speak"><img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/more.png" class="icon1"></span></p>
+                        <p class="time">{php echo date('m-d,H:i',$v['ctime'])}</p>
+                    </div>
+                </div>
+                <!-- 评论内容 -->
+                <p class="content">
+                   {$v['content']}
+                </p>
+                 <!-- 已回复信息 -->
+                <div class="recoment">
+                    <ul>
+                        <!-- <li>XX ：你是哪个</li>
+                        <li>XX2：你是哪个</li> -->
+                    </ul>
+                </div>
+                <!-- 评论+点赞 -->
+                <!--<p class="caozuo">-->
+                    <!--<span class="pinglun">-->
+                        <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/pinglun.png" class="icon1">-->
+                        <!--评论-->
+                    <!--</span>-->
+                    <!--<span class="zan">-->
+                        <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan0.png" class="icon1">-->
+                        <!-- 未点赞 -->
+                        <!-- <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png" class="icon1"> -->
+                        <!-- 已点赞 -->
+                    <!--</span>-->
+                    <!-- <span></span> -->
+
+                <!--</p>-->
+                <p class="reply">
+                    <input class="reply-content" placeholder=" 回复 秒懂秒换：">
+                    <button class="btn btn-default onSubmit">确认</button>
+                    <button class="btn btn-default reset">取消</button>
+
+                </p>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+    <!-- 加载完成 -->
+    <div class="jiazaiAll zeroBox" style="">已加载全部数据</div>
+    <!-- 底部 -->
+    <div class="footer flex">
+        <input type="text" name=""  placeholder="我来说两句" class="flex2" id="content">
+         <span class="flex1 pingluns">
+            <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zhuan.png" class="icon1">
+            <!-- 未点赞 -->
+             <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png" class="icon1">-->
+            <!-- 已点赞 -->
+        </span>
+        <span class="flex1 zan">
+            <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan0.png" class="icon1">
+            <!-- 未点赞 -->
+             <!--<img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png" class="icon1">-->
+            <!-- 已点赞 -->
+        </span>
+        <span class="flex1 share one-key-share">
+            <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/share.png" class="icon1" style="width: 27px!important;height: 23px!important;">
+        </span>
+    </div>
+    <div style="width: 100%; height: 55px;"></div>
+    <!-- 分享提示 -->
+    <div class="share_cover">
+        <img src="../addons/sz_yi/plugin/activity/res/images/onekeyguide_share190222.png">
+    </div>
+</div>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/activity_detail.css';?>"/>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/activity/res/js/jQueryRotate.js';?>"></script>
+
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        var zanStatus = false;
+        var zanFootStatus = false;
+        $('.pingluns').click(function () {
+            var content = $('#content').val();
+            if (content == "") {
+                alert('请填写内容');
+                return;
+            }
+
+            var forumid = {$detail['id']};
+            let obj = {
+                forumid: forumid,
+                content: content
+            }
+            url = "{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>pinglun))}";
+
+            $.ajax({
+                type: "post",
+                url: url,
+                data: obj,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == 1) {
+                        alert('评论成功');
+                        location.href = "{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>'detail','id'=>$detail['id']))}";
+                    }
+                }, error(e)
+            {
+                console.log(e)
+            }
+        })
+    });
+    // 点赞(ajax请求返回是否点赞)  未完成
+    $('.list-box').on('click', '.zan', function () {
+
+        $.ajax({})
+        if (!zanStatus) {
+            zanStatus = true;
+            $(this).find('img').attr({'src': '../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png'})
+        } else {
+            zanStatus = false;
+            $(this).find('img').attr({'src': '../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan0.png'})
+        }
+
+    })
+    // 评论
+    $('.list-box').on('click', '.pinglun', function () {
+        $(this).parent().siblings('.reply').show()
+    })
+    $('.list-box').on('click', '.onSubmit', function () {
+        var content = $(this).siblings('.reply-content').val();
+        console.log(content);
+        $('.recoment ul').append(content)
+    })
+    $('.list-box').on('click', '.reset', function () {
+        var content = $(this).parent().hide();
+        // console.log(content);
+    })
+
+    // 底部
+    $('.footer .zan').click(function () {
+        if (!zanFootStatus) {
+            zanFootStatus = true;
+            $(this).find('img').attr({'src': '../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png'})
+        } else {
+            zanFootStatus = false;
+            $(this).find('img').attr({'src': '../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan0.png'})
+        }
+    })
+
+    $(".one-key-share").click(function(){
+        // alert("祝贺,该活动已经一键转发成你的联系方式,点击右上角将它发送给朋友或者朋友圈");
+        // return; //到时候去掉return 就可以执行下面的代码了
+
+        core.pjson('activity/activity', {op:'forwarding',type:10,atid:'{$_GPC['id']}',mid:'{$_GPC['mid']}'}, function(json) {
+            //json.status 这里的标识字段随便取，跟后台返回的对应就可以了
+
+            if (json.status == 1) {
+                //alert("祝贺,该活动已经一键转发成你的联系方式,点击右上角将它发送给朋友或者朋友圈");
+                guideshare();
+                require(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js'],function(wx){
+
+                    //window.shareData = {php echo json_encode($_W['shopshare'])};//到时候是要改shareData这里
+                    //到时候是要改shareData这里
+                    // window.shareData = {"title":"MAGNOLIa","imgUrl":"http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/tE1y89EaY9AA2Z5pXGY3E98Z2aPl3K.jpg","desc":"Hello","link":"http:\/\/jhzh66.com\/app\/index.php?i=8&c=entry&method=activity&p=activity&op=detail&id=102&mid=4707&m=sz_yi&do=plugin"};
+                    window.shareData =eval('('+json.result+')');
+                    console.log(window.shareData);
+                    {if $_GPC['id']}
+                        {if $_GPC['method'] == 'activity'}
+                            window.shareData.success=function (re) {
+                                // 用户确认分享后执行的回调函数
+                                $.post('{php echo $this->createPluginMobileUrl("activity/center",array("op"=>"share","type"=>3,"atid"=>$_GPC["id"],"mid"=>$member["id"]))}',{},function(data){
+                                },'json');
+                            }
+                            {else if $_GPC['method'] == 'article'}
+                                window.shareData.success=function (re) {
+                                    // 用户确认分享后执行的回调函数
+                                    $.post('{php echo $this->createPluginMobileUrl("activity/center",array("op"=>"share","type"=>2,"atid"=>$_GPC["id"],"mid"=>$member["id"]))}',{},function(data){
+                                    },'json');
+                                }
+                                {/if}
+                                    {/if}
+
+                                        //console.log(window.shareData);
+                                        jssdkconfig = {php echo json_encode($_W['account']['jssdkconfig']);} || { jsApiList:[] };
+                                    {if $trigger}
+                                        window.shareData.trigger =function(e){
+
+                                            require(['core'],function(core){
+                                                core.message('需要完善您的资料才能继续操作!',"{php echo $this->createMobileUrl('member/info',array('returnurl'=>urlencode($_W['siteurl'].$_SERVER['QUERY_STRING'])))}",'warning');
+                                                return;
+                                            })
+                                            wx.cancel();
+                                        }
+                                        {/if}
+                                            jssdkconfig.debug = false;
+                                            jssdkconfig.jsApiList = ['checkJsApi','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','showOptionMenu','scanQRCode'];
+                                            wx.config(jssdkconfig);
+                                            wx.ready(function () {
+                                                wx.showOptionMenu();
+                                                wx.onMenuShareAppMessage(window.shareData);
+                                                wx.onMenuShareTimeline(window.shareData);
+                                                wx.onMenuShareQQ(window.shareData);
+                                                wx.onMenuShareWeibo(window.shareData);
+
+                                                $("#a_logo1").click(function(){
+
+                                                    wx.scanQRCode({
+                                                        needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                                                        scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                                                        success: function (res) {
+                                                            var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                                                        }
+                                                    });
+                                                });
+
+                                            });
+                                        });
+                                        return;
+                                    }
+                                    core.tip.show(json.result);
+                                }, true);
+                            });
+                            function guideshare(){
+                                $('.share_cover').fadeIn(200).unbind('click').click(function(){
+                                    $(this).fadeOut(100);
+                                });
+                            }
+    })
+</script>

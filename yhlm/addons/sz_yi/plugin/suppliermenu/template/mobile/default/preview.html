@@ -1,0 +1,465 @@
+{template 'common/header'}
+<!-- 预览[在广告列表点击查看详情] 广告预览[在新增编辑广告或者草稿箱点击预览] 换货码广告和现金广告[点击看广告换产品和拆红包得现金] 这里的标题分这四种情况 到时候动态获取 -->
+<title>预览</title>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/detailad.css" />
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/mediaelementplayer.min.css" />
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mediaelement-and-player.min.js"></script>
+<div id="container"></div>
+<div id='share_cover'><img src='../addons/sz_yi/static/images/guide_share.png'/></div>
+<!-- 利用类似说明样式实现捡红包 -->
+<div class="description_layer"></div> 
+<div class="description">
+    <div class="description-tag">捡红包</div>
+    <div class="description-cont">
+    	<div class="core-img-box">
+    		<img class="core-img" src="{php echo $this->createMobileUrl('barter/ad',array('op'=>'detail','ac'=>'getthumb','id'=>$_GPC['id']))}" onclick="this.src='{php echo $this->createMobileUrl('barter/ad',array('op'=>'detail','ac'=>'getthumb','id'=>$_GPC['id']))}&' + Math.random();">
+    	</div>	  	 		 
+    	<div class="core-tips-tag">
+    		<span class="core-b-tips">选核心记忆词</span>
+    		<span class="get-what-envelope">
+    		{if $tempad['putInType'] == 2}
+    			换货码
+			{else}
+				现金
+			{/if}
+			<span class="get-how-much"> +0.2</span></span>
+    	</div>
+    	<div class="show-input-box flex-center"> <!-- core-single-on类添加 这里的个数等于数据库中设置的core长度 动态获取 个数不固定-->
+    		{loop $corearr $k  $v}
+    			<div class="core-single-input core-single"></div>
+    		{/loop}
+    		{if false}
+    		<div class="core-single-input core-single"><!-- 白 --></div>
+    		<div class="core-single-input core-single"><!-- 蒙 --></div>
+    		<div class="core-single-input core-single"><!-- 苁 --></div>
+    		<div class="core-single-input core-single"><!-- 酒 --></div>
+    		{/if}
+    		<input type="hidden" name="core" id="core_input" value="">
+    	</div>
+    	<div class="turn-follow-tips">从下方选择核心记忆词</div>
+    	<div class="core-input-operate-box flex-center">
+    		<div class="core-key-board"> <!-- 个数固定 -->
+    			{loop $full $k $v}
+    			<div class="core-single-board core-single">{$v}</div>
+	    		{/loop}
+    		</div>
+    		<div class="core-clear-del-box">
+    			<div class="clear-bin">清空</div>
+    			<div class="del-bin">回删</div>
+    		</div>
+    	</div>
+    	<div class="confirm-jump-box flex-center">
+    		<div class="core-confirm-btn">确定</div>
+    		<div class="core-jump-btn">跳过此广告</div><!-- 这里赋值上跳过链接 回到广告分类页面??-->
+    	</div>
+    </div>
+    <div class="close icon" onClick="closedescription()"></div>
+</div>
+<script id="tpl_main" type="text/html">
+	<div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.go(-1)"><i class="fa fa-angle-left"></i></a>
+        <!-- 预览[在广告列表点击查看详情] 广告预览[在新增编辑广告或者草稿箱点击预览] 换货码广告和现金广告[点击看广告换产品和拆红包得现金] 这里的标题分这四种情况 到时候动态获取 -->
+        <div class="title">预览</div>
+        <!-- 分享标志是当页面是换货码广告和现金广告页面时才显示 -->
+        <a href="javascript:;" class="home" onclick="share()"><i class="fa fa-share-square" aria-hidden="true"></i></a>
+    </div>
+
+    <!-- 外部视频链接 根据广告模板类型决定显示与否 scrolling="no"-->
+    <%if ad.type == 3%>
+    <div class="control-video-box" ></div> <!-- 为了控制视频盒子的样式 与下面的视频容器共存 (如果视频容器不显示,它也不显示)-->
+    <div class="external-video-box" >
+    	<div class="video-content" ><!-- 下面的两个frame都可以看看样式 第一个是参考的视频到时候不能用-->
+    		<!-- 根据用户是否有填写视频链接来显示下面的no-video-link容器 -->
+    		{if !empty($tempad['video'])}
+    			<iframe height="95%" width="99%" frameborder="0" allowfullscreen src="{$tempad['video']}"></iframe>
+    		{else}
+	    		<div class="no-video-link">
+	    			<i class="fa fa-info-circle info-circle-icon" aria-hidden="true"></i>您还未填写视频链接
+	    		</div>
+    		{/if}
+    		{if false}
+    		<!-- <iframe height="95%" width="99%" frameborder="0" allowfullscreen src="http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=594d1370d391f84abc6c2e54ffd858cd&tvId=1264240400&accessToken=2.f22860a2479ad60d8da7697274de9346&appKey=3955c3425820435e86d0f4cdfe56f5e7&appId=1368&height=100%&width=100%"></iframe> -->
+    		{/if}
+    	</div>
+    </div>
+    <%/if%>
+    <%if ad.type == 2%>
+    <!-- 外部网页链接 根据广告模板类型决定显示与否 -->
+    <div class="external-link-box">
+    	{if $tempad['type'] == '2'}
+		{if empty($tempad['outside'])}
+			<div class="no-link-box">
+				<i class="fa fa-info-circle info-circle-icon" aria-hidden="true"></i>您还未填写外部网页链接
+			</div>
+		{/if}
+		{/if}
+    	<iframe class="external-link-frame" src="{$tempad['outside']}"></iframe>
+    </div>	 	 
+    <%/if%>
+    <!-- 轮播图 -->
+	<div class="mui-slider thumb-box {if empty($tempad['thumb'])}no-slider-wrapper{else}{/if}"><!-- no-slider-wrapper 类名只有当预览时用户没有上传轮播图时才显示 这个要用标签判断-->
+		<!-- 下面的容器是用户没有上传轮播图时候才显示 start -->
+		{if empty($tempad['thumb'])}
+			<div class="no-slider-box ">
+				<i class="fa fa-info-circle info-circle-icon" aria-hidden="true"></i>您还未上传轮播图
+			</div>
+		{else}
+			<!-- 下面的容器是用户没有上传轮播图时候才显示 end -->
+			<div class="mui-slider-group mui-slider-loop">
+		    	<!--支持循环，需要重复图片节点 最大的元素 要按这种结构顺序 不管你怎么用代码实现-->
+			    <div class="mui-slider-item mui-slider-item-duplicate">
+			    	<a href="javascript:void(0);" class="sli-img-box">
+			    		<img class="auto-fit-img" src="<%ad.thumb[ad.thumb.length- 1]%>">
+			    	</a>
+			    </div>
+		    	<%each ad.thumb as v k %> 	 		 
+				    <div class="mui-slider-item">
+				    	<a href="javascript:void(0);" class="sli-img-box">
+				    		<img class="auto-fit-img" src="<%v%>">
+				    	</a>
+				    </div>  
+		    	<%/each%>
+		    	<!--支持循环，需要重复图片节点 最小的元素 要按这种结构顺序 不管你怎么用代码实现-->
+			    <div class="mui-slider-item mui-slider-item-duplicate"> 		 
+			    	<a href="javascript:void(0);" class="sli-img-box">
+			    		<img class="auto-fit-img" src="<%ad.thumb[0]%>">
+			    	</a>
+			    </div>  
+			</div>
+			<!--轮播图圆点--> 
+			<div class="mui-slider-indicator">
+			 	<%each ad.thumb as v k%>
+					<div class="mui-indicator <%if k == 0 %>mui-active<%/if%>"></div>
+			    <%/each%>
+			</div> 
+			<!--轮播图序号--> 
+			<div class="slider-serial-num"> 
+				<span class="slider-num slider-serial">1</span><span class="total-num slider-serial">/10</span>
+			</div>
+		{/if}
+		 
+	</div>
+	<!-- 广告名称 -->
+	<div class="ad-title-box flex-center">
+		<!-- 当预览的时候用户未填写广告名称,显示下面类名为no-title的div start -->
+		<%if ad.title == '' %>
+			<div class="ad-title no-title">
+				<i class="fa fa-info-circle info-circle-icon" aria-hidden="true"></i>您还未填写广告名称
+			</div>
+		<%else%>
+			<div class="ad-title"><%ad.title%></div>
+		<%/if%>
+		<!-- 当预览的时候用户未填写广告名称,显示下面类名为no-title的div end -->
+		<div class="ad-report">
+			<div class="report-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>
+			<div class="report-tag">举报</div>
+		</div>
+	</div>
+	<!-- 广告描述 -->
+	<div class="ad-desc-box">
+		<div class="ad-desc ad-desc-overflow">
+			<%if ad.desc == 'undefined' %>
+				<span class="no-desc" style="color: #dfc747;">你还没有填写广告描述</span>
+			<%else%>
+			<%ad.desc%>
+			<%/if%>
+		</div>
+		<div class="ad-fold">
+			<i class="fa fa-angle-down ad-fold-icon" aria-hidden="true"></i>
+		</div>
+	</div>
+	<!-- 推荐商品 没有则不显示 start-->
+	<div class="recom-goods-box">
+        <ul class="goods-ul">
+        <%each ad.goods as v%>      
+            <li class="goods-item clearfloat flex-center">
+	            <a href="<%v.url%>" class="goods-link floatl"><!-- 商品链接 和 商品图片(背景图形式) -->
+	                <div class="pic-box" style="background: url(<%v.thumb%>) no-repeat center; background-size: cover;">
+	                </div>
+	            </a>
+	            <div class="content-box floatr">
+	                <div class="goods-tag">
+	                    <a href="<%v.url%>" class="goods-link"><!-- 商品名称 -->
+	                    <%v.title%>
+	                    </a> 
+	                </div>
+	                <div class="current-value-tag font-color">
+	                	<%if v.type == 8%>
+	                		<%v.marketprice%>换货码
+	                	<%else%>
+	                		￥<%v.marketprice%>
+	                	<%/if%>
+	                </div>
+	                <div class="oth-recom-value-box"> 
+	                    <div class="origin-value-tag">价值 <del>
+	                    	<%if v.type == 8%>
+		                		<%if v.productprice%><%v.productprice%><%else%>0.00<%/if%>换货码<!-- shopprice -->
+		                	<%else%>
+		                		￥<%if v.productprice%><%v.productprice%><%else%>0.00<%/if%>
+		                	<%/if%>
+		                </del></div><!-- 原市场价 -->
+	                    <div class="barter-num-tag">已兑换<%v.salesreal%>件</div><!-- 兑换数量 -->
+	                </div>
+	            </div>
+	        </li>
+	        <%/each%>
+        </ul> 
+    </div>
+    <!-- 推荐商品 没有则不显示 end-->
+	<!-- 店铺相关 -->
+	<div class="shop-box">
+		<a class="shop-base-link" href="javascript:void(0);">
+			<div class="shop-base flex-center">
+				<div class="shop-img-box">
+					<img class="shop-img" src="<%ad.merch.logo%>">
+				</div>
+				<div class="shop-name"><%ad.merch.merchname%></div>
+			</div>
+		</a>
+		<div class="shop-other flex-center">
+			<a class="total-goods-link total-goods-box" href="javascript:void(0);">
+				<div class="total-goods-box1">
+					<span class="total-goods-num shop-other-num"><%ad.totalgoods%></span>
+					<span class="total-goods-tag shop-other-tag">全部商品</span>
+				</div>
+			</a>
+			<div class="total-attention-box">
+				<span class="total-attention-num shop-other-num"><%ad.merch.favorite%></span>
+				<span class="total-attention-tag shop-other-tag">关注人数</span>
+			</div>
+		</div>
+		<div class="shop-btn-box flex-center">  	 	
+			<div class="contact-seller"><a class="give-call" href="tel:<%ad.mobile%>"><i class="fa fa-phone shop-btn-icon" aria-hidden="true"></i>联系卖家</a></div>
+			<!-- 店铺关注 给一个变量标志 已关注的话(含有attented-shops类型,没有关注不含有类名attented-shops) "关注店铺"字眼变成"已关注",相反取消关注一样 用标签判断要不要类名attented-shops-->
+			<div class="attent-shops {if !$isfavorite}attented-shops{else}{/if}"><i class="fa fa-user-plus shop-btn-icon" aria-hidden="true"></i><span class="attent-shops-tag">{if $isfavorite}已关注{else}关注店铺{/if}</span></div>
+		</div>
+	</div>
+	<!-- 底部咨询和拆红包按钮 根据不同情况选择显示 start -->
+	<div class="consult-envelope-box flex-center">
+		<div class="consult-btn" onclick="location.href='#'">
+			<span class="consult-icon"><i class="fa fa-comment-o" aria-hidden="true"></i></span>
+			<span class="consult-tag">咨询</span>
+		</div>
+		{if empty($_GPC['isedit'])}
+		{if $sure}
+			<div class="envelope-btn">拆红包</div>
+		{else}
+			<div style="background:#ddd;" class="envelope-btn">拆红包</div>
+		{/if}
+		{/if}
+	</div>
+	<!-- 底部咨询和拆红包按钮 根据不同情况选择显示 end-->
+	{if $_GPC['isedit']}
+	<div class="immediate-delivery-box">
+		<div class="imme-delivery-btn">立即投放</div>
+	</div>
+	{/if}
+</script>
+<script type="text/javascript">
+	require(['tpl', 'core'], function(tpl, core) {
+		
+		$('.core-jump-btn').click(function(){
+			$.post('{php echo $this->createMobileUrl("barter/bonus",array("op"=>"jump","id"=>$_GPC["id"]))}',{},function(e){
+				if (e.status == 1) {
+					require(['tpl', 'core'], function(tpl, core) {
+						core.tip.show('跳过成功');
+					});	 		 	 
+					setTimeout(function(){
+						location.href='{php echo $this->createMobileUrl("barter/ad")}';
+					},150);
+				}			
+			},'json');
+		});
+		core.pjson('suppliermenu/ad', {op:'showPreview',id:'{$_GPC['id']}',exists:'{$_GPC["exists"]}'}, function (json) {
+			$('#container').html(tpl('tpl_main', json.result));
+			//轮播图序号  		 
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  	interval: 5000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			//总轮播广告大图数量
+			var gallery_length = $(".mui-slider-group").children(".mui-slider-item").length - 2;
+			$(".total-num").text("/ " + gallery_length);
+			if(json.thumb){
+				document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+				   //注意slideNumber是从0开始的；
+				   //alert("你正在看第"+(event.detail.slideNumber+1)+"张图片");
+				   $(".slider-num").text(event.detail.slideNumber+1);
+				});
+			}
+			$(".ad-fold").click(function(){
+				if($(".ad-fold-icon").hasClass("fa-angle-down")){
+					$(".ad-desc").removeClass("ad-desc-overflow");
+					$(".ad-fold-icon").removeClass("fa-angle-down");
+					$(".ad-fold-icon").addClass("fa-angle-up");
+				}else{
+					$(".ad-desc").addClass("ad-desc-overflow");
+					$(".ad-fold-icon").removeClass("fa-angle-up");
+					$(".ad-fold-icon").addClass("fa-angle-down");
+				}
+			});
+			//拆红包按钮
+			$('.envelope-btn').click(function(){
+				{if empty($_GPC['isedit'])}
+					{if $sure}
+						showdescription();
+					{else}
+						require(['tpl', 'core'], function(tpl, core) {
+							core.tip.show('预览不可领取');
+						});
+					{/if}
+				{/if}
+				
+			});
+			//.core-single-on
+			var core_length = $(".show-input-box .core-single-input").length;
+			$(".core-key-board .core-single").unbind('click').click(function(){
+				var on_length = $(".core-key-board .core-single-on").length;
+				//console.log("on_length: "+ on_length);
+				if ($(this).hasClass("core-single-on")){
+					return false;
+				}
+				if(on_length < core_length){
+					$(this).addClass("core-single-on");
+					$(this).attr("num_on",on_length);
+					var core = $(this).text();
+					if($(".show-input-box .core-single-on").length < core_length){
+						$(".show-input-box .core-single-input").each(function(){
+							//console.log("999");
+							if(!$(this).hasClass("core-single-on")){
+								$(this).addClass("core-single-on");
+								$(this).attr("num_on",on_length);
+								$(this).text(core);
+								return false;
+							}
+						});
+					}
+				}else{
+					//怎么这么奇怪啊
+					require(['tpl', 'core'], function(tpl, core) {
+						core.tip.show('核心记忆词已经选满');
+					});
+				}
+				
+			});
+			$(".clear-bin").unbind("click").click(function(){
+				$(".show-input-box .core-single-input").removeClass("core-single-on").text("").attr("num_on","");
+				$(".core-key-board .core-single").removeClass("core-single-on").attr("num_on","");
+
+			});
+			//core-single-on-last
+			$(".del-bin").unbind("click").click(function(){
+				var length = $(".show-input-box .core-single-on").length - 1;
+				if(length == -1){
+					return false;
+				}
+				var num_on = $(".show-input-box").children(".core-single-on[num_on='"+ length +"']").attr("num_on");
+				console.log(num_on);
+				$(".show-input-box .core-single-on[num_on='"+ length +"']").removeClass("core-single-on").text("").attr("num_on","");
+				//$(".show-input-box .core-single-input").removeClass("core-single-on").text("");
+				$(".core-key-board .core-single-on[num_on='"+ num_on +"']").removeClass("core-single-on").attr("num_on","");
+			});
+			$(".confirm-jump-box .core-confirm-btn").click(function(){
+				var cores = "";
+				$(".show-input-box .core-single-on").each(function(){
+					cores += $(this).text();
+				});
+
+				require(['tpl', 'core'], function(tpl, core) {
+					core.json('barter/bonus', {op:'draw',id:'{$_GPC["id"]}',core:cores}, function (json) {
+						 	//json.result.status == 1 代表拆红包成功
+						 	if(json.status == 1){
+						 		//拆红包成功执行的代码
+								core.tip.show(json.result);
+						 		location.href='{php echo $this->createMobileUrl("barter/ad")}';
+						 	}else{
+						 		//怎么这么奇怪啊
+									core.tip.show(json.result);
+						 	}
+					}, true);	
+				});
+			});
+			$(".imme-delivery-btn").click(function(){
+				core.json('', {}, function (json) {
+				 	//json.result.status == 1 代表拆红包成功
+				 	if(json.result.status == 1){
+				 		//立即投放成功执行的代码
+				 		require(['tpl', 'core'], function(tpl, core) {
+							core.tip.show(json.result.message);
+						});
+				 		location.href='https://www.baidu.com/?tn=78040160_26_pg&ch=1';
+				 	}else{
+				 		//怎么这么奇怪啊
+						require(['tpl', 'core'], function(tpl, core) {
+							core.tip.show(json.result.message);
+						});
+				 	}
+				}, true);
+			});	
+			//关注店铺和取消关注店铺操作
+			$(".attent-shops").click(function(){
+				return;
+				//暂定后台现实是根据原本的值判断(比如是1的话,请求一次改为0;是0的话请求一次改为1),或者给一个hidden input存储是否已关注的标志值
+				core.json('member/merch', {op:'set',sid:'{$tempad['uid']}'}, function (json) {
+				 	//json.result.status == 1 代表拆请求成功
+
+				 	var fannum=$('.total-attention-num').html();
+				 		fannum =parseInt(fannum);
+				 	if(json.status == 1){ 		 		
+				 		//立即投放成功执行的代码	 	 			 
+				 	// 	require(['tpl', 'core'], function(tpl, core) {
+						// 	core.tip.show(json.result.message);//message:你已取消关注店铺XXXX 或者 你已关注店铺XXXX
+						// });
+						//前面一定要标签判断好是否已关注店铺,已关注加上类名attented-shops 未关注(json.result.attent == 0)
+						//attent 为标志是否已经关注
+				 		if(json.result.isfavorite){
+				 			fannum+=1;
+				 			$(".attent-shops").removeClass("attented-shops");
+				 			$('.total-attention-num').html(fannum);	 	 	 	 	
+				 			$(".attent-shops-tag").text("已关注");
+				 			core.tip.show("你已成功关注店铺");
+				 		}else{ 	 	
+ 				 			fannum-=1;
+				 			$('.total-attention-num').html(fannum);
+				 			$(".attent-shops").addClass("attented-shops");
+				 			$(".attent-shops-tag").text("关注店铺");
+				 			core.tip.show("你已取消关注店铺");
+				 		}
+				 	}else{ //请求失败
+				 		//怎么这么奇怪啊
+						require(['tpl', 'core'], function(tpl, core) {
+							core.tip.show(json.result.message);
+						});
+				 	}
+				}, true);
+			});	 	
+		}, true);
+		//$(function(){});
+	});
+	//引导分享功能
+	function share(){
+        $('#share_cover').fadeIn(200).unbind('click').click(function(){
+            $(this).fadeOut(100);
+        });
+    }
+    //捡红包弹出版面相关函数
+    function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+ //    {if $tempad['type'] == '2'}
+	// 	{if empty($tempad['outside'])}
+	// 		alert('你还未填写外部网页链接');
+	// 	{/if}
+	// {/if}
+</script>
+{template 'common/footer'}

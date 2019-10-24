@@ -1,0 +1,249 @@
+{template 'common/header'}
+{template 'tabs'}
+<style type='text/css'>
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+</style>
+{if $operation=='display'}
+<div class="panel panel-info">
+    <div class="panel-heading">筛选</div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="p" value="dealmerch" />
+            <input type="hidden" name="method" value="dealmerch" />
+            <input type="hidden" name="op" value="display" />
+            <div class="form-group">				<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">会员信息</label>
+	                <div class="col-sm-8 col-lg-9 col-xs-12">
+	                    <input type="text" class="form-control"  name="uid" value="{$_GPC['uid']}" placeholder='搜索易货商家ID'/>
+	                </div>
+	            </div>
+				<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+					<input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+           </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+    	<a class='btn btn-default' style="background-color: #1E95C9; color: #fff; border-radius: 6px;" href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_add', array('op' => 'post'))}">添加兑换点</a>
+	</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">总数：{$total}</div>
+    <div class="">
+        <table class="table table-hover table-responsive">
+            <thead class="navbar-inner" >
+                <tr><th style='width:150px;'>兑换点名称</th>
+                    <th style='width:150px;'>兑换点地址</th>
+                    <th style='width:150px;'>联系电话</th>
+                    <th style='width:150px;'>兑换日期</th>
+                    <th style='width:150px;'>兑换时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $info $row}
+                	{if !empty($row['id'])}
+		                <tr>
+		                	<td>{$row['title']}</td>
+		                    <!-- <td><a href="{php echo $this->createPluginWebUrl('dealmerch/exchange/display',array('uid' => $row['uid']));}" title='商家信息' style="color: #0060DF;">{$row['username']}</a></td> -->
+		                    <td>{$row['address']}</td>
+		                    <td>{$row['mobile']}</td>
+		                    <td>{$row['exchange']}</td>
+		                    <td>{$row['exchangeTime']}</td>
+		                    <td>{$row['exchangeDate']}</td>
+		                    <td  style="overflow:visible;">
+                                <!-- <div class="btn-group btn-group-sm"> -->
+                                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="javascript:;">修改 <span class="caret"></span></a>
+                                       <!--  <ul class="dropdown-menu dropdown-menu-left" role="menu" style='z-index: 99999'>
+                                            <li><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch/detail',array('uid' => $row['uid']));}" title='商家信息'><i class='fa fa-user'></i> 商家信息</a></li>
+                                            <li><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_add', array('op' => 'post', 'id' => $row['id']))}" title='修改密码'><i class='fa fa-edit'></i> 修改密码</a></li>
+                                            <li><a href="{php echo $this->createWebUrl('finance/recharge',array('op' => credit3,'uid'=>$row['uid']));}" title='充值易货码'><i class='fa fa-money'></i>充值易货码</a></li>
+                                            <li><a  href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_list',array('dealmerch_uid' => $row['uid']));}" title='我的订单'><i class='fa fa-list'></i> 我的订单</a></li>
+                                            <li><a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_add', array('op' => 'delete', 'id' => $row['id']))}" title="删除" onclick="return confirm('确定要删除该商家吗？');"><i class='fa fa-remove'></i> &nbsp;删除商家</a></li>
+                                        </ul> -->
+                                <!-- </div> -->
+		                    </td>
+		                </tr>
+		            {/if}
+                {/loop}
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</div>
+{else if $operation=='post'}
+
+<form {ifp 'commission.dealmerch.edit|commission.dealmerch.check'}action="" method='post'{/if} class='form-horizontal'>
+    <input type="hidden" name="id" value="{$dealmerchinfo['uid']}">
+    <input type="hidden" name="op" value="detail">
+    <input type="hidden" name="c" value="site" />
+    <input type="hidden" name="a" value="entry" />
+    <input type="hidden" name="m" value="sz_yi" />
+    <input type="hidden" name="p" value="dealmerch" />
+    <input type="hidden" name="method" value="dealmerch" />
+    <input type="hidden" name="op" value="detail" />
+    <div class='panel panel-default'>
+        <div class='panel-heading'>商家添加</div>
+        <div class='panel-body'>
+            <div class="form-group notice">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-3 col-md-3 control-label">微信角色</label>
+                    <div class="col-sm-4">
+                        <input type='hidden' id='noticeopenid' name='data[openid]' value="{$dealmerchinfo['openid']}" />
+                        <div class='input-group'>
+                            <input type="text" name="saler" maxlength="30" value="{if !empty($saler)}{$saler['nickname']}/{$saler['realname']}/{$saler['mobile']}{/if}" id="saler" class="form-control" readonly />
+                            <div class='input-group-btn'>
+                                <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus-notice').modal();">选择角色</button>
+                                <button class="btn btn-danger" type="button" onclick="$('#noticeopenid').val('');$('#saler').val('');$('#saleravatar').hide()">清除选择</button>
+                            </div>
+                        </div>
+                        <span id="saleravatar" class='help-block' {if empty($saler)}style="display:none"{/if}><img  style="width:100px;height:100px;border:1px solid #ccc;padding:1px" src="{$saler['avatar']}"/></span>
+                        <div id="modal-module-menus-notice"  class="modal fade" tabindex="-1">
+                            <div class="modal-dialog" style='width: 920px;'>
+                                <div class="modal-content">
+                                    <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择角色</h3></div>
+                                    <div class="modal-body" >
+                                        <div class="row">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="keyword" value="" id="search-kwd-notice" placeholder="请输入昵称/姓名/手机号" />
+                                                <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_members();">搜索</button></span>
+                                            </div>
+                                        </div>
+                                        <div id="module-menus-notice" style="padding-top:5px;"></div>
+                                    </div>
+                                    <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+              	
+                    </div>				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+			
+			<script language='javascript'>	
+				//搜索		
+				// function search_members() {			
+		  //           if( $.trim($('#search-kwd-notice').val())==''){			
+				// 		$('#search-kwd-notice').attr('placeholder','请输入关键词');			
+		  //                return;			
+		  //           }			
+				//     $("#module-menus-notice").html("正在搜索....")			
+				//     $.get('{php echo $this->createWebUrl('member/query')}', {			
+				//       keyword: $.trim($('#search-kwd-notice').val())			
+				//     }, function(dat){			
+				//       $('#module-menus-notice').html(dat);			
+				//     });			
+				// }
+
+			  function select_member(o) {			
+			    $("#noticeopenid").val(o.openid);			
+			                                $("#saleravatar").show();			
+			                                 $("#saleravatar").find('img').attr('src',o.avatar);			
+			    $("#saler").val( o.nickname+ "/" + o.realname + "/" + o.mobile );			
+			    $("#modal-module-menus-notice .close").click();			
+			  }			
+			</script>
+
+			<div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换点名称</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       {ifp 'commission.dealmerch.edit'}
+	                    <input type="text" name="data[realname]" class="form-control" value="{$dealmerchinfo['realname']}"  />
+	                       {else}	
+	                       <input type="text" name="data[realname]" class="form-control"  />
+	                    <div class='form-control-static'>{$dealmerchinfo['realname']}</div>
+	                    {/if}	
+	                </div>	
+	            </div>				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+			</div>	
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换点地址</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       {ifp 'commission.dealmerch.edit'}
+	                    <input type="text" name="data[mobile]" class="form-control" value="{$dealmerchinfo['mobile']}"  />
+	                       {else}	
+	                       <input type="text" name="data[mobile]" class="form-control" />
+	                    <div class='form-control-static'>{$dealmerchinfo['mobile']}</div>
+	                    {/if}	
+	                </div>				
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	            	<label class="col-xs-12 col-sm-3 col-md-3 control-label">联系电话</label>	
+	            	<div class="col-sm-9 col-xs-12">	
+	            	<!-- <span class='help-block'>累计金额：<span style='color:red'>{if !empty($totalmoney)}{$totalmoney}{else}0{/if}元</span> 已结算金额：<span style='color:red'>{if !empty($totalmoneyok)}{$totalmoneyok}{else}0{/if}元</span></span>	 -->
+	            		{ifp 'commission.dealmerch.edit'}
+	                    <input type="text" name="data[mobile]" class="form-control" value="{$dealmerchinfo['mobile']}"  />
+	                       {else}	
+	                       <input type="text" name="data[mobile]" class="form-control" />
+	                    <div class='form-control-static'>{$dealmerchinfo['mobile']}</div>
+	                    {/if}	
+	            	</div>				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换日期</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       {ifp 'commission.dealmerch.edit'}
+	                    <input type="text" name="data[banknumber]" class="form-control" value="{$dealmerchinfo['banknumber']}"  />
+	                       {else}	
+	                       <input type="hidden" name="data[banknumber]" class="form-control" value="{$dealmerchinfo['banknumber']}"  />
+	                    <div class='form-control-static'>{$dealmerchinfo['banknumber']}</div>
+	                    {/if}	
+	                </div>				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+    <!--  时间js插件  -->
+            <div class="form-group">				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">兑换时间</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       {ifp 'commission.dealmerch.edit'}
+	                    <input type="text" name="data[accountname]" class="form-control" value="{$dealmerchinfo['accountname']}"  />
+	                       {else}	
+	                       <input type="hidden" name="data[accountname]" class="form-control" value="{$dealmerchinfo['accountname']}"  />
+	                    <div class='form-control-static'>{$dealmerchinfo['accountname']}</div>
+	                    {/if}	
+	                </div>				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ifp 'commission.dealmerch.edit|commission.dealmerch.check'}
+                            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                            <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'commission.dealmerch.edit|commission.dealmerch.check'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+            </div>
+   		 </div>
+   	</div>   
+</form>
+</div>  
+{/if}
+</div> 
+{template 'common/footer'}

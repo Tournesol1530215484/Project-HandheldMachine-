@@ -1,0 +1,698 @@
+{template 'common/header'}
+<title>易货联盟-易活动导航</title>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.picker.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/activity1111.css?'.time();?>" />
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<!-- 位置相关 -->
+<!-- <script src="../addons/sz_yi/plugin/activity/res/js/jquery.cookie.js"></script> -->
+<script src="../addons/sz_yi/plugin/activity/res/js/cookie.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">易货联盟-易活动导航</div>
+    </div>
+    <div class="search-container">
+        <div class="search-box flex-center">
+            <div class="activity-icon-box">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span class="current-city"></span>
+            </div>
+            <div class="activity-search-inp">
+                <input type="text" name="keywords" class="keywords" placeholder="请输入标题或者主办方搜索">
+            </div>
+            <div class="activity-search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <div class="activity-user-btn" onclick="location.href='{php echo $this->createMobileUrl('member')}'">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="activity-bg">我的</span>
+            </div>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <!--支持循环，需要重复图片节点 最大的元素-->
+            {php $max=count($banner)-1}
+            {if $banner}
+            <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="{$banner[$max]['link']}"><img src="{php echo tomedia($banner[$max]['thumb'])}" /></a>
+            </div>
+            {/if}
+            {loop $banner $key $val}
+                <div class="mui-slider-item">
+                    <a href="{$val['link']}"><img src="{php echo tomedia($val['thumb'])}" /></a>
+                </div>
+            {/loop}
+            <!--支持循环，需要重复图片节点 最小的元素-->
+            {if $banner}
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="{$banner[0]['link']}"><img src="{php echo tomedia($banner[0]['thumb'])}" /></a>
+            </div>
+            {/if}
+        </div>
+        <!-- 轮播图圆点 -->
+        <div class="mui-slider-indicator">
+            {loop $banner $key $val}
+                <div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+            {/loop}
+        </div>
+    </div>
+    <div class="search-filter-container">
+        <div class="filter-box">
+            <ul class="filter-cate flex-center">
+                <li class="filter-cate-item nav-city filter-cate-item-tg" id="filter-tag0" data-type="0">
+                    <i class="fa fa-list filter-cate-icon" aria-hidden="true"></i>
+                    <span class="filter-cate-name">城市</span>
+                </li>
+                <li class="filter-cate-item filter-cate-item-tg" id="filter-tag1" data-type="1">
+                    <i class="fa fa-list filter-cate-icon" aria-hidden="true"></i>
+                    <span class="filter-cate-name">时间</span>
+                </li>
+                <li class="filter-cate-item filter-cate-item-tg" id="filter-tag2" data-type="2">
+                    <i class="fa fa-list filter-cate-icon" aria-hidden="true"></i>
+                    <span class="filter-cate-name">分类</span>
+                </li>
+                <li class="filter-cate-item filter-cate-item-tg" id="filter-tag3" data-type="3">
+                    <i class="fa fa-list filter-cate-icon" aria-hidden="true"></i>
+                    <span class="filter-cate-name">收费</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab_con">
+            <div class="con active filter-time-con clearfloat" id="con_0">
+                <div class="mark-tips">请在下拉框中选择对应的区域,再点击确定按钮,不选则默认为全国</div>
+                <div id='province-container' class='province-b city-p-c-a-sle'>
+                    <select class="whole-select add-select" id="sel-provance" onChange="selectCity();">
+                        <option value="">省/直辖市</option>
+                    </select>
+                    <select class="whole-select add-select" id="sel-city" onChange="selectcounty();">
+                        <option value="">请选择</option>
+                    </select>
+                    <select class="whole-select add-select select-hide" id="sel-area">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+                <div class="city-confirm-btn">确定</div>
+            </div>
+            <div class="con active filter-time-con" id="con_1">
+                <div class="clearfloat">
+                    <div class="filter-time-item filter-time-item-sig" data-timetype="1">不限</div>
+                    <div class="filter-time-item filter-time-item-sig" data-timetype="2">今天</div>
+                    <div class="filter-time-item filter-time-item-sig" data-timetype="3">明天</div>
+                    <div class="filter-time-item filter-time-item-sig" data-timetype="4">近一周</div>
+                    <div class="filter-time-item filter-time-item-sig" data-timetype="5">周末</div>
+                    <div class="filter-time-item filter-time-item-sig" data-timetype="6">近一月</div>
+                </div>
+                <div class="mark-tips">手动选择活动开始时间<!-- ,请选择后再点击确定按钮进行搜索 --></div>
+                <div class="filter-time-item filter-time-item-all flex-center">
+                    <input data-options='{"type":"datetime"}' class="activity-time activity-start" id="activity_start" type="text" name="activity_start" value="" placeholder="开始时间" readonly="readonly">
+                    <input data-options='{"type":"datetime"}' class="activity-time activity-end" id="activity_end" type="text" name="activity_end" value="" placeholder="结束时间" readonly="readonly" style="display: none;">
+                    <div class="time-confirm-btn">确定</div>
+                </div>
+            </div>
+            <div class="con" id="con_2">
+                <ul class="activity-cate-box flex-box"><!-- 用异步请求了 不用这里直接赋值跳转链接 -->
+                    {loop $cate $k $v}
+                    <li class="act-cate-item" data-cate="{$v['id']}">
+                        <a class="cate-item-link nowrap" href="javascript:void(0);"><i class="fa fa-tags cate-item-icon" aria-hidden="true"></i>{$v['title']}</a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="con" id="con_3">
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="normal-label">免费</label>
+                    <input name="fee_type" class="fee-type" type="radio" value="0">
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="normal-label">现场收费</label>
+                    <input name="fee_type" class="fee-type" type="radio" value="3">
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="normal-label">在线支付</label>
+                    <input name="fee_type" class="fee-type" type="radio" value="1">
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="normal-label">AA制</label>
+                    <input name="fee_type" class="fee-type" type="radio" value="2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-box">
+        <ul class="list-ul">
+            <!-- 下拉加载数据容器 -->
+        </ul>
+    </div>
+    <form action="" method="get" id="activityform">
+        <input type="hidden" name="i" value="{$_W['uniacid']}">
+        <input type="hidden" name="c" value="{$_GPC['c']}">
+        <input type="hidden" name="do" value="{$_GPC['do']}">
+        <input type="hidden" name="method" value="{$_GPC['m']}">
+        <input type="hidden" name="p" value="{$_GPC['p']}">
+        <input type="hidden" name="keywords" value="{$_GPC['keywords']}">
+        <input type="hidden" id="province" name="province" value="{$_GPC['province']}">
+        <input type="hidden" id="city" name="city" value="{$_GPC['city']}">
+        <input type="hidden" id="time" name="time" value="{$_GPC['time']}">
+        <input type="hidden" id="cate" name="isrecommand" value="{$_GPC['cate']}">
+        <input type="hidden" id="fee" name="fee" value="{$_GPC['fee']}">
+    </form>
+    <div style="width: 100%; height: 55px;"></div>
+    {template 'common/nav_activity'}
+</div>
+<!-- 两种模板 活动列表 或者 活动暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <a href="<%g.link%>" class="bonus-ad-link" style="display: block;text-decoration: none;">
+                <div class="clearfloat flex-center">
+                    <div class="goods-link floatl">
+                        <div class="pic-box"><!-- 活动图标 如果是空的,则显示默认图标 -->
+                            <img class="pic" src="<%if g.icon && g.icon != 'undefined'%><%g.icon%><%else%>../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png<%/if%>">
+                        </div>
+                    </div>
+                    <div class="content-box floatr">
+                        <div class="goods-tag">
+                            <div class="goods-link line-clamp2">
+                                <!-- 活动名称 -->
+                                <%if g.is_top == 3 || g.is_top == 4 %>
+                                <span class="put-top">
+                                    <%if g.is_top == 3%>
+                                    置顶
+                                    <%else if g.is_top == 4%>
+                                    王顶
+                                    <%/if%>
+                                </span>
+                                <%/if%>
+                                <%g.title%>
+                            </div>
+                        </div>
+                        <div class="show-tag"><!-- <%g.province%> --><%g.city%><%g.area%><%g.address%></div><!-- 地址 -->
+                        <div class="show-tag">
+                            <div class="show-tag-time"><%g.stime%></div>
+                            <div class="show-tag-money show-value-tag">
+                                <%if g.cost == 0%>
+                                    免费
+                                <%else if g.cost == 1%>
+                                    在线支付
+                                <%else if g.cost == 2%>
+                                    AA制
+                                <%else if g.cost == 3%>
+                                    现场收费
+                                <%/if%>
+                                <span class="for-color">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                <%if g.browse == 0%>
+                                    0
+                                <%else%>
+                                    <%g.browse%>
+                                <%/if%>
+                                </span>
+                            </div>
+                        </div><!-- 时间 和 费用 -->
+                    </div>
+                </div>
+            </a>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无对应活动</div>
+</script>
+<script type="text/javascript">
+    //var page = 1;
+    var loaded = false;
+    var stop = true;
+    var def_args = args  = {
+        page:"{$_GPC['page']}",
+        keywords: "{$_GPC['keywords']}",
+        province: "{$_GPC['province']}",
+        city: "{$_GPC['city']}",
+        time:"{$_GPC['time']}",
+        etime:"{$_GPC['etime']}",
+        cate:"{$_GPC['cate']}",
+        fee:"{$_GPC['fee']}",
+        ac:'get',
+        status:'3'
+    };
+    require(['tpl', 'core', '../addons/sz_yi/plugin/activity/res/js/jquery.cookie.js'], function(tpl, core, jQuery) {
+        //初始化时间插件
+        var $startbtn = document.getElementById('activity_start');
+        var $endbtn = document.getElementById('activity_end');
+        $startbtn.addEventListener('tap', function() {
+            var _self = this;
+            var option = {
+                type: "date"//,设置日历初始视图模式 完整日期视图(年月日时分)
+                //endDate: new Date()//设置结束日期
+            };
+            if($.trim($('.activity-end').val()).length != 0){
+                //设置在已经选择结束时间后再重新选择开始时间
+                option.endDate = new Date(new Date($('.activity-end').val()).getTime());
+            }
+            if(_self.picker) {
+                _self.picker.show(function (rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                });
+            }else {
+                var id = this.getAttribute('id');
+                _self.picker = new mui.DtPicker(option);
+                _self.picker.show(function(rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                });
+            }
+        }, false);
+        $endbtn.addEventListener('tap', function() {
+            var _self = this;
+            var time_start = $startbtn.value;
+            if($.trim($('.activity-start').val()).length == 0){
+                core.tip.show('请先选择开始时间');
+                return false;
+            }
+            if(_self.picker) {
+                _self.picker.show(function (rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                });
+            }else {
+                var id = this.getAttribute('id');
+                _self.picker = new mui.DtPicker({
+                    type: "date",//设置日历初始视图模式 完整日期视图(年月日时分)
+                    beginDate: new Date(new Date(time_start).getTime())//,设置最小时间
+                    //endDate: new Date()//设置结束最大日期
+                });
+                _self.picker.show(function(rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                });
+            }
+        }, false);
+        getPosition();
+        function getPosition(){
+            var myComponents2;
+            var geolocation = new BMap.Geolocation();
+            geolocation.getCurrentPosition(function(r){
+                if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                    var rp = new BMap.Point(r.point.lng,r.point.lat);
+                    lng = r.point.lng; //lng
+//                        console.log(lng);
+                    lat = r.point.lat; //lat
+                    var gc = new BMap.Geocoder();
+                    gc.getLocation(rp,function(rs){
+                        var addComp = rs.addressComponents;
+                        //区不准
+                        //alert('您的位置：'+addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street);
+                        myComponents2=addComp.district;
+                        //console.log("baidu: "+myComponents2);
+                        city = addComp.city;
+//                        console.log(city);
+                        page = 1;
+                        loaded = false;
+                        stop = true;
+                        $(".current-city").html(city);
+                        changeLoading();
+
+                        getActivitys();
+
+                        cascdeInit(province,city,'');
+                    });
+                }
+                else {
+                    city = "武汉市";
+                    $(".current-city").html(city);
+                }
+            },{enableHighAccuracy: true});
+
+        }
+        function getActivitys() {
+            // if(args.page=='' || args.page=='undefined'){
+            //     args.page = 1;
+            // }
+//            var citys=$(".current-city").html();
+//            args.province=citys;
+
+            if(args.city=='' || args.city=='undefined'){
+//                args.province = "湖北省";
+//                args.city = "武汉市";
+                var citys=$(".current-city").html();
+                args.city=citys;
+            }
+//            console.log(args);
+            if(args.province == '请选择省份'){
+                args.province = "";
+            }
+            if(args.city == '请选择城市'){
+                args.city = "";
+            }
+//            console.log(args)
+            core.pjson('activity/activity', args, function (json) {
+                $('.list-box .list-ul').html(tpl('tpl_list',json.result));
+                removeLoading();
+                if (json.result.list.length <= 0) {
+                    loaded = true;
+                    $(window).scroll = null;
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+                    return;
+                }
+                stop =true;
+                bindMore();
+            }, true);
+        }
+        function getActivityMore() {
+
+            core.pjson('activity/activity', args, function (json) {
+                $(".list-box .list-ul").append(tpl('tpl_list',json.result));
+                $('#list_loading').remove();
+                //if(json.result.list.length <json.result.pagesize) {
+                if (json.status == 0){
+                    $('.list-box .list-ul').append('<div id="list_loading">已经加载全部活动</div>');
+                    loaded = true;
+                    $(window).scroll = null;
+                    return;
+                }
+                stop=true;
+                bindMore();
+            });
+        }
+        function bindMore() {
+            $(window).scroll(function () {
+                if (loaded) {
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+                if ($(document).height() <= totalheight) {
+                    if (stop == true) {
+                        stop = false;
+                        $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载更多活动</div>');
+                        if(args.page=='' || args.page=='undefined'){
+                            args.page = 1;
+                        }
+                        args.page++;
+                        getActivityMore();
+                    }
+                }
+            });
+        }
+//        alert(1);
+//        getActivitys();
+        $('.activity-search-btn').unbind('click').click(function(){
+            if($('.keywords').isEmpty()){
+                core.tip.show('请输入搜索词');
+                return false;
+            }
+            var keywords = $.trim($('.keywords').val());
+            args  = {
+                page:1,
+                keywords: keywords,
+                province: args.province,
+                city: args.city,
+                time: args.time,
+                etime: args.etime,
+                cate: args.cate,
+                fee: args.fee,
+                ac:'get',
+                status:'2'
+            };
+            loaded = false;
+            stop = true;
+
+            getActivitys();
+        });
+        //城市选择
+        $('.city-confirm-btn').unbind('click').click(function(){
+            //如果全为空则默认是全国
+            var province = $.trim($('#sel-provance').val());
+            var city = $.trim($('#sel-city').val());
+            if($("#sel-provance").val() == '请选择省份'){
+                //province = "";
+                province = '请选择省份';
+            }
+            if($("#sel-city").val() == '请选择城市'){
+                //city = "";
+                city = '请选择城市';
+            }
+            args  = {
+                page:1,
+                keywords: args.keywords,
+                province: province,
+                city: city,
+                time: args.time,
+                etime: args.etime,
+                cate: args.cate,
+                fee: args.fee,
+                ac:'get',
+                status:'2'
+            };
+            loaded = false;
+            stop = true;
+
+            getActivitys();
+        });
+        //时间插件选择
+        $('.time-confirm-btn').unbind('click').click(function(){
+            //如果全为空则默认是不限
+            var time = $.trim($('#activity_start').val());
+            var etime = $.trim($('#activity_end').val());
+            args  = {
+                page:1,
+                keywords: args.keywords,
+                province: args.province,
+                city: args.city,
+                time: time,
+                etime: etime,
+                cate: args.cate,
+                fee: args.fee,
+                ac:'get',
+                status:'3'
+            };
+            loaded = false;
+            stop = true;
+
+            getActivitys();
+        });
+        //非时间插件选择
+        $('.filter-time-item-sig').unbind('click').click(function(){
+            //如果全为空则默认是不限
+            var time = $(this).data("timetype");
+            if(time == args.time){
+                core.tip.show('当前已是此时间类型');
+                return false;
+            }
+            $(this).addClass("time-item-sig-on").siblings().removeClass("time-item-sig-on");
+            var etime = "";
+            args  = {
+                page:1,
+                keywords: args.keywords,
+                province: args.province,
+                city: args.city,
+                time: time,
+                etime: etime,
+                cate: args.cate,
+                fee: args.fee,
+                ac:'get',
+                status:'3'
+            };
+            loaded = false;
+            stop = true;
+
+            getActivitys();
+        });
+        //收费选择
+        $('.fee-type').unbind('click').click(function(){
+            //如果全为空则默认是不限
+            var fee = $.trim($("input[name='fee_type']:checked").val());
+            if(fee == args.fee){
+                core.tip.show('当前已是此种收费类型');
+                return false;
+            }
+            args  = {
+                page:1,
+                keywords: args.keywords,
+                province: args.province,
+                city: args.city,
+                time: args.time,
+                etime: args.etime,
+                cate: args.cate,
+                fee: fee,
+                ac:'get',
+                status:'2'
+            };
+            loaded = false;
+            stop = true;
+
+            getActivitys();
+        });
+        //活动类型选择
+        $('.act-cate-item').unbind('click').click(function(){
+            var cate = $(this).data("cate");
+            if(cate == args.cate){
+                core.tip.show('当前已是此活动类型');
+                return false;
+            }
+            $(this).addClass("act-cate-item-on").siblings().removeClass("act-cate-item-on");
+            args  = {
+                page:1,
+                keywords: args.keywords,
+                province: args.province,
+                city: args.city,
+                time: args.time,
+                etime: args.etime,
+                cate: cate,
+                fee: args.fee,
+                ac:'get',
+                status:'2'
+            };
+            loaded = false;
+            stop = true;
+
+            getActivitys();
+        });
+
+
+        //获取当前城市相关
+        if(getCookie('lng') == null || getCookie('lng') == undefined || getCookie('lat') == null || getCookie('lat') == undefined || decodeUnicode(getCookie('city')) == null || decodeUnicode(getCookie('city')) == undefined ) {
+//            var map = new BMap.Map("allmap");
+//            navigator.geolocation.getCurrentPosition(function (position) {
+//                lng = position.coords.longitude; //lng
+//                lat = position.coords.latitude; //lat
+//                setCookie('lat', lat, 1);
+//                setCookie('lng', lng, 1);
+//                var point = new BMap.Point(lng, lat);
+//                var gc = new BMap.Geocoder();
+//                gc.getLocation(point, function (rs) {
+//                    var addComp = rs.addressComponents;
+//                    setCookie('city', addComp.city, 1);
+//                    setCookie('province', addComp.province, 1);
+//                    city = addComp.city;
+//                    province = addComp.province;
+//                    //alert(city+addComp.province);
+//                    args  = {
+//                        page:1,
+//                        keywords: args.keywords,
+//                        province: province,
+//                        city: city,
+//                        time: args.time,
+//                        etime: args.etime,
+//                        cate: args.cate,
+//                        fee: args.fee,
+//                        ac:'get',
+//                        status:'2'
+//                    };
+//                    loaded = false;
+//                    stop = true;
+//                    changeLoading();
+//                    getActivitys();
+//                    $(".current-city").html(city);
+//                    cascdeInit(province,city,'');
+//                });
+//            });
+//              getPosition();
+//              function getPosition(){
+//                  var myComponents2;
+//                  var geolocation = new BMap.Geolocation();
+//                  geolocation.getCurrentPosition(function(r){
+//                      if(this.getStatus() == BMAP_STATUS_SUCCESS){
+//                          var rp = new BMap.Point(r.point.lng,r.point.lat);
+//                          lng = r.point.lng; //lng
+////                        console.log(lng);
+//                          lat = r.point.lat; //lat
+//                          var gc = new BMap.Geocoder();
+//                          gc.getLocation(rp,function(rs){
+//                              var addComp = rs.addressComponents;
+//                              //区不准
+//                              //alert('您的位置：'+addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street);
+//                              myComponents2=addComp.district;
+//                              //console.log("baidu: "+myComponents2);
+//                              city = addComp.city;
+//                              console.log(city);
+//                              page = 1;
+//                              loaded = false;
+//                              stop = true;
+//
+//                              changeLoading();
+//                              getActivitys();
+//                              $(".current-city").html(city);
+//                              cascdeInit(province,city,'');
+//                          });
+//                      }
+//                      else {
+//                          city = "武汉市";
+//                          $(".current-city").html(city);
+//                      }
+//                  },{enableHighAccuracy: true});
+//
+//              }
+
+        }
+        var lng, lat, city, province;
+        lat = getCookie('lat');
+        lng = getCookie('lng');
+
+        //为了测试默认选中了武汉市
+        //setCookie('city', '武汉市');
+        city = decodeUnicode(getCookie('city'));
+        //如果cookie中的lng or lat or city 任意一个为空则授权定位并把通过经纬度获取的城市名称填入html中
+        if(city == '' || city == 'null' || city == 'undefined' || city ==undefined || city ==null){
+            province = "湖北省";
+            city='武汉市';
+        }
+        //加载到选择城市中
+//        $('.current-city').html(city);
+        //初始化所在地区
+        cascdeInit(province,city,'');
+    });
+    function  decodeUnicode(str)  {  
+        //alert(str); //一开始应该都是null
+        if(!str){
+            return str;
+        }
+        str  =  str.replace(/\\/g,  "%");      
+        return  unescape(str);  
+    }
+    function changeLoading() {
+        var u = navigator.userAgent,
+            app = navigator.appVersion;
+        if ($('#core_loading1').length <= 0) {
+            $('body').append('<div id="core_loading1" style="top:50%;left:50%;margin-left:-35px;margin-top:-30px;position:absolute;width:80px;height:80px; z-index:999999;background: rgba(0,0,0,.4);"><img src="../addons/sz_yi/static/images/loading.gif" width="80" /><div style="color:#fff;font-size:12px;text-align:center;">正在转换到<br />当前城市<div></div>')
+        } else {
+            $('#core_loading1').show();
+        }
+    }
+    function removeLoading() {
+        $('#core_loading1').hide();
+    }
+</script>
+<script type="text/javascript">
+    $(function(){
+        //轮播图
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+          interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+        });
+        //帅选分类切换标签
+        $(".filter-cate-item-tg").unbind("click").click(function(){
+            var type = $(this).data("type");
+            $('#con_'+type).fadeToggle().addClass('active');
+            $('#con_'+type).siblings().hide().removeClass('active');
+            $(this).unbind("click").click(function(){
+                var type = $(this).data("type");
+                $('#con_'+type).fadeToggle().addClass('active');
+                $('#con_'+type).siblings().hide().removeClass('active');
+            });
+        });
+
+    });
+</script>
+{template 'common/footer'}

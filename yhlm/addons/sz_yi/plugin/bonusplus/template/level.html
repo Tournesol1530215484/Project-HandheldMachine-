@@ -1,0 +1,411 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $operation == 'post'}
+<div class="main">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$level['id']}" />
+        <div class='panel panel-default'>
+            <div class='panel-heading'>
+                代理商等级设置
+            </div>
+            <div class='panel-body'>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">等级权重</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input class="form-control" type="text" value="{$level['level']}" name="level">
+                        <span class="help-block">等级权重，数字越大越高级</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 等级名称</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="levelname" class="form-control" value="{$level['levelname']}" />
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">升级条件</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <div class='input-group'>
+							{if in_array('0', $leveltype)}
+									<span class='input-group-addon'>分销订单金额满</span>
+									<input type="text" name="ordermoney" class="form-control" value="{$level['ordermoney']}" />
+									<span class='input-group-addon'>元</span>
+							{/if}
+							
+							{if in_array('1', $leveltype)}
+									<span class='input-group-addon'>一级分销订单金额满</span>
+									<input type="text" name="ordermoney" class="form-control" value="{$level['ordermoney']}" />
+									<span class='input-group-addon'>元</span>
+							{/if}
+							 
+							
+							{if in_array('2', $leveltype)}
+									<span class='input-group-addon'>分销订单数量满</span>
+									<input type="text" name="ordercount" class="form-control" value="{$level['ordercount']}" />
+									<span class='input-group-addon'>个</span>
+							{/if}
+							
+							{if in_array('3', $leveltype)}
+									<span class='input-group-addon'>一级分销订单数量满</span>
+									<input type="text" name="ordercount" class="form-control" value="{$level['ordercount']}" />
+									<span class='input-group-addon'>个</span>
+							{/if}
+							
+							{if in_array('4', $leveltype)}
+									<span class='input-group-addon'>自购订单金额满</span>
+									<input type="text" name="ordermoney" class="form-control" value="{$level['ordermoney']}" />
+									<span class='input-group-addon'>元</span>
+							<?php }?>
+							
+							{if in_array('5', $leveltype)}
+									<span class='input-group-addon'>自购订单数量满</span>
+									<input type="text" name="ordercount" class="form-control" value="{$level['ordercount']}" />
+									<span class='input-group-addon'>个</span>
+							{/if}
+							{if in_array('6', $leveltype)}
+									<span class='input-group-addon'>下级总人数满</span>
+									<input type="text" name="downcount" class="form-control" value="{$level['downcount']}" />
+									<span class='input-group-addon'>个（分销商+非分销商）</span>
+							{/if}
+							{if in_array('7', $leveltype)}
+									<span class='input-group-addon'>一级下级人数满</span>
+									<input type="text" name="downcount" class="form-control" value="{$level['downcount']}" />
+									<span class='input-group-addon'>个（分销商+非分销商）</span>
+							{/if}
+							{if in_array('8', $leveltype)}
+									<span class='input-group-addon'>团队总人数满</span>
+									<input type="text" name="downcount" class="form-control" value="{$level['downcount']}" />
+									<span class='input-group-addon'>个（分销商）</span>
+							{/if}
+							{if in_array('9', $leveltype)}
+									<span class='input-group-addon'>一级团队人数满</span>
+									<input type="text" name="downcountlevel1" class="form-control" value="{$level['downcountlevel1']}" />
+									<span class='input-group-addon'>个（分销商）</span>
+							{/if}
+							 
+							{if in_array('10', $leveltype)}
+									<span class='input-group-addon'>已提现佣金总金额满</span>
+									<input type="text" name="commissionmoney" class="form-control" value="{$level['commissionmoney']}" />
+									<span class='input-group-addon'>元</span>
+							{/if}
+							
+							
+                        </div>
+                        <span class='help-block'>代理商升级条件，不填写默认为不自动升级</span>
+                    </div>
+                </div>
+				
+				<div class="form-group">
+
+              <div class="col-sm-12 col-md-10 col-lg-12 col-xs-12">
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+
+                  <div class="input-group"></div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"><span style="background-color:green" class="badge badge-darkpink">层次</span></div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">分红比例(%)</div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">分红期数</div>
+				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-3" onclick="addlevel();"> <a href="javascript:;" class="btn btn-default"><b>+</b> 增加层次</a> </div>
+              </div>
+
+            </div>
+
+            <div id="first_div"></div>
+
+            <?php
+			$options_firstlist = json_decode($level['options_first'], true);
+			$options_secondlist = json_decode($level['options_second'], true);
+			$options_threelist = json_decode($level['options_three'], true);
+			if(!empty($options_firstlist)){
+			foreach($options_firstlist as $k=>$item) {
+			?>
+
+            <div class="form-group">
+              <div class="col-sm-12 col-md-10 col-lg-12 col-xs-12">
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                  <div class="input-group" style="float:right;"><?php if($k==0){?>分红设置&nbsp;&nbsp;<?php } ?></div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"> <span class="badge badge-darkpink biezao_numbers" style="background-color:red;margin-top:7px;"><?php if($k==0){echo '自购';}else {echo $k;}?></span> </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+
+                  <input type="text" class="form-control" name="options_first[]" value="{$item}"/>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+
+                  <input type="text" class="form-control" name="options_second[]" value="{$options_secondlist[$k]}"/>
+
+                </div>
+				<input type="hidden" id="prodlist_{$k}" name="options_three[]" value="{$options_threelist[$k]}"/>
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" onclick="setprod({$k});"> <a href="javascript:;" class="btn btn-default"><b>O</b> 设置商品</a> </div>
+              </div>
+
+            </div>
+
+            <?php }}else{ ?>
+			
+            <div class="form-group">
+              <div class="col-sm-12 col-md-10 col-lg-12 col-xs-12">
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                  <div class="input-group" style="float:right;">分红设置&nbsp;&nbsp;</div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"> <span class="badge badge-darkpink biezao_numbers" style="background-color:red;margin-top:7px;">自购</span> </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+
+                  <input type="text" class="form-control" name="options_first[]" value=""/>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+
+                  <input type="text" class="form-control" name="options_second[]" value=""/>
+
+                </div>
+				<input type="hidden" id="prodlist_0" name="options_three[]" value=""/>
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" onclick="setprod(0);"> <a href="javascript:;" class="btn btn-default"><b>O</b> 设置商品</a> </div>
+                
+              </div>
+
+            </div>
+			
+			<div id="levellist"></div>
+            <?php } ?>
+				
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+	<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+	<input type="hidden" name="token" value="{$_W['token']}" />
+	</div>
+    </form>
+</div>
+<div id="product_search_div" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalName" aria-hidden="true" >
+
+  <div class="modal-dialog" style="width:900px;">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+
+        <h4 class="modal-title" id="myModalName">添加商品</h4>
+
+      </div>
+
+      <!--<div class="modal-body">				<div class="form-group">					<div class="col-sm-6 col-xs-12 col-lg-6">						<input type="text" class="form-control" id="_product_keyword" value=""/>					</div>					<div class="col-sm-4 col-xs-12 col-lg-4">						<a href="javascript:;" onclick="product_search()" class="btn btn-default">搜索商品</a>					</div>				</div>			</div>-->
+
+      <style>				
+
+.form-group-tr{padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; cursor: pointer;}			
+
+</style>
+		<input type="hidden" name="prodlevel" id="prodlevel" value="" />
+      <div class="modal-body">
+
+        <div class="panel panel-default clearfix">
+
+          <div class="panel-body">
+
+            <div class="form-group clearfix form-group-th" >
+
+              <div class="col-sm-1 col-xs-12">ID</div>
+
+              <div class="col-sm-2 col-xs-12">商品图片</div>
+
+              <div class="col-sm-3 col-xs-12">商品名称</div>
+
+              <div class="col-sm-2 col-xs-12">销售价</div>
+
+              <div class="col-sm-2 col-xs-12">商品编号</div>
+
+              <div class="col-sm-2 col-xs-12">操作</div>
+
+            </div>
+
+            <div id='product_list'> {loop $prodlist $item}
+
+              <div class="form-group clearfix form-group-tr" >
+
+                <div class="col-sm-1 col-xs-12">{$item['id']}</div>
+
+                <div class="col-sm-2 col-xs-12"> <img src="/attachment/{$item['thumb']}" border="0" width="30" height="30" /> </div>
+
+                <div class="col-sm-3 col-xs-12">{$item['title']}</div>
+
+                <div class="col-sm-2 col-xs-12">{$item['marketprice']}</div>
+
+                <div class="col-sm-2 col-xs-12">{$item['goodssn']}</div>
+
+                <div class="col-sm-2 col-xs-12"> <a href="javascript:;" id="btnadd_{$item['id']}" class="btn btn-default" onclick="add_goods('{$item['id']}');"><b>+</b> 添加</a> <label style="color:green;font-weight:bold;" class="labelcheck" id="added_{$item['id']}"></label> </div>
+
+              </div>
+
+              {/loop} </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-body clearfix" style=" padding:0 15px;"> {$pager}
+
+        <div class="pull-right">
+
+          <ul class="pagination pagination-centered">
+            <!-- 分页写在这里  	                	<li class="active"><a href="javascript:;">1</a></li><li><a href="?c=site&amp;a=entry&amp;do=order&amp;m=shopping&amp;page=2">2</a></li><li><a href="?c=site&amp;a=entry&amp;do=order&amp;m=shopping&amp;page=3">3</a></li><li><a href="?c=site&amp;a=entry&amp;do=order&amp;m=shopping&amp;page=4">4</a></li><li><a class="pager-nav" href="/web/index.php?c=site&amp;a=entry&amp;do=order&amp;m=shopping&amp;page=2">下一页»</a></li><li><a class="pager-nav" href="/web/index.php?c=site&amp;a=entry&amp;do=order&amp;m=shopping&amp;page=4">尾页</a></li>						-->
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<script type="text/javascript">
+function add_goods(_id){
+	var level = $('#prodlevel').val();
+	var btnstr = $('#btnadd_'+_id).text();
+	if(btnstr.indexOf('添加') > -1){
+		$('#added_'+_id).text('已添加');
+		var curprods = $('#prodlist_'+level).val();
+		if(curprods.indexOf('['+_id+']') < 0){
+			$('#prodlist_'+level).val(curprods+'['+_id+']');
+			$('#btnadd_'+_id).html('<b>-</b> 移除');
+		}
+	}
+	else
+	{
+		$('#added_'+_id).text('');
+		var curprods = $('#prodlist_'+level).val();
+		if(curprods.indexOf('['+_id+']') > -1){
+			curprods = curprods.replace("["+_id+"]","");
+			$('#prodlist_'+level).val(curprods);
+			$('#btnadd_'+_id).html('<b>+</b> 添加');
+		}
+	}
+}
+</script>
+<script language='javascript'>
+    $('form').submit(function(){
+        if($(':input[name=levelname]').isEmpty()){
+            Tip.focus($(':input[name=levelname]'),'请输入等级名称!');
+            return false;
+        }
+        return true;
+    })
+function addlevel() {
+	var c = $('#levellist').children('div').length;
+	var html = "<div class=\"form-group\">";
+	html += "<div class=\"col-sm-12 col-md-10 col-lg-12 col-xs-12\">";
+	html += "<div class=\"col-xs-12 col-sm-3 col-md-2 col-lg-2\">";
+	html += "<div class=\"input-group\"></div></div>";
+	html += "<div class=\"col-xs-12 col-sm-3 col-md-2 col-lg-1\"> <span class=\"badge badge-darkpink biezao_numbers labelsqid\" style=\"background-color:red;margin-top:7px;\">"+(c+1)+"</span> </div>";
+	html += "<div class=\"col-xs-12 col-sm-3 col-md-3 col-lg-2\"><input type=\"text\" class=\"form-control\" name=\"options_first[]\" value=\"\" /></div>";
+	html += "<div class=\"col-xs-12 col-sm-3 col-md-3 col-lg-2\"><input type=\"text\" class=\"form-control\" name=\"options_second[]\" value=\"\" /></div>";
+	html += "<input type=\"hidden\" id=\"prodlist_"+(c+1)+"\" name=\"options_three[]\" value=\"\"/>";
+	html += "<div class=\"col-xs-12 col-sm-2 col-md-2 col-lg-2\" onclick=\"setprod("+(c+1)+");\"> <a href=\"javascript:;\" class=\"btn btn-default\"><b>O</b> 设置商品</a> </div>";
+	html += "<div class=\"col-xs-12 col-sm-3 col-md-3 col-lg-2\"> <a href=\"javascript:;\" onclick=\"delmember(this);\" class=\"btn btn-default\"><b>x</b> 删除</a> </div></div></div>";
+	$("#levellist").append(html);
+}
+
+function delmember(obj) {
+	$(obj).parent().parent().parent().remove();
+	$(".labelsqid").each(function(i,val){
+		$(this).text((i+1));
+	});
+}
+function setprod(level) {
+	$('#prodlevel').val(level);
+	$(".labelcheck").each(function(i,val){
+		var curid = val.id;
+		curid=curid.replace("added_","");
+		var curprods = $('#prodlist_'+level).val();
+		if(curprods.indexOf('['+curid+']') > -1){
+			$(this).text('已添加');
+			$(this).prev().html('<b>-</b> 移除');
+			//$('#btnadd_'+_curid).html('<b>-</b> 移除');
+		}
+		else
+		{
+			$(this).text('');
+			$(this).prev().html('<b>+</b> 添加');
+		}
+		//$(this).text((i+1));
+	});
+	$('#product_search_div').modal('show');
+}
+    </script>
+{elseif $operation == 'display'}
+            <form action="" method="post" onsubmit="return formcheck(this)">
+     <div class='panel panel-default'>
+            <div class='panel-heading'>
+                代理商等级设置
+            </div>
+         <div class='panel-body'>
+   
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width:10%;">等级名称</th>
+                        <th style="width:70%;">升级条件</th>
+                        <th style="width:20%;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loop $list $row}
+                    <tr>
+                        <td>{$row['levelname']}</td>
+                          <td>
+						{if in_array('0', $set['leveltype'])}{if $row['ordermoney']>0}分销订单金额满 {$row['ordermoney']} 元 {else}无{/if}{/if}
+						{if in_array('1', $set['leveltype'])}{if $row['ordermoney']>0}一级分销订单金额满 {$row['ordermoney']} 元 {else}无{/if}{/if}
+						{if in_array('2', $set['leveltype'])}{if $row['ordercount']>0}分销订单数量满 {$row['ordercount']} 个 {else}无{/if}{/if}
+						{if in_array('3', $set['leveltype'])}{if $row['ordercount']>0}一级分销订单数量满 {$row['ordercount']} 个 {else}无{/if}{/if}
+						{if in_array('4', $set['leveltype'])}{if $row['ordermoney']>0}自购订单金额满 {$row['ordermoney']} 元 {else}无{/if}{/if}
+						{if in_array('5', $set['leveltype'])}{if $row['ordercount']>0}自购订单数量满 {$row['ordercount']} 个 {else}无{/if}{/if}
+						
+						{if in_array('6', $set['leveltype'])}{if $row['downcount']>0}下级总人数满 {$row['downcount']} 个（分销商+非分销商） {else}无{/if}{/if}
+						{if in_array('7', $set['leveltype'])}{if $row['downcount']>0}一级下级人数满 {$row['downcount']} 个（分销商+非分销商） {else}无{/if}{/if}
+						
+						{if in_array('8', $set['leveltype'])}{if $row['downcount']>0}团队总人数满 {$row['downcount']} 个（分销商） {else}无{/if}{/if}
+						{if in_array('9', $set['leveltype'])}{if $row['downcountlevel1']>0}一级团队人数满 {$row['downcountlevel1']} 个（分销商） {else}无{/if}{/if}
+						
+						 
+						{if in_array('10', $set['leveltype'])}{if $row['bonusplusmoney']>0}已提现佣金总金额满 {$row['bonusplusmoney']} 元{else}无{/if}{/if}	 
+                          </td>
+                        <td>
+                            <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('bonusplus/level', array('op' => 'post', 'id' => $row['id']))}">编辑</a>
+                            <a class='btn btn-default'  href="{php echo $this->createPluginWebUrl('bonusplus/level', array('op' => 'delete', 'id' => $row['id']))}" onclick="return confirm('确认删除此等级吗？');return false;">删除</a></td>
+
+                    </tr>
+                    {/loop}
+                
+                </tbody>
+            </table>
+
+         </div>
+         <div class='panel-footer'>
+                <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('bonusplus/level', array('op' => 'post'))}"><i class="fa fa-plus"></i> 添加新等级</a>
+         </div>
+     </div>
+         </form>
+{/if}
+{template 'web/_footer'}

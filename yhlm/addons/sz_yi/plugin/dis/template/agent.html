@@ -1,0 +1,616 @@
+{template 'common/header'}
+
+{template 'tabs'}
+
+{if $operation=='display'}
+<style>
+    .sx{margin-bottom: 15px;}
+    .form-horizontal .form-group{margin-bottom: 0px;}
+</style>
+<div class="panel panel-info">
+
+    <div class="panel-heading">筛选</div>
+
+    <div class="panel-body">
+
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+
+            <input type="hidden" name="c" value="site" />
+
+            <input type="hidden" name="a" value="entry" />
+
+            <input type="hidden" name="m" value="sz_yi" />
+
+            <input type="hidden" name="do" value="plugin" />
+
+            <input type="hidden" name="p" value="dis" />
+
+            <input type="hidden" name="method" value="agent" />
+
+            <input type="hidden" name="op" value="display" />
+
+            <div class="form-group">
+                <div class="col-md-10 col-lg-6 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">成为分销商时间</div>
+                        <div class="input-group-addon">
+                            <label class='radio-inline' style="margin-top: -7px;">
+                                <input type='radio' value='0' name='searchtime' {if $_GPC['searchtime']=='0'}checked{/if} checked>不搜索
+                            </label>
+                            <label class='radio-inline' style="margin-top: -7px;">
+                                <input type='radio' value='1' name='searchtime' {if $_GPC['searchtime']=='1'}checked{/if}>搜索
+                            </label>
+                        </div>
+                        <div class="input-group-addon" style="padding: 0;border: none;margin-left: 0;padding-right: 150px;background: transparent;">
+                            {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d  H:i', $endtime)),true);}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">ID</div>
+                        <input type="text" class="form-control"  name="mid" value="{$_GPC['mid']}"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">会员信息</div>
+                        <input type="text" class="form-control"  name="realname" value="{$_GPC['realname']}" placeholder='可搜索昵称/名称/手机号'/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">是否关注</div>
+                        <select name='followed' class='form-control' >
+                            <option value=''></option>
+                            <option value='0' {if $_GPC['followed']=='0'}selected{/if}>未关注</option>
+                            <option value='1' {if $_GPC['followed']=='1'}selected{/if}>已关注</option>
+                            <option value='2' {if $_GPC['followed']=='2'}selected{/if}>取消关注</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">分销商等级</div>
+                        <select name='agentlevel' class='form-control'>
+                            <option value=''></option>
+                            {loop $agentlevels $level}
+                            <option value='{$level['id']}' {if $_GPC['agentlevel']==$level['id']}selected{/if}>{$level['levelname']}</option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">推荐人</div>
+                        <select name='parentid' class='form-control'>
+                            <option value=''></option>
+                            <option value='0' {if $_GPC['parentid']=='0'}selected{/if}>总店</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 sx">
+                    <div class="input-group">
+                        <input type="text"  class="form-control" name="parentname" value="{$_GPC['parentname']}" placeholder='推荐人昵称/姓名/手机号'/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">状态</div>
+                        <select name='status' class='form-control' style="width: 45%;">
+                            <option value=''>审核状态</option>
+                            <option value='0' {if $_GPC['status']=='0'}selected{/if}>未审核</option>
+                            <option value='1' {if $_GPC['status']=='1'}selected{/if}>已审核</option>
+                        </select>
+                        <select name='agentblack' class='form-control' style="width: 45%;">
+                            <option value=''>黑名单状态</option>
+                            <option value='0' {if $_GPC['agentblack']=='0'}selected{/if}>否</option>
+                            <option value='1' {if $_GPC['agentblack']=='1'}selected{/if}>是</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-lg-3 sx">
+                    <div class="input-group">
+                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {ifp 'dis.agent.export'}
+                        <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">总数：{$total}</div>
+    <div class="">
+        <div class="table-responsive"></div>
+        <table class="table table-hover table-bordered">
+            <thead class="navbar-inner" >
+            <tr>
+                <th style='width:6%;'>会员ID</th>
+                <th style='width:12%;'>推荐人</th>
+                <th style='width:12%;'>粉丝</th>
+                <th style='width:10%;'>姓名<br/>手机号码</th>
+                <th style='width:10%;'>分销等级</th>
+                <th style='width:8%;'>点击数</th>
+                <th style='width:10%;'>累计佣金<br/>打款佣金</th>
+                <th style='width:12%;'>下级分销商</th>
+                <th style='width:10%;'>状态{ifp 'dis.agent.check'}<br/>（点击审核){/if}</th>
+                <th style='width:14%;'>时间</th>
+                <th style='width:10%'>关注</th>
+                <th style='width:12%'>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $list $row}
+            <tr>
+                <td>{$row['id']}</td>
+                <td  {if !empty($row['agentid'])}title='ID: {$row['agentid']}'{/if} >
+                {if empty($row['agentid'])}
+                {if $row['isagent']==1}
+                <label class='label label-primary'>总店</label>
+                {else}
+                <label class='label label-default'>暂无</label>
+                {/if}
+                {else}
+                <img src='{$row['parentavatar']}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' /> {$row['parentname']}
+                {/if}
+                </td >
+                <td>
+                    <a href="{php echo $this->createPluginWebUrl('dis/agent/detail',array('id' => $row['id']));}">
+                    {if !empty($row['avatar'])}
+                    <img src='{$row['avatar']}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' />
+                    {/if}
+                    {if empty($row['nickname'])}未更新{else}{$row['nickname']}{/if}
+                    </a>
+                </td>
+                <td>{$row['realname']} <br/> {$row['mobile']}</td>
+                <td>{if empty($row['levelname'])} {php echo empty($this->set['levelname'])?'普通等级':$this->set['levelname']}{else}{$row['levelname']}{/if}</td>
+                <td>{$row['clickcount']}</td>
+                <td>{$row['commission_total']}<br/>{$row['commission_pay']}</td>
+                <td>
+                    总计：{$row['levelcount']} 人
+                    {if $level>=1 && $row['level1']>0}<br/>一级：{$row['level1']} 人{/if}
+                    {if $level>=2  && $row['level2']>0}<br/> 二级：{$row['level2']} 人{/if}
+                    {if $level>=3  && $row['level3']>0}<br/>三级：{$row['level3']} 人{/if}
+                    {if $level>=4  && $row['level4']>0}<br/>四级：{$row['level4']} 人{/if}
+                    {if $level>=5  && $row['level5']>0}<br/>五级：{$row['level5']} 人{/if}
+                    {if $level>=6  && $row['level6']>0}<br/>六级：{$row['level6']} 人{/if}
+                    {if $level>=7  && $row['level7']>0}<br/>七级：{$row['level7']} 人{/if}
+                    {if $level>=8  && $row['level8']>0}<br/>八级：{$row['level8']} 人{/if}
+                    {if $level>=9  && $row['level9']>0}<br/>九级：{$row['level9']} 人{/if}
+                    {if $level>=10  && $row['level10']>0}<br/>十级：{$row['level10']} 人{/if}
+                    {if $level>=11  && $row['level11']>0}<br/>十一级：{$row['level11']} 人{/if}
+                    {if $level>=12  && $row['level12']>0}<br/>十二级：{$row['level12']} 人{/if}
+                    {if $level>=13  && $row['level13']>0}<br/>十三级：{$row['level13']} 人{/if}
+                    {if $level>=14  && $row['level14']>0}<br/>十四级：{$row['level14']} 人{/if}
+                    {if $level>=15  && $row['level15']>0}<br/>十五级：{$row['level15']} 人{/if}
+                <td>
+                    {if $row['status']==0}
+
+                    {if $row['agentblack']==1}
+
+                    <span class="label label-default" style='color:#fff;background:black'>黑名单</span>
+
+                    {else}
+
+                    {ifp 'dis.agent.check'}
+
+                    <a class="label label-default" href="{php echo $this->createPluginWebUrl('dis/agent',array('id' => $row['id'],'op'=>'check'))}" onclick="return confirm('确认要审核此分销商吗?')">未审核</a>
+
+                    {else}
+
+                    <span class="label label-default">未审核</span>
+
+                    {/if}
+
+                    {/if}
+
+                    {else}
+
+                    <span class="label label-success">已审核</span>
+
+                    {/if}
+
+                </td>
+
+                <td>注册时间：{php echo date('Y-m-d H:i',$row['createtime'])}<br/>
+
+                    代理时间：{if !empty($row['agenttime'])}{php echo date('Y-m-d H:i',$row['agenttime'])}{/if}
+
+                </td>
+
+                <td>  {if empty($row['followed'])}
+
+                    {if empty($row['uid'])}
+
+                    <label class='label label-default'>未关注</label>
+
+                    {else}
+
+                    <label class='label label-warning'>取消关注</label>
+
+                    {/if}
+
+                    {else}
+
+                    <label class='label label-success'>已关注</label>
+
+                    {/if}</td>
+
+                <td  style="overflow:visible;">
+
+                    <div class="btn-group btn-group-sm">
+
+                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="javascript:;">操作 <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu dropdown-menu-left" role="menu" style='z-index: 99999'>
+
+                            {ifp 'dis.agent.view'}<li><a href="{php echo $this->createPluginWebUrl('dis/agent/detail',array('id' => $row['id']));}" title='详细信息'><i class='fa fa-edit'></i> 详细信息</a>  </li>   {/if}
+
+                        </ul>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            {/loop}
+
+            </tbody>
+
+        </table>
+        {$pager}
+    </div>
+</div>
+{else if $operation=='detail'}
+<form {ifp 'dis.agent.edit|dis.agent.check'}action="" method='post'{/if} class='form-horizontal'>
+
+<input type="hidden" name="id" value="{$member['id']}">
+
+<input type="hidden" name="op" value="detail">
+
+<input type="hidden" name="c" value="site" />
+
+<input type="hidden" name="a" value="entry" />
+
+<input type="hidden" name="m" value="sz_yi" />
+
+<input type="hidden" name="p" value="dis" />
+
+<input type="hidden" name="method" value="agent" />
+
+<input type="hidden" name="op" value="detail" />
+
+<div class='panel panel-default'>
+
+    <div class='panel-heading'>
+
+        分销商详细信息
+
+    </div>
+
+    <div class='panel-body'>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tbody>
+                <tr style="background: #1E95C9;color:#fff;">
+                    <td><label class="control-label">粉丝</label></td>
+                    <td><label class="control-label">OPENID</label></td>
+                    <td><label class="control-label">真实姓名</label></td>
+                    <td><label class="control-label">手机号码</label></td>
+                    <td><label class="control-label">微信号</label></td>
+                </tr>
+                <tr>
+                    <td><div class="">
+                        <img src='{$member['avatar']}' style='width:100px;height:100px;padding:1px;border:1px solid #ccc' />
+                        <p>{$member['nickname']}</p>
+                    </div></td>
+                    <td><div class="form-control-static">{$member['openid']}</div></td>
+                    <td><div class="">
+
+                        {ifp 'dis.agent.edit'}
+
+                        <input type="text" name="data[realname]" class="form-control" value="{$member['realname']}" readonly />
+
+                        {else}
+
+                        <input type="hidden" name="data[realname]" class="form-control" value="{$member['realname']}" disabled />
+
+                        <div class='form-control-static'>{$member['realname']}</div>
+
+                        {/if}
+
+                    </div></td>
+                    <td><div class="">
+
+                        {ifp 'dis.agent.edit'}
+
+                        <input type="text" name="data[mobile]" class="form-control" value="{$member['mobile']}"  readonly/>
+
+                        {else}
+
+                        <input type="hidden" name="data[mobile]" class="form-control" value="{$member['mobile']}"  readonly/>
+
+                        <div class='form-control-static'>{$member['mobile']}</div>
+
+                        {/if}
+
+                    </div></td>
+                    <td><div class="">
+
+                        {ifp 'dis.agent.edit'}
+
+                        <input type="text" name="data[weixin]" class="form-control" value="{$member['weixin']}" readonly />
+
+                        {else}
+
+                        <input type="hidden" name="data[weixin]" class="form-control" value="{$member['weixin']}"  readonly/>
+
+                        <div class='form-control-static'>{$member['weixin']}</div>
+
+                        {/if}
+
+                    </div></td>
+                </tr>
+                <tr style="background: #1E95C9;color:#fff;">
+                    <td><label class="control-label">分销商等级</label></td>
+                    <td><label class="control-label">代理商等级</label></td>
+                    <td><label class="control-label">注册时间</label></td>
+                    <td><label class="control-label">经销商证件</label></td>
+                    <td><label class="control-label">成为代理时间</label></td>
+                </tr>
+                <tr>
+                    <td><div class="">
+
+                        {ifp 'dis.agent.edit'}
+
+                        {if $bonus_name[0]['levelname']}
+
+                        <input type="text"  name="data[agentlevel]"   class="form-control" value="{$level_name[0]['levelname']}"  readonly/>
+
+                        {else}<input type="text"  class="form-control" value="普通等级"  readonly/>
+
+                        <input type="hidden" name="data[agentlevel]" class="form-control" value="{$member['agentlevel']}"  readonly/>
+
+                        {/if}
+
+                        {/if}
+
+                    </div></td>
+                    <td><div class="">
+
+                        {ifp 'dis.agent.edit'}
+
+                        {if $bonus_name[0]['levelname']}
+
+                        <input type="text"  class="form-control" value="{$bonus_name[0]['levelname']}"  readonly/>
+
+                        {else}<input type="text"  class="form-control" value="普通等级"  readonly/>
+
+                        {/if}
+
+                        {/if}
+
+                    </div></td>
+                    <td><div class='form-control-static'>{php echo date('Y-m-d H:i:s', $member['createtime']);}</div></td>
+                    <td><div class="">
+
+                        {ifp 'dis.agent.edit'}
+
+                        <div style="float:left; margin-right:15px;text-align:center;">
+
+                            {if  $clevel['thumb']}
+
+                            <div class='form-control-static'><img src='../attachment/{$clevel['thumb']}' style='width:160px;height:220px;' /></div>
+
+                            <span>分销证件</span>
+
+                            <input type="hidden" name="data[photo]"   class="form-control" value="{$clevel['thumb']}"  />
+
+
+
+                            {else}
+
+                            <div class='form-control-static'>无</div>
+
+                            {/if}
+
+                        </div>
+
+
+
+                        <div style="float:inherit; margin-right:15px;text-align:center;">
+
+                            {if  $blevel['thumb']}
+
+                            <input type="hidden" name="data[photo]"   class="form-control" value="{$blevel['thumb']}"  />
+
+                            <div class='form-control-static'><img src='../attachment/{$blevel['thumb']}' style='width:160px;height:220px;' /></div>
+
+                            <span>分红证件</span>
+
+
+
+                            {else}
+
+                            <div class='form-control-static'>无</div>
+
+                            {/if}
+
+                        </div>
+
+                        <!--报单-->
+
+                        <!--<div style="float:inherit; margin-right:15px;text-align:center;">
+
+                        {if  $bmlevel['thumb']}
+
+                                  <input type="hidden" name="data[photo]"   class="form-control" value="{$bmlevel['thumb']}"  />
+
+                                   <div class='form-control-static'><img src='../attachment/{$bmlevel['thumb']}' style='width:160px;height:220px;' /></div>
+
+                                   <span>报单证件</span>
+
+
+
+                        {else}
+
+                         <div class='form-control-static'>无</div>
+
+                        {/if}
+
+                        </div>-->
+
+
+
+                        {/if}
+
+                    </div></td>
+                    <td><div class="">
+                        {if $member['agenttime']!='1970-01-01 08:00'}
+                        <div class='form-control-static'>{if !strexists('1970',$member['agenttime'])}{$member['agenttime']}{else}----------{/if}</div>
+                        {/if}
+                    </div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+    {if $diyform_flag == 1}
+
+    <div class='panel-heading'>
+
+        自定义表单信息
+
+    </div>
+
+
+
+    <div class='panel-body'>
+
+
+
+        <!--<span>diyform</span>-->
+
+        {php $datas = iunserializer($member['diycommissiondata'])}
+
+        {loop $fields $key $value}
+
+        <div class="form-group">
+
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">{php echo $value['tp_name']}</label>
+
+            <div class="col-sm-9 col-xs-12">
+
+                <div class="form-control-static">
+
+                    {if $value['data_type'] == 0 || $value['data_type'] == 1 || $value['data_type'] == 2 || $value['data_type'] == 6}
+
+                    {php echo str_replace("\n","<br/>",$datas[$key])}
+
+                    {else if $value['data_type'] == 3}
+
+                    {if !empty($datas[$key])}
+
+                    {loop $datas[$key] $k1 $v1}
+
+                    {php echo $v1}
+
+                    {/loop}
+
+                    {/if}
+
+                    {else if $value['data_type'] == 5}
+
+                    {if !empty($datas[$key])}
+
+                    {loop $datas[$key] $k1 $v1}
+
+                    <a target="_blank" href="{php echo tomedia($v1)}"><img style='width:100px;padding:1px;border:1px solid #ccc'  src="{php echo tomedia($v1)}"></a>
+
+                    {/loop}
+
+                    {/if}
+
+                    {else if $value['data_type'] == 7}
+
+                    {php echo $datas[$key]}
+
+                    {else if $value['data_type'] == 8}
+
+                    {if !empty($datas[$key])}
+
+                    {loop $datas[$key] $k1 $v1}
+
+                    {php echo $v1}
+
+                    {/loop}
+
+                    {/if}
+
+                    {else if $value['data_type'] == 9}
+
+                    {php echo $datas[$key]['province']!='请选择省份'?$datas[$key]['province']:''}-{php echo $datas[$key]['city']!='请选择城市'?$datas[$key]['city']:''}
+
+                    {/if}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {/loop}
+
+
+
+    </div>
+
+
+
+    {/if}
+
+
+
+    <div class='panel-body'>
+
+        <div class="form-group"></div>
+
+        <div class="form-group row">
+            <div class="col-xs-offset-2 col-xs-9 col-md-offset-3 col-md-9 col-lg-offset-4 col-lg-8">
+
+                <!--    {ifp 'dis.agent.edit|dis.agent.check'}
+
+                    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+
+                    {/if}-->
+
+                <input type="button" name="back" onclick='history.back()' {ifp 'dis.agent.edit|dis.agent.check'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</form>
+{/if}
+</div>
+{template 'web/_footer'}

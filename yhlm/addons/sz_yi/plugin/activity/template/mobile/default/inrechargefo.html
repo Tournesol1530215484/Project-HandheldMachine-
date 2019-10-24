@@ -1,0 +1,321 @@
+{template 'common/header'}
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<title>
+    {if $_GPC['type'] ==1}
+        成为初级会员费
+    {elseif $_GPC['type'] ==2}
+        成为中级会员费
+    {elseif $_GPC['type'] ==3}
+        成为高级会员费
+    {/if}
+</title> <!-- 或者成为个人会员 用内置标签判断标题 两种标题(成为企业会员和成为个人会员页面共用)-->
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    .tips-box{
+        width: 96%;
+        margin: 10px auto;
+        border: 1px solid #eee;
+    }
+    .tips-box .tips-title{
+        font-size: 14px;
+        color: #000;
+        font-weight: 600;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        padding: 8px;
+    }
+    .tips-box .tips-content{
+        font-size: 14px;
+        padding: 5px;
+        color: #333;
+    }
+    .pay-info .pay-info-item{
+        padding: 5px 0;
+    }
+    .pay-info .info-tag{
+        width: 80px;
+        float: left;
+        font-weight: 600;
+    }
+    .pay-info .info-val{
+        float: left;
+        width: calc(100% - 80px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .normal-label{
+        font-weight: normal;
+    }
+    /*覆盖样式 s*/
+    .radio-box .mui-input-row{
+        height: 31px;
+        margin-bottom: 5px;
+    }
+    .radio-box .mui-radio.mui-left label{
+        padding-left: 38px;
+    }
+    .radio-box .mui-input-row label{
+        padding: 8px 5px;
+    }
+    .radio-box .mui-radio.mui-left input[type=radio]{
+        left: 0px;
+        margin-top: 0;
+    }
+    .radio-box .mui-radio input[type=radio]{
+        top: 1px;
+    }
+    .radio-box .mui-input-row:after{
+        height: 0;
+    }
+    /*覆盖样式 e*/
+    .pay-btn,
+    .other-pay-btn{
+        width: 96%;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 5px;
+        background: #009BF8;
+        color: #fff;
+        text-align: center;
+        border: 0;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">
+            {if $_GPC['type'] ==1}
+                成为初级会员费
+            {elseif $_GPC['type'] ==2}
+                成为中级会员费
+            {elseif $_GPC['type'] ==3}
+                成为高级会员费
+            {/if}
+        </div><!-- 或者成为个人会员 用内置标签判断标题 两种标题(成为企业会员和成为个人会员页面共用)-->
+    </div>
+    <div class="tips-box">
+        <div class="tips-title">支付信息</div>
+        <div class="tips-content">
+            <ul class="pay-info">
+                <li class="pay-info-item clearfloat">
+                    <div class="info-tag">订单号</div>
+                    <input type="hidden" name="logid" id="logid">
+                    <div class="info-val">{$ordersn}</div>
+                </li>
+                <li class="pay-info-item clearfloat">
+                    <div class="info-tag">商品名</div>
+                    <div class="info-val">
+                        {if $_GPC['type'] ==1}
+                            初级会员费
+                        {elseif $_GPC['type'] ==2}
+                            中级会员费
+                        {elseif $_GPC['type'] ==3}
+                            高级会员费
+                        {/if}
+                    </div>
+                </li>
+                <li class="pay-info-item clearfloat">
+                    <div class="info-tag">支付金额</div>
+                    <div class="info-val">{$money}元</div>
+                </li>
+                <!-- <li class="pay-info-item clearfloat">
+                    <div class="info-tag">支付方式</div>
+                    <div class="info-val radio-box">
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">微信支付</label>
+                            <input class="paytype-inp" name="paytype" type="radio" value="1">
+                        </div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">余额支付</label>
+                            <input class="paytype-inp" name="paytype" type="radio" value="2" checked>
+                        </div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label class="normal-label">换货码支付</label>
+                            <input class="paytype-inp" name="paytype" type="radio" value="3">
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <div class="pay-btn" data-paytype='1' style="background: #85d115;">微信支付</div>
+    <div class="other-pay-btn" data-paytype='2'>余额支付</div>
+    <div class="other-pay-btn" data-paytype='3'>换货码支付</div>
+</div>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        function ajsubmit(paytype){    //添加参数        
+            var money = {$money};
+            /*if($("input[name='paytype']:checked").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('请选择支付方式');
+                return;
+            }*/
+            //var paytype = $("input[name='paytype']:checked").val();
+            data={
+                op:'rechagre',                  
+                ac:'sub',
+                money:money,
+                ordersn:'{$ordersn}',
+                type:'{$_GPC["type"]}',
+                paytype: paytype
+            };                        
+            $('.other-pay-btn').attr('submitting', 1); //获取参数
+            core.pjson('activity/index',data, function (json) {
+                if (json.status==1) {
+                    core.tip.show(json.result);
+                    setTimeout(function(){          
+                        location.href="{php echo $this->createPluginMobileUrl("activity")}";
+                    },250); 
+                    $('.other-pay-btn').removeAttr('submitting');                                                          
+                    return false;
+                }else{
+                    core.tip.show(json.result);
+                    $('.other-pay-btn').removeAttr('submitting');
+                }
+            });                     
+        }
+        $(".other-pay-btn").click(function(){
+            if ($(this).attr('submitting') == '1') { 
+                return; 
+            }  
+            var paytype = $(this).data("paytype");//$("input[name='paytype']:checked").val();
+            /*if(paytype == 1){        
+                core.tip.show("请点击-点击进行微信支付-按钮进行支付"); 
+                return;
+            }*/
+            var payname = "余额支付";
+            if(paytype == 3){
+                payname = "换货码支付";
+            }
+            core.tip.confirm("确定使用" + payname + "吗?",function(){
+                ajsubmit(paytype);
+            });
+        }); 
+        core.pjson('activity/center', {openid:"{$openid}",op:'getinfo'}, function (json) {
+            var result = json.result; 
+            if (json.status != 1) { 
+                core.message(result, "{php echo $this->createMobileUrl('member')}", 'error');
+                return;
+            }      
+            if (result.wechat.success) { 
+                $('#logid').val(result.logid);
+                $(".pay-btn").click(function(){         
+                    if ($(this).attr('submitting') == '1') { 
+                        return; 
+                    }       
+                    var money = {$money};
+                    //输入内容为小数位不超过2位的数值
+                    if(! /^\d{0,8}\.{0,1}(\d{1,2})?$/.test(money)){
+                        core.tip.show("请输入正确格式的金额");  
+                        return false; 
+                    }
+                    var paytype = $(this).data("paytype");//$("input[name='paytype']:checked").val();
+                    /*if(paytype != 1){
+                        core.tip.show('请先选择微信支付方式!'); 
+                        return;
+                    }*/
+                    var logid = $('#logid').val(); 
+                    if (logid == '') {          
+                        core.tip.show('请刷新重试!'); 
+                        return;
+                    }
+                    //这里用内置标签变量处理文章或者活动的id 取名为aid
+                    var aid = "1";
+                    $('.pay-btn').attr('submitting', 1); //获取参数
+                    core.pjson('activity/center', {op: 'deduct', type: 'weixin', money: money, logid: logid}, function (rjson) {
+                        if(rjson.status!=1){
+                            $('.pay-btn').removeAttr('submitting');      
+                            core.tip.show(rjson.result);
+                            return;
+                        }       
+                        // return false;//这行代码你到时候注意吧,我是参考易货码激活那个页面做的,搬过来,正常要去掉的吧
+                        var wechat = rjson.result.wechat;
+                        WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                            'appId': wechat.appid ? wechat.appid : wechat.appId,
+                            'timeStamp': wechat.timeStamp,
+                            'nonceStr': wechat.nonceStr,
+                            'package': wechat.package,
+                            'signType': wechat.signType,
+                            'paySign': wechat.paySign,
+                        }, function (res) {
+                            if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                                core.tip.show('支付成功!');
+                                //支付成功后的代码
+
+                                ajsubmit(paytype);
+                                    
+                                //.....  
+                            } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+                                $('.pay-btn').removeAttr('submitting');
+                                core.tip.show('取消支付');
+                            } else {  
+                                $('.pay-btn').removeAttr('submitting'); 
+                                alert(res.err_msg);
+                            }
+                        });
+                    }, true, true);
+               });
+            };
+        });
+
+
+        // $(".pay-btn").click(function(){
+        //     if ($(this).attr('submitting') == '1') { 
+        //         return; 
+        //     }
+        //     $('.reward-btn').attr('submitting', 1); //获取参数
+        //     core.pjson('suppliermenu/activa', {op: 'deduct', type: 'weixin',actnum:actnum, money: money, logid: logid}, function (rjson) {
+        //         if(rjson.status!=1){
+        //             $('.reward-btn').removeAttr('submitting');
+        //             core.tip.show(rjson.result);
+        //             return;
+        //         } 
+        //         return false;//这行代码你到时候注意吧,我是参考易货码激活那个页面做的,搬过来,正常是要去掉的吧
+        //         var wechat = rjson.result.wechat;
+        //         WeixinJSBridge.invoke('getBrandWCPayRequest', {
+        //                 'appId': wechat.appid ? wechat.appid : wechat.appId,
+        //                 'timeStamp': wechat.timeStamp,
+        //                 'nonceStr': wechat.nonceStr,
+        //                 'package': wechat.package,
+        //                 'signType': wechat.signType,
+        //                 'paySign': wechat.paySign,
+        //             }, function (res) {
+        //                 if (res.err_msg == 'get_brand_wcpay_request:ok') {
+        //                     core.tip.show('支付成功!');
+        //                     //支付成功后的代码
+        //                     //.....  
+        //                 } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+        //                     $('.reward-btn').removeAttr('submitting');
+        //                     core.tip.show('取消支付');
+        //                 } else {  
+        //                     $('.reward-btn').removeAttr('submitting'); 
+        //                     alert(res.err_msg);
+        //                 }
+        //        });
+        //     }, true, true);
+        // });
+        
+    });
+</script>
+{template 'common/footer'}

@@ -1,0 +1,680 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $operation == 'post'}
+ <div class="main">
+ <ul class="nav nav-tabs">
+     <li ><a href="{php echo $this->createWebUrl('shop/goods',array('op'=>'post'))}"><i class='fa fa-plus'></i> 添加商品</a></li>
+     <li><a href="{php echo $this->createWebUrl('shop/goods')}">管理商品</a></li>
+     <li class="active"><a href="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'display', 'goodsid' =>  $_GPC['goodsid']))}">管理产品二维码</a></li>
+ </ul>
+        <form action="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'postadms'))}" method="post" class="form-horizontal form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$lisee['id']}" />
+            {if !empty($idms)}
+            <input type="hidden" name="yipinp_id" value="{$idms}" />
+			{else}
+			<input type="hidden" name="yipinp_id" value="{$_GPC['yipin_id']}" />
+			{/if}
+            <input type="hidden" name="yi_goodsid" value="{$_GPC['goodsid']}" />
+            <div class='panel panel-default'>
+                <div class='panel-heading'>{if empty($_GPC['id'])}新建{else}编辑 (id:{$_GPC['id']}){/if} - 添加二维码</div>
+                <div class='panel-body'>
+                         {ife 'yipinyima.temp' $lisee}
+                    {if !empty($_GPC['id'])}
+
+                    {/if}
+                    {/if}
+                <div class="form-group">						
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" >批号</label>	
+                        <div class="col-sm-10 col-xs-12">	
+                            {ife 'yipinyima.temp' $lisee}	
+                            <input type="text" name="pihao" class="form-control" value="{$lisee['pihao']}">	
+                            {else}	
+                            <div class='form-control-static'>{$lisee.pihao}</div>	
+                            {/if}	
+                        </div>	
+                    </div>
+                </div>
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" >有效期限</label>	
+                        <div class="col-sm-10 col-xs-12">	
+                             {ife 'yipinyima.temp' $item}	
+							 {php echo tpl_form_field_daterange('shijian', $shijian);}	
+                            {else}	
+                            <div class='form-control-static'>{$lisee['start']{$lisee['end']}</div>	
+	
+                            {/if}	
+                        </div>
+                    </div>
+				</div>
+                <div class="form-group">						
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" >发行数量</label>	
+                        <div class="col-sm-10 col-xs-12">	
+                            {ife 'yipinyima.temp' $item}	
+                            <input type="text" name="shuliang" class="form-control" value="{$lisee['shuliang']}">	
+                            {else}	
+                            <div class='form-control-static'>{$lisee.shuliang}</div>	
+                            {/if}	
+                        </div>	
+                    </div>						
+				</div>
+				<div class="form-group">	
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" >经销区域</label>	
+                        <div class="col-sm-10 col-xs-12">	
+                            {ife 'yipinyima.temp' $item}	
+							{php echo tpl_form_field_district('birth', array('province' => $lisee['province'], 'city' =>  $lisee['city'], 'district' => $lisee['district'] ));}	
+	
+                            {/if}	
+                        </div>	
+                    </div>
+				</div>
+                <div class="form-group">						
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">分销商</label>
+                        <div class="col-sm-10 col-xs-12">	
+                            <div class="col-sm-4 col-xs-6" style="padding-left:0px;">	
+                                {ife 'yipinyima.temp' $item}	
+                                <input type="text" class="form-control" value="{$lsec['nickname']}" id="fx_name" name="fx_name">	
+                                <input type="hidden" class="form-control" value="{$lisee['commjssionid']}" id="uid" name="commjssionid">	
+                                {else}	
+                                <div class='form-control-static'>{$lisee.commjssionid}</div>	
+                                {/if}	
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#product_name_div"><i class="fa fa-plus"></i>&nbsp;&nbsp;添加</a>
+                            </div>	
+							<label><input type="radio" name="isbind" value="0" {if $lisee['isbind']==0}checked{/if} /> 开启 &nbsp;			
+		                        <input type="radio" name="isbind" value="1" {if $lisee['isbind']==1}checked{/if} /> 关闭			
+								扫码后粉丝没有绑定上下级关系的自动归属到该分销商的下级。</label>
+	                        <label><input type="radio" name="ismnes" value="0" {if $lisee['ismnes']==0}checked{/if} /> 开启 &nbsp;		
+	                            <input type="radio" name="ismnes" value="1" {if $lisee['ismnes']==1}checked{/if} /> 关闭		
+	                                		开启该选项后，二维码只支持该分销商下级扫描。</label>
+	                    </div>
+	            	</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">二维码标识</label>
+                        <div class="col-sm-10 col-xs-12">
+                            {ifp 'yipinyima.temp'}
+	                            {php echo tpl_form_field_image('ulogo', $lisee['ulogo'])}
+	                            <span class='help-block'>正方型图片</span>
+                            {else}
+                            	<input type="hidden" name="ulogo" value="{$lisee.ulogo}"   />
+	                            {if !empty($lisee['ulogo'])}
+		                            <a href='{php echo tomedia($lisee['ulogo'])}' target='_blank'>
+		                            	<img src="{php echo tomedia($lisee['ulogo'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+		                            </a>
+	                            {/if}
+                            {/if}
+							<input type="radio" name="jifenzt" value="0" {if $lisee['jifenzt']==0}checked{/if} /> 开启 &nbsp;
+							<input type="radio" name="jifenzt" value="1" {if $lisee['jifenzt']==1}checked{/if} /> 关闭
+							<span class="help-block">开启表示不同身份扫描可以获得一次积分或现金或优惠券；关闭表示1个二维码只允许获得一次积分或现金或优惠券</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 style="font-size:18px;" class="col-xs-12 col-sm-3 col-md-1 control-label"><b>奖励规格</b></h4>
+					<div class="clearfix"></div>
+					<hr style="margin-bottom:0">
+				</div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-1 control-label">适用等级</label>
+                    <div class="col-sm-8 col-xs-12" id="col-tit">
+                        {ife 'yipinyima.temp' $item}
+						<label class="checkbox-inline">
+							{if $items}
+							<input type="checkbox" class='chkall chksingle' name="全部会员" value="{$huiyuan}" {if (!empty($huiyuan))}{if in_array($huiyuan,$items)}checked{/if}{/if} /> 全部会员
+							{else}
+							<input type="checkbox" class='chkall chksingle' name="全部会员" value="{$huiyuan}" /> 全部会员
+							{/if}
+						</label>
+                        {loop $list $item}	
+                        <label class="checkbox-inline">
+						{if $items}
+                           <input type="checkbox" class='chksingle'  name="{$item['levelname']}"  value="{$item['id']}" {if (!empty($item['id']))}{if in_array($item['id'],$items)}checked{/if}{/if} /> {$item['levelname']}
+                        {else}
+							<input type="checkbox" class='chksingle'  name="{$item['levelname']}"  value="{$item['id']}" /> {$item['levelname']}
+						{/if}
+						</label>
+                        {/loop}
+                        {else}
+                        <div class='form-control-static'>
+                            {if $item['levelname']==''}
+                            {else}
+                            {loop $lisee $level}
+                            {if  in_array($item['id'], $ms)}
+                            {$list['levelname']};
+                            {/if}
+                            {/loop}
+                            {/if}
+                        </div>
+                        {/if}
+                    </div>
+                </div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-1 control-label"></label>
+					<div class="col-xs-12 col-sm-8">
+						<div class="panel panel-default">
+							<div class="table-responsive">
+								<table id="js-guigeDiv" class="table table-hover">
+									<thead class="navbar-inner">
+										<tr>
+											<th style="width:180px;" class="text-center">适用等级</th>
+											<th style="width:180px;" class="text-center">积分</th>
+											<th style="width:180px;" class="text-center">现金</th>
+											<th style="width:280px;" class="text-center">优惠券</th>
+										</tr>
+									</thead>
+									<tbody id="col-responsive">
+										 {loop $list2 $item}
+										
+										<tr class="item-{$item['id']} item">
+											<input type='hidden' value="{$item['id']}" name="shop[itemid][]" />
+											<td>
+											{if $item['id']==0}
+											{$item['name']}
+											{/if}
+											{$item['levelname']}
+											
+											</td>
+											<td><input type="text" class="form-control" value="{$item['jifen']}" name="shop[jifen][]" /></td>
+											<td><input type="text" class="form-control" value="{$item['xianjin']}" name="shop[xianjin][]" /></td>
+											<td>
+												<div class="input-group">
+													<div class="input-group-btn group-{$item['id']}">
+														<input type='hidden' class="couponid-{$item['subcouponid']}" value="{$item['id']}" name="shop[subcouponid][]" />
+														<button type='button' onclick="selectCoupon({$item['id']})" class='btn btn-default' style='border-radius:0'>
+															{if !empty($item['subcouponid'])}[{$item['subcouponid']}]{$item['couponname']}张{else}请选择{/if}
+														</button>
+													</div>
+								    		        <input type="text" name="shop[subcouponnum][]" class="form-control" value="{$item['subcouponnum']}" />
+								                    <div class="input-group-addon">张</div>
+								                </div>
+							                </td>
+										</tr>
+										
+										 {/loop} 
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-1 control-label">奖励现金方式</label>
+                    <div class="col-sm-9 col-xs-12">
+                             {ife 'jypinyima' $lisee}
+                        <label class="radio-inline">
+                            <input type="radio" name="paytype" value="0" {if empty($lisee['paytype'])}checked{/if} /> 余额
+                        </label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="paytype" value="1" {if $lisee['paytype']==1}checked{/if} /> 微信钱包
+                        </label>
+                        <span class='help-block'>如果奖励现金，是打到零钱包还是余额( 打到零钱包需要微信支付，并在后台上传证书)</span>
+                        {else}
+                        <div class='form-control-static'>{if empty($lisee['paytype'])}余额{else}微信钱包{/if}</div>
+                        {/if}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-1 control-label">备注</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <textarea rows="5" cols="50" style=" width:100%;" class="form-control"  name="description">{$lisee['description']}</textarea>
+                    </div>
+                </div>
+			    <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-1 control-label" ></label>
+                    <div class="col-sm-15 col-xs-13">
+                        {ife 'yipinyima.temp' $lisee}
+                        {if empty($_GPC['id'])}{else} <input type="submit" name="bushengc" value="保存(不生成二维码)" class="btn btn-primary btn-success"  /> {/if}
+                            <input type="submit" name="submit" value="保存(生成二维码)" class="btn btn-primary btn-success"  style="margin-left: 10px;;" />
+                            <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+	<div id="product_name_div" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalName" aria-hidden="true" >
+	<div class="modal-dialog" style="width:40%;margin:200px auto;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalName">添加分销商</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<div class="col-sm-9 col-xs-12 col-lg-6">
+						<input type="text" class="form-control" id="_fx_keyword" value=""/>
+					</div>
+					<div class="col-sm-9 col-xs-12 col-lg-4">
+						<a href="javascript:;" onclick="fx_search()" class="btn btn-default"><i class="fa fa-search"></i> 搜索分销商</a>
+					</div>
+				</div>
+			</div>
+			<div id='product_list'>
+
+							<div class="modal-body" style="padding-bottom:0px;">
+					<div class="form-group"  style="margin-bottom:0px;">
+
+					</div>
+				</div>
+
+						</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">完成</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-module-menus-coupon"  class="modal fade" tabindex="-1">
+    <div class="modal-dialog" style='width: 920px;'>
+        <div class="modal-content">
+            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择优惠券</h3></div>
+            <div class="modal-body" >
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" value="" id="search-kwd-goods" placeholder="请输入优惠券名称" />
+                        <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_coupons();">搜索</button></span>
+                    </div>
+                </div>
+                <div id="module-menus-coupon" style="padding-top:5px;"></div>
+            </div>
+            <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+        </div>
+   </div>
+</div>
+<script>
+function selectCoupon(type){
+	currentCouponType = type;
+	$('#modal-module-menus-coupon').modal();
+}
+function search_coupons() {
+	$("#module-menus-coupon").html("正在搜索....")
+	$.get('{php echo $this->createPluginWebUrl('coupon/coupon',array('op'=>'query'))}', {
+		keyword: $.trim($('#search-kwd').val())
+		}, function (dat) {
+	$('#module-menus-coupon').html(dat);
+	});
+}
+function select_coupon(o) {
+	$(".couponid-" + currentCouponType).val(o.id);
+	$(".group-"+currentCouponType).find('button').html( "[" + o.id + "]" + o.couponname );
+	$("#modal-module-menus-coupon .close").click();
+}
+
+$(function(){
+	$(':checkbox[name="isbind"]').click(function(){
+		if(this.checked) {
+			$(this).val(1);
+		}
+	});
+	$("#col-tit .chksingle").on("click",function(){
+		var _this = $(this);
+		var id = _this.val();
+		var name = _this.attr("name");
+		var tr = $("#col-responsive").children(".item-"+id);
+		// .is(‘:checked’):
+		if(tr.length>0){
+			deleteItem(id);
+		}else{
+			addItem(id, name);
+		}
+	});
+})
+
+function gaibian(o){
+		var total = $("#total").val();
+		//alert(total);
+		var that = $(o);
+		var prenum = that.val();
+		var spend_num = ((prenum/100).toFixed(2))*total;
+		that.siblings("#fx_num").text(spend_num);
+}
+//适用等级
+function addItem(id, name){
+	var html = '' +
+	'<tr class="item-' + id + ' item">'+
+		'<input type="hidden" value="' + id + '" name="shop[itemid][]" />'+
+		'<td>' + name + '</td>'+
+		'<td><input type="text" class="form-control" value="" name="shop[jifen][]" /></td>'+
+		'<td><input type="text" class="form-control" value="" name="shop[xianjin][]" /></td>'+
+		'<td>'+
+			'<div class="input-group">'+
+				'<div class="input-group-btn group-' +id + '">'+
+					'<input type="hidden" class="couponid-' + id + '" value="" name="shop[subcouponid][]" />'+
+						'<button type="button" onclick="selectCoupon(' + id + ')" class="btn btn-default" style="border-radius:0">'+
+						'{if !empty($subcoupon)}[{$subcoupon["id"]}]{$subcoupon["couponname"]} {$lisee["subcouponnum"]} 张{else}请选择{/if}'+
+					'</button>'+
+				'</div>'+
+		        '<input type="text" name="shop[subcouponnum][]" class="form-control" value="" />'+
+                '<div class="input-group-addon">张</div>'+
+            '</div>'+
+        '</td>'+
+	'</tr>';
+	$('#js-guigeDiv>tbody').append(html);
+}
+
+function deleteItem(id) {
+	$('#js-guigeDiv>tbody>tr.item-'+id).remove();
+}
+
+//分销商选择
+function fx_search()
+{
+	var keyword = document.getElementById('_fx_keyword').value;
+	$.post('{php echo $this->createPluginWebUrl('yipinyima/api',array('op'=>'asds'))}', {keyword: keyword}, function(resp)
+	{
+		if(resp == 'none')
+		{
+			return false;
+		}
+		var _data = eval(resp);
+		var _html = '';
+		document.getElementById('product_list').innerHTML = '';
+		for(var o in _data)
+		{
+			_html = '<div class="modal-body" style="padding-bottom:0px;"><div class="form-group"  style="margin-bottom:0px;"><div class="col-sm-12 col-xs-12">';
+			_html += '<a href="javascript:;" onclick="set_fx_name(\'' + _data[o].id + '\', \'' + _data[o].nickname + '\');" class="btn btn-default"><i class="fa fa-plus"></i> 添加</a>';
+			_html +=  _data[o].nickname;
+			_html += '</div></div></div>';
+			$('#product_list').append(_html);
+		}
+	});
+}
+
+function set_fx_name(_id, realname)
+{
+	$("#fx_name").val(realname);
+	$("#uid").val(_id);
+
+}
+
+//2015-9-24
+require(['bootstrap.switch', 'util'], function($, u){
+	$(function(){
+		$('.status').bootstrapSwitch();
+		$('.status').on('switchChange.bootstrapSwitch', function(e, state){
+			$this = $(this);
+			var dat = $this.attr('data');
+			var ret = this.checked ? 1 : 0;
+			if(ret == 1){
+				document.getElementById("status").val(0);
+				$("#status").attr('checked','');
+			}
+		});
+		$('.btn').hover(function(){
+			$(this).tooltip('show');
+		},function(){
+			$(this).tooltip('hide');
+		});
+	});
+});
+
+</script>
+
+{elseif $operation == 'display'}
+<ul class="nav nav-tabs">
+    <li ><a href="{php echo $this->createWebUrl('shop/goods',array('op'=>'post'))}"><i class='fa fa-plus'></i> 添加商品</a></li>
+    <li><a href="{php echo $this->createWebUrl('shop/goods')}">管理商品</a></li>
+
+    <li class="active"><a href="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'display', 'goodsid' => $goodsid))}">管理产品二维码</a></li>
+</ul>
+
+        <!-- 筛选区域 -->
+		<div class="form-group clearfix">
+			<input type="button" value="扫码页配置"  class="btn btn-primary" style="width:100px;" data-target="#ewm_smpz" data-toggle="modal" >
+
+			<input type="button" value="预览"   class="btn btn-primary" style="width:100px;" data-target="#ewm_smyl" data-toggle="modal" >
+		</div>
+        <div class='panel panel-default'>
+
+            <div class='panel-body'>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>批号</th>
+                                <th >有效期</th>
+                                <th >发行量</th>
+                                <th >分销商</th>
+                                <th >适用等级</th>
+                                <th >已用量</th>
+                                <th >剩余量</th>
+								<th >操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {loop $items $item}
+                        <tr>
+
+                            <td>{$item['pihao']}</td>
+                            <td><label class='label label-primary'></label> {$item['start_time']}~{$item['end_time']}</td>
+                            <td><label class='label label-primary'></label> {$item['shuliang']}</td>
+                            <td><label class='label label-primary'></label> {$item['commjssionid']}</td>
+                            <td><label class='label label-primary'></label> {$item['commision_level_name']}</td>
+                            <td><label class='label label-primary'></label> {$item['yipin_shengyu']}</td>
+                            <td><label class='label label-primary'></label> {$item['yi_shengyu']}</td>
+                            <td>
+                                {ifp 'yipinyima.temp.edit|yipinyima.temp.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'post', 'id' => $item['id'],'goodsid' => $goodsid))}" title='编辑' style="background-color: #ffb034; color: #fff;"><i class='fa fa-pencil'></i></a>{/if}
+                                {ifp 'yipinyima.data.view'}
+
+                                <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('yipinyima/data', array('op' => 'display', 'id' => $item['id'],'goodsid' => $goodsid))}" title='扫码记录' style="background-color: #ff5858; color: #fff;"><i class='fa fa-list'></i></a>
+                                {/if}
+                                {ifp 'yipinyima.dayin.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('yipinyima/dayin', array('id' => $item['id']))}" title='打印二维码' style="background-color: #49DA68; color: #fff;"><i class='fa fa-print'></i></a>{/if}
+                                {ifp 'comeon.data.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon/data', array('id' => $item['id'],'cat_id'=>$item['id']))}" title='下载二维码包' style="background-color: #f417dd; color: #fff;"><i class='fa fa-qrcode'></i></a>{/if}
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+					{ifp 'yipinyima.temp.add'}
+					<div>
+
+
+						<a style="color:#1e95c9;width:100%;" href="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'post','yipin_id' => $item_desc['id'],'goodsid' => $goodsid))}"><i class="fa fa-plus-circle"></i> 添加二维码</a>
+						</div>
+					{/if}
+                </div>
+       
+        </div>
+		<div id="ewm_smpz" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalName" aria-hidden="true" >
+			<div class="modal-dialog" style="width:750px;margin:100px auto;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalName">扫码页配置</h4>
+					</div>
+					<form class="form-horizontal form"   id="form1" action="{php echo $this->createPluginWebUrl('yipinyima/temp', array('op' => 'postadd'))}"  method="post">
+                        {if empty($item_desc['goodsid'])}
+						<input type="hidden"  name="goodsid"  value="{php echo $goodsid}" />
+                        {else}
+                        <input type="hidden"  name="goodsid"  value="{$item_desc['goodsid']}" />
+                        {/if}
+                        <input type="hidden" name="id" value="{$item_desc['id']}" />
+						<div class="modal-body">
+							<div class="form-group clearfix">
+								<label class="col-xs-12 col-sm-4 control-label">初次扫码提示语</label>
+								<div class="col-xs-12 col-sm-6">
+                                    <textarea name="first_desc" id="contentinput" class="form-control" style="height:50px" cols="20" rows="2"   placeholder="尊敬的用户，该商品为正品，请放心使用！">{$item_desc['first_desc']}</textarea>
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<label class="col-xs-12 col-sm-4 control-label">奖励积分引导语</label>
+								<div class="col-xs-12 col-sm-6">
+									<textarea name="score_desc" id="contentinputdes" class="form-control" style="height:50px" cols="20" rows="2" placeholder="感谢您对我司的支持，积分已经转入您的账户，更多积分的使用说明请点击详情。">{$item_desc['score_desc']}</textarea>
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<div class="col-md-offset-4  col-sm-6">如需让扫码者知道获得二维码的积分数量请在内容中加上：%s 表示积分</div>
+							</div>
+                            <div class="form-group clearfix">
+                                <label class="col-xs-12 col-sm-4 control-label">奖励现金引导语</label>
+                                <div class="col-xs-12 col-sm-6">
+                                    <textarea name="score_xianjin" id="contentinputd" class="form-control" style="height:50px" cols="20" rows="2" placeholder="感谢您对我司的支持，现金已经转入您的账户，更多积分的使用说明请点击详情。">{$item_desc['score_xianjin']}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-md-offset-4  col-sm-6">如需让扫码者知道获得二维码的现金数量请在内容中加上：%s 表示现金</div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <label class="col-xs-12 col-sm-4 control-label">奖励优惠券引导语</label>
+                                <div class="col-xs-12 col-sm-6">
+                                        <textarea name="score_youhuijuan" id="contentinputdd" class="form-control" style="height:50px" cols="20" rows="2" placeholder="感谢您对我司的支持，优惠券已经转入您的账户，更多积分的使用说明请点击详情。">{$item_desc['score_youhuijuan']}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-md-offset-4  col-sm-6">如需让扫码者知道获得二维码的优惠券张数请在内容中加上：%s 表示优惠券</div>
+                            </div>
+							<div class="form-group clearfix">
+								<label class="col-xs-12 col-sm-4 control-label">二次扫码提示语</label>
+								<div class="col-xs-12 col-sm-6">
+									<textarea name="second_desc" id="contentinput" class="form-control" style="height:50px" cols="20" rows="2" placeholder="尊敬的用户，该商品为正品，此商品已被扫描过一次。">{$item_desc['second_desc']}</textarea>
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<label class="col-xs-12 col-sm-4 control-label">二维码失效提示语</label>
+								<div class="col-xs-12 col-sm-6">
+									<textarea name="oldtime_desc" id="contentinput" class="form-control" style="height:50px" cols="20" rows="2" placeholder="尊敬的用户，您购买的产品已经过去，请勿使用！">{$item_desc['oldtime_desc']}</textarea>
+								</div>
+							</div>
+                            <div class="form-group clearfix">
+                                <label class="col-xs-12 col-sm-4 control-label">头部背景图</label>
+                                <div class="col-xs-12 col-sm-6">
+                                    {ifp 'yipinyima.temp'}
+                                    {php echo tpl_form_field_image('headthumb', $item_desc['headthumb'])}
+                                    <span class='help-block'>640px*340px</span>
+                                    {else}
+                                    <input type="hidden" name="headthumb" value="{$item_desc['headthumb']}"   />
+                                    {if !empty($item_desc['headthumb'])}
+                                    <a href='{php echo tomedia($item_desc['headthumb'])}' target='_blank'>
+                                    <img src="{php echo tomedia($item_desc['headthumb'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                                    </a>
+                                    {/if}
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <label class="col-xs-12 col-sm-4 control-label">图片广告</label>
+                                <div class="col-xs-12 col-sm-6">
+                                    {ifp 'yipinyima.temp'}
+                                    {php echo tpl_form_field_image('adthumb', $item_desc['adthumb'])}
+                                    <span class='help-block'>580px*150px</span>
+                                    {else}
+                                    <input type="hidden" name="adthumb" value="{$item_desc['adthumb']}"   />
+                                    {if !empty($item_desc['adthumb'])}
+                                    <a href='{php echo tomedia($item_desc['adthumb'])}' target='_blank'>
+                                    <img src="{php echo tomedia($item_desc['adthumb'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                                    </a>
+                                    {/if}
+                                    {/if}
+                                </div>
+                            </div>
+							<div class="form-group clearfix">
+								<label class="col-xs-12 col-sm-4 control-label">图片广告链接</label>
+								<div class="col-xs-12 col-sm-6">
+									<input class="form-control ng-pristine ng-valid" id="ipt-url"  name='linkurl' type="text"  value="{$item_desc['linkurl']}">
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<label class="col-xs-12 col-sm-4 control-label">底部背景色</label>
+								<div class="col-xs-12 col-sm-6">
+									<div class="input-group">
+										<input type="color" value="{$item_desc['bgColor']}" name="bgColor" class="form-control">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default js-btn-resectBgcolor">重置</button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+						  {ife 'yipinyima.temp' $item}
+							<input type="submit" id="submit" value="保存设置" name="submit" class="btn btn-primary">
+								<input type="hidden" name="token" value="{$_W['token']}" />
+						 {/if}
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+				<script>
+				$(function(){
+				   //重置底部 背景颜色
+				   $(".js-btn-resectBgcolor").click(function () {
+				   		$("input[name='bgColor']").val('#ffdc7e');
+				   })
+
+				});
+		</script>
+<script>require(['bootstrap']);</script>
+		<!--预览弹出框end -->                   
+		<div id="ewm_smyl" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalName" aria-hidden="true" >
+			<div class="modal-dialog"  style="width:520px;margin:20px auto;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title thickbox">扫码页预览</h4>
+					</div>
+					<div class="modal-body"> 
+						<table cellspacing="0" cellpadding="0" border="1" style="width:485px;height:600px; text-align:center;">          
+							<tr>
+	                        	<td rowspan="7" width="300" valign="top" height="600">
+									<iframe src="{php echo $this->createPluginWebUrl('yipinyima/api', array( 'id' => $item_desc['id'],'goodsid' => $goodsid))}" width="300" height="620" scrolling="no" frameborder="0"></iframe>
+								</td>
+								
+	                            <td height="160">
+	                            	头部背景图<br>
+	         						积分数字部分为系统数据<br>
+	                                尺寸大小640px*340px
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                        	<td height="80">初次/二次扫码提示语</td>
+	                        </tr>
+	                        <tr>
+	                        	<td height="90">奖励积分引导语</td>
+	                        </tr>
+                            <tr>
+                                <td height="90">奖励现金引导语</td>
+                            </tr>
+                            <tr>
+                                <td height="90">奖励优惠券引导语</td>
+                            </tr>
+	                        <tr>
+	                        	<td height="110">扫码记录详情</td>
+	                        </tr>
+	                        <tr>
+	                        	<td height="100">自定义图片广告<br>图片、链接可自定义<br>尺寸大小580px*150px</td>
+	                        </tr>
+	                        <tr>
+	                        	<td height="40">底部背景颜色可自定义</td>
+	                        </tr>
+	                        <tr>
+	                        	<td>读取系统设置好的联系电话</td>
+	                        </tr>
+	                    </table>          
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+ 
+{else if $operation == 'addtype'}
+
+{elseif $operation == 'postdata'}
+   
+
+
+{elseif $operation == 'list'}
+
+ 
+{/if}
+{template 'web/_footer'}

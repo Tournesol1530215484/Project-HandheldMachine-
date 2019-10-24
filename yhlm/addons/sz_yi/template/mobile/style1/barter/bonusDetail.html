@@ -1,0 +1,113 @@
+{template 'common/header'}
+<title>拆红包明细</title>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/bonus_detail.css" />
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">拆红包明细</div>
+    </div>
+    <div class="ad-container">
+        <a class="ad-go-link" href="{php echo $this->createMobileUrl('barter/ad',array('op'=>'detail','id'=>$_GPC['id']))}">
+            <div class="flex-center">
+                <div class="pic-container">
+                    <div class="pic-box" style="background: url('{$myad['thumb'][0]}') no-repeat center; background-size: cover;"></div>
+                </div>
+                <div class="content-box">
+                    <div class="ad-tag line-clamp2">
+                        {$myad['title']}
+                    </div>
+                    <div class="ad-desc line-clamp2">
+                        {php echo html_entity_decode($myad['desc'])}
+                    </div>
+                </div>
+                <div class="go-link-icon-box">
+                    <i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="about-envelope"></div>
+    <div class="list-box">
+        <ul class="list-ul">      
+            <!-- 下拉加载数据容器 -->
+        </ul> 
+    </div>
+</div>
+<!-- 两种模板 用户拆红包记录 或者 记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <!-- my-list-item类名用来标志词条记录是否是用户本人的,是则加上此类名,不是则不加 -->
+        <li class="list-item <%if g.no%>my-list-item<%else%><%/if%>">
+            <div class="flex-center">
+                <div class="record-box1">
+                    <!-- 用户名 加上 处理过的电话号码 应该不能显示其他用户具体的电话的 特殊如果是本人的话直接"我"-->
+                    <div class="user-tag">
+                        <%g.title%>
+                    </div>
+                    <div class="show-tag time-tag">
+                        <%g.realname%>
+                        <%if g.mobile%>
+                            (<%g.mobile%>)
+                        <%/if%>
+                        <br/>
+                        <%g.ctime%>
+                    </div><!-- 拆红包时间 -->
+                </div>
+                <div class="record-box2">
+                    <!-- 用户本人第几个拆开的 特殊本人账号则显示,其他用户的记录不显示 -->
+                    <%if g.no%>
+                        <div class="show-tag show-my-tag"><%g.no%></div>
+                    <%/if%>      
+                    <div class="show-tag show-value-tag">
+                        <%if g.bonusType == 1%>
+                            ￥<%g.money%>
+                        <%else%>
+                             <%g.money%>换货码 
+                        <%/if%>
+                    </div><!-- 红包价值,根据红包类型选择显示 换货码 还是 ￥ -->
+                </div>
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无记录</div>
+</script>
+<script type="text/javascript">
+    var page = 1; 
+    require(['tpl', 'core'], function(tpl, core) {
+        core.json('barter/bonus', {page:page,op:'bonusDetail',id:'{$_GPC["id"]}',obid:'{$_GPC["obid"]}'}, function(json) {
+            if (json.result.list.length <= 0) {      
+                $(".list-box .list-ul").html(tpl('tpl_null'));
+                return;
+            }
+            $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+            var loaded = false;
+            var stop=true; 
+            $(window).scroll(function(){ 
+                if(loaded){
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                if($(document).height() <= totalheight){
+                    if(stop==true){ 
+                        stop=false; 
+                        $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                        page++;
+                        core.json('barter/bonus', {page:page,op:'bonusDetail',id:'{$_GPC["id"]}'}, function(morejson) {  
+                            stop = true;
+                            $('#list_loading').remove();
+                            $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                            if (morejson.result.list.length <morejson.result.pagesize) {
+                                $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                loaded = true;
+                                return;
+                            }
+                        },true); 
+                    } 
+                } 
+            });
+        }, true);
+    });
+</script>
+{template 'common/footer'}

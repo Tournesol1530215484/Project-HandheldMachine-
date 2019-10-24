@@ -1,0 +1,14 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'activity.activity'}<li {if $_GPC['method']=='activity'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity')}">商家管理</a></li>{/if}
+    {ifp 'activity.applyfor'}<li {if $_GPC['method']=='applyfor'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/applyfor')}">申请中</a></li>{/if}
+    {ifp 'activity.enter'}<li {if $_GPC['method']=='enter'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/enter')}">入驻中</a></li>{/if}
+    {ifp 'activity.activity_list'}<li {if $_GPC['method']=='activity_list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity_list')}">商家订单</a></li>{/if}
+    {ifp 'activity.activity_apply'}<li {if $_GPC['method']=='activity_apply'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity_apply')}">商家提现申请</a></li>{/if}
+    {ifp 'activity.activity_finish'}<li {if $_GPC['method']=='activity_finish'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity_finish')}">商家提现完成</a></li>{/if}
+    {ifp 'activity.activity_for'}<li {if $_GPC['method']=='activity_for'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity_for')}">会员申请商家</a></li>{/if}
+    {ifp 'activity.activity_for_resu'}<li {if $_GPC['method']=='activity_for_resu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity_for_resu')}">申请结果</a></li>{/if}
+    {ifp 'activity.notice'}<li {if $_GPC['method']=='notice'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/notice')}">通知设置</a></li>{/if}
+    {ifp 'activity.set'}<li {if $_GPC['method']=='set'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/set')}">基础设置</a></li>{/if}
+</ul>
+</div>

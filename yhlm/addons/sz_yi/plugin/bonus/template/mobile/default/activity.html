@@ -1,0 +1,247 @@
+{template 'common/header'}
+<title>活动收益</title>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body {margin:0px; background:#eee; font-family:'微软雅黑'; -moz-appearance:none;}
+    a {text-decoration:none;}
+    .log_top {height:44px; width:100%;  background:#f8f8f8;  border-bottom:1px solid #e3e3e3;}
+    .log_top .title {height:44px; width:auto;margin-left:10px; float:left; font-size:16px; line-height:44px; color:#666;}
+    .log_top .num { float:right;color:#666;height:44px;line-height:44px;padding-right:5px;}
+    /*自己或者粉丝获取类型导航条件*/
+    .status-nav-container1{ 
+        width: 100%;
+        max-width: 720px;
+        border-bottom: 1px solid #ccc;
+        background: #fff;
+    }
+    .status-nav-container1 .nav-box{
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+    }
+    .status-nav-container1 .sub-nav-box{
+        list-style-type: none;
+        width: 66%;
+        height: 100%;
+        margin: 10px auto 0;
+    }
+    .status-nav-container1 .nav-box .nav-item-link,
+    .status-nav-container1 .sub-nav-box .sub-nav-item-link{
+        display: block;
+        float: left;
+        width: calc(100% / 3);
+        height: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        padding: 10px 0;
+        text-decoration: none;
+    }
+    .status-nav-container1 .sub-nav-box .sub-nav-item-link{
+        width: 50%;
+        padding: 5px 0;
+    }
+    .status-nav-container1 .nav-box .nav-item-link.nav-on{
+        border-bottom: 1px solid #ff771b;
+        color: #ff771b;
+    }
+    .status-nav-container1 .sub-nav-box .sub-nav-item-link.nav-on{
+        border-bottom: 1px solid #ff771b;
+        color: #ff771b;
+    }
+    .status-nav-container1 .nav-box .nav-item.nav-name,
+    .status-nav-container1 .sub-nav-box .sub-nav-item.sub-nav-name{
+        width: 100%;
+        height: 100%;
+    }
+    .status-nav-container1 .sub-nav-box .sub-nav-item.sub-nav-name{
+        font-size: 12px;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .flex-boxx{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .for-wrap{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .list-box{
+        margin-top: 10px;
+        color: #666;
+        font-size: 14px;
+    }
+    .list-box .flex-boxx-item{
+        width: 50%;
+    }
+    .list-box .user-box{
+        color: #333;
+    }
+    .list-box .get-how-much{
+        text-align: right;
+        color: #f90;
+    }
+    .no-list {
+        padding: 50px 10px;
+        text-align: center;
+        color: #999;
+    }
+    .list-box .list-ul .list-item{
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+        margin-bottom: 5px; 
+        background: #fff;
+    }
+  
+    #list_loading{ 
+        width: 100%;
+        padding: 10px;
+        color: #666;
+        text-align: center;
+    }
+</style>
+<div class="big_body">
+    <div class="log_top">
+        <div class="title" onclick="location.href='{php echo $this->createPluginMobileUrl('bonus/index')}'"><i class='fa fa-chevron-left'></i> 活动收益<!-- (<span id='total'></span>) --></div>
+        <div class='num'>预计: +<span id='commissioncount'></span>元&nbsp;+<span id='commissioncount2'></span>换货码</div>
+    </div>
+    <div class="nav-container1 status-nav-container1">
+        <ul class="nav-box clearfloat">
+            <a class="nav-item-link {if $_GPC['status']=='1' || empty($_GPC['status'])}nav-on{/if}" href="javascript:void(0);" data-status="1">
+                <li class="nav-item nav-name">
+                   会员费 <!-- status为1 或者默认 -->
+                </li>
+            </a>
+            <a class="nav-item-link {if $_GPC['status']=='2'}nav-on{/if}" href="javascript:void(0);" data-status="2">
+                <li class="nav-item nav-name">
+                   活动打赏 <!-- status为2-->
+                </li>
+            </a>
+            <a class="nav-item-link {if $_GPC['status']=='3'}nav-on{/if}" href="javascript:void(0);" data-status="3">
+                <li class="nav-item nav-name">
+                   功能分成 <!-- status为3-->
+                </li>
+            </a>
+        </ul>
+    </div>
+    {if $_GPC['status']=='1' || empty($_GPC['status']) || $_GPC['status']=='3'}
+    <div class="nav-container1 status-nav-container1">
+        <ul class="sub-nav-box clearfloat">
+            <a class="sub-nav-item-link {if $_GPC['applytype']=='1' || empty($_GPC['applytype'])}nav-on{/if}" href="javascript:void(0);" data-applytype="1">
+                <li class="sub-nav-item sub-nav-name">
+                   现金 <!-- applytype为1 或者默认 -->
+                </li>
+            </a>
+            <a class="sub-nav-item-link {if $_GPC['applytype']=='2'}nav-on{/if}" href="javascript:void(0);" data-applytype="2">
+                <li class="sub-nav-item sub-nav-name">
+                   换货码 <!-- applytype为2-->
+                </li>
+            </a>
+        </ul>
+    </div>
+    {/if}
+    <div class="list-box">
+        <ul class="list-ul">      
+            <!-- 下拉加载数据容器 -->
+        </ul> 
+    </div>
+    <div style="width: 100%; height: 20px;"></div>
+</div>
+<!-- 两种模板 用户拆红包看广告获取现金换货码记录 或者 记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item flex-boxx">
+            <div class="user-box flex-boxx-item for-wrap"><!-- 用户名 -->
+               <%g.nickname%>            
+            </div>
+            <div class="get-how-much flex-boxx-item for-wrap"><!-- 金额 -->
+                +<%g.money%>         
+            </div>
+            <div class="time-box flex-boxx-item for-wrap"><!-- 时间 -->
+               <%g.ctime%>
+            </div>
+            <div class="other-box flex-boxx-item for-wrap"><!-- 会员等级/活动标题/置顶类型 -->
+               <%g.title%>       
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无记录</div>
+</script>
+<script type="text/javascript">                  
+    //到时候换掉请求链接
+    var page = 1; 
+    require(['tpl', 'core'], function(tpl, core) {
+        getList(page);
+        function getList(page){                          
+            core.pjson('bonus/activity', {page:page,status: '{$_GPC['status']}',applytype: '{$_GPC['applytype']}'}, function(json) {
+                $('#total').html(json.result.total);
+                $('#commissioncount').html(json.result.commissioncount);//现金
+                $('#commissioncount2').html(json.result.commissioncount2);//换货码
+                $('.nav-item-link').click(function() {       
+                    var status = $(this).data('status'); 
+                    location.href = core.getUrl('plugin/bonus/activity', {status: status,applytype:1});
+                }); 
+
+                $('.sub-nav-item-link').click(function() {       
+                    var applytype = $(this).data('applytype'); 
+                    location.href = core.getUrl('plugin/bonus/activity', {status: '{$_GPC['status']}',applytype: applytype});
+                });
+
+                if (json.result.list.length <= 0) {
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+                    return;
+                }
+                $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+                var loaded = false;
+                var stop=true;
+                //不用点击加载实现的话,pagesize要足够大，否则会出现问题,建议pagesize:20,反正就是要超过一个手机屏高
+                $(window).scroll(function(){ 
+                    if(loaded){
+                        return;
+                    }
+                    totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                    if($(document).height() <= totalheight){
+                        if(stop==true){ 
+                            stop=false; 
+                            $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载</div>');
+                            page++;      
+                            core.pjson('bonus/activity', {page:page,status: '{$_GPC['status']}',applytype: '{$_GPC['applytype']}'}, function(morejson) {  
+                                stop = true;
+                                $('#list_loading').remove();
+                                $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                                if (morejson.result.list.length <morejson.result.pagesize) {
+                                    $('.list-box .list-ul').append('<div id="list_loading">已经加载全部</div>');
+                                    loaded = true;
+                                    return;
+                                }
+                            },true); 
+                        } 
+                    } 
+                });
+            }, true);
+        }
+    });
+</script>
+{template 'common/footer'}

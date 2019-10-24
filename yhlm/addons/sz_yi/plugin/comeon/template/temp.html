@@ -1,0 +1,731 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $operation == 'post'}
+    <div class="main">
+        <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$item['id']}" />
+            <div class='panel panel-default'>
+                <div class='panel-heading'>{if empty($_GPC['id'])}新建{else}编辑 (id:{$_GPC['id']}){/if} - 加油助手</div>
+                <div class='panel-body'>
+                         {ife 'comeon.temp' $item}
+                    {if !empty($_GPC['id'])}
+
+                    {/if}
+                    {/if}
+
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" >品牌名称</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $list}
+                            <select  id="ddl_Brand" name="cat_id"  class="form-control">
+                                {loop $list $c}
+                                <option   value="{$c['cat_id']}" {if $itesm[0]['cat_id']==$c['cat_id']}selected{/if}>{$c['cat_name']}</option>
+                                {/loop}
+                            </select>
+                            {else}
+                            {loop $lise $c}
+                            {if $item['cat_id']==$c['cat_id']}{$c['cat_name']}{/if}
+                            {/loop}
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">厂商名称</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            <select  name="cs_id" id="ddl_Models" class="form-control">
+                            {loop $cslist $c}    
+                                <option value="{$c['cs_id']}"{if $liss['cs_id']==$c['cs_id']}selected{/if}>{$c['cs_name']}</option>
+                            {/loop}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">车型名称</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            <select  name="x_id" id="ddl_Displacement" class="form-control">
+                            {loop $cxlist $c}    
+                                <option value="{$c['x_id']}"{if $itesm[0]['x_id']==$c['x_id']}selected{/if}>{$c['x_name']}</option>
+                            {/loop}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">排量名称</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.cangshang' $itesm}
+                            <select  name="pai_id" id="ddl_Date" class="form-control">
+                            {loop $plist $c}    
+                                <option value="{$c['pai_id']}"{if $itesm[0]['pai_id']==$c['pai_id']}selected{/if}>{$c['pai_name']}</option>
+                            {/loop}
+                            </select>
+                            {else}
+                            {loop $itesm $c}
+                            {if $itesm['pai_id']==$c['pai_id']}$c['cat_name']{/if}
+                            {/loop}
+                            {/if}
+                        </div>
+                    </div>
+
+
+                         <div class="form-group">
+                             <label class="col-xs-12 col-sm-3 col-md-2 control-label" >生产日期</label>
+                             <div class="col-sm-9 col-xs-12" style="width:707px;">
+                                 {ife 'comeon.cangshang' $scri}
+                                 <select  id="shop" name="ri_id" class="form-control">
+                                     <option value="">请选择生产日期</option>
+                                     {loop $scri $c}
+                                     <option selected="selected"   value="{$c['ri_id']}">{$c['ri_name']}</option>
+                                     {/loop}
+                                 </select>
+                                 {else}
+                                 {loop $itesm $c}
+                                 {if $itesm['ri_id']==$c['ri_id']}{$c['ri_name']}{/if}
+                                 {/loop}
+                                 {/if}
+                             </div>
+                         </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>自动变速箱</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="box" class="form-control" value="{$item['box']}" placeholder="如:7-DSG(OAM)" />
+                            {else}
+                            <div class='form-control-static'>{$item.box}</div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span> 加注量(机器更换)</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                             {ife 'comeon.temp' $item}
+                            <input type="text" name="amount" class="form-control" value="{$item['amount']}" placeholder="列入:1.7L" />
+                            {else}
+                            <div class='form-control-static'>{$item.amount}</div>
+                            {/if}
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>型号</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="xinghao" class="form-control" value="{$item['xinghao']}" placeholder="输入型号" />
+                            {else}
+                            <div class='form-control-static'>{$item.xinghao}</div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>加注量</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="amountg" class="form-control" value="{$item['amountg']}" placeholder="如：3.6L" />
+                            {else}
+                            <div class='form-control-static'>{$item.amountg}</div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>原厂标准</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="biaozhun" class="form-control" value="{$item['biaozhun']}" placeholder="如：全和成油 5W-40" />
+                            {else}
+                            <div class='form-control-static'>{$item.biaozhun}</div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>行驶里程10万以下</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="mileage" class="form-control" value="{$item['mileage']}" placeholder="如:OW-40,VW-04,507的5W-30,OW-30" />
+                            {else}
+                            <div class='form-control-static'>{$item.mileage}</div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>行驶里程10万以上</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="mileages" class="form-control" value="{$item['mileages']}" placeholder="如:全合成油5W-40" />
+                            {else}
+                            <div class='form-control-static'>{$item.mileages}</div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>图片</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ifp 'comeon.temp'}
+                            {php echo tpl_form_field_image('ulogo', $item['ulogo'])}
+                            <span class='help-block'>正方型图片</span>
+                            {else}
+                            <input type="hidden" name="ulogo" value="{$set.ulogo}"   />
+                            {if !empty($item['ulogo'])}
+                            <a href='{php echo tomedia($item['ulogo'])}' target='_blank'>
+                            <img src="{php echo tomedia($item['ulogo'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                            </a>
+                            {/if}
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>图片</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ifp 'comeon.temp'}
+                            {php echo tpl_form_field_image('glogo', $item['glogo'])}
+                            <span class='help-block'>正方型图片</span>
+                            {else}
+                            <input type="hidden" name="glogo" value="{$set['shop']['logo']}"   />
+                            {if !empty($item['glogo'])}
+                            <a href='{php echo tomedia($item['glogo'])}' target='_blank'>
+                            <img src="{php echo tomedia($item['glogo'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+                            </a>
+                            {/if}
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span>链接之商品地址</label>
+                        <div class="col-sm-9 col-xs-12" style="width:707px;">
+                            {ife 'comeon.temp' $item}
+                            <input type="text" name="link" class="form-control" value="{$item['link']}" placeholder="请输入商品地址" />
+                            {else}
+                            <div class='form-control-static'>{$item['link']}</div>
+                            {/if}
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label" ></label>
+                        <div class="col-sm-9 col-xs-12">
+                            {ife 'comeon.temp' $item}
+                                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                                <input type="hidden" name="token" value="{$_W['token']}" />
+                            {/if}
+                            <a href="{php echo $this->createPluginWebUrl('comeon')}"  {ife 'comeon.temp' $item}style='margin-left:10px;'{/if}><span class="btn btn-default" style='margin-left:10px;'>返回列表</span></a>
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+
+ <script type="text/javascript">
+     $(function () {
+         //获取汽车品牌
+         $("#ddl_Brand").change(function () {
+             // 选中品牌的值
+             var sVal = $("#ddl_Brand option:selected").val();
+             var data = {brandid:sVal,type:'cartype'};
+			 
+             // 清空排量和日期
+             $("#ddl_Displacement").html('<option value="-1">车型</option>');
+             $("#ddl_Date").html('<option value="-1">排量</option>');
+
+             $.ajax({
+                 url:"{php echo $this->createPluginWebUrl('comeon/api',array('apido'=>'selectlike'))}",
+                 dataType:"json",type:"post",data:data,
+                 success:function(data){
+                     if(data.status == 1){
+                         var str = "";
+                         $.each(data.result,function(i,e){
+                             str += "<option value='"+e.cs_id+"'>"+e.cs_name+"</option>"
+                         });
+                         $("#ddl_Models").html(str);
+                         var sVal = data['result'][0]['cs_id'];
+                         var data = {typeid:sVal,type:'ml'};
+                         $.ajax({
+                             url:"{php echo $this->createPluginWebUrl('comeon/api',array('apido'=>'selectliee'))}",
+                             dataType:"json",type:"post",data:data,
+                             success:function(data){
+                                 if(data.status == 1){
+                                     var str = '';
+                                     $.each(data.result,function(i,e){
+                                         str += "<option value='"+e.x_id+"'>"+e.x_name+"</option>"
+                                     });
+                                     $("#ddl_Displacement").html(str);
+                                    var sVal = data['result'][0]['x_id'];
+                                    var data = {mlid:sVal,type:'date'};
+                                    $.ajax({
+                                        url:"{php echo $this->createPluginWebUrl('comeon/api',array('apido'=>'selectlieoe'))}",
+                                        dataType:"json",type:"post",data:data,
+                                        success:function(data){
+                                            if(data.status == 1){
+                                                var str = '';
+                                                $.each(data.result,function(i,e){
+                                                    str += "<option value='"+e.pai_id+"'>"+e.pai_name+"</option>"
+                                                });
+                                                $("#ddl_Date").html(str);
+                                            }
+                                        }
+                                    });
+                                 }
+                             }
+                         });                         
+                     }
+                 }
+             });
+
+         });
+
+         $("#ddl_Models").change(function () {
+             $("#ddl_Date").html('<option value="-1">排量</option>');
+             var sVal = $("#ddl_Models option:selected").val();
+             var data = {typeid:sVal,type:'ml'};
+             $.ajax({
+                 url:"{php echo $this->createPluginWebUrl('comeon/api',array('apido'=>'selectliee'))}",
+                 dataType:"json",type:"post",data:data,
+                 success:function(data){
+                     if(data.status == 1){
+                         var str = '';
+                         $.each(data.result,function(i,e){
+                             str += "<option value='"+e.x_id+"'>"+e.x_name+"</option>"
+                         });
+                         $("#ddl_Displacement").html(str);
+                        var sVal = data['result'][0]['x_id'];
+                        var data = {mlid:sVal,type:'date'};
+                        $.ajax({
+                            url:"{php echo $this->createPluginWebUrl('comeon/api',array('apido'=>'selectlieoe'))}",
+                            dataType:"json",type:"post",data:data,
+                            success:function(data){
+                                if(data.status == 1){
+                                    var str = '';
+                                    $.each(data.result,function(i,e){
+                                        str += "<option value='"+e.pai_id+"'>"+e.pai_name+"</option>"
+                                    });
+                                    $("#ddl_Date").html(str);
+                                }
+                            }
+                        });
+                     }
+                 }
+             });
+         });
+         //获取汽车品牌
+         $("#ddl_Displacement").change(function () {
+             var sVal = $("#ddl_Displacement option:selected").val();
+             var data = {mlid:sVal,type:'date'};
+             $.ajax({
+                 url:"{php echo $this->createPluginWebUrl('comeon/api',array('apido'=>'selectlieoe'))}",
+                 dataType:"json",type:"post",data:data,
+                 success:function(data){
+                     if(data.status == 1){
+                         var str = '';
+                         $.each(data.result,function(i,e){
+                             str += "<option value='"+e.pai_id+"'>"+e.pai_name+"</option>"
+                         });
+                         $("#ddl_Date").html(str);
+                     }
+                 }
+             });
+         });
+
+     });
+ </script>
+<script language='javascript'>
+    var kw = 1;
+    function addType() {
+        $(".btn-add-type").button("loading");
+        $.ajax({
+            url: "{php echo $this->createPluginWebUrl('comeon/temp',array('op'=>'addtype','addt'=>'type'))}&kw="+kw,
+            cache: false
+        }).done(function (html) {
+            $(".btn-add-type").button("reset");
+            $("#type-items").append(html);
+        });
+        kw++;
+    }
+    
+    function removeType(obj) {
+        $(obj).parent().remove();
+    } 
+    
+    $('form').submit(function(){
+        var check = true;
+        $("input[type=text]").each(function(){
+            var val = $(this).val();
+            if(!val){
+                Tip.focus($(this),'不能为空!');
+                check =false;
+                return false;
+            }
+        });
+        if(!check){return false;}
+        var o={}; // 判断重复
+        $("input[mk=1]").each(function(){
+            if(!(o[$(this).val()])){
+                o[$(this).val()] = true;
+            }else{
+                var val = $(this).val();
+                $("input[mk=1]").each(function(){
+                   if($(this).val()==val){
+                       $(this).css("border-color","#f01");
+                   }else{
+                       $(this).css("border-color","#ccc");
+                   }
+                });
+                alert("啊哦，红圈里的数据 不能重复哦~！");
+                check =false;
+                return false;
+            }
+        });
+        if(!check){return false;}
+        return check;
+    });
+ 
+    </script>
+
+{elseif $operation == 'display'}
+        <!-- 筛选区域 -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        直接连接 <span class="text-muted">直接进入的URL</span>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">直接URL</label>
+            <div class="col-sm-9 col-xs-12 ">
+                <input type="text" class="form-control" readonly="readonly" value=" {php echo $this->createPluginMobileUrl('comeon/index',array('cate'=>$item['id']))}" />
+						<span class="help-block">
+							<strong>直接指向到入口的URL。您可以在自定义菜单（有oAuth权限）或是其它位置直接使用。</strong>
+						</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class='panel panel-default'>
+            <div class='panel-heading'> 汽车加油列表</div>
+            <div class='panel-body'>
+                {if empty($items)}
+                    {if empty($_GPC['keyword'])}
+                        <p style="line-height: 40px;">还没有添加加油助手哦~</p>
+                    {else}
+                        <p style="line-height: 40px;">未检索到与“{$_GPC['id']}”相关的助手</p>
+                    {/if}
+                {else}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style='width:100px;'>ID</th>
+                                <th >自动变速箱 </th>
+                                <th >加注量(机器更换)</th>
+                                <th >型号</th>
+                                <th >原厂标准</th>
+                                <th >行驶里程10万以下</th>
+                                <th style="width:200px">详情</th>
+                                <th >操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {loop $items $item}
+                                <tr>
+                                    <td>{$item['id']}</td>
+                                    <td><label class='label label-primary'></label> {$item['box']}</td>
+                                    <td><label class='label label-primary'></label> {$item['amount']}</td>
+                                    <td><label class='label label-primary'></label> {$item['xinghao']}</td>
+                                    <td><label class='label label-primary'></label> {$item['biaozhun']}</td>
+                                    <td><label class='label label-primary'></label> {$item['mileage']}</td>
+                                    <td>
+                                        {ifp 'comeon.data.view'}
+                                        <a href="{php echo $this->createPluginWebUrl('comeon/data', array('id'=>$item['id']))}" title="点击查看/编辑">详细</a>
+                                        {else}
+                                        {/if}
+                                    </td>
+                                    <td>
+                                        {ifp 'comeon.temp.edit|comeon.temp.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon/temp', array('op' => 'post','cat_id'=>$item['cat_id'], 'id' => $item['id']))}"><i class='fa fa-edit'></i></a>{/if}
+                                        {ifp 'comeon.data.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon/data', array('id' => $item['id'],'cat_id'=>$item['id']))}" title='查看已有数据'><i class='fa fa-list'></i></a>{/if}
+                                        {ifp 'comeon.temp.edit'}<a class='btn btn-default'  href="{php echo $this->createPluginWebUrl('comeon/temp', array('op' => 'delete', 'id' => $item['id']))}" onclick="return confirm('确认删除此加油助手吗？');return false;" title='删除助手'><i class='fa fa-remove'></i></a>{/if}
+                                    </td>
+                                </tr>
+                            {/loop}
+                            {if !empty($pager)}
+                                <tr>
+                                    <td colspan="4">{$pager} </td>
+                                </tr>
+                            {/if}
+                        </tbody>
+                    </table>
+                </div>
+            {/if}
+            {ifp 'comeon.temp.add'}
+                <div class='panel-footer'>
+                    <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon/temp', array('op' => 'post'))}"><i class="fa fa-plus"></i> 添加加油助手</a>
+                    <span style="line-height:32px;background-size:15839px; font-size:12px; margin-left: 10px;">温馨提示：点击数据可以查看与编辑哦~~</span>
+                </div>
+            {/if}
+        </div>
+ 
+{else if $operation == 'addtype'}
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label" ><span style='color:red'>*</span></label>
+                    <div class="col-sm-9 col-xs-12" style="width:5%">
+                        <a class="btn btn-default" href='javascript:;' onclick='removeType(this)'><i class='icon icon-remove fa fa-times'></i> 删除</a>
+                    </div>
+                    <div class="col-sm-9 col-xs-12" style="width:15%">
+                        <input type="text" name="tp_kw[]" class="form-control" value="{$group['groupname']}" placeholder="键值，例：keywords{$kw}" />
+                    </div>
+                    <div class="col-sm-9 col-xs-12" style="width:40%">
+                        <input type="text" name="tp_value[]" class="form-control" value="{$group['groupname']}" placeholder="请在此输入对应的值" />
+                    </div>
+                    <div class="col-sm-9 col-xs-12" style="width:30%; ">
+                        {php echo tpl_form_field_color('tp_color[]', $value=$settings['maincolor'])}
+                    </div>
+                </div>
+{elseif $operation == 'postdata'}
+    <form id="dataform" action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <div class='panel panel-default'>
+            <div class='panel-heading'>{if empty($_GPC['id'])}添加数据 (模板id:{$_GPC['typeid']}){else}编辑数据 (模板id:{$_GPC['typeid']} 数据id:{$_GPC['id']}){/if}</div>
+            <input type="hidden" name="typeid" value="{$item['id']}"/>
+            <div class='panel-body'>
+                <div class="alert alert-danger">{if empty($_GPC['id'])}您正在向模板:“{$item['title']} (id:{$item['id']})” 添加数据{else}您正在编辑模板id:{$_GPC['typeid']}数据id:{$_GPC['id']}的内容{/if}<br>Tips:主键自动填充只适用于以下格式：10000001(纯数字)、C00000001(一位字母开头的数字) 其他格式请手动填写或者Excel导入。</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            {loop $item['fields'] $fields}
+                            <th>{$fields['name']} ({$fields['keyword']}) {if $fields['keyword']=='key'}主键 {if empty($_GPC['id'])}<a style="float: right;" href="javascript:;" onclick="autonum()">自动填充</a>{/if}{/if}</th>
+                            {/loop}
+                            <th style="width: 50px;">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="type-items">
+                        {template 'tp_data'}
+                    </tbody>
+                </table>
+                {if empty($_GPC['id'])}
+                    <div class="input-group " style="width:260px; float: left; margin-left: 8px;">
+                        <span class="input-group-addon">增加</span>
+                        <input type="text" name="numlist" value="1" class="form-control" style="padding:0px; text-align: center;">
+                        <span class="input-group-addon" style="border-left: 0px;">条数据</span>
+                        <span class="btn btn-default btn-add-type btn-add-type2" style="float: left; border-radius: 0px 4px 4px 0px; border-left: 0px;" onclick="addType();"><i class="fa fa-plus" title="" ></i> 确认增加</span>
+                    </div> 
+                    <div class="col-sm-9 col-xs-12" style="float: left; width: auto; ">
+                            <a class="btn btn-default btn-add-type" href="javascript:;" onclick="autonum()" style="margin-right: 10px;"><i class="fa fa-angle-double-down" title=""></i> 主键自动填充</a>
+                            <a class="btn btn-primary" href="javascript:;" style="margin-right: 10px;" onclick="$('#modal-import').modal()"><i class="fa fa-plus" title=""></i> Excel导入</a>
+                            <a class="btn btn-primary" href="{php echo $this->createPluginWebUrl('comeon/import',array('op'=>'temp','id'=>$item['id']))}" style="margin-right: 10px;" ><i class="fa fa-download" title=""></i> 下载Excel模板文件</a>
+                    </div>
+                {/if}
+            </div>
+            {ifp 'comeon.temp.add'}
+                <div class='panel-footer' style="height:auto; overflow: hidden;">
+                    <input type="submit" name="submit" value="保存数据" class="btn btn-primary col-lg-1"  />
+                    <a class="btn btn-default btn-add-type" href="{php echo $this->createPluginWebUrl('comeon',array('op'=>'list','typeid'=>$item['id']))}" style="margin-left: 10px;"><i class="fa fa-list" title=""></i> 查看已有数据</a>
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            {/if}
+        </div>
+    </form>
+
+        <div id="modal-import" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="width:600px;margin:0px auto;">
+                 <form id="importform" class="form-horizontal form" action="{php echo $this->createPluginWebUrl('comeon/import')}" method="post" enctype="multipart/form-data">
+                <input type='hidden' name='typeid' value="{$item['id']}" />
+                <input type='hidden' name='op' value='import' />
+                     
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h3>上传数据</h3>
+                    </div>
+                    <div class="modal-body">
+                          <div class="form-group">
+                            <label class="col-xs-12 col-sm-3 col-md-2 control-label" style='width: 150px'>选择EXCEL:</label>
+                            <div class="col-sm-9 col-xs-12" style='width: 380px'>
+                                   <input type="file" name="excelfile" class="form-control" />
+                            </div>
+                            <label class="col-xs-12 col-sm-3 col-md-2 control-label" style='width: 150px'>注意:</label>
+                            <div class="col-sm-9 col-xs-12" style='width: 380px'>
+                                <span style="line-height: 36px; font-size: 12px;">如果遇到数据重复则将进行数据更新（在数据未使用的情况下）</span>
+                            </div>
+                        </div>
+                        <div id="module-menus"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary span2" name="cancelsend" value="yes">确认导入</button>
+                        <a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a>
+                    </div>
+                </div>
+            </div>
+                </form>
+        </div>
+<script language='javascript'>
+$(function(){
+    
+    $('#importform').submit(function(){
+        if(!$(":input[name=excelfile]").val()){
+            alert("您还未选择Excel文件哦~");
+            return false;
+        }
+    })
+
+    $('#dataform').submit(function(){
+        var check = true;
+        $("input[type=text]").each(function(){
+            var val = $(this).val();
+            if(!val){
+                Tip.focus($(this),'不能为空!');
+                check =false;
+                return false;
+            }
+        });
+        if(!check){return false;}
+        var o={}; // 判断重复
+        $("input[mk=1]").each(function(){
+            if(!(o[$(this).val()])){
+                o[$(this).val()] = true;
+            }else{
+                var val = $(this).val();
+                $("input[mk=1]").each(function(){
+                   if($(this).val()==val){
+                       $(this).css("border-color","#f01");
+                   }else{
+                       $(this).css("border-color","#ccc");
+                   }
+                });
+                alert("啊哦，红圈里的数据 不能重复哦~！");
+                check =false;
+                return false;
+            }
+        });
+        if(!check){return false;}
+        return check;
+    });
+})
+    var kw = 1;
+    function addType() {
+        numlist = $("input[name=numlist]").val();
+        if(numlist>50){
+            alert("每次最多增加50条数据哦~");
+            return false;
+        }
+        $(".btn-add-type2").button("loading");
+        $.ajax({
+            url: "{php echo $this->createPluginWebUrl('virtual',array('op'=>'addtype','addt'=>'data','typeid'=>$_GPC['typeid']))}&kw="+kw+"&numlist="+numlist,
+            cache: false
+        }).done(function (html) {
+            $(".btn-add-type2").button("reset");
+            $("#type-items").append(html);
+        });
+        kw++;
+    }    
+    function removeType(obj) {
+        $(obj).parent().parent().remove();
+    } 
+    
+    function autonum(){
+        var val = $("input[mk=1]").val();
+        var num =val.replace(/[^0-9]/,'')
+        var num2 = 1+num;
+        var eng = val.replace(num,'');
+        
+        
+        if(!val){
+            Tip.focus($("input[mk=1]"),'请先录入一个值!');
+            reurun;
+        }
+        $("input[mk=1]").each(function(i){
+            if(i>0){
+                vval = 1+parseInt(num2)+i;
+                str= ""+vval;
+                str = str.substring(1,str.length)
+                $(this).val(eng+str);
+            }
+        });
+    }
+</script>
+
+{elseif $operation == 'list'}
+        <!-- 筛选区域 -->
+        <div class="panel panel-info">
+            <div class="panel-heading">筛选</div>
+            <div class="panel-body">
+                <form action="./index.php" method="get" class="form-horizontal" role="form">
+                    <input type="hidden" name="c" value="site" />
+                    <input type="hidden" name="a" value="entry" />
+                    <input type="hidden" name="m" value="sz_yi" />
+                    <input type="hidden" name="do" value="plugin" />
+                    <input type="hidden" name="p" value="virtual" />
+                    <input type="hidden" name="op" value="list" />
+                    <input type="hidden" name="typeid" value="{$type['id']}" />
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">关键字</label>
+                        <div class="col-sm-8 col-lg-9">
+                            <input class="form-control" name="keyword" id="" type="text" value="{$_GPC['keyword']}" placeholder="请输入主键(key)进行搜索">
+                        </div>
+                        <div class=" col-xs-12 col-sm-2 col-lg-2">
+                            <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class='panel panel-default'>
+            <div class='panel-heading'> 数据列表(总数:{$total}; 模板名称:{$type['title']})</div>
+            <div class='panel-body'>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style='width:50px;'>编号</th>
+                            {php $colsoan=0}
+                            {loop $type['fields'] $fields}
+                                <th style='text-align: center;'>{$fields['name']} ({$fields['keyword']}) {php $colspan++}</th>
+                            {/loop}
+                            <th style='text-align: center;'>状态</th>
+                            <th>购买者</th>
+                            <th>购买时间</th>
+                            <th>订单号</th>
+                            <th>购买价格</th>
+                            <th>辑编 / 删除</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {loop $items $item}
+                            <tr>
+                                <td>{$item['id']}</td>
+                                {php $datas = json_decode($item['fields'],ture)}
+                                {loop $datas $data}
+                                    <td style='text-align: center;'>
+                                        <?php foreach($data as $key => $val){ echo '<p style="padding:0px; margin:0px; width:auto;" title="'.$data[$key].'">'.$data[$key].'</p>'; } ?>
+                                    </td>
+                                {/loop}
+                                <td style='width:60px; text-align: center'>
+                                    {if empty($item['openid'])}<span style="color:green">未使用</span>{else}<span style="color:red;">已使用</span>{/if}
+                                </td>
+                                <td>
+                                    {if empty($item['openid'])}<span style="width: 100%">-</span>{else}<p style="padding:0px; margin:0px; width:auto;" title="{$item['openid']}">{$item['openid']}</p>{/if}
+                                </td>
+                                <td>
+                                    {if empty($item['openid'])}<span style="width: 100%">-</span>{else}{$item['usetime']}{/if}
+                                </td>
+                                <td>
+                                    {if empty($item['openid'])}<span style="width: 100%">-</span>{else}{$item['orderid']}{/if}
+                                </td>
+                                <td>
+                                    {if empty($item['openid'])}<span style="width: 100%">-</span>{else}{$item['price']}{/if}
+                                </td>
+                                <td>
+                                    {if empty($item['openid'])}
+                                        {ifp 'comeon.temp.edit|comeon.temp.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon', array('op' => 'postdata', 'id' => $item['id'],'typeid'=>$item['typeid']))}" title="{ifp 'comeon.temp.edit'}编辑{else}查看{/if}"><i class='fa fa-edit'></i></a>{/if}
+                                        {ifp 'comeon.temp.edit'}<a class='btn btn-default'  href="{php echo $this->createPluginWebUrl('comeon', array('op' => 'deletedata','typeid'=>$item['typeid'],'id' => $item['id']))}" onclick="return confirm('确认删除此条数据吗？');return false;" title='删除'><i class='fa fa-remove'></i></a>{/if}
+                                    {else}
+                                        <span style="width: 100%;">-</span>
+                                    {/if}
+                                </td>
+                            </tr>
+                        {/loop}
+                        {if !empty($pager)}
+                            <tr>
+                                <td colspan="{php echo $colspan+7}">{$pager}</td>
+                            </tr>
+                        {/if}
+                    </tbody>
+                </table>
+            </div>
+            <div class='panel-footer'>
+                    <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon')}"><i class="fa fa-reply"></i> 返回列表</a> 
+                    <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('comeon', array('op' => 'postdata','typeid'=>$_GPC['typeid']))}"><i class="fa fa-plus"></i> 添加数据</a>
+            </div>
+        </div>
+ 
+{/if}
+{template 'web/_footer'}

@@ -1,0 +1,194 @@
+{template 'common/header'}
+<title>商品投诉</title>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/detailad.css" />
+
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/mediaelementplayer.min.css" />
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/mediaelement-and-player.min.js"></script> -->
+<style type="text/css">
+  .mui-slider-item {
+    white-space:nowrap;
+       overflow:hidden;
+  }
+  .mui-slider-item a{
+    white-space:nowrap;
+       overflow:hidden;
+  }
+  .mui-slider-item img{
+     max-height:200px;
+     vertical-align:middle;
+     
+  }
+  
+</style>
+<div class="report-page" style="left: 0px;">
+
+    <div class="page_topbar">
+
+        <a href="javascript:;" onclick="history.go(-1)"  class="back"><i class="fa fa-angle-left"></i></a>
+
+        <div class="title mark-step">举报</div>
+
+    </div>
+
+    <div class="mui-content report-type-box">
+
+    <ul class="mui-table-view mui-table-view-radio">
+
+      {loop $list $k $v}
+      <!-- <li class="mui-table-view-cell"> -->
+
+        <!-- <a class="mui-navigate-right report-type" data-rtype="{$v['id']} "><!-- data-rtype 举报类型-->
+              
+   
+        <!-- </a> -->
+
+      <!-- </li> -->
+
+      <div class="mui-input-row mui-checkbox" style="height: 40px;">
+          <label style="text-align: 40px;">{$v['title']} </label>
+          <input name="checkbox1" value="{$v['id']}" type="checkbox" checked>
+     </div>
+      {/loop}
+
+      <div class="mui-input-row mui-checkbox" style="height: 40px;">
+          <label style="text-align: 40px;">其他原因 </label>
+          <input name="checkbox1" value="{$v['id']}" type="checkbox" checked>
+     </div>
+
+      
+      <li class="mui-table-view-cell">
+
+        <a class="mui-navigate-right report-type other-report-type" data-rtype="7"><!-- data-rtype 举报类型-->
+
+          其他原因    
+
+        </a>
+
+      </li>
+
+      
+      
+    </ul>
+
+  </div>
+
+  <div class="other-reason-box">
+
+    <textarea name="other_reason_content" class="other-reason-content" placeholder="请输入其他原因,最多50个字" maxlength="50" disabled="disabled"></textarea>
+
+  </div>
+
+    <div class="report-confirm-btn">提交</div>
+
+    <input type="hidden" name="adid" id="adid_input" value="{$_GPC['id']}"><!-- 商品id -->
+
+    <input type="hidden" name="uid" id="uid_input" value="{$_GPC['openid']}"> <!-- 用户id -->
+
+</div>
+
+<script type="text/javascript">
+  
+//   $('.report-confirm-btn').unbind('click').click(function(){
+
+//                     var $report_dom = $(".report-page .mui-selected .report-type");
+
+//                     if($report_dom.length == 0){
+
+//                       core.tip.show('请选择举报类型');
+
+//                       return false;
+
+//                     }else{
+
+//                       var report_type = $report_dom.data("rtype");
+
+//                       if($report_dom.hasClass("other-report-type") && $(".other-reason-content").isEmpty()){
+
+//               core.tip.show("请填写其他原因");
+
+//               return false;
+
+//             }
+
+//                       //只有选择其他原因的时候，才可以并且必须填写其他原因内容
+
+//                       var content = $(".other-reason-content").val();
+
+//                       if(!$report_dom.hasClass("other-report-type")){
+
+//               content = "";
+
+//             }
+
+//                       //获取广告id 
+
+//                       var adid = $("#adid_input").val();
+
+//                       //获取商家id
+
+//                       var uid = $("#uid_input").val();
+
+//                       //提交举报 提交数据包括(举报类型 举报原因内容 举报广告 举报商家) 
+
+//                       core.json('barter/ad', {op:'report',id:'{$_GPC["id"]}',uid: uid, report_type: report_type, content:content}, function (json) {
+
+//                 //json.result.status == 1 代表举报成功成功
+
+//                 if(json.status == 1){
+
+//                   //举报成功执行的代码
+
+//                   core.tip.show(json.result);
+
+//                   setTimeout(function(){
+
+//                     location.reload();
+
+//                   },250);      
+
+//                 }else{    
+
+//                   //怎么这么奇怪啊
+
+//                   core.tip.show(json.result);
+
+//                 }
+
+//             }, true);
+
+//                     }
+
+//                 });
+
+//             });
+
+//             //监听举报类型选择
+
+//             document.querySelector('.report-page .mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+
+//               var $report_dom = $(".report-page .mui-selected .report-type");
+
+//         if($report_dom.hasClass("other-report-type")){
+
+//           $(".other-reason-content").attr("disabled",false);
+
+//         }else{
+
+//           $(".other-reason-content").attr("disabled",true);
+
+//         }
+
+//       });
+//     });
+// }
+
+
+</script>
+{template 'common/footer'}

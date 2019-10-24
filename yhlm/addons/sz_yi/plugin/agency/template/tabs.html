@@ -1,0 +1,11 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    <li {if $_GPC['method'] == 'bonus_for_agency'}class="active"{/if}>
+    	<a href="{php echo $this->createPluginWebUrl('agency/bonus_for_agency')}">分润查询for经济人</a>
+    </li>
+    <li {if $_GPC['method'] == 'staff'}class="active"{/if}>
+    	<a href="{php echo $this->createPluginWebUrl('agency/staff')}">员工管理</a>
+    </li>
+    
+</ul>
+</div>

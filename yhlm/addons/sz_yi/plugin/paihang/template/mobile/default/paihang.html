@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="../addons/sz_yi/static/css/font-awesome.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+        <meta name="format-detection" content="telephone=no" />
+        <script language="javascript" src="../addons/sz_yi/static/js/require.js"></script>
+        <script language="javascript" src="../addons/sz_yi/static/js/app/config.js?v=2"></script>
+        <script language="javascript" src="../addons/sz_yi/static/js/dist/jquery-1.11.1.min.js"></script>
+        <script language="javascript" src="../addons/sz_yi/static/js/dist/jquery.gcjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/static/css/style.css">
+    </head>
+    <body>
+
+<title>排行榜</title>
+<style type="text/css">
+    body {margin:0px; background:#eee; font-family:'微软雅黑'; -moz-appearance:none;}
+    .credit_list {height:40px; width:94%; background:#fff; padding:10px 3%;margin-top:5px;}
+    
+    .credit_list .info {height:40px; width:70%; float:left;  font-size:16px; color:#666; line-height:20px; text-align:left;}
+    .credit_list .info span {font-size:14px; color:#999;}
+    .credit_list .num {height:40px; border-left:1px solid #eaeaea; width:20%;line-height:40px; float:right; text-align:right; font-size:16px; color:#666;}
+    .credit_list .num span {font-size:14px; color:#999;}
+    .credit_tab {height:30px; margin:5px; border:1px solid #ff6801; border-radius:5px; overflow:hidden;font-size:13px;background:#fff;padding-right: -2px;}
+    .credit_nav {height:30px; width:50%;  background:#fff; color:#666; text-align:center; line-height:30px; float:left;}
+    .credit_navon {color:#fff; background:#ff6801;}
+    .credit_no {height:100px; width:100%; margin:50px 0px 60px; color:#ccc; font-size:12px; text-align:center;}
+    #credit_loading { padding:10px;color:#666;text-align: center;}
+    .table {}
+    .table td{padding:7px;text-align: center;}
+    .table th{border-bottom:1px solid gray;width:15%;padding:5px;}
+
+
+</style>
+<div class="page_topbar">
+    <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+    <div class="title">{$paihang['p_name']}</div>
+</div>
+<div class="" style="margin-top: 10px;margin-left: 10px">
+    {if $paihang['jifen'] == 1}
+    <div class="credit_nav {if $_GPC['type']==0}credit_navon{/if}" data-type='0' style="width:32%;border-right: 1px solid gray">{$paihang['j_name']}</div>
+    {/if}
+    {if $paihang['jifen'] == 0 && $paihang['xiaofei'] == 1}
+    <div class="credit_nav {if $_GPC['type']==0}credit_navon{/if}" data-type='0' style="width:32%;border-right: 1px solid gray">{$paihang['x_name']}</div>
+    {elseif $paihang['xiaofei'] == 1}
+    <div class="credit_nav {if $_GPC['type']==0}credit_navon{/if}" data-type='1' style="width:32%;border-right: 1px solid gray">{$paihang['x_name']}</div>
+    {/if}
+    {if $paihang['jifen'] == 0 && $paihang['xiaofei'] == 0 && $paihang['yongjin'] == 1}
+    <div class="credit_nav {if $_GPC['type']==0}credit_navon{/if}" data-type='0' style="width:32%">{$paihang['y_name']}</div>
+    {elseif $paihang['yongjin'] == 1 && $paihang['xiaofei'] == 1}
+    <div class="credit_nav {if $_GPC['type']==0}credit_navon{/if}" data-type='2' style="width:32%">{$paihang['y_name']}</div>
+    {elseif $paihang['yongjin'] == 1}
+    <div class="credit_nav {if $_GPC['type']==0}credit_navon{/if}" data-type='1' style="width:32%">{$paihang['y_name']}</div>
+    {/if}
+</div>
+<br>
+    <div  style="margin-top: 20px;width:100%">
+    <!-- <a href="{php echo $this->createPluginMobileUrl('paihang/paihang',array('cate'=>$item['id']))}">123</a> -->
+    
+    <table class="table" cellspacing="0">
+        
+    </table>
+    </div>
+
+<div id='container'></div>
+
+<script language="javascript">
+/*alert(window.location.href);*/
+    var sVal = $(".credit_navon").html();
+   
+
+    var data = {b_name:sVal,type:'ml'};
+    $.ajax({
+        url:"{php echo $this->createPluginMobileUrl('member/paihang', array('apido' => 'selectlist'))}",
+        dataType:"json",type:"post",data:data,
+        success:function(data){
+            console.log(data);
+            if(data.status == 1){
+                var str = '<thead><tr><th>排名</th><th>头像</th><th>昵称</th><th>积分</th></tr></thead><tbody>';
+                $.each(data.result,function(i,e){
+                   
+                    str += "<tr><td class='a_ls'>"+(i+1)+"</td><td><img src='"+e.avatar+"' width='50' height='50'></td><td>"+e.realname+"</td><td>"+e.credit1+"</td></tr></tbody>"
+                    
+                    
+                });
+                $("table").html(str);
+                
+            }
+            if(data.status == 2){
+
+                var str = '<thead><tr><th>排名</th><th>头像</th><th>昵称</th><th>消费</th></tr></thead><tbody>';
+                $.each(data.result,function(i,e){
+                   
+                    str += "<tr><td>"+(i+1)+"</td><td><img src='"+e.avatar+"' width='50' height='50'></td><td>"+e.realname+"</td><td>"+e['SUM(oldprice)']+"</td></tr></tbody>"
+                    
+                    
+                });
+                $("table").html(str);
+            }
+            if(data.status == 3){
+                var str = '<thead><tr><th>排名</th><th>头像</th><th>昵称</th><th>佣金</th></tr></thead><tbody>';
+                $.each(data.result,function(i,e){
+                   
+                    str += "<tr><td>"+(i+1)+"</td><td><img src='"+e.avatar+"' width='50' height='50'></td><td>"+e.realname+"</td><td>"+e.commission+"</td></tr></tbody>"
+                    
+                    
+                });
+                $("table").html(str);
+            }
+        }
+    });
+
+    var page = 1;
+    var scrolled = false;
+    var current_type = "{php echo intval($_GPC['type'])}";
+    require(['tpl', 'core'], function (tpl, core) {
+
+function bindScroller(){
+        var loaded = false;
+        var stop = true;
+  
+        $(window).scroll(function () {
+            if (loaded) {
+                return;
+            }
+            totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+            if ($(document).height() <= totalheight) {
+
+                if (stop == true) {
+                    stop = false; scrolled = true;
+                    $('#container').append('<div id="credit_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                    page++;
+                    core.json('member/log', {type:current_type,page: page}, function (json) {
+                        stop = true;
+                        $('#credit_loading').remove();
+                        $("#container").append(tpl('tpl_log', morejson.result));
+                        if (morejson.result.list.length < morejson.result.pagesize) {
+                            $("#container").append('<div id="credit_loading">已经加载完全部记录</div>');
+                            loaded = true;
+                            $(window).scroll = null;
+                            return;
+                        }
+                    }, true);
+                }
+            }
+        });
+}
+        function getLog(type) {
+            $('.credit_nav').removeClass('credit_navon');
+            $('.credit_nav[data-type=' + type + ']').addClass('credit_navon');
+        }
+        $('.credit_nav').unbind('click').click(function () {
+            page = 1; current_type = $(this).data('type')
+            getLog(current_type);
+            $("tbody").html("<tr></tr>");
+            $("thead").html("<tr></tr>");
+            var sVal = $(".credit_navon").html();
+       
+            var data = {b_name:sVal,type:'ml'};
+            $.ajax({
+                url:"{php echo $this->createMobileUrl('member/paihang',array('apido'=>'selectlist'))}",
+                dataType:"json",type:"post",data:data,
+                success:function(data){
+                    if(data.status == 1){
+                        var str = '<thead><tr><th>排名</th><th>头像</th><th>昵称</th><th>积分</th></tr></thead><tbody>';
+                        $.each(data.result,function(i,e){
+                           
+                            str += "<tr><td>"+(i+1)+"</td><td><img src='"+e.avatar+"' width='50' height='50'></td><td>"+e.realname+"</td><td>"+e.credit1+"</td></tr></tbody>"
+                            
+                            
+                        });
+                        $("table").html(str);
+                    }
+                    if(data.status == 2){
+                        var str = '<thead><tr><th>排名</th><th>头像</th><th>昵称</th><th>消费</th></tr></thead><tbody>';
+                        $.each(data.result,function(i,e){
+                           
+                            str += "<tr><td>"+(i+1)+"</td><td><img src='"+e.avatar+"' width='50' height='50'></td><td>"+e.realname+"</td><td>"+e['SUM(oldprice)']+"</td></tr></tbody>"
+                            
+                            
+                        });
+                        $("table").html(str);
+                    }
+                    if(data.status == 3){
+                        var str = '<thead><tr><th>排名</th><th>头像</th><th>昵称</th><th>佣金</th></tr></thead><tbody>';
+                        $.each(data.result,function(i,e){
+                           
+                            str += "<tr><td>"+(i+1)+"</td><td><img src='"+e.avatar+"' width='50' height='50'></td><td>"+e.realname+"</td><td></label>"+e.commission+"</td></tr></tbody>"
+                            
+                            
+                        });
+                        $("table").html(str);
+                    }
+                
+
+                }
+            });
+        });
+        getLog(current_type);
+    })
+</script>
+{php $show_footer=true}
+{template 'common/footer'}
+

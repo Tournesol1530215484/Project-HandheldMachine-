@@ -1,0 +1,564 @@
+{template 'common/header'}
+<title>
+    {if $_GPC['id']}
+        修改比赛
+    {else}
+        发布比赛
+    {/if}
+</title><!-- 或者修改比赛 用内置标签判断标题 两种标题(新增和修改页面共用)-->
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/baidu.js?'.time();?>"></script> 
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/jquery.form.js?'.time();?>"></script>
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/s.js?'.time();?>"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.picker.min.js"></script>
+<script type="text/javascript">
+    System.config({
+        map:{
+          systemJsText:'<?php echo MODULE_URL.'plugin/match/res/txt.js';?>',
+          systemJsCss:'<?php echo MODULE_URL.'plugin/match/res/css.js';?>',
+          systemJsJson:'<?php echo MODULE_URL.'plugin/match/res/json.js';?>'
+        },
+        baseURL: '<?php echo MODULE_URL.'plugin/match/res/';?>',
+    });
+    System['import']('<?php echo MODULE_URL.'plugin/match/res/css/mui.min.css!systemJsCss';?>').then(function (a){});
+    System['import']('<?php echo MODULE_URL.'plugin/match/res/css/mui.picker.min.css!systemJsCss';?>').then(function (a){});
+    System['import']('<?php echo MODULE_URL.'plugin/match/res/css/matchadd.css!systemJsCss';?>').then(function (a){});
+</script>
+
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <form method="post" enctype="multipart/form-data" id="showDataForm" class="mui-input-group mui-input-group-no-bgcl">
+            <div class="customer_top">
+                <div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+                <div class="title1">{if $_GPC['id']}修改比赛{else}发布比赛{/if}</div><!-- 或者修改比赛 用内置标签判断标题 两种标题(新增和修改页面共用)-->
+            </div>
+            <div class="help-box">注: *如需上传视频音乐或者专业排版请登陆网页版后台</div>
+            <div class="activity-info">
+                <ul>
+
+                    {if false}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">发布状态</div>
+                        <div class="float-r info-value">
+                            <div class="mui-input-row mui-radio mui-left"> <!-- 默认存为草稿 1发布 2草稿-->
+                                <label class="normal-label">存为草稿</label>
+                                <input name="status" type="radio" value="2" <%if result.status == 2%>checked<%/if%> >
+                            </div>
+                            <div class="mui-input-row mui-radio mui-left">
+                                <label class="normal-label">正式发布</label>
+                                <input name="status" type="radio" value="1" <%if result.status == 1%>checked<%else if result.status ==2%><%else%>checked<%/if%> >
+                            </div>
+                        </div>
+                    </li>           
+                    {/if}
+                 
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">比赛标题</div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="title" value="<%result.title%>" placeholder="比赛标题" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">联系方式 </div>
+                        <div class="float-r info-value">
+                            {if false}
+                            <textarea class="whole-textarea" placeholder="联系方式/最多60字" name="desc" maxlength="60" rows="2"><%result.contact%></textarea>
+                            {/if}
+                            <input class="whole-input" type="text" name="desc" value="<%result.contact%>" placeholder="联系方式" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">开始时间 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input stime" id="stime" type="text" name="stime" value="<%result.stime%>" placeholder="开始时间" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">结束时间 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input etime" id="etime" type="text" name="etime" value="<%result.etime%>" placeholder="结束时间" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">比赛类别 </div>
+                        <!-- 内置标签循环比赛类别 name="cate"时就不显示第一项 要写成reside[cate]才会显示 -->
+                        <div class="float-r info-value activity-type-box">
+                            <select class="select sel-select1 whole-select" name="reside[cate]">
+                                <option class="cate-item" value="">请选择比赛类别</option>
+                                <!-- 这里循环比赛类别 if修改时判断存储的比赛类别 再选中 -->
+                                {loop $cate $k $v}
+                                <option class="cate-item" <%if result.cate == {$v['id']}%>selected<%/if%> id="adcate{$v['id']}" value="{$v['id']}" >{$v['title']}</option>
+                                {/loop}
+                            </select>           
+                        </div>
+                    </li>
+
+                    {if false}
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">是否启用团队模式</div>
+                        <div class="float-r float-r5 info-value "><!--text-right 状态 0否  1是-->
+                            <!-- <div class="mui-switch mui-switch-mini float-r-switch <%if result.teamModel == 1%>mui-active<%else%><%/if%>" id="group-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if result.teamModel == 1%>1<%else%>0<%/if%>" type="hidden" name="teamModel" id="groupmode"> -->
+                            <div class="flex-center radio-box">
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">否</label>
+                                    <input name="teamModel" type="radio" value="0" <%if result.teamModel == 0%>checked<%else if result.teamModel ==1%><%else%>checked<%/if%> >
+                                </div>
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">是</label>
+                                    <input name="teamModel" type="radio" value="1" <%if result.teamModel == 1%>checked<%/if%> >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {/if}
+
+                    <li class="info-item info-item-address clearfloat">
+                        <div class="float-l info-tag">比赛地点 </div>
+                        <div class="float-r info-value">
+                            <select name="reside[province]" id="sel-provance" onChange="selectCity();" class="select sel-select">
+                                <option value="" selected="true">省/直辖市</option>
+                            </select>
+                            <select name="reside[city]" id="sel-city" onChange="selectcounty()" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                            <select name="reside[district]" id="sel-area" class="select sel-select" style="display: none;">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                        </div>
+                    </li>                   
+
+                    {if false}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">发布状态</div>
+                        <div class="float-r info-value">
+                            <div class="mui-input-row mui-radio mui-left"> <!-- 默认存为草稿 1发布 2草稿-->
+                                <label class="normal-label">存为草稿</label>
+                                <input name="status" type="radio" value="2" <%if result.status == 2%>checked<%/if%> >
+                            </div>
+                            <div class="mui-input-row mui-radio mui-left">
+                                <label class="normal-label">正式发布</label>
+                                <input name="status" type="radio" value="1" <%if result.status == 1%>checked<%else if result.status ==2%><%else%>checked<%/if%> >
+                            </div>
+                        </div>
+                    </li>
+                    {/if}
+                    <!-- 封面图 -->
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="help-box">注: 封面图规格必须一样，建议尺寸: 640 * 640 ，或正方型图片</div>
+                        <%each result.thumbs as img%>           
+                            <div class="img-container">                         
+                                <div class="img-box">           
+                                    <i></i><img src="<%img[1]%>" style="width:100%; height:100%;">           
+                                        <div style="position:absolute; top:-10%; left:-10%;" onclick="$(this).parent().parent().remove();">X</div>
+                                        <input type="text" name="file1[]" value="<%img[0]%>" style="display:none;" readonly="readonly">       
+                                </div>
+                            </div>                                                                                                              
+                        <%/each%>
+                        <div id="upload-img-box1" class="upload-img-box">
+                            <div class="btn-icon">+</div>
+                            <div class="btn-tag btn-tag2">封面图</div>
+                            <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" value="BusinessLicensePic" />
+                        </div>
+                    </li>   
+                    <!-- 比赛详情赋值这里 html代码 -->
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">比赛详情 </div>
+                        <div class="add-picture">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <button class="add-picture-btn">添加图片</button>
+                            <input class="add-picture-input" type="file" id="imgfile" name="details_describe">
+                        </div>
+                        <!-- 比赛详情赋值这里 html代码应该不能用异步获取的字符串,需要jquery来实现  jquery已做处理-->
+                        <div class="float-r float-whole info-value activity-detail-box">
+                            <div contenteditable="true" id="activity-detail" class="msbox" style="-webkit-user-select:auto;">
+                            </div>
+                            <textarea name="content" type="text/plain" style="height: 200px; display: none;"><%result.content%></textarea>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="help-box">注: *如需上传视频音乐或者专业排版请登陆网页版后台</div>
+            <div class="footer flex-center">
+                {if false}
+                <div class="post-btn" onclick='a(2);' style="background: #9c9fa0;">存草稿</div>
+                {/if}
+                <div class="post-btn" onclick='a(1);'>发布</div>
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </form>
+    </div>
+</script>
+<script type="text/html" id="tpl-img-box1">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" class="minus" data-img="<%=data.img[0]%>">X</div>
+           <input type="text" name="file1[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+<script type="text/html" id="tpl-loading">
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+         <img src="<?php echo MODULE_URL.'plugin/suppliermenu/res/loading.gif?'.time();?>"/>
+    </div>
+</script>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        core.pjson('match/match', {op:'add',ac:'get',id:'{$_GPC['id']}'}, function(json) {
+            $('body').append(tpl('tpl-big-body',json));                        
+            //初始化区域插件
+            //cascdeInit(json.result.province,json.result.city,json.result.district);
+            cascdeInit(json.result.province,json.result.city,json.result.area);
+            //初始化比赛详情编辑器
+            $('#activity-detail').html( $('textarea[name=\''+'content'+'\']').val());
+            //初始化时间插件
+            var $startbtn = document.getElementById('stime');
+            var $endbtn = document.getElementById('etime');
+            $startbtn.addEventListener('tap', function() {
+                var _self = this;
+                var option = {
+                    type: "datetime",//设置日历初始视图模式 完整日期视图(年月日时分)
+                    beginDate: new Date()//设置开始日期 
+                }; 
+                if($.trim($('.etime').val()).length != 0){
+                    //设置在已经选择结束时间后再重新选择开始时间 少一分钟
+                    option.endDate = new Date(new Date($('.etmie').val()).getTime() - 60*24);
+                }
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }else {
+                    var id = this.getAttribute('id');
+                    _self.picker = new mui.DtPicker(option);
+                    _self.picker.show(function(rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+            }, false);
+            $endbtn.addEventListener('tap', function() {
+                var _self = this;
+                var time_start = $startbtn.value;
+                if($.trim($('.stime').val()).length == 0){
+                    core.tip.show('请先选择开始时间');
+                    return false;
+                }
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }else {
+                    var id = this.getAttribute('id');
+                    _self.picker = new mui.DtPicker({
+                        type: "datetime",//设置日历初始视图模式 完整日期视图(年月日时分)
+                        beginDate: new Date(new Date(time_start).getTime() + 60*24)//设置开始日期 大一分钟
+                    });
+                    _self.picker.show(function(rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+            }, false);
+       }, true,true);
+    });
+</script>
+
+<script type="text/javascript">
+//防编辑器图片上传
+require(['tpl', 'core'], function(tpl, core) {
+    //比赛详情图片上传
+    $(document).on('change','#imgfile',function(){
+        core.loading('正在上传');
+        $.ajaxFileUpload({
+            url: core.getUrl('util/uploader'),
+            data: {file: "details_describe"},
+            secureuri: false, 
+            fileElementId: 'imgfile', 
+            dataType: 'json', 
+            success: function(res, status) {
+                console.log(res);
+                core.removeLoading();                                               
+                var img = document.createElement("img");
+                img.src = res.url;
+                $('#activity-detail').append(img);
+            },
+            error: function(data, status, e) {
+                core.removeLoading();
+                core.tip.show('上传失败!');
+            }
+        });
+    });
+})
+//上传图片
+function  handleFiles(q,id)
+{
+    var files =  q.files;
+    if(files.length){
+        for(var x =0 ;x<files.length;x++ ){
+            var file = files[x];
+            if(!/image\/\w+/.test(file.type)){
+                alert("文件必须为图片！"+file.type);
+                return ;
+            }
+        }
+        $.ajaxFileUpload({  
+            url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+            secureuri:false,  
+            fileElementId:$(q).attr('id'), //file的id  
+            dataType:"text", // 返回数据类型为文本  
+            success:function(data,status){  
+                console.log(data);
+                console.log(status);
+                var obj = JSON.parse(data);
+                for(var x in obj.result.url){
+                    $("#file"+id).parent().before(baidu.template('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+                }
+                //编辑状态下的初步加载图标不是真的删除,因为用户不一定保存编辑后的活动 
+                //增加删除服务器存储照片的功能,而不是简单地删除页面的dom元素,新增状态是真删或者编辑状态下新增的图片可真删
+                $('.minus').unbind("click").click(function() {
+                    var $reObj = $(this).parent().parent();
+                    var $curObj = $(this);
+                    require(['core'], function(core) {
+                        core.json('util/uploader', {op: 'remove', file: $curObj.data('img')}, function(rjson) {
+                            //删除成功
+                            if (rjson.status == 1) {
+                                console.log(rjson.status);
+                                $reObj.remove();
+                            }
+                        }, false, true);
+                    });
+                });   
+           }  
+        });
+    }
+}
+//提交比赛函数
+function a(status1){
+    require(['tpl', 'core'], function(tpl, core) { 
+        $('#big_body').append(tpl('tpl-loading'));
+
+        {if $_GPC['what'] == 1}
+
+        if($("input[name='title']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('比赛标题不能为空');
+            return;
+        }
+        // if($("textarea[name='desc']").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('联系方式不能为空');
+        //     return;
+        // }
+        if($("input[name='desc']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('联系方式不能为空');
+            return;
+        }
+        if($("input[name='stime']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('开始时间不能为空');
+            return;
+        }
+        if($("input[name='etime']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('结束时间不能为空');
+            return;
+        }
+        if($("select[name='reside[cate]']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('比赛类别不能为空');
+            return;
+        }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 start
+        // if($("input[name='teamModel']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('是否启用团队模式项目不能为空');
+        //     return;
+        // }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 end
+        //发布状态也可以不用判断,为空的话默认是正式发布
+        // if($("input[name='status']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('请选择发布状态');
+        //     return;
+        // }
+        if($("select[name='reside[province]']").val() == '请选择省份'){
+            $("#loading").remove();
+            core.tip.show('请选择省/直辖市');
+            return;
+        }
+        if($("select[name='reside[city]']").val() == '请选择城市'){
+            $("#loading").remove();
+            core.tip.show('请选择城市');
+            return;
+        }
+        /*if($("select[name='reside[district]']").val() == '请选择区域'){
+            $("#loading").remove();
+            core.tip.show('请选择区域');
+            return;
+        }*/
+        var files1 = new Array();
+        $("input[name='file1[]']").each(function(){
+            files1.push($(this).val());
+        });
+        if(files1.length == 0){
+            $("#loading").remove();
+            core.tip.show('封面图不能为空');
+            return;
+        }
+        //把比赛详情防编辑器里面的html内容扔回去给textarea
+        $('textarea[name=\''+'content'+'\']').val($('#activity-detail').html());
+        //获取textarea比赛详情内容进行判断
+        var details = $('textarea[name=\''+'content'+'\']').val();
+        if($.trim(details).length == 0){ 
+             $("#loading").remove();
+             core.tip.show('比赛详情不能为空');
+             return;
+        }
+        {else}
+        if($("input[name='title']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('比赛标题不能为空');
+            return;
+        }
+        // if($("textarea[name='desc']").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('联系方式不能为空');
+        //     return;
+        // }
+        if($("input[name='desc']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('联系方式不能为空');
+            return;
+        }
+        if($("input[name='stime']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('开始时间不能为空');
+            return;
+        }
+        if($("input[name='etime']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('结束时间不能为空');
+            return;
+        }
+        if($("select[name='reside[cate]']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('比赛类别不能为空');
+            return;
+        }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 start
+        // if($("input[name='teamModel']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('是否启用团队模式项目不能为空');
+        //     return;
+        // }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 end
+        //发布状态也可以不用判断,为空的话默认是正式发布
+        // if($("input[name='status']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('请选择发布状态');
+        //     return;
+        // }
+        if($("select[name='reside[province]']").val() == '请选择省份'){
+            $("#loading").remove();
+            core.tip.show('请选择省/直辖市');
+            return;
+        }
+        if($("select[name='reside[city]']").val() == '请选择城市'){
+            $("#loading").remove();
+            core.tip.show('请选择城市');
+            return;
+        }
+        /*if($("select[name='reside[district]']").val() == '请选择区域'){
+            $("#loading").remove();
+            core.tip.show('请选择区域');
+            return;
+        }*/
+        var files1 = new Array();
+        $("input[name='file1[]']").each(function(){
+            files1.push($(this).val());
+        });
+        if(files1.length == 0){
+            $("#loading").remove();
+            core.tip.show('封面图不能为空');
+            return;
+        }
+        //把比赛详情防编辑器里面的html内容扔回去给textarea
+        $('textarea[name=\''+'content'+'\']').val($('#activity-detail').html());
+        //获取textarea比赛详情内容进行判断
+        var details = $('textarea[name=\''+'content'+'\']').val();
+        if($.trim(details).length == 0){ 
+             $("#loading").remove();
+             core.tip.show('比赛详情不能为空');
+             return;
+        }
+        {/if}    
+        //提交数据   
+        var data = {};
+        {if $_GPC['id']}
+            data['title'] = {data:[$("input[name='title']").val()]};
+            //data['desc'] = {data:[$("textarea[name='desc']").val()]};
+            data['desc'] = {data:[$("input[name='desc']").val()]};
+            data['stime'] = {data:[$("input[name='stime']").val()]};
+            data['etime'] = {data:[$("input[name='etime']").val()]};
+            data['type'] = {data:[$("select[name='reside[cate]']").val()]};
+            //data['teamModel'] = {data:[$("input[name='teamModel']:checked").val()]};
+            data['status'] = {data:[status1]};//发布状态
+            data['province'] = {data:[$("select[name='reside[province]']").val()]};
+            data['city'] = {data:[$("select[name='reside[city]']").val()]};
+            //data['area'] = {data:[$("select[name='reside[district]']").val()]};
+            data['post1[]'] = {data:files1};
+            data['content'] = {data:[details]};      
+        {else}
+            data['title'] = {data:[$("input[name='title']").val()]};
+            //data['desc'] = {data:[$("textarea[name='desc']").val()]};
+            data['desc'] = {data:[$("input[name='desc']").val()]};
+            data['stime'] = {data:[$("input[name='stime']").val()]};
+            data['etime'] = {data:[$("input[name='etime']").val()]};
+            data['type'] = {data:[$("select[name='reside[cate]']").val()]};
+            //data['teamModel'] = {data:[$("input[name='teamModel']:checked").val()]};
+            data['status'] = {data:[status1]};//发布状态
+            data['province'] = {data:[$("select[name='reside[province]']").val()]};
+            data['city'] = {data:[$("select[name='reside[city]']").val()]};
+            //data['area'] = {data:[$("select[name='reside[district]']").val()]};
+            data['post1[]'] = {data:files1};
+            data['content'] = {data:[details]};
+        {/if}
+        
+        System['import']('<?php echo MODULE_URL.'plugin/match/res/js/FormData.js';?>').then(function (a){
+            var fd =  a.append( data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '<?php echo $this->createPluginMobileUrl('match/match',array( 'op'=>'add','ac'=>'sub','id'=>$_GPC['id'])) ;?>', true);
+            xhr.send(fd);                    
+            xhr.onreadystatechange=function(){
+              if (xhr.readyState==4 && xhr.status==200)
+              { 
+                    var obj = JSON.parse(xhr.responseText);
+                    if(obj.status == 1){
+                    	core.tip.show('提交成功');
+                    	setTimeout(function(){
+                    		location.href="{php echo $this->createPluginMobileUrl('match/match')}"; 
+                    	},250);
+                    }                    
+                    if(obj.status == 0){core.tip.show('提交失败');return;}
+              }
+            };
+            $("#loading").remove();         
+        });
+     });
+}
+</script>
+{template 'common/footer'}

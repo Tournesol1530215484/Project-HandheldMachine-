@@ -1,0 +1,74 @@
+html{
+    font-size: 10px;
+}
+body{
+    background: #efeff4;
+}
+.page_topbar{
+   background: #009BF8;
+}
+.page_topbar a.back{
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    padding-right: 15px;
+    color: #fff;
+}
+.page_topbar .title{
+    color: #fff;
+}
+/*flex居中*/
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.list-box{
+    background: #fff;
+    margin-top: 10px;
+}
+.no-list {
+    padding: 50px 10px;
+    text-align: center;
+    color: #999;
+}
+.list-box .list-ul .list-item{
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+.list-box .list-ul .list-item .record-box1,
+.list-box .list-ul .list-item .record-box2{
+    width: 50%;
+    font-size: 12px;
+}
+.list-box .list-ul .list-item .record-box2{
+    text-align: right;
+}
+.list-box .list-ul .list-item .record-box1 .user-tag{
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list-box .list-ul .list-item .record-box1 .time-tag{
+    font-size: 10px;
+}
+.list-box .list-ul .list-item .record-box2 .show-tag{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#list_loading{ 
+    width: 94%;
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}

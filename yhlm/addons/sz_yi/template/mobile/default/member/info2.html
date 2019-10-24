@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>海生防伪防窜货追溯系统</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="海生防伪">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="keywords" content="微信二维码防伪,微信公众号防伪,产品防伪系统,防窜货追溯系统,在线产品防伪查询,查询系统免费下载,防伪系统下载,移动电源防伪系统,防窜货系统,防伪系统定制,php+mysql产品防伪系统"/>
+<meta name="description" content="海生软件专业提供产品防伪查询系统定制开发,曾为多家中大型企业定制产品防伪系统,防窜货追溯系统,微信二维码防伪,移动电源防伪系统等.欢迎各界朋友咨询."/>
+<!--<link rel="stylesheet" href="http://www.fwxt.cn/weixin/public/css/weui.min.css"/>
+<link rel="stylesheet" href="http://www.fwxt.cn/weixin/public/css/iconfont/iconfont.css"/>
+<link rel="stylesheet" href="http://www.fwxt.cn/weixin/public/css/style.css"/>-->
+<link href="../addons/sz_yi/wxjs/css/weui.min.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="../addons/sz_yi/wxjs/css/iconfont/iconfont.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="../addons/sz_yi/wxjs/css/style.css" media="all" rel="stylesheet" type="text/css"/>
+</head>
+<body ontouchstart>
+<!--头部导航 开始-->
+<header class="bar bar-nav">
+  <h1 class="title">产品真伪追溯查询</h1>
+</header>
+<!--头部导航 结束--> 
+<!--主体部分 开始-->
+<div class="content"> 
+  <!--banner 开始-->
+  <div class="banner">
+    <div id="wrapper">
+      <div class="flicking_con"><a href="javascript:void(0)">1</a><a href="javascript:void(0)">2</a></div>
+      <div class="main_image">
+        <ul>
+          <li><span><a href="javascript:void(0)"><img src="http://www.fwxt.cn/upload/image/201608/20160823172521_43571.jpg"/></a></span></li>
+          <li><span><a href="javascript:void(0)"><img src="http://www.fwxt.cn/upload/image/201608/20160823172525_69787.jpg"/></a></span></li>
+        </ul>
+        <a href="javascript:;" id="btn_prev"></a><a href="javascript:;" id="btn_next"></a></div>
+    </div>
+  </div>
+  <!--banner 结束-->
+  <form id="reg">
+    <input type="hidden" id="newopenId" value="" />
+    <input type="hidden" id="query_type" value="0" />
+    <div class="result"><strong>三种查询方式：①网页输入防伪码查询，<strong>②</strong>扫描二维码直接验证(无需任何输入)，<strong>③</strong>关注微信公众号回复验证。</strong><a href="http://www.fwxt.cn/fangweixitong/147" target="_blank"><strong>详情点击&gt;&gt;</strong></a></div>
+    <div class="weui_cells weui_cells_form" >
+      <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+          <input type="text" class="weui_input" id="bianma" maxlength="32" onkeyup="this.value = this.value.toUpperCase();" placeholder="请输入防伪码或扫描二维码" style="width:80%; overflow:hidden" />
+          <div class="scan" onClick="ScanQR();"><i class="iconfont">&#xe651;</i><span>扫一扫</span></div>
+        </div>
+      </div>
+    </div>
+    <dd style="display:none">
+      <input name="validate" type="text" id="validate" value="" maxlength="4" placeholder="请输入验证码" />
+      <img src='http://www.fwxt.cn/include/vdimgck.php' alt="更换" id="yzm" onClick="this.src=this.src+'?'" /></dd>
+    <div class="weui_btn_area">
+      <input type="button" class="weui_btn weui_btn_primary btn" value="查询" />
+    </div>
+  </form>
+  <div id="msg"></div>
+  <div class="ts">本查询界面可任意免费定制</div>
+  <ul class="tabs" style="display:none">
+    <li><a href="javascript:void(0)" name=".tab1_1">产品详情</a></li>
+    <li><a href="javascript:void(0)" name=".tab1_2">溯源信息</a></li>
+    <li><a href="javascript:void(0)" name=".tab1_3">经销商信息</a></li>
+  </ul>
+  <div id="content">
+    <div id="detail" class="tab1_1"></div>
+    <div id="traces" class="tab1_2"></div>
+    <div id="infos" class="tab1_3"></div>
+  </div>
+</div>
+<!--主体部分 结束--> <!--底部固定导航 开始-->
+<div class="weui_tabbar"> <a id="about" href="/weixin/verify/about.php" class="weui_tabbar_item">
+  <div class="weui_tabbar_icon"><i class="iconfont">&#xe62a;</i></div>
+  <p class="weui_tabbar_label">关于</p>
+  </a> 
+  <!--<a href="index.php" class="weui_tabbar_item weui_bar_item_on">--> 
+  <a id="fw" href="/weixin/verify/" class="weui_tabbar_item">
+  <div class="weui_tabbar_icon"><i class="iconfont">&#xe613;</i></div>
+  <p class="weui_tabbar_label">防伪</p>
+  </a> <a id="jxs" href="/weixin/verify/jxs.php" class="weui_tabbar_item">
+  <div class="weui_tabbar_icon"><i class="iconfont">&#xe62e;</i></div>
+  <p class="weui_tabbar_label">经销商</p>
+  </a> <a href="tel:13826559696" class="weui_tabbar_item">
+  <div class="weui_tabbar_icon"><i class="iconfont">&#xe605;</i></div>
+  <p class="weui_tabbar_label">联系</p>
+  </a> </div>
+<!--底部固定导航 结束--> 
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js" type="text/javascript"></script> 
+<!--<script src="http://www.fwxt.cn/weixin/public/js/jquery.touchSlider.js" type="text/javascript" ></script>
+<script src="http://www.fwxt.cn/weixin/public/js/verify.js" type="text/javascript" ></script>-->
+<script src="../addons/sz_yi/wxjs/js/jquery.touchSlider.js" type="text/javascript"></script>
+<script src="../addons/sz_yi/wxjs/js/verify.js" type="text/javascript"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script>
+wx.config({debug: false,appId: "{$signPackage['appId']}",timestamp: "{$signPackage['timestamp']}",nonceStr: "{$signPackage['nonceStr']}",signature: "{$signPackage['signature']}",jsApiList: ['scanQRCode', 'previewImage']});
+	function ScanQR(){
+		jWeixin.scanQRCode({
+		    needResult: 1,
+		    scanType: ["qrCode"], 
+		    success: function (res) {
+		    	var result = res.resultStr; 
+				//var result =result.replace('EAN_8,','')
+				//var result =result.replace('EAN_13,','')
+				//var result =result.replace('CODE_39,','')
+				//var result =result.replace('CODE_93,','')
+				//var result =result.replace('CODE_128,','')
+				var result =result.replace('http://www.fwxt.cn/qcode/?p=','')
+				var result =result.replace('http://weixin.qq.com/r/eTmfh6nE_fSGre3k92xr-','')
+				$("#bianma").val(result);
+				$("#query_type").val("2");
+		$(".btn").click(); 
+			}
+		});
+	}</script>
+</body>
+</html>

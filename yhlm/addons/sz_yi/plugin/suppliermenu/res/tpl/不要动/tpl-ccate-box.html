@@ -1,0 +1,22 @@
+
+<script type="text/html" id="tpl-ccate-box">
+<div id="big_body" class="content"  style="position:fixed; z-index:100000; top:0px; left: 0px; height:1000px; background: #eee;">
+     <div id="header" style="background:#fff; color:#000;">
+           <table>
+               <tr>
+                   <th style="width:10%;  " align="center"  valign="center" onclick="   $(this).parents('.content').remove(); " ><</th>
+                   <th style="width:80%; " align="center" valign="center" >分类</th>
+                    <th style="width:10%;   background-size:20px 20px; " align="center" valign="center" > </th>
+               </tr>
+           </table>
+      </div>
+
+      <div class="box" style="background:rgba(0,0,0,0); padding:0px; margin: 0px; border-bottom:1px solid  rgba(221,221,221,1); overflow-y: auto; overflow-x: hidden;  ">
+          <ul style="float:left;width:100%;padding:0px;">
+            <%each list as l%>
+              <li class="cate-line" id="<%l.id%>" onclick="tcate(this); $('.content').remove(); $('#big_body').show();" ><%l.name%></li>
+            <%/each%>
+          </ul>
+      </div>
+</div>
+</script>

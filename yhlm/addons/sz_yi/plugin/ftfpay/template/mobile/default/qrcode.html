@@ -1,0 +1,9 @@
+{template 'common/header'}
+<!-- 二维码页面 -->
+<style>
+img{display: block;margin: 0 auto;width: 90%;}
+</style>
+<img src="{php echo $this->createPluginMobileUrl('ftfpay/index', array('op'=>'getqrcode'))}" alt="">
+<div class="" style="text-align:center;">{php echo $member[realname]?$member[realname]:$member[nickname]} 的二维码</div>
+{php $show_footer=true;}
+{template 'common/footer'}

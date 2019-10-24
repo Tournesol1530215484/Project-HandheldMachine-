@@ -1,0 +1,312 @@
+﻿{template 'common/header'}
+{if $operation != 'post'}
+{template 'goodtabs'}
+{/if}
+<script type="text/javascript" src="resource/js/lib/jquery-ui-1.10.3.min.js"></script>
+{if $operation == 'post'}
+{elseif $operation == 'display'}
+<div class="main rightlist">
+	<div class="panel panel-info">
+		<div class="panel-heading">筛选</div>
+		<div class="panel-body">
+			<form action="./index.php" method="get" class="form-horizontal" role="form">
+				<input type="hidden" name="c" value="site" />
+				<input type="hidden" name="a" value="entry" />
+				<input type="hidden" name="m" value="sz_yi" />
+				<input type="hidden" name="do" value="plugin" />
+				<input type="hidden" name="p"  value="agency" />
+				<input type="hidden" name="method"  value="consume" />
+				<input type="hidden" name="op" value="display" />
+				<div class="form-group">
+					<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+						<div class='input-group'>
+							<div class='input-group-addon'>消费编号</div>
+							<input class="form-control" name="goodssn" type="text" value="{$_GPC['goodssn']}">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+						<div class='input-group'>
+							<div class='input-group-addon'>商家名称</div> 
+							<input class="form-control" name="title" type="text" value="{$_GPC['title']}">
+						</div>
+					</div>
+
+					<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">  
+						<div class='input-group'>  
+							<div class='input-group-addon'>消费类型</div> 
+							<select name="status" class='form-control'>  
+								<option value="0" {if empty($_GPC['status'])} selected{/if}></option> 
+								<option value="1" {if $_GPC['status']== '1'} selected{/if}>出售中</option>
+								<option value="2" {if $_GPC['goodsStatus'] == '2'} selected{/if}>等待上架</option>
+								<option value="3" {if $_GPC['status'] == '3'} selected{/if}>审核中</option>
+								<option value="4" {if $_GPC['status'] == '4'} selected{/if}>审核失败</option>
+								<option value="5" {if $_GPC['status'] == '5'} selected{/if}>已下架</option>
+								<option value="6" {if $_GPC['status'] == '6'} selected{/if}>草稿箱</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
+						<div class='input-group'>
+							<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+						</div>
+					</div> 
+
+					<div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
+						<div class='input-group'> 
+							<button type="reset" class="btn btn-default"><i class="fa fa-remove"></i>清空</div></button>
+						</div>
+					</div>
+
+				</div>
+			</form>
+		</div>
+	</div>
+	<style>
+		.label{cursor:pointer; line-height: 2.5;}
+		.panel .table td, .panel .table th{ text-align: center; }
+	</style> 		 	 
+	
+	<form action="" method="post">
+		<div class="panel panel-default">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead class="navbar-inner">
+					<tr> 
+						<th width="14%">消费编号</th> 
+						<th width="14%">消费商家</th>
+						<th width="12%">消费类型</th>
+						<th width="12%">消费金额(元)</th> 
+						<th width="12%">消费时间</th>
+						<th width="12%">服务员工(消费产生时)</th>
+						<th width="12%">服务工号</th>
+						<th width="14%">操作</th>
+					</tr>   
+					</thead>
+					<tbody>
+					{loop $list $item}	 	 		  
+					<tr>
+						<td>{$item['ordersn']}</td>
+						<td title="{$item['merchname']}">
+							{$item['merchname']}
+						</td>
+						<td class='tdedit'>
+							{if $item['paytype'] == 1}
+								余额支付&nbsp;&nbsp;
+							{/if}
+							{if $item['paytype'] == 2}
+								在线支付
+							{/if}
+						</td> 
+						<td>
+							{$item['price']}
+						</td>
+						<td>
+							{php echo date('Y年m月d日 H点i分',$item['createtime'])}
+						</td>
+						<td>
+							{if $item['shelves'] == 1}
+								审核后上架
+							{else if $item['shelves'] == 2}
+								{php echo date('Y-m-d日 H:i:s',$item['startShelves'])}
+							{/if}
+						</td>
+						<td>
+							{$item['worknumber']}
+						</td>
+
+						<td style="position:relative;" class="myown" id="something">
+							{if false}
+							<a href="javascript:;" data-url="{php echo $this->createPluginMobileUrl('dealmerch/detail', array('id' => $item['id']))}"  title="复制连接" class="btn btn-default btn-sm js-clip" style="background-color: #ffb034;"><i class="fa fa-link" style="color: #fff;"></i></a>
+							{ifp 'shop.goods.edit|shop.goods.view'}
+							<a href="{php echo $this->createPluginWebUrl('agency/dealgoods', array('id' => $item['id'], 'op' => 'post'))}"class="btn btn-sm btn-default" title="{ifp 'shop.goods.edit'}编辑{else}查看{/if}" style="background-color: #ff5858;"><i class="fa fa-pencil" style="color: #fff;"></i></a>{/if}
+					
+						<!-- 调整库存 -->
+							<a href="javascript:;" id="changestack" onclick="getoption({$item['id']})" class="btn btn-sm btn-default" title="调整库存" style="background-color: #00ff7f;"><i class="fa fa-gears" style="color: #fff;"></i></a> 
+							<div id="only" style="display: none; ">
+									<div class="popup-wrapper" style="position: fixed; top:0; left:0; right:0; bottom:0; width:100%; text-align:center; height:100%; display: table; z-index: 1000;">
+											<div class="popup-shade" style="display: table-cell; vertical-align: middle; background-color: rgba(0,0,0,0.5); ">
+												<div class="content" style="width: 600px; height: 420px; margin: 0 auto;  background-color: #ffffff;">
+												</div>	
+											</div>
+									</div>
+							</div>
+						<!-- 调整库存 -->
+						
+							{ifp 'shop.goods.delete'}
+							<a href="{php echo $this->createPluginWebUrl('agency/dealgoods', array('id' => $item['id'], 'op' => 'delete'))}" onclick="return confirm('确认删除此消费？');return false;" class="btn btn-default  btn-sm" title="删除" style="background-color: #2d2d2d;"><i class="fa fa-times" style="color: #fff;"></i></a>{/if}
+							{/if}
+						</td>
+
+					</tr>
+					{/loop}
+					<tr>
+						<td colspan='10'>
+						
+							{ifp 'shop.goods.edit'} 
+							<input type="hidden" name="token" value="{$_W['token']}" />
+							{/if}
+						</td> 
+					</tr>
+					</tbody>
+				</table>
+				{$pager}
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+
+<div id="modal-module-menus" class="modal fade" tabindex="-1" aria-hidden="false" >
+	<div class="modal-dialog" style="width: 920px;">
+		<div class="modal-content">
+			<div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择兑换点</h3></div>
+			<div class="modal-body">
+
+			</div>
+			<div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+		</div>
+
+	</div>
+</div>
+
+<script type="text/javascript">
+
+
+
+    function getoption(id) {
+
+        //获取数据
+        $.ajax({
+            type: 'get',
+            url: "{php echo $this->createPluginWebUrl('agency/dealmerch_stockchange')}"+"&op=get&id="+id,
+            dataType:'json',
+            success: function(data) {
+                if (data.status == 0){
+                    alert(data.result);
+                    return false;
+                }
+
+                var html = '<table class="table table-hover" style="width: 100%;">';
+                html+='<tr><th style="width:25%">消费名</th><th style="width:25%">规格名</th><th style="width:25%">库存</th><th style="width:25%">操作</th></tr>';
+                for(var i in data.result){
+                    html+='<tr>';
+                    html+='<td>'+data.result[i].goodsname+'</td>';
+                    html+='<td>'+data.result[i].title+'</td>';
+                    html+='<td>'+data.result[i].stock+'</td>';
+                    html+='<td><button data-id="'+data.result[i].id+'" class="editstock btn btn-default">修改库存</button></td>';
+                    html+='</tr>';
+                }
+                html+='</table>';
+                $('#modal-module-menus').find('.modal-body').html(html);
+                $('#modal-module-menus').modal('show');
+            }
+        });
+    }
+
+
+    $('#modal-module-menus').on('click','.editstock',function(){
+        var num=prompt('请输入新库存');
+        var optionid=$(this).data('id');
+        if(num == 0 || num == null){
+            return false;
+        }
+
+        $.post(
+            "{php echo $this->createPluginWebUrl('agency/dealmerch_stockchange',array('op'=>'delete'))}",
+            {num:num,optionid:optionid},
+            function(data){
+                alert(data.result);				 	//直接返回string
+                $('#modal-module-menus').modal('hide');
+            },'json');
+    });
+
+	$('.fa-remove').click(function () {		/*清空*/
+		$('[name="goodssn"]').val('');
+		$('[name="title"]').val('');
+    });
+
+	function fastChange(id, type, value) {
+		$.ajax({
+			url: "{php echo $this->createWebUrl('shop/goods')}",
+			type: "post",
+			data: {op: 'change', id: id, type: type, value: value},
+			cache: false,
+			success: function () {
+
+			}
+		})
+	}
+	$(function () {
+		$("form").keypress(function(e) {
+			if (e.which == 13) {
+				return false;
+			}
+		});
+
+		$('.tdedit input').keydown(function (event) {
+			if (event.keyCode == 13) {
+				var group = $(this).closest('.input-group');
+				var type = group.find('button').data('type');
+				var goodsid = group.find('button').data('goodsid');
+				var val = $.trim($(this).val());
+				if(type=='title' && val==''){
+					return;
+				}
+				group.prev().show().find('span').html(val);
+				group.hide();
+				fastChange(goodsid,type,val);
+			}
+		})
+		$('.tdedit').mouseover(function () {
+			$(this).find('.fa-pencil').show();
+		}).mouseout(function () {
+			$(this).find('.fa-pencil').hide();
+		});
+		$('.fa-edit-item').click(function () {
+			var group = $(this).closest('span').hide().next();
+
+			group.show().find('button').unbind('click').click(function () {
+				var type = $(this).data('type');
+				var goodsid = $(this).data('goodsid');
+				var val = $.trim(group.find(':input').val());
+				if(type=='title' && val==''){
+					Tip.show(group.find(':input'), '请输入名称!');
+					return;
+				}
+				group.prev().show().find('span').html(val);
+				group.hide();
+				fastChange(goodsid,type,val);
+			});
+		})
+	})
+	var category = {php echo json_encode($children)};
+	function setProperty(obj, id, type) {
+		$(obj).html($(obj).html() + "...");
+		$.post("{php echo $this->createWebUrl('shop/goods')}"
+				, {'op': 'setgoodsproperty', id: id, type: type, data: obj.getAttribute("data")}
+				, function (d) {
+					$(obj).html($(obj).html().replace("...", ""));
+					if (type == 'type') {
+						$(obj).html(d.data == '1' ? '实体物品' : '虚拟物品');
+					}
+					if (type == 'status') {
+						$(obj).html(d.data == '1' ? '上架' : '下架');
+					}
+					$(obj).attr("data", d.data);
+					if (d.result == 1) {
+						$(obj).toggleClass("label-info text-pinfo");
+					}
+				}
+				, "json"
+		);
+	}
+
+
+	// $(function () {
+		// $('[data-toggle="popover"]').popover();
+	// });
+</script>
+{/if}
+{template 'web/_footer'}

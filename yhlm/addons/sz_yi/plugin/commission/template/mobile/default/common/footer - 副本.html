@@ -1,0 +1,95 @@
+<div style='height:80px;width:100%'></div>
+
+<footer id="footer-nav">
+
+    <ul class="menu-list">
+
+        <li {if $footer_current=='first' }class='active' {/if}>
+
+        <a href="{php echo $this->createPluginMobileUrl('commission/myshop')}">
+
+            <i class="fa fa-home"></i>
+
+            <span>我的商城</span>
+
+        </a>
+
+        </li>
+
+        <li {if $footer_current=='second' }class='active' {/if}>
+
+        <a href="http://jhzh66.com/app/index.php?i=8&c=entry&do=barter&m=sz_yi">
+
+            <i class="fa fa fa-list"></i>
+
+            <span>换货产品</span>
+        </a>
+        </li>
+        <li {if $footer_current=='commission' }class='active' {/if}>
+
+        <!-- <a href="http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin">
+
+            <i class="fa fa-sitemap"></i>
+
+            <span>活动</span>
+
+        </a> -->
+
+        <a href="http://jhzh66.com/app/index.php?i=8&c=entry&method=dealgoods&p=suppliermenu&op=post&merch=5&m=sz_yi&do=plugin">
+
+            <i class="fa fa-plus-square"></i>
+
+            <span>发换货</span>
+
+        </a>
+
+        <!-- <span class="i-box"><img src="http://jhzh66.com/app/index.php?i=8&c=entry&method=dealgoods&p=suppliermenu&op=post&merch=5&m=sz_yi&do=plugin" style="    width: 46px;position: absolute;border-radius: 50%;padding: 1px;left: 21%;top: -22px">
+                <span class="nav-name" style="    display: block;width: 100%;font-size: 15px;
+    margin-top: 20px;text-align: center">发换货</span> -->
+
+        </li>
+
+        <li {if $footer_current=='cart' }class='active' {/if}>
+
+        <!-- <a href="{php echo $this->createMobileUrl('shop/cart')}"> -->
+        <!-- <a href="http://jhzh66.com/app/index.php?i=8&c=entry&p=designer&pageid=25&m=sz_yi&do=plugin">    
+            <i class="fa fa-truck"></i>
+
+            <span>购物</span>
+
+        </a> -->
+
+        <a href="http://jhzh66.com/app/index.php?i=8&c=entry&p=ad&do=barter&m=sz_yi">    
+            <i class="fa fa fa-newspaper-o"></i>
+
+            <span>看广告</span>
+
+        </a>
+
+        </li>
+
+        <li {if $footer_current=='member' }class='active' {/if}>
+
+        <!-- <a href="{php echo $this->createMobileUrl('member')}">
+
+            <i class="fa fa-user"></i>
+
+            <span>会员中心</span>
+
+        </a> -->
+
+        <a href="http://jhzh66.com/app/index.php?i=8&c=entry&p=suppliermenu&merch=5&m=sz_yi&do=plugin">
+
+            <i class="fa fa-laptop"></i>
+
+            <span>换货商家</span>
+
+        </a>
+
+        </li>
+
+    </ul>
+
+</footer>
+
+{template 'common/footer_base'}

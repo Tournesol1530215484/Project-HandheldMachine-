@@ -1,0 +1,136 @@
+{template 'common/header'}
+<title>排行榜</title>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .flex-b{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex; 
+        flex-wrap: wrap;
+    }
+    .title-box{
+        font-size: 16px;
+        padding: 10px;
+        background: #eee;
+        font-weight: 600;
+    }
+    .sort-box .sort-item{
+        width: 50%;
+        padding: 10px;
+    }
+    .sort-box .sort-item-link{
+        color: #000;
+        text-decoration: none;
+    }
+    .sort-box .sort-item .icon-box{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .sort-box .sort-item .icon-box .pic{
+        width: 100%;
+        height: 100%;
+        padding: 10%;
+    }
+    .sort-box .sort-item .text-box{
+        width: calc(100% - 45px);
+        font-size: 14px;
+    }
+    .sort-box .sort-item .text-m{
+        font-weight: 600;
+        font-size: 16px;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">排行榜</div>
+    </div>
+    <div class="title-box">用户榜</div>
+    <div class="sort-container">
+        <ul class="sort-box flex-b">
+            <li class="sort-item">
+                <a class="flex-center sort-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'sort','ac'=>'list','status'=>1))}">
+                    <div class="icon-box" style="background: #ec8798;">
+                        <img class="pic" src="../addons/sz_yi/plugin/activity/res/images/fans.png">
+                    </div>
+                    <div class="text-box">
+                        <div class="text-m">粉丝数量榜</div>
+                        <div class="text-s">以拥有粉丝数排行榜</div>
+                    </div>
+                </a>
+            </li>
+            <li class="flex-center sort-item">
+                <a class="flex-center sort-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'sort','ac'=>'list','status'=>2))}">
+                    <div class="icon-box" style="background: #44a756;">
+                        <img class="pic" src="../addons/sz_yi/plugin/activity/res/images/exchange.png">
+                    </div>
+                    <div class="text-box">
+                        <div class="text-m">商品换货榜</div>
+                        <div class="text-s">以用户兑换商品的金额排行榜</div>
+                    </div>
+                </a>
+            </li>
+            <li class="flex-center sort-item">
+                <a class="flex-center sort-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'sort','ac'=>'list','status'=>3))}">
+                    <div class="icon-box" style="background: #f13030;">
+                        <img class="pic" src="../addons/sz_yi/plugin/activity/res/images/envelope.png">
+                    </div>
+                    <div class="text-box">
+                        <div class="text-m">赚取现金排行榜</div>
+                        <div class="text-s">以看红包广告中赚的现金排行榜</div>
+                    </div>
+                </a>
+            </li>
+            <li class="flex-center sort-item">
+                <a class="flex-center sort-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'sort','ac'=>'list','status'=>4))}">
+                    <div class="icon-box" style="background: rgb(255,203,0);">
+                        <img class="pic" style="padding: 15%;" src="../addons/sz_yi/plugin/activity/res/images/commission.png">
+                    </div>
+                    <div class="text-box">
+                        <div class="text-m">卖货提成排行榜</div>
+                        <div class="text-s">推广产品获得的利润排行榜</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div style="width: 100%; height: 55px;"></div>
+    {template 'common/nav_activity'}
+</div>
+{template 'common/footer'}

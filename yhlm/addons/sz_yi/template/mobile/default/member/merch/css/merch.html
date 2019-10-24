@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="en" class="am-touch js cssanimations">
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
+		<title>
+			好店
+		</title>
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/jquery.js"></script>
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/jquery.cookie.js"></script>
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/dropload.min.js"></script>
+
+		<link href="../addons/sz_yi/template/mobile/default/member/merch/css/amazeui.min.css" rel="stylesheet">
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/amazeui.min.js">
+		</script>
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/layer.js">
+		</script>
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/cookie.js">
+		</script>
+		<link rel="stylesheet" href="../addons/sz_yi/template/mobile/default/member/merch/css/layer.css" id="layuicss-skinlayercss">
+		<!--<link rel="stylesheet" type="text/css" href="minirefresh.min.css"
+                />
+                -->
+    <link rel="stylesheet" href="../addons/sz_yi/template/mobile/default/member/merch/css/city.css" id="layuicss-skinlayercss">
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/member/merch/css/minirefresh.min.css" />
+		<!--<script src="minirefresh.min.js"></script>-->
+		<script src="../addons/sz_yi/template/mobile/default/member/merch/js/minirefresh.min.js">
+		</script>
+		<style>
+		body,
+			ul,
+			li,
+			img,
+			p,
+			div {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			ul,
+			li {
+				list-style: none
+			}
+			
+			a:link,
+			a:visited {
+				color: black;
+				text-decoration: none;
+			}
+			
+			a:hover {
+				color: black;
+			}
+			
+			.clear {
+				clear: both
+			}
+			
+			ul {
+				display: block;
+				height: 90px;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.nav-con {
+				border-top: 10px solid white;
+				border-bottom: 0px solid #FFFAF5;
+			}
+			
+			.nav-con li {
+				/*margin: 5px 0;*/
+				padding: 5px 0;
+				width: 20%;
+				line-height: 30px;
+				background-color: #fff;
+				font-size: 12px;
+				float: left;
+				text-align: center;
+			}
+			
+			.nav-con li i {
+				display: block;
+				width: 52px;
+				height: 52px;
+				margin: auto;
+			}
+			
+			.nav-con img {
+				width: 45px;
+				height: 45px;
+			}
+			
+			.reci li {
+				float: left;
+				margin: 5px;
+			}
+			
+			@-webkit-keyframes opacity {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@keyframes opacity {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+		}
+		</style>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				-webkit-text-size-adjust: none;
+			}
+			
+			html {
+				font-size: 10px;
+			}
+			
+			body {
+				background-color: #f5f5f5;
+				font-size: 1.2em;
+			}
+			
+			.header {
+				height: 44px;
+				line-height: 44px;
+				border-bottom: 1px solid #ccc;
+				background-color: #eee;
+			}
+			
+			.header h1 {
+				text-align: center;
+				font-size: 2rem;
+				font-weight: normal;
+			}
+			
+			.content-rank {
+				max-width: 640px;
+				margin: 0 auto;
+				background-color: #fff;
+			}
+			
+			.content-rank .item {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-ms-flex-align: center;
+				-webkit-box-align: center;
+				box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				padding: 3.125%;
+				border-bottom: 1px solid #ddd;
+				color: #333;
+				text-decoration: none;
+			}
+			
+			.content-rank .item img {
+				display: block;
+				width: 40px;
+				height: 40px;
+				border: 1px solid #ddd;
+			}
+			
+			.content-rank .item h3 {
+				display: block;
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				width: 100%;
+				max-height: 40px;
+				overflow: hidden;
+				line-height: 20px;
+				margin: 0 10px;
+				font-size: 1.2rem;
+			}
+			
+			.content-rank .item .date {
+				display: block;
+				height: 20px;
+				line-height: 20px;
+				color: #999;
+			}
+			
+			.opacity {
+				-webkit-animation: opacity 0.3s linear;
+				animation: opacity 0.3s linear;
+			}
+			
+			@-webkit-keyframes opacity {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@keyframes opacity {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+		</style>
+	</head>
+
+	<body style="margin: 0px;">
+		
+		
+		
+		
+		
+		<div style="height: 50px;line-height:50px;background-color: #00d3be;position: fixed;top:0;width: 100%;z-index: 1000000000000;">
+			<form id="post_form" method="post" action="">
+				<input type="hidden" name="typeid" id="typeid" value="" />
+				<div style="float:left;margin-left:16%;position:fixed;" onclick="javascript:;">
+					<img src="../addons/sz_yi/template/mobile/default/member/merch/img/sousou.png" style="width: 20px;height: 20px;">
+				</div>
+				<div id="sou">
+					<span class="city nav-city" style="line-height: 1;display: inline-block;vertical-align: middle;text-align: center;font-size: 1.2rem;color: #111;position: relative;left: 1rem;">广州市</span>
+					<input id="bname" name="bname" type="text" placeholder="搜商家......" style="width:73%;padding:0 0 0 8%;color:#999;margin-left:4%;border:none;height: 32px;line-height: 32px;border-radius:32px;">
+				</div>
+			</form>
+			<div id="reci" style="background-color: white;line-height:25px;display: none;">
+				<div id="qusou" style="float: right;background-color:#00d3be;padding:0 5px 0 5px;border-radius:3px;color:white;margin-right: 10px;margin-top:10px;font-size:13px;">
+					确认搜索
+				</div>
+				<!-- <div style="margin-left:10px;padding-top:10px;">热门搜索</div> -->
+				<div class="reci">
+					<!-- <ul style="color:#666;margin-left:5px;">						<li>							<span onclick="hot(&#39;酒店&#39;)" style="background-color:#eee;font-size:13px;padding:5px 10px 5px 10px;">酒店</span>						</li>						<li>							<span onclick="hot(&#39;火锅&#39;)" style="background-color:#eee;font-size:13px;padding:5px 10px 5px 10px;">火锅</span>						</li>						<li>							<span onclick="hot(&#39;美食&#39;)" style="background-color:#eee;font-size:13px;padding:5px 10px 5px 10px;">美食</span>						</li>					</ul> -->
+				</div>
+			</div>
+		</div>
+		
+		
+		 <div id='diqu' style="display: none;">
+		<div id="allmap" style="display:none"></div>
+		<div id="letter" style="display: none;">C</div>
+		<header class="navbar">
+			<div class="nav-wrap-left">
+				<a class="react back" href="javascript:history.back()"><i class="text-icon icon-back"></i></a>
+			</div>
+			<span class="nav-header h1">选择城市</span>
+			<div class="nav-wrap-right">
+
+				<a class="react" gaevent="imt/hd/home" href="../index.html">
+					<span class="nav-btn">
+                                    <i class="text-icon">⟰</i>首页
+                                </span>
+				</a>
+				<a class="react headSearch" gaevent="imt/hd/search" href="../tmpl/search.html">
+					<span class="nav-btn">
+                                    <i class="text-icon">⌕</i>搜索
+                                </span>
+				</a>
+
+			</div>
+
+			<div id="nav-dropdown" class="nav-dropdown">
+				<ul>
+					<li>
+						<a class="react" gaevent="imt/hd/index" href="//i.meituan.com/"><i class="text-icon">⟰</i>
+							<space></space>首页</a>
+					</li>
+					<li>
+						<a class="react" gaevent="imt/hd/account" rel="nofollow" href="//i.meituan.com/account/"><i class="text-icon">⍥</i>
+							<space></space>我的</a>
+					</li>
+					<li>
+						<a class="react headSearch" gaevent="imt/hd/search" href="//i.meituan.com/s/"><i class="text-icon">⌕</i>
+							<space></space>搜索</a>
+					</li>
+				</ul>
+			</div>
+
+		</header>
+
+		<div id="tips">定位失败</div>
+		<div id="cityBox" class="wrapper">
+
+			
+			
+			<h4>全部城市</h4>
+
+			<div class="box nopadding">
+				<ul class="charlist"></ul>
+				<div class="abc">
+
+					<ul class="table">
+						<h4 id="A">A</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=403">阿坝藏族羌族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=409">安顺市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=488">阿勒泰地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=490">阿拉尔市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=534">澳门特别行政区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=446">安康市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=436">阿里地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=482">阿克苏地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=109">鞍山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=106">阿拉善盟</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=244">安阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=193">安庆市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="B">B</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=401">巴中市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=412">毕节地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=418">保山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=314">北海市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=336">白沙黎族自治县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=340">保亭黎族苗族自治县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=319">百色市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=527">北区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=451">白银市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=440">宝鸡市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=480">博尔塔拉蒙古自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=481">巴音郭楞蒙古自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=126">白山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=128">白城市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=188">蚌埠市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=36">北京</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=78">保定市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=111">本溪市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=96">包头市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=102">巴彦淖尔市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=238">滨州市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="C">C</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=385">成都市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=423">楚雄彝族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=432">昌都地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=307">潮州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=334">澄迈县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=337">昌江黎族自治县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=323">崇左市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=479">昌吉回族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=121">长春市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=165">常州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=83">沧州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=87">长治市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=80">承德市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=98">赤峰市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=119">朝阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=281">常德市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=284">郴州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=275">长沙市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=201">池州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=195">滁州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=198">巢湖市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="D">D</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=399">达州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=389">德阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=427">大理白族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=428">德宏傣族景颇族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=430">迪庆藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=305">东莞市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=332">定安县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=331">东方市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=531">大埔区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=517">东区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=458">定西市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=135">大庆市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=142">大兴安岭地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=85">大同市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=112">丹东市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=108">大连市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=236">德州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=227">东营市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="E">E</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=100">鄂尔多斯市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=263">鄂州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=270">恩施土家族苗族自治州</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="F">F</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=315">防城港市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=294">佛山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=110">抚顺市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=115">阜新市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=203">福州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=196">阜阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=221">抚州市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="G">G</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=398">广安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=404">甘孜藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=406">贵阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=391">广元市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=312">桂林市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=317">贵港市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=494">高雄市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=511">高雄县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=519">观塘区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=473">固原市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=461">甘南藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=467">果洛藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=289">广州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=218">赣州市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="H">H</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=424">红河哈尼族彝族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=299">惠州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=302">河源市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=320">贺州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=321">河池市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=324">海口市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=485">和田地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=522">黄大仙区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=515">花莲县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=45055">海外</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=444">汉中市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=478">哈密地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=463">海东地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=464">海北藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=465">黄南藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=466">海南藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=469">海西蒙古族藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=120">葫芦岛市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=140">黑河市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=133">鹤岗市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=130">哈尔滨市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=179">湖州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=186">合肥市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=169">淮安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=175">杭州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=189">淮南市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=81">衡水市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=76">邯郸市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=95">呼和浩特市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=101">呼伦贝尔市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=259">黄石市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=245">鹤壁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=250">漯河市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=267">黄冈市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=286">怀化市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=278">衡阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=191">淮北市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=194">黄山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=239">菏泽市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="J">J</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=308">揭阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=295">江门市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=499">嘉义市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=495">基隆市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=509">嘉义县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=518">九龙城区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=449">嘉峪关市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=450">金昌市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=456">酒泉市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=137">佳木斯市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=132">鸡西市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=122">吉林市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=183">金华市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=178">嘉兴市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=88">晋城市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=90">晋中市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=113">锦州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=257">济源市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=264">荆门市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=247">焦作市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=266">荆州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=213">景德镇市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=215">九江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=230">济宁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=219">吉安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=223">济南市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="K">K</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=415">昆明市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=526">葵青区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=476">克拉玛依市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=483">克孜勒苏柯尔克孜自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=484">喀什地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=241">开封市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="L">L</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=405">凉山彝族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=394">乐山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=407">六盘水市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=431">拉萨市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=422">临沧市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=420">丽江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=311">柳州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=335">临高县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=338">乐东黎族自治县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=339">陵水黎族自治县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=322">来宾市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=525">离岛区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=448">兰州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=437">林芝地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=459">陇南市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=460">临夏回族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=124">辽源市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=185">丽水市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=168">连云港市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=82">廊坊市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=93">临汾市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=94">吕梁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=116">辽阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=242">洛阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=287">娄底市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=210">龙岩市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=199">六安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=234">莱芜市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=235">临沂市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=237">聊城市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="M">M</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=396">眉山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=390">绵阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=297">茂名市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=300">梅州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=504">苗栗县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=139">牡丹江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=190">马鞍山市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="N">N</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=343">南沙群岛</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=395">南充市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=393">内江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=429">怒江傈僳族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=310">南宁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=507">南投县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=520">南区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=435">那曲地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=162">南京市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=176">宁波市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=167">南通市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=252">南阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=209">南平市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=211">宁德市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=212">南昌市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="P">P</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=387">攀枝花市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=512">屏东县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=513">澎湖县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=455">平凉市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=117">盘锦市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=243">平顶山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=205">莆田市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=214">萍乡市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="Q">Q</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=411">黔西南布依族苗族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=413">黔东南苗族侗族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=414">黔南布依族苗族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=416">曲靖市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=304">清远市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=316">钦州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=341">琼中黎族苗族自治县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=327">琼海市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=457">庆阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=138">七台河市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=131">齐齐哈尔市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=75">秦皇岛市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=272">潜江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=207">泉州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=224">青岛市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="R">R</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=434">日喀则地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=233">日照市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="S">S</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=392">遂宁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=421">思茅市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=433">山南地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=293">汕头市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=301">汕尾市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=325">三亚市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=489">石河子市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=529">沙田区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=521">深水埗区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=447">商洛市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=471">石嘴山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=134">双鸭山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=141">绥化市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=123">四平市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=127">松原市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=180">绍兴市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=166">苏州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=174">宿迁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=89">朔州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=39">上海市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=73">石家庄市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=107">沈阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=260">十堰市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=253">商丘市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=251">三门峡市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=290">韶关市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=279">邵阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=269">随州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=274">神农架林区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=291">深圳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=206">三明市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=197">宿州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=222">上饶市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="T">T</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=410">铜仁地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=333">屯昌县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=500">台北县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=502">桃园县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=505">台中县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=497">台南市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=496">台中市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=487">塔城地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=491">图木舒克市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=493">台北市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=510">台南县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=530">屯门区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=514">台东县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=452">天水市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=439">铜川市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=477">吐鲁番地区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=125">通化市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=184">台州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=173">泰州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=84">太原市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=40">天津市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=74">唐山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=118">铁岭市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=99">通辽市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=273">天门市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=192">铜陵市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=231">泰安市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="W">W</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=425">文山壮族苗族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=313">梧州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=330">万宁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=329">文昌市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=326">五指山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=492">五家渠市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=532">荃湾区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=523">湾仔区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=453">武威市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=442">渭南市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=475">乌鲁木齐市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=472">吴忠市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=163">无锡市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=187">芜湖市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=177">温州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=97">乌海市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=103">乌兰察布市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=258">武汉市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=232">威海市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=229">潍坊市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="X">X</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=426">西双版纳傣族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=342">西沙群岛</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=503">新竹县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=498">新竹市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=528">西贡区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=438">西安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=441">咸阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=462">西宁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=164">徐州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=92">忻州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=77">邢台市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=104">兴安盟</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=105">锡林郭勒盟</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=262">襄樊市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=254">信阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=246">新乡市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=249">许昌市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=265">孝感市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=288">湘西土家族苗族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=268">咸宁市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=271">仙桃市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=277">湘潭市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=204">厦门市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=202">宣城市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=216">新余市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="Y">Y</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=397">宜宾市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=400">雅安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=417">玉溪市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=309">云浮市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=303">阳江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=318">玉林市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=501">宜兰县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=508">云林县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=486">伊犁哈萨克自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=533">元朗区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=524">油尖旺区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=445">榆林市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=443">延安市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=468">玉树藏族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=470">银川市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=136">伊春市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=129">延边朝鲜族自治州</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=170">盐城市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=171">扬州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=86">阳泉市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=91">运城市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=114">营口市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=261">宜昌市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=248">濮阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=283">益阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=285">永州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=280">岳阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=228">烟台市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=217">鹰潭市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=220">宜春市</a>
+						</li>
+
+					</ul>
+
+					<ul class="table">
+						<h4 id="Z">Z</h4>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=402">资阳市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=344">中沙群岛的岛礁及其海域</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=386">自贡市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=388">泸州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=408">遵义市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=419">昭通市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=292">珠海市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=306">中山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=296">湛江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=298">肇庆市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=328">儋州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=506">彰化县</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=516">中西区</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=454">张掖市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=474">中卫市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=181">舟山市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=182">衢州市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=172">镇江市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=62">重庆市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=79">张家口市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=255">周口市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=256">驻马店市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=282">张家界市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=276">株洲市</a>
+						</li>
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=200">亳州市</a>
+						</li>
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=225">淄博市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=226">枣庄市</a>
+						</li>
+
+						<li id="city_list">
+							<a class="react" href="../index.html?area_id=240">郑州市</a>
+						</li>
+
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="initials" style="height: 904px; background: rgba(145, 145, 145, 0);">
+			<ul>
+				<li style="height: 32.2857px;"><img src="./../images/068.png"></li>
+				<li style="height: 32.2857px;">A</li>
+				<li style="height: 32.2857px;">B</li>
+				<li style="height: 32.2857px;">C</li>
+				<li style="height: 32.2857px;">D</li>
+				<li style="height: 32.2857px;">E</li>
+				<li style="height: 32.2857px;">F</li>
+				<li style="height: 32.2857px;">G</li>
+				<li style="height: 32.2857px;">H</li>
+				<li style="height: 32.2857px;">I</li>
+				<li style="height: 32.2857px;">J</li>
+				<li style="height: 32.2857px;">K</li>
+				<li style="height: 32.2857px;">L</li>
+				<li style="height: 32.2857px;">M</li>
+				<li style="height: 32.2857px;">N</li>
+				<li style="height: 32.2857px;">O</li>
+				<li style="height: 32.2857px;">P</li>
+				<li style="height: 32.2857px;">Q</li>
+				<li style="height: 32.2857px;">R</li>
+				<li style="height: 32.2857px;">S</li>
+				<li style="height: 32.2857px;">T</li>
+				<li style="height: 32.2857px;">W</li>
+				<li style="height: 32.2857px;">X</li>
+				<li style="height: 32.2857px;">Y</li>
+				<li style="height: 32.2857px;">Z</li>
+				<li style="height: 32.2857px;">#</li>
+			</ul>
+		</div>
+		
+		</div>
+		
+		
+		<script>
+
+		var lng, lat;
+		lat=getCookie('lat');
+		lng=getCookie('lng');
+			$(document).ready(function() {
+				$("#sou").click(function() {
+					$("#reci").show();
+				});
+				$("#qusou").click(function() {
+					$("#reci").hide();
+					var keyword = $('#bname').val();
+					var results='';
+					
+					$.ajax({
+								type: "post",
+								url: "{php echo $this->createMobileUrl('member/merch',array('op'=>'ajaxList'))}",
+								data: {
+									lng:lng,
+									lat:lat,
+									keyword: keyword,
+									page:1
+								},
+								dataType: 'json',
+								success: function(data) {
+									var arrLen = data.result.list.length;
+									
+									
+								
+									for(var i = 0; i < arrLen; i++) {
+										results += "<a href='" + data.result.list[i].url + "'>" +
+											'<div style="color:#808080">' +
+											'<div>' +
+											'<img  src=' + data.result.list[i].img + '  width="80px" height="80px" style="margin:10px;border-radius:4px;">' +
+											'</div>' +
+											'<div style="font-size:12px;margin-left:100px;margin-top:-90px;">' +
+											'<span style="font-size:16px;color:#4F4F4F;">' +
+											data.result.list[i].merchname +
+											'</span>' +
+											'<br>' +
+											'<span style="font-size:13px;">' +
+											data.result.list[i].title +
+											'</span>' +
+											'<br>' +
+											'<span>' +
+											'<span>' +
+											'人均消费' +
+											'</span>' +
+											'<span style="color:red;">￥' +
+											+data.result.list[i].average +
+											'</span>' +
+											'<span style="float:right;margin-right: 5px;">' +
+											+data.result.list[i].distance +
+											'km</span>' +
+											'</span>' +
+											'</div>' +
+											'<div style="border-bottom:3px solid #eee;margin-top:5px;padding: 2%;">' +
+
+											'</div>' +
+											'</div>' +
+											'</a>'
+									 }
+									
+									if(arrLen>0){
+										$('.min-a').html(results);
+									
+									}else{
+											console.log(222);
+										console.log(results);
+									}
+									
+							
+								
+								}
+							});
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+					
+					
+				
+					var result = '';
+					var page = 2;
+					// 每页展示5个
+					var size = 10;
+					
+				// 下拉刷新
+					$('.content-rank').dropload({
+						scrollArea: window,
+						loadDownFn: function(me) {
+							$.ajax({
+								type: "post",
+								url: "{php echo $this->createMobileUrl('member/merch',array('op'=>'ajaxList'))}",
+								data: {
+									lat:lat,
+									lng:lng,
+									keyword: keyword,
+									page:page
+								},
+								dataType: 'json',
+								success: function(data) {
+									var arrLen = data.result.list.length;
+									
+									
+									if(arrLen > 0) {
+									for(var i = 0; i < arrLen; i++) {
+										result += "<a href='" + data.result.list[i].url + "'>" +
+											'<div style="color:#808080">' +
+											'<div>' +
+											'<img  src=' + data.result.list[i].img + '  width="80px" height="80px" style="margin:10px;border-radius:4px;">' +
+											'</div>' +
+											'<div style="font-size:12px;margin-left:100px;margin-top:-90px;">' +
+											'<span style="font-size:16px;color:#4F4F4F;">' +
+											data.result.list[i].merchname +
+											'</span>' +
+											'<br>' +
+											'<span style="font-size:13px;">' +
+											data.result.list[i].title +
+											'</span>' +
+											'<br>' +
+											'<span>' +
+											'<span>' +
+											'人均消费' +
+											'</span>' +
+											'<span style="color:red;">￥' +
+											+data.result.list[i].average +
+											'</span>' +
+											'<span style="float:right;margin-right: 5px;">' +
+											+data.result.list[i].distance +
+											'km</span>' +
+											'</span>' +
+											'</div>' +
+											'<div style="border-bottom:3px solid #eee;margin-top:5px;padding: 2%;">' +
+
+											'</div>' +
+											'</div>' +
+											'</a>'
+									 }
+									} else {
+
+									// 锁定
+									me.lock();
+									// 无数据
+									me.noData();
+								}
+									
+									
+									// 如果没有数据
+
+//									$('.min-a').html(result);
+							
+									// 为了测试，延迟1秒加载
+									setTimeout(function() {
+									// 插入数据到页面，放到最后面
+									$('.min-a').append(result);
+									// 每次数据插入，必须重置
+									me.resetload();
+								}, 1000);
+								page++;
+
+								}
+							});
+						}
+					});
+				
+					
+				});
+			});
+		</script>
+		
+		<div id='diqunone'>
+		
+		<div data-am-widget="slider" style="margin-top:45px;" class="am-slider am-slider-a1 am-no-layout" data-am-slider="{&quot;directionNav&quot;:false}">
+			<div class="am-viewport" style="overflow: hidden; position: relative;">
+				<ul class="am-slides" style="width: 1200%; transition-duration: 0s; transform: translate3d(-375px, 0px, 0px);">
+					{loop $set['shop']['thumbs'] $v}
+					<li data-thumb-alt="" style="width: 375px; margin-right: 0px; float: left; display: block;" class="">
+						<img src="{php echo tomedia($v)}" draggable="false">
+					</li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<div style="border-bottom: 8px solid #eee;line-height:20px;color:#2bb8aa;font-size:14px;">
+			<div style="float:left;margin:5px">
+				<img src="../addons/sz_yi/template/mobile/default/member/merch/img/gonggao.png" width="23px" height="23px">
+			</div>
+			<div style="margin-left: 35px;">
+				<marquee scrollamount="3" width="100%" style="margin-top:6px;">
+					{$set['shop']['title']}
+				</marquee>
+			</div>
+		</div>
+		<div class="nav-con">
+			<ul>
+				{loop $type $v}
+				<a href="javascript:type({$v['id']});">
+					<li>
+						<img src="{php echo tomedia($v['logo'])}">
+						<p>
+							{$v['title']}
+						</p>
+					</li>
+				</a>
+				{/loop}
+			</ul>
+
+		</div>
+		<div class="clear">
+		</div>
+		<div style="border-bottom:8px solid #eee;">
+		</div>
+		<div>
+			<div style="border-bottom:3px solid #eee; font-size:14px;color:#2bb8aa;text-align:center;line-height: 35px;">
+				- 推荐商家 -
+			</div>
+			<div id="container">
+			</div>
+
+			<div id='content-rank'>
+				<div class="min-a">
+
+				</div>
+			</div>
+		</div>
+		
+		
+	
+		
+		</div>
+		
+		
+		
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E">
+		</script>
+
+		<script type="text/javascript" src="../addons/sz_yi/template/mobile/default/member/merch/js/index.js">
+		</script>
+		<script>
+		//城市		
+		$(".nav-city").html('广州市');
+		$(".nav-city").click(function(){
+ 			console.log(222);
+ 			  $("#diqu").show();
+ 			  $("#diqunone").hide();
+ 	
+			});
+			
+			if(lat==null || lng==null){
+				var map = new BMap.Map("allmap");
+				navigator.geolocation.getCurrentPosition(function(position) {
+					
+					lng = position.coords.longitude; //lng		
+					lat = position.coords.latitude; //lat
+					console.log(position);
+					var latt=getCookie(lat);
+					setCookie('lat',lat,1);
+					setCookie('lng',lng,1);
+					
+				});
+				
+			}
+			
+			
+			
+			function type(id) {
+				var url = "{php echo $this->createMobileUrl('member/merch',array('op'=>'ajaxList'))}";
+				var result = "";
+				
+				$.ajax({
+					type: "post",
+					url: url,
+					data: {
+						typeid: id,
+						lng: lng,
+						lat: lat
+					},
+					dataType: 'json',
+					success: function(data) {
+						var arrLen = data.result.list.length;
+						if(arrLen > 0) {
+							for(var i = 0; i < arrLen; i++) {
+								result += "<a href='" + data.result.list[i].url + "'>" +
+									'<div style="color:#808080">' +
+									'<div>' +
+									'<img  src=' + data.result.list[i].img + '  width="80px" height="80px" style="margin:10px;border-radius:4px;">' +
+									'</div>' +
+									'<div style="font-size:12px;margin-left:100px;margin-top:-90px;">' +
+									'<span style="font-size:16px;color:#4F4F4F;">' +
+									data.result.list[i].merchname +
+									'</span>' +
+									'<br>' +
+									'<span style="font-size:13px;">' +
+									data.result.list[i].title +
+									'</span>' +
+									'<br>' +
+									'<span>' +
+									'<span>' +
+									'人均消费' +
+									'</span>' +
+									'<span style="color:red;">￥' +
+									+data.result.list[i].average +
+									'</span>' +
+									'<span style="float:right;margin-right: 5px;">' +
+									+data.result.list[i].distance +
+									'km</span>' +
+									'</span>' +
+									'</div>' +
+									'<div style="border-bottom:3px solid #eee;margin-top:5px;padding: 2%;">' +
+
+									'</div>' +
+									'</div>' +
+									'</a>'
+							}
+							// 如果没有数据
+						}
+						$('.min-a').html(result);
+				
+					}
+				});
+			}
+
+			$(function() {
+
+				function getUrlParam(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+					var r = window.location.search.substr(1).match(reg); //匹配目标参数
+					if(r != null) return unescape(r[2]);
+					return null; //返回参数值
+				}
+				//获取参数
+				var typeid = getUrlParam('typeid');
+
+				//				console.log(member);
+				//				var typeidCon = document.getElementById('#typeid');
+				//				typeidCon = typeid.val();	
+
+				// 页数
+				var page = 1;
+				// 每页展示5个
+				var size = 5;
+				// 下拉刷新
+				$('.content-rank').dropload({
+					scrollArea: window,
+					loadDownFn: function(me) {
+						
+						// 拼接HTML
+						var result = '';
+						$.ajax({
+							type: "post",
+							url: "{php echo $this->createMobileUrl('member/merch',array('op'=>'ajaxList'))}",
+							data: {
+								page: page,
+								typeid: typeid,
+								lng: lng,
+								lat: lat,
+
+							},
+							dataType: 'json',
+							success: function(data) {
+								console.log(data);
+								var arrLen = data.result.list.length;
+								if(arrLen > 0) {
+									for(var i = 0; i < arrLen; i++) {
+										result += "<a href='" + data.result.list[i].url + "'>" +
+											'<div style="color:#808080">' +
+											'<div>' +
+											'<img  src=' + data.result.list[i].img + '  width="80px" height="80px" style="margin:10px;border-radius:4px;">' +
+											'</div>' +
+											'<div style="font-size:12px;margin-left:100px;margin-top:-90px;">' +
+											'<span style="font-size:16px;color:#4F4F4F;">' +
+											data.result.list[i].merchname +
+											'</span>' +
+											'<br>' +
+											'<span style="font-size:13px;">' +
+											data.result.list[i].title +
+											'</span>' +
+											'<br>' +
+											'<span>' +
+											'<span>' +
+											'人均消费' +
+											'</span>' +
+											'<span style="color:red;">￥' +
+											+data.result.list[i].average +
+											'</span>' +
+											'<span style="float:right;margin-right: 5px;">' +
+											+data.result.list[i].distance +
+											'km</span>' +
+											'</span>' +
+											'</div>' +
+											'<div style="border-bottom:3px solid #eee;margin-top:5px;padding: 2%;">' +
+
+											'</div>' +
+											'</div>' +
+											'</a>'
+									}
+									// 如果没有数据
+								} else {
+
+									// 锁定
+									me.lock();
+									// 无数据
+									me.noData();
+								}
+								// 为了测试，延迟1秒加载
+								setTimeout(function() {
+									// 插入数据到页面，放到最后面
+									$('.min-a').append(result);
+									// 每次数据插入，必须重置
+									me.resetload();
+								}, 1000);
+								page++;
+							},
+							error: function(xhr, type) {
+								alert('Ajax error!');
+								// 即使加载出错，也得重置
+								me.resetload();
+							}
+						});
+					}
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

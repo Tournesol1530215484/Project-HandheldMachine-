@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="" name="Keywords">
+    <meta content="" name="Description">
+    <link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/message.css" media="all">
+
+    <script type="text/javascript" src="../addons/sz_yi/static/js/jquery-1.7.1.min.js"></script>
+    <title>留言板</title>
+
+</head>
+<body id="message" onselectstart="return true;" ondragstart="return false;">
+<title></title>
+<meta charset="utf-8">
+<meta content="" name="description">
+<meta content="" name="keywords">
+<meta content="eric.wu" name="author">
+
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".l_hf_d").click(function () {
+            $(".l_h_ht_box").fadeIn();
+            $(".l_h_ht_an").fadeIn();
+            $(this).fadeOut();
+        })
+        $(".name").click(function () {
+            $(this).parent().find(".l_h_jq_box").fadeIn();
+            $(this).parent().parent().siblings().find(".l_h_jq_box").hide();
+
+        })
+    })
+
+</script>
+
+
+
+<div class="container">
+    <div class="qiandaobanner">
+        <a href="javascript:history.go(-1);">
+            <img src="<?php echo ($_W['siteroot'])?>attachment/ee4f3df.jpg" style="width:100%;">
+        </a>
+    </div>
+
+
+    <div class="history-date" style="margin-top:10px;">
+        <form>
+        <ul>
+            <li class="green bounceInDown" style="width:97%; margin:0 auto;">
+                <dl>
+                    <dt class="hfinfo l_hf_d" style="color:#A9A9A9; padding:10px; padding-left:20px;" >请输入你的留言...</dt>
+                    <div class="l_h_ht_box" style="border:none; padding:0;display:none">
+                        <div><span>昵称</span><input id="leaving_name" type="text" value="{$member['nickname']}" name="name" class="l_p_w" /></div>
+                        <div><span>联系方式</span></div>
+                        <input type="hidden" id="uid" name="uid" value="{$member['uid']}">
+                        <input type="hidden" id="openid" name="openid" value="{$member['openid']}">
+                        <div style="border:none;"><input id="leaving_message_body" type="text" style="width:60%;" value="请输入联系方式（手机，电话，邮箱等）" name="phost" class="l_p_w" onfocus="if(this.value == '请输入联系方式（手机，电话，邮箱等）') this.value = ''" onblur="if(this.value == '') this.value = '请输入联系方式（手机，电话，邮箱等）'" /></div>
+                        <div style="border:none; margin-top:-10px;"><span>留言内容</span></div>
+                        <textarea id="leaving_message_bodye" name="content" class="pxtextarea" style="border:none;box-shadow:none;font-size:12px;padding-top:0;" onfocus="if(value=='请输入留言，限255个字符...'){value=''}"
+                                  onblur="if (value ==''){value='请输入留言，限255个字符...'} ">请输入留言，限255个字符...</textarea>
+
+                    </div>
+                </dl>
+
+            </li>
+            <a class="hhsubmit submit l_h_ht_an" href="javascript:void(0)" onclick="adde()" style="width:97%; padding:5px 0; margin:0 auto; display:none; margin-bottom:10px;">提交留言</a>
+        </ul>
+            </form>
+    </div>
+
+    <div class="history-date">
+        <ul>
+
+            {loop $lisc  $item}
+            <li class="green bounceInDown" style="width:97%; margin:0 auto;">
+                <dl>
+                      <div class="name" style="">{$item['m_name']}</div>
+                        <p class="l_conten">{$item['m_neirong']}</p>
+                           <p class="l_time">{php echo date('Y-m-d H:i:s', $item['m_time']);}</p>
+                    <from>
+                      <input class="mid" type="text" value="{$item['m_id']}" name="mid">
+                    <div style="padding:0; border:none; margin-bottom:8px; display:none;" class="l_h_jq_box">
+                        <textarea  class="echos" name="reneirong"class="pxtextarea" style="border:none;box-shadow:none;font-size:12px;padding-top:0;" placeholder="请输入回复内容"></textarea>
+                           <a class="hhsubmit submit" href="javascript:void(0)" onclick="ded()" style="width:95%; padding:3px 0; margin:0 auto; margin-top:5px;">确定</a>
+                        </div>
+                   </from>
+                    <div class="l_h_hf_box" style="padding:0; background:#F3F3F3; width:97%; margin:0 auto;border-radius: 5px;margin-bottom:8px; border:none; overflow:hidden ">
+                        <!--回复循环-->
+                        <div style=" padding-top:10px; padding-bottom:10px; border:none; border-bottom:1px solid #ccc">
+                            <span style=" color:#A54448; display:block; width:15%; float:left; padding-left:5px; text-align:right;">回复：</span>
+                            <div style=" float:left; width:70%; padding:0; border:none; padding-left:10px;">{$item['re_neirong']}</div>
+                            <p style="clear:both;"></p>
+                        </div>
+                        <!--回复循环-->
+                        <div style="clear:both; padding:0; background:none; border:none"></div>
+                    </div>
+                </dl>
+            </li>
+            {/loop}
+
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+</body>
+<script type="text/javascript">
+    //提交留言
+    function adde(){
+        var brand = $("#leaving_name").val();
+        var brane = $("#openid").val();
+        var branw = $("#uniacid").val();
+        var branq = $("#uid").val();
+        var branwq = $("#leaving_message_body").val();
+        var braneq = $("#leaving_message_bodye").val();
+
+        var data ={brand:brand,brane:brane,branw:branw,branq:branq,branwq:branwq,braneq:braneq};
+        $.ajax({
+            url:"{php echo $this->createPluginMobileUrl('message',array('method'=>'index','apido'=>'add'))}",
+            dataType:"json",type:"post",data:data,
+            success:function(data){
+                if(data.status == 1){
+                    alert('提交成功，请等待审核');
+                    location.reload();
+                }
+            }
+        });
+    }
+    //提交回复
+    function ded(){
+
+        var mid = $(".mid").val();
+        var reneirong = $(".echos").val();
+
+        var  data ={mid:mid,reneirong:reneirong};
+        $.ajax({
+            url:"{php echo $this->createPluginMobileUrl('message',array('method'=>'index','apido'=>'adde'))}",
+            dataType:"json",type:"post",data:data,
+            success:function(data){
+                if(data.status == 1){
+                    alert('提交成功，请等待审核');
+                    location.reload();
+                }
+            }
+        });
+    }
+</script>
+</html>

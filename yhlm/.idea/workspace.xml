@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1b32f66e-c707-483e-be63-4e3a392ef689" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-2055779836">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.7" value="7" />
+          <entry key="project.opened" value="17" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="10" />
+          <entry key="php" value="84" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="10" />
+          <entry key="PHP" value="84" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="602" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PHP" value="602" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/activity/core/mobile/activity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8970">
+              <caret line="480" column="22" lean-forward="true" selection-start-line="480" selection-start-column="22" selection-end-line="480" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/model/message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2829">
+              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/model/common.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="546" column="28" selection-start-line="546" selection-start-column="19" selection-end-line="546" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>up</find>
+      <find>选择</find>
+      <find>templ</find>
+      <find>tomedia</find>
+      <find>$item</find>
+      <find>运营商电话</find>
+      <find>gets</find>
+      <find>上传</find>
+      <find>/framework/library/qiniu/autoload.php</find>
+      <find>new Qiniu\Auth</find>
+      <find>file_remote_upload</find>
+      <find>$width</find>
+      <find>$pathname</find>
+      <find>show_json(1,array('status'=&gt;false,'msg'=&gt;'empty'));</find>
+      <find>$uploadmgr</find>
+      <find>$filename</find>
+      <find>$auth-&gt;uploadToken</find>
+      <find>delete</find>
+      <find>CURL_SSLVERSION_TLSv1</find>
+      <find>error</find>
+      <find>SSL connect error</find>
+      <find>报名</find>
+      <find>WeAccount</find>
+      <find>m(</find>
+      <find>sendTplNotice</find>
+      <find>$actset</find>
+      <find>提醒</find>
+      <find>keyword3</find>
+      <find>$msg</find>
+      <find>您</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/addons/sz_yi/template/web/shop/goods.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/core/mobile/barter/index.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/artDetail.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/core/web/shop/goods.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/dealmerch/template/goods.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/template/web/order/detail.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/bartact/core/web/match.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/bartact/template/match.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/bartact/template/activity.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/bartact/core/web/activity.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/org.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/org2.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/core/mobile/activity.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/common/actDetail_debug.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/actDetail_debug.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/core/mobile/shop/index.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/template/mobile/style1/shop/detail.html.bak" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/template/mobile/style1/shop/detail_back.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/dealmerch/template/dealmerch_local_list.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/template/mobile/style1/shop/detail.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/template/mobile/style1/member/center.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/dealmerch/core/web/dealmerch_local_list.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/template/mobile/default/order.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/core/mobile/order.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/template/mobile/default/addAd.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/template/dealorder/ops.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/core/web/order.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/actDetail.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/supplier/template/mobile/default/mystore.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/supplier/template/supplier_list.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/activity.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/activity/template/mobile/default/common/nav_activity1.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/commission/template/mobile/style1/common/footer.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/commission/template/mobile/default/common/footer.html" />
+        <option value="$PROJECT_DIR$/易货.txt" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/bonus/template/mobile/default/common/footer.html" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/commission/template/mobile/default/index.html" />
+        <option value="$PROJECT_DIR$/framework/library/alioss/sdk.class.php" />
+        <option value="$PROJECT_DIR$/framework/function/file.func.php" />
+        <option value="$PROJECT_DIR$/web/source/system/attachment.ctrl.php" />
+        <option value="$PROJECT_DIR$/framework/library/qiniu/src/Qiniu/Storage/UploadManager.php" />
+        <option value="$PROJECT_DIR$/framework/model/attachment.mod.php" />
+        <option value="$PROJECT_DIR$/web/source/utility/file.ctrl.php" />
+        <option value="$PROJECT_DIR$/framework/function/templ/file.func.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/template/set.html" />
+        <option value="$PROJECT_DIR$/framework/bootstrap.inc.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/web/index.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/web/不要动/index.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/uptoken.php" />
+        <option value="$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/core/mobile/goods.php" />
+        <option value="$PROJECT_DIR$/app/source/utility/file.ctrl.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="265" />
+    <option name="y" value="253" />
+    <option name="width" value="1351" />
+    <option name="height" value="715" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yhlm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yhlm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yhlm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yhlm" type="462c0819:PsiDirectoryNode" />
+              <item name="addons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yhlm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yhlm" type="462c0819:PsiDirectoryNode" />
+              <item name="addons" type="462c0819:PsiDirectoryNode" />
+              <item name="sz_yi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yhlm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yhlm" type="462c0819:PsiDirectoryNode" />
+              <item name="addons" type="462c0819:PsiDirectoryNode" />
+              <item name="sz_yi" type="462c0819:PsiDirectoryNode" />
+              <item name="plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fastadmin" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/matDetail2.html" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\yhlm\addons\sz_yi\plugin\activity\template\mobile\default" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\yhlm\addons\sz_yi\core\model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b32f66e-c707-483e-be63-4e3a392ef689" name="Default" comment="" />
+      <created>1560221342106</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560221342106</updated>
+      <workItem from="1560221343580" duration="78000" />
+      <workItem from="1560221509891" duration="101000" />
+      <workItem from="1560221618783" duration="5474000" />
+      <workItem from="1560234067847" duration="2740000" />
+      <workItem from="1560239303599" duration="1385000" />
+      <workItem from="1560583076502" duration="183000" />
+      <workItem from="1561360860450" duration="2778000" />
+      <workItem from="1561364118730" duration="7561000" />
+      <workItem from="1561425007209" duration="1000" />
+      <workItem from="1561425018165" duration="31116000" />
+      <workItem from="1561514238528" duration="8409000" />
+      <workItem from="1561537720225" duration="5495000" />
+      <workItem from="1561598076190" duration="11266000" />
+      <workItem from="1561684137135" duration="19004000" />
+      <workItem from="1561769408256" duration="4631000" />
+      <workItem from="1561791249250" duration="1910000" />
+      <workItem from="1561794612073" duration="8137000" />
+      <workItem from="1561887195029" duration="275000" />
+      <workItem from="1561944183793" duration="22461000" />
+      <workItem from="1562028970272" duration="17659000" />
+      <workItem from="1562118555157" duration="8777000" />
+      <workItem from="1562134200040" duration="13915000" />
+      <workItem from="1562202064277" duration="20092000" />
+      <workItem from="1562288596665" duration="1641000" />
+      <workItem from="1562306098796" duration="1722000" />
+      <workItem from="1562666340298" duration="15000" />
+      <workItem from="1562729700833" duration="2197000" />
+      <workItem from="1562754681088" duration="310000" />
+      <workItem from="1562755002935" duration="2852000" />
+      <workItem from="1562841905200" duration="2674000" />
+      <workItem from="1562853241499" duration="952000" />
+      <workItem from="1562894310852" duration="787000" />
+      <workItem from="1562927585358" duration="2889000" />
+      <workItem from="1562943640493" duration="204000" />
+      <workItem from="1562980848381" duration="195000" />
+      <workItem from="1569570159533" duration="15000" />
+      <workItem from="1569578663917" duration="684000" />
+      <workItem from="1569814781116" duration="4288000" />
+      <workItem from="1570428789661" duration="1998000" />
+      <workItem from="1570434829199" duration="66000" />
+      <workItem from="1570498129370" duration="973000" />
+      <workItem from="1570505362262" duration="6099000" />
+      <workItem from="1570609054806" duration="8570000" />
+      <workItem from="1570670072960" duration="13003000" />
+      <workItem from="1570711179092" duration="4111000" />
+      <workItem from="1571023603141" duration="8080000" />
+      <workItem from="1571111122777" duration="84000" />
+      <workItem from="1571654504051" duration="4000" />
+      <workItem from="1571707809162" duration="722000" />
+      <workItem from="1571712565684" duration="3022000" />
+      <workItem from="1571811438450" duration="219000" />
+      <workItem from="1571906345107" duration="1564000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="263388000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12473348" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/source/utility/file.ctrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="496" column="7" selection-start-line="496" selection-start-column="6" selection-end-line="496" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/http.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/template/不要动/set.html" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/core/mobile/dealgoods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7452" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/verify/model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/template/mobile/default/dealgoods_upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="780" column="25" selection-start-line="780" selection-start-column="14" selection-end-line="780" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/dealmerch/core/web/dealmerch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-735">
+          <caret line="153" column="30" selection-start-line="153" selection-start-column="30" selection-end-line="153" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/dealmerch/core/web/dealmerch_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="107" column="44" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/poster/model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="984" column="24" selection-start-line="984" selection-start-column="20" selection-end-line="984" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/inc/plugin/plugin_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="59" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/function/global.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="244" column="20" selection-start-line="244" selection-start-column="20" selection-end-line="244" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/fop.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/init.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/utils.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/rsf.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/conf.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/config.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/model.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/io.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/web.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/web/index.php" />
+    <entry file="file://D:/下载文件/php-sdk-master/tests/bootstrap.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/template/set.html" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/web/不要动/index.php" />
+    <entry file="file://$PROJECT_DIR$/framework/bootstrap.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/dealmerch/template/dealmerch_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="328" column="65" selection-start-line="328" selection-start-column="65" selection-end-line="328" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/library/qiniu/autoload111.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/qiniu/auth_digest.php" />
+    <entry file="file://$PROJECT_DIR$/framework/library/qiniu/src/Qiniu/Config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/fileinfo.php" />
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/core/uptoken.php" />
+    <entry file="file://$PROJECT_DIR$/framework/function/templ/file.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="179" column="9" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/library/qiniu/src/Qiniu/Storage/UploadManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2553">
+          <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/source/utility/file.ctrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3082">
+          <caret line="140" column="26" selection-start-line="140" selection-start-column="26" selection-end-line="140" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/function/file.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12144">
+          <caret line="534" selection-start-line="534" selection-end-line="534" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/mobile/util/uploader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/library/qiniu/src/Qiniu/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2852">
+          <caret line="124" column="5" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/library/qiniu/src/Qiniu/functions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/library/qiniu/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="21" selection-start-line="11" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/function/cache.file.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/qiniu/upload_verify_callback.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/bonus/mobile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/core/mobile/goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1794">
+          <caret line="78" column="27" selection-start-line="58" selection-start-column="112" selection-end-line="58" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/suppliermenu/core/mobile/recharge.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4094">
+          <caret line="178" column="27" selection-start-line="178" selection-start-column="27" selection-end-line="178" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/web/finance/recharge.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3082">
+          <caret line="134" column="7" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/function/communication.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3565">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/curl/curl_d.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="1082" column="38" selection-start-line="1082" selection-start-column="38" selection-end-line="1082" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/model/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="546" column="28" selection-start-line="546" selection-start-column="19" selection-end-line="546" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/core/model/message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2829">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/sz_yi/plugin/activity/core/mobile/activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8970">
+          <caret line="480" column="22" lean-forward="true" selection-start-line="480" selection-start-column="22" selection-end-line="480" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,308 @@
+{template 'common/header'}
+{template 'merchtabs'}
+<style type='text/css'>
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+	#saleravatar {margin-left:27%;};
+</style>
+{if $operation == 'post'}
+<div class="main rightlist">
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+        <div class='panel panel-default' style="border-radius: 5px;">
+            <div class='panel-heading' style="background: #eee;">商家基本信息</div>
+            <div class='panel-body'>
+             		 	
+              <div class="form-group"> 
+               	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span> 商家用户名</label>
+	                    <div class="col-sm-9 col-xs-12">
+	                        {ife 'bartact.merch.add' $su_info}
+	                        <input type="text" placeholder="默认加入前缀6-" name="username" class="form-control"   value="{$su_info['username']}"       {if !empty($su_info)}readonly{/if}/>
+	                        <span class='help-block'></span>
+	                        {else} 	 	
+	                        <div class='form-control-static'>{$su_info['username']}</div>
+	                        {/if}
+	                    </div>   
+	                </div> 	
+	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>     
+	            </div>
+
+	            <div class="form-group">
+                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  商家密码</label>
+	                    <div class="col-sm-9 col-xs-12">
+	                        {ife 'bartact.merch.add' $su_info}
+	                        <input type="password" name="password" class="form-control" value="" autocomplete="off" />
+	                        {else}
+	                        <div class='form-control-static'>********</div>
+	                        {/if}
+	                    </div>
+	                </div>
+	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+              </div>
+
+                <div class="form-group notice"> 		 
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>选择会员</label>
+                        <input type='hidden' id='noticeopenid' name='data[openid]' value="{$supplierinfo['openid']}" />
+                        <div class='input-group'> 		  	
+                            <input type="text" name="saler" maxlength="30" style="margin-left:15px;" value="{if !empty($saler)}{$saler['nickname']}/{$saler['realname']}/{$saler['mobile']}{/if}" id="saler" class="form-control" readonly />
+                            <div class='input-group-btn'>
+                                <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus-notice').modal();" style="margin-left:15px;">选择角色</button>
+                                <button class="btn btn-danger" type="button" onclick="$('#noticeopenid').val('');$('#saler').val('');$('#saleravatar').hide()">清除选择</button>
+                            </div> 	 	
+                        </div> 		
+                        <span id="saleravatar" class='help-block' {if empty($saler)}style="display:none"{/if}><img  style="width:100px;height:100px;border:1px solid #ccc;padding:1px" src="{$saler['avatar']}"/></span>
+                        <div id="modal-module-menus-notice"  class="modal fade" tabindex="-1">
+                            <div class="modal-dialog" style='width: 920px;'>
+                                <div class="modal-content"> 	 	 	
+                                    <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择角色</h3></div>
+                                    <div class="modal-body" >
+                                        <div class="row">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="keyword" value="" id="search-kwd-notice" placeholder="请输入昵称/姓名/手机号" />
+                                                <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_members();">搜索</button></span>
+                                            </div>
+                                        </div>
+                                        <div id="module-menus-notice" style="padding-top:5px;"></div>
+                                    </div>
+                                    <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>              
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+            </div>
+            <script language='javascript'>
+              function search_members() {
+                         if( $.trim($('#search-kwd-notice').val())==''){
+                            $('#search-kwd-notice').attr('placeholder','请输入关键词');
+                             <!-- Tip.focus('#search-kwd-notice','请输入关键词'); -->
+                             return;
+                         }
+                $("#module-menus-notice").html("正在搜索....")
+                $.get('{php echo $this->createWebUrl('member/query')}', {
+                  keyword: $.trim($('#search-kwd-notice').val())
+                }, function(dat){
+                  $('#module-menus-notice').html(dat);
+                });
+              }
+              function select_member(o) {
+                $("#noticeopenid").val(o.openid);
+                                            $("#saleravatar").show();
+                                             $("#saleravatar").find('img').attr('src',o.avatar);
+                $("#saler").val( o.nickname+ "/" + o.realname + "/" + o.mobile );
+                $("#modal-module-menus-notice .close").click();
+              }
+            </script>
+
+              
+
+            <div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>手机号码</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'bartact.merch.add' $su_info}
+							<input type="text" name="mobile" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+          
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>机构名称</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'bartact.merch.add' $su_info}
+							<input type="text" name="orgName" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+
+	 			  <div class="form-group">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>地区</label>
+            <div class="col-sm-9 col-xs-12">
+              {ife 'bartact.merch.add' $su_info}
+                {php echo tpl_fans_form('reside',array('province' =>'','city' =>'','district'=>''));}
+              {else}
+              <div class='form-control-static'>********</div>
+              {/if}
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          </div>
+        </div>
+
+                <div class="form-group"></div>
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'bartact.merch.add' $su_info}
+                        <input type="hidden" name="uid" value="{$su_info['uid']}" />
+                        <input type="hidden" name="pwd" value="{$_GPC['pwd']}" />
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'bartact.merch.add.add|bartact.merch.add.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+		<div class="form-group col-sm-12">
+         
+        </div>
+    </form>
+</div>
+{else if $operation == 'editpwd'}
+  <div class="main rightlist">
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+        <div class='panel panel-default' style="border-radius: 5px;">
+            <div class='panel-heading' style="background: #eee;">修改密码</div>
+            <div class='panel-body'>
+                  
+              <div class="form-group"> 
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span> 商家用户名</label>
+                      <div class="col-sm-9 col-xs-12">
+                          {ife 'bartact.merch.add' $info}
+                          <input type="text" placeholder="默认加入前缀6-" name="username" class="form-control"   value="{$info['username']}"       {if !empty($_GPC['id'])}readonly{/if}/>
+                          <span class='help-block'></span>
+                          {else}    
+                          <div class='form-control-static'>{$su_info['username']}</div>
+                          {/if}
+                      </div>
+                  </div>  
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  商家密码</label>
+                      <div class="col-sm-9 col-xs-12">
+                          <input type="password" name="password" class="form-control" value="" autocomplete="off" />
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  确认密码</label>
+                      <div class="col-sm-9 col-xs-12">
+                          {ife 'bartact.merch.add' $su_info}
+                          <input type="password" name="confirm" class="form-control" value="" autocomplete="off" />
+                          {else}
+                          <div class='form-control-static'>********</div>
+                          {/if}
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+              </div>
+
+                <div class="form-group"></div>
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">        
+                        <input type="hidden" name="uid" value="{$info['uid']}" />
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                       <input type="button" name="back" onclick='history.back()' {ifp 'bartact.merch.add.add|bartact.merch.add.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="form-group col-sm-12">
+         
+        </div>
+    </form>
+</div>
+{/if}
+
+</div>
+<script language='javascript'>
+ 	
+   $(function(){
+     
+        $('#dataform').ajaxForm();
+
+        $(':input[name=submit]').click(function(){
+            if($(this).attr('submitting')=='1'){
+                return;
+            }
+//           if ($(':input[name=username]').isEmpty()) {
+//                Tip.focus($(':input[name=username]'), '请填写用户名!');
+//                return;
+//            }
+//
+//            {if empty($su_info)}
+//              if ($(':input[name=password]').isEmpty()) {
+//                Tip.focus($(':input[name=password]'), '请输入用户密码!');
+//                return;
+//            }
+//            {/if}
+//
+//			{if false}
+//            if ($(':input[name=merchname]').isEmpty()) {
+//                Tip.focus($(':input[name=merchname]'), '请输入商家名!');
+//                return;
+//            }
+//            if ($(':input[name=typeid]').isEmpty()) {
+//                Tip.focus($(':input[name=typeid]'), '请输入行业大类!');
+//                return;
+//            }
+//            if ($(':input[name=mobile]').isEmpty()) {
+//                Tip.focus($(':input[name=mobile]'), '请输入联系电话!');
+//                return;
+//            }
+//            if ($(':input[name=address]').isEmpty()) {
+//                Tip.focus($(':input[name=address]'), '请输入详细地址!');
+//            }
+//			{/if}
+
+            $(this).attr('submitting','1').removeClass('btn-primary');
+            $('#dataform').ajaxSubmit(function(data){
+                data = eval("(" +  data  +")");
+                if(data.status!=1){ 		 
+                      $(this).removeAttr('submitting').addClass('btn-primary');
+                      return; 			  	 			         	
+                }                 
+                alert(data.result); 
+                setTimeout(function(){
+                	location.href= "{php echo $this->createPluginWebUrl('bartact/merch')}";	  			
+                },'200'); 	 		 	 		 	 	
+            })
+        })
+
+   })
+  
+</script>
+{template 'common/footer'}

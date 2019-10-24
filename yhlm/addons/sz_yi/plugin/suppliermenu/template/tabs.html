@@ -1,0 +1,6 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/info')}">修改资料</a></li>
+    <li {if $operation == 'editpwd'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/info', array('op' => 'editpwd'))}">修改密码</a></li>
+</ul>
+</div>

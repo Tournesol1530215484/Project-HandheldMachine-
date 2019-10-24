@@ -1,0 +1,235 @@
+﻿{template 'common/header'}
+{template 'tabs3'}                        
+<div class="panel panel-info">
+        {if $op == 'display'}
+        <div class="panel-heading">易货菜单管理</div>           
+        <div class="panel-body">
+        <a class="btn btn-primary" href="{php echo $this->createPluginWebUrl('dealmerch/member',array('op'=>'post'))}">添加会员等级</a>
+            <table class="table table-hover" >           
+                <tr style="; margin-left: 15px;">   
+                    <th>会员头衔</th>
+                    <th>金额</th>
+                    <th>免换货服务费</th>
+                    <th>操作</th>
+                </tr>
+                {loop $list $k $v}   
+                    <tr>
+                        <td>{$v['title']}</td>
+                        <td>{php echo $v['cash']/1000}千</td>
+                        <td>{php echo $v['currency']/10000}万</td>
+                        <td><a href="{php echo $this->createPluginWebUrl('dealmerch/member',array('op'=>'edit','id'=>$v['id']))}">编辑</a></td>
+                    </tr>
+                {/loop}                 
+            </table>
+            {$pager}
+        </div>
+    {else if $_GPC['op'] == 'log'}
+    <div class="panel-heading">购买会员日志</div> 
+            <div class="panel panel-info">
+    <!-- <div class="panel-heading">筛选</div> -->
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="p" value="dealmerch" />
+            <input type="hidden" name="method" value="member" />
+            <input type="hidden" name="op" value="log" />
+            <input type="hidden" name="type" value="{$_GPC['type']}" />
+            <div class="form-group">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">会员信息</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" class="form-control"  name="realname" value="{$_GPC['realname']}" placeholder='可搜索会员昵称/姓名/手机号'/> 
+                    </div>
+                </div>
+             
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">充值单号</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" class="form-control"  name="logno" value="{$_GPC['logno']}" placeholder='可搜索充值单号'/> 
+                    </div>
+                </div>
+ 
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">会员等级</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                           <select name='level' class='form-control'>
+                            <option value=''></option>
+                            {loop $levels $level}
+                            <option value='{$level['id']}' {if $_GPC['level']==$level['id']}selected{/if}>{$level['title']}</option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+               <!--  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">状态</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                           <select name='status' class='form-control'>
+                             <option value='' {if $_GPC['status']==''}selected{/if}></option>
+                             <option value='1' {if $_GPC['status']=='1'}selected{/if}>{if $_GPC['type']==0}充值成功{else}完成{/if}</option>
+                             <option value='0' {if $_GPC['status']=='0'}selected{/if}>{if $_GPC['type']==0}未充值{else}申请中{/if}</option>
+                             {if $_GPC['type']==1}<option value='-1' {if $_GPC['status']=='-1'}selected{/if}>失败</option>{/if}
+                             
+                        </select>
+                    </div>
+                </div> -->
+                {if $_GPC['type']==0}
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">充值方式</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                           <select name='paytype' class='form-control'>
+                             <option value='' {if $_GPC['paytype']==''}selected{/if}></option>
+                             <option value='1' {if $_GPC['paytype']=='1'}selected{/if}>余额</option>
+                             <option value='2' {if $_GPC['paytype']=='2'}selected{/if}>微信</option>
+                             <option value='3' {if $_GPC['paytype']=='3'}selected{/if}>支付宝</option>
+                             <option value='4' {if $_GPC['paytype']=='4'}selected{/if}>后台</option>
+                        </select>
+                    </div>
+                </div>
+                {/if}
+            </div>
+            <div class="form-group">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">
+                        {if $_GPC['type']==1}提现时间{else}充值时间{/if}</label>
+                      <div class="col-sm-3">
+                            <label class='radio-inline'><input type='radio' value='0' name='searchtime' {if $_GPC['searchtime']=='0'}checked{/if}>不搜索</label>
+                            <label class='radio-inline'><input type='radio' value='1' name='searchtime' {if $_GPC['searchtime']=='1'}checked{/if}>搜索</label>
+                     </div>
+                    <div class="col-sm-7 col-lg-7 col-xs-12">
+                        {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d  H:i', $endtime)),true);}
+                    </div> 
+                </div>
+                
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label"></label>
+                    <div class="col-sm-7 col-lg-9 col-xs-12">
+                       <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                         <input type="hidden" name="token" value="{$_W['token']}" />
+                          {ifp 'finance.recharge.export|finance.withdraw.export'}
+                        <button type="submit" name="export" value="8" class="btn btn-primary">导出 Excel</button>
+                        {/if}
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                </div>
+            </div> 
+            <div class="form-group">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+        <div class="panel-body">
+            <table class="table table-hover" >           
+                <tr style="; margin-left: 15px;">   
+                    <th>头像/用户名</th>
+                    <th>会员等级</th>
+                    <th>支付方式</th>
+                    <th>订单号</th>
+                    <th>购买时间</th>
+                </tr>           
+                {loop $list $k $v}              
+                    <tr>
+                        <td><img src="{$v['avatar']}" width="25px;" style="margin-right:3px;">{$v['nickname']}/{$v['realname']}</td>
+                        <td>{$v['title']}</td>
+                        <td>
+                            {if $v['paytype'] == 1}
+                            余额
+                            {else}
+                            微信
+                            {/if}
+                        </td>           
+                        <td>{$v['ordersn']}</td>
+                        <td>{php echo date('Y-m-d H:i:s',$v['ctime'])}</td>
+                    </tr>
+                {/loop}                 
+            </table>                 
+            {$pager}
+        </div>
+    {else}
+        <div class="panel-heading">易货菜单编辑</div>
+            <div class="panel-body">                        
+                <form action="" method="post">                       
+                    <input type="hidden" name="a" value="entry">
+                    <input type="hidden" name="c" value="site">
+                    <input type="hidden" name="op" value="post">
+                    <input type="hidden" name="m" value="sz_yi">
+                    <input type="hidden" name="do" value="plugin">
+                    <input type="hidden" name="p" value="dealmerch">
+                    <input type="hidden" name="method" value="member">
+                    <input type="hidden" name="id" value="{$_GPC['id']}">
+
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-2 col-md-2 control-label"></label>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">头衔名称</div>
+                            <input type="text" name="title" id="" class="form-control" value="{$item['title']}" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">金额</div>
+                            <input type="text" name="cash" id="" class="form-control" value="{$item['cash']}" />
+                            <div class="input-group-addon">(千元)</div>
+                        </div>   
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">赠送易货额度</div>
+                            <input type="text" name="currency" id="" class="form-control" value="{$item['currency']}" />
+                            <div class="input-group-addon">(万元)</div>
+                        </div>          
+                    </div>
+                    <br clear="both">
+                </div>          
+
+                <!-- <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">金额</label>
+                    <div class="col-sm-9 col-md-10"> 
+                        <input type="text" name="cash" id="" class="form-control" value="{$item['cash']}" />
+                    </div>
+                    <br clear="both">   
+                </div> -->
+
+                 <!-- <div class="form-group" style="margin: 10px 0px">       
+                    <label class="col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-md-10"> 
+                        <input type="text" name="currency" id="" class="form-control" value="{$item['currency']}" />
+                    </div>
+                    <br clear="both">
+                </div> -->
+
+
+
+                <div class="form-group" style="margin: 10px 0px">
+                    <label class="col-sm-3 col-md-2 control-label">是否启用</label>
+                    <div class="col-sm-9 col-md-10">
+                        <label for="ye">
+                            <input id="ye" {if $item['status'] == 1}checked{/if} type="radio" name="status" value="1">是
+                        </label>
+                        <label for="no">
+                            <input id="no" {if $item['status'] == 0}checked{/if} type="radio" name="status" value="0">否
+                        </label>
+                    </div>
+                    <br clear="both">
+                </div>
+ 
+
+                <button type="submit" class="col-md-offset-3 btn btn-primary">提交表单</button>
+                </form>
+            </div>
+    {/if}
+</div>
+ 
+</div> 
+</div>
+{template 'common/footer'}

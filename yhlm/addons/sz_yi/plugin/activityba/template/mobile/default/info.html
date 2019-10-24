@@ -1,0 +1,410 @@
+{template 'common/header'}
+<title>
+    {if $_GPC['what'] == 'info'}
+    账号信息
+    {else if $_GPC['what'] == 'pwd'}
+    修改密码
+    {/if}
+</title>
+<!-- 或者修改密码 用内置标签判断标题 两种标题(注册信息和修改密码页面共用)-->
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/info.css';?>">
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script> -->
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <form method="post" enctype="multipart/form-data" id="showDataForm" class="mui-input-group mui-input-group-no-bgcl">
+            <div class="customer_top">
+                <div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+                <div class="title1">
+                    {if $_GPC['what'] == 'info'}
+                    账号信息
+                    {else if $_GPC['what'] == 'pwd'}
+                    修改密码
+                    {/if}<!-- 账号信息即注册信息 -->
+                </div><!-- 或者修改密码 用内置标签判断标题 两种标题(注册信息和修改密码页面共用)-->
+            </div>
+            {if $_GPC['what'] == 'pwd'}
+                <div class="activity-account-box">
+                    活动账号: {$tpu['username']}
+                </div>    
+            {/if}
+            <div class="register-info">
+                <ul>
+                    {if $_GPC['what'] == 'info'}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">姓名 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="realname" value="{$muser['realname']}" placeholder="姓名" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">报名电话 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="mobile" value="{$muser['mobile']}" placeholder="报名电话" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="float-l info-tag">机构LOGO </div>
+                        <div class="float-r info-value">
+                            <div class="help-box">建议尺寸: 640 * 640 ，或正方型图片</div><!-- LOGO只有一张,编辑状态下，要么显示图标要么显示图标上传按钮 -->
+                            {if $muser['logo']}                       
+                            <div class="img-container">
+                                <div class="img-box">                           
+                                    <img src="{php echo tomedia($muser['logo'])}" style="width:100%; height:100%;">
+                                    <div class="logo-minus-edit" style="position:absolute; top:-10%; left:-10%;">X</div>
+                                    <input type="text" name="file1[]" value="{$muser['logo']}" style="display:none;" readonly="readonly">       
+                                </div>          
+                            </div>              
+                            {/if}        
+                            <div id="upload-img-box1" class="upload-img-box" {if $muser['logo']}style="display:none;"{/if} >
+                                <div class="btn-icon">+</div>           
+                                <div class="btn-tag">机构LOGO</div>
+                                <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" value="" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="float-l info-tag">微信二维码 </div>
+                        <div class="float-r info-value">
+                            <div class="help-box">建议尺寸: 640 * 640 ，或正方型图片</div>
+                            <!-- 微信二维码啊只有一张,编辑状态下，要么显示图标要么显示图标上传按钮 -->
+                            {if $muser['wechatCode']}    
+                            <div class="img-container">
+                                <div class="img-box">                  
+                                    <img src="{php echo tomedia($muser['wechatCode'])}" style="width:100%; height:100%;">  
+                                    <div class="wechat-minus-edit" style="position:absolute; top:-10%; left:-10%;">X</div>
+                                    <input type="text" name="file2[]" value="{$muser['wechatCode']}" style="display:none;" readonly="readonly">                 
+                                </div>
+                            </div>
+                            {/if}        
+                            <div id="upload-img-box2" class="upload-img-box" {if $muser['wechatCode']}style="display:none;"{/if} >        
+                                <div class="btn-icon">+</div>                        
+                                <div class="btn-tag">微信二维码</div>        
+                                <input type="file" id="file2" name="files[]" onchange="handleFiles(this,'2')" multiple="true" value="" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">联系人 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="contact" value="{$muser['contact']}" placeholder="联系人" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">机构电话 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="orgMobile" value="{$muser['orgMobile']}" placeholder="机构电话" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">微信号 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="wechat" value="{$muser['wechat']}" placeholder="微信号" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">快递地址 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="address" value="{$muser['address']}" placeholder="快递地址" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">机构名称 </div><!-- 机构名称?? 即单位unit 不是的-->
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="orgName" value="{$muser['orgName']}" placeholder="机构名称" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">职务 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="job" value="{$muser['job']}" placeholder="职务" autocomplete="off">
+                        </div>       
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">机构简介 </div>
+                        <div class="float-r info-value">
+                             <textarea class="whole-textarea" placeholder="机构简介" name="orgDesc" rows="5">{$muser['orgDesc']}</textarea>
+                        </div>
+                    </li>
+                    {elseif $_GPC['what'] == 'pwd'}
+                    <!-- 下面的li元素是修改密码页面的 内置标签控制显示 -->
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">密码 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="password" name="password" value="" placeholder="密码由字母和数字组成，至少6位" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">重复密码 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="password" name="re_password" value="" placeholder="重复密码" autocomplete="off">
+                        </div>
+                    </li>
+                    {/if}
+                </ul>
+            </div>
+            <div class="help-box" style="display: none;">注: *如需自定义名片，请在电脑端登陆网页，在 活动管理->设定名片项 中进行修改</div>
+            <div class="footer">
+                {if $_GPC['what'] == 'info'}
+                <div class="footer-btn post-btn" onclick='a(1);'>提交</div>
+                <!--注意 下面的功能按键不显示 start -->
+                {if false}
+                <div class="footer-btn" onclick="location.href='{php echo $this->createPluginMobileUrl('activity',array('op'=>'edit','what'=>'pwd'))}'">设置登陆密码</div>
+                <div class="footer-btn" onclick='changeWechat();'>更新微信信息</div>
+                {/if}
+                <!--注意 下面的功能按键不显示 end -->
+                {else if $_GPC['what'] == 'pwd'}
+                <!-- 下面的按钮是修改密码页面的 内置标签控制显示 -->
+                <div class="footer-btn" onclick='setpassword(2);'>保存</div>
+                {/if}           
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+            {if $_GPC['what'] == 'pwd'}
+            <div class="tips-box">
+                <div class="tips-title">电脑版登陆</div>
+                <div class="tips-content">
+                    1、请搜"易货联盟",点"商家后台"进入<br />
+                    2、输入jhzh66.com/web
+                </div>
+            </div>
+            {/if}
+        </form>
+    </div>
+</script>
+<script type="text/html" id="tpl-img-box1">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" class="minus" data-img='<%=data.img[0]%>'>X</div>
+           <input type="text" name="file1[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+<script type="text/html" id="tpl-img-box2">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" class="minus" data-img='<%=data.img[0]%>'>X</div>
+           <input type="text" name="file2[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        //其实没有用到异步请求
+        core.pjson('suppliermenu/ad', {op:'bonusAd',ac:'getbonus',status: '{$_GPC['status']}',merchtype:'{$_GPC["merchtype"]}'}, function(json) {                   
+            $('body').append(tpl('tpl-big-body',json));
+
+            //处理编辑状态下,删除唯一的活动图标后(活动图标也只有一张),上传图标的按钮出现,当然有图标的情况下，上传图标按钮就先隐藏,
+            //编辑状态下的图标不是真的删除,因为用户不一定保存编辑后的活动
+            //logo
+            $('.logo-minus-edit').unbind("click").click(function() {
+                $(this).parent().parent().remove();
+                $("#upload-img-box1").show();
+            }); 
+            //微信二维码
+            $('.wechat-minus-edit').unbind("click").click(function() {
+                $(this).parent().parent().remove();
+                $("#upload-img-box2").show();
+            }); 
+        }, true,true);
+    });
+</script>
+<script type="text/javascript">
+//保存修改注册信息函数
+function a(status1){
+    require(['tpl', 'core'], function(tpl, core) {  
+        if($("input[name='realname']").isEmpty()){
+            core.tip.show('姓名不能为空');
+            return;
+        }
+        if($("input[name='mobile']").isEmpty()){
+            core.tip.show('报名电话不能为空');
+            return;
+        }
+        if(!$("input[name='mobile']").isMobile()){
+            core.tip.show('请填写正确格式的报名电话');
+            return;
+        }
+        //LOGO
+        if($("input[name='file1[]']").length == 0){
+            $("#loading").remove();
+            core.tip.show('请上传机构LOGO');
+            return;
+        }
+        //微信二维码
+        if($("input[name='file2[]']").length == 0){
+            $("#loading").remove();
+            core.tip.show('请上传微信二维码');
+            return;
+        }
+        if($("input[name='contact']").isEmpty()){
+            core.tip.show('联系人不能为空');
+            return;
+        }
+        //机构的机构电话可以写座机或者400             
+        if($("input[name='orgMobile']").isEmpty()){
+            core.tip.show('机构电话不能为空');
+            return;
+        }
+        //下面注释的项目不做判空处理
+        // if($("input[name='wechat']").isEmpty()){
+        //     core.tip.show('微信号不能为空');
+        //     return;
+        // }
+        // if($("input[name='address']").isEmpty()){
+        //     core.tip.show('快递地址不能为空');
+        //     return;
+        // }
+        // if($("input[name='position']").isEmpty()){
+        //     core.tip.show('职务不能为空');
+        //     return;
+        // }
+        //unit
+        if($("input[name='orgName']").isEmpty()){
+            core.tip.show('机构名称不能为空');
+            return;
+        }
+        if($("textarea[name='orgDesc']").isEmpty()){
+            core.tip.show('机构简介不能为空');
+            return;
+        }
+        //提交的数据 post1和post1对应为
+        var data = {
+            op :'edit',
+            ac : 'sub',
+            what : 'info',
+            realname : $("input[name='realname']").val(),
+            mobile : $("input[name='mobile']").val(),
+            logo: $("input[name='file1[]']").val(),    //logo
+            wechatCode: $("input[name='file2[]']").val(),    //qrcode
+            contact : $("input[name='contact']").val(),
+            orgMobile : $("input[name='orgMobile']").val(),
+            wechat : $("input[name='wechat']").val(),
+            address : $("input[name='address']").val(),
+            orgName : $("input[name='orgName']").val(),
+            job : $("input[name='job']").val(),
+            orgDesc : $("textarea[name='orgDesc']").val()
+        };
+        //console.log(data);
+        //提交修改的注册信息
+        core.pjson('activity/index',data,function(json){
+            if(json.status==1){
+                //执行成功 需要运行的代码...
+                core.tip.show(json.result);
+                setTimeout(function(){
+                    location.href='{php echo $this->createPluginMobileUrl('activity')}';
+
+                },250);
+                return;
+            }
+            core.tip.show(json.result);
+        },true,true);
+     });
+}
+//更新微信信息 这个函数我不知道要提交什么内容
+function changeWechat(){
+    require(['tpl', 'core'], function(tpl, core) { 
+        //提交的数据
+        var data = {
+            status : "1",
+            op : "checkmember",
+        };
+        //更新微信信息请求
+        core.pjson('activity/index',data,function(json){
+            if(json.status==1){
+                //执行成功 需要运行的代码...
+                core.tip.show(json.result);
+                return;
+            }
+            core.tip.show(json.result);
+        },true,true);
+    });
+}
+//保存修改注册信息函数
+function setpassword(){
+    require(['tpl', 'core'], function(tpl, core) { 
+        if($("input[name='password']").isEmpty()){
+            core.tip.show('密码不能为空');
+            return;
+        }
+        var password1 = $.trim($("input[name='password']").val());
+        if(password1.length < 6){
+            core.tip.show('密码不能少于 6 个字符');
+            return;
+        }
+        if($("input[name='re_password']").isEmpty()){
+            core.tip.show('重复密码不能为空');
+            return;
+        }
+        var password2 = $.trim($("input[name='re_password']").val());
+        if(password2 != password1){
+            core.tip.show('两次密码不一致');
+            return;
+        } 
+        //console.log(password1+password2);
+        // return false;     
+        //提交修改的密码,修改请求路径和编写执行成功和失败的代码
+        core.pjson('activity',{op:'edit',ac:'sub',what:'pwd',password: password1, re_password: password2},function(json){
+            if(json.status==1){
+                //执行成功 需要运行的代码...
+                core.tip.show(json.result);
+                setTimeout(function(){
+                    location.href='{php echo $this->createPluginMobileUrl('activity')}';
+
+                },250);
+                return;
+            }
+            core.tip.show(json.result);
+        },true,true);
+    });
+}
+//上传图片
+function  handleFiles(q,id)
+{
+    require(['tpl', 'core'], function(tpl, core) {
+        var files =  q.files;
+        if(files.length)
+        {
+            console.log(files.length);
+            for(var x =0 ;x<files.length;x++ ){
+                var file = files[x];
+                if(!/image\/\w+/.test(file.type)){
+                    alert("文件必须为图片！"+file.type);
+                    return ;
+                }
+            }
+            $.ajaxFileUpload({  
+                url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+                secureuri:false,  
+                fileElementId:$(q).attr('id'), //file的id  
+                dataType:"text", // 返回数据类型为文本  
+                success:function(data,status){  
+                    console.log(data);
+                    console.log(status);
+                    var obj = JSON.parse(data);
+                    for(var x in obj.result.url){
+                        $("#file"+id).parent().before(tpl('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+                    }
+                    $("#file"+id).parent().hide();
+                    //增加删除服务器存储照片的功能,而不是简单地删除页面的dom元素
+                    $('.minus').unbind("click").click(function() {
+                        var $reObj = $(this).parent().parent();
+                        var $curObj = $(this);
+                        require(['core'], function(core) {
+                            core.json('util/uploader', {op: 'remove', file: $curObj.data('img')}, function(rjson) {
+                                //删除成功
+                                if (rjson.status == 1) {
+                                    $reObj.remove();
+                                    $("#file"+id).parent().show();
+                                }
+                            }, false, true);
+                        });
+                    });   
+               }  
+            });
+        }
+    });
+}
+</script>
+{template 'common/footer'}

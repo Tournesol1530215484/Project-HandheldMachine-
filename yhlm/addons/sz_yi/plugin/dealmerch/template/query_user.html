@@ -1,0 +1,27 @@
+<div style='max-height:500px;overflow:auto;min-width:1000px;'>
+<table class="table table-hover" style="min-width:1000px;">
+    <thead>
+        <th>id</th>
+        <th>头像</th>
+        <th>用户名/真实姓名</th>
+        <th>联系电话</th>
+        <th>操作</th>
+    </thead>
+    <tbody>
+        {loop $ds $row}
+        <tr>
+            <td>{$row['id']}</td>
+            <td><img src="{$row['avatar']}" width="35px" height="35px"></td>
+            <td>{$row['nickname']}/{$row['realname']}</td>
+            <td>{$row['mobile']}</td>
+            <td style="width:80px;"><a href="javascript:;" onclick='select_user({php echo json_encode($row);})'>选择</a></td>
+        </tr>
+        {/loop}
+        {if count($ds)<=0}
+        <tr> 
+            <td colspan='4' align='center'>未找到相关兑换点, 点击<a href="{php echo $this->createPluginWebUrl('dealmerch/dealmerch_exchange')}" target='_blank'>【新增兑换点】</a></td>
+        </tr>
+        {/if}
+    </tbody>
+</table>
+</div>

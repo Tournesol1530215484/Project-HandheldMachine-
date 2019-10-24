@@ -1,0 +1,299 @@
+body{
+    background: #fff;
+}
+#big_body{
+    width:100%;
+    margin:0px;
+    float: left; 
+    position: relative; 
+    padding-bottom:50px;
+}
+.customer_top{
+    height:44px;
+    width:100%;  
+    background:#009BF8;  
+    border-bottom:1px solid #ccc;
+}
+.customer_top .title{
+    height:44px; 
+    width:auto;
+    margin-left:10px; 
+    float:left; 
+    font-size:16px; 
+    line-height:44px; 
+    color:#fff;}
+.customer_top .title1{
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+    width: calc(100% - 108px);
+    text-align: center;
+    color:#fff;
+    font-size:16px;
+}
+.back{
+    width: 18px;
+    height: 19px;
+    font-size: 22px;
+    border-radius: 50%;
+    float: left;
+    line-height: 44px; 
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+}
+/*flex居中*/
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.mui-input-group-no-bgcl:after{
+    background-color: transparent;
+}
+.help-box{
+    display: block;
+    padding: 5px 10px 0;
+    color: #737373;
+}
+.match-info{
+    padding: 5px 10px 10px;
+    font-size: 14px;
+}
+.match-info input{
+    outline: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.match-info select,
+.match-info textarea{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.match-info .info-item{
+    line-height: 30px;
+    padding: 5px 3px;
+}
+.match-info .info-item-bot{
+    border-bottom: 1px solid #ddd;
+}
+.match-info .float-l{
+    float: left;
+    width: 80px;
+}
+.match-info .float-l5 {
+    width: 125px;
+}
+.match-info .float-r{
+    float: right;
+    width: calc(100% - 80px);
+}
+.match-info .float-r5{
+    width: calc(100% - 125px);
+}
+.match-info .float-r .whole-input,
+.match-info .float-r .whole-select{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    height: 30px;
+    line-height: 30px;
+}
+.match-info .float-r .money-whole-input{
+    width: 80%;
+}
+.match-info .float-r .last-whole-input{
+    width: 80%;
+}
+.match-info .float-r .whole-textarea{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    line-height: 1.3;
+    vertical-align: bottom;
+}
+.sel-select{ 
+    border-bottom: 1px solid #ddd!important;
+    height: 100%;
+    width: 31%;
+    background: #fff;
+}
+.info-item-address .sel-select{
+    height: 30px;
+}
+.match-info .match-type-box{
+    padding-right: 12px;
+    position: relative;
+    border-bottom: 1px solid #ddd
+}
+.match-info .match-type-box:before{
+    content: "";
+    display: block;
+    clear: both;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid rgba(0,0,0,.6);
+    border-bottom: 1px solid rgba(0,0,0,.6);
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    margin-top: -5px;
+    -moz-transform: rotate(45deg) translateY(-50%);
+    -ms-transform: rotate(45deg) translateY(-50%);
+    -o-transform: rotate(45deg) translateY(-50%);
+    -webkit-transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(-50%);
+}
+.normal-label{
+    font-weight: normal;
+    margin-bottom: 0;
+}
+/*覆盖样式 s*/
+.mui-input-group .radio-box .mui-input-row{
+    height: 30px;
+    width: 50%;
+}
+.radio-box .mui-radio.mui-left label{
+    padding-left: 48px;
+}
+.radio-box .mui-input-row label{
+    padding: 6px 5px;
+}
+.radio-box .mui-radio.mui-left input[type=radio]{
+    left: 10px;
+}
+.radio-box .mui-radio input[type=radio]{
+    top: 1px;
+}
+.mui-input-group .radio-box .mui-input-row:after{
+    height: 0;
+}
+/*覆盖样式 e*/
+.match-info .float-r .read-ele{
+    background-color: rgba(245, 245, 245,.5);
+}
+/*覆盖上面的设置*/
+.match-info .float-r.float-whole{
+    width: 100%;
+    margin-top: 5px;
+}
+.info-item .float-r-switch{
+    float: right;
+    margin-right: 10px;
+}
+.match-info .float-r.float-whole .msbox{
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: border-box;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.match-info .float-r.float-whole .msbox img{
+    width: 100%;
+    margin: 10px 0;
+    height: auto;
+    padding-bottom: 10px;
+}
+.match-info .info-item .upload-img-box{
+    width: 68px;
+    height: 68px;
+    position: relative;
+    box-sizing: border-box;
+    background: #E0E0E0;
+    padding: 10px;
+    padding-top: 0px;
+    float: left;
+}
+.match-info .info-item .upload-img-box input[type=file]{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+.match-info .help-box{
+    font-size: 10px;
+    color: #737373;
+    line-height: 1.2;
+    padding-left: 0;
+}
+.match-info .info-item .upload-img-box .btn-icon{
+    text-align: center;
+    font-size: 20px;
+}
+.match-info .info-item .upload-img-box .btn-tag{
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+}
+.match-info .info-item .upload-img-box .btn-tag2{
+    line-height: 30px;
+}
+.post-btn{
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px 5px;
+    background: #009BF8;
+    border-radius: 10px;
+}
+.match-info .upload-img-container .img-container{
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 5px;
+}
+.match-info .upload-img-container .img-container .img-box{
+    width: 68px;
+    height: 68px;
+    margin: auto;
+    position: relative;
+}
+.add-picture{
+    float: left;
+    width: 120px;
+    background: #fff;
+    position: relative;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #009BF8;
+    color: #fff;
+    border-radius: 5px;
+}
+.add-picture .add-picture-btn{
+    background: transparent;
+    border: none;
+    line-height: 30px;
+    font-size: 12px;
+    padding: 0;
+    color: #fff;
+}
+.add-picture-input{
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}

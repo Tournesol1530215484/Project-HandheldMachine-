@@ -1,0 +1,226 @@
+{template 'common/header'}
+    <title>易货码转账</title>
+    <style type="text/css">
+		body{background:#fff;}
+    	.customer_top {height:44px; width:100%;  background:#009BF8;  border-bottom:1px solid #ccc;}
+	    .customer_top .title {height:44px; width:auto;margin-left:10px; float:left; font-size:16px; line-height:44px; color:#fff;}
+	    .customer_top .title1{height: 44px;line-height: 44px;display: inline-block;width: 70%;text-align: center;color:#fff;font-size:16px;}
+		.back{width: 18px;height: 20px;font-size: 22px;border-radius: 50%;float: left;line-height: 44px; font-family: serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;font-weight: bold;}
+		.content{width: 100%;height: auto;padding-bottom: 10px;}
+		.content .img{width: 120px;height: 140px;background: #fff;margin: 0 auto;padding-top:15px;} 
+		.content .img>img{width:120px;}
+		.inputLi{width: 98%;height: auto;background: #fff;margin: 0 auto;border-radius: 8px;padding: 13px;}
+		.inputLi>span{display: block;height: 52px;font-size: 1.6em;;line-height:40px;text-align:center;}
+		.inputLi>p{border: 1px solid #3A3A3A;border-radius: 20px;height: 35px;line-height: 30px;text-indent: 12px;width: 100%;}
+		/* .inputLi>p:nth-child(2)>span,.inputLi>p:nth-child(3)>span{letter-spacing: 0.37em;} */
+        .inputLi p.note-box{
+            border: 0;
+            height: 80px;
+        }
+		.inputLi p input{border: 0;color: #ccc;margin-left: 6px;width: auto;height:33px;}
+		input:focus{outline:none;}
+        .inputLi p textarea{border: 1px solid #3A3A3A;color: #ccc;margin-left: 6px;height:80px;resize:none;vertical-align: middle; width: calc(100% - 60px);}
+        textarea:focus{outline:none;}
+		.submit{width: 50%;background:#009BF8 ;border-radius: 24px;margin: 0 auto;text-align: center;padding: 7px;font-size: 1.3em;margin-top: 30px;}
+		.submit input{border: 0;background: none;color: #fff;}
+		.histroy{
+            width: 100%;
+            padding: 0 10px;
+            position: relative;
+            margin-bottom: 15px;
+        }  
+        .histroy h4{
+            text-align: center;
+            width: 100%; 
+            margin:0;
+            padding: 7px 7px;
+            background: #fff;  
+        } 
+        .histroy .record-box{
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 204px;
+        }
+        .histroy ul{ 
+            margin-top: 15px;
+            transition: height 5s;
+        } 
+        .histroy ul li{ 
+            border-top:-1px solid #eee;
+            border-bottom:1px solid #eee;
+        }   
+        .histroy div{
+            text-align:center;
+            color: #009BF8; 
+        }   
+        .histroy span{
+            display:inline-block;
+            width:auto; 
+        }  
+        .histroy .time{
+            float: right;
+        }
+        .histroy .action{
+            margin-right:30%;
+        }
+        .histroy .num{
+            width:10%;
+            text-align: center;
+        }
+    </style>
+    <div class="customer_top">
+		<div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+		<div class="title1">
+			易货码转账
+		</div>
+	</div>
+	<div class="content">
+    	<div class="img">
+			<img src="../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/edpsw.png" />
+		</div>
+    	<div class="inputLi">
+    		<span style="font-size:16px;color:#f00;">
+    			转账：扣发起人易货额度，你出易货服务费
+    		<br/>
+				易货：让对方在商城下单，对方出易货服务费或扣额度    		
+    		</span>
+    		
+    		<br/>
+    		
+    		<p><span>转入方账号：</span><input type="text" name="touid" class="check-empty" placeholder="请输入对方电话号码"></p> 
+    		<p><span>转出易货码数量：</span><input type="text" name="btcodenum" class="check-empty"></p> 
+    		<p class="note-box"><span class="note-tag">备注：</span><textarea class="btcodetrfnote" name="btcodetrfnote"></textarea> </p> 
+    		
+	        <div class="submit">
+	    		 <input type="submit" class="btcodetrf-btn" name="确认提交" value="确认提交">
+	    	</div>   
+    	</div>   
+    </div>
+    
+    <div class="currency">        
+        <div style="width:100%;text-align:center;">可用易货码:<span style="color:#f00;">{$userinfo['credit3']}</span></div>           
+        <br clear="all"/>     
+    </div>   
+    
+    <div class="histroy">
+        <h4>转账记录</h4>
+        <div class="record-box">
+            <ul>     
+            </ul>
+            <div class="load">点此加载更多</div> 
+        </div>
+         
+    </div>  
+     
+    <script>
+        $(function(){
+            // core.json('order/list', {page:page, status: '{$_GPC['status']}'}, function(json) {
+
+            //         $("#container").html(tpl('tpl_order_list'));
+            //         $('.nav').click(function() {
+            //             var status = $(this).data('status');
+            //             location.href = core.getUrl('order/list', {status: status});
+            //         })
+            //         if (json.result.list.length <= 0) {
+            //             $("#order_container").html(tpl('tpl_empty'));
+            //             return;
+            //         }
+            //         $("#order_container").html(tpl('tpl_order', json.result));
+            //         bindEvents();
+                    
+                    
+                    var loaded = false; 
+                      var stop=true;  
+                      var page=0; 
+                      $('.load').click(function(){ 
+                        
+                          if(loaded){  
+                              return; 
+                          }
+                        loaded = true; 
+                        $('.load').html('正在加载...');
+                        $.post('{php echo $this->createPluginMobileUrl("suppliermenu/transfer")}', {page:page,op:'histroy'}, function(data) {
+                            var html='';
+                            for(var i in data.result.log){ 
+                                var action='';
+                                if (data.result.log[i].type == 13) {
+                                    action='转出';
+                                }else if (data.result.log[i].type == 14){
+                                    action='转入';
+                                } 
+                                html+='<li><span class="action">'+action+'</span><span class="num">'+data.result.log[i].currency+'</span><span class="time">'+data.result.log[i].dealtime+'</span></li>';
+                            } 
+                            $('.histroy ul').append(html); 
+                            if (data.result.psize != data.result.thisnum) { 
+                                loaded = true; 
+                                $('.load').html('已经加载全部记录'); 
+                                return; 
+                            }else{
+                                $('.load').html('点此加载更多'); 
+                                loaded=false;
+                                page++;
+                            }
+                        },'json'); 
+                        }); 
+ 
+                    setTimeout(function(){
+                        $('.load').click();
+                    },100);
+            var uidmark = 0;//0转入方不正确 1正确
+            $('input[name="touid"]').blur(function () {
+                var uid=$('[name="touid"]').val();
+                $.post(
+                    "{php echo $this->createPluginMobileUrl('suppliermenu/transfer')}",
+                    {mid:uid,op:'getInfo'},
+                    function (e) {
+                        if (e.status == 0){
+                            confirm(e.result);
+                        }else if(e.status == 1){
+                            var r = confirm('你确定转入方是'+e.result+'吗?');
+                            if(r == true){
+                                uidmark = 1;
+                            }
+                        }
+                    },'json'
+                );
+            });
+            require(['core'], function( core) {
+                $('.btcodetrf-btn').click(function(){
+                    var data = {
+                        op:'btcodetrf',
+                        'mobile'  : $('input[name="touid"]').val(),
+                        'btcodenum' : $('input[name="btcodenum"]').val(),
+                        'btcodetrfnote' : $('[name="btcodetrfnote"]').val()
+                    };
+                    //转入方不正确,允许提交
+                    if(uidmark == 0){
+                        alert("请填写正确的转入方");
+                        return false;
+                    }
+                    var ckeckempty = true;
+                    $(".check-empty").each(function(){
+                        if($(this).val() == null || $(this).val() ==''){
+                            ckeckempty = false;
+                        }
+                    });
+                    if(ckeckempty == false){
+                        alert("请完成填写");
+                        return false;
+                    }
+
+                    core.pjson('suppliermenu/transfer', data, function(json) {
+                        console.log(json);
+                        if (json.status == 1) {
+                            alert('转账成功！');
+                            window.location.href="{php echo $this->createPluginMobileUrl('suppliermenu/index',array('merch'=>5))}";
+                        } else if (json.status == 0) {
+                            core.tip.show(json.result);
+                        }
+                    }, true);
+                });
+            }); 
+        });
+    </script>
+{php $show_footer=true}
+{php $footer_current='member'} 
+{template 'common/footer'}

@@ -1,0 +1,424 @@
+{template 'common/header'}
+<title>易货联盟-图片导航</title>
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.min.css">
+<!-- <link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.picker.min.css"> -->
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/picture1111.css?'.time();?>" />
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<!-- <script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.picker.min.js"></script> -->
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<!-- 位置相关 -->
+<script src="../addons/sz_yi/plugin/match/res/js/cookie.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">图片广场</div>
+    </div>
+    <div class="search-container">
+        <div class="search-box flex-center">
+            <div class="activity-icon-box city-btn">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span class="current-city">武汉市</span>
+            </div>
+            <div class="activity-search-inp">
+                <input type="text" name="keywords" class="keywords" placeholder="请输入标题或者主办方搜索">
+            </div>
+            <div class="activity-search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <div class="activity-user-btn" onclick="location.href='{php echo $this->createMobileUrl('member')}'">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="activity-bg">我的</span>
+            </div>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <!--支持循环，需要重复图片节点 最大的元素-->
+            {php $max=count($banner)-1}
+            {if $banner}
+            <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="{$banner[$max]['link']}"><img src="{php echo tomedia($banner[$max]['thumb'])}" /></a>
+            </div>      
+            {/if}
+            {loop $banner $key $val}
+                <div class="mui-slider-item">
+                    <a href="{$val['link']}"><img src="{php echo tomedia($val['thumb'])}" /></a>
+                </div>  
+            {/loop}
+            <!--支持循环，需要重复图片节点 最小的元素-->
+            {if $banner}
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="{$banner[0]['link']}"><img src="{php echo tomedia($banner[0]['thumb'])}" /></a>
+            </div> 
+            {/if}
+        </div>
+        <!-- 轮播图圆点 --> 
+        <div class="mui-slider-indicator"> 
+            {loop $banner $key $val}         
+                <div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+            {/loop}
+        </div> 
+    </div>
+    <div class="list-box">
+        <ul class="list-ul clearfloat" id="masonry">      
+            <!-- 下拉加载数据容器 -->
+        </ul> 
+    </div>
+    <div class="go-to-top-con">
+        <a href="javascript:void(0);" class="gotop" id="gotop" data-i=""><i class="fa fa-caret-up icon-block" aria-hidden="true"></i>TOP</a>
+    </div>
+    <form action="" method="get" id="activityform">
+        <input type="hidden" name="i" value="{$_W['uniacid']}">
+        <input type="hidden" name="c" value="{$_GPC['c']}">
+        <input type="hidden" name="do" value="{$_GPC['do']}">
+        <input type="hidden" name="method" value="{$_GPC['m']}">
+        <input type="hidden" name="p" value="{$_GPC['p']}">
+        <input type="hidden" name="keywords" value="{$_GPC['keywords']}">
+        <input type="hidden" id="province" name="province" value="{$_GPC['province']}">
+        <input type="hidden" id="city" name="city" value="{$_GPC['city']}">
+    </form>
+    <div style="width: 100%; height: 55px;"></div>
+    {template 'common/nav_picture'}
+</div>
+<!-- 借用说明的类似结构实现蒙层和弹出框 进行城市选择-->
+<div class="description_layer"></div> 
+<div class="description">
+    <div class="description-tag">选择城市</div>
+    <div class="description-cont">
+        <div class="mark-tips">请在下拉框中选择对应的区域,再点击确定按钮,不选则默认为全国</div>
+        <div id='province-container' class='province-b city-p-c-a-sle'>
+            <select class="whole-select add-select" id="sel-provance" onChange="selectCity();">
+                <option value="">省/直辖市</option>                   
+            </select>
+            <select class="whole-select add-select" id="sel-city" onChange="selectcounty();">
+                <option value="">请选择</option>
+            </select>
+            <select class="whole-select add-select select-hide" id="sel-area">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+    <div class="city-confirm-btn">提交</div>
+    <div class="close icon" onClick="closedescription()"></div>
+</div>
+<!-- 两种模板 图片列表 或者 图片暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item">
+            <div class="list-item-wrapper">
+                <a href="<%g.link%>" class="link-box" style="display: block;text-decoration: none;">
+                <div class="pic-box"><!-- 图片 如果是空的,则显示默认图片 -->
+                    <img class="pic" src="<%if g.cover && g.cover != 'undefined'%><%g.cover%><%else%>../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png<%/if%>">
+                    <div class="wechat-name nowrap"><%g.nickname%></div><!-- 微信网名 -->
+                </div>
+                </a>            
+                <div class="bottom-box flex-center">
+                    <div class="line-clamp2 signature">  <!-- 一句话描述 -->
+                        <%g.title%>
+                    </div>
+                    <div class="givetop-btn" data-id="<%g.id%>">顶</div>
+                </div>
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无对应图片</div>
+</script>
+<script type="text/javascript">
+    //var page = 1;
+    var loaded = false;
+    var stop = true;
+    var def_args = args  = {
+        page:"{$_GPC['page']}",
+        keywords: "{$_GPC['keywords']}",
+        province: "{$_GPC['province']}",
+        city: "{$_GPC['city']}",
+        ac:'get',
+        status:'3'
+    }; 
+    require(['tpl', 'core', '../addons/sz_yi/plugin/match/res/js/jquery.cookie.js','../addons/sz_yi/plugin/match/res/js/masonry.pkgd.min.js','../addons/sz_yi/plugin/match/res/js/jquery-bridget.js', '../addons/sz_yi/plugin/match/res/js/imagesloaded.pkgd.min.js'], function(tpl, core, jQuery, Masonry, jQueryBridget, jQuery) {
+        $.bridget( 'masonry', Masonry );
+        menushowheight();
+        function getActivitys(mark) {
+            if(args.city=='' || args.city=='undefined'){
+                args.province = "湖北省";
+                args.city = "武汉市";
+            }
+            //alert(args.province+args.city);
+            if(args.province == '请选择省份'){
+                args.province = "";
+            }
+            if(args.city == '请选择城市'){
+                args.city = "";
+            }
+            core.pjson('match/picture', args, function (json) {
+                if(mark){
+                    $('.list-ul').html(tpl('tpl_list',json.result));
+                    bindMasonryEvent();
+                    bindEvent();
+                }else{          
+                    $('.list-ul').html("");
+                    $('#list_loading').remove();
+                    var $content = $(tpl('tpl_list',json.result));
+                    $('.list-ul').append($content);
+                    bindEvent();
+                    $content.imagesLoaded(function(){
+                        $('.list-ul').masonry("appended",$content,true);
+                        $('.list-ul').masonry('reloadItems').masonry('layout');
+                    });
+                }
+                
+                removeLoading();
+                if (json.result.list.length <= 0) {
+                    loaded = true;
+                    $(window).scroll = null;
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+                    return;
+                }
+                stop =true;
+                bindMore();
+            }, true);
+        }
+        function getActivityMore() {
+            core.pjson('match/picture', args, function (json) {
+                var $content = $(tpl('tpl_list',json.result));
+                $('.list-ul').append($content);
+                bindEvent();
+                $content.imagesLoaded(function(){
+                    $('.list-ul').masonry("appended",$content,true);
+                });
+                $('#list_loading').remove();
+                //这里的pagesize必须大一点，现在的五个有bug出现
+                //if(json.result.list.length <json.result.pagesize) {
+                if (json.status == 0){
+                    //$('.list-box .list-ul').append('<div id="list_loading">已经加载全部图片</div>');
+                    $('.list-box').append('<div id="list_loading">已经加载全部图片</div>');
+                    loaded = true;
+                    $(window).scroll = null;
+                    return;
+                }
+                stop=true;
+                bindMore();   
+            });
+        }
+        function bindMore() {
+            $(window).scroll(function () {
+                if (loaded) {
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+                if ($(document).height() <= totalheight) {
+                    if (stop == true) {
+                        stop = false;
+                        //$('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载更多图片</div>');
+                        $('.list-box').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载更多图片</div>');
+                        if(args.page=='' || args.page=='undefined'){
+                            args.page = 1;
+                        }
+                        args.page++;
+                        getActivityMore();
+                    }
+                }
+            });
+        }
+        getActivitys(true);
+        $('.activity-search-btn').unbind('click').click(function(){
+            if($('.keywords').isEmpty()){
+                core.tip.show('请输入搜索词');
+                return false;
+            }
+            var keywords = $.trim($('.keywords').val());
+            args  = {
+                page:1,
+                keywords: keywords,
+                province: args.province,
+                city: args.city,
+                ac:'get',
+                status:'2'
+            };
+            loaded = false;
+            stop = true;
+            getActivitys(false);
+        });
+    
+        //城市选择
+        $('.city-confirm-btn').unbind('click').click(function(){
+            //如果全为空则默认是全国
+            var province = $.trim($('#sel-provance').val());
+            var city = $.trim($('#sel-city').val());
+            var keywords = $.trim($('.keywords').val());
+            if($("#sel-provance").val() == '请选择省份'){
+                //province = "";
+                province = '请选择省份';
+            }
+            if($("#sel-city").val() == '请选择城市'){
+                //city = "";
+                city = '请选择城市';
+            }
+            if(city == "请选择城市"){
+                $('.current-city').html("全国");
+            }else{
+                $('.current-city').html(city);
+            }
+            //args.keywords,
+            args  = {
+                page:1,
+                keywords: keywords,
+                province: province,
+                city: city,
+                ac:'get',
+                status:'2'
+            };
+            loaded = false;
+            stop = true;
+            getActivitys(false);
+            //关闭城市选择弹框
+            closedescription();
+        });
+        $(window).scroll(function() {
+            menushowheight();  
+        });
+        $("#gotop").click(function(){
+            $("html,body").stop().animate({scrollTop: 0}, 500);
+        });
+        $(".city-btn").click(function(){
+            showdescription();
+        });
+        //获取当前城市相关
+        if(getCookie('lng') == null || getCookie('lng') == undefined || getCookie('lat') == null || getCookie('lat') == undefined || decodeUnicode(getCookie('city')) == null || decodeUnicode(getCookie('city')) == undefined ) {
+            var map = new BMap.Map("allmap");
+            navigator.geolocation.getCurrentPosition(function (position) {
+                lng = position.coords.longitude; //lng
+                lat = position.coords.latitude; //lat
+                setCookie('lat', lat, 1);
+                setCookie('lng', lng, 1);
+                var point = new BMap.Point(lng, lat);
+                var gc = new BMap.Geocoder();
+                gc.getLocation(point, function (rs) {
+                    var addComp = rs.addressComponents;
+                    setCookie('city', addComp.city, 1);
+                    setCookie('province', addComp.province, 1);
+                    city = addComp.city;
+                    province = addComp.province;
+                    //alert(city+addComp.province);
+                    args  = {
+                        page:1,
+                        keywords: args.keywords,
+                        province: province,
+                        city: city,
+                        ac:'get',
+                        status:'2'
+                    };
+                    loaded = false;
+                    stop = true;
+                    changeLoading();
+                    getActivitys(false);
+                    $(".current-city").html(city);
+                    cascdeInit(province,city,'');
+                });
+            });
+        }
+        var lng, lat, city, province;
+        lat = getCookie('lat');
+        lng = getCookie('lng');
+
+        //为了测试默认选中了武汉市
+        //setCookie('city', '武汉市');
+        city = decodeUnicode(getCookie('city'));
+        //如果cookie中的lng or lat or city 任意一个为空则授权定位并把通过经纬度获取的城市名称填入html中
+        if(city == '' || city == 'null' || city == 'undefined' || city ==undefined || city ==null){
+            province = "湖北省";
+            city='武汉市';
+        } 
+        //加载到选择城市中
+        $('.current-city').html(city);
+        //初始化所在地区
+        cascdeInit(province,city,'');
+        //瀑布流事件
+        function bindMasonryEvent(){
+            /*响应式瀑布流实现关键代码*/
+            var $grid = $('.list-ul').masonry({
+                itemSelector: '.list-item',
+                isAnimated: true  /*启用动画效果*/
+            });
+            $grid.imagesLoaded(function(){
+                $grid.masonry('layout');
+            });
+        }
+        function bindEvent(){
+            $(".givetop-btn").unbind("click").click(function(e){
+                if($(this).attr('submitting') == '1') { 
+                    return; 
+                }
+                var pic_id = $(this).data("id");//获取图片id
+                $(this).attr('submitting', 1);
+                //到时候该异步请求url                    
+                core.pjson('activity/index', {op:'like',type:'4',id:pic_id}, function(json) {
+                    //json.status 这里的标识字段随便取，跟后台返回的对应就可以了
+                    if (json.status == 1) {
+                        $('.givetop-btn').removeAttr('submitting');  
+                        core.tip.show('操作成功','bottom',500);
+                        return;      
+                    }
+                    $('.givetop-btn').removeAttr('submitting');
+                    core.tip.show('你已经顶过此图片了','bottom',500);
+                }, true);
+            });
+        }
+        function menushowheight(){
+            var bt=$(window).scrollTop();
+            if(bt>=400){
+                $("#gotop").slideDown(200);
+                $("#gotop").attr({"data-i":"1"});
+            }else{
+                $("#gotop").slideUp(200);
+                $("#gotop").attr({"data-i":""});
+            }
+        }
+    });
+    function  decodeUnicode(str)  {  
+        //alert(str); //一开始应该都是null
+        if(!str){
+            return str;
+        }
+        str  =  str.replace(/\\/g,  "%");      
+        return  unescape(str);  
+    }
+    function changeLoading() {
+        var u = navigator.userAgent,
+            app = navigator.appVersion;
+        if ($('#core_loading1').length <= 0) {
+            $('body').append('<div id="core_loading1" style="top:50%;left:50%;margin-left:-35px;margin-top:-30px;position:absolute;width:80px;height:80px; z-index:999999;background: rgba(0,0,0,.4);"><img src="../addons/sz_yi/static/images/loading.gif" width="80" /><div style="color:#fff;font-size:12px;text-align:center;">正在转换到<br />当前城市<div></div>')
+        } else {
+            $('#core_loading1').show();
+        }
+    }
+    function removeLoading() {
+        $('#core_loading1').hide();
+    }
+    function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+</script>
+<script type="text/javascript">
+    $(function(){
+        //轮播图
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+          interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+        });
+    });
+</script>
+{template 'common/footer'}

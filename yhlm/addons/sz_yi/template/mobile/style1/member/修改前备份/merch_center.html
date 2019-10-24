@@ -1,0 +1,189 @@
+﻿{template 'common/header'}
+<!-- center -->
+<title>商家中心</title>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/center.css">
+<div id="container"></div>
+<script id="member_center" type="text/html">    
+  <div class="header">
+    <div class="user" style="height:140px;">
+      <div class="user-left" onclick='location.href="{php echo $this->createMobileUrl('member/info')}"'>
+        <div class="user-head"><img src="<%member.avatar%>"/></div>
+        <div class="user-info">
+          <div class="user-name"><%member.nickname%></div>
+          <div class="user-other user-member" {if !empty($set['shop']['levelurl'])}onclick='location.href="{$set['shop']['levelurl']}"'{/if} ><%level.levelname%></div>
+           <div class="user-other"><%if shop_set.shop.isreferrer%>推荐人：[<%referrer.realname%>]<%/if%> </div>
+          <div class="user-other">ID：<%member.id%></div>
+         
+        </div>
+      </div>
+      <div class="user-right">
+        <!-- <div> <i></i>余额：<a href="{php echo $this->createMobileUrl('member/transfer')}" class="take">转账</a>{if empty($set['trade']['closerecharge'])}<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}" class="take take1">充值</a>{/if}</div> -->
+        <div style="position: relative;"> <i style="float: left;">余额：</i>{if empty($set['trade']['closerecharge'])}<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}" class="take take1">充值</a>{/if}
+        <!-- <div class="t_num hs-min" data-num="<%member.credit2%>"></div> -->
+        <div class="timer" style="font-size:1rem" data-to="<%member.credit2%>" data-speed="1500"></div>
+        </div>
+        <div class="integral"><i style="float: left;">积分：</i><%if open_creditshop%><a href="{php echo $this->createPluginMobileUrl('creditshop')}" class="take">兑换</a><%/if%>
+        <!-- <div class="t_num" data-num="<%member.credit1%>"></div> -->
+        <div class="timer" style="font-size:1rem" data-to="<%member.credit1%>" data-speed="1500"></div>
+        </div>
+        <!-- 易货币 -->
+         <div class="integral"><i style="float: left;">易货码：</i> 
+        <!-- <div class="t_num" data-num="<%member.credit1%>"></div> -->
+        <div class="timer" style="font-size:1rem" data-to="<%member.credit3%>" data-speed="1500"></div>
+        </div>
+        
+      </div>
+    </div>
+    <iframe id="vector" src="{php echo $this->createMobileUrl('member/vector',array('openid'=>$openid))}"></iframe>
+  </div>
+
+  <ul class="cart">
+
+	<!--供应商申请-->
+	{if p('supplier')}
+		{if empty($supplier) }
+		<!--<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier')}"> <i class="hs hs-shenqing"></i>供应商申请  <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>-->
+			<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier',array('merch'=>2))}">  <i class="hs hs-shenqing"></i>全国商家申请 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+		{else}
+			<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu',array('merch'=>2))}"> <i class="hs hs-shenqing"></i>全国商家管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+		{/if}
+
+		  {if empty($merch) }
+		  <!--<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier')}"> <i class="hs hs-shenqing"></i>供应商申请  <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>-->
+		  	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier',array('merch'=>3))}">  <i class="hs hs-shenqing"></i>本地商家申请 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+		  {else}
+		  	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu',array('merch'=>3))}"> <i class="hs hs-shenqing"></i>本地商家管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+		  {/if}
+
+		  {if empty($barter) }
+		  <!--<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier')}"> <i class="hs hs-shenqing"></i>供应商申请  <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>-->
+		  	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier',array('merch'=>5))}">  <i class="hs hs-shenqing"></i>易货商家申请 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+		  {else}
+		  	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu',array('merch'=>5))}"> <i class="hs hs-shenqing"></i>易货商家管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+		  {/if}
+	{/if}
+
+
+  </ul>
+  <div class="copyright" style="position: absolute;bottom: 49px;">版权所有 © {if empty($set['shop']['name'])}{$_W['account']['name']}{else}{$set['shop']['name']}{/if} </div>
+</script>
+<!-- js --> 
+<script type="text/javascript">
+require(['tpl', 'core'], function(tpl, core) {  
+	core.json('member/center',{},function(json){     
+		$('#container').html(  tpl('member_center',json.result) );   
+		var withdrawmoney = {php echo empty($set['trade']['withdrawmoney'])?0:floatval($set['trade']['withdrawmoney'])};   
+		$('#btnwithdraw').click(function(){       
+			if(json.result.member.credit2<=0){        
+				core.tip.show('无余额可提!');          
+				return;           
+			}             
+			if(withdrawmoney>0 && json.result.member.credit2<withdrawmoney){    
+				core.tip.show('满' +withdrawmoney + "元才能提现!" );        
+				return;              
+			}              
+			location.href = core.getUrl('member/withdraw');       
+		});
+		//new add   
+		$(function(){
+			$.fn.countTo = function (options) {
+				options = options || {};
+				
+				return $(this).each(function () {
+					// set options for current element
+					var settings = $.extend({}, $.fn.countTo.defaults, {
+						from:            $(this).data('from'),
+						to:              $(this).data('to'),
+						speed:           $(this).data('speed'),
+						refreshInterval: $(this).data('refresh-interval'),
+						decimals:        $(this).data('decimals')
+					}, options);
+					
+					// how many times to update the value, and how much to increment the value on each update
+					var loops = Math.ceil(settings.speed / settings.refreshInterval),
+						increment = (settings.to - settings.from) / loops;
+					
+					// references & variables that will change with each update
+					var self = this,
+						$self = $(this),
+						loopCount = 0,
+						value = settings.from,
+						data = $self.data('countTo') || {};
+					
+					$self.data('countTo', data);
+					
+					// if an existing interval can be found, clear it first
+					if (data.interval) {
+						clearInterval(data.interval);
+					}
+					data.interval = setInterval(updateTimer, settings.refreshInterval);
+					
+					// initialize the element with the starting value
+					render(value);
+					
+					function updateTimer() {
+						value += increment;
+						loopCount++;
+						
+						render(value);
+						
+						if (typeof(settings.onUpdate) == 'function') {
+							settings.onUpdate.call(self, value);
+						}
+						
+						if (loopCount >= loops) {
+							// remove the interval
+							$self.removeData('countTo');
+							clearInterval(data.interval);
+							value = settings.to;
+							
+							if (typeof(settings.onComplete) == 'function') {
+								settings.onComplete.call(self, value);
+							}
+						}
+					}
+					
+					function render(value) {
+						// var formattedValue = settings.formatter.call(self, value, settings);
+						var formattedValue = Number(value).toFixed(2);
+						$self.html(formattedValue);
+					}
+				});
+			};
+
+			$.fn.countTo.defaults = {
+				from: 0,               // the number the element should start at
+				to: 0,                 // the number the element should end at
+				speed: 1000,           // how long it should take to count between the target numbers
+				refreshInterval: 100,  // how often the element should be updated
+				decimals: 0,           // the number of decimal places to show
+				formatter: formatter,  // handler for formatting the value before rendering
+				onUpdate: null,        // callback method for every time the element is updated
+				onComplete: null       // callback method for when the element finishes updating
+			};
+
+			function formatter(value, settings) {
+				return value.toFixed(settings.decimals);
+			}
+
+			// custom formatting example
+			$('.count-title').data('countToOptions', {
+				formatter: function (value, options) {
+				  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+				}
+			});
+
+			// start all the timers
+			$('.timer').each(count);  
+			function count(options) {
+				var $this = $(this);
+				options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+				$this.countTo(options);
+			}
+		});
+	},true);   
+})
+</script> 
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

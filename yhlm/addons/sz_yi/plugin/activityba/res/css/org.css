@@ -1,0 +1,154 @@
+html{
+    font-size: 10px;
+}
+body{
+    background: #efeff4;
+}
+.page_topbar{
+   background: #009BF8;
+}
+.page_topbar a.back{
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    padding-right: 15px;
+    color: #fff;
+}
+.page_topbar .title{
+    color: #fff;
+}
+/*flex居中*/
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.org-box{
+    padding: 10px 0;
+    font-size: 1.4rem;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.org-box .pic-box{
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+}
+.org-box .pic-box .pic{
+    width: 78px;
+    height: 78px;
+}
+.org-box .brief-box{
+    width: 90%;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 10px;
+}
+.nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.article-title{
+    font-size: 14px;
+    padding: 10px 15px;
+    background: #ddd;
+}
+.list-box{
+    margin-bottom: 10px;
+    background: #fff;
+}
+.no-list{
+    padding: 10px;
+    text-align: center;
+    color: #999;
+}
+.list-box .list-ul .list-item{
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.list-box .list-ul .goods-link{
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+.list-box .list-ul .goods-link:visited,
+.list-box .list-ul .goods-link:active{
+    color: #000;
+}
+.list-box .list-ul .list-item .floatr{
+    width: 100%;
+}
+.list-box .list-ul .goods-tag{
+    margin-bottom: 5px;
+}
+.list-box .list-ul .show-tag{
+    font-size: 1.2rem;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list-box .list-ul .show-tag-time{
+    width: 50%;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666;
+}
+.list-box .list-ul .show-tag-money{
+    width: 50%;
+    float: left;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list-box .list-ul .goods-tag .goods-link{
+    font-size: 1.4rem;
+}
+.list-box .list-ul .goods-tag .line-clamp2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.list-box .put-top{
+    display: inline-block;
+    padding: 0 3px;
+    margin-right: 3px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+#list_loading,
+#list_loading2{ 
+    width: 94%;
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}
+/*处理活动的图片*/
+.list-box1 .list-ul1 .list-item .floatl{
+    margin-right: 5px;
+}
+.list-box1 .list-ul1 .list-item .floatl .pic-box{
+    width: 75px;
+    height: 75px;
+}
+.list-box1 .list-ul1 .list-item .floatl .pic-box .pic{
+    width: 100%;
+    height: 100%;
+}
+.list-box1 .list-ul1 .list-item .floatr{
+    width: calc(100% - 90px);
+}

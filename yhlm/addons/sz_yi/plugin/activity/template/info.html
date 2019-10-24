@@ -1,0 +1,329 @@
+{template 'common/header'}
+
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    <li {if $_GPC['method']=='info' && $_GPC['op'] == ''}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/info')}">账号信息</a></li>
+
+    <li {if $_GPC['method']=='info' && $_GPC['op'] == 'message'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/info',array('op'=>'message'))}">短信充值</a></li>
+</ul>
+</div>
+
+<style type='text/css'>
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+</style>
+{if $op == 'display'}
+<div class="main rightlist">
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+        <input type="hidden" name="id" value="{$su_info['id']}" />
+        <div class='panel panel-default' style="border-radius: 5px;">
+            <div class='panel-heading' style="background: #eee;">账号信息</div>
+            <div class='panel-body'>
+
+            	<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  Logo</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							{php echo tpl_form_field_image('data[logo]',$Muser['logo']);}
+							<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+							{else}
+								<img src="{php echo tomedia($Muser['logo'])}">
+							{/if}
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  微信二维码</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							{php echo tpl_form_field_image('data[wechatCode]',$Muser['wechatCode']);}
+							<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+							{else}
+								<img src="{php echo tomedia($Muser['wechatCode'])}">
+							{/if}
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+					</div>
+				</div>
+
+	            <div class="form-group">
+                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>姓名</label>
+	                    <div class="col-sm-9 col-xs-12">
+	                        {ifp 'activity.activity'}
+	                        <input type="text" name="data[realname]" class="form-control" value="{$Muser['realname']}" autocomplete="off" />
+	                        {else}
+	                        <div class='form-control-static'>********</div>
+	                        {/if}
+	                    </div>
+	                </div>
+	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                </div>
+                </div>
+
+                <div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  报名电话</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							<input type="text" name="data[mobile]" class="form-control" value="{$Muser['mobile']}" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  机构名称	</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							<input type="text" name="data[orgName]" class="form-control" value="{$Muser['orgName']}" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系人</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							<input type="text" name="data[contact]" class="form-control" value="{$Muser['contact']}" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系电话</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							<input type="text" name="data[orgMobile]" class="form-control" value="{$Muser['orgMobile']}" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  机构介绍	</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+							<textarea class="form-control" name="data[orgDesc]">{$Muser['orgDesc']}</textarea>
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				{if 0}
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  提现比例</label>
+						<div class="col-sm-9 col-xs-12">
+							{ifp 'activity.activity'}
+								<input type="number" name="data[withdrawRatio]" class="form-control" value="{$Muser['withdrawRatio']}">
+							{else}
+								<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+				{/if}
+
+			</div>
+		</div>
+
+                <div class="form-group"></div>
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                    {ifp 'activity.activity'}
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                    {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'activity.activity.add|activity.activity.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+		<div class="form-group col-sm-12">
+
+        </div>
+    </form>
+</div>
+{else if $op == 'message'}
+
+	<form action="{php echo $this->createPluginWebUrl('activity/info',array('op'=>'message','ac'=>'submit'))}" method="post" class="form-horizontal form" enctype="multipart/form-data">
+	    <div class="panel panel-default">
+
+	        <div class="panel-heading">
+	            短信充值
+	        </div>
+	        <div class="panel-body">
+	            <div class="form-group">
+	                <label class="col-xs-12 col-sm-3 col-md-2 control-label">当前短信数量</label>
+	                <div class="col-sm-9 col-xs-12">
+	                    <div class="form-control-static" style="color: #f00;">{$Muser['msgnum']}</div>
+	                </div>
+	            </div>
+
+	            <div class="form-group">
+	                <label class="col-xs-12 col-sm-3 col-md-2 control-label">请选择购买数量</label>
+	                <div class="col-sm-9 col-xs-12">
+	                    <span class="btn btn-default num" data-num="100">100条</span>
+	                    <span class="btn btn-default num" data-num="5000">5000条</span>
+	                    <span class="btn btn-default num" data-num="10000">10000条</span>
+	                </div>
+	            </div>
+
+	            <div class="form-group">
+	                <label class="col-xs-12 col-sm-3 col-md-2 control-label">充值短信</label>
+	                <div class="col-sm-9 col-xs-12">
+	                    <input type="text" name="num" class="form-control" placeholder="请输入数量" />
+	                </div>
+	            </div>
+
+	            <div class="form-group">
+	                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+	                <div class="col-sm-9 col-xs-12">
+	                	<label class="notice">
+		                    短信——按 <span style="color: #f00;">{$fee}</span>元/条
+	                	</label>
+	                </div>
+	            </div>
+
+	            <div class="form-group">
+	                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+	                <div class="col-sm-9 col-xs-12">
+	                	<input type="hidden" name="msgnum" value="">
+	                    <input type="hidden" name="openid" value="{$_GPC['openid']}" />
+	                    <input type="hidden" name="token" value="{$_W['token']}" />
+	                    <input name="submit" type="submit" value="充 值" class="btn btn-primary span2" onclick="return confirm('确认充值？');return false;" >
+	                    {if false}
+	                    {/if}
+	                </div>
+	            </div>
+
+	        </div>
+	    </div>
+
+	</form>
+	<script type="text/javascript">
+
+		$(function(){
+			$('.num').click(function(){
+     		var o = $(this);
+     		$('.notice').parent().find('font').remove();
+     		$('[name="num"]').val(o.data('num'));
+     		var fee=o.data('num') * {$fee};
+     		var html ='<font>需支付<span style="color: #f00;">'+fee+'</span>元 (余额支付)</font>';
+     		$('.notice').append(html);
+     	});
+
+     	$('[name="num"]').keyup(function(){
+     		var o = $(this);
+     		$('.notice').parent().find('font').remove();
+     		var fee=o.val() * {$fee};
+			var html ='<font>需支付<span style="color: #f00;">'+fee+'</span>元 (余额支付)</font>';
+     		$('.notice').append(html);
+     	});
+
+	})
+	</script>
+
+{/if}
+</div>
+<script language='javascript'>
+
+   $(function(){
+
+
+        // $('#dataform').ajaxForm();
+
+        $(':input[name=submit]').click(function(){
+            if($(this).attr('submitting')=='1'){
+                return;
+            }
+//           if ($(':input[name=username]').isEmpty()) {
+//                Tip.focus($(':input[name=username]'), '请填写用户名!');
+//                return;
+//            }
+//
+
+//            {if empty($su_info)}
+//              if ($(':input[name=password]').isEmpty()) {
+//                Tip.focus($(':input[name=password]'), '请输入用户密码!');
+//                return;
+//            	}
+//            {/if}
+//
+//			{if empty($id)}
+//            if ($(':input[name=merchname]').isEmpty()) {
+//                Tip.focus($(':input[name=merchname]'), '请输入商家名!');
+//                return;
+//            }
+//            if ($(':input[name=typeid]').isEmpty()) {
+//                Tip.focus($(':input[name=typeid]'), '请输入行业大类!');
+//                return;
+//            }
+//            if ($(':input[name=mobile]').isEmpty()) {
+//                Tip.focus($(':input[name=mobile]'), '请输入联系电话!');
+//                return;
+//            }
+//            if ($(':input[name=address]').isEmpty()) {
+//                Tip.focus($(':input[name=address]'), '请输入详细地址!');
+//            }
+//			{/if}
+
+            $(this).attr('submitting','1').removeClass('btn-primary');
+            $('#dataform').ajaxSubmit(function(data){
+            	data = eval("(" +  data  +")");
+                $(this).removeAttr('submitting').addClass('btn-primary');
+                alert(data.result);
+                location.reload();
+            },'json')
+        })
+
+   })
+
+</script>
+{template 'common/footer'}

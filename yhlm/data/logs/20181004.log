@@ -1,0 +1,4110 @@
+2018-10-04 02:59:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+createtime : 1538593174 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+to : gh_0c02969f70a6 ;
+time : 1538593174 ;
+type : event ;
+
+2018-10-04 02:59:34 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 02:59:34 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 06:25:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538605529 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.071011 ;
+longitude : 117.155235 ;
+precision : 840.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538605529 ;
+type : trace ;
+location_x : 36.071011 ;
+location_y : 117.155235 ;
+
+2018-10-04 06:25:29 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 06:25:29 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 06:25:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538605535 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.073090 ;
+longitude : 117.147758 ;
+precision : 19.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538605535 ;
+type : trace ;
+location_x : 36.073090 ;
+location_y : 117.147758 ;
+
+2018-10-04 06:25:35 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 06:25:35 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 06:26:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538605616 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.071011 ;
+longitude : 117.155235 ;
+precision : 840.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538605616 ;
+type : trace ;
+location_x : 36.071011 ;
+location_y : 117.155235 ;
+
+2018-10-04 06:26:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 06:26:56 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 06:26:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538605619 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427711210 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538605619 ;
+type : event ;
+
+2018-10-04 06:26:59 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 06:26:59 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 06:28:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538605724 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.071011 ;
+longitude : 117.155235 ;
+precision : 840.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538605724 ;
+type : trace ;
+location_x : 36.071011 ;
+location_y : 117.155235 ;
+
+2018-10-04 06:28:44 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 06:28:44 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 06:33:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538605986 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538605986 ;
+type : event ;
+
+2018-10-04 06:33:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 06:33:06 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 06:37:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O5EYa0bSS7k0m0pOU_zhw ;
+createtime : 1538606279 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4Lj-O5EYa0bSS7k0m0pOU_zhw ;
+to : gh_0c02969f70a6 ;
+time : 1538606279 ;
+type : subscribe ;
+
+2018-10-04 06:37:59 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 06:37:59 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-O5EYa0bSS7k0m0pOU_zhw ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城
+2、对接人脉进全国通讯录
+3、入驻商城卖货（得现金）
+4、参加本地活动
+5、入驻平台易货（换采购产品、换广告）
+6、申请代理商、广告合作、业务对接
+7、网站、公众号、小程序制作
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-10-04 07:08:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608087 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=article&p=article&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608087 ;
+type : event ;
+
+2018-10-04 07:08:07 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:08:07 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 07:09:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608182 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608182 ;
+type : event ;
+
+2018-10-04 07:09:42 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:09:42 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:10:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608224 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608224 ;
+type : event ;
+
+2018-10-04 07:10:25 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:10:25 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:12:23 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538608343 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.263460 ;
+longitude : 113.322487 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538608343 ;
+type : trace ;
+location_x : 23.263460 ;
+location_y : 113.322487 ;
+
+2018-10-04 07:12:23 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:12:23 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:12:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538608344 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538608344 ;
+type : event ;
+
+2018-10-04 07:12:24 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:12:24 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:14:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608498 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608498 ;
+type : event ;
+
+2018-10-04 07:14:58 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:14:58 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:16:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608562 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608562 ;
+type : event ;
+
+2018-10-04 07:16:02 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:16:02 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:17:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608676 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608676 ;
+type : event ;
+
+2018-10-04 07:17:56 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:17:56 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:19:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608749 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608749 ;
+type : event ;
+
+2018-10-04 07:19:09 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:19:09 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:19:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608793 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608793 ;
+type : event ;
+
+2018-10-04 07:19:53 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:19:53 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:22:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538608949 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.071011 ;
+longitude : 117.155235 ;
+precision : 840.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538608949 ;
+type : trace ;
+location_x : 36.071011 ;
+location_y : 117.155235 ;
+
+2018-10-04 07:22:29 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:22:29 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:22:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538608969 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.073082 ;
+longitude : 117.147087 ;
+precision : 540.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538608969 ;
+type : trace ;
+location_x : 36.073082 ;
+location_y : 117.147087 ;
+
+2018-10-04 07:22:49 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:22:49 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:22:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538608975 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.074127 ;
+longitude : 117.149612 ;
+precision : 9.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538608975 ;
+type : trace ;
+location_x : 36.074127 ;
+location_y : 117.149612 ;
+
+2018-10-04 07:22:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:22:55 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:22:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608979 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608979 ;
+type : event ;
+
+2018-10-04 07:22:59 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:22:59 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:23:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538608980 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538608980 ;
+type : event ;
+
+2018-10-04 07:23:00 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:23:00 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:23:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538608995 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538608995 ;
+type : event ;
+
+2018-10-04 07:23:15 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:23:15 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:23:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538609014 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.074081 ;
+longitude : 117.149612 ;
+precision : 5.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538609014 ;
+type : trace ;
+location_x : 36.074081 ;
+location_y : 117.149612 ;
+
+2018-10-04 07:23:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:23:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:23:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+createtime : 1538609018 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.074081 ;
+longitude : 117.149597 ;
+precision : 9.000000 ;
+from : oSI4Lj-NO6UkHNn72OQiP3tWBEwk ;
+to : gh_0c02969f70a6 ;
+time : 1538609018 ;
+type : trace ;
+location_x : 36.074081 ;
+location_y : 117.149597 ;
+
+2018-10-04 07:23:38 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:23:38 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:24:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538609080 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=article&p=article&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538609080 ;
+type : event ;
+
+2018-10-04 07:24:40 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:24:40 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 07:26:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538609200 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&op=add&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538609200 ;
+type : event ;
+
+2018-10-04 07:26:40 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:26:40 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 07:27:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+createtime : 1538609232 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+to : gh_0c02969f70a6 ;
+time : 1538609232 ;
+type : event ;
+
+2018-10-04 07:27:12 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:27:12 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj7ukfeKj1Pv66bSjWAhhLJA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:56:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1538610968 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434792 ;
+longitude : 116.626801 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1538610968 ;
+type : trace ;
+location_x : 35.434792 ;
+location_y : 116.626801 ;
+
+2018-10-04 07:56:08 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:56:08 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:56:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1538610969 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1538610969 ;
+type : event ;
+
+2018-10-04 07:56:09 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:56:09 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:56:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1538611016 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434792 ;
+longitude : 116.626801 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1538611016 ;
+type : trace ;
+location_x : 35.434792 ;
+location_y : 116.626801 ;
+
+2018-10-04 07:56:56 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:56:56 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 07:57:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1538611021 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1538611021 ;
+type : event ;
+
+2018-10-04 07:57:01 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 07:57:01 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 07:58:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1538611092 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.434795 ;
+longitude : 116.626778 ;
+precision : 30.000000 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1538611092 ;
+type : trace ;
+location_x : 35.434795 ;
+location_y : 116.626778 ;
+
+2018-10-04 07:58:12 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 07:58:12 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 08:49:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1XXiGaY7rksk2_CIbk2DAw ;
+createtime : 1538614184 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj1XXiGaY7rksk2_CIbk2DAw ;
+to : gh_0c02969f70a6 ;
+time : 1538614184 ;
+type : event ;
+
+2018-10-04 08:49:45 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 08:49:45 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj1XXiGaY7rksk2_CIbk2DAw ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 09:03:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+createtime : 1538614986 ;
+msgtype : event ;
+event : TEMPLATESENDJOBFINISH ;
+msgid : 486920363176198146 ;
+status : success ;
+from : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+to : gh_0c02969f70a6 ;
+time : 1538614986 ;
+type : event ;
+
+2018-10-04 09:03:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 09:03:06 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 09:03:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538614986 ;
+msgtype : event ;
+event : TEMPLATESENDJOBFINISH ;
+msgid : 486920364350586880 ;
+status : success ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538614986 ;
+type : event ;
+
+2018-10-04 09:03:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 09:03:06 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 09:20:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538616024 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.263451 ;
+longitude : 113.322449 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538616024 ;
+type : trace ;
+location_x : 23.263451 ;
+location_y : 113.322449 ;
+
+2018-10-04 09:20:24 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 09:20:24 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 09:20:30 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538616030 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538616030 ;
+type : event ;
+
+2018-10-04 09:20:30 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 09:20:30 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 09:23:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538616217 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.263439 ;
+longitude : 113.322426 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538616217 ;
+type : trace ;
+location_x : 23.263439 ;
+location_y : 113.322426 ;
+
+2018-10-04 09:23:37 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 09:23:37 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 09:31:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+createtime : 1538616667 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.439049 ;
+longitude : 116.614052 ;
+precision : 30.000000 ;
+from : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+to : gh_0c02969f70a6 ;
+time : 1538616667 ;
+type : trace ;
+location_x : 35.439049 ;
+location_y : 116.614052 ;
+
+2018-10-04 09:31:07 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 09:31:07 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 09:31:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+createtime : 1538616668 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+to : gh_0c02969f70a6 ;
+time : 1538616668 ;
+type : event ;
+
+2018-10-04 09:31:08 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 09:31:08 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 09:33:30 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+createtime : 1538616810 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.439034 ;
+longitude : 116.614052 ;
+precision : 30.000000 ;
+from : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+to : gh_0c02969f70a6 ;
+time : 1538616810 ;
+type : trace ;
+location_x : 35.439034 ;
+location_y : 116.614052 ;
+
+2018-10-04 09:33:30 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 09:33:30 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 09:33:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+createtime : 1538616812 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+to : gh_0c02969f70a6 ;
+time : 1538616812 ;
+type : event ;
+
+2018-10-04 09:33:33 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 09:33:33 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 09:33:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+createtime : 1538616815 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.439034 ;
+longitude : 116.614052 ;
+precision : 30.000000 ;
+from : oSI4Lj9e2gdKLv2b36V8MG1GoYZE ;
+to : gh_0c02969f70a6 ;
+time : 1538616815 ;
+type : trace ;
+location_x : 35.439034 ;
+location_y : 116.614052 ;
+
+2018-10-04 09:33:35 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 09:33:35 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 09:50:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+createtime : 1538617840 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+to : gh_0c02969f70a6 ;
+time : 1538617840 ;
+type : event ;
+
+2018-10-04 09:50:40 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 09:50:40 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 10:19:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+createtime : 1538619575 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 426b7b6598c63949b7367f2234efe3c9 ;
+ticket : gQFD8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycEoxVUF4OGU4YmYxMDAwMGcwN0cAAgQxugRbAwQAAAAA ;
+from : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+to : gh_0c02969f70a6 ;
+time : 1538619575 ;
+type : subscribe ;
+scene : 426b7b6598c63949b7367f2234efe3c9 ;
+
+2018-10-04 10:19:36 params :
+------------
+Array:
+message : Array ;
+module : sz_yi ;
+rule : 949 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:19:36 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2018-10-04 10:19:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+createtime : 1538619594 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 海报 ;
+from : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+to : gh_0c02969f70a6 ;
+time : 1538619594 ;
+type : event ;
+
+2018-10-04 10:23:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+createtime : 1538619798 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+to : gh_0c02969f70a6 ;
+time : 1538619798 ;
+type : event ;
+
+2018-10-04 10:23:18 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:23:18 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 10:24:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+createtime : 1538619850 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+to : gh_0c02969f70a6 ;
+time : 1538619850 ;
+type : event ;
+
+2018-10-04 10:24:10 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:24:10 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 10:24:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+createtime : 1538619892 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://h.eqxiu.com/s/U4YBmmJj ;
+menuid : 427714297 ;
+from : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+to : gh_0c02969f70a6 ;
+time : 1538619892 ;
+type : event ;
+
+2018-10-04 10:24:52 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:24:52 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 10:25:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+createtime : 1538619911 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+to : gh_0c02969f70a6 ;
+time : 1538619911 ;
+type : event ;
+
+2018-10-04 10:25:11 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:25:11 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2QT4IqR3Vp1mrj5iB-bs24 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 10:27:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+createtime : 1538620075 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.398651 ;
+longitude : 116.615829 ;
+precision : 30.000000 ;
+from : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+to : gh_0c02969f70a6 ;
+time : 1538620075 ;
+type : trace ;
+location_x : 35.398651 ;
+location_y : 116.615829 ;
+
+2018-10-04 10:27:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 10:27:55 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 10:28:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+createtime : 1538620081 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.398651 ;
+longitude : 116.615829 ;
+precision : 30.000000 ;
+from : oSI4Lj_wir_hI7CIcoXUous4ECAM ;
+to : gh_0c02969f70a6 ;
+time : 1538620081 ;
+type : trace ;
+location_x : 35.398651 ;
+location_y : 116.615829 ;
+
+2018-10-04 10:28:01 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 10:28:01 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 10:37:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538620625 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538620625 ;
+type : event ;
+
+2018-10-04 10:37:05 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:37:05 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 10:37:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538620632 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.263412 ;
+longitude : 113.322388 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538620632 ;
+type : trace ;
+location_x : 23.263412 ;
+location_y : 113.322388 ;
+
+2018-10-04 10:37:12 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 10:37:12 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 10:37:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538620639 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.263412 ;
+longitude : 113.322388 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538620639 ;
+type : trace ;
+location_x : 23.263412 ;
+location_y : 113.322388 ;
+
+2018-10-04 10:37:19 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 10:37:19 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 10:37:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538620641 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538620641 ;
+type : event ;
+
+2018-10-04 10:37:21 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:37:21 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 10:38:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538620680 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.263401 ;
+longitude : 113.322380 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538620680 ;
+type : trace ;
+location_x : 23.263401 ;
+location_y : 113.322380 ;
+
+2018-10-04 10:38:00 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 10:38:00 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 10:44:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538621084 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538621084 ;
+type : event ;
+
+2018-10-04 10:44:44 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 10:44:44 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 11:13:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+createtime : 1538622792 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 31.133898 ;
+longitude : 115.226112 ;
+precision : 1270.000000 ;
+from : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+to : gh_0c02969f70a6 ;
+time : 1538622792 ;
+type : trace ;
+location_x : 31.133898 ;
+location_y : 115.226112 ;
+
+2018-10-04 11:13:12 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 11:13:12 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 11:13:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+createtime : 1538622794 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+to : gh_0c02969f70a6 ;
+time : 1538622794 ;
+type : event ;
+
+2018-10-04 11:13:14 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 11:13:14 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 11:13:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+createtime : 1538622831 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 31.133898 ;
+longitude : 115.226112 ;
+precision : 1270.000000 ;
+from : oSI4Lj3ecOAFTtolN71GbZbnHA2M ;
+to : gh_0c02969f70a6 ;
+time : 1538622831 ;
+type : trace ;
+location_x : 31.133898 ;
+location_y : 115.226112 ;
+
+2018-10-04 11:13:51 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 11:13:51 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 13:41:23 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vmUyzc2IAJ2Bu95N8-S9PSQ ;
+createtime : 1538631683 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : o4Uy9vmUyzc2IAJ2Bu95N8-S9PSQ ;
+to : gh_9aac6b6c619f ;
+time : 1538631683 ;
+type : subscribe ;
+
+2018-10-04 13:41:23 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 13:41:23 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vmUyzc2IAJ2Bu95N8-S9PSQ ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城
+2、对接人脉进全国通讯录
+3、入驻商城卖货（得现金）
+4、参加本地活动
+5、入驻平台易货（换采购产品、换广告）
+6、申请代理商、广告合作、业务对接
+7、网站、公众号、小程序制作
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-10-04 13:51:23 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538632283 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538632283 ;
+type : event ;
+
+2018-10-04 13:51:23 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 13:51:23 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 13:51:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538632286 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538632286 ;
+type : event ;
+
+2018-10-04 13:51:26 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 13:51:26 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 13:51:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538632294 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538632294 ;
+type : event ;
+
+2018-10-04 13:51:34 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 13:51:34 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 14:05:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538633147 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538633147 ;
+type : event ;
+
+2018-10-04 14:05:47 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 14:05:47 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 14:06:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538633210 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538633210 ;
+type : event ;
+
+2018-10-04 14:06:50 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 14:06:50 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 14:16:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8bU3dAhgK77ZlILCjU6a_g ;
+createtime : 1538633791 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 36.106758 ;
+longitude : 114.408493 ;
+precision : 380.000000 ;
+from : oSI4Lj8bU3dAhgK77ZlILCjU6a_g ;
+to : gh_0c02969f70a6 ;
+time : 1538633791 ;
+type : trace ;
+location_x : 36.106758 ;
+location_y : 114.408493 ;
+
+2018-10-04 14:16:31 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 14:16:31 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 14:52:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1538635974 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1538635974 ;
+type : event ;
+
+2018-10-04 14:52:55 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 14:52:55 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 15:00:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1538636425 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1538636425 ;
+type : event ;
+
+2018-10-04 15:00:26 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 15:00:26 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 15:00:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1538636425 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.416641 ;
+longitude : 116.624702 ;
+precision : 30.000000 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1538636425 ;
+type : trace ;
+location_x : 35.416641 ;
+location_y : 116.624702 ;
+
+2018-10-04 15:00:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:00:26 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:18:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1538637514 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 35.439789 ;
+longitude : 116.660789 ;
+precision : 130.000000 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1538637514 ;
+type : trace ;
+location_x : 35.439789 ;
+location_y : 116.660789 ;
+
+2018-10-04 15:18:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:18:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:18:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4Pbwa3YZRGuppV2GUHagSE ;
+createtime : 1538637524 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj4Pbwa3YZRGuppV2GUHagSE ;
+to : gh_0c02969f70a6 ;
+time : 1538637524 ;
+type : event ;
+
+2018-10-04 15:18:44 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 15:18:44 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj4Pbwa3YZRGuppV2GUHagSE ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 15:35:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538638553 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538638553 ;
+type : event ;
+
+2018-10-04 15:35:53 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 15:35:53 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 15:36:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+createtime : 1538638588 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+to : gh_0c02969f70a6 ;
+time : 1538638588 ;
+type : event ;
+
+2018-10-04 15:36:28 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 15:36:28 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0GkuUnq_05j7rCq6FJdxwU ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 15:43:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538639033 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.299433 ;
+longitude : 113.338692 ;
+precision : 20.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538639033 ;
+type : trace ;
+location_x : 23.299433 ;
+location_y : 113.338692 ;
+
+2018-10-04 15:43:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:43:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639764 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515879 ;
+longitude : 114.396805 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639764 ;
+type : trace ;
+location_x : 30.515879 ;
+location_y : 114.396805 ;
+
+2018-10-04 15:56:04 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:04 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639771 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515909 ;
+longitude : 114.396881 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639771 ;
+type : trace ;
+location_x : 30.515909 ;
+location_y : 114.396881 ;
+
+2018-10-04 15:56:11 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:11 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639782 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515928 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639782 ;
+type : trace ;
+location_x : 30.515928 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:56:22 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:22 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639788 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515936 ;
+longitude : 114.396881 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639788 ;
+type : trace ;
+location_x : 30.515936 ;
+location_y : 114.396881 ;
+
+2018-10-04 15:56:28 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:28 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639794 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515928 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639794 ;
+type : trace ;
+location_x : 30.515928 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:56:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639800 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515934 ;
+longitude : 114.396881 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639800 ;
+type : trace ;
+location_x : 30.515934 ;
+location_y : 114.396881 ;
+
+2018-10-04 15:56:40 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:40 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639806 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515919 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639806 ;
+type : trace ;
+location_x : 30.515919 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:56:46 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:46 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639813 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515863 ;
+longitude : 114.396858 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639813 ;
+type : trace ;
+location_x : 30.515863 ;
+location_y : 114.396858 ;
+
+2018-10-04 15:56:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:56:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639819 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515884 ;
+longitude : 114.396858 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639819 ;
+type : trace ;
+location_x : 30.515884 ;
+location_y : 114.396858 ;
+
+2018-10-04 15:56:59 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:56:59 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639835 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515902 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639835 ;
+type : trace ;
+location_x : 30.515902 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:57:15 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:15 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639841 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515923 ;
+longitude : 114.396858 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639841 ;
+type : trace ;
+location_x : 30.515923 ;
+location_y : 114.396858 ;
+
+2018-10-04 15:57:21 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:21 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639848 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515940 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639848 ;
+type : trace ;
+location_x : 30.515940 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:57:28 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:28 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639854 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515856 ;
+longitude : 114.396858 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639854 ;
+type : trace ;
+location_x : 30.515856 ;
+location_y : 114.396858 ;
+
+2018-10-04 15:57:34 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:34 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639860 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515905 ;
+longitude : 114.396866 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639860 ;
+type : trace ;
+location_x : 30.515905 ;
+location_y : 114.396866 ;
+
+2018-10-04 15:57:40 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:40 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639867 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515905 ;
+longitude : 114.396851 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639867 ;
+type : trace ;
+location_x : 30.515905 ;
+location_y : 114.396851 ;
+
+2018-10-04 15:57:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:57:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639873 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515903 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639873 ;
+type : trace ;
+location_x : 30.515903 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:57:53 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:57:53 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:58:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639880 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515881 ;
+longitude : 114.396843 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639880 ;
+type : trace ;
+location_x : 30.515881 ;
+location_y : 114.396843 ;
+
+2018-10-04 15:58:00 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:58:00 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:58:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639886 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515869 ;
+longitude : 114.396851 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639886 ;
+type : trace ;
+location_x : 30.515869 ;
+location_y : 114.396851 ;
+
+2018-10-04 15:58:06 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:58:06 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 15:58:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+createtime : 1538639893 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.515902 ;
+longitude : 114.396873 ;
+precision : 65.000000 ;
+from : oSI4Lj1BK8Q2Rub3yQ5W7kmCTdzk ;
+to : gh_0c02969f70a6 ;
+time : 1538639893 ;
+type : trace ;
+location_x : 30.515902 ;
+location_y : 114.396873 ;
+
+2018-10-04 15:58:13 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 15:58:13 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 16:01:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538640107 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.299328 ;
+longitude : 113.338516 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538640107 ;
+type : trace ;
+location_x : 23.299328 ;
+location_y : 113.338516 ;
+
+2018-10-04 16:01:47 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 16:01:47 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 16:01:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538640107 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538640107 ;
+type : event ;
+
+2018-10-04 16:01:47 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 16:01:47 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 16:39:00 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+createtime : 1538642340 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+ticket : gQGN7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyR0FDYXN4eGNhWi0xeUJCU3hyOUQAAgRF0bVbAwRgVAAA ;
+from : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+to : gh_9aac6b6c619f ;
+time : 1538642340 ;
+type : subscribe ;
+
+2018-10-04 16:39:00 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 16:39:00 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城
+2、对接人脉进全国通讯录
+3、入驻商城卖货（得现金）
+4、参加本地活动
+5、入驻平台易货（换采购产品、换广告）
+6、申请代理商、广告合作、业务对接
+7、网站、公众号、小程序制作
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-10-04 16:39:34 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+createtime : 1538642373 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 秒盟 ;
+from : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+to : gh_9aac6b6c619f ;
+time : 1538642373 ;
+type : event ;
+
+2018-10-04 16:39:34 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 16:39:34 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 16:40:24 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+createtime : 1538642424 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 易货操作 ;
+from : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+to : gh_9aac6b6c619f ;
+time : 1538642424 ;
+type : event ;
+
+2018-10-04 16:40:24 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 16:40:24 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vqVqAvZ1Jqzi9EQLzjsdWFo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 17:07:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538644030 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538644030 ;
+type : event ;
+
+2018-10-04 17:07:10 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 17:07:10 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 17:16:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1538644588 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 23.299267 ;
+longitude : 113.338455 ;
+precision : 30.000000 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1538644588 ;
+type : trace ;
+location_x : 23.299267 ;
+location_y : 113.338455 ;
+
+2018-10-04 17:16:28 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 17:16:28 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+
+2018-10-04 20:13:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+createtime : 1538655211 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+to : gh_0c02969f70a6 ;
+time : 1538655211 ;
+type : event ;
+
+2018-10-04 20:13:31 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 20:13:31 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 20:55:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+createtime : 1538657704 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 427714297 ;
+from : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+to : gh_0c02969f70a6 ;
+time : 1538657704 ;
+type : event ;
+
+2018-10-04 20:55:04 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 20:55:04 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj8XvJPAvgudpqvYwptSo1uM ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 20:55:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538657755 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538657755 ;
+type : event ;
+
+2018-10-04 20:55:55 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 20:55:55 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 20:55:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1538657758 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1538657758 ;
+type : event ;
+
+2018-10-04 20:55:58 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 20:55:58 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 20:57:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2SW3lrIsFIdFRK1j0D_TlY ;
+createtime : 1538657831 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4Lj2SW3lrIsFIdFRK1j0D_TlY ;
+to : gh_0c02969f70a6 ;
+time : 1538657831 ;
+type : subscribe ;
+
+2018-10-04 20:57:11 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 20:57:11 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj2SW3lrIsFIdFRK1j0D_TlY ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城
+2、对接人脉进全国通讯录
+3、入驻商城卖货（得现金）
+4、参加本地活动
+5、入驻平台易货（换采购产品、换广告）
+6、申请代理商、广告合作、业务对接
+7、网站、公众号、小程序制作
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-10-04 22:17:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+createtime : 1538662668 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 5141e420449e42c7df87975ef87074b6 ;
+ticket : gQHp8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZjNCWkJmOGU4YmYxMDAwMDAwN2oAAgTj86RaAwQAAAAA ;
+from : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+to : gh_0c02969f70a6 ;
+time : 1538662668 ;
+type : subscribe ;
+scene : 5141e420449e42c7df87975ef87074b6 ;
+
+2018-10-04 22:17:48 params :
+------------
+Array:
+message : Array ;
+module : sz_yi ;
+rule : 949 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 22:17:48 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2018-10-04 22:17:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+createtime : 1538662674 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+to : gh_0c02969f70a6 ;
+time : 1538662674 ;
+type : event ;
+
+2018-10-04 22:17:54 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 22:17:54 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 22:19:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+createtime : 1538662791 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 427714297 ;
+from : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+to : gh_0c02969f70a6 ;
+time : 1538662791 ;
+type : event ;
+
+2018-10-04 22:19:51 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 22:19:51 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzMhTlNCePxDKdKTF85LF4U ;
+MsgType : text ;
+Content : 平台介绍
+https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍
+https://h.eqxiu.com/s/U4YBmmJj   
+
+湖北电视台采访易货联盟，创始人张银清介绍换货模式
+https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg ;
+
+2018-10-04 22:40:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0vEtgfNELYRR94chQWApuc ;
+createtime : 1538664007 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://jhzh66.com/app/index.php?i=8&c=entry&method=activity&p=activity&m=sz_yi&do=plugin ;
+menuid : 427714297 ;
+from : oSI4Lj0vEtgfNELYRR94chQWApuc ;
+to : gh_0c02969f70a6 ;
+time : 1538664007 ;
+type : event ;
+
+2018-10-04 22:40:07 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 22:40:07 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj0vEtgfNELYRR94chQWApuc ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 22:47:45 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vtGcX8uEVTjVSOzmnQkcchE ;
+createtime : 1538664465 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : o4Uy9vtGcX8uEVTjVSOzmnQkcchE ;
+to : gh_9aac6b6c619f ;
+time : 1538664465 ;
+type : subscribe ;
+
+2018-10-04 22:47:45 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1061 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 22:47:45 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vtGcX8uEVTjVSOzmnQkcchE ;
+MsgType : text ;
+Content : 欢迎您，关注易货联盟商城
+
+我们为您提供资金支持、人脉对接、产品策划三大主线服务：
+1、了解公司及商城
+2、对接人脉进全国通讯录
+3、入驻商城卖货（得现金）
+4、参加本地活动
+5、入驻平台易货（换采购产品、换广告）
+6、申请代理商、广告合作、业务对接
+7、网站、公众号、小程序制作
+……
+更多内容，请回复“关键词”机器人客服进行回复；实在满足你的需要，请回复“人工”专人为你解答 ;
+
+2018-10-04 22:48:19 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vtGcX8uEVTjVSOzmnQkcchE ;
+createtime : 1538664499 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 秒盟操作 ;
+from : o4Uy9vtGcX8uEVTjVSOzmnQkcchE ;
+to : gh_9aac6b6c619f ;
+time : 1538664499 ;
+type : event ;
+
+2018-10-04 22:48:19 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1080 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-10-04 22:48:19 response :
+------------
+Array:
+FromUserName : gh_9aac6b6c619f ;
+ToUserName : o4Uy9vtGcX8uEVTjVSOzmnQkcchE ;
+MsgType : text ;
+Content : 你提出的问题，小易机器人回答不了你，请拔打400-615-1519
+
+平台介绍 https://u.eqxiu.com/s/6szkjdIq    
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj      
+
+湖北电视台采访易货联盟，创始人张银清为大家介绍易货换货模式货模式https://mp.weixin.qq.com/s/S2kwEW7LpSgPzxxAofmZlg
+
+900元做网站开发、微信建站、小程序；专业做网站排名、关键词推广、产品营销策划，请后台留言手机号 ;
+
+2018-10-04 23:25:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6zqGBkngcJUePyk1xYQjHo ;
+createtime : 1538666735 ;
+msgtype : event ;
+event : LOCATION ;
+latitude : 30.618727 ;
+longitude : 114.234444 ;
+precision : 30.000000 ;
+from : oSI4Lj6zqGBkngcJUePyk1xYQjHo ;
+to : gh_0c02969f70a6 ;
+time : 1538666735 ;
+type : trace ;
+location_x : 30.618727 ;
+location_y : 114.234444 ;
+
+2018-10-04 23:25:35 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2018-10-04 23:25:35 response :
+------------
+Array:
+errno : -1 ;
+message : Invaild value ;
+

@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../addons/sz_yi/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../addons/sz_yi/static/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <script language="javascript" src="../addons/sz_yi/static/js/require.js"></script>
+    <script language="javascript" src="../addons/sz_yi/static/js/bootstrap.min.js"></script>
+    <script language="javascript" src="../addons/sz_yi/static/js/app/config.js?v=2"></script>
+    <script language="javascript" src="../addons/sz_yi/static/js/dist/jquery-1.11.1.min.js"></script>
+    <script language="javascript" src="../addons/sz_yi/static/js/dist/jquery.gcjs.js"></script>
+    <link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/static/css/style.css">
+</head>
+<body>
+<title>{$list['xi_name']}</title>
+<style>
+    /*设置全局样式*/
+    body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td {margin:0;padding:0;}
+    body{font: 16px/1.5 "微软雅黑",Arial;color: #444;}
+    div{box-sizing: border-box}
+    a{text-decoration: none;color: #002f7b}
+    ul{list-style: none;}
+    img{border: none;vertical-align: middle}
+    /*公用样式*/
+    .fl{float: left}
+    .fr{float: right}
+    /*容器*/
+    .container{max-width: 750px;min-width: 320px;margin: 50px auto 0 auto;background: white;}
+    .distance{margin-top:10px;}
+    /*头部*/
+    .header{width: 100%;background: white;position: fixed;top: 0;left: 0;height: 50px;line-height: 40px;border-bottom: 3px solid #8693b3;}
+    .header img{ margin-left: 10px;width: 150px;}
+    /*banner*/
+    .banner img{width: 100%}
+    /*选择*/
+    .choice{margin: 30px 0 25px 0;padding: 0 10px;word-break: break-all;text-align: justify;}
+    .chooseBrand{ position: relative;}
+    .chooseBrand select{width: 100%;height: 40px;margin-bottom: 20px;background: white;border: 1px solid #dde2e4;color: #444444;outline: none;appearance:button;-moz-appearance:button; /* Firefox */-webkit-appearance:button; /* Safari and Chrome */}
+    .icon{ position: absolute;right: 10px;top: 7px;}
+    .icon img{width: 16px;}
+    .submit{text-align: center;margin-bottom: 100px;}
+    .submit .btnOK{border: medium none;border-radius: 5px;font-size: 13px;outline: medium none;padding: 10px 20px;width: 120px; background:#f7f7f7;}
+    input[type="reset"], input[type="submit"], input[type="submit"]{cursor: pointer;}
+    .submit .btnOK:hover {color: #A2A2A2;text-decoration: none;background: #4A515B;transition: .5s all;-webkit-transition: .5s all;-moz-transition: .5s all;-o-transition: .5s all;-ms-transition: .5s all;}
+</style>
+<script type="text/javascript">
+    $(function () {
+        //获取汽车品牌
+        $("#ddl_Brand").change(function () {
+            // 选中品牌的值
+            var sVal = $("#ddl_Brand option:selected").val();
+            var data = {brandid:sVal,type:'cartype'};
+
+            // 清空排量和日期
+            $("#ddl_Displacement").html('<option value="-1">排量</option>');
+            $("#ddl_Date").html('<option value="-1">生产日期</option>');
+
+            $.ajax({
+                url:"{php echo $this->createPluginMobileUrl('comeon',array('method'=>'api','apido'=>'selectlike'))}",
+                dataType:"json",type:"post",data:data,
+                success:function(data){
+                    if(data.status == 1){
+                        var str = '<option value="-1">车型</option>';
+                        $.each(data.result,function(i,e){
+                            str += "<option value='"+e.x_id+"'>"+e.x_name+"</option>"
+                        });
+                        $("#ddl_Models").html(str);
+                    }
+                }
+            });
+
+        });
+
+        $("#ddl_Models").change(function () {
+            $("#ddl_Date").html('<option value="-1">生产日期</option>');
+            var sVal = $("#ddl_Models option:selected").val();
+            var data = {typeid:sVal,type:'ml'};
+            $.ajax({
+                url:"{php echo $this->createPluginMobileUrl('comeon',array('method'=>'api','apido'=>'selectliee'))}",
+                dataType:"json",type:"post",data:data,
+                success:function(data){
+                    if(data.status == 1){
+                        var str = '<option value="-1">排量</option>';
+                        $.each(data.result,function(i,e){
+                            str += "<option value='"+e.pai_id+"'>"+e.pai_name+"</option>"
+                        });
+                        $("#ddl_Displacement").html(str);
+
+                    }
+                }
+            });
+        });
+        //获取汽车品牌
+        $("#ddl_Displacement").change(function () {
+            var sVal = $("#ddl_Displacement option:selected").val();
+            var data = {mlid:sVal,type:'date'};
+            $.ajax({
+                url:"{php echo $this->createPluginMobileUrl('comeon',array('method'=>'api','apido'=>'selectlieoe'))}",
+                dataType:"json",type:"post",data:data,
+                success:function(data){
+                    if(data.status == 1){
+                        var str = '<option value="-1">生产日期</option>';
+                        $.each(data.result,function(i,e){
+                            str += "<option value='"+e.ri_id+"'>"+e.ri_name+"</option>"
+                        });
+                        $("#ddl_Date").html(str);
+                    }
+                }
+            });
+        });
+
+    });
+    function btnOK_onclick() {
+        var brand = $("#ddl_Brand option:selected").val();
+        var models = $("#ddl_Models option:selected").val();
+        var displacement = $("#ddl_Displacement option:selected").val();
+        var date = $("#ddl_Date option:selected").val();
+       var url = "{php echo $this->createPluginMobileUrl('comeon',array('method'=>'esd','apido'=>'index'))}"+'&id='+date;
+        if (brand=="-1") {
+            alert("请选择您爱车的品牌!");
+            return;
+        }
+        if (models == "-1") {
+            alert("请选择您爱车的车型!");
+            return;
+        }
+        if (displacement == "-1") {
+            alert("请选择您爱车的排量!");
+            return;
+        }
+        if (date == "-1") {
+            alert("请选择您爱车的生产时间!");
+            return;
+        }
+
+      window.location.href = url;
+
+        return;
+
+    }
+</script>
+</head>
+<body>
+<form id="form1" action="{php echo $this->createPluginMobileUrl('comeon',array('method'=>'esd','apido'=>'index'))}" method="post">
+    <div class="aspNetHidden">
+        <input type="hidden" value="" id="__VIEWSTATE" name="__VIEWSTATE">
+    </div>
+    <div class="container">
+        <!--banner-->
+
+        <div class="banner">
+            <img  src="<?php echo ($_W['siteroot'])?>attachment/{$list['xi_logo']}">
+        </div>
+        <!--banner结束-->
+        <!--选择-->
+        <div class="choice">
+            <div class="chooseBrand">{php echo $this->createPluginMobileUrl('comeon/lise',array('cate'=>$item['id']))}"
+                <select style="font-size:20px" id="ddl_Brand" class="form-control">
+                    <option value="-1">品牌</option>
+                    {loop $liste $order}
+                    <option value="{$order['cat_id']}">{$order['cat_biaoshi']}{$order['cat_name']}</option>
+                    {/loop}
+                </select>
+            </div>
+            <div class="chooseBrand">{php var_dump($list)}
+                <select style="font-size:20px" id="ddl_Models" class="form-control">
+                    <option value="-1">车型</option>
+                </select>
+            </div>
+            <div class="chooseBrand">
+                <select style="font-size:20px" id="ddl_Displacement" class="form-control">
+                    <option value="-1">排量</option>
+                </select>
+            </div>
+            <div class="chooseBrand">
+                <select style="font-size:20px" id="ddl_Date" class="form-control">
+                    <option value="-1">生产日期</option>
+                </select>
+            </div>
+            <div class="submit">
+                <input width="97px" type="button" onClick="return btnOK_onclick()" class="btnOK" value="确认" id="btnOK">
+            </div>
+        </div>
+        <!--选择结束-->
+    </div>
+</form>
+<script id='tpl_show_message' type='text/html'><div class="sweet-alert" style="display:block;">
+        <%if type=='error'%><div class="icon error animateErrorIcon" style="display: block;"><span class="x-mark animateXMark"><span class="line left"></span><span class="line right"></span></span></div><%/if%>
+        <%if type=='warning'%><div class="icon warning pulseWarning" style="display: block;"><span class="body pulseWarningIns"></span><span class="dot pulseWarningIns"></span></div><%/if%>
+        <%if type=='success'%><div class="icon success animate" style="display: block;"><span class="line tip animateSuccessTip"></span><span class="line long animateSuccessLong"></span><div class="placeholder"></div><div class="fix"></div></div><%/if%>
+        <div class="info"><%message%><%if url%><br><span>如果您的浏览器没有自动跳转请点击此处</span><%/if%></div>
+        
+        <div class="sub" 
+             <%if url%>
+                    onclick="location.href='<%url%>'"
+             <%else%>
+                    <%if js%>
+                        onclick="<%js%>"
+                    <%else%>
+                        onclick="history.back()"
+                    <%/if%>
+             <%/if%>
+             >
+        <%if type=='success'%><div class="green">确认</div><%/if%>
+        <%if type=='warning'%><div class="grey">确认</div><%/if%>
+        <%if type=='error'%><div class="red">确认</div><%/if%>
+        </div>
+</body>
+</html>

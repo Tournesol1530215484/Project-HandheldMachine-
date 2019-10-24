@@ -1,0 +1,259 @@
+{template 'common/header'} 
+{template 'dealtabs'}
+{if $operation == 'post'}
+<style type="text/css">
+    .border_bg{ border: 1px #ccc solid;border-radius: 4px; margin-bottom: 10px; background-color: #fff;}
+    .border_bg .panel-heading{ background-color: #e8ecef; color: #000; }
+</style>
+<div class="main">
+    <form {ife 'verify.saler' $item}action="" method="post"{/if} class="form-horizontal form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$item['id']}" />	 	 	 
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" name="p" value="suppliermenu" />
+        <input type="hidden" name="op" value="post" />
+        <input type="hidden" name="ac" value="my" />
+        <input type="hidden" name="do" value="plugin" />
+        <input type="hidden" name="m" value="sz_yi" />
+        <input type="hidden" name="method" value="dealmerch_adminset" />
+        
+        <div class='panel panel-default' style="background-color: transparent; border: none;">
+            <div class="border_bg">
+                <div class='panel-heading'>管理员设置</div>
+                <div class='panel-body'> 
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span> 选择管理员</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type='hidden' id='openid' name='openid' value="{$item['openid']}" />
+                                <div class='input-group'>
+                                    <input type="text" name="saler" maxlength="30" value="{if !empty($saler)}{$saler['nickname']}/{$saler['realname']}/{$saler['mobile']}{/if}" id="saler" class="form-control" readonly />
+                                    <div class='input-group-btn'>
+                                        <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus').modal();">选择管理员</button>
+                                    </div>
+                                </div>
+                                {if !empty($saler)}
+                                <span class='help-block'><img  style="width:100px;height:100px;border:1px solid #ccc;padding:1px" src="{$saler['avatar']}"/></span>
+                                {/if}
+                                
+                                <div id="modal-module-menus"  class="modal fade" tabindex="-1">
+                                    <div class="modal-dialog" style='width: 920px;'>
+                                        <div class="modal-content">
+                                            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择管理员</h3></div>
+                                            <div class="modal-body" >
+                                                <div class="row">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" name="keyword" value="" id="search-kwd" placeholder="请输入粉丝昵称/姓名/手机号" />
+                                                        <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_members();">搜索</button></span>
+                                                    </div>
+                                                </div>
+                                                <div id="module-menus" style="padding-top:5px;"></div>
+                                            </div>
+                                            <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span> 管理员姓名</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type="text" name="salername" class="form-control" value="{$item['salername']}" />
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span> 联系电话</label>
+                            <div class="col-sm-9 col-xs-12"> 
+                                <input type="text" name="mobile" class="form-control" value="{$item['mobile']}" />
+                               
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                    </div>
+
+                           
+                     <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">所属兑换点</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type='hidden' id='storeid' name='storeid' value="{$store['id']}" />
+                                <div class='input-group'>
+                                    <input type="text" name="store" maxlength="30" value="{$store['title']}" id="store" class="form-control" readonly />
+                                    <div class='input-group-btn'>
+                                        <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus1').modal();">选择兑换点</button>
+                                        <button class="btn btn-danger" type="button" onclick="$('#storeid').val('');$('#store').val('');">清除选择</button>
+                                    </div>
+                                </div>
+                                <span class='help-block'></span> 
+                                <div id="modal-module-menus1"  class="modal fade" tabindex="-1"> 
+                                    <div class="modal-dialog" style='width: 920px;'>
+                                        <div class="modal-content">
+                                            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择兑换点</h3></div>
+                                            <div class="modal-body" >
+                                                <div class="row">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" name="keyword" value="" id="search-kwd1" placeholder="请输入兑换点名称" />
+                                                        <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_stores();">搜索</button></span>
+                                                    </div>
+                                                </div>
+                                                <div id="module-menus1" style="padding-top:5px;"></div>
+                                            </div>
+                                            <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div> 
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">状态</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <label class='radio-inline'>
+                                    <input type='radio' name='status' value=1' {if $item['status']==1}checked{/if} /> 启用
+                                </label>
+                                <label class='radio-inline'>
+                                    <input type='radio' name='status' value=0' {if $item['status']==0}checked{/if} /> 禁用
+                                </label>
+                                     
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group"></div>
+                    <div class="form-group"> 
+                        <label class="col-xs-12 col-sm-3 col-md-3 control-label"></label>
+                        <div class="col-sm-9 col-xs-12">
+                                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                                <input type="hidden" name="token" value="{$_W['token']}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script language='javascript'>
+    $('form').submit(function () {
+        if ($(':input[name=saler]').isEmpty()) {
+            Tip.focus($(':input[name=saler]'), '请选择管理员!');
+            return false;
+        }
+        if ($(':input[name=salername]').isEmpty()) {
+            Tip.focus($(':input[name=salername]'), '请输入管理员姓名!');
+            return false; 
+        }
+        if ($(':input[name=mobile]').isEmpty()) {
+            Tip.focus($(':input[name=mobile]'), '请输入管理员电话!');
+            return false; 
+        }
+        if ($(':input[name=store]').isEmpty()) { 
+            Tip.focus($(':input[name=store]'), '请输入选择兑换点');
+            return false; 
+        } 
+        
+        return true;
+    })
+</script>
+{elseif $operation == 'display'}
+<form action="" method="post" onsubmit="return formcheck(this)">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>管理员管理</div>
+        <div class=''>
+            <table class="table">
+                <thead>
+                    <tr><th>管理员</th>
+                        <th>姓名</th>
+                        <th>所属兑换点</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loop $list $row}
+                    <tr><td><img src='{$row['avatar']}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' /> {$row['nickname']}</td>
+                        <td>{$row['salername']}</td>
+                        <td>{if empty($row['storename'])}全局兑换点{else}{$row['storename']}{/if}</td>
+                        <td>{if $row['status']==1} 
+                            <span class='label label-success'>启用</span> 
+                            {else} 
+                            <span class='label label-danger'>禁用</span>
+                            {/if} 
+                        </td>
+                        <td>
+                            <a class='btn btn-default' href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_adminset', array('op' => 'post', 'id' => $row['id']))}"><i class='fa fa-edit'></i></a>
+                            <a class='btn btn-default'  href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_adminset', array('op' => 'delete', 'id' => $row['id']))}" onclick="return confirm('确认删除此管理员吗？');
+                                    return false;"><i class='fa fa-remove'></i></a> 
+                           </td>
+                    </tr>
+                    {/loop}
+
+                </tbody>
+            </table>
+ 
+        </div>
+        <div class='panel-footer'>
+            <a class='btn btn-primary' href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_adminset', array('op' => 'post'))}"><i class="fa fa-plus"></i> 添加新管理员</a>
+        </div>
+    </div>
+</form>
+
+{/if}
+</div>
+</div>
+<script language='javascript'>
+     function search_members() {
+           if( $.trim($('#search-kwd').val())==''){
+                 Tip.focus('#search-kwd','请输入关键词');
+                 return;
+             }
+        $("#module-menus").html("正在搜索....")
+        $.get('{php echo $this->createWebUrl('member/query')}', {
+            keyword: $.trim($('#search-kwd').val())
+        }, function(dat){
+            $('#module-menus').html(dat);
+        });
+    }
+    function select_member(o) {
+        $("#openid").val(o.openid);
+        $("#saler").val( o.nickname+ "/" + o.realname + "/" + o.mobile );
+        $(".close").click();
+    }
+        
+    function search_stores() {
+        $("#module-menus1").html("正在搜索....")   
+        $.get('{php echo $this->createPluginWebUrl('suppliermenu/store',array('op'=>'query'));}', {
+            keyword: $.trim($('#search-kwd1').val()),
+            uid:{$_W['uid']}
+        }, function(dat){
+            $('#module-menus1').html(dat); 
+        });
+    }
+    function select_saler(o) {
+        $("#storeid").val(o.id);
+        $("#store").val( o.title);
+        $(".close").click();
+    }
+    </script>
+{template 'web/_footer'}

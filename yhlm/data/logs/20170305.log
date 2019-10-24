@@ -1,0 +1,1248 @@
+2017-03-05 01:35:12 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw420BQ58lkEm5aUFQZAcWoQ ;
+createtime : 1488648911 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_7e3a3abc742468a0715a6f0b05a8902f ;
+ticket : gQG_8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZnEzXzFRSDljbzMxMDAwMHcwN1QAAgRIjapYAwQAAAAA ;
+from : oKwkYw420BQ58lkEm5aUFQZAcWoQ ;
+to : gh_6536061e4435 ;
+time : 1488648911 ;
+type : subscribe ;
+scene : 7e3a3abc742468a0715a6f0b05a8902f ;
+
+2017-03-05 01:35:20 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_9YUO2R6_g49xq01inGKao ;
+createtime : 1488648920 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 二维码 ;
+from : oKwkYw_9YUO2R6_g49xq01inGKao ;
+to : gh_6536061e4435 ;
+time : 1488648920 ;
+type : event ;
+
+2017-03-05 01:35:49 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw420BQ58lkEm5aUFQZAcWoQ ;
+createtime : 1488648949 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw420BQ58lkEm5aUFQZAcWoQ ;
+to : gh_6536061e4435 ;
+time : 1488648949 ;
+type : event ;
+
+2017-03-05 01:35:49 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 01:35:49 response :
+------------
+
+2017-03-05 08:03:08 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw5aHcyjux9ql6D7O9WEBmx4 ;
+createtime : 1488672187 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw5aHcyjux9ql6D7O9WEBmx4 ;
+to : gh_6536061e4435 ;
+time : 1488672187 ;
+type : event ;
+
+2017-03-05 08:03:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 08:03:08 response :
+------------
+
+2017-03-05 09:06:50 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw5hiet9aIoMvpfdt0UcJyzc ;
+createtime : 1488676010 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw5hiet9aIoMvpfdt0UcJyzc ;
+to : gh_6536061e4435 ;
+time : 1488676010 ;
+type : event ;
+
+2017-03-05 09:06:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 09:06:50 response :
+------------
+
+2017-03-05 10:08:26 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw0D7snKw9WJkTr_EzwW-SF0 ;
+createtime : 1488679706 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw0D7snKw9WJkTr_EzwW-SF0 ;
+to : gh_6536061e4435 ;
+time : 1488679706 ;
+type : event ;
+
+2017-03-05 10:08:26 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 10:08:26 response :
+------------
+
+2017-03-05 10:09:37 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwxdGazpUQLKnjr_HrnPicQo ;
+createtime : 1488679777 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYwxdGazpUQLKnjr_HrnPicQo ;
+to : gh_6536061e4435 ;
+time : 1488679777 ;
+type : event ;
+
+2017-03-05 10:09:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 10:09:37 response :
+------------
+
+2017-03-05 10:11:08 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw0D7snKw9WJkTr_EzwW-SF0 ;
+createtime : 1488679868 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw0D7snKw9WJkTr_EzwW-SF0 ;
+to : gh_6536061e4435 ;
+time : 1488679868 ;
+type : event ;
+
+2017-03-05 10:11:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 10:11:08 response :
+------------
+
+2017-03-05 11:07:24 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+createtime : 1488683244 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+to : gh_6536061e4435 ;
+time : 1488683244 ;
+type : event ;
+
+2017-03-05 11:07:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:07:24 response :
+------------
+
+2017-03-05 11:07:33 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+createtime : 1488683253 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+to : gh_6536061e4435 ;
+time : 1488683253 ;
+type : event ;
+
+2017-03-05 11:07:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:07:33 response :
+------------
+
+2017-03-05 11:09:42 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+createtime : 1488683382 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+to : gh_6536061e4435 ;
+time : 1488683382 ;
+type : event ;
+
+2017-03-05 11:09:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:09:42 response :
+------------
+
+2017-03-05 11:10:21 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+createtime : 1488683421 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+to : gh_6536061e4435 ;
+time : 1488683421 ;
+type : event ;
+
+2017-03-05 11:10:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:10:21 response :
+------------
+
+2017-03-05 11:17:40 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+createtime : 1488683859 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYwywEpFgDWbwv_V6u_yoYYIo ;
+to : gh_6536061e4435 ;
+time : 1488683859 ;
+type : event ;
+
+2017-03-05 11:17:40 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:17:40 response :
+------------
+
+2017-03-05 11:34:30 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw9A27iCE2wbx5IXncAJ21Sw ;
+createtime : 1488684870 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw9A27iCE2wbx5IXncAJ21Sw ;
+to : gh_6536061e4435 ;
+time : 1488684870 ;
+type : event ;
+
+2017-03-05 11:34:30 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:34:30 response :
+------------
+
+2017-03-05 11:50:59 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488685859 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488685859 ;
+type : event ;
+
+2017-03-05 11:50:59 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:50:59 response :
+------------
+
+2017-03-05 11:54:20 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw3l0eGz3H7e62pX1IDFxwCY ;
+createtime : 1488686060 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw3l0eGz3H7e62pX1IDFxwCY ;
+to : gh_6536061e4435 ;
+time : 1488686060 ;
+type : event ;
+
+2017-03-05 11:54:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 11:54:20 response :
+------------
+
+2017-03-05 14:21:23 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw03W1Pov3xT2Hvnj_ODN-Ug ;
+createtime : 1488694883 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw03W1Pov3xT2Hvnj_ODN-Ug ;
+to : gh_6536061e4435 ;
+time : 1488694883 ;
+type : event ;
+
+2017-03-05 14:21:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 14:21:23 response :
+------------
+
+2017-03-05 14:23:45 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw1KQ5ff5BZ0dgvipwLgZRns ;
+createtime : 1488695025 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw1KQ5ff5BZ0dgvipwLgZRns ;
+to : gh_6536061e4435 ;
+time : 1488695025 ;
+type : event ;
+
+2017-03-05 14:23:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 14:23:45 response :
+------------
+
+2017-03-05 14:54:57 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw7K9xHIr91Csk-qENfcagnM ;
+createtime : 1488696897 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw7K9xHIr91Csk-qENfcagnM ;
+to : gh_6536061e4435 ;
+time : 1488696897 ;
+type : event ;
+
+2017-03-05 14:54:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 14:54:57 response :
+------------
+
+2017-03-05 14:58:39 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488697119 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488697119 ;
+type : event ;
+
+2017-03-05 14:58:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 14:58:39 response :
+------------
+
+2017-03-05 14:59:03 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw7K9xHIr91Csk-qENfcagnM ;
+createtime : 1488697143 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 二维码 ;
+from : oKwkYw7K9xHIr91Csk-qENfcagnM ;
+to : gh_6536061e4435 ;
+time : 1488697143 ;
+type : event ;
+
+2017-03-05 14:59:17 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw1ZAehK1FFem2_66L7QbEtQ ;
+createtime : 1488697157 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_25e80a82210e13a931a20cc3adf9f337 ;
+ticket : gQHL8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUHBwYTFxSDljbzMxMDAwME0wNzIAAgSpX25YAwQAAAAA ;
+from : oKwkYw1ZAehK1FFem2_66L7QbEtQ ;
+to : gh_6536061e4435 ;
+time : 1488697157 ;
+type : subscribe ;
+scene : 25e80a82210e13a931a20cc3adf9f337 ;
+
+2017-03-05 14:59:22 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw1ZAehK1FFem2_66L7QbEtQ ;
+createtime : 1488697162 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw1ZAehK1FFem2_66L7QbEtQ ;
+to : gh_6536061e4435 ;
+time : 1488697162 ;
+type : event ;
+
+2017-03-05 14:59:22 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 14:59:22 response :
+------------
+
+2017-03-05 15:16:33 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw22rCbBSaALxIaH8w23nsLQ ;
+createtime : 1488698193 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw22rCbBSaALxIaH8w23nsLQ ;
+to : gh_6536061e4435 ;
+time : 1488698193 ;
+type : event ;
+
+2017-03-05 15:16:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 15:16:33 response :
+------------
+
+2017-03-05 15:27:23 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488698843 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488698843 ;
+type : event ;
+
+2017-03-05 15:27:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 15:27:23 response :
+------------
+
+2017-03-05 15:32:44 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw1ZAehK1FFem2_66L7QbEtQ ;
+createtime : 1488699164 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw1ZAehK1FFem2_66L7QbEtQ ;
+to : gh_6536061e4435 ;
+time : 1488699164 ;
+type : event ;
+
+2017-03-05 15:32:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 15:32:44 response :
+------------
+
+2017-03-05 15:36:43 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_xZ14UQdvrJFuiI5E87n8w ;
+createtime : 1488699403 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw_xZ14UQdvrJFuiI5E87n8w ;
+to : gh_6536061e4435 ;
+time : 1488699403 ;
+type : event ;
+
+2017-03-05 15:36:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 15:36:43 response :
+------------
+
+2017-03-05 16:25:22 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwyolZuGoXgz_4a6-ubUX5Vo ;
+createtime : 1488702322 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYwyolZuGoXgz_4a6-ubUX5Vo ;
+to : gh_6536061e4435 ;
+time : 1488702322 ;
+type : event ;
+
+2017-03-05 16:25:22 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 16:25:22 response :
+------------
+
+2017-03-05 16:34:38 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw03W1Pov3xT2Hvnj_ODN-Ug ;
+createtime : 1488702878 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw03W1Pov3xT2Hvnj_ODN-Ug ;
+to : gh_6536061e4435 ;
+time : 1488702878 ;
+type : event ;
+
+2017-03-05 16:34:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 16:34:38 response :
+------------
+
+2017-03-05 16:38:44 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw3l0eGz3H7e62pX1IDFxwCY ;
+createtime : 1488703124 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw3l0eGz3H7e62pX1IDFxwCY ;
+to : gh_6536061e4435 ;
+time : 1488703124 ;
+type : event ;
+
+2017-03-05 16:38:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 16:38:44 response :
+------------
+
+2017-03-05 17:00:35 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwwzUkpA6TQ4JcHTMcXSLnmU ;
+createtime : 1488704435 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYwwzUkpA6TQ4JcHTMcXSLnmU ;
+to : gh_6536061e4435 ;
+time : 1488704435 ;
+type : event ;
+
+2017-03-05 17:00:35 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 17:00:35 response :
+------------
+
+2017-03-05 17:16:34 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488705394 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488705394 ;
+type : event ;
+
+2017-03-05 17:16:34 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 17:16:34 response :
+------------
+
+2017-03-05 17:17:45 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_J9RB_cOVK9fQ1pD5O99Eo ;
+createtime : 1488705465 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_J9RB_cOVK9fQ1pD5O99Eo ;
+to : gh_6536061e4435 ;
+time : 1488705465 ;
+type : event ;
+
+2017-03-05 17:17:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 17:17:45 response :
+------------
+
+2017-03-05 18:06:44 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488708404 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 二维码 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488708404 ;
+type : event ;
+
+2017-03-05 18:07:02 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488708422 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488708422 ;
+type : event ;
+
+2017-03-05 18:07:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:07:02 response :
+------------
+
+2017-03-05 18:22:54 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYwyolZuGoXgz_4a6-ubUX5Vo ;
+createtime : 1488709374 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYwyolZuGoXgz_4a6-ubUX5Vo ;
+to : gh_6536061e4435 ;
+time : 1488709374 ;
+type : event ;
+
+2017-03-05 18:22:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:22:54 response :
+------------
+
+2017-03-05 18:50:04 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+createtime : 1488711004 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+to : gh_6536061e4435 ;
+time : 1488711004 ;
+type : event ;
+
+2017-03-05 18:50:04 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:50:04 response :
+------------
+
+2017-03-05 18:50:45 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+createtime : 1488711045 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+to : gh_6536061e4435 ;
+time : 1488711045 ;
+type : event ;
+
+2017-03-05 18:50:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:50:45 response :
+------------
+
+2017-03-05 18:51:24 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+createtime : 1488711084 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+to : gh_6536061e4435 ;
+time : 1488711084 ;
+type : event ;
+
+2017-03-05 18:51:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:51:24 response :
+------------
+
+2017-03-05 18:52:11 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+createtime : 1488711131 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw2AvtOQWVWlszR3cLKUUa3E ;
+to : gh_6536061e4435 ;
+time : 1488711131 ;
+type : event ;
+
+2017-03-05 18:52:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:52:11 response :
+------------
+
+2017-03-05 18:53:32 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw1hdHu_NiSw4Dn_tLeEcWuc ;
+createtime : 1488711212 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw1hdHu_NiSw4Dn_tLeEcWuc ;
+to : gh_6536061e4435 ;
+time : 1488711212 ;
+type : event ;
+
+2017-03-05 18:53:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 18:53:32 response :
+------------
+
+2017-03-05 19:02:10 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw1hdHu_NiSw4Dn_tLeEcWuc ;
+createtime : 1488711730 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw1hdHu_NiSw4Dn_tLeEcWuc ;
+to : gh_6536061e4435 ;
+time : 1488711730 ;
+type : event ;
+
+2017-03-05 19:02:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 19:02:10 response :
+------------
+
+2017-03-05 19:54:09 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw8KmeV8dQsZjCNjzfJAeywY ;
+createtime : 1488714849 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oKwkYw8KmeV8dQsZjCNjzfJAeywY ;
+to : gh_6536061e4435 ;
+time : 1488714849 ;
+type : subscribe ;
+
+2017-03-05 19:54:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 19:54:09 response :
+------------
+
+2017-03-05 20:45:48 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw4ke45ds9O5HkqMCax-ISTM ;
+createtime : 1488717948 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw4ke45ds9O5HkqMCax-ISTM ;
+to : gh_6536061e4435 ;
+time : 1488717948 ;
+type : event ;
+
+2017-03-05 20:45:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 20:45:48 response :
+------------
+
+2017-03-05 21:17:19 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488719839 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488719839 ;
+type : event ;
+
+2017-03-05 21:17:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 21:17:19 response :
+------------
+
+2017-03-05 22:36:13 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw0D7snKw9WJkTr_EzwW-SF0 ;
+createtime : 1488724573 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw0D7snKw9WJkTr_EzwW-SF0 ;
+to : gh_6536061e4435 ;
+time : 1488724573 ;
+type : event ;
+
+2017-03-05 22:36:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 22:36:13 response :
+------------
+
+2017-03-05 22:59:06 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_xZ14UQdvrJFuiI5E87n8w ;
+createtime : 1488725946 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw_xZ14UQdvrJFuiI5E87n8w ;
+to : gh_6536061e4435 ;
+time : 1488725946 ;
+type : event ;
+
+2017-03-05 22:59:06 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 22:59:06 response :
+------------
+
+2017-03-05 23:11:29 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488726689 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488726689 ;
+type : event ;
+
+2017-03-05 23:11:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 23:11:29 response :
+------------
+
+2017-03-05 23:18:51 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488727131 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488727131 ;
+type : event ;
+
+2017-03-05 23:18:51 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 23:18:51 response :
+------------
+
+2017-03-05 23:18:52 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488727132 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=198 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488727132 ;
+type : event ;
+
+2017-03-05 23:18:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 23:18:52 response :
+------------
+
+2017-03-05 23:20:46 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488727246 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488727246 ;
+type : event ;
+
+2017-03-05 23:20:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 23:20:46 response :
+------------
+
+2017-03-05 23:21:37 trace :
+------------
+Array:
+tousername : gh_6536061e4435 ;
+fromusername : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+createtime : 1488727297 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://kh39.61why.com/app/index.php?i=2&c=entry&eid=194 ;
+menuid : 410600728 ;
+from : oKwkYw_EA3VpOigDUNydKbSRsLyY ;
+to : gh_6536061e4435 ;
+time : 1488727297 ;
+type : event ;
+
+2017-03-05 23:21:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-03-05 23:21:37 response :
+------------
+

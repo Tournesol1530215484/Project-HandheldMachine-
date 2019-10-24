@@ -1,0 +1,148 @@
+{template 'common/header'}
+{template 'goodtabs'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <input type="hidden" name="c" value="site">
+    <input type="hidden" name="m" value="sz_yi">
+    <input type="hidden" name="a" value="entry">
+    <input type="hidden" name="op" value="demo">
+    <input type="hidden" name="do" value="plugin">
+    <input type="hidden" name="p" value="dealmerch">
+    <input type="hidden" name="method" value="ad_set">
+
+    <div class='panel panel-default'>
+        <div class='panel-heading'>广告设置</div>
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">商家打广告</label>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">每份花出</div> 
+                          <input type="text" name="ad[price]" value="{$set['bart']['ad']['price']}" class="form-control maxbonus" id="exampleInputAmount" placeholder="请输入金额">   
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">最低</div> 
+                          <input type="text" name="ad[num]" value="{$set['bart']['ad']['num']}" class="form-control" id="exampleInputAmount" placeholder="请输入数量">  
+                          <div class="input-group-addon">份起投</div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">用户看广告</label>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">用户得</div> 
+                          <input type="text" name="ad[me]" value="{$set['bart']['ad']['me']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">  
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">一级得</div> 
+                          <input type="text" name="ad[one]" value="{$set['bart']['ad']['one']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">  
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">二级得</div> 
+                          <input type="text" name="ad[two]" value="{$set['bart']['ad']['two']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">  
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">用户看广告</label>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">区域代理得</div> 
+                          <input type="text" name="ad[area]" value="{$set['bart']['ad']['area']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">   
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">市级代理得</div> 
+                          <input type="text" name="ad[city]" value="{$set['bart']['ad']['city']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">  
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">省级代理得</div> 
+                          <input type="text" name="ad[province]" value="{$set['bart']['ad']['province']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">  
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 col-md-2 control-label">用户看广告</label>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">经济人得</div> 
+                          <input type="text" name="ad[midd]" value="{$set['bart']['ad']['midd']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">   
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">平台得</div> 
+                          <input type="text" name="ad[account]" value="{$set['bart']['ad']['account']}" class="form-control bonus" id="exampleInputAmount" placeholder="请输入金额">  
+                          <div class="input-group-addon">现金/易货码</div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="col-sm-9">
+                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-2" onclick='return formcheck()' />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </div>
+</form> 
+</div>
+</div>
+<script language='javascript'>
+    function formcheck(){
+        return false;
+    }
+    
+</script>
+{template 'web/_footer'}

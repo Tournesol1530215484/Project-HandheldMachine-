@@ -1,0 +1,20 @@
+{template 'common/header'}
+{template 'dealorder/tabs'}
+<div>
+	<p>订单数: {$total}</p>
+	<p>订单金额: <span style="color:red">{if $totalmoney > 0}{$totalmoney}{else}0{/if}</span>元</p>
+	<p>结算金额: <span style="color:red">{if $costmoney  > 0}{$costmoney}{else}没有可提现邮费{/if}</span>元</p>
+	<p>
+		{if $costmoney  > 0} 
+			<!-- type 1手动2微信3余额 -->
+			{if in_array('suppliermenu.balance', $authority)}  
+		    <a class="btn btn-default" onclick="return confirm('您是否要提现到平台余额?')" href="{php echo $this->createPluginWebUrl('suppliermenu/'.$_GPC['method'],array('applytype'=>3))}">提现到平台余额</a>
+		    {/if}
+		    {if in_array('suppliermenu.wechat', $authority)}
+		    <a class='btn btn-default' onclick="return confirm('您是否要提现到微信钱包?')" href="{php echo $this->createPluginWebUrl('suppliermenu/'.$_GPC['method'],array('applytype'=>2));}">提现到微信钱包</a>
+		    {/if}
+		    <a class="btn btn-default" onclick="return confirm('您是否要提现到银行卡?')" href="{php echo $this->createPluginWebUrl('suppliermenu/'.$_GPC['method'],array('applytype'=>1))}">提现到银行卡</a>
+		{/if}
+	</p>
+</div>
+{template 'web/_footer'}

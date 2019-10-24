@@ -1,0 +1,433 @@
+{template 'common/header'}
+<title>活动报名</title>
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'static/css/mui.min.css';?>">
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<style type="text/css">
+    body{
+        background: #fff;
+    }
+    #big_body{
+        width:100%;
+        margin:0px;
+        float: left; 
+        position: relative; 
+        padding-bottom:50px;
+    }
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    .sign-up-info{
+        padding: 5px 10px 10px;
+        font-size: 14px;
+    }
+    .sign-up-info input{
+        outline: none;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+    .sign-up-info select,
+    .sign-up-info textarea{
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+    .sign-up-info .info-item{
+        line-height: 30px;
+        padding: 5px 3px;
+    }
+    .sign-up-info .info-item-bot{
+        border-bottom: 1px solid #ddd;
+    }
+    .sign-up-info .float-l{
+        float: left;
+        width: 80px;
+    }
+    .sign-up-info .float-r{
+        float: right;
+        width: calc(100% - 80px);
+    }
+    .sign-up-info .float-r .whole-input{
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+        height: 30px;
+        line-height: 30px;
+    }
+    .sign-up-info .float-r .whole-textarea{
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+        line-height: 1.3;
+        vertical-align: bottom;
+        resize: none;
+    }
+    .strong-tag{
+        font-weight: 600;
+    }
+    .sign-up-info .show-needed{
+        color: red;
+    }
+    .help-box{
+        display: block;
+        padding: 5px 10px 0;
+        font-size: 10px;
+        color: #737373;
+    }
+    .footer-btn{
+        font-size: 15px;
+        text-align: center;
+        color: #fff;
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px 5px;
+        background: #009BF8;
+        border-radius: 10px;
+    }
+    /*覆盖*/
+    .mui-input-group-no-bgcl:after{
+        background-color: #fff;
+    }
+    .mui-input-group-no-bgcl .mui-input-row:after{
+        left: 0;
+    }
+    .mui-input-group-no-bgcl .mui-checkbox input[type=checkbox]{
+        left: 0;
+    }
+    .normal-label{
+        font-weight: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .activity-box .activity-link{
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        text-align: center;
+        padding: 10px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <div class="page_topbar">
+            <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+            <div class="title">活动报名</div>
+        </div>
+        <div class="activity-box"> <!-- 这里赋值上活动名称和活动链接 -->
+            <a class="activity-link" href="javascript:void(0);">{$activity['title']}</a>
+        </div>
+        <form method="post" enctype="multipart/form-data" id="showDataForm" class="mui-input-group mui-input-group-no-bgcl">
+            <input type="hidden" id="logid">
+            <input type="hidden" id="payed" value="0">
+
+            <div class="sign-up-info">       
+                <ul>
+                    {loop $field $k  $v}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">{$v['title']}</div>
+                        <div class="float-r info-value">                                     
+                            <input class="whole-input" type="text" name="{$k}"
+                            <%if result%>       
+                            value="<%if '{$k}'=='realname' && result.realname%><%result.realname.data%><%else if '{$k}'=='mobile' && result.mobile%><%result.mobile.data%><%else if '{$k}'=='unit' && result.unit%><%result.unit.data%><%/if%>                               
+                            "                            
+                            <%else%>                                                                                            
+                            <%/if%> 
+                            placeholder="{$v['title']}" autocomplete="off">                    
+                        </div>                                                      
+                    </li>                                                      
+                    {/loop}                      
+                    {if false}                               
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">手机号码 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="mobile" value="<%result.mobile%>" placeholder="联系电话" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">单位</div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="unit" value="<%result.unit%>" placeholder="单位" autocomplete="off">
+                        </div>
+                    </li>
+                    {/if}           
+                    {if $payitem}
+                            <li class="info-item clearfloat">
+                                <div class="info-tag strong-tag">报名项目<span class="show-needed">*</span></div>
+                        {loop $payitem $k $v}           
+                                <div class="info-value">                      
+                                    <div class="mui-input-row mui-radio mui-left">
+                                        <label class="normal-label">{$v['title']} &nbsp; 费用:{$v['money']}元 </label>
+                                        <input name="fee-radio" type="radio" value="{$v['id']}" checked>
+                                        <input type="" name="" value="{$v['money']}">
+                                    </div>
+                        {/loop}
+                                </div>
+                            </li>
+                    {/if}
+                    <li class="info-item info-item-1">
+                        <div class="mui-input-row mui-checkbox mui-left">
+                            <label class="normal-label">允许公开自己的名片信息</label>
+                            <input name="ispublic" class="ispublic" value="1" type="checkbox" checked>
+                        </div>
+                    </li>
+                    <li class="info-item info-item-1">
+                        <div class="mui-input-row mui-checkbox mui-left">
+                            <label class="normal-label">关注《{$activity['relOrg']}》</label>
+                            <input name="isattentd" class="isattentd" value="1" type="checkbox" checked>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                {if $signup}
+                    <div class="footer-btn post-btn" style="background:#ddd;">你已经报名</div>
+                {else}
+                    {if $timed}
+                        <div class="footer-btn post-btn" style="background:#f00;">活动已停止报名</div>
+                    {else}
+                        <div class="footer-btn post-btn signup">报名</div>
+                    {/if}
+                {/if}
+                
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </form>
+    </div>
+</script>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {                                   
+        core.pjson('activity/activity', {op:'getmuser'}, function(json) {                                                  
+            $('body').append(tpl('tpl-big-body',json));      
+        }, true,true);
+    });
+</script>
+<script type="text/javascript">
+//保存修改注册信息函数
+
+require(['tpl', 'core'], function(tpl, core) {
+    var sure;
+    var clicked=true;
+       
+function validate(){
+    {loop $field $k  $v}
+            {if $v['must'] == 1}
+                if($("input[name='{$k}']").isEmpty()){
+                    core.tip.show('{$v['title']}不能为空');
+                    return false;                                
+                }
+            {/if}
+    {/loop}
+
+
+    var params={
+        id: '{$_GPC['id']}',                                                 
+        op: 'apply',      
+        ac: 'check',            
+        debug:'{$_GPC['debug']}',
+        fee:$("[name='fee-radio']:checked").val(),
+    };               
+    core.pjson('activity/activity',params,function(json){
+        if(json.status==1){         
+            sure = true;   
+            if (clicked) {
+                $('.signup').click();
+                clicked=false;
+            }                                        
+        }else{          
+            core.tip.show(json.result);
+            sure = false;        
+        }                                          
+    },true,true);                 
+                         
+}                
+var subed=false;
+function a(status1){        
+    if (subed) {
+        return;
+    }
+    subed=true;
+        var ispublic = 0;
+        var isattentd = 0;
+        if($(".ispublic").prop("checked") == true){
+            ispublic = 1;
+        }
+        if($(".isattentd").prop("checked") == true){
+            isattentd = 1;
+        }                                 
+
+        //提交的数据
+                    
+            var postdata={       
+            {loop $field $k  $v}     
+               {$k}:{
+                    data:$("input[name='{$k}']").val(),
+                    field:'{$k}',    
+                    title:'{$v['title']}'
+                },      
+            {/loop}                     
+            };   
+
+        var data = {         
+            postdata:postdata,
+            ispublic: ispublic,     
+            id: '{$_GPC['id']}',                                         
+            mid:'{$_GPC['mid']}',        
+            op: 'apply',
+            ac: 'sub',   
+            fee:$("[name='fee-radio']:checked").val(),
+            paystatus:$('#payed').val(),                 
+            isattentd: isattentd
+        };
+        //console.log(data);     
+        //提交修改的注册信息          
+        core.pjson('activity/activity',data,function(json){
+            if(json.status==1){         
+                //执行成功 需要运行的代码...    
+                core.tip.show(json.result);
+                setTimeout(function(){
+                    {if $_GPC['returnurl']}
+                        location.href='{$_GPC['returnurl']}';
+
+                    {else}
+                        location.href='{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'detail','id'=>$_GPC['id']))}';
+                    {/if}
+                },250);
+                return;
+            }
+            core.tip.show(json.result);
+            subed=false;
+        },true,true);                                                      
+    }                                 
+                                             
+
+
+    core.pjson('activity/center', {openid:"{$openid}",op:'getinfo'}, function (json) {
+                    var result = json.result;             
+                    if (json.status != 1) { 
+                        core.message(result, "{php echo $this->createMobileUrl('member')}", 'error');
+                        return;                          
+                    }                                                                     
+                    {if $activity['cost'] ==1 && $activity['paytype'] ==1 }     
+                    if (result.wechat.success) { 
+                        $('#logid').val(result.logid);       
+                        $(".signup").click(function(){
+
+                            if ($(this).attr('submitting') == '1') { 
+                                return; 
+                            }
+
+                            validate();
+                            if (!sure) {
+                                return false;
+                            }                       
+                            var money = $("[name='fee-radio']:checked").next('input').val();
+
+                            var logid = $('#logid').val(); 
+                            if (logid == '') {          
+                                core.tip.show('请刷新重试!'); 
+                                return;
+                            }
+
+                            //这里用内置标签变量处理文章或者活动的id 取名为aid
+                            var aid = "1";
+                            $('.signup').attr('submitting', 1); //获取参数
+                            core.pjson('activity/center', {op: 'deduct',atid:'{$_GPC['id']}', type: 'weixin', money: money, logid: logid}, function (rjson) {
+                                if(rjson.status!=1){
+                                    $('.signup').removeAttr('submitting');      
+                                    core.tip.show(rjson.result);
+                                    return;         
+                                }                            
+                                // return false;//这行代码你到时候注意吧,我是参考易货码激活那个页面做的,搬过来,正常要去掉的吧
+                                var wechat = rjson.result.wechat;
+                                WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                                    'appId': wechat.appid ? wechat.appid : wechat.appId,
+                                    'timeStamp': wechat.timeStamp,
+                                    'nonceStr': wechat.nonceStr,
+                                    'package': wechat.package,
+                                    'signType': wechat.signType,
+                                    'paySign': wechat.paySign,
+                                }, function (res) {
+                                    if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                                        core.tip.show('支付成功!');
+                                        //支付成功后的代码   
+                                        $('#payed').val(1);
+                                        a(1);
+                                        
+                                        //.....  
+                                    } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+                                       $('.signup').removeAttr('submitting');
+                                       core.tip.show('取消支付');
+                                    } else {  
+                                        $('.signup').removeAttr('submitting'); 
+                                        alert(res.err_msg);
+                                    }
+                                });
+                            }, true, true);
+                        });
+                    }       
+                    {else}  
+                          $('.signup').click(function(){
+                            validate();              
+                            sure && a(1);                                  
+                          });                                                                                 
+                    {/if}
+                });
+    });
+    
+// require(['tpl', 'core'], function(tpl, core) {
+
+//         function ajsubmit(){
+//             var message = $(".whole-textarea").val();
+//             var money = $(".reward-input").val();
+//             data={
+//                 op:'reward',
+//                 ac:'sub',
+//                 message:message,
+//                 money:money,
+//                 type:'{$_GPC["type"]}',
+//                 id:'{$_GPC["id"]}'
+//             };           
+
+//             core.pjson('activity/center',data, function (json) {
+//                 if (json.status==1) {
+//                     core.tip.show(json.result);
+//                     setTimeout(function(){
+//                         {if $_GPC["type"] == 1}
+//                             location.href="{php echo $this->createPluginMobileUrl("activity/activity",array("id"=>$_GPC["id"]))}";
+//                         {else if $_GPC['type'] == 2}                           
+//                             location.href="{php echo $this->createPluginMobileUrl("activity/article",array("id"=>$_GPC["id"]))}";
+//                         {else if $_GPC['type'] == 3}                           
+//                             location.href="{php echo $this->createPluginMobileUrl("activity/center",array("mmid"=>$_GPC["id"]))}";
+//                         {/if}
+//                     },250);
+                    
+//                     return false;
+//                 }else{
+//                     core.tip.show(json.result);
+//                 }
+//             });                     
+//         }
+
+
+        
+//     });
+
+</script>
+{template 'common/footer'}

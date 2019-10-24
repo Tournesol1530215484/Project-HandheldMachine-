@@ -1,0 +1,8 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+  
+    <li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'barter_currency' && $op == 'display' } class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/barter_currency')}">易货额度收支查询</a></li>    
+                    
+    <li {if $_GPC['p'] == 'dealmerch' && $_GPC['method'] == 'barter_currency' && $op == 'query'} class="active" {/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/barter_currency',array('op'=>'query'))}">商家查询</a></li>          		              	 		 		 	  	 	 	 	                     
+</ul> 		 	 	         
+</div>

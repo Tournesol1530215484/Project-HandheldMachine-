@@ -1,0 +1,264 @@
+{template 'common/header'}
+<title>活动店铺</title><!-- 这里内置标签获取活动店铺的名称 -->
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/org.css?'.time();?>" />
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">活动店铺</div><!-- 这里内置标签获取活动店铺的名称 -->
+    </div>
+    <div class="org-box">
+        <div class="pic-box">
+            <img class="pic" src="{php echo tomedia($tmuser['logo'])}">
+        </div>                  
+        <div class="brief-box">
+            {$tmuser['orgDesc']}         
+        </div>                                                                       
+    </div>          
+    <div class="article-title">所有活动</div>
+    <div class="list-box list-box1">
+        <ul class="list-ul list-ul1">      
+            <!-- 活动下拉加载数据容器 -->
+        </ul> 
+    </div>
+    <div class="article-title">所有文章</div>
+    <div class="list-box list-box2">
+        <ul class="list-ul list-ul2">      
+            <!-- 文章下拉加载数据容器 -->
+        </ul> 
+    </div>
+    <div style="width: 100%; height: 55px;"></div>
+    {template 'common/nav_activity'}
+</div>          
+<!-- 两种模板 文章/活动列表 或者 文章/活动暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <a href="<%g.link%>" class="bonus-ad-link" style="display: block;text-decoration: none;">
+                <div class="flex-center">
+                    <div class="goods-link floatl">
+                        <div class="pic-box"><!-- 活动图标 如果是空的,则显示默认图标 -->
+                            <img class="pic" src="<%if g.icon && g.icon !='undefined'%><%g.icon%><%else%>../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png<%/if%>">
+                        </div>   
+                    </div>           
+                    <div class="content-box floatr">
+                        <div class="goods-tag">
+                            <div class="goods-link line-clamp2"><!-- 文章名称 有一个变量标志是否置顶 -->
+                                <%if g.is_top > 0%>
+                            <span class="put-top"> 
+                                <%if g.is_top ==1%>
+                                    刷新
+                                <%else if g.is_top ==2%>
+                                    优先
+                                <%else if g.is_top ==3%>
+                                    置顶
+                                <%else if g.is_top ==4%>
+                                    王顶
+                                <%/if%>
+                            </span>
+                                <%/if%>
+                            <%g.title%>
+                            </div> 
+                        </div>
+                        <div class="show-tag">
+                            <div class="show-tag-time"><!-- 机构名称 -->
+                                <%if g.relOrg%>
+                                    <%g.relOrg%>
+                                <%else%>        
+                                    机构名称未设置
+                                <%/if%>
+                            </div> 
+                            <div class="show-tag-money show-value-tag"> <!-- 时间 格式:年月日 -->
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                <%g.ctime%>
+                            </div>           
+                        </div>
+                        <div class="show-tag">
+                            <div class="show-tag-time"><!-- 城市 -->
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <%if g.city%>
+                                    <%g.city%>
+                                <%else%>
+                                    未设置
+                                <%/if%>
+                            </div> 
+                            <div class="show-tag-money show-value-tag"> <!-- 浏览量 -->
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                               <%g.browse%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_list2" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <a href="<%g.link%>" class="bonus-ad-link" style="display: block;text-decoration: none;">
+                <div class="content-box floatr">
+                    <div class="goods-tag">
+                        <div class="goods-link line-clamp2"><!-- 文章名称 有一个变量标志是否置顶 -->
+                            <%if g.is_top > 0%>
+                        <span class="put-top"> 
+                            <%if g.is_top ==1%>
+                                刷新
+                            <%else if g.is_top ==2%>
+                                优先
+                            <%else if g.is_top ==3%>
+                                置顶
+                            <%else if g.is_top ==4%>
+                                王顶
+                            <%/if%>
+                        </span>
+                            <%/if%>
+                        <%g.title%>
+                        </div> 
+                    </div>
+                    <div class="show-tag">
+                        <div class="show-tag-time"><!-- 机构名称 -->
+                            <%if g.relOrg%>
+                                <%g.relOrg%>
+                            <%else%>
+                                机构名称未设置
+                            <%/if%>
+                        </div> 
+                        <div class="show-tag-money show-value-tag"> <!-- 时间 格式:年月日 -->
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            <%g.ctime%>
+                        </div>
+                    </div>
+                    <div class="show-tag">
+                        <div class="show-tag-time"><!-- 城市 -->
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <%if g.city%>
+                                <%g.city%>
+                            <%else%>
+                                未设置
+                            <%/if%>
+                        </div> 
+                        <div class="show-tag-money show-value-tag"> <!-- 浏览量 -->
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                           <%g.browse%>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无对应活动</div>
+</script>
+<script id="tpl_null2" type="text/html">
+    <div class="no-list">暂无对应文章</div>
+</script>
+<script type="text/javascript">
+    var loaded = false,loaded2 = false;
+    var stop = true,stop2 = true;
+    var args  = {
+        page:"{$_GPC['page']}",              
+        op:'org',               
+        openid:'{$_GPC['openid']}',               
+        type:'act'           
+    };                   
+    var args2  = {       
+        page:"{$_GPC['page']}",              
+        op:'org',                    
+        openid:'{$_GPC['openid']}',               
+        type:'art'                    
+    };                   
+    require(['tpl', 'core'], function(tpl, core) {
+        /*对应店铺全部活动加载相关函数 strat*/
+        function getActivitys() {
+            core.pjson('activity/activity', args, function (json) {
+                if (json.result.list.length <= 0) {
+                    $(".list-box1 .list-ul1").html(tpl('tpl_null'));
+                    return;
+                }
+                $('.list-box1 .list-ul1').html(tpl('tpl_list',json.result));
+                $('.list-box1 .list-ul1').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+                bindMore();
+            }, true);
+        }
+        function getActivityMore() {
+            core.pjson('activity/activity', args, function (json) {
+                stop = true;
+                $('#list_loading').remove();
+                $(".list-box1 .list-ul1").append(tpl('tpl_list',json.result));
+                //if(json.result.list.length <json.result.pagesize) {
+                if (json.status == 0){
+                    $('.list-box1 .list-ul1').append('<div id="list_loading">已经加载全部活动</div>');
+                    loaded = true;
+                    return;
+                }else{
+                    $('.list-box1 .list-ul1').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+                    bindMore();
+                }   
+            });
+        }
+        function bindMore() {
+            $(".getmore").unbind("click").click(function(){ 
+                if (loaded) {
+                    return;
+                }
+                if (stop == true) {
+                    stop = false;
+                    if(args.page=='' || args.page=='undefined'){
+                        args.page = 1;
+                    }
+                    args.page++;
+                    getActivityMore();
+                }
+            });
+        }
+        /*对应店铺全部活动加载相关函数 end*/
+        /*对应店铺全部文章加载相关函数 start*/
+        function getArticles() {
+            core.pjson('activity/article', args2, function (json) {
+                if (json.result.list.length <= 0) {
+                    $(".list-box2 .list-ul2").html(tpl('tpl_null2'));
+                    return;
+                }
+                $('.list-box2 .list-ul2').html(tpl('tpl_list2',json.result));
+                $('.list-box2 .list-ul2').append('<div id="list_loading2" class="getmore2">点击加载更多</div>');
+                bindMore2();
+            }, true);
+        }
+        function getArticleMore() {
+            core.pjson('activity/article', args2, function (json) {
+                stop2 = true;  
+                $('#list_loading2').remove();
+                $(".list-box2 .list-ul2").append(tpl('tpl_list2',json.result));
+                //if(json.result.list.length <json.result.pagesize) { //最好用这种数据结构
+                if (json.status == 0){
+                    $('.list-box2 .list-ul2').append('<div id="list_loading2">已经加载全部文章</div>');
+                    loaded2 = true;
+                    return;
+                }else{
+                    $('.list-box2 .list-ul2').append('<div id="list_loading2" class="getmore2">点击加载更多</div>');
+                    bindMore2();
+                } 
+            });
+        }
+        function bindMore2() {
+            $(".getmore2").unbind("click").click(function(){ 
+                if(loaded2){
+                    return;
+                }
+                if(stop2 == true) {
+                    stop2 = false;
+                    if(args2.page=='' || args2.page=='undefined'){
+                        args2.page = 1;
+                    }
+                    args2.page++;
+                    getArticleMore();
+                }
+            });
+        }
+        /*对应店铺全部文章加载相关函数 end*/
+        getActivitys();
+        getArticles();
+    });
+</script>
+{template 'common/footer'}

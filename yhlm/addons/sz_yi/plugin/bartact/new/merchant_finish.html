@@ -1,0 +1,99 @@
+﻿{template 'common/header'}
+{template 'tabs'}
+<style type='text/css'>
+.trhead td {  background:#efefef;text-align: center}
+.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+.goods_info{position:relative;width:60px;}
+.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+.goods_info:hover {z-index:1;position:absolute;width:auto;}
+.goods_info:hover img{width:320px; height:320px;}
+</style>
+
+{if $operation=='display'}
+<article class="tab_filter">
+    <div class="panel-search">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="p" value="bartact" />
+            <input type="hidden" name="method" value="bartact_finish" />
+            <input type="hidden" name="op" value="display" />
+            <div class="search-box">
+                <ul>
+                    <li>
+                        <p>搜索</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <ul class="select-cont">
+	                <li>会员信息:</li>
+	                <li>
+	                    <input type="text" class="form-control input-s-sm"  name="uid" value="{$_GPC['uid']}" placeholder='搜索供货商ID'/>
+	                </li>
+	            </ul>
+            	<ul class="select-cont">
+	                <li>提现单号:</li>
+	                <li>
+	                    <input type="text" class="form-control input-s-sm"  name="applysn" value="{$_GPC['applysn']}"/>
+	                </li>
+	            </ul>
+				<ul class="select-cont">
+	                <li>
+                        <button class="search-btn"><span><i class="fa fa-search"></i>搜索</span></button>
+						<input type="hidden" name="token" value="{$_W['token']}" />	
+	                </li>
+                </ul>
+            </div>    
+        </form>
+    </div>
+</div>
+<div class="panel-show">
+    <div class="panel-heading">总数：{$total}</div>
+    <div class="">
+        <table class="table table-hover table-responsive">
+            <thead class="navbar-inner" >
+                <tr>
+                    <th style='width:90px;'>商家ID</th>
+                    <th style='width:200px;'>提现单号</th>
+                    <th style='width:150px;'>开户名</th>
+                    <th style='width:150px;'>电话</th>
+                    <th style='width:150px;'>开户银行</th>
+                    <th style='width:150px;'>银行卡号</th>
+                    <th style='width:150px;'>提现金额</th>
+                    <th>完成时间</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                	{if !empty($row['uid'])}
+		                <tr><td>{$row['uid']}</td>
+                            <td>{$row['applysn']}</td>
+                            <td>{$row['accountname']}</td>
+                            <td>{$row['mobile']}</td>
+                            <td>{$row['accountbank']}</td>
+                            <td>{$row['banknumber']}</td>
+                            <td>{$row['apply_money']}</td>
+                            <td><?php echo date('Y-m-d H:i:s',$row['finish_time']);?></td>
+		                    <td  style="overflow:visible;">
+		                        <div class="form-group">
+				                    <div class="col-sm-9 col-xs-9">
+				                    <span style='color:red'>已完成</span>
+				                    </div>
+            					</div>
+		                    </td>
+		                </tr>
+		            {/if}
+                {/loop}
+            </tbody>
+        </table>
+    </div>
+</div>
+{/if}
+</div>
+</div>
+</article>
+{template 'common/footer'}

@@ -1,0 +1,932 @@
+{template 'common/header'}
+<title>{if $_GPC['id']}
+            修改活动
+        {else}
+            发布活动
+        {/if}
+</title><!-- 或者修改活动 用内置标签判断标题 两种标题(新增和修改页面共用)-->
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/baidu.js?'.time();?>"></script> 
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/jquery.form.js?'.time();?>"></script>
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/s.js?'.time();?>"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+<script type="text/javascript">
+    System.config({
+        map:{
+          systemJsText:'<?php echo MODULE_URL.'plugin/suppliermenu/res/txt.js';?>',
+          systemJsCss:'<?php echo MODULE_URL.'plugin/suppliermenu/res/css.js';?>',
+          systemJsJson:'<?php echo MODULE_URL.'plugin/suppliermenu/res/json.js';?>'
+        },
+        baseURL: '<?php echo MODULE_URL.'plugin/suppliermenu/res/';?>',
+    });
+    System['import']('<?php echo MODULE_URL.'static/css/mui.min.css!systemJsCss';?>').then(function (a){});
+    System['import']('<?php echo MODULE_URL.'static/css/mui.picker.min.css!systemJsCss';?>').then(function (a){});
+    System['import']('<?php echo MODULE_URL.'plugin/match/res/css/actadd.css!systemJsCss';?>').then(function (a){});
+</script>
+
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <form method="post" enctype="multipart/form-data" id="showDataForm" class="mui-input-group mui-input-group-no-bgcl">
+            <div class="customer_top">
+                <div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+                <div class="title1">{if $_GPC['id']}
+            修改活动
+        {else}
+            发布活动
+        {/if}</div><!-- 或者修改活动 用内置标签判断标题 两种标题(新增和修改页面共用)-->
+            </div>
+            <div class="help-box">注: *如需上传视频音乐或者专业排版请登陆网页版后台</div>
+            <div class="match-info">
+                <ul>
+                    {if $_GPC['what'] == 1 && $_GPC['id']}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">活动主题 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="title" value="<%list.title%>" placeholder="活动主题" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">开始时间 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input stime" id="stime" type="text" name="stime" value="<%list.stime%>" placeholder="开始时间" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">结束时间 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input etime" id="etime" type="text" name="etime" value="<%list.etime%>" placeholder="结束时间" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">开始后不允许报名</div>
+                        <div class="float-r float-r5 info-value"><!-- mui-active(1) 控制开关的开状态 0否  1是-->
+                            <div class="mui-switch mui-switch-mini float-r-switch <%if list.afterTheStart == 1%>mui-active<%else%><%/if%>" id="refund-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if list.afterTheStart == 1%>1<%else%>0<%/if%>" type="hidden" name="afterTheStart" id="afterTheStart">
+                        </div>
+                    </li>
+                    <li class="info-item info-item-address clearfloat">
+                        <div class="float-l info-tag">活动地点 </div>
+                        <div class="float-r info-value">
+                            <select name="reside[province]" id="sel-provance" onChange="selectCity();" class="select sel-select">
+                                <option value="" selected="true">省/直辖市</option>
+                            </select>
+                            <select name="reside[city]" id="sel-city" onChange="selectcounty()" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                            <select name="reside[district]" id="sel-area" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">详细地址 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="address" value="<%list.address%>" placeholder="详细地址" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">活动类型 </div>
+                        <!-- 内置标签循环活动类型 name="typeid"时就不显示第一项 要写成reside[typeid]才会显示 -->
+                        <div class="float-r info-value match-type-box">
+                            <select class="select sel-select1 whole-select" name="reside[cate]">
+                                <option class="cate-item" value="">请选择活动类型</option>
+                                <!-- 这里循环活动类型 if修改时判断存储的活动类型 再选中 -->
+                                {loop $cate $k $v}
+                                  <option class="cate-item" <%if list.cate == {$v['id']}%>selected<%/if%> id="adcate{$v['id']}" value="{$v['id']}" >{$v['title']}</option>
+                                {/loop}
+                            </select>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">活动摘要 </div>
+                        <div class="float-r info-value">
+                             <textarea class="whole-textarea" placeholder="活动摘要/最多60字" name="desc" maxlength="60" rows="2"><%list.desc%></textarea>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">活动费用 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="cost" <%if list.cost == 1%>value="<%list.money%>"<%else%>value=""<%/if%> placeholder="费用(不填写默认为无费用)">
+                        </div>
+                    </li>
+                    <!-- <li class="info-item clearfloat">
+                        <div class="float-l info-tag">发布机构 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input read-ele" type="text" name="relOrg" value="{$muser['orgName']}" placeholder="发布机构" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">联系人 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input read-ele" type="text" name="ContactOrg" value="{$muser['realname']}" placeholder="联系人" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">联系电话 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input read-ele" type="text" name="mobileOrg" value="{$muser['mobile']}" placeholder="联系电话" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">机构简介 </div>
+                        <div class="float-r info-value">
+                             <textarea class="whole-textarea read-ele" placeholder="机构简介" name="descOrg" readonly="readonly" rows="5">{$muser['orgDesc']}</textarea>
+                        </div>
+                    </li> -->
+                    <!-- 报名项目手机版本暂时就不写了 有点麻烦 -->
+                    <!--  <li class="info-item clearfloat">
+                        <div class="float-l info-tag">报名项目 </div>
+                        <div class="float-r info-value">
+                             
+                        </div>
+                    </li> -->
+                    <!-- <li class="info-item clearfloat">
+                        <div class="float-l info-tag">活动标签 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="label" value="<%list.label%>" placeholder="活动标签">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">邀约模式</div>
+                        <div class="float-r info-value">
+                            <div class="mui-input-row mui-radio mui-left">
+                                <label class="normal-label">报名模式</label>
+                                <input name="joinModel" type="radio" value="0" <%if list.joinModel == 0%>checked<%else if list.joinModel ==1%><%else%>checked<%/if%> >
+                            </div>
+                            <div class="mui-input-row mui-radio mui-left">
+                                <label class="normal-label">邀约模式</label>
+                                <input name="joinModel" type="radio" value="1" <%if list.joinModel == 1%>checked<%/if%> >
+                            </div>
+                        </div>
+                    </li> -->
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">是否启用团队模式</div>
+                        <div class="float-r float-r5 info-value text-right"><!-- mui-active(1) 控制开关的开状态 0否  1是-->
+                            <div class="mui-switch mui-switch-mini float-r-switch <%if list.teamModel == 1%>mui-active<%else%><%/if%>" id="group-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if list.teamModel == 1%>1<%else%>0<%/if%>" type="hidden" name="teamModel" id="groupmode">
+                        </div>
+                    </li>
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l info-tag">是否审核</div>
+                        <div class="float-r info-value">
+                            <div class="mui-switch mui-switch-mini float-r-switch <%if list.isAudit == 1%>mui-active<%else%><%/if%>" id="review-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if list.isAudit == 1%>1<%else%>0<%/if%>" type="hidden" name="isAudit" id="isreview">
+                        </div>
+                    </li>
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l info-tag">是否公开</div>
+                        <div class="float-r info-value">
+                            <div class="mui-switch mui-switch-mini float-r-switch <%if list.public == 1%>mui-active<%else%><%/if%>" id="public-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if list.public == 1%>1<%else%>0<%/if%>" type="hidden" name="public" id="ispublic">
+                        </div>
+                    </li>
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">是否允许退票</div>
+                        <div class="float-r float-r5 info-value">
+                            <div class="mui-switch mui-switch-mini float-r-switch <%if list.recund == 1%>mui-active<%else%><%/if%>" id="refund-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if list.recund == 1%>1<%else%>0<%/if%>" type="hidden" name="recund" id="isrefund">
+                        </div>
+                    </li>
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">是否隐藏名单</div>
+                        <div class="float-r float-r5 info-value">
+                            <div class="mui-switch mui-switch-mini float-r-switch <%if list.hideList == 1%>mui-active<%else%><%/if%>" id="hide-list-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if list.hideList == 1%>1<%else%>1<%/if%>" type="hidden" name="hideList" id="ishidelist">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="help-box">建议尺寸: 640 * 640 ，或正方型图片</div>
+                        <%if list.icon!=''%>
+                        <div class="img-container">
+                            <div class="img-box">           
+                                <img src="<%list.icon1%>" style="width:100%; height:100%;">           
+                                <div style="position:absolute; top:-10%; left:-10%;" onclick="$(this).parent().parent().remove();">X</div>
+                                <input type="text" name="file1[]" value="<%list.icon%>" style="display:none;" readonly="readonly">       
+                            </div>
+                        </div>           
+                        <%/if%>
+                        <div id="upload-img-box1" class="upload-img-box">
+                            <div class="btn-icon">+</div>
+                            <div class="btn-tag btn-tag2">活动图标</div>
+                            <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" value="BusinessLicensePic" />
+                        </div>
+                    </li>
+                    {else if $_GPC['what'] == 2 && $_GPC['id']}        
+                    
+                    <!-- 活动详情赋值这里 html代码 -->
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">活动详情 </div>
+                        <div class="add-picture">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <button class="add-picture-btn">添加图片</button>
+                            <input class="add-picture-input" type="file" id="imgfile" name="details_describe">
+                        </div>
+                            <!-- 活动详情赋值这里 html代码应该不能用异步获取的字符串,需要jquery来实现  jquery已做处理-->
+                        <div class="float-r float-whole info-value match-detail-box">
+                            <div contenteditable="true" id="match-detail" class="msbox"><%list.content%></div>
+                            <textarea name="detail" type="text/plain" style="height: 200px; display: none;"><%list.content%></textarea>
+                        </div>
+                    </li>
+                    {else}
+
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">活动主题 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input" type="text" name="title" value="<%list.title%>" placeholder="活动主题" autocomplete="off">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">开始时间 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input stime" id="stime" type="text" name="stime" value="<%list.stime%>" placeholder="开始时间" readonly="readonly">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">结束时间 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input etime" id="etime" type="text" name="etime" value="<%list.etime%>" placeholder="结束时间" readonly="readonly">
+                            </div>
+                        </li>
+                        <li class="info-item info-item-bot clearfloat">
+                            <div class="float-l float-l5 info-tag">开始后不允许报名</div>
+                            <div class="float-r float-r5 info-value"><!-- mui-active(1) 控制开关的开状态 0否  1是-->
+                                <div class="mui-switch mui-switch-mini float-r-switch <%if list.afterTheStart == 1%>mui-active<%else%><%/if%>" id="refund-switch">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                                <input class="whole-input swi-input" value="<%if list.afterTheStart == 1%>1<%else%>0<%/if%>" type="hidden" name="afterTheStart" id="afterTheStart">
+                            </div>
+                        </li>
+                        <li class="info-item info-item-address clearfloat">
+                            <div class="float-l info-tag">活动地点 </div>
+                            <div class="float-r info-value">
+                                <select name="reside[province]" id="sel-provance" onChange="selectCity();" class="select sel-select">
+                                    <option value="" selected="true">省/直辖市</option>
+                                </select>
+                                <select name="reside[city]" id="sel-city" onChange="selectcounty()" class="select sel-select">
+                                    <option value="" selected="true">请选择</option>
+                                </select>
+                                <select name="reside[district]" id="sel-area" class="select sel-select">
+                                    <option value="" selected="true">请选择</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">详细地址 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input" type="text" name="address" value="<%list.address%>" placeholder="详细地址" autocomplete="off">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">活动类型 </div>
+                            <!-- 内置标签循环活动类型 name="typeid"时就不显示第一项 要写成reside[typeid]才会显示 -->
+                            <div class="float-r info-value match-type-box">
+                                <select class="select sel-select1 whole-select" name="reside[cate]">
+                                    <option class="cate-item" value="">请选择活动类型</option>
+                                    <!-- 这里循环活动类型 if修改时判断存储的活动类型 再选中 -->
+                                    {loop $cate $k $v}
+                                      <option class="cate-item" <%if list.cate == {$v['id']}%>selected<%/if%> id="adcate{$v['id']}" value="{$v['id']}" >{$v['title']}</option>
+                                    {/loop}
+                                </select>
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">活动摘要 </div>
+                            <div class="float-r info-value">
+                                 <textarea class="whole-textarea" placeholder="活动摘要/最多60字" name="desc" maxlength="60" rows="2"><%list.desc%></textarea>
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">活动费用 </div>
+                            <div class="float-r info-value">                     
+                                <input class="whole-input" type="text" name="cost" <%if list.cost == 1%>value="<%list.money%>"<%else%>value=""<%/if%> placeholder="费用(不填写默认为无费用)">
+                            </div>                      
+                        </li>           
+                        <!-- <li class="info-item clearfloat">
+                            <div class="float-l info-tag">发布机构 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input read-ele" type="text" name="relOrg" value="{$muser['orgName']}" placeholder="发布机构" readonly="readonly">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">联系人 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input read-ele" type="text" name="ContactOrg" value="{$muser['realname']}" placeholder="联系人" readonly="readonly">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">联系电话 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input read-ele" type="text" name="mobileOrg" value="{$muser['mobile']}" placeholder="联系电话" readonly="readonly">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">机构简介 </div>
+                            <div class="float-r info-value">
+                                 <textarea class="whole-textarea read-ele" placeholder="机构简介" name="descOrg" readonly="readonly" rows="5">{$muser['orgDesc']}</textarea>
+                            </div>
+                        </li> -->
+                        <!-- 报名项目手机版本暂时就不写了 有点麻烦 -->
+                        <!--  <li class="info-item clearfloat">
+                            <div class="float-l info-tag">报名项目 </div>
+                            <div class="float-r info-value">
+                                 
+                            </div>
+                        </li> -->
+                        <!-- <li class="info-item clearfloat">
+                            <div class="float-l info-tag">活动标签 </div>
+                            <div class="float-r info-value">
+                                <input class="whole-input" type="text" name="label" value="<%list.label%>" placeholder="活动标签">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">邀约模式</div>
+                            <div class="float-r info-value">
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">报名模式</label>
+                                    <input name="joinModel" type="radio" value="0" <%if list.joinModel == 0%>checked<%else if list.joinModel ==1%><%else%>checked<%/if%> >
+                                </div>
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">邀约模式</label>
+                                    <input name="joinModel" type="radio" value="1" <%if list.joinModel == 1%>checked<%/if%> >
+                                </div>
+                            </div>
+                        </li> -->
+                        <li class="info-item info-item-bot clearfloat">
+                            <div class="float-l float-l5 info-tag">是否启用团队模式</div>
+                            <div class="float-r float-r5 info-value"><!-- text-right mui-active(1) 控制开关的开状态 0否  1是-->
+                                <!-- 
+                                <div class="mui-switch mui-switch-mini float-r-switch <%if list.teamModel == 1%>mui-active<%else%><%/if%>" id="group-switch">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                                <input class="whole-input swi-input" value="<%if list.teamModel == 1%>1<%else%>0<%/if%>" type="hidden" name="teamModel" id="groupmode"> 
+                                -->
+                                <div class="flex-center radio-box">
+                                    <div class="mui-input-row mui-radio mui-left">
+                                        <label class="normal-label">否</label>
+                                        <input name="teamModel" type="radio" value="0" <%if list.teamModel == 0%>checked<%else if list.teamModel ==1%><%else%>checked<%/if%> >
+                                    </div>
+                                    <div class="mui-input-row mui-radio mui-left">
+                                        <label class="normal-label">是</label>
+                                        <input name="teamModel" type="radio" value="1" <%if list.teamModel == 1%>checked<%/if%> >
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="info-item info-item-bot clearfloat">
+                            <div class="float-l info-tag">是否审核</div>
+                            <div class="float-r info-value">
+                                <div class="mui-switch mui-switch-mini float-r-switch <%if list.isAudit == 1%>mui-active<%else%><%/if%>" id="review-switch">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                                <input class="whole-input swi-input" value="<%if list.isAudit == 1%>1<%else%>0<%/if%>" type="hidden" name="isAudit" id="isreview">
+                            </div>
+                        </li>
+                        <li class="info-item info-item-bot clearfloat">
+                            <div class="float-l info-tag">是否公开</div>
+                            <div class="float-r info-value">
+                                <div class="mui-switch mui-switch-mini float-r-switch <%if list.public == 1%>mui-active<%else%><%/if%>" id="public-switch">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                                <input class="whole-input swi-input" value="<%if list.public == 1%>1<%else%>0<%/if%>" type="hidden" name="public" id="ispublic">
+                            </div>
+                        </li>
+                        <li class="info-item info-item-bot clearfloat">
+                            <div class="float-l float-l5 info-tag">是否允许退票</div>
+                            <div class="float-r float-r5 info-value">
+                                <div class="mui-switch mui-switch-mini float-r-switch <%if list.recund == 1%>mui-active<%else%><%/if%>" id="refund-switch">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                                <input class="whole-input swi-input" value="<%if list.recund == 1%>1<%else%>0<%/if%>" type="hidden" name="recund" id="isrefund">
+                            </div>
+                        </li>
+                        <li class="info-item info-item-bot clearfloat">
+                            <div class="float-l float-l5 info-tag">是否隐藏名单</div>
+                            <div class="float-r float-r5 info-value">
+                                <div class="mui-switch mui-switch-mini float-r-switch <%if list.hideList == 1%>mui-active<%else%><%/if%>" id="hide-list-switch">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                                <input class="whole-input swi-input" value="<%if list.hideList == 1%>1<%else%>1<%/if%>" type="hidden" name="hideList" id="ishidelist">
+                            </div>
+                        </li>
+                        <li class="info-item clearfloat upload-img-container">
+                            <div class="help-box">建议尺寸: 640 * 640 ，或正方型图片</div>
+                            <%if list.icon%>
+                            <div class="img-container">
+                                <div class="img-box">           
+                                    <img src="<%list.icon1%>" style="width:100%; height:100%;">           
+                                    <div style="position:absolute; top:-10%; left:-10%;" onclick="$(this).parent().parent().remove();">X</div>
+                                    <input type="text" name="file1[]" value="<%list.icon%>" style="display:none;" readonly="readonly">       
+                                </div>
+                            </div>           
+                            <%/if%>
+                            <div id="upload-img-box1" class="upload-img-box">
+                                <div class="btn-icon">+</div>
+                                <div class="btn-tag btn-tag2">活动图标</div>
+                                <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" value="BusinessLicensePic" />
+                            </div>
+                        </li>
+                        <!-- 活动详情赋值这里 html代码 -->
+                        <li class="info-item clearfloat">
+                            <div class="float-l info-tag">活动详情 </div>
+                            <div class="add-picture">
+                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                <button class="add-picture-btn">添加图片</button>
+                                <input class="add-picture-input" type="file" id="imgfile" name="details_describe">
+                            </div>
+                                <!-- 活动详情赋值这里 html代码应该不能用异步获取的字符串,需要jquery来实现  jquery已做处理-->
+                            <div class="float-r float-whole info-value match-detail-box">
+                                <div contenteditable="true" id="match-detail" class="msbox"></div>
+                                <textarea name="detail" type="text/plain" style="height: 200px; display: none;"></textarea>
+                            </div>
+                        </li>
+                    {/if}
+                </ul>
+            </div>
+            <div class="help-box">注: *如需上传视频音乐或者专业排版请登陆网页版后台</div>
+            <div class="footer">
+                <div class="post-btn" onclick='a(1);'>提交</div>
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </form>
+    </div>
+</script>
+<script type="text/html" id="tpl-img-box1">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" class="minus" data-img='<%=data.img[0]%>'>X</div>
+           <input type="text" name="file1[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+<script type="text/html" id="tpl-loading">
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+         <img src="<?php echo MODULE_URL.'plugin/suppliermenu/res/loading.gif?'.time();?>"/>
+    </div>
+</script>
+
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        core.pjson('match/match', {op:'add',ac:'get',id:'{$_GPC['id']}',copyid:'{$_GPC['copyid']}'}, function(json) {
+            var data = json.result.list;                         
+            //初始化所在地区//cascdeInit(data.province,data.city,data.dist);
+            $('body').append(tpl('tpl-big-body',json.result));
+            //初始化区域插件       
+            {if $_GPC['what'] !=2 }      
+            cascdeInit(json.result.list.province,json.result.list.city,json.result.list.district);
+            //初始化商家简介和商家特色编辑器
+            {/if}
+            $('#match-detail').html( $('textarea[name=\''+'detail'+'\']').val());
+            //动态添加的 Switch 开关组件需要手动初始化
+            mui('.mui-switch')['switch']();
+            mui('.float-r-switch').each(function() { //循环所有toggle
+                //toggle 事件监听
+                this.addEventListener('toggle', function(event) {
+                    //event.detail.isActive 可直接获取当前状态
+                    this.parentNode.querySelector('.swi-input').value = (event.detail.isActive ? 1 : 0);
+                });
+            });
+
+
+            {if $_GPC['what'] !=2}         
+            //初始化时间插件
+            var $startbtn = document.getElementById('stime');
+            var $endbtn = document.getElementById('etime');
+            $startbtn.addEventListener('tap', function() {
+                var _self = this;
+                var option = {
+                    type: "datetime",//设置日历初始视图模式 完整日期视图(年月日时分)
+                    beginDate: new Date()//设置开始日期 
+                }; 
+                if($.trim($('.etime').val()).length != 0){
+                    //设置在已经选择结束时间后再重新选择开始时间 少一分钟
+                    option.endDate = new Date(new Date($('.etmie').val()).getTime() - 60*24);
+                }
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }else {
+                    var id = this.getAttribute('id');
+                    _self.picker = new mui.DtPicker(option);
+                    _self.picker.show(function(rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+            }, false);
+            $endbtn.addEventListener('tap', function() {
+                var _self = this;
+                var time_start = $startbtn.value;
+                if($.trim($('.stime').val()).length == 0){
+                    core.tip.show('请先选择开始时间');
+                    return false;
+                }
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }else {
+                    var id = this.getAttribute('id');
+                    _self.picker = new mui.DtPicker({
+                        type: "datetime",//设置日历初始视图模式 完整日期视图(年月日时分)
+                        beginDate: new Date(new Date(time_start).getTime() + 60*24)//设置开始日期 大一分钟
+                    });
+                    _self.picker.show(function(rs) {
+                        _self.value = rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+            }, false);
+            
+            {/if}
+       }, true,true);
+    });
+</script>
+
+<script type="text/javascript">
+//防编辑器图片上传
+require(['tpl', 'core'], function(tpl, core) {
+    //活动详情图片上传
+    $(document).on('change','#imgfile',function(){
+        core.loading('正在上传');
+        $.ajaxFileUpload({
+            url: core.getUrl('util/uploader'),
+            data: {file: "details_describe"},
+            secureuri: false, 
+            fileElementId: 'imgfile', 
+            dataType: 'json', 
+            success: function(res, status) {
+                console.log(res);
+                core.removeLoading();                                               
+                var img = document.createElement("img");
+                img.src = res.url;
+                $('#match-detail').append(img);
+            },
+            error: function(data, status, e) {
+                core.removeLoading();
+                core.tip.show('上传失败!');
+            }
+        });
+    });
+})
+//上传图片
+function  handleFiles(q,id)
+{
+    var files =  q.files;
+    if(files.length)
+    {
+        console.log(files.length);
+        for(var x =0 ;x<files.length;x++ ){
+            var file = files[x];
+            if(!/image\/\w+/.test(file.type)){
+                alert("文件必须为图片！"+file.type);
+                return ;
+            }
+        }
+        $.ajaxFileUpload({  
+            url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+            secureuri:false,  
+            fileElementId:$(q).attr('id'), //file的id  
+            dataType:"text", // 返回数据类型为文本  
+            success:function(data,status){  
+                console.log(data);
+                console.log(status);
+                var obj = JSON.parse(data);
+                for(var x in obj.result.url){
+                    $("#file"+id).parent().before(baidu.template('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+                }
+                $("#file"+id).parent().hide();
+                //增加删除服务器存储照片的功能,而不是简单地删除页面的dom元素
+                $('.minus').unbind("click").click(function() {
+                    var $reObj = $(this).parent().parent();
+                    var $curObj = $(this);
+                    require(['core'], function(core) {
+                        core.json('util/uploader', {op: 'remove', file: $curObj.data('img')}, function(rjson) {
+                            //删除成功
+                            if (rjson.status == 1) {
+                                $reObj.remove();
+                                $("#file"+id).parent().show();
+                            }
+                        }, false, true);
+                    });
+                });   
+           }  
+        });
+    }
+}
+//提交活动函数
+function a(status){
+    require(['tpl', 'core'], function(tpl, core) { 
+        $('#big_body').append(tpl('tpl-loading')); 
+        {if $_GPC['what'] == 1 && $_GPC['id']}
+            if($("input[name='title']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('活动主题不能为空');
+                return;
+            }
+            if($("input[name='stime']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('开始时间不能为空');
+                return;
+            }
+            if($("input[name='etime']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('结束时间不能为空');
+                return;
+            }
+            //开关状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 start
+            if($("input[name='afterTheStart']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('开始后不允许报名项目不能为空');
+                return;
+            }
+            if($("input[name='teamModel']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否启用团队模式项目不能为空');
+                return;
+            }
+            if($("input[name='isAudit']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否审核项目不能为空');
+                return;
+            }
+            if($("input[name='public']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否公开项目不能为空');
+                return;
+            }
+            if($("input[name='recund']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否允许退票项目不能为空');
+                return;
+            }
+            if($("input[name='hideList']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否隐藏名单项目不能为空');
+                return;
+            }
+            //开关状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 end
+
+            if($("select[name='reside[province]']").val() == '请选择省份'){
+                $("#loading").remove();
+                core.tip.show('请选择省/直辖市');
+                return;
+            }
+            if($("select[name='reside[city]']").val() == '请选择城市'){
+                $("#loading").remove();
+                core.tip.show('请选择城市');
+                return;
+            }
+            if($("select[name='reside[district]']").val() == '请选择区域'){
+                $("#loading").remove();
+                core.tip.show('请选择区域');
+                return;
+            }
+            if($("input[name='address']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('详细地址不能为空');
+                return;
+            }
+            if($("select[name='reside[cate]']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('活动类型不能为空');
+                return;
+            }
+            if($("textarea[name='desc']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('活动摘要不能为空');
+                return;
+            }
+        //费用(不填写默认为无费用),则不用判断
+        // if($("input[name='cost']").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('费用不能为空');
+        //     return;
+        // }
+        //发布机构 联系人 联系电话 机构简介不用判断,因为是获取数据库的数据，但是要提交存到活动里面
+        /*if($("input[name='label']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('活动标签不能为空');
+            return;
+        }
+        if($("input[name='joinModel']:checked").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('请选择邀约模式');
+            return;
+        }*/
+        //有默认图标,后台设置，所以此处不判断
+        // if($("input[name='file1[]']").length == 0){
+        //     $("#loading").remove();
+        //     core.tip.show('请上传图标');
+        //     return;
+        // }
+        {else if $_GPC['what']==2 && $_GPC['id']}
+            //把活动详情防编辑器里面的html内容扔回去给textarea
+            $('textarea[name=\''+'detail'+'\']').val($('#match-detail').html());
+            //获取textarea活动详情内容进行判断
+            var details = $('textarea[name=\''+'detail'+'\']').val();
+            if($.trim(details).length == 0){ 
+                 $("#loading").remove();
+                 core.tip.show('活动详情不能为空');
+                 return;
+            }
+        {else}
+
+        if($("input[name='title']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('活动主题不能为空');
+                return;
+            }
+            if($("input[name='stime']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('开始时间不能为空');
+                return;
+            }
+            if($("input[name='etime']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('结束时间不能为空');
+                return;
+            }
+            //开关状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 start
+            if($("input[name='afterTheStart']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('开始后不允许报名项目不能为空');
+                return;
+            }
+            /*if($("input[name='teamModel']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否启用团队模式项目不能为空');
+                return;
+            }*/
+            if($("input[name='teamMode']:checked").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('请选择是否启用团队模式项目');
+                return;
+            }
+            if($("input[name='isAudit']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否审核项目不能为空');
+                return;
+            }
+            if($("input[name='public']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否公开项目不能为空');
+                return;
+            }
+            if($("input[name='recund']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否允许退票项目不能为空');
+                return;
+            }
+            if($("input[name='hideList']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('是否隐藏名单项目不能为空');
+                return;
+            }
+            //开关状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 end
+
+            if($("select[name='reside[province]']").val() == '请选择省份'){
+                $("#loading").remove();
+                core.tip.show('请选择省/直辖市');
+                return;
+            }
+            if($("select[name='reside[city]']").val() == '请选择城市'){
+                $("#loading").remove();
+                core.tip.show('请选择城市');
+                return;
+            }
+            if($("select[name='reside[district]']").val() == '请选择区域'){
+                $("#loading").remove();
+                core.tip.show('请选择区域');
+                return;
+            }
+            if($("input[name='address']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('详细地址不能为空');
+                return;
+            }
+            if($("select[name='reside[cate]']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('活动类型不能为空');
+                return;
+            }
+            if($("textarea[name='desc']").isEmpty()){
+                $("#loading").remove();
+                core.tip.show('活动摘要不能为空');
+                return;
+            }
+
+            //把活动详情防编辑器里面的html内容扔回去给textarea
+            $('textarea[name=\''+'detail'+'\']').val($('#match-detail').html());
+            //获取textarea活动详情内容进行判断
+            var details = $('textarea[name=\''+'detail'+'\']').val();
+            if($.trim(details).length == 0){ 
+                 $("#loading").remove();
+                 core.tip.show('活动详情不能为空');
+                 return;
+            }       
+        {/if}
+
+        var data = {};
+        {if $_GPC['what'] == 1 && $_GPC['id']}
+            data['title'] = {data:[$("input[name='title']").val()]};
+            data['stime'] = {data:[$("input[name='stime']").val()]};
+            data['etime'] = {data:[$("input[name='etime']").val()]};
+            data['afterTheStart'] = {data:[$("input[name='afterTheStart']").val()]};
+            data['province'] = {data:[$("select[name='reside[province]']").val()]};
+            data['city'] = {data:[$("select[name='reside[city]']").val()]};
+            data['area'] = {data:[$("select[name='reside[district]']").val()]};
+            data['address'] = {data:[$("input[name='address']").val()]};
+            data['cate'] = {data:[$("select[name='reside[cate]']").val()]};
+            data['desc'] = {data:[$("textarea[name='desc']").val()]};
+            data['cost'] = {data:[$("input[name='cost']").val()]};          
+            // data['relOrg'] = {data:[$("input[name='relOrg']").val()]};
+            // data['ContactOrg'] = {data:[$("input[name='ContactOrg']").val()]};
+            // data['mobileOrg'] = {data:[$("input[name='mobileOrg']").val()]};
+            // data['descOrg'] = {data:[$("textarea[name='descOrg']").val()]};
+            //data['label'] = {data:[$("input[name='label']").val()]};
+            //data['joinModel'] = {data:[$("input[name='joinModel']:checked").val()]};
+            data['teamModel'] = {data:[$("input[name='teamModel']:checked").val()]};
+            data['isAudit'] = {data:[$("input[name='isAudit']").val()]};
+            data['public'] = {data:[$("input[name='public']").val()]};
+            data['recund'] = {data:[$("input[name='recund']").val()]};
+            data['hideList'] = {data:[$("input[name='hideList']").val()]};
+            data['post1[]'] = {data:[$("input[name='file1[]']").val()]};//只有一张图片
+            data['status']  = {data:'{$_GPC['what']}'};//这个先摆在这里，暂时不知道起什么作用,函数的参数
+
+        {else if $_GPC['what'] == 2  && $_GPC['id']}
+            data['details']   = {data:[details]};       
+            data['status']  = {data:'{$_GPC['what']}'};//这个先摆在这里，暂时不知道起什么作用,函数的参数
+        {else}
+            data['title'] = {data:[$("input[name='title']").val()]};
+            data['stime'] = {data:[$("input[name='stime']").val()]};
+            data['etime'] = {data:[$("input[name='etime']").val()]};
+            data['afterTheStart'] = {data:[$("input[name='afterTheStart']").val()]};
+            data['province'] = {data:[$("select[name='reside[province]']").val()]};
+            data['city'] = {data:[$("select[name='reside[city]']").val()]};
+            data['area'] = {data:[$("select[name='reside[district]']").val()]};
+            data['address'] = {data:[$("input[name='address']").val()]};
+            data['cate'] = {data:[$("select[name='reside[cate]']").val()]};
+            data['desc'] = {data:[$("textarea[name='desc']").val()]};
+            data['cost'] = {data:[$("input[name='cost']").val()]};          
+            // data['relOrg'] = {data:[$("input[name='relOrg']").val()]};
+            // data['ContactOrg'] = {data:[$("input[name='ContactOrg']").val()]};
+            // data['mobileOrg'] = {data:[$("input[name='mobileOrg']").val()]};
+            // data['descOrg'] = {data:[$("textarea[name='descOrg']").val()]};
+            //data['label'] = {data:[$("input[name='label']").val()]};
+            //data['joinModel'] = {data:[$("input[name='joinModel']:checked").val()]};
+            data['teamModel'] = {data:[$("input[name='teamModel']").val()]};
+            data['isAudit'] = {data:[$("input[name='isAudit']").val()]};
+            data['public'] = {data:[$("input[name='public']").val()]};
+            data['recund'] = {data:[$("input[name='recund']").val()]};
+            data['hideList'] = {data:[$("input[name='hideList']").val()]};
+            data['post1[]'] = {data:[$("input[name='file1[]']").val()]};//只有一张图片
+            data['status']  = 0;//这个先摆在这里，暂时不知道起什么作用,函数的参数
+            data['details']   = {data:[details]};       
+        {/if}        
+        //console.log(data);            
+        System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+            var fd =  a.append( data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '<?php echo $this->createPluginMobileUrl('match/match',array( 'op'=>'add','ac'=>'sub','id'=>$_GPC['id'])) ;?>', true);
+            xhr.send(fd);                    
+            xhr.onreadystatechange=function(){
+              if (xhr.readyState==4 && xhr.status==200)
+              {     
+                    var obj = JSON.parse(xhr.responseText);
+                    if(obj.status == 1){
+                    	core.tip.show('提交成功');
+                    	setTimeout(function(){
+                    		location.href="{php echo $this->createPluginMobileUrl('match/match')}";
+                    	},250);
+                    }
+                    if(obj.status == 0){core.tip.show('提交失败');return;}
+              }
+            };
+            $("#loading").remove();
+        });
+     });
+}
+</script>
+{template 'common/footer'}

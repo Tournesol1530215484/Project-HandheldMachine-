@@ -1,0 +1,9 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'dis.agent'}<li {if $_GPC['method']=='agent'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dis/agent')}">分销商管理</a></li>{/if}
+    {ifp 'dis.cover'}<li {if $_GPC['method']=='cover'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dis/cover')}">经销商查询中心入口设置</a></li>{/if}
+	{ifp 'dis.notice'}<li  {if $_GPC['method']=='notice'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dis/notice', array( 'op' => 'post'))}">经销商证件</a></li>{/if}
+    {ifp 'dis.set'}<li {if $_GPC['method']=='set'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dis/set')}">基础设置</a></li>{/if}
+    
+</ul>
+</div>

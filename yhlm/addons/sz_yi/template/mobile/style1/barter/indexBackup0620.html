@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>首页</title>
+		<link href="../addons/sz_yi/template/mobile/style1/barter/css/mui.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/barter/fa/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/barter/css/index.css" />
+		<script type="text/javascript" src="../addons/sz_yi/template/mobile/style1/barter/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../addons/sz_yi/template/mobile/style1/barter/js/mui.min.js"></script>
+		<script src="../addons/sz_yi/template/mobile/style1/barter/js/index.js"></script>
+	</head>
+	<style type="text/css">
+		.platform {
+			width: 100%;
+			height: 2.5rem;
+			background-color: #fcfdf8;
+			padding: 0 2%;
+			border-top: 1px solid #ccc;
+		}
+		
+		.platform-left {
+			width: 20%;
+			height: 100%;
+			text-align: center;
+			overflow: hidden;
+			float: left;
+		}
+		
+		.platform-left span {
+			font-size: 13px;
+			display: block;
+			font-weight: 600;
+		}
+		
+		.platform-right {
+			width: 80%;
+			height: 100%;
+			font-size: 15px;
+			font-weight: 500;
+			float: right;
+			line-height: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		
+		.platform-right span {
+			width: 100%;
+			height: 100%;
+			line-height: 2.5rem;
+		}
+		
+		.goods {
+			width: 100%;
+			padding: 0 1% 15%;
+			overflow: hidden;
+			background: #fff;
+		}
+		
+		.goods_list {
+			width: 50%;
+			padding: 5% 2%;
+			float: left;
+			height: 212px;
+			overflow: hidden;
+		}
+		
+		.goods_list img {
+			width: 100%;
+			height: 8rem;
+		}
+		
+		.goods_list_con {
+			width: 100%;
+			height: 1rem;
+			overflow: hidden;
+			font-size: 0.6rem;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		
+		.goods_list_con span:first-of-type {
+			width: 18%;
+			height: 100%;
+			float: left;
+			background-color: red;
+			color: #fff;
+			text-align: center;
+			line-height: 1rem;
+			margin-right: 5%;
+		}
+		
+		.goods_list_con span:last-of-type {
+			color: #000101;
+		}
+		
+		.goods_list_pirce {
+			width: 100%;
+			padding-top: 3%;
+			white-space: nowrap;
+    		overflow: hidden;
+    		text-overflow: ellipsis;
+		}
+		
+		.goods_list_pirce_left {
+			color: #d82b31;
+			float: left;
+			font-size: 12px;
+		}
+		
+		.goods_list_pirce_riht {
+			float: right;
+			font-size: 12px;
+			color: #9d9d9d;
+		}
+	</style>
+	<body>
+	<div class="content">
+			<header>
+				<div class="headert-left">
+					<a href="" class="fa fa-share-square-o"></a>
+				</div> 
+				<div class="header-con">
+					<form action="" method="get">  
+					<input type="hidden" name="i" value="8">
+				    <input type="hidden" name="c" value="entry">
+				    <input type="hidden" name="do" value="barter">
+				    <input type="hidden" name="m" value="sz_yi">
+				    <input type="hidden" name="p" value="list"> 
+						<input type="text" name="keywords" id="" value="" placeholder="搜索商品" />
+					</form>   
+					<span class="mui-icon mui-icon-search"></span> 
+				</div>
+				<div class="header-right">
+					<a href="" class="fa fa-envelope-o"></a>
+				</div>
+			</header> 
+			<main>
+				<!-- 轮播图 -->
+				<div class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!--支持循环，需要重复图片节点-->
+						 {loop $banner $val}	 
+						<div class="mui-slider-item">
+							<a href="{$val['link']}"><img src="{php echo tomedia($val['thumb'])}" /></a>
+						</div>   
+						{/loop}
+						<!--支持循环，需要重复图片节点-->
+					</div>
+					<!--
+                    	轮播图圆点
+                    --> 
+					<div class="mui-slider-indicator"> 
+						{loop $banner $key $val}	     
+							<div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+						{/loop}
+					</div> 
+				</div>
+
+				<!-- 商品分类 -->
+				<ul class="mui-table-view mui-grid-view mui-grid-9 mui-nav">
+					{loop $menu $v} 
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 boder-no" style="padding:0px;">
+						<a href="{$v['url']}">
+							<img src="{php echo tomedia($v['thumb'])}" /> 
+							<div class="mui-media-body">{$v['title']}</div> 
+						</a>  
+					</li>  
+					{/loop}
+				</ul>
+
+				<!-- 平台动态 -->
+				<div class="platform">
+					<div class="platform-left">
+						<span>平台</span>
+						<span style="color: #fa0902;">动态</span>
+					</div>
+					<div class="platform-right"> 
+						<span>{$set['bart']['state']}</span> 
+					</div>
+				</div>
+
+				<!-- 商品列表 -->
+				<div class="goods">
+					{loop $list $k $v}
+						<div class="goods_list">
+							<a href="{php echo $this->createMobileUrl('shop/detail',array('id'=>$v['id']))}">
+								<img src="{$v['thumb']}" />  
+								<div class="goods_list_con">
+								<span>   
+								{if $v['PostFlag'] == 1}邮寄{/if} 
+								{if $v['PostFlag'] == 1 && $v['LocalFlag'] == 1 } & {/if}
+								{if $v['LocalFlag'] == 1}现场{/if}   
+								</span>
+								<span>{$v['title']}</span>
+								</div>
+								<div class="goods_list_pirce">
+								<span class="goods_list_pirce_left">
+									{if $v['minprice'] != $v['maxprice']}
+										{$v['minprice']} - {$v['maxprice']}
+									{else}
+										{$v['maxprice']}
+									{/if}
+								</span>
+									<span class="goods_list_pirce_riht">已出售：{$v['salesreal']}件</span>
+								</div>
+							</a>
+
+						</div>
+					{/loop}
+				</div>
+			</main>
+
+			<!-- 导航 -->
+			<!--<nav class="mui-bar mui-bar-tab nav">-->
+				<!--<a class="mui-tab-item mui-active" href="index.html">-->
+					<!--<span class="mui-icon mui-icon-home"></span>-->
+					<!--<span class="mui-tab-label">首页</span>-->
+				<!--</a>-->
+				<!--<a class="mui-tab-item" href="list.html">-->
+					<!--<span class="mui-icon mui-icon-bars"></span>-->
+					<!--<span class="mui-tab-label">分类</span>-->
+				<!--</a>-->
+				<!--<a class="mui-tab-item" href="#tabbar-with-contact">-->
+					<!--<span class="mui-icon mui-icon-contact"></span>-->
+					<!--<span class="mui-tab-label">我的</span>-->
+				<!--</a>-->
+
+			<!--</nav>-->
+			{template 'designer/menu'}
+		</div>
+
+	</body>
+
+</html>

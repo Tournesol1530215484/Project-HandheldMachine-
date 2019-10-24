@@ -1,0 +1,314 @@
+html{
+    font-size: 10px;
+}
+body{
+    background: #efeff4;
+}
+.page_topbar{
+   background: #333333;
+}
+.page_topbar a.back{
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    padding-right: 15px;
+    color: #fff;
+}
+.page_topbar .title{
+    color: #fff;
+}
+.page_topbar .home {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+/*flex居中*/
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.flex-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.can-user-select,
+.can-user-select *{
+    -webkit-user-select:text;
+}
+.nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.line-clamp2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.con .mui-slider .mui-slider-group .mui-slider-item{
+    vertical-align: middle;
+}
+.tab_con .con{
+    display: none;
+}
+.tab_con .con.active{
+    display: block;
+}
+/*搜索与报名部分*/
+.search-signup-box{
+    padding: 8px;
+    background: #f0f0f0;
+}
+.search-signup-box .search-box{
+    width: calc(100% - 100px);
+    margin-right: 20px;
+}
+.search-signup-box .signup-btn{
+    width: 100px;
+    background: #f25959;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+.search-signup-box .search-box .input-box{
+    width: calc(100% - 50px);
+} 
+.search-signup-box .search-box .keywords{
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    height: auto;
+    border: 0;
+    background: #dedede;
+    color: #000;
+}
+.search-signup-box .search-box .search-btn{
+    width: 50px;
+    background: #eda671;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+.remaining-time-box{
+    background: #fff;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.remaining-time-box .label,
+.remaining-time-box .text{
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+}
+.detail-content-box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.detail-content{
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #000;
+    position: relative;
+}
+.detail-content img,
+.detail-content video{
+    max-width: 100%;
+}
+/*瀑布流参赛者*/
+.list-box{
+    margin-bottom: 55px;
+    background: #fff;
+}
+.no-list{
+    padding: 10px;
+    text-align: center;
+    color: #999;
+}
+.list-tab .list-tab-item{
+    width: 50%;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    padding: 8px;
+}
+.list-tab .list-tab-item.active{
+    color: red;
+    border-bottom: 1px solid red;
+}
+.list-box .list-ul{
+    margin-top: 5px;
+}
+.list-box .list-ul .list-item{
+    width: 48%;
+    background: #fff;
+    margin: 0 1% 5px;
+}
+.list-box .list-ul .list-item .pic-box{
+    position: relative;
+    min-height: 39px;
+}
+.list-box .list-ul .list-item .pic-box .pic{
+    width: 100%;
+}
+.list-box .list-ul .list-item .pic-box .wechat-name{
+    position: absolute;
+    top: 8px;
+    width: auto;
+    max-width: 100%;
+    background: #343434;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 10px 5px 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.list-box .list-ul .list-item .vote-num{
+    width: calc(100% - 60px);
+    font-size: 14px;
+    color: #fff;
+    background: #343434;
+    padding: 5px 0 5px 5px;
+    text-align: center;
+}
+.list-box .list-ul .list-item .vote-btn{
+    font-size: 14px;
+    width: 60px;
+    text-align: center;
+    background: #fe4830;
+    color: #fff;
+    padding: 5px 15px;
+    position: relative;
+    z-index: 100;
+}
+#list_loading,
+#list_loading1{ 
+    width: 94%;
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}
+/*回到底部*/
+.go-to-top-con{
+    position: fixed;
+    right: 0px;
+    bottom: 15%;
+    z-index: 5;
+}
+.go-to-top-con .gotop{
+    display: none;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 0px 0 0 5px;
+    background: rgba(0,0,0,.5);
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+.go-to-top-con .gotop .icon-block{
+    font-size: 20px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+/*音乐*/
+#audio_btn {
+    right: 20px;
+    top: 45px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    z-index: 200;
+    position: fixed;
+    background: rgba(0,0,0,.5);
+    border-radius: 50%;
+    text-align: center;
+}
+#audio_img{
+    font-size: 20px;
+    color: #fff;
+}
+/*排行榜*/
+.list-box1{
+    margin-bottom: 10px;
+    background: #fff;
+}
+.list-box1 .hd-box{
+    padding: 5px 0;
+    background: #eee;
+}
+.list-box1 .sortnum-hd,
+.list-box1 .no-hd,
+.list-box1 .name-hd,
+.list-box1 .votenum-hd{
+    font-weight: bold;
+}
+.list-box1 .sortnum-hd,
+.list-box1 .sort-num-box{
+    width: calc((100% - 50px) / 4);
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.list-box1 .avatar-hd{
+    width: 50px;
+}
+.list-box1 .no-hd,
+.list-box1 .no-box{
+    width: calc((100% - 50px) / 4);
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.list-box1 .name-hd,
+.list-box1 .name-box{
+    width: calc((100% - 50px) / 4);
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.list-box1 .votenum-hd,
+.list-box1 .votenum-box{
+    width: calc((100% - 50px) / 4);
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.list-box1 .record-item{
+    border-bottom: 1px solid #eee;
+}
+.list-box1 .record-item-link{
+    font-size: 14px;
+    padding: 8px 0;
+    text-decoration: none;
+}
+.record-item .avatar-box{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.record-item .avatar-box .avatar-cot{
+    width: 100%;
+    height: 100%;
+}
+

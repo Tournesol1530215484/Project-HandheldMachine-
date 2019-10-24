@@ -1,0 +1,360 @@
+{template 'common/header'}
+<title>粉丝帮我赚的{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}换货码{/if}</title>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.picker.min.css">
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/bonus_fans.css" />
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">粉丝帮我赚的{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}换货码{/if}</div>
+    </div>
+    <div id="list-type-box">
+        <ul class="list-type">
+            <li id="type-tag1" class="type-tag action" onclick="tab(1)" data-type="1">
+                <span class="type-nav-tag block-span">总计</span>
+            </li>
+            <li id="type-tag2" class="type-tag" onclick="tab(2)" data-type="2">
+                <span class="type-nav-tag block-span">明细</span>
+            </li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <div class="con active" id="con_1" style='display:block'>
+            
+        </div>
+        <div class="con" id="con_2">
+            <div class="time-container">
+                <div class="time-tips">选择时间查看(年/月)</div>
+                <input data-options='{"type":"month"}' class="search-time" id="search-time" type="text" name="time" value="" placeholder="年-月" readonly="readonly">
+            </div>
+            <div class="show-month-money">当月赚的 <span class="month-money-value"></span></div><!-- 这里根据类型来赋值 -->
+            <div class="list-box">
+                <ul class="list-ul ad-container">      
+                    <!-- 下拉加载数据容器 -->
+                </ul> 
+            </div>
+        </div>
+    </div>
+</div>
+<script id="tpl_fans_nodata" type="text/html">
+    <div class="no-fans-tips">暂时没有粉丝,快去发展粉丝赚取更多红包</div>
+</script>
+<script id="tpl_fans_data" type="text/html">
+    <ul class="menu-part-box"> 
+        <!--您发展的粉丝-->
+        <li class="list1 in-type"> <a href="javascript:void(0);" class="go-link">您发展的粉丝<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i><span class="num-value">
+            {if $_GPC['who'] == 'cash'}
+                <%people%>
+            {elseif $_GPC['who'] == 'code'}
+                <%people%>
+            {/if}
+        </span></a></li>
+    </ul>
+    <div class="time-period-box flex-center">
+        <input data-options='{"type":"date"}' class="period-time period-start" id="period_start" type="text" name="period_start" value="" placeholder="开始时间" readonly="readonly">
+        <div class="isolation">至</div>
+        <input data-options='{"type":"date"}' class="period-time period-end" id="period_end" type="text" name="period_end" value="" placeholder="结束时间" readonly="readonly">
+        <button type="button" class="period-search-btn">搜索</button>
+    </div> 
+    <div class="tips-remind">您直接发展的粉丝构成了第一层，他们再发展的粉丝构成了其他层，统计如下(最近4个月数据):</div>
+    <div class="fans-level-box">
+        <ul class="fans-level-ul">
+            <li class="fans-level-item fans-level-title clearfloat">
+                <span class="item-child">推荐粉丝</span>
+                <span class="item-child">合格粉丝</span>
+                <span class="item-child">获得{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}换货码{/if}</span>
+            </li>
+            <!-- 标题不循环 从这里开始循环 -->
+            <%each list as g%>
+                <li class="fans-level-item fans-level-data clearfloat">
+                    <span class="item-child"><%if g.level%><%g.level%><%else%>0<%/if%></span>
+                    <span class="item-child item-child-color"><%if g.level%><%g.level%><%else%>0<%/if%></span>
+                    <span class="item-child"><%if g.level_bonus%><%g.level_bonus%><%else%>0<%/if%></span>
+                </li>
+            <%/each%>
+        </ul>
+    </div>
+    <div class="computed-box">已获得{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}换货码{/if}总数: <span class="computed-value"><%totalall%></span></div>
+    <div class="computed-box computed-box-pad">已损失现金总数: <span class="computed-value">0.00</span></div>
+</script>
+<script type="text/html" id="tpl_fans_search-data">
+    <li class="fans-level-item fans-level-title clearfloat">
+        <span class="item-child">推荐粉丝</span>
+        <span class="item-child">合格粉丝</span>
+        <span class="item-child">获得{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}换货码{/if}</span>
+    </li>
+    <!-- 标题不循环 从这里开始循环 -->
+    <%each list as g%>
+    <li class="fans-level-item fans-level-data clearfloat">
+        <span class="item-child"><%if g.level%><%g.level%><%else%>0<%/if%></span>
+        <span class="item-child item-child-color"><%if g.level%><%g.level%><%else%>0<%/if%></span>
+        <span class="item-child"><%if g.level_bonus%><%g.level_bonus%><%else%>0<%/if%></span>
+    </li>
+    <%/each%>
+</script>
+<!-- 两种模板 用户拆红包记录 或者 记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item">
+            <div class="flex-center">
+                <div class="pic-container">
+                    <div class="pic-box" style="background: url('http://jhzh66.com/attachment/images/8/2018/08/C3r3KjFhwXkXXOOFOxvxO9hvwRkz9X.png') no-repeat center; background-size: cover;"></div>
+                </div>
+                <div class="content-box">
+                    <div class="ad-tag line-clamp2"><%g.realname%>(<%g.mobile%>)</div>
+                    <div class="ad-tag line-clamp2">
+                        <%g.title%>
+                    </div>
+                    <div class="bonusad-time line-clamp1"><!-- 拆红包时间 -->
+                       <%g.ctime%>
+                    </div>
+                </div>
+                <div class="get-how-much"><!-- 红包价值,根据红包类型选择显示 换货码 还是 ￥ -->
+                    <%if g.bonusType == 1%>
+                        +￥<%g.money%>
+                    <%else%>
+                        +<%g.money%>换货码 
+                    <%/if%>
+                </div>
+            </div>
+        </li>
+        {if false}
+        <li class="list-item">
+            <div class="flex-center">
+                <div class="pic-container">
+                    <div class="pic-box" style="background: url('<%g.thumb[0]%>') no-repeat center; background-size: cover;"></div>
+                </div>
+                <div class="content-box">
+                    <div class="ad-tag line-clamp2">
+                        测试手机发布广告测试手机发布广告测试手机发布广告测试手机发布广告
+                    </div>
+                    <div class="bonusad-time line-clamp1"><!-- 拆红包时间 -->
+                       <%g.ctime%>
+                    </div>
+                </div>
+                <div class="get-how-much"><!-- 红包价值,根据红包类型选择显示 换货码 还是 ￥ -->
+                    <%if g.bonusType == 1%>
+                        +￥<%g.money%>
+                    <%else%>
+                        +<%g.money%>换货码 
+                    <%/if%>
+                </div>
+            </div>
+        </li>    
+        {/if}
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无记录</div>
+</script>
+<script type="text/javascript">
+    //获取现在的年月
+    function getNowTime(){
+        var d = new Date();
+        //var x = $("#search-time");
+        var y = d.getFullYear();
+        var m = d.getMonth()+1;
+        if(m < 10){
+            m = "0" + m;
+        }
+        //x.val(y + '-' + m);
+        return y + '-' + m;
+    }
+     //现金收入 换货码收入 标签切换
+    function tab(n){
+        $('#con_'+n).fadeIn().addClass('active');;
+        $('#con_'+n).siblings().hide().removeClass('active');
+        $('#type-tag'+n).addClass('action');
+        $('#type-tag'+n).siblings().removeClass('action');
+    }
+</script>
+<script type="text/javascript">
+    var page = 1; 
+    var search_time = getNowTime();
+    require(['tpl', 'core'], function(tpl, core) {
+        core.json('barter/bonus', {page:page,op:'fans',ac:'getdetail', who: '{$_GPC['who']}',search_time: search_time}, function(json) {
+            //json.result.status 使用status字段或者其他字段来标志用户是否有粉丝 下面暂时使用result.status 因为测试请求的链接只有json.status
+            if (json.status == 1) {
+                console.log("1111");
+                // $("#con_1").html(tpl("tpl_fans_data"));//测试看样式
+                $("#con_1").html(tpl("tpl_fans_data",json.result));//记得附上结果值       
+                //初始化时间插件
+                var $startbtn = document.getElementById('period_start');
+                var $endbtn = document.getElementById('period_end');
+                $startbtn.addEventListener('tap', function() {
+                    var _self = this;
+                    var option = {
+                        type: "date",//设置日历初始视图模式 
+                        beginDate: new Date(new Date().getTime() - 1000*60*60*24*91),//设置开始日期 
+                        endDate: new Date(new Date().getTime() - 1000*60*60*24)//设置默认结束日期 比今天少一天
+                    }; 
+                    if($.trim($('.period-end').val()).length != 0){
+                        //设置在已经选择结束时间后再重新选择开始时间
+                        option.endDate = new Date(new Date($('.period-end').val()).getTime() - 1000*60*60*24);
+                    }
+                    if(_self.picker) {
+                        _self.picker.show(function (rs) {
+                            _self.value = rs.text;
+                            _self.picker.dispose();
+                            _self.picker = null;
+                        });
+                    }else {
+                        var id = this.getAttribute('id');
+                        _self.picker = new mui.DtPicker(option);
+                        _self.picker.show(function(rs) {
+                            _self.value = rs.text;
+                            _self.picker.dispose();
+                            _self.picker = null;
+                        });
+                    }
+                }, false);
+                $endbtn.addEventListener('tap', function() {
+                    var _self = this;
+                    var time_start = $startbtn.value;
+                    if($.trim($('.period-start').val()).length == 0){
+                        core.tip.show('请先选择开始时间');
+                        return false;
+                    }
+                    if(_self.picker) {
+                        _self.picker.show(function (rs) {
+                            _self.value = rs.text;
+                            _self.picker.dispose();
+                            _self.picker = null;
+                        });
+                    }else {
+                        var id = this.getAttribute('id');
+                        _self.picker = new mui.DtPicker({
+                            type: "date",//设置日历初始视图模式 
+                            beginDate: new Date(new Date(time_start).getTime() + 1000*60*60*24),//设置开始日期 
+                            endDate: new Date(new Date().getTime() - 1000*60*60*24)//设置默认结束日期 比今天少一天
+                        });
+                        _self.picker.show(function(rs) {
+                            _self.value = rs.text;
+                            _self.picker.dispose();
+                            _self.picker = null;
+                        });
+                    }
+                }, false);
+                //时间段搜索按钮
+                $(".period-search-btn").click(function(){
+                    //如果开始时间不为空，结束时间为空，则默认结束时间为昨天
+                    if(!$('#period_start').isEmpty() && $('#period_end').isEmpty()){
+                        var d = new Date(new Date().getTime() - 1000*60*60*24);
+                        var y = d.getFullYear();
+                        var m = d.getMonth()+1;
+                        var date = d.getDate();
+                        if(m < 10){
+                            m = "0" + m;
+                        }
+                        if(date < 10){
+                            date = "0" + date;
+                        }
+                        $('#period_end').val(y + "-" + m + "-" + date); 
+                    }
+                    var stime = $('#period_start').val();
+                    var etime = $('#period_end').val(); 
+                    //如果开始时间和结束时间都为空，则默认返回最近四个月的数据
+                    core.json('barter/bonus', {page:page,op:'fans',ac:'getdetail',who:'{$_GPC["who"]}',stime: stime,etime:etime}, function(json){
+                        // $(".fans-level-ul").html(tpl("tpl_fans_search-data"));//测试看样式
+                        $(".fans-level-ul").html(tpl("tpl_fans_search-data",json.result));//记得附上结果值
+                    }, true);
+                });
+            }else{
+                //没有粉丝的模板
+                $("#con_1").html(tpl("tpl_fans_nodata"));
+            }
+        }, true);
+        
+
+        $("#search-time").val(search_time);
+        //初始化时间插件 beginDate: new Date()//设置开始日期
+        var $timebtn = document.getElementById('search-time');
+        $timebtn.addEventListener('tap', function() {
+            var _self = this;
+            var option = {
+                type: "month",//设置日历初始视图模式 
+                endDate: new Date()//设置结束日期 
+            }; 
+            if(_self.picker) {
+                _self.picker.show(function (rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                    if(search_time == rs.text){
+                        return false;
+                    }
+                    page = 1;
+                    search_time = rs.text;
+                    //console.log("2: "+search_time);
+                    getList(page,search_time);
+                });
+            }else {
+                var id = this.getAttribute('id');
+                _self.picker = new mui.DtPicker(option);
+                _self.picker.show(function(rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                    if(search_time == rs.text){
+                        return false;
+                    }
+                    page = 1;
+                    search_time = rs.text;
+                    //console.log("1: "+search_time);
+                    getList(page,search_time);
+                });
+            }
+        }, false);
+        //console.log(search_time);
+        getList(page,search_time);
+        function getList(page,search_time){
+            core.json('barter/bonus', {page:page,op:'fans',ac:'getFansDetail', who: '{$_GPC["who"]}',search_time: search_time}, function(json) {
+                if (json.result.list.length <= 0) {
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+                    //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+                        {if $_GPC['who'] == 'cash'}
+                            $(".month-money-value").text("￥0.00");
+                        {elseif $_GPC['who'] == 'code'}
+                            $(".month-money-value").text("0.00换货码");
+                        {/if}                        
+                    return;
+                }
+                $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+                //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+                    {if $_GPC['who'] == 'cash'}
+                        $(".month-money-value").text("￥"+json.result.total);
+                    {elseif $_GPC['who'] == 'code'}
+                        $(".month-money-value").text(json.result.total+"换货码");
+                    {/if} 
+                var loaded = false;
+                var stop=true; 
+                $(window).scroll(function(){ 
+                    if(loaded){
+                        return;
+                    }
+                    totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                    if($(document).height() <= totalheight){
+                        if(stop==true){ 
+                            stop=false; 
+                            $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                            page++;
+                            core.json('barter/bonus', {page:page,op:'fans',ac:'getFansDetail',who:'{$_GPC["who"]}',search_time: search_time}, function(morejson) {  
+                                stop = true;
+                                $('#list_loading').remove();
+                                $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                                if (morejson.status == 0) {
+                                    $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                    loaded = true;
+                                    return;
+                                }
+                            },true); 
+                        } 
+                    } 
+                });
+            }, true);
+        }
+    });
+</script>
+{template 'common/footer'}

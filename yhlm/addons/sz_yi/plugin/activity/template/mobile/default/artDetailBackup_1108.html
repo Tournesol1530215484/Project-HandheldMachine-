@@ -1,0 +1,492 @@
+{template 'common/header'}
+<title>文章详情</title>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<!-- <link rel="stylesheet" href="../addons/sz_yi/static/css/mui.picker.min.css"> -->
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/article_detail.css';?>"/>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script> -->
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/js/jQueryRotate.js';?>"></script>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">文章详情</div>
+    </div>
+    <div class="activity-box">
+        <div class="activity-title can-user-select">{$activity['title']}</div>
+        <div class="related-data">          
+            <span class="related-data-item browse">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                <span class="browse-num">{$activity['browse']}</span><!-- 这里是对应项的数值 -->
+            </span>             
+            <span class="related-data-item share">
+                <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                <span class="share-num">{$activity['forwarding']}</span>
+            </span>             
+            <span class="related-data-item edit">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <span class="edit-num">{$activity['comment']}</span>
+            </span>                             
+            <span class="related-data-item praise">
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <span class="praise-num">{$activity['like']}</span>
+            </span>
+        </div>
+        <div class="brief-part-box">
+            <ul>
+                <li class="list1 list2 company-box clearfloat">
+                    <!-- 发布文章的机构/店铺/公司/用户? -->
+                    <div class="company-title">
+                        <!-- <i class="fa fa-university brief-part-icon" aria-hidden="true"></i>{$activity['relOrg']} -->
+                        {if !empty($activity['icon']) && $activity['icon'] != 'undefined'}               
+                            <img class="company-icon" style="width: 60px;height: 60px;" src="{php echo tomedia($activity['icon'])}">                                 
+                        {else}                                              
+                            <img class="company-icon" style="width: 60px;height: 60px;" src="../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png">       
+                        {/if}
+                        {if $mmember}            
+                            {$mmember['realname']}
+                        {else}                                   
+                            {$activity['ContactOrg']}
+                        {/if}
+                    </div>
+                    <!-- 内置标签判断用户是否已经关注该公司 -->
+                    <!-- <div class="attented attented-op">{if $isfavorite}已关注{else}<i class="fa fa-plus" aria-hidden="true"></i> 关注{/if}</div> -->
+                </li>
+                <li class="list1 list2 phone-box">
+                    <a class="give-call go-link" href="tel:{$activity['mobileOrg']}">
+                        <i class="fa fa-phone shop-btn-icon brief-part-icon brief-part-icon1" aria-hidden="true"></i>
+                        {if $mmember}            
+                            {$mmember['realname']} {$mmember['mobile']}
+                        {else}                                   
+                            {$activity['ContactOrg']} {$activity['mobileOrg']}
+                        {/if}
+                    </a>
+                </li>
+                <li class="list1 desc-box flex-center">         
+                    <div class="desc-icon-box">
+                        <i class="fa fa-calendar-o brief-part-icon brief-part-icon1" aria-hidden="true"></i>
+                    </div>
+                    <!-- 下面是文章摘要 -->
+                    <div class="desc-content-box">{$activity['desc']}
+                    </div>
+                </li>   
+            </ul>
+        </div>
+    </div>
+    <div class="article-content-box can-user-select">
+        <div class="article-content">
+                <!-- 文章内容 内置标签在这里赋值-->
+                {php echo html_entity_decode($activity['content'])}
+        </div>
+    </div>
+    <div class="multiple-container">
+        <div class="multiple-item-box flex-center">
+            <div class="multiple-item-icon" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'org','openid'=>$activity['openid']))}'">
+                    {if $tmu['logo'] && $tmu['logo'] != 'undefined'}                               
+                        <img class="company-icon" src="{php echo tomedia($tmu['logo'])}">
+                    {else}                                               
+                        <img class="company-icon" src="../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png">
+                    {/if}                                    
+            </div>
+            <div class="multiple-item can-user-select">
+                <!-- 机构 -->
+                <div class="mul-company-item mul-company-name" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'org','openid'=>$activity['openid']))}'">{$activity['relOrg']}</div>
+                 <!-- 机构简介 -->               
+                <div class="mul-company-intro" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'org','openid'=>$activity['openid']))}'">{$activity['descOrg']}</div>
+                <div class="mul-company-other flex-center">
+                    <span class="other-show"><i class="fa fa-heart-o" aria-hidden="true"></i> 粉丝 {$favorite}</span>
+                    <span class="other-show"><i class="fa fa-tag" aria-hidden="true"></i> 活动 {$totals}</span>
+                    <span class="other-show attented-btn attented-op">{if $isfavorite}已关注{else}<i class="fa fa-plus" aria-hidden="true"></i> 关注{/if}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 点赞部分 -->
+        <div class="praise-user-container">
+            <ul class="praise-user-ul clearfloat">
+                <!-- 这里内置标签开始循环li元素  -->
+                {loop $like $k $v}
+                <li class="praise-user-item">
+                    <img class="user-icon" src="{$v['avatar']}" onclick="console.log('hi')">
+                </li>       
+                {/loop}
+            </ul>
+        </div>
+        <!-- 打赏部分 -->
+        <div class="reward-user-container">
+            <ul class="reward-user-ul">
+                <!-- 这里内置标签开始循环li元素  -->
+                {loop $reward $k $v}
+                    <li class="reward-user-item">
+                        <a class="reward-user-link" href="javascript:void(0);" onclick="console.log('hi')" style="color:#000;display:block;text-align:left"><img class="face_reward" src="{$v['avatar']}" style="vertical-align:middle">
+                            <span>{$v['nickname']}<!-- {$v['mobile']} --> 支持了 <span style="color:red">{$v['money']}</span>元，{$v['remark']}</span>
+                        </a>
+                    </li>
+                {/loop}
+            </ul>
+        </div>
+        <!-- 评论部分 -->
+        <div class="comment-user-container">
+            <ul class="comment-user-ul">
+                <!-- 这里内置标签开始循环li元素  -->
+                {loop $comment $k $v}
+                    <li class="comment-user-item">
+                        <a class="comment-user-link" href="javascript:void(0);" onclick="console.log('hi')" style="color:#000;display:block;text-align:left"><img class="face_comment" src="{$v['avatar']}" style="vertical-align:middle">      
+                            <span>{$v['nickname']}{$v['mobile']} {$v['content']}</span>
+                        </a>
+                    </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="btn-container-0">
+            <ul class="btn-box clearfloat">
+                <li class="btn-item praise-btn-item">
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                </li>
+                <li class="btn-item reward-btn-item"><!-- 这里是跳转到打赏界面 -->
+                    <a class="btn-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'reward','type'=>'2','id'=>$_GPC['id']))}">赏</a>
+                </li>
+                <li class="btn-item comment-btn-item" onclick="showdescription()">评</li>
+                <li class="btn-item"><!-- 这里是跳转到帮助手册(文章) -->
+                    <a class="btn-link" href="{php echo $this->createPluginMobileUrl('article/article')}"><i class="fa fa-question" aria-hidden="true"></i></a>
+                </li>
+            </ul>       
+        </div>
+        <div class="btn-container-0 btn-container-2">
+            <ul class="btn-box clearfloat">
+                <li class="btn-item"><!-- 这里是跳转到发活动 -->
+                    <a class="btn-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'add'))}">发活动</a>
+                </li>
+                <li class="btn-item"><!-- 这里是跳转到发文章 -->
+                    <a class="btn-link" href="{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'add'))}">发文章</a>
+                </li>
+                <li class="btn-item"><!-- 这里是跳转到关注平台 -->
+                    <a class="btn-link" href="{php echo murl('site', array('do' =>'detail','id'=>1), true, true)}">关注平台</a>
+                </li>
+                <li class="btn-item"><!-- 这里是跳转到排行榜 其实就是打卡界面-->
+                    <a class="btn-link" href="{php echo $this->createPluginMobileUrl('activity/center')}">排行榜</a>
+                </li>
+            </ul>       
+        </div>
+        <div class="bottom-ad-container">
+            <!-- <a class="bottom-ad-link" href="javascript:void(0);">
+                <img class="bottom-ad" src="../addons/sz_yi/static/img/dianbottom.gif">
+            </a> -->
+            <!-- 轮播图 -->
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点 最大的元素-->
+                    {php $max=count($banner)-1}   
+                    {if $banner}
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="{$banner[$max]['link']}"><img src="{php echo tomedia($banner[$max]['thumb'])}" /></a>
+                    </div>      
+                    {/if}
+                    {loop $banner $key $val}
+                        <div class="mui-slider-item">
+                            <a href="{$val['link']}"><img src="{php echo tomedia($val['thumb'])}" /></a>
+                        </div>  
+                    {/loop}
+                    <!--支持循环，需要重复图片节点 最小的元素-->
+                    {if $banner}
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="{$banner[0]['link']}"><img src="{php echo tomedia($banner[0]['thumb'])}" /></a>
+                    </div> 
+                    {/if}
+                     <!-- 测试s 到时候去掉 -->
+                    <!-- <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="http://jhzh66.com/app/index.php?i=8&amp;c=entry&amp;do=barter&amp;m=sz_yi">
+                            <img src="http://jhzh66.com/attachment/images/8/2018/10/RuStU1mH55QA944Ztj4q2MjKs4h5AL.jpg">
+                        </a>
+                    </div>      
+                                                
+                    <div class="mui-slider-item mui-active">
+                        <a href="http://jhzh66.com//app/index.php?c=site&amp;a=site&amp;do=detail&amp;id=1&amp;i=8">
+                            <img src="http://jhzh66.com/attachment/images/8/2018/10/ABthUuaU6ukT2AVVxx1EaZjYtHP7u6.jpg">
+                        </a>
+                    </div>  
+                    <div class="mui-slider-item">
+                        <a href="http://jhzh66.com/app/index.php?i=8&amp;c=entry&amp;do=barter&amp;m=sz_yi">
+                            <img src="http://jhzh66.com/attachment/images/8/2018/10/RuStU1mH55QA944Ztj4q2MjKs4h5AL.jpg">
+                        </a>
+                    </div>  
+                    支持循环，需要重复图片节点 最小的元素
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="http://jhzh66.com//app/index.php?c=site&amp;a=site&amp;do=detail&amp;id=1&amp;i=8">
+                            <img src="http://jhzh66.com/attachment/images/8/2018/10/ABthUuaU6ukT2AVVxx1EaZjYtHP7u6.jpg">
+                        </a>
+                    </div>  -->
+                     <!-- 测试e 到时候去掉 -->
+                </div>
+                <!-- 轮播图圆点 --> 
+                <div class="mui-slider-indicator"> 
+                    {loop $banner $key $val}         
+                        <div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+                    {/loop}
+                    <!-- 测试s 到时候去掉 -->
+                    <!-- <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div> -->
+                    <!-- 测试e 到时候去掉 -->
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; height: 20px;"></div>
+    <div class="foot-btn btn-container-1">
+        <ul class="btn-box"><!-- 这三个按钮跳转到对应的页面 -->
+            <li class="btn-item btn-link-box">
+                <a class="btn-link poster" href="javascript:void(0);" onclick="history.back()">返回</a>
+            </li>
+            <li class="btn-item">
+                <a class="btn-link attented-op" href="javascript:void(0);">{if $isfavorite}已关注{else}<i class="fa fa-plus" aria-hidden="true"></i> 关注{/if}</a>
+            </li>
+            <li class="btn-item one-forward-btn">
+                <a class="btn-link" href="javascript:void(0);">一键转发</a>
+            </li>
+        </ul>       
+    </div>
+    <!-- 回到顶部功能按键 -->
+    <div class="go-to-top-con">
+        <a class="gotop" id="gotop" data-i=""><i class="fa fa-caret-up icon-block" aria-hidden="true"></i>TOP</a>
+    </div>
+    <!-- 音乐音频部分 有则显示，无则不显示下面的dom元素-->
+
+    {if $activity['bgm']}
+    <div id="audio_btn" class=" video_exist rotate" data-event="11205" style="display: block;" onclick="playmusic()">
+        <!-- <img id="audio_img" src="http://www.huodongquan.net/public/home/images/music.svg" style="transform: rotate(0deg); transform-origin: 50% 50% 0px;"> -->
+        <i id="audio_img" class="fa fa-music" aria-hidden="true" style="transform: rotate(0deg); transform-origin: 50% 50% 0px;"></i>
+        <audio loop="" src="{$activity['bgm']}" id="media" autoplay="" preload=""></audio>
+    </div>
+    {/if}
+
+    <!-- 借用说明的类似结构实现蒙层和弹出框 进行评论-->
+    <div class="description_layer"></div> 
+    <div class="description">
+        <div class="description-tag">评论</div>
+        <div class="description-cont"><!-- 评论输入框 -->
+           <textarea class="comment-textarea" placeholder="最多50字" maxlength="50"></textarea>
+        </div>
+        <div class="comment-post-btn">提交</div>
+        <div class="close icon" onClick="closedescription()"></div>
+    </div>
+</div>
+<!-- 点赞记录模板 当用户点赞时用到 填充两个数据点赞用户头像和用户的打卡界面链接-->
+<script  id="tpl_praise" type="text/html">
+    <li class="praise-user-item">
+        <img class="user-icon" src="<%member.avatar%>" onclick="console.log('hi')">
+    </li>
+</script>
+<script type="text/javascript">
+    //浏览
+    $.post('{php echo $this->createPluginMobileUrl("activity/index",array("op"=>"browse"))}',{id:'{$_GPC["id"]}',type:'2'},function(e){},'json');
+        
+    require(['tpl', 'core'], function(tpl, core) {  
+        //轮播图
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+          interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+        });            
+        menushowheight();
+        rotation();
+        $(window).scroll(function() {
+            menushowheight();  
+        });
+        $("#gotop").click(function(){
+            $("html,body").stop().animate({scrollTop: 0}, 500);
+        });
+        $(".praise-btn-item").click(function(){
+            //var user_id = "1";//这里赋值用户的id 或者不用复制，后台是知道哪个用户点赞?
+            if ($(this).attr('submitting') == '1') { 
+                return; 
+            } 
+            $('.praise-btn-item').attr('submitting', 1);
+            core.pjson('activity/index', {op:'like',type:'2',id:'{$_GPC["id"]}'}, function(json) {
+                //json.status 这里的标识字段随便取，跟后台返回的对应就可以了       
+                if (json.status == 1) { 
+                    $('.praise-btn-item').removeAttr('submitting');            
+                    core.tip.show('加油成功','bottom',500);
+                    $(".praise-user-ul").append(tpl('tpl_praise',json.result));
+                    return;      
+                }
+                $('.praise-btn-item').removeAttr('submitting');
+                core.tip.show('你已经加油过了','bottom',500);
+            }, true);
+
+        });
+        $(".comment-post-btn").click(function(){
+            if($(".comment-textarea").isEmpty()){
+                core.tip.show('评论不能为空');
+                return;
+            }
+            var comment = $(".comment-textarea").val();
+            core.pjson('activity/index', {op:'comment',type:'2',id:'{$_GPC["id"]}',comment: comment}, function(json) {
+                //json.status 这里的标识字段随便取，跟后台返回的对应就可以了       
+                if (json.status == 1) {
+                    core.tip.show('评论成功,等待作者审核');//评论不会即时出现,需要审核,也就是刷新页面的时候才可能会出现评论(才加载)
+                    // $(".comment-user-ul").append(tpl('tpl_praise'),json.result);
+                    closedescription();                                                                          
+                    return;
+                }           
+                core.tip.show(json.result);             
+            }, true);
+
+        });
+        //关注店铺/公司和取消关注店铺/公司操作
+        $(".attented-op").click(function(){
+            //暂定后台现实是根据原本的值判断(比如是1的话,请求一次改为0;是0的话请求一次改为1)
+            core.pjson('activity', {op:'favorite',id:'{$_GPC['id']}',type:2}, function (json) {
+                //json.result.status == 1 代表拆请求成功                
+                if(json.status == 1){
+                    //前面一定要标签判断好是否已关注店铺,已关注则显示'已关注'/未关注则显示'关注'
+                    if(json.result.isfavorite){       
+                        $(".attented-op").html("已关注");
+                        core.tip.show("关注成功");
+                    }else{      
+                        $(".attented-op").html('<i class="fa fa-plus" aria-hidden="true"></i> 关注');
+                        core.tip.show("取消关注成功");
+                    }
+                }else{ //请求失败
+                    core.tip.show(json.result);
+                }
+            }, true);
+        });
+        //一键转发
+        $(".one-forward-btn").click(function(){
+            goshare();
+        }); 
+        //下面关于一键转发,是所参考网页的大概代码,我不太明白(大概是如果可以一键转发，就带上用户自己的信息)，你去看看那个网页是怎么样子的逻辑
+        //下面是预先赋值好的判断字段变量 都是拽过来的
+        // var isreg="22";
+        // var aid="5106";
+        // var sid="";
+        // var level="0";
+        // var isteammodel="0";
+        // var isteamer="1";
+        // var isrepository="0";
+        // var isreportlogo="0";
+        // var isaudit="";
+        function goshare()
+        {   
+            // if(parseFloat(isreg)==0){
+            //     alert("检测到您还未注册成为易货联盟会员，请先注册易货联盟会员，在进行一键转发操作");
+            //     window.location.href='';//跳转到注册页面
+            //     return;
+            // }
+            // if(isteammodel=="0"){
+            //     alert("当前文章未开启团队模式，无法使用一键转发功能，如需转发请点击右上角将它发送给朋友或者朋友圈");
+            //     return;
+            // }
+            // if(level=='0'){
+            //     alert("对不起，您不是个人/企业会员，无法使用该功能，个人/企业会员升级方法，进入到手机微信-易货联盟平台-活动个人页面");
+            //     window.location.href="";//跳转到会员升级页面,即活动个人页面
+            //     return;
+            // }   
+            // if(isaudit=="1" && isteamer=="0"){
+            //     alert("你好，你还不是该团队成员，无法使用一键转发功能");
+            //     return;
+            // }
+            alert("该文章已经一键转发成你的联系方式，点击右上角将它发送给朋友或者朋友圈"); 
+            return; //到时候去掉return 就可以执行下面的代码了
+             core.pjson('', {}, function(json) {
+                //json.status 这里的标识字段随便取，跟后台返回的对应就可以了       
+                if (json.status == 1) {
+                    alert("该文章已经一键转发成你的联系方式，点击右上角将它发送给朋友或者朋友圈");
+                    require(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js'],function(wx){
+                        //window.shareData = {php echo json_encode($_W['shopshare'])};//到时候是要改shareData这里
+                        //到时候是要改shareData这里
+                        window.shareData = {"title":"MAGNOLIa","imgUrl":"http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/tE1y89EaY9AA2Z5pXGY3E98Z2aPl3K.jpg","desc":"Hello","link":"http:\/\/jhzh66.com\/app\/index.php?i=8&c=entry&method=activity&p=activity&op=detail&id=102&mid=4707&m=sz_yi&do=plugin"};
+                        jssdkconfig = {php echo json_encode($_W['account']['jssdkconfig']);} || { jsApiList:[] };
+                        {if $trigger}
+                                window.shareData.trigger =function(e){
+                                    
+                                    require(['core'],function(core){
+                                        core.message('需要完善您的资料才能继续操作!',"{php echo $this->createMobileUrl('member/info',array('returnurl'=>urlencode($_W['siteurl'].$_SERVER['QUERY_STRING'])))}",'warning');
+                                        return;
+                                    })   
+                                    wx.cancel();
+                                }
+                        {/if}
+                        jssdkconfig.debug = false;
+                        jssdkconfig.jsApiList = ['checkJsApi','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','showOptionMenu','scanQRCode'];
+                        wx.config(jssdkconfig);
+                        wx.ready(function () {
+                            wx.showOptionMenu();
+                            wx.onMenuShareAppMessage(window.shareData);
+                            wx.onMenuShareTimeline(window.shareData);
+                            wx.onMenuShareQQ(window.shareData);
+                            wx.onMenuShareWeibo(window.shareData);
+                    
+                                $("#a_logo1").click(function(){
+                              
+                                wx.scanQRCode({
+                                    needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                                    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                                    success: function (res) {
+                                    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                                }
+                                });
+                            });
+                    
+                        });
+                    }); 
+                    return;
+                }
+                core.tip.show(json.result);
+            }, true);
+        } 
+    });
+    function menushowheight(){
+        var bt=$(window).scrollTop();
+        if(bt>=400){
+            $("#gotop").slideDown(200);
+            $("#gotop").attr({"data-i":"1"});
+        }else{
+            $("#gotop").slideUp(200);
+            $("#gotop").attr({"data-i":""});
+        }
+    }
+    function playmusic()
+    {
+        var media = document.getElementById("media");
+        if(media.paused){
+            rotation();
+            media.play();
+        }else{
+            $('#audio_img').rotate({angle:0,callback:"",animateTo:0});
+            $("#audio_img").stopRotate();
+            media.pause();
+        }
+    }
+    function rotation(){
+        $("#audio_img").rotate({
+            angle:0, 
+            animateTo:360, 
+            callback: rotation,
+            easing: function (x,t,b,c,d){      
+                return c*(t/d)+b;
+            }
+        });
+        {if $activity['bgm']}
+            //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以 
+            document.getElementById('media').play(); 
+            //微信必须加入Weixin JSAPI的WeixinJSBridgeReady才能生效 
+            require(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js'],function(wx){
+                wx.ready(function() {
+                    document.getElementById('media').play();
+                });
+            });
+        {/if}
+    }
+    function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+
+
+</script>
+{template 'common/footer'}

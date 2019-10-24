@@ -1,0 +1,82 @@
+{template 'common/header'}
+{template 'tabs'}
+<article class="tab_filter">
+<div class="panel-search">
+    <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" name="m" value="sz_yi" />
+        <input type="hidden" name="do" value="plugin" />
+        <input type="hidden" name="p" value="activity" />
+        <input type="hidden" name="method" value="activity_for" />
+        <div class="search-box">
+            <ul>
+                <li>
+                    <p>搜索</p>
+                </li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <ul class="select-cont">
+                <li>ID:</li>
+                <li>
+                    <input type="text" class="form-control input-s-sm"  name="mid" value="{$_GPC['mid']}"/>
+                </li>
+            </ul>
+            <ul class="select-cont">
+                <li>姓名:</li>
+                <li>
+                    <input type="text" class="form-control input-s-sm"  name="realname" value="{$_GPC['realname']}" placeholder="可搜索昵称/姓名/手机号"/>
+                </li>
+            </ul>
+            <ul class="select-cont">
+                <li>
+                    <button class="search-btn"><span><i class="fa fa-search"></i>搜索</span></button>
+                </li>
+                <li>
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    {ifp 'member.member.export'}
+                    <button type="submit" name="export1" value="1" class="search-btn"><span>导出 Excel</span></button>
+                    {/if}
+                </li>
+           </ul>
+        </div>
+    </form>
+</div>
+
+<div class="panel-show">
+    <div class="panel-heading">总数：{$total}   </div>
+    <div class="table-responsive">
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:80px;'>会员ID</th>
+                    <th style='width:80px;'>会员姓名</th>
+                    <th style='width:120px;'>手机号码</th>
+                    <th style='width:120px;'>微信</th>
+                    <th style='width:120px;'>产品名称</th>
+                    <th style='width:120px;'>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['id']}</td>
+                    <td>{$row['realname']}</td>
+                    <td>{$row['mobile']}</td>
+                    <td>{$row['weixin']}</td>
+                    <td>{$row['productname']}</td>
+                    <td><a class="label label-default " href="{php echo $this->createPluginWebUrl('activity/activity_for',array('op' => 'af_activity', 'id' => $row['id'], 'status' => 1));}">驳回审核</a>
+						<a class="label label-default label-info" href="{php echo $this->createPluginWebUrl('activity/activity_for',array('op' => 'af_activity', 'id' => $row['id'], 'status' => 2));}">审核通过</a>
+					</td>
+                </tr>
+                {/loop}
+            </tbody>
+        </table>
+           {$pager}
+    </div>
+</div>
+</div>
+</div>
+</article>
+{template 'web/_footer'}

@@ -1,0 +1,122 @@
+{template 'common/header'}
+<title>{php echo $this->set['texts']['center']}</title>
+<style type="text/css">
+    body { margin: 0px; background: #eee; font-family: '微软雅黑'; }
+    a { text-decoration: none; }
+    .gold_sub { height: 44px; background: #31cd00; line-height: 44px; font-size: 18px; color: #fff; text-align: center; margin: 16px 3%; border-radius: 5px; }
+    .hs-head{background: #00c1ff;position: relative;width: 100%;color: #eee}
+    .hs-top{text-align: center;font-size: 20px;padding: 30px 0;position: relative;z-index: 5}
+    .hs-top .hs-num{position: relative;font-size: 35px}
+    .hs-info{background: rgba(0, 0, 0, .1);position: relative;z-index: 6}
+    .hs-info .hs-li{width: 50%;float: left;text-align: center;font-size: 18px;padding: 10px 0}
+    .hs-info .hs-li .hs-num{font-size: 20px;}
+    .take {font-size: 14px;width: auto; padding: 2px 5px;border-radius: 5px; color: #fff;background: #f3691e;color: #eee;margin-left: 12px;position: absolute;bottom: 10px}
+    a.take:hover{color: #fff;text-decoration: none}
+    #meteor { position: absolute; top: 0; border: 0; width: 100%; height: 100%; z-index: 1;left: 0}
+    ul.hs-main{background: #fff;}
+    ul.hs-main li { width: 50%; float: left; padding-left: 3%; border-left: 1px solid #cecece; margin: 15px 0; margin-left: -1px;}
+    ul.hs-main li .hs-title{font-size: 15px;white-space:nowrap;overflow: hidden;}
+    ul.hs-main li .hs-title span{font-size: 12px}
+    ul.hs-main li .hs-num{font-size: 18px}
+</style>
+<div id='container'></div>
+<script id='tpl_main' type='text/html'>
+    <div class="hs-head">
+        <div class="hs-top">
+            <div class="hs-title">可提现佣金</div>
+            <div class="hs-num">
+                <%member.commission_ok%>
+                <a href="{php echo $this->createPluginMobileUrl('commission/log')}" class="take">查看明细</a>
+            </div>
+        </div>
+        <div class="hs-info clearfloat">
+            <!-- 累计佣金 -->
+            <div class="hs-li">
+                <div class="hs-title">累计佣金</div>
+                <div class="hs-num" id="abc"><!-- <%member.commission_ok%> --></div>
+            </div>
+            <!-- 成功提现佣金 -->
+            <div class="hs-li">
+                <div class="hs-title">{php echo $this->set['texts']['commission_pay']}</div>
+                <div class="hs-num"><%member.commission_pay%></div>
+            </div>
+        </div>
+        <iframe id="meteor" src="{php echo $this->createMobileUrl('member/meteor',array('openid'=>$openid))}"></iframe>
+    </div>
+    <ul class="hs-main clearfloat">
+        <!-- 已申请佣金 -->
+        <li>
+            <div class="hs-title">已申请佣金<!-- <span>[已申请佣金]</span> --></div>
+            <div class="hs-num"><%member.commission_apply%></div>
+        </li>
+        <!-- 待打款佣金 -->
+        <li>
+            <div class="hs-title">待打款佣金<!-- <span>[审核通过的佣金]</span> --></div>
+            <div class="hs-num"><%member.commission_check%></div>
+        </li>
+        <!-- 未结算佣金 -->
+        <!-- <li>
+            <div class="hs-title">未结算佣金<span>[审核通过的佣金]</span></div>
+            <div class="hs-num"><%member.commission_lock%></div>
+        </li> -->
+        <!-- 订单总计 -->
+        <li>
+            <div class="hs-title">订单总计</div>
+            <div class="hs-num"><%member.ordermoney0%></div>
+        </li>
+    </ul>
+    <div style="text-align:center;padding: 10px 0;color: #999;background:#fff;border-top: 1px dashed #eee;">
+        买家确认收货后，立即获得{php echo $this->set['texts']['commission1']}。
+        <%if set.settledays>0%>
+            <br/>
+            结算期（<%set.settledays%>天）后，{php echo $this->set['texts']['commission']}可{php echo $this->set['texts']['withdraw']}。结算期内，买家退货，{php echo $this->set['texts']['commission']}将自动扣除。
+        <%/if%>
+        <%if set.withdraw>0%>
+            <br/>
+            注意： 可用{php echo $this->set['texts']['commission']}满 <span style='color:red'><%set.withdraw%></span> 元后才能申请{php echo $this->set['texts']['withdraw']}
+        <%/if%>
+        <%if set.consume_withdraw>0%>
+            <br/>
+            注意： 自己购买的完成订单，共计 <span style='color:red'><%set.consume_withdraw%></span> 元后才能申请{php echo $this->set['texts']['withdraw']}
+        <%/if%>
+    </div>
+    <div class="gold_sub">我要提现</div> 
+</script>
+<script language="javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        var w = 0;
+        setInterval(function(){
+            if(w!=0) return ;
+            $.ajax( {  
+                 url:"{php echo $this->createPluginMobileUrl('commission/order')}",// 跳转到 action  
+                 data:{  
+                     com:1
+                },  
+                type:'post',  
+                cache:false,  
+                
+                success:function(data){$("#abc").text(data);w = 1;},  
+                error:function(){}  
+            });
+        },300);
+        core.pjson('commission/withdraw',{},function(json){
+            $('#container').html(  tpl('tpl_main',json.result) );
+            var withdraw   = "{php echo $this->set['texts']['withdraw']}";
+            var commission = "{php echo $this->set['texts']['commission']}";
+            if(json.result.cansettle){
+               $('.gold_sub').click(function(){
+                   location.href="{php echo $this->createPluginMobileUrl('commission/apply')}";
+               })
+            }else{
+                $('.gold_sub').click(function(){
+                    if(json.result.settlemoney>0){
+                        core.tip.show('需到'+json.result.settlemoney+'元才能申请'+ withdraw +'!');    
+                    }else{
+                        core.tip.show('无可提'+ commission +'!');     
+                    }
+                })
+            }
+        },true);
+    })
+</script>
+{template 'common/footer'}

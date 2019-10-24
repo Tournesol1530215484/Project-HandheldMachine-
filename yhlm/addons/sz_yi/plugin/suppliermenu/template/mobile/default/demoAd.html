@@ -1,0 +1,320 @@
+{template 'common/header'}
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<style type="text/css">
+	.page_topbar{
+	   background: #009BF8;
+	}
+	.page_topbar a.back{
+	    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+	    font-weight: bold;
+	    padding-right: 15px;
+	    color: #fff;
+	}
+	.page_topbar .title{
+	    color: #fff;
+	}
+	.page_topbar .home {
+	    position: absolute;
+	    right: 15px;
+	    top: 0;
+	    color: #fff;
+	    font-size: 14px;
+	    text-decoration: none;
+	}
+	.description_layer{
+	    height: 100%;
+	    width: 100%;
+	    background: rgba(0, 0, 0, 0.6);
+	    position: fixed;
+	    top: 0px;
+	    left: 0px;
+	    z-index: 9;
+	    display: none;
+	}
+	.description{
+	    height: auto;
+	    width: 100%;
+	    background: #fff;
+	    position: fixed;
+	    bottom: 0px;
+	    left: 0px;
+	    z-index: 10;
+	    display: none;
+	}
+	.description .description-tag{
+	    font-size: 14px;
+	    padding: 10px;
+	    background-color: #f1f1f1;
+	    position: fixed;
+	    width: 100%;
+	}
+	.description .description-cont{
+	    padding: 50px 10px 10px;
+	    height: 500px;
+	    width: 100%;
+	    font-size: 12px;
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	}
+	.description .close.icon{
+	    position: absolute;
+	    right: 10px;
+	    top: 10px;
+	    color: #666;
+	    font-weight: normal;
+	    z-index: 11;
+	    margin-top:0;
+		margin-left:0;
+		width:24px;
+		height:24px
+	}
+	.description .close.icon:before{
+		content:'';
+		position:absolute;
+		top:10px;
+		width:24px;
+		height:2px;
+		background-color: currentColor;
+		-webkit-transform:rotate(-45deg);
+		transform:rotate(-45deg);
+	}
+	.description .close.icon:after {
+  		content: '';
+		position: absolute;
+		top: 10px;
+		width: 24px;
+		height: 2px;
+		background-color: currentColor;
+		-webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+	}
+	/*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    #form-id{
+    	padding: 0 5px;
+    }
+	.list-item{
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        margin-top: 5px;
+    }
+    .list-item .floatl{
+        width: calc(100% - 120px);
+    }
+    .content-box {
+    	padding: 10px;
+    	border-radius: 5px;
+    }
+    .content-box1{
+    	background: #58B2DC;
+    }
+    .content-box2{
+    	background: #3A8FB7;
+    }
+    .content-box3{
+    	background: #2B5F75;
+    }
+    .list-item .floatr{
+        width: 120px;
+        text-align: center;
+    }
+    .show-tag{
+        font-size: 1.6rem;
+        color: #fff;
+        padding: 10px 0;
+    }
+    #form-id .label-tag{
+    	margin-bottom: 0;
+	    font-weight: normal;
+	    font-size: 1.4rem;
+	    padding-left: 38px;
+	    color: #fff;
+    }
+    #form-id .demo-selected{
+    	margin-top: 0;
+    }
+    .btn-box{
+        margin-top: 10px;
+    }
+    .btn-box .look-btn,
+    .btn-box .publish-btn{
+        font-size: 1.4rem;
+        float: right;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #eee;
+        margin-right: 10px;
+        width: 80px;
+        text-align: center;
+    }
+    /*改变mui 的 radius颜色*/
+    #form-id .mui-radio input[type=radio]:before{
+    	color: #fff;
+    }
+    #form-id .mui-radio input[type=radio]:checked:before{
+    	color: #fff;
+    }
+    .show-modal img {
+	    margin-bottom: 5px;
+	}
+</style>
+<!-- 模板管理 -->
+<title>广告模板管理</title>
+<div id="container">
+	<div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.go(-1)"><i class="fa fa-angle-left"></i></a>
+        <div class="title">广告模板管理</div>
+        <a href="javascript:;" class="home" onClick="showdescription()">帮助</a>
+    </div>
+    <form id="form-id">
+		<div class="list-item">
+	        <div class="content-box flex-center content-box1">
+	            <div class="show-tag floatl">
+	                基础模板
+	            </div>
+	            <div class="choose-box floatr">
+	            	<div class="mui-input-row mui-radio mui-left radio-choose-box">
+	                    <label class="label-tag">默认</label>
+	                    <input class="demo-selected" name="demo" type="radio" value="1" id="demo-1" {if $member['default_ad_model'] == 1}checked="checked"{/if}>
+	                    <!--注意 用内置标签来判断用户设置了哪种模板为默认模板 checked="checked" -->
+	                </div>
+	            </div>
+	        </div>
+	        <div class="btn-box clearfloat"> 
+	        	<!-- 点击跳转到对应类型的新增广告 -->
+	            <div class="publish-btn" onclick="location.href='{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('type'=>1,'op'=>'add','merchtype'=>$_GPC['merchtype']))}'">发布广告</div>
+	            <!-- data-title为模板名称 data-demojson为模板预览图路径数组 -->
+	            <div class="look-btn" data-title="基础模板" data-demojson='["http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/BKgMyE08oeTV11YvOi88YMOLeeysEE.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/PojpO05Sj0qsM5godSXJSXQDSDQX5Q.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/QmS5fH4vR0HGSrYHSf5MZsJ5E04OHM.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/gJC3XCxXa04el4BxuJ3b8pR00Ii3C0.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/VH8JZr86S9L9J1t1mTIhrslaAzuwiU.jpg"]'>查看</div>
+	        </div>
+	    </div>
+	    <div class="list-item">
+	        <div class="content-box flex-center content-box3">
+	            <div class="show-tag floatl">
+	                纯外链模板
+	            </div>
+	            <div class="choose-box floatr">
+	            	<div class="mui-input-row mui-radio mui-left radio-choose-box">
+	                    <label class="label-tag">默认</label>
+	                    <input class="demo-selected" name="demo" {if $member['default_ad_model'] == 2}checked="checked"{/if} type="radio" value="2" id="demo-2">
+	                </div>
+	            </div>
+	        </div>
+	        <div class="btn-box clearfloat"> 
+	        	<!-- 点击跳转到对应类型的新增广告 -->
+	            <div class="publish-btn" onclick="location.href='{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('type'=>2,'op'=>'add','merchtype'=>$_GPC['merchtype']))}'">发布广告</div>
+	            <!-- data-title为模板名称 data-demojson为模板预览图路径数组 -->
+	            <div class="look-btn" data-title="纯外链模板" data-demojson='["http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/T8LnqmO289NzM13ccQJHz5Fhm53MJo.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/VoZgvn4dg33Oq31d6RQlNDQPGgrNPO.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/KfGXXNuUN3PG8Rp8lBu8g9xZ8OFaBP.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/ZbjNFy1aey2JBHaWh619wbGa96NNHa.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/K71oEm17h8mHe0R7M0E9adq0a8dCqQ.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/L4YKkw1U4Yr2ujYiPhY62r6Y1519xy.jpg"]'>查看</div>
+	        </div>
+	    </div>
+	    <div class="list-item">
+	        <div class="content-box flex-center content-box2">
+	            <div class="show-tag floatl">
+	                纯视频模板
+	            </div>
+	            <div class="choose-box floatr">
+	            	<div class="mui-input-row mui-radio mui-left radio-choose-box">
+	                    <label class="label-tag">默认</label>
+	                    <input class="demo-selected" {if $member['default_ad_model'] == 3}checked="checked"{/if} name="demo" type="radio" value="3" id="demo-3">
+	                </div>
+	            </div>	 	 
+	        </div>
+	        <div class="btn-box clearfloat">
+	        	<!-- 点击跳转到对应类型的新增广告 --> 
+	            <div class="publish-btn" onclick="location.href='{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('type'=>3,'op'=>'add','merchtype'=>$_GPC['merchtype']))}'">发布广告</div>
+	            <!-- data-title为模板名称 data-demojson为模板预览图路径数组 -->
+	            <div class="look-btn" data-title="纯视频模板" data-demojson='["http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/vhk6I321I12Z11ll6YH63o32h6zZla.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/rWavzRpRPw8w8fv6frfPyr5rv8FRBR.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/XOmovSRioiOlzVmFVsg99F054GoS6V.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/09\/qRjW6u888v6uU6unUWMnGfgmh868S5.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/U5I37730o5KntgD0KxxiXiaVWkv1nt.jpg","http:\/\/jhzh66.com\/attachment\/images\/8\/2018\/10\/tnI3fFvOK4701aODLcnOGeA41On0Ap.jpg"]'>查看</div>
+	        </div>
+	    </div>
+	</form>
+  	<div class="description_layer"></div> 
+    <div class="description">
+        <div class="description-tag">模板帮助</div>
+        <div class="description-cont"><!-- 这里加载模板帮助 -->
+        	{php echo html_entity_decode($sets['bart']['protocol'][2]['content'])}
+        </div>
+        <div class="close icon" onClick="closedescription()"></div>
+    </div>
+</div>
+<!-- modal -->
+<div class="modal fade" tabindex="-1" id="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">预览模板</h4>
+            </div>
+            <div class="modal-body">
+                <div class="show-modal">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script language="javascript">
+	function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+    function preview(json,title){
+        var html = '';
+        for (var i = 0; i < json.length; i++) {
+            html+='<img src="'+json[i]+'" alt="" width="100%">';
+        }
+        $("#myModalLabel").text("预览"+title);
+        $('.show-modal').html(html);
+        $('#modal').modal('toggle');
+    }
+    $(function(){
+    	require(['bootstrap'], function() {
+	    	$(".look-btn").click(function(){
+	    		var json = $(this).data('demojson');
+	    		var title = $(this).data('title');
+	    		preview(json,title);
+	    	});
+	    });
+	    require(['tpl', 'core'], function(tpl, core) {
+	    	//设置默认模板
+	    	$(".demo-selected").click(function(){
+	    		var r_value = $(this).val();
+	    		console.log(r_value);
+	    		//return false;
+                //设置默认模板异步请求
+                core.pjson('suppliermenu/ad',{'op':'set', value:r_value,merchtype:'{$_GPC["merchtype"]}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        return;
+                    }else{
+                    	core.tip.show(json.result);
+                    }
+                 },true,true);
+	    	});
+	    });
+    });
+</script>
+{template 'common/footer'}

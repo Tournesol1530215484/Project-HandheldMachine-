@@ -1,0 +1,292 @@
+{template 'mycommon/header-intact'}
+<title>消息墙</title>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/plugin/activityba/res/css/msg.css">
+<style type="text/css">
+	body{
+		background: transparent;
+	}
+</style>
+<div class="m-container">
+	<ul class="listbox">
+		<!-- 内置标签 循环取出消息墙已有的消息 -->
+		<!-- 循环要注意的是class="content"的div下面的内容 到时候你可以把下面的复制过去 -->
+
+		{loop $record $key $val}
+        <li style="visibility: visible;">
+	        <div class="wrap clearfloat"> 
+	            <div class="info">      
+	                <div class="header"><span style="background:url({$val['avatar']}) white center no-repeat;background-size: cover;"></span>
+	                </div>        
+	                <div class="name" title="{$val['nickname']}">{$val['nickname']}</div>   
+	            </div>  
+	            <div class="content" >       
+	                <span {if $val['msgtype'] == 'image'}style="margin-top: 22px;"{/if}>
+			        	{if $val['msgtype'] == 'image'}
+			        		<img src="{$val['content']}" style="max-height:109px;" />
+			        	{else}
+			        		{$val['content']}	 		 
+			        	{/if}	 	 			 		 
+			        </span>    
+	            </div>  
+	            <span class="pointer">
+	            	<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+	            </span>
+	        </div>
+	    </li>
+	    {/loop}
+
+		<!-- 循环 s -->
+		{if false}
+
+		<li style="visibility: visible;">
+	        <div class="wrap clearfloat"> 
+	            <div class="info">      
+	                <div class="header"><span style="background:url(http://thirdwx.qlogo.cn/mmopen/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7/132) white center no-repeat;background-size: cover;"></span>
+	                </div>        
+	                <div class="name" title="轩炀">轩炀</div>   
+	            </div>  
+	            <div class="content" >       
+	                <span >啦啦啦</span>   
+	            </div>  
+	            <span class="pointer">
+	            	<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+	            </span>
+	        </div>
+	    </li>
+	    <!-- 循环 e -->
+	    <li style="visibility: visible;">
+	        <div class="wrap clearfloat"> 
+	            <div class="info">      
+	                <div class="header"><span style="background:url(http://thirdwx.qlogo.cn/mmopen/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7/132) white center no-repeat;background-size: cover;"></span>
+	                </div>        
+	                <div class="name" title="轩炀">轩炀</div>   
+	            </div>  
+	            <div class="content" >       
+	                <span >啦啦啦hhhhhhhhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈</span>   
+	            </div>  
+	            <span class="pointer">
+	            	<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+	            </span>
+	        </div>
+	    </li>
+	    <li style="visibility: visible;">
+	        <div class="wrap clearfloat"> 
+	            <div class="info">      
+	                <div class="header"><span style="background:url(http://thirdwx.qlogo.cn/mmopen/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7/132) white center no-repeat;background-size: cover;"></span>
+	                </div>        
+	                <div class="name" title="轩炀">轩炀</div>   
+	            </div>  
+	            <div class="content" >       
+	                <span >啦啦啦hhhhhhhhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎</span>   
+	            </div>  
+	            <span class="pointer">
+	            	<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+	            </span>
+	        </div>
+	    </li>
+	    <li style="visibility: visible;">
+	        <div class="wrap clearfloat"> 
+	            <div class="info">      
+	                <div class="header"><span style="background:url(http://thirdwx.qlogo.cn/mmopen/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7/132) white center no-repeat;background-size: cover;"></span>
+	                </div>        
+	                <div class="name" title="轩炀">轩炀</div>   
+	            </div>  
+	            <div class="content" >       
+	                <span >啦啦啦鸭咿呀咿呀哟咿呀咿呀哟咿呀咿呀哟咿呀咿呀呦咿呀咿呀呦咿呀咿呀呦咿呀咿呀呦咿呀咿呀呦咿呀咿呀</span>   
+	            </div>  
+	            <span class="pointer">
+	            	<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+	            </span>
+	        </div>
+	    </li>
+    	<li style="visibility: visible;">
+    		<div class="wrap clearfloat">
+    			<div class="info">      
+    				<div class="header">
+    					<span style="background:url(http://thirdwx.qlogo.cn/mmopen/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7/132) white center no-repeat;background-size: cover;"></span>
+    				</div>        
+    				<div class="name" title="轩炀">轩炀</div>   
+    			</div>  
+    			<div class="content" >       
+    				<span style='margin-top:22px'>
+    					<img src="http://cx.jzl123.cn/productsz/images.jsp?url=http://mmbiz.qpic.cn/mmbiz_jpg/9DI1LwbQiaQEetgzn6gL1uqUEicS7GdcKg8GF945xeIfAvrhV9XKGiboEwVOxNt26Ou0RvPvKxEaAEq7DDymGpialg/0" style="max-height:109px;" />
+    				</span>   
+    			</div>  
+    			<span class="pointer">
+    				<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+    			</span>
+    		</div>
+    	</li>
+    	<li style="visibility: visible;">
+    		<div class="wrap clearfloat"> 
+    			<div class="info">      
+    				<div class="header">
+    					<span style="background:url(http://thirdwx.qlogo.cn/mmopen/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7/132) white center no-repeat;background-size: cover;"></span>
+    				</div>        
+    				<div class="name" title="轩炀">轩炀</div>   
+    			</div>  
+    			<div class="content" >       
+    				<span >白宇嘎嘎冲鸭咿呀咿呀哟咿呀咿呀哟咿呀咿呀哟咿呀咿呀呦咿呀咿呀呦咿呀咿呀呦咿呀咿呀呦咿呀咿呀呦咿呀咿呀哟咿呀咿呀哟哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或</span>  
+    			</div>  
+    			<span class="pointer">
+    				<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+    			</span>
+    		</div>
+    	</li>  
+        {/if}
+
+	</ul>
+</div>
+<div class="detail">
+    <div class="close"><i class="fa fa-window-close" aria-hidden="true"></i></div>
+    <div class="top">
+        <div class="header"><span></span></div>
+        <div class="name">xxx：</div>
+    </div>
+    <div class="bottom"></div>
+</div>
+<script id="tpl_list" type="text/html">
+	<li class="list-item" style="visibility: hidden;">
+        <div class="wrap"> 
+            <div class="info">      
+                <div class="header"><span style="background: #fff url(<%header%>) center no-repeat;background-size: cover;"></span>
+                </div>        
+                <div class="name" title="<%name%>"><%name%></div>   
+            </div>  
+            <div class="content" >       
+                <span <%if msgtype == 'image'%>style="margin-top: 22px;"<%/if%>>
+                	<%if msgtype == 'image' %>
+                		<img src="<%content%>" style="max-height:109px;" />
+                	<%else%>
+                	<%content%>
+                	<%/if%>
+                	<!-- <%content%> -->
+                </span>   
+            </div>  
+            <span class="pointer">
+            	<i class="fa fa-angle-right go-detail" aria-hidden="true"></i>
+            </span>
+        </div>
+    </li>
+</script>
+<script type="text/javascript">
+	require(['tpl', 'core'], function(tpl, core) { 
+		//$(function(){
+			var msgnum="{$lastTotal}"; //消息个数
+    		$("#msgnum", window.parent.document).html(msgnum);
+    		//查看消息详情
+    		$("body").on("click",".pointer,.content",function() {
+		        var c = $(this).closest("li");
+		        $(".detail .top .name").html(c.find(".wrap .info .name").html() + ":");
+		        $(".detail .top .header span").css("background", c.find(".wrap .info .header span").css("backgroundImage") + " white center no-repeat").css("backgroundSize", "cover");
+		        $(".detail .bottom").html(c.find(".wrap .content span").html().replace("max-height: 109px;", ""));
+		        $(".m-container").hide();
+		        $(".detail").show()
+		    });
+		    $(".detail .close").on("click",function() {
+		        $(".m-container").show();
+		        $(".detail").hide()
+		    });
+		    function newmsg(d){
+		    	var msg = tpl('tpl_list',d);
+		    	var $msg = $(msg);
+		    	//$msg.css("visibility",'hidden');
+		    	$(".listbox").append($msg);
+		    	if ($msg.find(".content span img").length > 0) {
+		            $msg.find(".content span").css("margin-top", "22px");
+		            $msg.find(".content span img").css("max-height", "109px")
+		        } else {
+		            if ($msg.find(".content span").height() < 50) {
+		                $msg.find(".content").css("line-height", "172px")
+		            } else {
+		                if ($msg.find(".content span").height() > 90) {
+		                    $msg.find(".content").css("line-height", "250px");
+		                    $msg.find(".content span").css("line-height", "36px")
+		                } else {
+		                    $msg.find(".content").css("line-height", "218px")
+		                }
+		            }
+		        }
+		        $msg.css("visibility", "visible")
+		    }
+		    function filterScript(data){
+		    	return data.replace(/<script>/g,"&lt;script&gt;").replace(/<\/script>/g,"&lt;/script&gt;");
+		    }
+		    setInterval(function(){
+		    	try{
+		    		var $listbox = $(".listbox");
+		    		var lgh = $listbox.find("li").length;
+		    		if(lgh > 3){
+		    			var fitem = $listbox.find("li").eq(0);
+		    			fitem.css({
+	                        transition: "all 1s",
+	                        "-webkit-transition": "all 1s",
+	                        "-moz-transition": "all 1s"
+	                    });
+	                    fitem.css({
+	                        height: "0px",
+	                        overflow: "hidden"
+	                    }); 
+	                    setTimeout(function() {
+	                        fitem.remove();
+	                    },
+	                    2001);
+		    		}
+		    	}catch(f){};
+		    },window.parent.pageGap * 50);
+		    setInterval(function(){
+		    	//上一次最新的消息总数
+		    	var lastTotal = $("#msgnum", window.parent.document).html();	 		
+
+		    	//获取继上一次最新消息之后新增的消息 需要传递的数据 id:消息墙id 和 上一次最新消息总数,id:'{$id}'
+		    	core.pjson('activityba/wall', {op:'msg',ac:'get',lastTotal:lastTotal}, function(json) {
+		    		 			 	 	 			 		 	 	 	
+	                //json.ret 这里的标识字段随便取，跟后台返回的对应就可以了		 		 	 	 	 		 	 		 	 			 	 	
+	                /*json = {"ret":1,"model":{"total":"7","record":[{"msgtype":"voice","head":"","nickname":"null","content":null},{"msgtype":"image","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null","content":"http:\/\/mmbiz.qpic.cn\/mmbiz_jpg\/QYUVic86jTtb3nXgwztCXhpJFuJjPyvT06Xuy6MLRLpCAU3Z44OdQUBUvc4WMVmmiafa2cSUjUj1J2CBIiblh6NcA\/0"},{"msgtype":"text","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null","content":"\u3010\u6536\u5230\u4e0d\u652f\u6301\u7684\u6d88\u606f\u7c7b\u578b\uff0c\u6682\u65e0\u6cd5\u663e\u793a\u3011"},{"msgtype":"image","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null","content":"http:\/\/mmbiz.qpic.cn\/mmbiz_jpg\/QYUVic86jTtb3nXgwztCXhpJFuJjPyvT0An15cSEliboqIe2q0rQnEfTibxuDpEQTmvzIBCiajx0ME3TOic8eCHP9uw\/0"},{"msgtype":"text","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null","content":"\u3010\u6536\u5230\u4e0d\u652f\u6301\u7684\u6d88\u606f\u7c7b\u578b\uff0c\u6682\u65e0\u6cd5\u663e\u793a\u3011"},{"msgtype":"text","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","nickname":"null","content":"\u5566\u5566\u5566\uff1f"},{"msgtype":"text","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7\/132","nickname":"\u8f69\u7080","content":"e?mmmmmm"}]}};*/
+
+	                /*{"ret":1,"model":{"total":"2","record":[{"msgtype":"text","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7\/132","nickname":"\u8f69\u7080","content":"\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566\u6211\u6765\u5566"},{"msgtype":"text","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/NjbYxe1QxOhQmN7VQSVy8sicEzgfWicG6ribrmpic1v6mkZPjvtwJuiaez1ZVkdbzbbnib0laSW0QfCK0UXvchI10oZFRElLRHZso7\/132","nickname":"\u8f69\u7080","content":"\u6211\u6765\u5566"}]}};*/
+	                //如果消息墙没有新的消息,则标志字段ret为0
+
+	                if (json.ret == 1) {
+	                	var nowtotal = json.model.total;
+	                	//console.log(json.model.record);
+		                $("#msgnum", window.parent.document).html(nowtotal);
+		                var record = json.model.record;
+	                   	for (var e = 0; e <= record.length-1; e++) {
+		                    var f = record[e];
+		                    var d = {};
+
+		                    if (f.msgtype=='text') {
+		                        d = {
+		                        	msgtype: f.msgtype,
+		                            header: f.avatar ? f.avatar: ("../addons/sz_yi/plugin/activityba/res/images/defaulticon_1211.png"),
+		                            name: f.nickname,
+		                            content: f.content ? filterScript(f.content): "消息为空",
+		                        }
+		                    } else if(f.msgtype == 'image') {
+		                        var imgurl=f.content;
+		                        d = {
+		                        	msgtype: f.msgtype,
+		                            header: f.avatar ? f.avatar: ("../addons/sz_yi/plugin/activityba/res/images/defaulticon_1211.png"),
+		                            name: f.nickname,
+		                            content: f.content
+		                        }
+		                        //content: "<img src="+imgurl+" style=\"max-height:109px;\">"
+		                    }else{
+		                    	d = {
+		                        	msgtype: f.msgtype,
+		                            header: f.avatar ? f.avatar: ("../addons/sz_yi/plugin/activityba/res/images/defaulticon_1211.png"),
+		                            name: f.nickname,
+		                            content: f.content ? filterScript(f.content): "消息为空",
+		                        }
+		                    }
+		                    //console.log(d);
+		                    newmsg(d);
+		                }      
+	                }
+	            }, true);
+		    },6000);
+		//});
+	});	
+</script>
+{template 'mycommon/footer-intact'}

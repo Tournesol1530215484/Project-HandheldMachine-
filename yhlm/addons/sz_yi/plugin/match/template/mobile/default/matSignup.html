@@ -1,0 +1,496 @@
+{template 'common/header'}
+<title>
+    {if $_GPC['id']}
+    {if $_GPC['ro']}
+        报名名单
+    {else}
+        报名审核
+    {/if}
+    {else}      
+        用户           
+    {/if}              
+</title><!-- 或者报名审核 -->
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/mui.min.css';?>">
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .list-box{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .no-list{
+        text-align: center;
+        color: #999;
+    }
+    .list-box .list-hd{
+        font-size: 14px;
+        color: #999;
+        padding: 10px;
+        border-bottom: 1px dashed #eee;
+        font-weight: 600;
+    }
+    .list-hd .list-hd-na,
+    .list-hd .list-hd-mo,
+    .list-hd .list-hd-sta,
+    .list-hd .list-hd-op,
+    .list-hd .list-hd-op1,
+    .status-mark-1,
+    .status-mark,
+    .list-box .list-ul .mobile-link,
+    .user-info-box .user-info-item,
+    .description .description-tag,
+    .description1 .description-tag1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .list-box .list-ul .list-item{
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 1.2rem;
+    }
+    .list-box .list-ul .mobile-link{
+        display: block;
+        text-decoration: none;
+        color: #000;
+    }
+    .list-box .list-ul .mobile-link:visited,
+    .list-box .list-ul .mobile-link:active{
+        color: #000;
+    }
+    .list-box .list-ul .list-item .floatl,
+    .list-hd .list-hd-na{
+        width: 70px;
+        margin-right: 10px;
+    }
+    .list-box .list-ul .list-item .floatr,
+    .list-hd .list-hd-mo{
+        width: calc(100% - 250px);
+    }
+    .list-box .list-ul .list-item .floatr2,
+    .list-hd .list-hd-sta{
+        margin-left: 10px;
+        width: 60px;
+        text-align: center;
+    }
+    .list-box .list-ul .list-item .floatr3,
+    .list-hd .list-hd-op{
+        margin-left: 10px;
+        width: 60px;
+        text-align: center;
+    }
+    .list-box .list-ul .list-item .floatr4,
+    .list-hd .list-hd-op1{
+        margin-left: 10px;
+        width: 60px;
+        text-align: center;
+    }
+    .list-box .list-ul .show-tag{
+        font-size: 1.2rem;
+        color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .list-box .list-ul .mobile-link{
+        font-size: 1.4rem;
+    }
+    #list_loading{ 
+        width: 94%;
+        padding: 10px;
+        color: #666;
+        text-align: center;
+    }
+    .status-mark{
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+        padding: 3px 0;
+        color: #009BF8;
+    }
+    .review,
+    .look-more{
+        background: #999;
+        border-radius: 5px;
+        color: #fff;
+    }
+    .normal-label{
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .review-radio-box .review-radio{
+        margin: 0;
+    }
+    .description_layer,
+    .description_layer1{
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 9;
+        display: none;
+    }
+    .description,
+    .description1{
+        height: auto;
+        width: 96%;
+        background: #fff;
+        position: fixed;
+        z-index: 10;
+        display: none;
+        left: 50%;
+        top: 50%;
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+    .description .description-tag,
+    .description1 .description-tag1{
+        font-size: 14px;
+        padding: 10px;
+        background-color: #f1f1f1;
+        position: fixed;
+        width: 100%;
+    }
+    .description .description-cont,
+    .description1 .description-cont1{
+        padding: 50px 10px 10px;
+        height: auto;
+        width: 100%;
+        font-size: 12px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .description .close.icon,
+    .description1 .close1.icon1{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #666;
+        font-weight: normal;
+        z-index: 11;
+        margin-top:0;
+        margin-left:0;
+        width:24px;
+        height:24px
+    }
+    .description .close.icon:before,
+    .description1 .close1.icon1:before{
+        content:'';
+        position:absolute;
+        top:10px;
+        width:24px;
+        height:2px;
+        background-color: currentColor;
+        -webkit-transform:rotate(-45deg);
+        transform:rotate(-45deg);
+    }
+    .description .close.icon:after,
+    .description1 .close1.icon1:after{
+        content: '';
+        position: absolute;
+        top: 10px;
+        width: 24px;
+        height: 2px;
+        background-color: currentColor;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .layer-btn-box{
+        width: 100%;
+    }
+    .layer-btn{
+        float: left;
+        font-size: 14px;
+        text-align: center;
+        width: 46%;
+        margin: 10px 2%;
+        padding: 10px;
+        background: #009BF8;
+        color: #fff;
+        border-radius: 5px;
+    }
+    .cancel-btn{
+        background: #999;
+    }
+    .cancel-btn1{
+        font-size: 14px;
+        text-align: center;
+        width: 96%;
+        margin: 10px auto;
+        padding: 10px;
+        background: #009BF8;
+        color: #fff;
+        border-radius: 5px;
+    }
+    .user-info-box .user-info-item{
+        font-size: 14px;
+        color: #000;
+        padding: 5px 0;
+    }
+    .user-info-box .user-info-item .fill-box{
+        color: #333;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">
+        {if $_GPC['id']}        
+            {if $_GPC['ro']}
+                {if $_GPC['type'] ==1}
+                    我的报名         
+                {else}
+                    报名名单
+                {/if}
+                
+            {else}       
+                报名审核         
+            {/if}    
+        {else}      
+        用户          
+        {/if}
+    </div><!-- 或者报名审核 -->
+    </div>
+    <div class="list-box">
+        <ul class="list-hd flex-center">
+            <li class="list-hd-item list-hd-na">姓名</li>
+            <li class="list-hd-item list-hd-mo">手机号</li>
+            <li class="list-hd-item list-hd-sta">状态</li>
+            {if empty($_GPC['ro']) && !empty($_GPC['id'])}
+            <li class="list-hd-item list-hd-op">操作</li>
+            {/if}
+            <li class="list-hd-item list-hd-op1">更多</li>
+        </ul>
+        <ul class="list-ul">  
+            <!-- 这里循环报名名单 或者 报名名单暂无数据为空 两种选择-->
+            <!-- 这里循环报名名单 或者 报名名单暂无数据为空end -->
+        </ul> 
+    </div>
+</div>
+<!-- 两种模板 报名名单 或者 报名名单暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <div class="clearfloat flex-center">
+                <div class="show-tag floatl"><%g.data.name.data%></div><!-- 活动时间 只需要年月日 -->
+                <div class="content-box floatr">                                                       
+                    <!-- href也要赋值上电话号码 -->
+                    <a href="tel:<%g.data.mobile.data%>" class="mobile-link line-clamp2"><!-- 活动名称 赋值上活动跳转链接-->
+                        <%g.data.mobile.data%>       
+                    </a> 
+                </div>
+                <div class="status-box floatr2"><!-- 审核状态 -->
+                    <%if g.status == 0%>
+                        <span class="status-mark-1">待审核</span>
+                    <%else if g.status == 1%>
+                        <span class="status-mark-1">通过</span>
+                    <%else if g.status == 2%>
+                        <span class="status-mark-1">不通过</span>
+                    <%/if%>
+                    <%if g.withdraw==0 && g.status == 0%>
+                    
+                    <%/if%>                                             
+                </div>
+                {if empty($_GPC['ro']) && !empty($_GPC['id'])}
+                <div class="status-box floatr3"><!-- 审核按钮 data-userid data-username data-actid 分别赋值上用户id、用户姓名、活动id-->        
+                        <!-- {if empty($_GPC['ro']) && !empty($_GPC['id'])}   -->     
+                        <span class="status-mark review" data-userid="<%g.id%>" data-username="<%g.data.name.data%>" data-actid="<%g.actid%>">审核</span>      
+                        <!-- {/if} -->                                       
+                </div>  
+                {/if}            
+                <div class="status-box floatr4"><!-- 查看更多信息按钮 data-user存储json格式数据-->        
+                    <span class="status-mark look-more" data-user='<%g.info%>'>查看</span> 	 	 
+                </div>                          
+            </div>                                              
+        </li>               
+    <%/each%>               
+</script>                       
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无更多的列表</div>
+</script>
+            
+<script id="tpl_info" type="text/html">
+
+    <div class="description-tag1 sign-up-title"><%info.name.data%></div>
+    <div class="description-cont1">             
+        <ul class="user-info-box">                          
+
+            <%each info as g%>          
+                <%if g == 'mobile'%>
+                    <li class="user-info-item"><%g.title%>: <a href="tel:<%g.data%>" class="fill-box"><%g.data%></a></li>
+                <%else%>        
+                    <li class="user-info-item"><%g.title%>: <span class=""><%g.data%></span></li>
+                <%/if%>
+            <%/each%>                                                                     
+        </ul>                                     
+    </div>
+    <div class="cancel-btn1" onclick="closedescription1()">关闭</div>
+    <div class="close1 icon1" onclick="closedescription1()"></div>
+</script>
+<!-- 审核操作面板 -->
+<!-- 借用说明的类似结构实现蒙层和弹出框 进行审核操作 看新增活动的时候活动是否设置报名是否需要审核-->
+<div class="description_layer"></div> 
+<div class="description">
+    <div class="description-tag review-name"></div><!-- 这里已经用jquery处理赋值 XX的审核 -->
+    <div class="description-cont"><!-- 审核单选按钮 -->
+       <div class="mui-input-row mui-radio mui-left review-radio-box">
+            <label class="normal-label">通过</label>
+            <input class="review-radio" name="isok" type="radio" value="1" checked>
+        </div>
+        <div class="mui-input-row mui-radio mui-left review-radio-box">
+            <label class="normal-label">不通过</label>          
+            <input class="review-radio" name="isok" type="radio" value="2">
+        </div>
+    </div>
+    <div class="layer-btn-box clearfloat">
+        <div class="layer-btn cancel-btn" onclick="closedescription()">取消</div>
+        <div class="layer-btn post-btn">确认</div>
+    </div>
+    <div class="close icon" onclick="closedescription()"></div>
+</div>
+<!-- 查看报名者的信息面板 -->
+<!-- 借用说明的类似结构实现蒙层和弹出框 查看报名者的信息-->
+<div class="description_layer1"></div> 
+<div class="description1">
+</div>
+
+<script type="text/javascript">
+    var page = 1; 
+    require(['tpl', 'core'], function(tpl, core) {
+        function bindEvent(){
+            $(".review").unbind("click").click(function(){
+                var userid = $(this).data("userid");
+                var username = $(this).data("username");
+                var actid = $(this).data("actid");
+                $(".review-name").text(username + "的审核");
+                showdescription();
+                $('.post-btn').unbind('click').click(function(){
+                    //isok 审核是否通过的标志
+                    var isok = $("input[name='isok']:checked").val();
+                    //提交活动id、用户id、审核是否通过的标志 下面的请求链接自己改
+                    core.pjson('activity/center', {op:'apply',ac:'audit',status:'1', userid:userid, atid: actid, isok:isok}, function(json) {
+                        //json.status==1 可以指审核通过 提交审核包括未审核和已经审核各种情况处理       
+                        if(json.status==1){                 
+                            //执行成功 需要运行的代码...//json.result.msg
+                            core.tip.confirm(json.result.msg,function(){
+                                closedescription();
+                                location.reload();            
+                            });
+                        }else{
+                            core.tip.confirm(json.result.msg,function(){
+                                closedescription();
+                                location.reload();
+                            });
+                        }
+                          
+                    },true); 
+                });
+            });
+            $(".look-more").unbind("click").click(function(){
+                var obj = $(this).data("user");                                        
+                $(".description1").html(tpl('tpl_info',obj)); 
+                showdescription1();
+            });
+        }
+        core.pjson('match/match', {page:page,op:'signup',ac:'get',sgid:'{$_GPC['sgid']}',id:'{$_GPC["id"]}',status:'{$_GPC['type']}'}, function(json) {     
+            if (json.result.list.length <= 0) {
+                $(".list-box .list-ul").html(tpl('tpl_null'));       
+                return;         
+            }                                
+            $(".list-box .list-ul").html(tpl('tpl_list',json.result));       
+            bindEvent();
+            //$('.list-box .list-ul').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+            var loaded = false;
+            var stop=true; 
+            getmore(page,loaded,stop);
+        }, true);
+        function getmore(page,loaded,stop){
+            $(".getmore").unbind("click").click(function(){ 
+                if(loaded){
+                    return;
+                }
+                if(stop==true){ 
+                    stop=false; 
+                    page++;
+                    core.pjson('activity/center123', {page:page,op:'apply',ac:'get',id:'{$_GPC["id"]}',status:'{$_GPC['type']}'}, function(morejson) {  
+                        stop = true;                
+                        $('#list_loading').remove();        
+                        $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                        bindEvent();
+                        //到时候返回数据用下面这种数据结构      
+                        if (morejson.result.list.length < morejson.result.pagesize || morejson.result.list.length == 0) {
+                            $('.list-box .list-ul').append('<div id="list_loading">已经加载全部列表</div>');
+                            loaded = true;
+                            return;
+                        }else{
+                            $('.list-box .list-ul').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+                            getmore(page,loaded,stop);
+                        }
+                    },true); 
+                } 
+            });
+        }
+    });
+    function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+    function closedescription1(){
+        $('.description_layer1').fadeOut(100);
+        $('.description1').fadeOut(100);
+    }
+    function showdescription1(){
+        $('.description_layer1').fadeIn(200);
+        $('.description_layer1').unbind('click').click(function(){
+            closedescription1();
+        });
+        $('.description1').fadeIn(200);
+    }
+</script>
+{template 'common/footer'}

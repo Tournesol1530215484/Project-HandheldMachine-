@@ -1,0 +1,280 @@
+{template 'common/header'}
+<title>打赏</title>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #eee;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    .hd-title{
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        background: #fff;
+    }
+    .relorg{
+        padding: 0 10px 10px;
+        font-size: 14px;
+        background: #fff;
+        margin-bottom: 10px;
+    }
+    .reward-form{
+        font-size: 14px;
+        color: #333;
+        background: #fff;
+        padding: 10px;
+    }
+    .reward-form .reward-message{
+        margin-bottom: 10px;
+    }
+    .reward-form .reward-label{
+        display: block;
+        width: 100%;
+    }
+    .reward-form .whole-textarea{
+        width: 100%;
+        padding: 5px 10px;
+        border: 1px solid #eee;
+        resize: none;
+    }
+    .reward-form .reward-money{
+        margin-bottom: 10px;
+    }
+    .reward-form .reward-input{
+        width: 100%;
+        padding: 5px 10px;
+        border: 1px solid #eee;
+    }
+    .reward-form .reward-btn{
+        width: 96%;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 5px;
+        background: #009BF8;
+        color: #fff;
+        text-align: center;
+        border: 0;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">打赏</div>
+    </div>
+    <!-- 活动或者文章的标题 -->
+    <div class="hd-title">{$at['title']}</div>
+    <!-- 机构 -->             
+    <div class="relorg">《{$at['relOrg']}》</div>
+    <form class="reward-form">
+        <div class="reward-message">
+            <label class="reward-label">留言</label>
+            <textarea class="whole-textarea" placeholder="留言/最多15字" name="desc" maxlength="15" rows="2"></textarea>
+        </div>
+        <div class="reward-money">
+            <input type="hidden" name="logid" id="logid" value="">
+            <label class="reward-label">自由金额(元)</label>
+            <input class="reward-input" type="number" name="reward_money" value="" placeholder="金额/小数位不超过两位">
+        </div>
+        <button class="reward-btn" type="button">打赏</button>
+    </form>
+</div>                           
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+
+        function ajsubmit(){
+            var message = $(".whole-textarea").val();
+            if($(".whole-textarea").isEmpty()){
+                //core.tip.show('留言不能为空');
+                //return;
+                //默认留言,允许为空
+                message = "你真棒!";
+            }
+            var money = $(".reward-input").val();
+            data={
+                op:'reward',
+                ac:'sub',
+                message:message,
+                money:money,
+                type:'{$_GPC["type"]}',
+                id:'{$_GPC["id"]}'
+            };           
+
+            core.pjson('match/center',data, function (json) {
+                if (json.status==1) {
+                    core.tip.show(json.result);
+                    setTimeout(function(){
+                        {if $_GPC["type"] == 1}
+                            location.href="{php echo $this->createPluginMobileUrl("match/match",array("id"=>$_GPC["id"]))}";
+                        {else if $_GPC['type'] == 2}                           
+                            location.href="{php echo $this->createPluginMobileUrl("match/article",array("id"=>$_GPC["id"]))}";
+                        {else if $_GPC['type'] == 3}                           
+                            location.href="{php echo $this->createPluginMobileUrl("match/center",array("mmid"=>$_GPC["id"]))}";
+                        {/if}
+                    },250);
+                    
+                    return false;
+                }else{
+                    core.tip.show(json.result);
+                }
+            });                     
+        }
+
+
+        core.pjson('match/center', {openid:"{$openid}",op:'getinfo'}, function (json) {
+                    var result = json.result; 
+                    if (json.status != 1) { 
+                        core.message(result, "{php echo $this->createMobileUrl('member')}", 'error');
+                        return;
+                    }       
+                    if (result.wechat.success) { 
+                        $('#logid').val(result.logid);
+
+                        $(".reward-btn").click(function(){
+                        if ($(this).attr('submitting') == '1') { 
+                            return; 
+                        }
+                        var message = $(".whole-textarea").val();
+                        var money = $(".reward-input").val();
+                        if($(".whole-textarea").isEmpty()){
+                            //core.tip.show('留言不能为空');
+                            //return;
+                            //默认留言,允许为空
+                            message = "你真棒!";
+                        }
+                        if($(".reward-input").isEmpty()){
+                            core.tip.show('打赏金额不能为空');
+                            return;
+                        }
+                        //输入内容为小数位不超过2位的数值
+                        if(! /^\d{0,8}\.{0,1}(\d{1,2})?$/.test(money)){
+                            core.tip.show("请输入正确格式的打赏金额");  
+                            return false; 
+                        }
+
+                        var logid = $('#logid').val(); 
+                        if (logid == '') {          
+                            core.tip.show('请刷新重试!'); 
+                            return;
+                        }
+
+                        //这里用内置标签变量处理文章或者活动的id 取名为aid
+                        var aid = "1";
+                        $('.reward-btn').attr('submitting', 1); //获取参数
+                        core.pjson('match/center', {op: 'deduct', type: 'weixin',actnum:500, money: money, logid: logid}, function (rjson) {
+                            if(rjson.status!=1){
+                                $('.reward-btn').removeAttr('submitting');      
+                                core.tip.show(rjson.result);
+                                return;
+                            }       
+                            // return false;//这行代码你到时候注意吧,我是参考易货码激活那个页面做的,搬过来,正常要去掉的吧
+                            var wechat = rjson.result.wechat;
+                            WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                                'appId': wechat.appid ? wechat.appid : wechat.appId,
+                                'timeStamp': wechat.timeStamp,
+                                'nonceStr': wechat.nonceStr,
+                                'package': wechat.package,
+                                'signType': wechat.signType,
+                                'paySign': wechat.paySign,
+                            }, function (res) {
+                                if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                                    core.tip.show('支付成功!');
+                                    //支付成功后的代码
+
+                                    ajsubmit();
+                                        
+                                    //.....  
+                                } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+                                    $('.reward-btn').removeAttr('submitting');
+                                    core.tip.show('取消支付');
+                                } else {  
+                                    $('.reward-btn').removeAttr('submitting'); 
+                                    alert(res.err_msg);
+                                }
+                        });
+                    }, true, true);
+               });
+            };
+        });
+    });
+
+
+
+
+        // $(".reward-btn").click(function(){
+        //     if ($(this).attr('submitting') == '1') { 
+        //         return; 
+        //     }
+        //     var message = $(".whole-textarea").val();
+        //     var money = $(".reward-input").val();
+        //     if($(".whole-textarea").isEmpty()){
+        //         //core.tip.show('留言不能为空');
+        //         //return;
+        //         //默认留言,允许为空
+        //         message = "你真棒!";
+        //     }
+        //     if($(".reward-input").isEmpty()){
+        //         core.tip.show('打赏金额不能为空');
+        //         return;
+        //     }
+        //     //输入内容为小数位不超过2位的数值
+        //     if(! /^\d{0,8}\.{0,1}(\d{1,2})?$/.test(money)){
+        //         core.tip.show("请输入正确格式的打赏金额");  
+        //         return false; 
+        //     }
+
+        //     var logid = $('#logid').val(); 
+        //     if (logid == '') {          
+        //         core.tip.show('请刷新重试!'); 
+        //         return;
+        //     }
+
+        //     //这里用内置标签变量处理文章或者活动的id 取名为aid
+        //     var aid = "1";
+        //     $('.reward-btn').attr('submitting', 1); //获取参数
+        //     core.pjson('suppliermenu/activa', {op: 'deduct', type: 'weixin',actnum:500, money: money, logid: logid}, function (rjson) {
+        //         if(rjson.status!=1){
+        //             $('.reward-btn').removeAttr('submitting');      
+        //             core.tip.show(rjson.result);
+        //             return;
+        //         }       
+        //         // return false;//这行代码你到时候注意吧,我是参考易货码激活那个页面做的,搬过来,正常要去掉的吧
+        //         var wechat = rjson.result.wechat;
+        //         WeixinJSBridge.invoke('getBrandWCPayRequest', {
+        //                 'appId': wechat.appid ? wechat.appid : wechat.appId,
+        //                 'timeStamp': wechat.timeStamp,
+        //                 'nonceStr': wechat.nonceStr,
+        //                 'package': wechat.package,
+        //                 'signType': wechat.signType,
+        //                 'paySign': wechat.paySign,
+        //             }, function (res) {
+        //                 if (res.err_msg == 'get_brand_wcpay_request:ok') {
+        //                     core.tip.show('支付成功!');
+        //                     //支付成功后的代码
+        //                     //.....  
+        //                 } else if(res.err_msg=='get_brand_wcpay_request:cancel') {
+        //                     $('.reward-btn').removeAttr('submitting');
+        //                     core.tip.show('取消支付');
+        //                 } else {  
+        //                     $('.reward-btn').removeAttr('submitting'); 
+        //                     alert(res.err_msg);
+        //                 }
+        //        });
+        //     }, true, true);
+        // });
+    // });
+</script>
+{template 'common/footer'}

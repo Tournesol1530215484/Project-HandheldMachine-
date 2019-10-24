@@ -1,0 +1,310 @@
+﻿{template 'common/header'}
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    <li {if $op == 'display' && $_GPC['status'] == '' && $_GPC['refund']!='1'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display'))}">全部订单<em>({$totals})</em></a>
+    </li>
+
+    <li {if $op == 'display' && $_GPC['status'] == '0'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display', 'status' => 0))}">待付款<em>({$total['status0']})</em></a>
+    </li>
+    <li {if $op == 'display' && $_GPC['status'] == '1'} class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display', 'status' => 1))}">待发货<em>({$total['status1']})</em></a>
+    </li>
+    <li {if $op == 'display' && $_GPC['status'] == '2'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display', 'status' => 2))}">待收货<em>({$total['status2']})</em></a>
+    </li>
+    <li {if $op == 'display'  && $_GPC['status']== '-1'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display','status' => -1 ))}">退货退款<em>({$total['status4']})</em></a>
+    </li>
+     <li {if $op == 'display' && $_GPC['status'] == '3'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display', 'status' => 3))}">已完成<em>({$total['status3']})</em></a>
+    </li>
+    <li {if $op == 'display' && $_GPC['refund'] == '1'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display','refund'=>1))}">已关闭<em>({$total['status_1']})</em></a>
+    </li>
+  <!--   {if !empty($perm_role)}
+    <li {if $op == 'display' && $status == '9'}class="active"{/if}>
+        <a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op' => 'display', 'status' => 9))}">提现申请状态<em>({if $total['status9']}{$total['status9']}{else}0{/if})</em></a>
+    </li>
+    {/if} -->
+</ul>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">商品邮寄兑换列表</div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal"  id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="status" value="{$_GPC['status']}" />
+            <input type="hidden" name="p" value="suppliermenu" />
+            <input type="hidden" name="method" value="dealmerch_post_list" />
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-xs-12 col-sm-2 col-md-3 col-lg-3 control-label">所有邮寄兑换订单</label>
+            </div>
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> -->
+                    <label class="col-xs-12 col-sm-2 col-md-3 col-lg-1 control-label">交易日期</label>
+                    <div class="col-sm-8 col-lg-2 col-xs-12">
+                        {php echo tpl_form_field_daterange('datetime', array('starttime'=>date('Y-m-d',$starttime), 'endtime'=>date('Y-m-d',$endtime)), true)}
+                        <!-- <input type="text" class="form-control" name="datetime" value=""> -->
+                        <label class="radio-inline"><input type="radio" name="searchtime" value="0" {if empty($_GPC['searchtime'])}checked{/if}>不搜索</label>
+                        <label class="radio-inline"><input type="radio" name="searchtime" value="1" {if !empty($_GPC['searchtime'])}checked{/if}>搜索</label>
+                    </div> 
+                <!-- </div> -->
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> -->
+                    <label class="col-xs-12 col-sm-2 col-md-3 col-lg-1 control-label">商品编号</label>
+                    <div class="col-sm-6 col-lg-2 col-xs-12">
+                        <!-- <input type="text" class="form-control" name="goodssn" value="{$_GPC['goodssn']}" > -->
+                        <input type="text" class="form-control" name="goodssn" >
+                    </div>
+                <!-- </div> -->
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> -->
+                    <label class="col-xs-12 col-sm-2 col-md-3 col-lg-1 control-label">商品名称</label>
+                    <div class="col-sm-6 col-lg-2 col-xs-12">
+                        <!-- <input type="text" class="form-control" name="goodsname" value="{$_GPC['goodsname']}" > -->
+                        <input type="text" class="form-control" name="goodsname" >
+                    </div>
+                <!-- </div> -->
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> -->
+                    <label class="col-xs-12 col-sm-2 col-md-3 col-lg-1 control-label">订单号</label>
+                    <div class="col-sm-6 col-lg-2 col-xs-12">
+                        <!-- <input type="text" class="form-control" name="ordersn" value="{$_GPC['ordersn']}" > -->
+                        <input type="text" class="form-control" name="ordersn">
+                    </div>
+                <!-- </div> -->
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> -->
+                    <label class="col-xs-12 col-sm-2 col-md-3 col-lg-1 control-label">买家信息</label>
+                    <div class="col-sm-6 col-lg-2 col-xs-12">
+                        <!-- <input type="text" class="form-control" name="buyerinfo" value="{$_GPC['buyerinfo']}" placeholder="请输入买家手机号及收货人姓名"> -->
+                        <input type="text" class="form-control" name="buyerinfo" placeholder="请输入买家手机号或收货人姓名">
+                    </div>
+                <!-- </div> -->
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> -->
+                    <button class="btn btn-default" ><i class="fa fa-search"></i> 查询</button>
+                    <button class="btn btn-default"  type="reset"><i class="fa fa-search"></i>清空</button>
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    {if 'statistics.export.order'}
+                    <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+                    {/if}
+                <!-- </div> -->
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">共计 <span style="color:red; ">{$thistotals}</span> 个订单 </div>
+    <div class="">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+            <tr>
+                <th style="width:3%">序列号</th>
+                <th style="width:18%">功能列</th>
+                <th style="width:13%">订货日期</th>
+                <th style="width:13%">订单号</th>
+                <th style="width:6%">收货人</th>
+                <th style="width:13%">联系电话</th>
+                <th style="width:13%">送货地址</th>
+                <th style="width:6%">订单金额</th>
+                <th style="width:6%">已付款金额</th>
+                <th style="width:13%">付款时间</th>
+                <!-- <th style="width:13%">用户提醒发货时间</th> -->
+                <th style="width:13%">发货时间</th>
+                <th style="width:10%">快递公司</th>
+                <th style="width:13%">快递单号</th>
+                <!-- <th style="width:13%">预定结束时间</th> -->
+            </tr>
+            </thead>
+            <tbody>
+            {loop $list $index $item}
+            <tr style="background: #eee">
+                <td>{php echo $index+1 }</td>
+                <td>
+                    {if empty($item['status'])}
+                    <!--未付款-->
+
+                    {if $item['status']==1}
+                    <div>
+                        <input class='addressdata' type='hidden' value='{php echo json_encode($item['addressdata'])}'  />
+                        <input class='itemid'  type='hidden' value="{$item['id']}"  />
+                        <a class="btn btn-primary btn-sm disbut" href="javascript:;" onclick="send(this)" data-toggle="modal" data-target="#modal-confirmsend">确认发货</a>
+                    </div>
+                    {else}
+                    <a class="btn btn-primary btn-sm disbut" href="{php echo $this->createWebUrl('order', array('op' => 'deal','to'=>'confirmpay','id' => $item['id']))}" onclick="return confirm('确认此订单已付款吗？');return false;">确认付款</a>
+                    {/if}
+
+                    {elseif $item['status'] == 1}
+                    <!--已付款-->
+                    {if !empty($item['addressid']) }
+                    <!--快递 发货-->
+                    {ifp 'order.op.send'}
+                    <div>
+                        <input class='addressdata' type='hidden' value='{php echo json_encode($item['addressdata'])}'  />
+                        <input class='itemid'  type='hidden' value="{$item['id']}"  />
+                        <a class="btn btn-primary btn-sm disbut" href="javascript:;" onclick="send(this)" data-toggle="modal" data-target="#modal-confirmsend">确认发货</a>
+                    </div>
+                    {/if}
+                    {else}
+                    {if $item['isverify']==1}
+                    <!--核销 确认核销-->
+                    {ifp 'order.op.verify'}
+                    <a class="btn btn-primary btn-sm disbut" href="{php echo $this->createWebUrl('order', array('op' => 'deal','to'=>'confirmsend1','id' => $item['id']))}" onclick="return confirm('确认核销吗？');return false;">确认核销</a>
+                    {/if}
+                    {else}
+                    <!--自提 确认取货-->
+                    {ifp 'order.op.fetch'}
+                    <a class="btn btn-primary btn-sm disbut" href="{php echo $this->createWebUrl('order', array('op' => 'deal','to'=>'confirmsend1','id' => $item['id']))}" onclick="return confirm('确认取货吗？');return false;">确认取货</a>
+                    {/if}
+                    {/if}
+
+                    {/if}
+
+                    {elseif $item['status'] == 2}
+
+                    <!-- 普通商品处理 -->
+                    <!--已发货-->
+                    {if !empty($item['addressid'])}
+                    <!--快递 取消发货-->
+                    <a class="btn btn-danger btn-sm disbut" href="javascript:;" onclick="$('#modal-cancelsend').find(':input[name=id]').val('{$item['id']}')" data-toggle="modal" data-target="#modal-cancelsend">取消发货</a>
+                    <a class="btn btn-primary btn-sm disbut" href="{php echo $this->createWebUrl('order', array('op' => 'deal','to'=>'finish','id' => $item['id']))}" onclick="return confirm('确认订单收货吗？');return false;">确认收货</a>
+                    {/if}
+
+                    {elseif $item['status'] == 3}
+
+                    {/if}
+
+                </td>
+                <td>{php echo date('Y-m-d H:i:s', $item['createtime'])}</td>
+                <td>{$item['ordersn']}</td>
+                <td>{$item['realname']}</td>
+                <td>{$item['mobile']}</td>
+                <td>{php echo $item['province'].$item['city'].$item['area'].$item['address']}</td>
+                <td><b>{$item['price']}</b></td>
+                <td> 
+                    {if $item['status'] >= 1}
+                    <b>{$item['price']}</b>
+                    {else}
+                    <b>等待付款</b>
+                    {/if}
+                </td>
+                <td>{php echo date('Y-m-d H:i:s', $item['paytime'])}</td>
+                <td>{php echo date('Y-m-d H:i:s', $item['sendtime'])}</td>
+                <td>{$item['expresscom']}</td>
+                <td>{$item['expresssn']}</td>
+               <!--  <td>{if $row['paytype'] == 1}
+                    <span class="label label-primary">余额支付</span>
+                    {elseif $row['paytype'] == 11}
+                    <span class="label label-default">后台付款</span>
+                    {elseif $row['paytype'] == 2}
+                    <span class="label label-danger">在线支付</span>
+                    {elseif $row['paytype'] == 21}
+                    <span class="label label-success">微信支付</span>
+                    {elseif $row['paytype'] == 22}
+                    <span class="label label-warning">支付宝支付</span>
+                    {elseif $row['paytype'] == 23}
+                    <span class="label label-primary">银联支付</span>
+                    {elseif $row['paytype'] == 3}
+                    <span class="label label-success">货到付款</span>
+                    {/if}
+                </td> -->
+            </tr>
+          <!--   <tr ><td colspan="15">
+                    {loop $row['goods'] $g}
+                    <table style="width:200px;float:left;margin:10px 10px 0 10px;" title="{$g['title']}">
+                        <tr>
+                            <td style="width:60px;"><img src="{php echo tomedia($g['thumb'])}" style="width: 50px; height: 50px;border:1px solid #ccc;padding:1px;"></td>
+                            <td>
+                                商品编号:{$g['goodssn']} <br/>
+                                商品名称:{$g['goodsname']} <br/>
+                            </td>
+                            <td>
+                                单价: {php echo $g['realprice']/$g['total']}<br/>
+                                数量: {$g['total']}<br/>
+                                总价: <strong>{$g['realprice']}</strong>
+                            </td>
+                        </tr>
+                    </table>
+                    {/loop}
+
+                </td></tr> -->
+        </tbody>
+            {/loop}
+        </table>
+        {$pager}
+    </div>
+</div>
+
+<div class="panel panel-info" id="detailtab" style="display:none;">
+    <div>
+    <table class="table table-hover">
+        <tr><td colspan="4" align="center">订单基本信息</td></tr>
+        <tr><td>订单编号</td> <td></td> <td>订单状态</td> <td></td> </tr>
+        <tr><td>下单时间</td> <td></td> <td>交易结束时间</td> <td></td> </tr>
+        <tr><td>下单人</td> <td></td> <td>下单人联系电话</td> <td></td> </tr>
+        <tr><td>收货人</td> <td></td> <td>收货人联系电话</td> <td></td> </tr>
+        <tr><td>收货地址</td><td colspan="3"></td></tr>
+        <tr><td colspan="4" align="center">商品信息</td></tr>
+        <tr><td>商品编号</td> <td></td> <td>商品名称</td> <td></td> </tr>
+        <tr><td>规格型号</td> <td></td> <td>单价</td> <td></td> </tr>
+        <tr><td>购买数量</td> <td></td> <td>金额</td> <td></td> </tr>
+        <tr><td colspan="4"></td></tr>
+        <tr><td colspan="4" align="center">订单履历</td></tr>
+        <tr><td>日期</td> <td></td> <td>动作</td> <td></td> <td>备注</td> <td></td> </tr>
+    </table>
+    </div>
+</div>
+
+</div>
+</div>
+{template 'web/order/modals'}
+
+{template 'common/footer'}
+
+<script type="text/javascript"> 
+    //序列号
+    console.log("{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list' ,array('op'=>'delete') ) }");
+    //删除
+    function del(oid) {
+        alert(oid);
+        $.ajax({
+            type: 'get',
+            url: "{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op'=>'delete'))}&id="+oid,
+            data: {id: oid},
+            dataType: 'json',
+            success: function(msg){
+                if (msg.status == 1) {
+                    alert('删除成功');
+                    // window.location.reload();
+                } else {
+                    alert('订单未关闭, 不能删除');
+                }
+            }
+        });
+
+    }
+    //查看详情
+    function detail(oid) {
+        alert(oid);
+        $('#detailtab').show();
+        $('#detailtab').siblings().hide();
+        $.ajax({
+            type: 'get',
+            url: "{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_post_list', array('op'=>'detail'))}&id="+oid,
+            data: {id: oid},
+            dataType: 'json',
+            success: function(msg){
+                console.log(msg);
+            }
+        });
+    }
+     function send(btn){
+        var modal =$('#modal-confirmsend');
+        var itemid = $(btn).parent().find('.itemid').val();
+            modal.find(':input[name=id]').val( itemid );
+            var addressdata  = eval('(' +$(btn).parent().find('.addressdata').val()+')');
+            modal.find('.realname').html(addressdata.realname);
+            modal.find('.mobile').html(addressdata.mobile);
+            modal.find('.address').html(addressdata.address);
+    }
+
+</script>

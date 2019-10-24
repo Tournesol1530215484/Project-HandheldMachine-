@@ -1,0 +1,673 @@
+{template 'mycommon/header-intact'}
+<title>抽奖</title>
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/iconfontby.css';?>"/>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/plugin/activityba/res/css/lottery.css">
+<style type="text/css">
+	body{
+		background: transparent;
+	}
+	.winner-box .winner-award .award-info>img{border-radius:50%;height: 100%;width:100%;padding-top:0px;}
+    .winner-box .winner-award .award-info{overflow: visible;}
+    .winner-box .winner-award .award-info>p{margin-top:10px;}
+    .inline{display:inline-block;} 
+    .sec-container .award-list .award-list-wrapper .list-container .list-content .list-prize{margin-left:0px;}
+    .sec-container .award-list .award-list-wrapper .list-container .list-content .list-prize-name{float: left;width:140px;}
+    .sec-container .award-list .award-list-wrapper .list-container .list-content .list-reset{width:55px;margin-right: 0px;float: right;cursor: pointer;}
+    .sec-container .award-list .award-list-wrapper .list-header{padding:0px 20px 10px 20px;}
+    .sec-container .award-list .award-list-wrapper{width: 400px}
+</style>
+<div class="m-container">
+	<!-- 奖品单 -->
+	<div class="prize-box">
+		<span class="icon"><i class="fa fa-gift" aria-hidden="true"></i></span>
+        <span class="word">
+            <span class="scroll">
+            	<!-- 循环类为s-content的span 和 br换行元素 -->
+                {loop $prize $row}
+                <span class="s-content">
+                    {$row['type']}:{$row['title']}({$row['num']}名)
+                </span><br>
+                {/loop}         
+                <!-- <span class="s-content">
+                	三等奖:福德锦鸡蛋(3名)      
+                	
+                </span><br>
+                <span class="s-content">
+                	二等奖:充值卡98(3名)
+                </span><br>
+                <span class="s-content">
+                	一等奖:山东东阿奷姿阿胶(2名)
+                </span><br>
+                <span class="s-content">
+                	特等奖:蛹虫草(1名)
+                </span><br> -->
+            </span>
+        </span>
+	</div>
+
+	<div class="sec-container sec-bg-container clearfloat">
+		<!-- do 抽奖 -->
+        <div class="turn-box j-turn-box">
+            <div class="box-wrapper">
+                <div class="box-crown">
+                	<i class="iconfontby icon-huangguanguanjundiyihuiyuan icon-size"></i>
+                </div>
+                <div class="box-pic-wrapper">
+                    <ul class="box-pic" id="box_pic">
+                        <li><img src="../addons/sz_yi/plugin/activityba/res/images/default.png" title="默认头像"></li>
+                    </ul>
+                </div>
+                <div class="box-name-wrapper">
+                    <ul class="box-name" id="box_name">
+                        <li>求中奖</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box-btn" id="start_turn" data-type="1">开始抽奖</div>
+            <!-- 页面初始化时用内置标签赋值当前轮次 -->
+            <div class="turnsinfo" id="turnsinfo">当前轮次:
+                <span id="turnsprizename" style="color:#fd0a49;font-size:18px">{$nowprize['title']}</span> 
+                第<span id="turnsranks" style="color:#fd0a49;font-size:18px">1</span>名
+            </div>
+        </div>
+        <!-- 中奖名单 -->
+        <div class="award-list j-award-list">
+            <div class="award-list-wrapper">
+                <p class="total-join">共有 <span class="J-num">0</span> 人参与抽奖</p>
+                <div class="list-header">
+                    <p title="获奖名单">获奖名单</p>
+                    <p>获奖人数：<span class="J-award-num">0</span></p>
+                </div>
+                <div class="list-container" id="list_container">
+                	<!-- <div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div>
+                	<div class="list-content clearfloat">             
+                		<div class="list-idx">1</div>             
+                		<div class="list-user">                 
+                			<img src="http://wx.qlogo.cn/mmopen/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0/0" title="用户头像">
+                			<p class="text-overflow" title="野蓝莓酒明目抗癌贼好喝杠杠滴！">野蓝莓酒明目抗癌贼好喝杠杠滴！</p>             
+                		</div>             
+                		<div class="list-prize text-overflow">特等奖</div>             
+                		<div class="list-prize-name text-overflow" title="蛹虫草">蛹虫草</div>             
+                		<div class="list-prize list-reset text-overflow" onclick="resetprize(22168)">重抽</div>         
+                	</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="winner-box clearfloat hide-box" id="winner_box">
+    <div class="winner-info" style="display:none">
+        <div class="info-halo animateRotate moveHide"></div>
+        <div class="info-wrapper">
+            <div class="info-crown moveHide">
+                <i class="iconfontby icon-huangguanguanjundiyihuiyuan win-icon"></i>
+            </div>
+            <div class="info-pic j-info-pic">
+                <img src="../addons/sz_yi/plugin/activityba/res/images/default.png" title="默认头像">
+            </div>
+            <div class="info-name j-info-name moveHide">
+                <p class="text-overflow  award-username" title=""></p>
+            </div>
+        </div>
+    </div>
+    <div class="winner-list sec-container clearfloat" style="display:none;"><!--  background: transparent; -->
+        <div class="award-list" style="float:left;margin-top:20px;">
+            <div class="award-list-wrapper">
+                <div class="list-header">
+                    <p>获奖名单</p>
+                    <p>获奖人数：<span class="J-award-num1">0</span></p>
+                </div>
+                <div class="list-container" id="drawprize_container">
+                    <!-- <div class="list-content clearfloat">
+                        <div class="list-idx">1</div>
+                        <div class="list-user">
+                            <img src="" title="用户头像">
+                            <p class="text-overflow" title="1">1</p>
+                        </div>
+                        <div class="list-prize text-overflow">一等奖</div>
+                        <div class="list-prize-name text-overflow" title="撒旦法">费大幅度发的</div>
+                    </div>
+                    <div class="list-content clearfloat">
+                        <div class="list-idx">1</div>
+                        <div class="list-user">
+                            <img src="" title="用户头像">
+                            <p class="text-overflow" title="1">1</p>
+                        </div>
+                        <div class="list-prize text-overflow">一等奖</div>
+                        <div class="list-prize-name text-overflow" title="撒旦法">费大幅度发的</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="winner-award moveHide">
+        <div class="award-arrow">
+            <img src="../addons/sz_yi/plugin/activityba/res/images/left_1213.png">
+        </div>
+        <div class="award-info j-award-info">
+            <img src="../addons/sz_yi/plugin/activityba/res/images/gift_1213.png">
+            <p class="text-overflow" title=""></p>
+        </div>
+    </div>
+</div>
+<script id="list_container_tpl" type="text/html">
+    <%each luckGuys as record idx %>
+        <%if record !=null%>
+        <div class="list-content clearfloat">
+            <div class="list-idx"><%idx+1%></div>
+            <div class="list-user">
+                <img src="<%record.head%>" title="用户头像">
+                <p class="text-overflow" title="<%record.nickname?record.nickname:'-'%>"><%record.nickname?record.nickname:"-"%></p>
+            </div>
+            <div class="list-prize text-overflow"><%record.prizetype?record.prizetype:"-"%></div>
+            <div class="list-prize-name text-overflow" title="{{record.prizename?record.prizename:'-'}}"><%record.prizename?record.prizename:"-"%></div>
+            <div class="list-prize list-reset text-overflow" onclick="resetprize(<%record.signinid%>)">重抽</div>
+        </div>
+        <%/if%>     
+    <%/each%>
+</script>
+<script id="drawprize_container_tpl" type="text/html">
+    <%each model as record idx%>
+        <%if record!=null%>
+        <div class="list-content clearfloat">
+            <div class="list-idx"><%idx+1%></div>
+            <div class="list-user">
+                <img src="<%record.head%>" title="用户头像">
+                <p class="text-overflow" title="<%record.username?record.username:'-'%>"><%record.username?record.username:"-"%></p>
+            </div>
+            <div class="list-prize text-overflow"><%record.prizetype?record.prizetype:"-"%></div>
+            <div class="list-prize-name text-overflow" title="<%record.prizeName?record.prizeName:'-'%>"><%record.prizeName?record.prizeName:"-"%></div>
+        </div>
+        <%/if%>
+    <%/each%>
+</script>
+<script type="text/javascript">
+    var speed = 100;
+    var startindex=0;
+    var resetcount=0;
+    var intervalcount;
+    require(['tpl', 'core'], function(tpl, core) {
+    	//$(function(){
+		var c = $(".m-container .prize-box .word .scroll");
+	    var f = null;
+	    function carousel() {
+	        if (f != null) {
+	            clearInterval(f)
+	        }
+	        c.css("margin-top", "0px");
+	        var k = c.find("span").length;
+	        if (k > 1) {
+	            var j = 0;
+	            f = setInterval(function() {
+	                j++;
+	                c.css("margin-top", (0 - j % k * 28) + "px");
+	                if (j % k == 0) {
+	                    j = 0;
+	                    c.css({
+	                        transition: "all 0s",
+	                        "-webkit-transition": "all 0s",
+	                        "-moz-transition": "all 0s"
+	                    });
+	                    setTimeout(function() {
+	                        c.css("margin-top", "0px");
+	                        c.css({
+	                            transition: "all 1s",
+	                            "-webkit-transition": "all 1s",
+	                            "-moz-transition": "all 1s"
+	                        })
+	                    },
+	                    2000)
+	                }
+	            },6000)
+	        }
+	    }
+	    carousel();
+
+        function turnBox(b, a) {
+            var g = b.split(","),
+            e = $("#" + g[0].trim()).children("li"),
+            d = $("#" + g[1].trim()).children("li"),
+            f = e.length,
+            c = startindex;
+            return (function() {
+                if (a) {
+                    c = (c >= f) ? 0 : c;
+                    e.hide().eq(c).show();
+                    d.hide().eq(c).show();
+                    c++;
+                    window.timeGo = setTimeout(arguments.callee, speed)
+                } else {
+                    window.clearTimeout(window.timeGo)
+                }
+            })()
+        }
+        function getAwardList(){    //获取已经获奖人数
+            $(".list_container").html('<p class="empty-list">获取数据中 ...</p>');
+            //所需提交参数 id: 墙id            
+            core.pjson('activityba/wall', {op:'lottery',ac:'getLuckGuys'}, function(json){
+
+                /*json = {      
+                    "ret":1,    
+                    "msg":"success",
+                    "model":{
+                        "total":19,     //所有中奖人
+                        "totaljoin":"88",   //一共参加抽奖的人数
+                        "luckGuys":[{                   
+                            "nickname":"\u91ce\u84dd\u8393\u9152\u660e\u76ee\u6297\u764c\u8d3c\u597d\u559d\u6760\u6760\u6ef4\uff01",
+                            "head":"http:\/\/wx.qlogo.cn\/mmopen\/WdHAws4tF5PibBSsWDEH3xib8RFW4CTopLsADvCcEIyOaFg6ia4KpAdqrEnNDLsKuxuMRCyH0fBFKw1zIcePCeVhLDbHC2JcwZ0\/0",
+                            "prizetype":"\u7279\u7b49\u5956",
+                            "prizename":"\u86f9\u866b\u8349",
+                            "signinid":"22168"
+                        },
+                        {"nickname":"\u5f90\u534e\u5802",
+                        "head":"http:\/\/wx.qlogo.cn\/mmopen\/icSDTxLtCI1N2yibyePCoFoPlh0bUVtkDoicqPO97WELicaicNJOjGtSoq75xXKDgDQNnzOgz3lYxInNN1nuKkFWI57vwX7PxMGU6\/0",
+                        "prizetype":"\u4e00\u7b49\u5956",
+                        "prizename":"\u5c71\u4e1c\u4e1c\u963f\u5977\u59ff\u963f\u80f6",
+                        "signinid":"22145"
+                    },{"nickname":"\u91d1\u94a5\u5319","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjfIRJEOibia0zxHXgdamJhBNGPTZbTFUIEBrAYmbPHD4JMNu9rgibxB3mibFzgn5wQRibBuY7tg6M3hp6LyFg8SH95H6\/0","prizetype":"\u4e00\u7b49\u5956","prizename":"\u5c71\u4e1c\u4e1c\u963f\u5977\u59ff\u963f\u80f6","signinid":"22117"},{"nickname":"\u3002\u6a59\u5b50 \u3002","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjfIRJEOibia0zxNH4GfdCOZh5BQhAQtn0cEfnZfgh2jlZibvqsMvjSA7W0ejibdwyIOjjvvY84Y1f1FFaibAzkWWmQZO\/0","prizetype":"\u4e09\u7b49\u5956","prizename":"\u798f\u5fb7\u9526\u9e21\u86cb","signinid":"22098"},{"nickname":"\u5f20\u71d5\u5b50","head":"http:\/\/wx.qlogo.cn\/mmopen\/k0Ue4mIpaV8spWicFd6HGxEk0x9lvSpAVck078icZg9tSmBjW3vxVqDwaLG6zlrUWNLYkGTYzXHHEJBHu8NXOz4L3J8uTxaYYd\/0","prizetype":"\u4e09\u7b49\u5956","prizename":"\u798f\u5fb7\u9526\u9e21\u86cb","signinid":"22116"},{"nickname":"\u738b\u79c0","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjfIRJEOibia0zxNibfa5bViaJYyiaiadKAmSOmCaY7ibOy8vj0bWlkvQhBcQCfDLIQOibAlQSEI7H82SKNTZ9UgiaUR9vSgU\/0","prizetype":"\u4e09\u7b49\u5956","prizename":"\u798f\u5fb7\u9526\u9e21\u86cb","signinid":"22131"},{"nickname":"\u8001\u5f20","head":"http:\/\/wx.qlogo.cn\/mmopen\/NjbYxe1QxOh5HWTwDiaiclXRskOTEliaYu0SGu3zeDmYCE21wlibcaQiautYN5Tb4JFnCBiaSDUtSHug6APic2GD6IySAzST74gEjicL\/0","prizetype":"\u4e8c\u7b49\u5956","prizename":"\u6d3b\u52a8\u5708\u5145\u503c\u536198","signinid":"22133"},{"nickname":"\u80e1\u5170\u82b3","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjeVoHmL76khSic5w8QicPn3A4evuDMoUJvAJ1Obctdsg386lBR3r9Sy0CPibTNKfQVEy04KZuYAa7RzxbmbbPw6nWa\/0","prizetype":"\u4e8c\u7b49\u5956","prizename":"\u6d3b\u52a8\u5708\u5145\u503c\u536198","signinid":"22149"},{"nickname":"\u5b88\u671b\u8005","head":"http:\/\/wx.qlogo.cn\/mmopen\/WdHAws4tF5Miaeicyl9YdAHcj4qlUM6U7vxzN4Eb9gR1nlet3bcUObZyQB0HLradom6LSWv1PbGOwzictgicdY2RvkvZEQiclewYl\/0","prizetype":"\u4e8c\u7b49\u5956","prizename":"\u6d3b\u52a8\u5708\u5145\u503c\u536198","signinid":"22114"},{"nickname":"\u53e4\u5f80\u91d1\u6765   \u6768\u9e4f\u627f","head":"http:\/\/wx.qlogo.cn\/mmopen\/PiajxSqBRaEKYj2lKzbmsicZIbNeebOQMmypAib65nwjvmAhG8IKjKqj8bYvhrNXTADTgrKPAXLwRdPibP2Km8tn5Q\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22141"},{"nickname":"\u9b4f\u6587\u519b13886593765","head":"http:\/\/wx.qlogo.cn\/mmopen\/k0Ue4mIpaV8spWicFd6HGxOM7iaz8yWWjiaUD0MtTeTGoOvYGtdbczowroRdsoQ9NricxvLFWXxBNYJsUsps0rShsS4QanHLjxyib\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22099"},{"nickname":"\u4eba\u751f\u5982\u8336","head":"http:\/\/wx.qlogo.cn\/mmopen\/WdHAws4tF5OPE712Xb97L6yUQRZIfgc3qetdibXXuQj8uKOicibtkVhm0Fhz4zdWV7yZBQ1JpObib3VUKsJND7tokrZdSzs0kQhS\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22115"},{"nickname":"\u9ad8\u5609\u6797186 027 68688\u3010\u96c1\u8212\u4f20\u5a92\u3011","head":"http:\/\/wx.qlogo.cn\/mmopen\/WdHAws4tF5Miaeicyl9YdAHX2CLNGgHezHQkWlvnhhQQwS54DyTJzopic5uF2umMf1fIF3PhD4y60IxGUEYhclttQhlq1Fja4Dg\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22107"},{"nickname":"\u4e03\u5929\u53ef\u6458\u6389\u773c\u955c\u5218\u5ef6\u58c118986221343","head":"http:\/\/wx.qlogo.cn\/mmopen\/ajNVdqHZLLBUEgpQTicmO2cGq09euticB8wmVN1YKLoLRSI6fTG9POK9ialeiaNDaOZzy2icALEuOjj9Jlaxv2cUNY37pN5oQficia9TpkUpQrFBKg\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22113"},{"nickname":"\u672a\u5b8c\u5f85\u7eed","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjfIRJEOibia0zxNDSJJIAiau0OBnPrWM0yevGmuosGy5ickTW1au5Cr1OoblQM2nk6oL4dK0WiaKIrnno5DTP0d6g4wh\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22086"},{"nickname":"\u6613\u6069\u9706","head":"http:\/\/wx.qlogo.cn\/mmopen\/WdHAws4tF5M380bpvrXiafFqk5nibX8RzsWmwkUXF6LuqsRHheHKYyZJXBs2AxE3l1leOoclEtZBrhnTSGQoAU8Uico6XW7UXEl\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22148"},{"nickname":"\u8ff7\u4eba\u8fbe\u963f","head":"http:\/\/wx.qlogo.cn\/mmopen\/PiajxSqBRaEImCR8fAoFs3Px7FOHTNCmsRFmRR6NoXv1BIntGErvsZAxFKfGf6KOlLdrrYtXqBD7ibTGcb20zNKA\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22121"},{"nickname":"\u79d2\u8d5a\u8346\u5dde\uff08\u8096\u9e3f\uff09","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjdy5B0XYtAE1lxtVXxZv3bZRMia7HM6QIK871p0xTicJ3f3FwHXrBcyWEmKXgPyyU1eX6MIS2DP3ZiaGdjJh4m0NKB\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22101"},{"nickname":"\u8282\u7535\u5668\u4f55\u592a\u9e23","head":"http:\/\/wx.qlogo.cn\/mmopen\/0z4qDRDibfjfIRJEOibia0zxAGIlFFFqpOZs98TZOWcGia9IoicRZzmhia71ymmRXexsGJ7JJte8qdpRumNIJ1UHsMTvIc2mfG0MiaX\/0","prizetype":"\u79ef\u6781\u5956","prizename":"\u5e72\u7178\u8fa3\u8089\u4e1d2\u74f6\/\u4efd","signinid":"22124"}],"success":true}};*/
+                //ret1 表示有数据
+                if (json.ret == 1) {
+                    $("#list_container").html("");              
+                    var b = json.model;
+                    $(".J-num").text( + b.totaljoin || 0);
+                    $(".J-award-num").text(b.total || 0);
+                    if (b.total > 0) {
+                        $("#list_container").html(tpl("list_container_tpl",b))
+                    }else{
+                        $("#list_container").html('<p class="empty-list">暂时无人中奖，请踊跃参与哦</p>')
+                    }
+                }else{
+                    //看一下行不行             
+                    core.tip.show(json.msg || "网络繁忙，请稍后重试！");
+                    $("#start_turn").removeClass("disabled").text("开始抽奖").attr("data-type", "1");
+                }
+            });
+        }
+        function getUser(){
+            //所需提交参数 id: 墙id
+            core.pjson('activityba/wall', {op:'lottery',ac:'getPlayer'}, function(json){
+                if(json.ret == 1){                                                      
+                    $("#start_turn").removeClass("disabled").text("停止").attr("data-type", "2");
+                    var f = json.model,
+                    b = "",
+                    d = "";
+                    $(".J-num").text( + f.total || 0);
+                    if (f.total > 0) {
+                        var a = f.playerList,
+                        g = Math.max( + a.length, 60);
+                        if( !! a) {
+                            for (var e = 0; e < g; e++) {
+                                if (a[e] != null) {
+                                    //这里采取直接返回来的头像
+                                    //var c = a[e].head.split("/").slice(0, -1).join("/").concat("/0").toString();
+                                    var c = a[e].head;
+                                    //console.table([a[e].head,c]);
+                                    //console.log(a[e]);
+                                    if (e === 0) {
+                                        b += '<li><img src="' + c + '" title="用户头像" data-uid="' + a[e].id + '"/></li>';
+                                        d += "<li title='"+ a[e].nickname+"' data-uid='" + a[e].id + "'>" + a[e].nickname + "</li>"
+                                    } else {
+                                        b += '<li class="hide-box"><img src="' + c + '" title="用户头像" data-uid="' + a[e].id + '"/></li>';
+                                        d += '<li class="hide-box" title="'+ a[e].nickname+'" data-uid="' + a[e].id + '">' + a[e].nickname + "</li>"
+                                    }
+                                }
+                            }
+                            $("#box_pic").html(b);
+                            $("#box_name").html(d);
+                            //alert(1);
+                            turnBox("box_pic, box_name", true)
+                        }
+                    } else {
+                        $("#box_pic").html('<li><img src="../addons/sz_yi/plugin/activityba/res/images/default.png"></li>');
+                        $("#box_name").html("<li>求中奖</li>")
+                    }
+                }else{       
+                    core.tip.show(json.model.msg);              
+                    $("#start_turn").removeClass("disabled").text("开始抽奖").attr("data-type", "1");
+                    return false;                
+                }               
+            });     
+        }
+        function getWinner(){
+            //提交的三个参数 id aid resetcount
+            core.pjson('activityba/wall', {op:'lottery',ac:'start',resetcount:resetcount}, function(json){
+                // json = {                     
+                //     "ret":1,
+                //     "msg":"success", 
+                //     "model":[{
+                //         "username":"null",
+                //         "img":"",        //奖品图片      
+                //                                   "head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132",
+                //         "type":"\u7279\u7b49\u5956",
+                //         "msg":"o00PRsnW97cyiHVi8DvIAz1eL3VY\u83b7\u5f97\u8001\u5e72\u5988\u5341\u74f6",
+                //         "prizeName":"\u8001\u5e72\u5988\u5341\u74f6",
+                //         "prizetype":"\u7279\u7b49\u5956",
+                //         "signinno":"2",      
+                //         "success":true
+                //     },{"username":"null","img":"","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","type":"\u7279\u7b49\u5956","msg":"o00PRsnW97cyiHVi8DvIAz1eL3VY\u83b7\u5f97\u8001\u5e72\u5988\u5341\u74f6","prizeName":"\u8001\u5e72\u5988\u5341\u74f6","prizetype":"\u7279\u7b49\u5956","signinno":"2","success":true},{"username":"null","img":"","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","type":"\u7279\u7b49\u5956","msg":"o00PRsnW97cyiHVi8DvIAz1eL3VY\u83b7\u5f97\u8001\u5e72\u5988\u5341\u74f6","prizeName":"\u8001\u5e72\u5988\u5341\u74f6","prizetype":"\u7279\u7b49\u5956","signinno":"2","success":true},{"username":"null","img":"","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","type":"\u7279\u7b49\u5956","msg":"o00PRsnW97cyiHVi8DvIAz1eL3VY\u83b7\u5f97\u8001\u5e72\u5988\u5341\u74f6","prizeName":"\u8001\u5e72\u5988\u5341\u74f6","prizetype":"\u7279\u7b49\u5956","signinno":"2","success":true},{"username":"null","img":"","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/WdHAws4tF5NMww95CgJmGjhfUDrSEzzA9baqicXicib4BgdwXicRZ2x1FCl3wYPxJKhyNriaibo31F9ACe7jq2ibrNIAiblbDKUIyJ4v\/132","type":"\u7279\u7b49\u5956","msg":"o00PRsnW97cyiHVi8DvIAz1eL3VY\u83b7\u5f97\u8001\u5e72\u5988\u5341\u74f6","prizeName":"\u8001\u5e72\u5988\u5341\u74f6","prizetype":"\u7279\u7b49\u5956","signinno":"2","success":true}]};
+                //ret == 1成功
+                // console.log(json);
+                // return false;                           
+                if (json.ret == 1) {
+                    resetcount = 0;
+                    clearInterval(intervalcount);
+                    $("#start_turn").removeClass("disabled").text("开始抽奖").attr("data-type", "1");
+                    var a = json.model;
+                    //alert(a.length);
+                    if (a.length>0) {
+                        turnBox("box_pic, box_name", false);
+                        if(a.length>1)
+                        {
+                            var c = $("#winner_box");
+                            $("#box_pic").html('<li><img src="' + a[0].head + '" title="用户头像"/></li>');
+                            $("#box_name").html("<li title='"+ a[0].username +"'>" + a[0].username + "</li>");
+                            $(".J-award-num1").text(a.length);
+                            $("#drawprize_container").html(tpl("drawprize_container_tpl",json));
+                            $(".winner-list").show();
+                            $("#winner_box").find(".moveHide").show();
+                            c.show();
+                            startindex=parseInt(a[0].signinno)-1;
+                        }else{
+                            var c = $("#winner_box");
+                            $("#box_pic").html('<li><img src="' + a[0].head + '" title="用户头像"/></li>');
+                            $("#box_name").html("<li title='"+ a[0].username +"'>" + a[0].username + "</li>");
+                            c.find(".j-info-pic").children("img").attr("src", a[0].head);
+                            c.find(".j-info-name").children("p").text(a[0].username);
+                            c.find(".j-info-name").children("p").attr("title",a[0].username);
+                            if ( !! a[0].img) {
+                                c.find(".j-award-info").children("img").attr("src", a[0].img)
+                            }
+                            c.find(".j-award-info").children("p").text(a[0].prizeName);
+                            c.find(".j-award-info").children("p").attr("title",a[0].prizeName);
+                            $("#winner_box").find(".moveHide").show();
+                            $(".winner-info").show();
+                            c.show();
+                            startindex=parseInt(a[0].signinno)-1;
+                        }
+                        getAwardList();
+                        getturnsinfo();
+                        parent.window.mainFunction.showCover(function() {
+                            $("#winner_box").find(".moveHide").hide("normal");
+                            $("#winner_box").find(".winner-info").css({
+                                background: "0"
+                            });
+                            $("#winner_box").find(".winner-list").css({
+                                background: "0"
+                            });
+
+                            $(".j-info-pic").addClass("animateMove");
+                            setTimeout(function() {
+                                
+                                parent.window.mainFunction.hideCover();
+                                $("#winner_box").hide();
+                                $(".j-turn-box").show();
+                                $(".j-award-list").removeClass("opacity");
+                                $(".j-info-pic").removeClass("animateMove")
+                            },
+                            1310)
+                        });
+                        $(".j-turn-box").hide();
+                        $(".j-award-list").addClass("opacity");
+                        
+                    } else {
+                        turnBox("box_pic, box_name", false);
+                        $("#box_pic").html('<li><img src="../addons/sz_yi/plugin/activityba/res/images/default.png" title="默认头像"/></li>');
+                        $("#box_name").html("<li>求中奖</li>");
+                        if (a.type == -1) {
+                            core.tip.show("奖品发完啦！");
+                            $("#start_turn").text("抽奖已结束")
+                        } else {
+                            if (a.type == -2) {
+                                core.tip.show(a.msg || "没有更多参与用户，无法抽奖！");
+                                $("#start_turn").removeClass("disabled").text("开始抽奖")
+                            } else {
+                                if (a.type == -3) {
+                                    core.tip.show(a.msg || "当前网络不给力哦，获取参与用户数据失败。");
+                                    window.location.reload()
+                                }
+                            }
+                        }
+                    }
+                }else{
+                    turnBox("box_pic, box_name", false);
+                    //if(json.ret == -1) {
+                    if(json.ret == 0) {
+                        core.tip.show("当前网络不给力哦，获取参与用户数据失败。");
+                        window.location.reload()
+                    }
+                }
+            });
+        }
+       /* function getturnsinfo() {
+            core.pjson('activity/activity', {op:'myAct',ac:'get',status:'3',id:'{$id}',aid:'{$aid}',resetcount:resetcount}, function(json){
+                json = {"ret":1,"msg":"success","model":{"total":"2","turnsinfo":{"prizetype":"\u4e00\u7b49\u5956","ranks":"2"}}};
+                console.log("so gao");
+                if (json.ret == 1) {
+                    var f=json.model
+                    if (f.total > 0) {
+                        console.log("so gao1");
+                        var a=f.turnsinfo;
+                        console.log(a);
+                        $("#turnsprizename").text(a.prizetype);
+                        $("#turnsranks").text(a.ranks);
+                    }else{
+                        console.log("so gao2");
+                        $("#turnsinfo").text("当前轮次:无");
+                    }
+                }else{
+                    cor.tip.show(json.msg || "网络繁忙，请稍后重试！")
+                }
+            });
+        }*/
+        $(".winner-box").on("click",function(){
+            $("#winner_box").find(".moveHide").hide("normal");
+            $("#winner_box").find(".winner-info").css({
+                background: "0"
+            });
+            //alert(123);
+            $("#winner_box").find(".winner-list").fadeOut(500);
+            $(".j-info-pic").addClass("animateMove");
+            setTimeout(function() {
+                
+                parent.window.mainFunction.hideCover();
+                $("#winner_box").hide();
+                $(".j-turn-box").show();
+                $(".j-award-list").removeClass("opacity");
+                $(".j-info-pic").removeClass("animateMove");
+                $("#winner_box").find(".winner-info").hide();
+            },
+            700)
+        });
+
+        getAwardList();
+        $("#start_turn").on("click",function() {
+            var b = $(this),
+            a = b.attr("data-type");
+            if (b.hasClass("disabled")) {
+                return false
+            }
+            if ( + a === 1) {
+                b.addClass("disabled").text("正在抽奖中...");
+                getUser()
+            } else {
+                if ( + a === 2) {
+                    b.addClass("disabled").text("停止中...");
+                    getWinner()
+                }
+            }
+        });
+        intervalcount = setInterval(getsignincount,5000);
+        //intervalcount = setInterval("getsignincount()",5000);
+        function getsignincount() {
+            //需要传递的参数 id
+            core.pjson('activityba/wall', {op:'lottery',ac:'getSigninCount'}, function(json){
+                // json = {"ret":1,"msg":"success","total":"88"};
+                //ret == 1代表成功                                      
+                if (json.ret == 1) {
+                    //alert(josn.total);
+                    $(".J-num").text(json.total);
+                }
+            });
+        }
+        // $(function() {
+        //     var num = 0;
+        //     function goLeft() {
+        //         //750是根据你给的尺寸，可变的
+        //         if (num == -609) {
+        //             num = 0;
+        //         }
+        //         num -= 1;
+        //         $(".scroll").css({
+        //             left: num
+        //         });
+        //     }
+        //     //设置滚动速度
+        //     var timer = setInterval(goLeft, 60);
+        //     //设置鼠标经过时滚动停止
+        //     $(".box").hover(function() {
+        //         clearInterval(timer);
+        //         },
+        //         function() {
+        //         timer = setInterval(goLeft, 20);
+        //     })
+        // })
+    	//});
+    });
+    //重抽功能
+    function resetprize(signinno){
+        require(['tpl', 'core'], function(tpl, core) {
+            if(confirm("确定要把该用户的抽奖记录删除，重新抽奖吗？")){
+                //需要传递的参数signinno
+                core.pjson('activityba/wall', {op:'lottery',ac:'reset',signinno:signinno}, function(json){
+                    // json = {"ret":1,"msg":"\u91cd\u62bd\u8bbe\u7f6e\u6210\u529f"};
+                    if(json.ret == 1) {                 
+                        resetcount++;            
+                        // 修改人数
+                        core.pjson('activityba/wall', {op:'lottery',ac:'getLuckGuys',signinno:signinno}, function(d){
+                            if (d.ret == 1) {
+                                $("#list_container").html("");
+                                var b = d.model;
+                                $(".J-num").text( + b.totaljoin || 0);
+                                $(".J-award-num").text(b.total || 0);
+                                if (b.total > 0) {
+                                    $("#list_container").html(tpl("list_container_tpl",b))
+                                } else {
+                                    $("#list_container").html('<p class="empty-list">暂时无人中奖，请踊跃参与哦</p>')
+                                }
+                            } else {
+                                core.tip.show(d.msg || "网络繁忙，请稍后重试！")
+                            }
+                        });         
+                        getturnsinfo();
+                    }else{
+                        alert(json.msg);
+                    }
+                });
+            }
+        });
+    }
+    //把抽奖轮次函数提出来放最外层才会起作用 因为onclick
+    function getturnsinfo() {
+        require(['tpl', 'core'], function(tpl, core) {
+            core.pjson('activity/activity', {op:'myAct',ac:'get',status:'7',id:'{$id}',aid:'{$aid}',resetcount:resetcount}, function(json){
+                json = {"ret":1,"msg":"success","model":{"total":"2","turnsinfo":{"prizetype":"\u4e00\u7b49\u5956","ranks":"2"}}};
+                //console.log("so gao");
+                if (json.ret == 1) {
+                    var f=json.model
+                    if (f.total > 0) {
+                        //console.log("so gao1");
+                        var a=f.turnsinfo;
+                        //console.log(a);
+                        $("#turnsprizename").text(a.prizetype);
+                        $("#turnsranks").text(a.ranks);
+                    }else{
+                        //console.log("so gao2");           
+                        $("#turnsinfo").text("当前轮次:无");
+                    }
+                }else{
+                    core.tip.show(json.msg || "网络繁忙，请稍后重试！")
+                }
+            });
+        });
+    }
+</script>
+{template 'mycommon/footer-intact'}

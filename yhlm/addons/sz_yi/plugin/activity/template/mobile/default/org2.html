@@ -1,0 +1,666 @@
+{template 'common/header'}
+
+<title>个人空间</title><!-- 这里内置标签获取活动店铺的名称 -->
+<style>
+    .nav_cent{
+        width: 100%;
+        background-color: white;
+    }
+    .nav_cent li{
+        float: left;
+        width: 25%;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: white;
+
+    }
+    .nav_btn{
+
+    }
+    .active{
+        color: #00b7ee;
+        border-bottom: 2px solid #00b7ee;
+    }
+    .show{
+        display: block;
+    }
+    .hide{
+        display: none;
+    }
+    .pic{
+        width: 100%;
+    }
+    .list-item{
+        width: 46%;
+
+    }
+    .show-tag-time{
+        width: 100%;
+
+    }
+    body,div,dl,dt,dd,ul,ol,li,h4,h5,h6,pre,form,fieldset,p,b,blockquote,table,th,img,font,hr {
+        margin: 0;
+        padding: 0;
+        /* font-size: 12px; */
+    }
+    a{color: black;text-decoration: none;}
+    li{list-style: none;}
+    .img{
+        max-width: 720px;
+        margin: 0 auto;
+        background: red;
+        /* display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; */
+
+    }
+    /* .img li{
+      width: 49%;
+      height: 600px;
+      background: cyan;
+      margin-top: 3px;
+      margin-left: 3px;
+      float: left;
+    }
+    .img li:nth-child(2){
+      height: 300px;
+    } */
+    body{
+        background: #ccc;
+    }
+    .masonry {
+        -moz-column-count:2;
+        -webkit-column-count:2;
+        column-count:2;
+        width: 90%;
+        margin:0 auto;
+
+    }
+    .item {
+        width: 100%;
+        padding: 3px;
+        margin-bottom: 9px;
+        -moz-page-break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        break-inside: avoid;
+        background: white;
+
+    }
+    .item .img_box{
+        position: relative;
+
+    }
+    .item .img_box img{
+        width: 100%;
+    }
+    .item .img_box p{
+        width: 100%;
+        color: white;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        bottom: 0;
+    }
+    .item p{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/activity/res/css/org.css?'.time();?>" />
+
+<div class="big_body">
+
+    <div class="page_topbar">
+
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+
+        <div class="title">{$accountinfo['realname']}个人空间</div>
+
+    </div>
+
+    <div class="org-box">
+
+        <div class="pic-box">
+
+            <?php if($accountinfo['logo']):?>
+                <img class="pic" src="{php echo tomedia($accountinfo['logo'])}">
+            <?php else :?>
+                     <img class="pic" src="../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png">
+             <?php endif;?>  
+            <!-- 修改  头像做成机构头像 -->
+        </div>
+
+        <div class="brief-box">
+            <?php 
+            echo $accountinfo['orgDesc']; ?>
+             <!-- {$accountinfo['orgDesc'])} -->
+        </div>
+
+    </div>
+
+    <ul class="nav_cent">
+        <li class="nav_btn" data-id=3>
+            比赛
+        </li>
+        <li class="nav_btn active" data-id=1>
+            活动
+        </li>
+        <li class="nav_btn" data-id=2>
+            文章
+        </li>
+        <li class="nav_btn" data-id=4>
+            打卡
+        </li>
+    </ul>
+
+    <!--<div class="article-title">所有活动</div>-->
+<div class="con-box">
+
+    <div class="list-box list-box1">
+
+        <ul class="list-ul list-ul1">
+            <div class="masonry">
+            <!-- 活动下拉加载数据容器 -->
+            </div>
+        </ul>
+    </div>
+
+    <!--<div class="article-title">所有文章</div>-->
+
+    <div class="list-box list-box2">
+
+        <ul class="list-ul list-ul2">
+            <div class="masonry">
+                <!-- 文章下拉加载数据容器 -->
+            </div>
+        </ul>
+
+    </div>
+
+    <div class="list-box list-box3">
+
+        <ul class="list-ul list-ul3">
+            <div class="masonry">
+                <!-- 文章下拉加载数据容器 -->
+            </div>
+        </ul>
+
+    </div>
+
+</div>
+    <div style="width: 100%; height: 55px;"></div>
+
+    {template 'common/nav_activity'}
+
+</div>
+
+<!-- 两种模板 文章/活动列表 或者 文章/活动暂无数据为空 -->
+
+<script id="tpl_list" type="text/html">
+
+    <%each list as g%>
+
+    <div class="item" onclick="window.location.href='<%g.link%>'">
+        <div class="img_box">
+            <img class="pic" src="<%if g.icon && g.icon !='undefined'%><%g.icon%><%else%>../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png<%/if%>">
+            <p><%g.title%></p>
+        </div>
+        <p><%if g.relOrg%>
+
+            <%g.relOrg%>
+
+            <%else%>
+
+            机构名称未设置
+
+            <%/if%></p>
+    </div>
+
+    <%/each%>
+
+</script>
+
+<script id="tpl_list2" type="text/html">
+
+    <%each list as g%>
+        <!-- <div class="item" onclick="window.location.href='<%g.link%>'">
+            <div class="img_box">
+                <img class="pic" src="<%if g.icon && g.icon !='undefined'%><%g.icon%><%else%>../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/default_activity.png<%/if%>">
+                <p><%g.title%></p>
+            </div>
+            <p><%if g.relOrg%>
+
+                <%g.relOrg%>
+
+                <%else%>
+
+                机构名称未设置
+
+                <%/if%>
+                    
+            </p>
+        </div> -->
+        <!-- more items -->
+        <li class="list-item flex-center" style="display: block;width: 100%">
+
+            <div class="content-box floatr">
+                <div class="content-title-box" onclick="window.location.href='<%g.link%>'"><!-- 文章名称 赋值上文章跳转链接-->
+                    <a  class="content-link line-clamp2" >
+                        <%g.title%>
+                    </a>
+                </div> 
+                
+                <div class="show-tag">
+                    <div class="show-tag-time"><!-- 时间 -->
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <%g.ctime%>
+                    </div> 
+                    <div class="show-tag-browse show-value-tag"  style="padding-left: 20px;"> <!-- 浏览量 -->
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <%g.browse%> 查看
+                    </div>
+                </div>
+            </div>
+
+        </li>
+
+    <%/each%>
+    
+</script>
+
+<script id="tpl_list3" type="text/html">
+
+    <%each lists as g%>
+        <li class="list-item flex-center" style="display: block;width: 100%">
+
+            <div class="content-box floatr">
+                <div class="content-title-box" onclick="window.location.href='<%g.link%>'"><!-- 文章名称 赋值上文章跳转链接-->
+                    <a  class="content-link line-clamp2" >
+                        <%g.title%>
+                    </a>
+                </div> 
+                
+                <div class="show-tag">
+                    <div class="show-tag-time"><!-- 时间 -->
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <%g.ctime%>
+                    </div> 
+                    <div class="show-tag-browse show-value-tag"  style="padding-left: 20px;"> <!-- 浏览量 -->
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <%g.browse%> 查看
+                    </div>
+                </div>
+            </div>
+
+        </li>
+
+    <%/each%>
+    
+</script>
+
+
+
+
+
+
+<script id="tpl_null" type="text/html">
+
+    <div class="no-list">暂无对应活动</div>
+
+</script>
+
+<script id="tpl_null2" type="text/html">
+
+    <div class="no-list">暂无对应文章</div>
+
+</script>
+
+<script id="tpl_null3" type="text/html">
+
+    <div class="no-list">暂无对应活动</div>
+
+</script>
+<script>
+    $(function () {
+        $('.nav_btn').click(function () {
+            var id = $(this).attr('data-id')
+            if(id ==4 ){
+                window.location.href = '/app/index.php?i=8&c=entry&method=center&p=activity&m=sz_yi&do=plugin';
+            }else{
+                $(this).addClass('active').siblings().removeClass('active');
+                //根据分类
+                $(".list-box"+id ).addClass('show').siblings().removeClass('show').addClass('hide')
+            }
+        })
+        $(".list-box1").addClass('show');
+        $(".list-box2").addClass('hide');
+        $(".list-box3").addClass('hide');
+    })
+</script>
+<script type="text/javascript">
+
+    var loaded = false,loaded2 = false;
+
+    var stop = true,stop2 = true;
+
+    var args  = {
+
+        page:"{$_GPC['page']}",
+
+        op:'org',
+
+        openid:'{$_GPC['openid']}',
+
+        type:'act'
+
+    };
+
+    var args2  = {
+
+        page:"{$_GPC['page']}",
+
+        op:'org',
+
+        openid:'{$_GPC['openid']}',
+
+        type:'art'
+
+    };
+
+    var args3 = {
+        page:"{$_GPC['page']}",
+
+        op:'org',
+
+        openid:'{$_GPC['openid']}',
+
+        type:'mac'
+    };
+
+
+    require(['tpl', 'core'], function(tpl, core) {
+
+        /*对应店铺全部活动加载相关函数 strat*/
+
+        function getActivitys() {
+
+            core.pjson('activity/activity', args, function (json) {
+
+                if (json.result.list.length <= 0) {
+
+                    $(".list-box1 .list-ul1 .masonry").html(tpl('tpl_null'));
+
+                    return;
+
+                }
+
+                console.log(json.result);
+
+                $('.list-box1 .list-ul1 .masonry').html(tpl('tpl_list',json.result));
+
+                $('.list-box1 .list-ul1 .masonry').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+
+
+                bindMore();
+
+            }, true);
+
+        }
+
+        function getActivityMore() {
+
+            core.pjson('activity/activity', args, function (json) {
+
+                stop = true;
+
+                $('#list_loading').remove();
+
+                $(".list-box1 .list-ul1 .masonry").append(tpl('tpl_list',json.result));
+
+                //if(json.result.list.length <json.result.pagesize) {
+
+                if (json.status == 0){
+
+                    $('.list-box1 .list-ul1 .masonry').append('<div id="list_loading">已经加载全部活动</div>');
+
+                    loaded = true;
+
+                    return;
+
+                }else{
+
+                    $('.list-box1 .list-ul1 .masonry').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+
+                    bindMore();
+
+                }
+
+            });
+
+        }
+
+        function bindMore() {
+
+            $(".getmore").unbind("click").click(function(){
+
+                if (loaded) {
+
+                    return;
+
+                }
+
+                if (stop == true) {
+
+                    stop = false;
+
+                    if(args.page=='' || args.page=='undefined'){
+
+                        args.page = 1;
+
+                    }
+
+                    args.page++;
+
+                    getActivityMore();
+
+                }
+
+            });
+
+        }
+
+        /*对应店铺全部活动加载相关函数 end*/
+
+        /*对应店铺全部文章加载相关函数 start*/
+
+        function getArticles() {
+
+            core.pjson('activity/activity', args2, function (json) {
+
+                if (json.result.list.length <= 0) {
+
+                    $(".list-box2 .list-ul2 ").html(tpl('tpl_null2'));
+
+                    return;
+
+                }
+
+                $('.list-box2 .list-ul2 ').html(tpl('tpl_list2',json.result));
+
+                $('.list-box2 .list-ul2 ').append('<div id="list_loading2" class="getmore2">点击加载更多</div>');
+
+                bindMore2();
+
+            }, true);
+
+        }
+
+        function getArticleMore() {
+
+            core.pjson('activity/activity', args2, function (json) {
+
+                stop2 = true;
+
+                $('#list_loading2').remove();
+
+                $(".list-box2 .list-ul2 ").append(tpl('tpl_list2',json.result));
+
+                //if(json.result.list.length <json.result.pagesize) { //最好用这种数据结构
+
+                if (json.status == 0){
+
+                    $('.list-box2 .list-ul2 ').append('<div id="list_loading2">已经加载全部文章</div>');
+
+                    loaded2 = true;
+
+                    return;
+
+                }else{
+
+                    $('.list-box2 .list-ul2 ').append('<div id="list_loading2" class="getmore2">点击加载更多</div>');
+
+                    bindMore2();
+
+                }
+
+            });
+
+        }
+
+        function bindMore2() {
+
+            $(".getmore2").unbind("click").click(function(){
+
+                if(loaded2){
+
+                    return;
+
+                }
+
+                if(stop2 == true) {
+
+                    stop2 = false;
+
+                    if(args2.page=='' || args2.page=='undefined'){
+
+                        args2.page = 1;
+
+                    }
+
+                    args2.page++;
+
+                    getArticleMore();
+
+                }
+
+            });
+
+        }
+
+        /*对应店铺全部文章加载相关函数 end*/
+
+        //比赛
+        function getMac() {
+
+            core.pjson('activity/activity', args3, function (json) {
+
+                if (json.result.lists.length <= 0) {
+
+                    $(".list-box3 .list-ul3 ").html(tpl('tpl_null3'));
+
+                    return;
+
+                }
+
+                 console.log("this is  test2222");
+
+                $('.list-box3.list-ul3 ').html(tpl('tpl_list3',json.result));
+
+                $('.list-box3 .list-ul3 ').append('<div id="list_loading3" class="getmore3">点击加载更多</div>');
+
+                bindMore3();
+
+            }, true);
+
+        }
+
+        function getArticleMore() {
+
+            core.pjson('activity/activity', args3, function (json) {
+
+                stop3 = true;
+
+                $('#list_loading3').remove();
+
+                $(".list-box3 .list-ul3 ").append(tpl('tpl_list3',json.result));
+
+                //if(json.result.list.length <json.result.pagesize) { //最好用这种数据结构
+
+                if (json.status == 0){
+
+                    $('.list-box3 .list-ul3 ').append('<div id="list_loading3">已经加载全部活动</div>');
+
+                    loaded3 = true;
+
+                    return;
+
+                }else{
+
+                    $('.list-box3 .list-ul3 ').append('<div id="list_loading3" class="getmore3">点击加载更多</div>');
+
+                    bindMore3();
+
+                }
+
+            });
+
+        }
+
+        function bindMore3() {
+
+            $(".getmore3").unbind("click").click(function(){
+
+                if(loaded3){
+
+                    return;
+
+                }
+
+                if(stop3 == true) {
+
+                    stop3 = false;
+
+                    if(args3.page=='' || args3.page=='undefined'){
+
+                        args3.page = 1;
+
+                    }
+
+                    args3.page++;
+
+                    getArticleMore();
+
+                }
+
+            });
+
+        }
+
+
+
+        getMac();
+
+        getActivitys();
+
+        getArticles();
+
+        
+
+    });
+
+</script>
+
+{template 'common/footer'}

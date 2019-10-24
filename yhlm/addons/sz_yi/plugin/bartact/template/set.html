@@ -1,0 +1,278 @@
+{template 'common/header'}
+
+{template 'tabs'}
+
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+            会员卡分红设置
+        </div>
+        <div class='panel-body'>
+            
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">直推(1级)</div>
+                        <input type="text" name="bartact[card_agent1]" class="form-control" value="{$set['card_agent1']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>           
+                </div>       
+
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">间接(2级)</div>
+                        <input type="text" name="bartact[card_agent2]" class="form-control" value="{$set['card_agent2']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">省级</div>
+                        <input type="text" name="bartact[card_commission1]" class="form-control" value="{$set['card_commission1']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">市级</div>
+                        <input type="text" name="bartact[card_commission2]" class="form-control" value="{$set['card_commission2']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">区级</div>
+                        <input type="text" name="bartact[card_commission3]" class="form-control" value="{$set['card_commission3']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-addon">总部</div>
+                        <input type="text" name="bartact[card_boos]" class="form-control" value="{$set['card_boos']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class='panel panel-default'>            
+        <div class='panel-heading'>
+            功能/打赏 分成
+        </div>               
+        <div class='panel-body'>             
+
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">活动/文章发布人</div>
+                        <input type="text" name="bartact[reward_author]" class="form-control" value="{$set['reward_author']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>           
+                </div>       
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">打赏人上级(1级)</div>
+                        <input type="text" name="bartact[reward_agent1]" class="form-control" value="{$set['reward_agent1']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">打赏人间接(2级)</div>
+                        <input type="text" name="bartact[reward_agent2]" class="form-control" value="{$set['reward_agent2']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">省级</div>
+                        <input type="text" name="bartact[reward_commission1]" class="form-control" value="{$set['reward_commission1']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>                
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">市级</div>
+                        <input type="text" name="bartact[reward_commission2]" class="form-control" value="{$set['reward_commission2']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">区级</div>
+                        <input type="text" name="bartact[reward_commission3]" class="form-control" value="{$set['reward_commission3']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-addon">总部</div>
+                        <input type="text" name="bartact[reward_boos]" class="form-control" value="{$set['reward_boos']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            其他
+        </div>
+        <div class="panel-body">
+            
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-addon">短信</div>
+                        <input type="text" name="bartact[msg]" class="form-control" value="{$set['msg']}"  />
+                        <div class="input-group-addon">元/条</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">每日打卡</label>
+                <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="bartact[signin]" value="0" {if $set['signin']==0}checked="checked"{/if} >关闭
+                    </label>            
+                    <label class="radio-inline">         
+                      <input type="radio" name="bartact[signin]" value="1" {if $set['signin']}checked="checked"{/if}>开启       
+                    </label>         
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否需要审核</label>
+                <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="bartact[audit]" value="0" {if $set['audit']==0}checked="checked"{/if} >不需要
+                    </label>            
+                    <label class="radio-inline">         
+                      <input type="radio" name="bartact[audit]" value="1" {if $set['audit']}checked="checked"{/if}>需要       
+                    </label>         
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">打卡获得积分</label>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">在</div>
+                        <input type="text" name="bartact[minscore]" class="form-control" value="{$set['minscore']}"  />
+                        <div class="input-group-addon">到</div>
+                    </div>
+                </div>                
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon"></div>
+                        <input type="text" name="bartact[maxscore]" class="form-control" value="{$set['maxscore']}"  />
+                        <div class="input-group-addon">之间</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">会员费</label>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">初级会员</div>
+                        <input type="text" name="bartact[level1]" class="form-control" value="{$set['level1']}"  />
+                        <div class="input-group-addon">元</div>
+                    </div>
+                </div>                
+
+                <div class="col-sm-2">      
+                    <div class="input-group">
+                        <div class="input-group-addon">中级会员</div>
+                        <input type="text" name="bartact[level2]" class="form-control" value="{$set['level2']}"  />
+                        <div class="input-group-addon">元</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <div class="input-group-addon">高级会员</div>
+                        <input type="text" name="bartact[level3]" class="form-control" value="{$set['level3']}"  />
+                        <div class="input-group-addon">元</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+               
+
+        </div>                  
+    </div>    
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9">
+                    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-2" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />      
+                </div>                                                                                                                       
+            </div>                    
+</form>                       
+</div>   
+</div> 
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $(".sendmoth").click(function(){
+    interval_day();
+  });
+});
+                             
+function interval_day(){
+   if($('.sendmoth:checked').val()==1){
+        $(".form-interval").show();
+    }else{
+       $(".form-interval").hide(); 
+    } 
+}
+interval_day();
+</script>
+{template 'web/_footer'}

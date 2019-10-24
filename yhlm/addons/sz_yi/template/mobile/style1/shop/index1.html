@@ -1,0 +1,728 @@
+{template 'common/header'}
+<title>{$set['name']}</title>
+
+<style type="text/css">
+	.follow_topbar{ display: none; }
+    body {margin:0px; background:#eee; font-family:'微软雅黑'; -moz-appearance:none;}
+    .top {overflow: hidden; position:relative;}
+    .top .bgimg {height:auto; position:relative;}
+    .top .bgimg img { width:100%; position: relative;}
+    .top .list {position:absolute;right:10px;top:10px;height:35px; width:auto; line-height:50px; font-size:16px; text-align:right; color:#efefef; margin-right:10px;}
+    .top .topbar {height:220px; width:100%; position:absolute; bottom:-30px; left:0px; z-index:2;}
+    .top .topbar .logo {height:80px; width:80px; padding:4px; border:1px solid #fff; border-radius:45px; margin:auto;}
+    .top .topbar .logo img {height:70px; width:70px; padding:4px; border:1px solid #fff; border-radius:70px; margin:auto;}
+    .top .topbar .shop_name {height:30px; width:auto; background:rgba(0,0,0,0.1); padding:0px 15px; margin:10px auto; font-size:16px; color:#fff; line-height:30px; text-align:center; display:table; border-radius:15px;}
+    .top .topbar .menu {height:45px; width:100%; background:rgba(0,0,0,0.3);}
+    .top .topbar .menu .nav {height:40px; width:25%; padding-top:5px; float:left; text-align:center; font-size:12px; color:#fff;}
+    .top .topbar .menu .navon {height:37px; border-bottom:3px solid #dd2322;}
+    .top .topbar .menu .nav i {font-size:18px;}
+
+    .title {height:40px; width:94%; margin-top: 10px; background:#fff; padding:0px 3%; font-size:16px; color:#666; line-height:40px;}
+    .title1 {height:40px; margin-top: 10px; background:#fff; padding:0px 3%; font-size:16px; color:#666; line-height:40px;}
+    .goods {height:auto; border-top: 1px #b5b5b5 solid; min-height:100px; width:100%; background:#fff; overflow:hidden;float:left;padding-bottom:40px;} 
+    .goods .good {overflow:hidden; width:49.9999%; float:left;border-right: 1px #ccc solid; display: inline-table;}
+    .goods .good .img {width:100%;overflow:hidden;}
+    .goods .good .img img {width:100%;height:120px;}
+    .goods .good .name {height: 48px;overflow-y: hidden; padding: 4px 6px; font-size:12px; line-height:20px; color:#666; }
+    .goods .good .price { padding-left: 6px; height: 40px; color:#f03; font-size:14px;}
+    .goods .good .price .dianjigoumai{font-size: 12px; margin-right: 10px;display: inline-block; width: 48px; height: 18px; border-radius: 2px; padding: 0px 4px; float: right; text-align: right; color: #fff;
+    							background: #e14549 url(../addons/sz_yi/template/mobile/style1/shop/img/icon_gouwuche_1.png) no-repeat left center;background-size: 14px 14px; }
+    .goods .good .price .div_span {color:#aaa; font-size:12px; /*text-decoration:line-through;*/display: block; width: 100%; height: 18px;}
+    .goods .good .price .div_span .div_span_left{position:relative;float:left;width:70px;margin-right:-70px;}
+    
+	.box_1{ padding-right: 10px; margin-top: 4px;float:right;width:100%; height: 10px;}
+	.box_1 .box_1_1{ height: 10px; margin-left:72px; background: #fff; border-radius: 5px; border: 1px #e14549 solid;}
+	.box_1 .box_1_1 .box_2{ background: #e14549; height: 8px; border-bottom-left-radius: 2px; border-top-left-radius: 2px;
+							animation: box_cc 2s 1; animation-fill-mode: forwards;
+							-o-animation: box_cc 2s 1; -o-animation-fill-mode: forwards; /* Opera */
+							-ms-animation: box_cc 2s 1; -ms-animation-fill-mode: forwards; /* IE */
+							-moz-animation: box_cc 2s 1; -moz-animation-fill-mode: forwards; /* Firefox */
+							-webkit-animation: box_cc 2s 1; -webkit-animation-fill-mode: forwards; /* Safari and Chrome */}			
+	@keyframes box_cc{ 0%{width: 0px;} 100%{ width: 49px;}  }
+	@-o-keyframes box_cc{ 0%{width: 0px;} 100%{ width: 49px;}  }
+	@-ms-keyframes box_cc{ 0%{width: 0px;} 100%{ width: 49px;}  }
+	@-moz-keyframes box_cc{ 0%{width: 0px;} 100%{ width: 49px;}  }
+	@-webkit-keyframes box_cc{ 0%{width: 0px;} 100%{ width: 49px;}  }
+
+    .copyright {height:40px; width:100%; text-align:center; line-height:30px; font-size:12px; color:#999; padding:10px 0 0; float: left;}
+    /*.bottom_menu {height:50px; width:100%; background:#f90; position:fixed; bottom:0px; left:0px; z-index:1;}*/
+
+    .banner {overflow:hidden;position:relative;height:auto;}
+    .banner .main_image{width:100%;position:relative;top:0;left:0;}
+	.banner .main_image ul{}
+	.banner .main_image li{float:left;width: 100%;}
+	.banner .main_image li img{display:block;width:100%; }
+	.banner .main_image li a{display:block;width:100%;}
+
+    div.flicking_con{position:absolute;bottom:10px;z-index:1;width:100%;height:12px;}
+    div.flicking_con .inner { width:100%;height:9px;text-align:center;}
+    div.flicking_con a{position:relative; width:10px;height:9px;background:url('../addons/sz_yi/template/mobile/default/static/images/dot.png') 0 0 no-repeat;display:inline-block;text-indent:-1000px}
+    div.flicking_con a.on{background-position:0 -9px}
+    #index_loading { width:94%;padding:10px;color:#666;text-align: center;float:left;}
+    
+    .class1 {background:#fff; border-top:1px solid #eee; border-bottom:1px solid #eee;overflow:hidden;margin-bottom:10px;}
+	.class1 .class2 {height:85px; width:25%; float:left;}
+	.class1 .class2:active {background:#f7f7f7;}
+	.class1 .class2 .class3 {height:70px; width:80px; margin:auto;}
+	.class1 .class2 .class3 .ico {height:40px; width:40px; margin:10px 15px 10px 15px; line-height:40px; text-align:center; color:#fff; font-size:18px;}
+	.class1 .class2 .class3 .ico img { width:50px;height:50px;}
+	.class1 .class2 .class3 .text {height:20px; width:80px; font-size:12px; color:#999; text-align:center; line-height:20px;overflow:hidden;}
+	
+	.top_menu{ width: 100%; height: 80px; background: #fff; padding: 10px 0px;}
+	.top_menu ul{ width: 100%; height: 70px; clear: both;}
+	.top_menu ul li{ width: 20%; height: 70px; float: left;}
+	.top_menu ul li a{ display: block; width: 100%; height: 100%; text-decoration: none; color: #5d5d5d; }
+	.top_menu ul li a i{ margin: 0px auto; width: 40px; height: 40px; display: block; }
+	.top_menu ul li a p{ font-size: 12px; margin: 5px auto; height: 20px; line-height: 20px; text-align: center; display: block; }
+
+	ul#navlist{font-size:14px; padding-bottom: 13px;}
+	ul#navlist li{ float: left; height: 40px; line-height: 40px; width: 20%; text-align: center;}
+	ul#navlist li a{ text-decoration: none; display: block;width: 100%; height: 40px;color: #000000; }
+	.activex{ }
+	.activex a{ color: #ff1c1d!important; border-bottom: 1px #ff1c1d solid; }
+	
+    .top_search{ height: 40px; position: fixed; top: 0px; width: 100%; }
+    .top_search p{ font-size: 12px;margin: -4px 0px 0px; text-align: center; }
+	.top_search .logo1 a,.pull_down_menu a{ display: block; width: 100%; height: 100%; color: #000; }
+	.top_search .menu_right{ width: 100%; float:right;}
+    .top_search .menu_right .menu_right1{ margin-left:52px; height: 36px;}
+    .top_search .menu_right .menu_right1 .menu_right2{ float:left; width:100%;}
+    .search { margin-right:44px; height:30px; margin-top: 5px; background:#e9e9e9; line-height:30px; font-size:14px; text-indent: 10px; border-radius: 3px;}
+	
+
+	.otherinfo .conmenu { position: absolute; width: 90px; background: #333; border-radius: 5px; top: 50px; right: 0px; opacity: 0; display: none; }
+	.otherinfo .conmenu1{ top: 0px;}
+	.otherinfo .conmenu2{ top: 0px;}
+	.otherinfo .conmenu3{ top: 122px;}
+	.otherinfo .conmenu4{ top: 80px;}
+	.otherinfo .conmenu5{ top: 204px;}
+	.otherinfo .conmenu1,.otherinfo .conmenu2,.otherinfo .conmenu3,.otherinfo .conmenu4,.otherinfo .conmenu5{
+					position: absolute; width: 90px; background: rgba(51, 51, 51, 0.7); border-radius: 5px; right: 100px; opacity: 0; display: none;}
+
+	.otherinfo .conmenu li,.otherinfo .conmenu1 li { line-height: 40px; border-bottom: 1px solid #606060; }
+	.otherinfo .conmenu li:last-child,.otherinfo .conmenu1 li:last-child { border: none; }
+	.otherinfo .conmenu li a,.otherinfo .conmenu1 li a { color: #fff; display: block; line-height: 40px; font-size: 14px; text-align: center; text-decoration: none; }
+	.otherinfo .conmenu:before{ content: ""; display: block; position: absolute; border: 8px dashed transparent; border-bottom: 8px solid #333; right: 10px; top: -14px; }
+	.otherinfo .conmenu1:before{ top: 52px;}
+	.otherinfo .conmenu2:before{ top: 94px;}
+	.otherinfo .conmenu3:before{ top: 12px;}
+	.otherinfo .conmenu4:before{ top: 94px;}
+	.otherinfo .conmenu5:before{ top: 12px;}
+	.otherinfo .conmenu1:before,.otherinfo .conmenu2:before,.otherinfo .conmenu3:before,.otherinfo .conmenu4:before,.otherinfo .conmenu5:before{ 
+								opacity: 0.85; content: ""; display: block; position: absolute; border: 8px dashed transparent; border-bottom: 8px solid #333; right: -16px;
+								transform: rotate(90deg);
+								-o-transform: rotate(90deg); /* Opera */
+								-ms-transform: rotate(90deg); /* Internet Explorer 9*/
+								-moz-transform: rotate(90deg); /* Firefox */
+								-webkit-transform: rotate(90deg); /* Safari 和 Chrome */
+								filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=1); }
+	.show .conmenu,.show .conmenu1,.show .conmenu2,.show .conmenu3,.show .conmenu4,.show .conmenu5 { display: block; }
+	.animated,.animated1,.animated2,.animated3,.animated4,.animated5,.fadeInRight6 { animation-duration: 0.5s;
+																					-o-animation-duration: 0.5s;
+																					-ms-animation-duration: 0.5s;
+																					-moz-animation-duration: 0.5s;
+																					-webkit-animation-duration: 0.5s;
+																					-webkit-animation-fill-mode: both;
+																					-moz-animation-fill-mode: both;
+																					-ms-animation-fill-mode: both;
+																					-o-animation-fill-mode: both;
+																					animation-fill-mode: both }
+	.fadeInRight .conmenu,.fadeInRight1 .conmenu1,.fadeInRight2 .conmenu2,.fadeInRight3 .conmenu3,.fadeInRight4 .conmenu4,.fadeInRight5 .conmenu5,.fadeInRight6 { display: block; }
+	@-webkit-keyframes fadeInDown{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInDown1{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInDown2{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInDown3{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInDown4{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInDown5{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInDown6{
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown1 {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown2 {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown3 {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown4 {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown5 {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInDown6 {
+		0% { display: block; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	.fadeInDown .animated { -webkit-animation-name: fadeInDown; animation-name: fadeInDown; display: block; }
+	.fadeInDown1 .animated1 { -webkit-animation-name: fadeInDown1; animation-name: fadeInDown1; display: block; }
+	.fadeInDown2 .animated2 { -webkit-animation-name: fadeInDown2; animation-name: fadeInDown2; display: block; }
+	.fadeInDown3 .animated3 { -webkit-animation-name: fadeInDown3; animation-name: fadeInDown3; display: block; }
+	.fadeInDown4 .animated4 { -webkit-animation-name: fadeInDown4; animation-name: fadeInDown4; display: block; }
+	.fadeInDown5 .animated5 { -webkit-animation-name: fadeInDown5; animation-name: fadeInDown5; display: block; }
+	.fadeInDown6{ -webkit-animation-name: fadeInDown6; animation-name: fadeInDown6; display: block; }
+	@-webkit-keyframes fadeInRight {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInRight1 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInRight2 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInRight3 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInRight4 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInRight5 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@-webkit-keyframes fadeInRight6 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight1 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight2 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight3 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight4 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight5 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	@keyframes fadeInRight6 {
+		0% { opacity: 0; -webkit-transform: translate3d(100%, 0, 0); transform: translate3d(100%, 0, 0) }
+		100% { opacity: 1; -webkit-transform: none; transform: none }
+	}
+	.fadeInRight .animated { -webkit-animation-name: fadeInRight; animation-name: fadeInRight }
+	.fadeInRight1 .animated1 { -webkit-animation-name: fadeInRight1; animation-name: fadeInRight1 }
+	.fadeInRight2 .animated2 { -webkit-animation-name: fadeInRight2; animation-name: fadeInRight2 }
+	.fadeInRight3 .animated3 { -webkit-animation-name: fadeInRight3; animation-name: fadeInRight3 }
+	.fadeInRight4 .animated4 { -webkit-animation-name: fadeInRight4; animation-name: fadeInRight4 }
+	.fadeInRight5 .animated5 { -webkit-animation-name: fadeInRight5; animation-name: fadeInRight5 }
+	.fadeInRight6 { -webkit-animation-name: fadeInRight6; animation-name: fadeInRight6 }
+	@font-face {font-family: 'iconfont';
+	    src: url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont.eot'); /* IE9*/
+	    src: url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	    url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+	    url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	    url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+	}
+	.iconfont{ font-family:"iconfont" !important;
+		       font-size:16px;font-style:normal;
+		       -webkit-font-smoothing: antialiased;
+		       -webkit-text-stroke-width: 0.2px;
+		       -moz-osx-font-smoothing: grayscale;}
+</style>
+
+<div id='list_contanier'></div>
+<div id='container'></div>
+
+<script id='tpl_index' type='text/html'>
+
+    <!--<div class="top">
+        <div class="bgimg"><img src="{if $this->yzShopSet['img']}{php echo $_W['siteroot'] . "attachment/" . $this->yzShopSet['img']}{else}../addons/sz_yi/template/mobile/default/static/images/bg.jpg{/if}"></div>-->
+		<!--<div class="list" onclick="location.href='{php echo $this->createMobileUrl('shop/category')}'"><i class="fa fa-list"></i> 分类</div>-->
+        <!--<div class="topbar">
+            
+            <div class="logo"><img src="{if $this->yzShopSet['logo']}{php echo $_W['siteroot'] . "attachment/" . $this->yzShopSet['logo']}{else}../addons/sz_yi/template/mobile/default/static/images/logo.png{/if}"></div>
+            <div class="shop_name">{php echo $this->yzShopSet['name']}</div>
+            <div class="menu">
+                <div class="nav navon"><i class="fa fa-home"></i><br>首页</div>
+                <div class="nav"  data-op='all'><i class="fa fa-suitcase"></i><br>全部商品</div>
+                <div class="nav"  data-op='discount'><i class="fa fa-tags"></i><br>促销商品</div>
+                <div class="nav"  data-op='notice'><i class="fa fa-volume-up"></i><br>店铺公告</div>
+            </div>
+        </div>
+    </div>-->
+
+    
+    <%if advs.length>0%>
+    <div class="banner">
+
+        <%if advs.length>1%>
+        <div class="flicking_con"><div class="inner">
+            <%each advs as value index %>
+            <a class="<%if index==0%>on<%/if%>" href="#@"><%index%></a>
+            <%/each%>
+            </div>
+        </div>
+        <%/if%>
+        
+        
+        <div class="main_image c-demoslider" id='banner'>
+            <ul data-type="slides">
+                <%each advs as adv %>
+                <li data-delay="5" data-src="5" data-trans3d="tr6,tr17,tr22,tr23,tr29,tr27,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13,tr45" data-trans2d="tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41" <%if adv.link%>onclick="location.href='<%adv.link%>'"<%/if%>>
+                	<img src="<%adv.thumb%>" data-src="<%adv.thumb%>"  data-thumb="<%adv.thumb%>"  /></li>
+                <%/each%>
+            </ul>
+            <ul data-type="controls">
+				<li data-type="captions"></li>
+				<li data-type="link"></li>
+				<li data-type="video"></li>
+				<li data-type="slideinfo"></li>
+				<li data-type="circletimer"></li>
+				<li data-type="previous"></li>
+				<li data-type="next"> </li>
+				<li data-type="bartimer"></li>
+				<li data-type="slidecontrol" data-thumb="true" data-thumbalign="up"></li>
+			</ul>
+        </div>
+        
+    </div>
+    <%/if%>
+    
+   
+    <%if category.length>0%>
+    <div class="title">推荐分类</div>
+    <div class="class1">
+        <%each category as value%>
+        <a href="<%value.url%>">
+            <div class="class2">
+                <div class="class3">
+                    <div class="ico ico1"><img src='<%value.thumb%>' /></div>
+                    <div class="text"><%value.name%></div>
+                </div>
+            </div>
+        </a>
+       <%/each%>
+    </div>
+    <%/if%>
+	
+    <div class="top_search">
+    	<div class="logo1"><a href="javascript:void(0);">
+    		<i class="icon iconfont" style=" margin-left: 10px;">&#xe601;</i>
+    		<p>扫啊扫</p></a>
+    	</div>
+    	<div class="menu_right">
+    		<div class="menu_right1">
+	    		<div class="menu_right2"><div class='search'><i class="icon iconfont" style="font-size: 16px">&#xe602;</i> 输入商品名称</div></div>
+	    		<div class="pull_down_menu"><a href="javascript:void(0);">
+	    			<i class="icon iconfont xiaoxi" style=" margin-left: 7px;">&#xe600;</i>
+	    			<p>消息</p></a>
+	    		</div>
+	    	</div>
+    	</div>
+    </div>
+    
+    <!--顶部搜索代码-->
+    <script src="../addons/sz_yi/template/mobile/style1/shop/hqs/js/skrollr.min.js"></script>
+	<script>
+		var s = skrollr.init();
+	</script>
+	<!--顶部搜索代码结束-->
+	
+    <div class="top_menu">
+    	<ul><li><a href="javascript:void(0);"  onclick="location.href='<%detail.btnurl1%>'"><i style="background: url(../addons/sz_yi/template/mobile/style1/shop/img/icon_11.png) no-repeat center center; background-size: 100% 100%; "></i><p>全部商品</p></a></li>
+    		<li><a href="{php echo $this->createMobileUrl('order')}"><i style="background: url(../addons/sz_yi/template/mobile/style1/shop/img/icon_12.png) no-repeat center center; background-size: 100% 100%; "></i><p>我的订单</p></a></li>
+    		<li><a href="{php echo $this->footer['second']['url']}"><i style="background: url(../addons/sz_yi/template/mobile/style1/shop/img/icon_13.png) no-repeat center center; background-size: 100% 100%; "></i><p>商品分类</p></a></li>
+    		<li><a href="{php echo $this->createMobileUrl('shop/cart')}"><i style="background: url(../addons/sz_yi/template/mobile/style1/shop/img/icon_14.png) no-repeat center center; background-size: 100% 100%; "></i><p>购物车</p></a></li>
+    		<li><a href="{php echo $this->createMobileUrl('member')}"><i style="background: url(../addons/sz_yi/template/mobile/style1/shop/img/icon_15.png) no-repeat center center; background-size: 100% 100%; "></i><p>个人中心</p></a></li>
+    	</ul>
+    </div>
+    <div class="title1">
+    	<ul id="navlist">
+    		<li id="activex1" class="activex" onClick="tab(1)"><a href="javascript:void(0);">新品</a></li>
+			<li id="activex2" onClick="tab(2)"><a href="javascript:void(0);">热卖</a></li>
+			<li id="activex3" onClick="tab(3)"><a href="javascript:void(0);">推荐</a></li>
+			<li id="activex4" onClick="tab(4)"><a href="javascript:void(0);">促销</a></li>
+			<li id="activex5" onClick="tab(5)"><a href="javascript:void(0);">包邮</a></li>
+		</ul>
+    </div>
+    <div class="goods">
+        <div id='goods_container1' style=" overflow: auto; display:block;"></div>
+        <div id='goods_container2' style="overflow: auto; display: none;"></div>
+        <div id='goods_container3' style="overflow: auto; display: none;"></div>
+        <div id='goods_container4' style="overflow: auto; display: none;"></div>
+        <div id='goods_container5' style="overflow: auto; display: none;"></div>
+    </div>
+    <div class="copyright">版权所有 © {if $this->yzShopSet['copyright']}{php echo $this->yzShopSet['copyright']}{else}{$_W['account']['name']}{/if}</div>
+     <!--搜索-->
+
+    <div class="search1"> 
+        <div class="topbar1">
+            <div class='right'>
+                <button class="sub1"><i class="fa fa-search"></i></button>
+                <div class="home1">取消</div>
+            </div>
+            <div class='left_wrap'> 
+                <div class='left'>
+                    <input type="text" id='keywords' class="input1" placeholder='搜索: 输入商品关键词'/>
+                </div>
+            </div>
+        </div>
+        <div id='search_container' class='result1'>
+        </div>
+    </div> 
+</script>
+
+<script id='tpl_goods_list' type='text/html'>
+    <%each goods as g%>
+    <div class="good" data-goodsid='<%g.id%>'>
+        <div class='img'><img src="<%g.thumb%>"></div>
+        <div class="name"><%g.title%></div>
+        <div class="price">￥<%g.marketprice%><a herf="javascript:void(0);" class="dianjigoumai">购买</a>
+        <br />
+        <div class="div_span">
+        	<div class="div_span_left">已售：59%</div>
+        	<div class="box_1">
+        		<div class="box_1_1">
+                	<div class="box_2"></div>
+                </div>
+            </div>
+        </div>
+        <%if g.productprice>0 && g.marketprice!=g.productprice%>
+	        <!--<span>￥<%g.productprice%></span>-->
+        <%/if%>
+	    </div>
+    </div>
+    <%/each%>
+</script>
+<script id='tpl_search_list' type='text/html'>
+     <ul>
+     <%each list as value%>
+        <li><i class="fa fa-angle-right"></i> <a href="{php echo $this->createMobileUrl('shop/detail')}&id=<%value.id%>"><%value.title%></a></li>
+        <%/each%>
+    </ul> 
+</script>
+
+<style type="text/css">
+	.top_search .logo1 { width: 50px; height:36px;display: inline-block; margin-right:-52px; padding: 2px 6px;position:relative; float: left; color: rgb(255,255,255); background: rgba(237, 237, 237, 0.498039); border-radius: 18px;}
+    .pull_down_menu{ float: right; width:30px; position:relative; height: 36px; margin: 1px 8px 0px -38px; color: rgb(255,255,255); background: rgba(237, 237, 237, 0.498039); border-radius: 17px;}
+</style>
+<script language='javascript'>
+	function tab(n){
+        $('#goods_container'+n).fadeIn();
+        $('#goods_container'+n).siblings().hide();
+        $('#activex'+n).addClass('activex');
+        $('#activex'+n).siblings().removeClass('activex');
+    }
+
+	//改变头部搜索背景透明度与颜色
+    $(window).scroll(function(){
+    	var top = $(document).scrollTop() ;
+    	alpha = top/270;
+    	if(alpha>0.5){ alpha = 1; }
+    	$('.top_search').css("background","rgba(255,255,255,"+ alpha + ")");
+    	$('.good_topbar .logo1').css("background","rgba(237,237,237,"+ (0.5-alpha) + ")");
+        $('.top_search .menu_right2').css("color","rgb(164,163,163" + ")");
+        $('.good_topbar .pull_down_menu').css("background","rgba(237,237,237,"+ (0.5-alpha) + ")");
+    });
+    $('body').on("touchmove",function(){
+    	var top = $(document).scrollTop() ;
+    	alpha = top/270 ;
+    	if(alpha>0.6){ alpha = 1; }
+    	$('.top_search').css("background","rgba(255,255,255,"+ alpha + ")");
+    	$('.good_topbar .logo1').css("background","rgba(237,237,237,"+ (0.6-alpha) + ")");
+        $('.top_search .menu_right2').css("color","rgb(164,163,163" + ")");
+        $('.good_topbar .pull_down_menu').css("background","rgba(237,237,237,"+ (0.6-alpha) + ")");
+    });
+	//改变底部搜索背景透明度与颜色结束
+	
+    var page = 1;
+    var loaded = false;
+    var stop = true;
+    var scrolling = false;
+    require(['core', 'tpl'], function (core, tpl) {
+        core.json('shop/index', {}, function (json) {
+            var result = json.result;
+            $('#container').html(tpl('tpl_index', result));
+            $('.nav').click(function () {
+                $('.nav').removeClass('navon');
+                $(this).addClass('navon');
+                var op = $(this).data('op');
+                if (op == 'all') {
+                    location.href = core.getUrl('shop/list');
+                } else if (op == 'discount') {
+                    location.href = core.getUrl('shop/list', {isdiscount: 1});
+                } else if (op == 'notice') {
+                    location.href = core.getUrl('shop/notice');
+                }
+            });
+        
+            if (result.advs.length > 0) {
+            //   $('.banner').height($('.main_image').find('img').height());
+                require(['jquery','jquery.touchslider','swipe'], function ($) {
+                    new Swipe($('#banner')[0], {
+						speed:300,
+						auto:4000,
+						callback: function(){
+						  
+			            $(".flicking_con  .inner  a").removeClass("on").eq(this.index).addClass("on");
+					}
+				  });
+                })
+            } 
+            function getGoods(type) {
+                core.json('shop/index', {'op': 'goods', page: page}, function (gjson) {
+                    var result = gjson.result;
+                    if (result.status == 0) {
+                        core.message('服务器内部错误', core.getUrl('shop'), 'error');
+                        return; }
+                    stop = true;
+                    $('#index_loading').remove();
+                    $('#goods_container1,#goods_container2,#goods_container3,#goods_container4,#goods_container5').append(tpl('tpl_goods_list', result));
+		    		$('.good img').each(function(){ $(this).height($(this).width()); })
+                    $('.good').unbind('click').click(function(){ location.href = core.getUrl('shop/detail',{id:$(this).data('goodsid') }); })
+                    if (result.goods.length < result.pagesize && scrolling) {
+                        $('#goods_container1,#goods_container2,#goods_container3,#goods_container4,#goods_container5').append('<div id="index_loading">已经加载全部商品</div>');
+                        loaded = true;
+                        $(window).scroll = null;
+                    	return; }
+                    $(window).scroll(function () {
+                        if (loaded) { return; }
+                        totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+                        if ($(document).height() <= totalheight) {
+                            if (stop == true) {
+                                stop = false;scrolling=true; 
+                                $('#goods_container1,#goods_container2,#goods_container3,#goods_container4,#goods_container5').append('<div id="index_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载更多商品</div>');
+                                page++;
+                                getGoods('display');
+                            }
+                        }
+                    });
+                }); 
+            }
+
+            $('.search').click(function(){
+                $(".search1").animate({bottom:"0px"},100);
+                $('#keywords').unbind('keyup').keyup(function(){
+                	var keywords = $.trim( $(this).val());
+                	if(keywords==''){
+                    	$('#search_container').html("");
+                    	return; }
+                	core.json('shop/util',{op:'search',keywords:keywords }, function (json) {
+                        var result = json.result;
+                        if(result.list.length>0){ $('#search_container').html(tpl('tpl_search_list',result)); }
+                        else{ $('#search_container').html(""); }
+                     }, true);
+            	});
+            	$('.search1 .sub1').unbind('click').click(function(){
+                    	var keywords = $.trim( $('#keywords').val());
+                    	var url = core.getUrl('shop/list',{keywords:keywords});
+                    	location.href=  url; });
+            	$('.search1 .home1').unbind('click').click(function(){
+                    $(".search1").animate({bottom:"-100%"},100); });
+        	});
+            getGoods();
+        }, true);
+    });
+</script>
+
+	<script type="text/javascript">
+//		$(window).scroll(function(){
+//	    	var top = $(document).scrollTop();
+//	    	if( top++ || top-- ){
+//	    		$(".otherinfo").fadeOut();
+//			    $(".otherinfo").fadeOut("slow");
+//			    $(".otherinfo").fadeOut(3000);
+//		    }else if ( (top - $(document).scrollTop())== 0 ) {
+//		    	$(".otherinfo").fadeIn();
+//			    $(".otherinfo").fadeIn("slow");
+//			    $(".otherinfo").fadeIn(3000);
+//		    }
+//	    });
+
+		$(function(){
+		    $(".otherinfo .iconp").bind("touchstart", function(event) {
+		        $(".otherinfo").toggleClass('fadeInRight');
+		        event.stopPropagation();
+		    })
+		    $(".otherinfo .conmenu").bind("touchstart", function(event) {
+		        event.stopPropagation();
+		    })
+		    $(document).bind("touchstart", function() {
+		        $(".otherinfo").removeClass("fadeInRight");
+		    })
+		});
+		$(function(){
+		    $(".otherinfo .iconp1").bind("touchstart", function(event) {
+		    	$(".otherinfo").removeClass("fadeInRight2");
+		    	$(".otherinfo").removeClass("fadeInRight3");
+		    	$(".otherinfo").removeClass("fadeInRight4");
+		    	$(".otherinfo").removeClass("fadeInRight5");
+		        $(".otherinfo").toggleClass('fadeInRight1');
+		        event.stopPropagation();
+		    })
+		    $(".otherinfo .conmenu1").bind("touchstart", function(event) {
+		        event.stopPropagation();
+		    })
+		    $(document).bind("touchstart", function() {
+		        $(".otherinfo").removeClass("fadeInRight1");
+		    })
+		});
+		$(function(){
+		    $(".otherinfo .iconp2").bind("touchstart", function(event) {
+		    	$(".otherinfo").removeClass("fadeInRight1");
+		    	$(".otherinfo").removeClass("fadeInRight3");
+		    	$(".otherinfo").removeClass("fadeInRight4");
+		    	$(".otherinfo").removeClass("fadeInRight5");
+		        $(".otherinfo").toggleClass('fadeInRight2');
+		        event.stopPropagation();
+		    })
+		    $(".otherinfo .conmenu2").bind("touchstart", function(event) {
+		        event.stopPropagation();
+		    })
+		    $(document).bind("touchstart", function() {
+		        $(".otherinfo").removeClass("fadeInRight2");
+		    })
+		});
+		$(function(){
+		    $(".otherinfo .iconp3").bind("touchstart", function(event) {
+		    	$(".otherinfo").removeClass("fadeInRight1");
+		        $(".otherinfo").removeClass("fadeInRight2");
+		        $(".otherinfo").removeClass("fadeInRight4");
+		        $(".otherinfo").removeClass("fadeInRight5");
+		        $(".otherinfo").toggleClass('fadeInRight3');
+		        event.stopPropagation();
+		    })
+		    $(".otherinfo .conmenu3").bind("touchstart", function(event) {
+		        event.stopPropagation();
+		    })
+		    $(document).bind("touchstart", function() {
+		        $(".otherinfo").removeClass("fadeInRight3");
+		    })
+		});
+		$(function(){
+		    $(".otherinfo .iconp4").bind("touchstart", function(event) {
+		    	$(".otherinfo").removeClass("fadeInRight1");
+		        $(".otherinfo").removeClass("fadeInRight2");
+		        $(".otherinfo").removeClass("fadeInRight3");
+		        $(".otherinfo").removeClass("fadeInRight5");
+		        $(".otherinfo").toggleClass('fadeInRight4');
+		        event.stopPropagation();
+		    })
+		    $(".otherinfo .conmenu4").bind("touchstart", function(event) {
+		        event.stopPropagation();
+		    })
+		    $(document).bind("touchstart", function() {
+		        $(".otherinfo").removeClass("fadeInRight4");
+		    })
+		});
+		$(function(){
+		    $(".otherinfo .iconp5").bind("touchstart", function(event) {
+		    	$(".otherinfo").removeClass("fadeInRight1");
+		        $(".otherinfo").removeClass("fadeInRight2");
+		        $(".otherinfo").removeClass("fadeInRight3");
+		        $(".otherinfo").removeClass("fadeInRight4");
+		        $(".otherinfo").toggleClass('fadeInRight5');
+		        event.stopPropagation();
+		    })
+		    $(".otherinfo .conmenu5").bind("touchstart", function(event) {
+		        event.stopPropagation();
+		    })
+		    $(document).bind("touchstart", function() {
+		        $(".otherinfo").removeClass("fadeInRight5");
+		    })
+		});
+	</script>
+	<style type="text/css">
+		.pull_down_menu1{ position: fixed;top:30%; right: 0px; border-radius: 50%; width:50px; height: 50px; margin: 6px 8px 0px -38px; background: url(../addons/sz_yi/template/mobile/style1/shop/img/pull_down_menu.png) no-repeat center center; background-size: 100% 100%; }
+		.pull_down_menu1 a{ display: block; width: 100%; height: 100%; }
+	</style>
+<div class="pull_down_menu1 otherinfo">
+	<a href="javascript:void(0);" class="iconp"></a>
+	<div class="conmenu animated">
+		<ul><li><a href="{php echo $this->footer['second']['url']}">推荐分类</a></li>
+			<li><a href="javascritp:void(0);" class="iconp1">男生会场</a>
+				<div class="conmenu1 animated1">
+	    			<ul><li><a href="javascritp:void(0);">内裤</a></li>
+						<li><a href="javascritp:void(0);">裤子</a></li>
+						<li><a href="javascritp:void(0);">衬衫</a></li>
+						<li><a href="javascritp:void(0);">上衣</a></li>
+						<li><a href="javascritp:void(0);">鞋子</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="javascritp:void(0);" class="iconp2">女生会场</a>
+				<div class="conmenu2 animated2">
+	    			<ul><li><a href="javascritp:void(0);">裤子</a></li>
+						<li><a href="javascritp:void(0);">连衣裙</a></li>
+						<li><a href="javascritp:void(0);">半身裙</a></li>
+						<li><a href="javascritp:void(0);">上衣</a></li>
+						<li><a href="javascritp:void(0);">内衣</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="javascritp:void(0);" class="iconp3">9.9特场</a>
+				<div class="conmenu3 animated3">
+	    			<ul>
+	    				<li><a href="javascritp:void(0);">9.9特场</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="javascritp:void(0);" class="iconp4">饰品会场</a>
+				<div class="conmenu4 animated4">
+	    			<ul><li><a href="javascritp:void(0);">项链</a></li>
+						<li><a href="javascritp:void(0);">头饰</a></li>
+						<li><a href="javascritp:void(0);">帽子</a></li>
+						<li><a href="javascritp:void(0);">首饰</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="javascritp:void(0);" class="iconp5">分销系统</a>
+				<div class="conmenu5 animated5">
+	    			<ul>
+	    				<li><a href="javascritp:void(0);">智能分销</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+{php $show_footer=true;$footer_current ='first'}
+{template 'common/footer'}

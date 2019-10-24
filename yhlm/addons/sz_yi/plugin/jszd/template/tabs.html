@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+    {ifp 'jszd.temp'}<li {if $_GPC['method']=='temp'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('jszd/temp')}" style="cursor: pointer;">分销账单</a></li>{/if}
+	{ifp 'jszd.dividend'}<li {if $_GPC['method']=='dividend'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('jszd/dividend')}" style="cursor: pointer;">分红账单</a></li>{/if}
+	{ifp 'jszd.region'}<li {if $_GPC['method']=='region'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('jszd/region')}" style="cursor: pointer;">区域账单</a></li>{/if}
+</ul>

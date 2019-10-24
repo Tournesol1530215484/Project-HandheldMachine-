@@ -1,0 +1,10 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">	 	 
+    {ifp 'activity.activity'}<li {if $_GPC['method']=='card' && $_GPC['op'] == 'add'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/card',array('op'=>'add'))}">个人信息</a></li>{/if}
+    {ifp 'activity.activity'}	 			  		  	 	 	
+        <li {if $_GPC['method']=='card' && $_GPC['op'] == 'banner'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/card',array('op'=>'banner'))}">轮播图设置</a></li>	 
+
+        <!-- <li {if $_GPC['method']=='activity' && $_GPC['op'] == 'comment'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('activity/activity',array('op'=>'comment'))}">评论审核</a></li> -->
+    {/if}
+</ul>
+</div>

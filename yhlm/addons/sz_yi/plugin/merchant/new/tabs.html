@@ -1,0 +1,14 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'merchant.merchant'}<li {if $_GPC['method']=='merchant'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/merchant')}">商家管理</a></li>{/if}
+    {ifp 'merchant.applyfor'}<li {if $_GPC['method']=='applyfor'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/applyfor')}">申请中</a></li>{/if}
+    {ifp 'merchant.enter'}<li {if $_GPC['method']=='enter'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/enter')}">入驻中</a></li>{/if}
+    {ifp 'merchant.merchant_list'}<li {if $_GPC['method']=='merchant_list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/merchant_list')}">商家订单</a></li>{/if}
+    {ifp 'merchant.merchant_apply'}<li {if $_GPC['method']=='merchant_apply'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/merchant_apply')}">商家提现申请</a></li>{/if}
+    {ifp 'merchant.merchant_finish'}<li {if $_GPC['method']=='merchant_finish'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/merchant_finish')}">商家提现完成</a></li>{/if}
+    {ifp 'merchant.merchant_for'}<li {if $_GPC['method']=='merchant_for'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/merchant_for')}">会员申请商家</a></li>{/if}
+    {ifp 'merchant.merchant_for_resu'}<li {if $_GPC['method']=='merchant_for_resu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/merchant_for_resu')}">申请结果</a></li>{/if}
+    {ifp 'merchant.notice'}<li {if $_GPC['method']=='notice'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/notice')}">通知设置</a></li>{/if}
+    {ifp 'merchant.set'}<li {if $_GPC['method']=='set'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('merchant/set')}">基础设置</a></li>{/if}
+</ul>
+</div>

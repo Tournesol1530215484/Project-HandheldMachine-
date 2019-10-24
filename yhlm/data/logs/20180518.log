@@ -1,0 +1,4369 @@
+2018-05-18 00:19:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526573941 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526573941 ;
+type : event ;
+
+2018-05-18 00:19:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 00:19:01 response :
+------------
+
+2018-05-18 00:19:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526573944 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526573944 ;
+type : event ;
+
+2018-05-18 00:19:04 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 00:19:04 response :
+------------
+
+2018-05-18 00:19:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526573981 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526573981 ;
+type : event ;
+
+2018-05-18 00:19:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 00:19:41 response :
+------------
+
+2018-05-18 00:28:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526574487 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526574487 ;
+type : event ;
+
+2018-05-18 00:28:07 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-18 00:28:07 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-18 00:59:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526576386 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526576386 ;
+type : event ;
+
+2018-05-18 00:59:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 00:59:46 response :
+------------
+
+2018-05-18 01:38:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526578693 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526578693 ;
+type : event ;
+
+2018-05-18 01:38:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 01:38:13 response :
+------------
+
+2018-05-18 05:07:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj35o6gQsc39Mcf3U9YSFi0o ;
+createtime : 1526591264 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj35o6gQsc39Mcf3U9YSFi0o ;
+to : gh_0c02969f70a6 ;
+time : 1526591264 ;
+type : event ;
+
+2018-05-18 05:07:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 05:07:44 response :
+------------
+
+2018-05-18 05:28:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526592537 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526592537 ;
+type : event ;
+
+2018-05-18 05:28:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 05:28:57 response :
+------------
+
+2018-05-18 05:32:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526592721 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526592721 ;
+type : event ;
+
+2018-05-18 05:32:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 05:32:01 response :
+------------
+
+2018-05-18 06:26:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526595967 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526595967 ;
+type : event ;
+
+2018-05-18 06:26:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 06:26:07 response :
+------------
+
+2018-05-18 06:31:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljy3SMp8HCcE4LqEx_XZdbEA ;
+createtime : 1526596298 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Ljy3SMp8HCcE4LqEx_XZdbEA ;
+to : gh_0c02969f70a6 ;
+time : 1526596298 ;
+type : event ;
+
+2018-05-18 06:31:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 06:31:38 response :
+------------
+
+2018-05-18 06:34:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526596492 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526596492 ;
+type : event ;
+
+2018-05-18 06:34:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 06:34:52 response :
+------------
+
+2018-05-18 06:37:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526596628 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526596628 ;
+type : event ;
+
+2018-05-18 06:37:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 06:37:08 response :
+------------
+
+2018-05-18 06:40:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526596816 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526596816 ;
+type : event ;
+
+2018-05-18 06:40:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 06:40:16 response :
+------------
+
+2018-05-18 06:40:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526596827 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526596827 ;
+type : event ;
+
+2018-05-18 06:40:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 06:40:27 response :
+------------
+
+2018-05-18 07:06:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526598374 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526598374 ;
+type : event ;
+
+2018-05-18 07:06:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 07:06:14 response :
+------------
+
+2018-05-18 07:06:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526598412 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526598412 ;
+type : event ;
+
+2018-05-18 07:06:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 07:06:52 response :
+------------
+
+2018-05-18 07:07:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526598453 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526598453 ;
+type : event ;
+
+2018-05-18 07:07:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 07:07:33 response :
+------------
+
+2018-05-18 07:10:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj5tReCAbUpbc07-lPZORrMI ;
+createtime : 1526598655 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4Lj5tReCAbUpbc07-lPZORrMI ;
+to : gh_0c02969f70a6 ;
+time : 1526598655 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-05-18 07:11:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj5tReCAbUpbc07-lPZORrMI ;
+createtime : 1526598664 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4Lj5tReCAbUpbc07-lPZORrMI ;
+to : gh_0c02969f70a6 ;
+time : 1526598664 ;
+type : event ;
+
+2018-05-18 07:11:04 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-18 07:11:04 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj5tReCAbUpbc07-lPZORrMI ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-18 07:14:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526598850 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526598850 ;
+type : event ;
+
+2018-05-18 07:14:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 07:14:10 response :
+------------
+
+2018-05-18 07:14:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526598890 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526598890 ;
+type : event ;
+
+2018-05-18 07:14:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 07:14:50 response :
+------------
+
+2018-05-18 07:48:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526600939 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526600939 ;
+type : event ;
+
+2018-05-18 07:48:59 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 07:48:59 response :
+------------
+
+2018-05-18 08:14:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526602447 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526602447 ;
+type : event ;
+
+2018-05-18 08:14:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 08:14:07 response :
+------------
+
+2018-05-18 08:17:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526602627 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526602627 ;
+type : event ;
+
+2018-05-18 08:17:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 08:17:07 response :
+------------
+
+2018-05-18 08:18:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526602727 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526602727 ;
+type : event ;
+
+2018-05-18 08:18:47 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 08:18:47 response :
+------------
+
+2018-05-18 08:37:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1526603876 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1526603876 ;
+type : event ;
+
+2018-05-18 08:37:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 08:37:56 response :
+------------
+
+2018-05-18 08:39:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1526603971 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1526603971 ;
+type : event ;
+
+2018-05-18 08:39:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 08:39:31 response :
+------------
+
+2018-05-18 09:11:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526605904 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526605904 ;
+type : event ;
+
+2018-05-18 09:11:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 09:11:44 response :
+------------
+
+2018-05-18 09:32:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526607156 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526607156 ;
+type : event ;
+
+2018-05-18 09:32:36 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 09:32:36 response :
+------------
+
+2018-05-18 10:13:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxhcPHcPM4yxg7KM35lqoAE ;
+createtime : 1526609637 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4LjxhcPHcPM4yxg7KM35lqoAE ;
+to : gh_0c02969f70a6 ;
+time : 1526609637 ;
+type : event ;
+
+2018-05-18 10:14:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526609641 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526609641 ;
+type : event ;
+
+2018-05-18 10:14:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 10:14:02 response :
+------------
+
+2018-05-18 10:14:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxhcPHcPM4yxg7KM35lqoAE ;
+createtime : 1526609653 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjxhcPHcPM4yxg7KM35lqoAE ;
+to : gh_0c02969f70a6 ;
+time : 1526609653 ;
+type : event ;
+
+2018-05-18 10:14:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 10:14:13 response :
+------------
+
+2018-05-18 10:17:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526609848 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526609848 ;
+type : event ;
+
+2018-05-18 10:17:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 10:17:28 response :
+------------
+
+2018-05-18 10:58:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526612330 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526612330 ;
+type : event ;
+
+2018-05-18 10:58:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 10:58:50 response :
+------------
+
+2018-05-18 10:59:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526612365 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526612365 ;
+type : event ;
+
+2018-05-18 10:59:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 10:59:25 response :
+------------
+
+2018-05-18 11:11:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526613073 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526613073 ;
+type : event ;
+
+2018-05-18 11:11:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:11:13 response :
+------------
+
+2018-05-18 11:11:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljz9QHJYgHXNGCs32vZbBMA8 ;
+createtime : 1526613073 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_1521648997 ;
+ticket : gQFd8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyS1FRRkFFOGU4YmYxY3JkQk5yMXIAAgQbQP5aAwQAjScA ;
+from : oSI4Ljz9QHJYgHXNGCs32vZbBMA8 ;
+to : gh_0c02969f70a6 ;
+time : 1526613073 ;
+type : subscribe ;
+scene : 1521648997 ;
+
+2018-05-18 11:11:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:11:13 response :
+------------
+
+2018-05-18 11:19:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526613554 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526613554 ;
+type : event ;
+
+2018-05-18 11:19:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:19:14 response :
+------------
+
+2018-05-18 11:19:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526613598 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526613598 ;
+type : event ;
+
+2018-05-18 11:19:58 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:19:58 response :
+------------
+
+2018-05-18 11:21:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526613687 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526613687 ;
+type : event ;
+
+2018-05-18 11:21:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:21:27 response :
+------------
+
+2018-05-18 11:21:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_Ts6VtDDRw4-g1LwTQd1NQ ;
+createtime : 1526613698 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_44e775c755bb23b51c21659feb4d4766 ;
+ticket : gQE08DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAybXNIc0JyOGU4YmYxMDAwME0wN3QAAgRPS-xaAwQAAAAA ;
+from : oSI4Lj_Ts6VtDDRw4-g1LwTQd1NQ ;
+to : gh_0c02969f70a6 ;
+time : 1526613698 ;
+type : subscribe ;
+scene : 44e775c755bb23b51c21659feb4d4766 ;
+
+2018-05-18 11:22:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8pxsyy5zQzCR-dKXgpCZ9Y ;
+createtime : 1526613724 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : ee395d04ec5fadc2f67c47c95fdc0447 ;
+ticket : gQFT8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycGRmMEJPOGU4YmYxMDAwMDAwN2YAAgRE9rxaAwQAAAAA ;
+from : oSI4Lj8pxsyy5zQzCR-dKXgpCZ9Y ;
+to : gh_0c02969f70a6 ;
+time : 1526613724 ;
+type : subscribe ;
+scene : ee395d04ec5fadc2f67c47c95fdc0447 ;
+
+2018-05-18 11:22:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8pxsyy5zQzCR-dKXgpCZ9Y ;
+createtime : 1526613734 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj8pxsyy5zQzCR-dKXgpCZ9Y ;
+to : gh_0c02969f70a6 ;
+time : 1526613734 ;
+type : event ;
+
+2018-05-18 11:27:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526614069 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526614069 ;
+type : event ;
+
+2018-05-18 11:27:49 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:27:49 response :
+------------
+
+2018-05-18 11:45:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzIBAPsqFcY35az8YBSTZOE ;
+createtime : 1526615149 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjzIBAPsqFcY35az8YBSTZOE ;
+to : gh_0c02969f70a6 ;
+time : 1526615149 ;
+type : event ;
+
+2018-05-18 11:45:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:45:50 response :
+------------
+
+2018-05-18 11:46:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526615162 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526615162 ;
+type : event ;
+
+2018-05-18 11:46:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:46:02 response :
+------------
+
+2018-05-18 11:46:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzIBAPsqFcY35az8YBSTZOE ;
+createtime : 1526615177 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjzIBAPsqFcY35az8YBSTZOE ;
+to : gh_0c02969f70a6 ;
+time : 1526615177 ;
+type : event ;
+
+2018-05-18 11:46:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:46:17 response :
+------------
+
+2018-05-18 11:52:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526615531 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526615531 ;
+type : event ;
+
+2018-05-18 11:52:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:52:11 response :
+------------
+
+2018-05-18 11:57:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526615879 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526615879 ;
+type : event ;
+
+2018-05-18 11:57:59 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 11:57:59 response :
+------------
+
+2018-05-18 12:01:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526616062 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526616062 ;
+type : event ;
+
+2018-05-18 12:01:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:01:02 response :
+------------
+
+2018-05-18 12:02:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526616159 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526616159 ;
+type : event ;
+
+2018-05-18 12:02:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:02:39 response :
+------------
+
+2018-05-18 12:05:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526616313 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526616313 ;
+type : event ;
+
+2018-05-18 12:05:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:05:13 response :
+------------
+
+2018-05-18 12:18:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526617130 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526617130 ;
+type : event ;
+
+2018-05-18 12:18:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:18:50 response :
+------------
+
+2018-05-18 12:22:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJxzEz22Ajq6mrYjW_3n40 ;
+createtime : 1526617320 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjzJxzEz22Ajq6mrYjW_3n40 ;
+to : gh_0c02969f70a6 ;
+time : 1526617320 ;
+type : event ;
+
+2018-05-18 12:22:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:22:00 response :
+------------
+
+2018-05-18 12:24:03 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJxzEz22Ajq6mrYjW_3n40 ;
+createtime : 1526617443 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjzJxzEz22Ajq6mrYjW_3n40 ;
+to : gh_0c02969f70a6 ;
+time : 1526617443 ;
+type : event ;
+
+2018-05-18 12:24:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:24:03 response :
+------------
+
+2018-05-18 12:26:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526617594 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526617594 ;
+type : event ;
+
+2018-05-18 12:26:34 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:26:34 response :
+------------
+
+2018-05-18 12:28:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526617713 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526617713 ;
+type : event ;
+
+2018-05-18 12:28:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:28:33 response :
+------------
+
+2018-05-18 12:32:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526617922 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526617922 ;
+type : event ;
+
+2018-05-18 12:32:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 12:32:02 response :
+------------
+
+2018-05-18 13:43:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526622188 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526622188 ;
+type : event ;
+
+2018-05-18 13:43:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 13:43:08 response :
+------------
+
+2018-05-18 13:44:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526622293 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526622293 ;
+type : event ;
+
+2018-05-18 13:44:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 13:44:53 response :
+------------
+
+2018-05-18 13:56:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526622976 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526622976 ;
+type : event ;
+
+2018-05-18 13:56:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 13:56:16 response :
+------------
+
+2018-05-18 14:16:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526624179 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526624179 ;
+type : event ;
+
+2018-05-18 14:16:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:16:19 response :
+------------
+
+2018-05-18 14:30:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526625005 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526625005 ;
+type : event ;
+
+2018-05-18 14:30:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:30:05 response :
+------------
+
+2018-05-18 14:30:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526625028 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526625028 ;
+type : event ;
+
+2018-05-18 14:30:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:30:28 response :
+------------
+
+2018-05-18 14:32:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjwdiUkWY-eoER3mMGqycbGU ;
+createtime : 1526625178 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4LjwdiUkWY-eoER3mMGqycbGU ;
+to : gh_0c02969f70a6 ;
+time : 1526625178 ;
+type : subscribe ;
+
+2018-05-18 14:32:58 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:32:58 response :
+------------
+
+2018-05-18 14:33:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjwdiUkWY-eoER3mMGqycbGU ;
+createtime : 1526625185 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjwdiUkWY-eoER3mMGqycbGU ;
+to : gh_0c02969f70a6 ;
+time : 1526625185 ;
+type : event ;
+
+2018-05-18 14:33:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:33:05 response :
+------------
+
+2018-05-18 14:35:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526625318 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526625318 ;
+type : event ;
+
+2018-05-18 14:35:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:35:19 response :
+------------
+
+2018-05-18 14:38:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526625518 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526625518 ;
+type : event ;
+
+2018-05-18 14:38:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:38:38 response :
+------------
+
+2018-05-18 14:38:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526625534 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526625534 ;
+type : event ;
+
+2018-05-18 14:38:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:38:54 response :
+------------
+
+2018-05-18 14:39:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526625554 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526625554 ;
+type : event ;
+
+2018-05-18 14:39:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:39:14 response :
+------------
+
+2018-05-18 14:39:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjwdiUkWY-eoER3mMGqycbGU ;
+createtime : 1526625593 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjwdiUkWY-eoER3mMGqycbGU ;
+to : gh_0c02969f70a6 ;
+time : 1526625593 ;
+type : event ;
+
+2018-05-18 14:39:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:39:53 response :
+------------
+
+2018-05-18 14:40:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526625614 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526625614 ;
+type : event ;
+
+2018-05-18 14:40:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:40:14 response :
+------------
+
+2018-05-18 14:40:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526625626 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526625626 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-05-18 14:41:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526625675 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526625675 ;
+type : event ;
+
+2018-05-18 14:41:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:41:15 response :
+------------
+
+2018-05-18 14:41:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+createtime : 1526625687 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj61cNqZ2u3iIxwOYG1mPHz4 ;
+to : gh_0c02969f70a6 ;
+time : 1526625687 ;
+type : event ;
+
+2018-05-18 14:41:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:41:27 response :
+------------
+
+2018-05-18 14:41:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526625713 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526625713 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-05-18 14:42:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526625734 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526625734 ;
+type : event ;
+
+2018-05-18 14:42:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526625761 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526625761 ;
+type : event ;
+
+2018-05-18 14:42:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:42:42 response :
+------------
+
+2018-05-18 14:44:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526625861 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526625861 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 14:51:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626269 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626269 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 14:51:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626280 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626280 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 14:51:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626286 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626286 ;
+type : event ;
+
+2018-05-18 14:51:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626313 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626313 ;
+type : event ;
+
+2018-05-18 14:51:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:51:53 response :
+------------
+
+2018-05-18 14:52:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526626351 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526626351 ;
+type : event ;
+
+2018-05-18 14:52:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:52:31 response :
+------------
+
+2018-05-18 14:53:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626392 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626392 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 14:53:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626400 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626400 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 14:53:40 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526626420 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526626420 ;
+type : event ;
+
+2018-05-18 14:53:40 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:53:40 response :
+------------
+
+2018-05-18 14:53:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526626437 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526626437 ;
+type : event ;
+
+2018-05-18 14:53:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:53:57 response :
+------------
+
+2018-05-18 14:54:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526626490 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526626490 ;
+type : event ;
+
+2018-05-18 14:54:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:54:50 response :
+------------
+
+2018-05-18 14:55:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526626528 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526626528 ;
+type : event ;
+
+2018-05-18 14:55:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:55:28 response :
+------------
+
+2018-05-18 14:56:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526626566 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526626566 ;
+type : event ;
+
+2018-05-18 14:56:06 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:56:06 response :
+------------
+
+2018-05-18 14:58:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526626680 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526626680 ;
+type : event ;
+
+2018-05-18 14:58:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 14:58:00 response :
+------------
+
+2018-05-18 15:01:42 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526626902 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526626902 ;
+type : event ;
+
+2018-05-18 15:01:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:01:42 response :
+------------
+
+2018-05-18 15:02:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526626925 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526626925 ;
+type : event ;
+
+2018-05-18 15:02:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:02:05 response :
+------------
+
+2018-05-18 15:02:06 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526626926 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526626926 ;
+type : event ;
+
+2018-05-18 15:02:06 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:02:06 response :
+------------
+
+2018-05-18 15:07:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526627225 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526627225 ;
+type : event ;
+
+2018-05-18 15:07:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:07:05 response :
+------------
+
+2018-05-18 15:09:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526627361 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526627361 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 15:09:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526627387 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526627387 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 15:10:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526627401 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : a52a4eeb79c9769317020895fd566f43 ;
+ticket : gQFI8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2RJMkE2OGU4YmYxMDAwMGcwN0cAAgTIdf5aAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526627401 ;
+type : subscribe ;
+scene : a52a4eeb79c9769317020895fd566f43 ;
+
+2018-05-18 15:10:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526627437 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526627437 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-05-18 15:10:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+createtime : 1526627450 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4Lj0dXV13CxEf2emS9MmkhM_k ;
+to : gh_0c02969f70a6 ;
+time : 1526627450 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-05-18 15:13:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526627611 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526627611 ;
+type : event ;
+
+2018-05-18 15:13:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:13:31 response :
+------------
+
+2018-05-18 15:15:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526627741 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526627741 ;
+type : event ;
+
+2018-05-18 15:15:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:15:41 response :
+------------
+
+2018-05-18 15:16:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526627784 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526627784 ;
+type : event ;
+
+2018-05-18 15:16:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:16:24 response :
+------------
+
+2018-05-18 15:17:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526627824 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526627824 ;
+type : event ;
+
+2018-05-18 15:17:04 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:17:04 response :
+------------
+
+2018-05-18 15:30:20 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vuOH0YH06ZbsU6XLgu7Z1I0 ;
+createtime : 1526628620 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : o4Uy9vuOH0YH06ZbsU6XLgu7Z1I0 ;
+to : gh_9aac6b6c619f ;
+time : 1526628620 ;
+type : subscribe ;
+
+2018-05-18 15:30:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:30:20 response :
+------------
+
+2018-05-18 15:41:25 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vuOH0YH06ZbsU6XLgu7Z1I0 ;
+createtime : 1526629282 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 易货操作 ;
+from : o4Uy9vuOH0YH06ZbsU6XLgu7Z1I0 ;
+to : gh_9aac6b6c619f ;
+time : 1526629282 ;
+type : event ;
+
+2018-05-18 15:41:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:41:25 response :
+------------
+
+2018-05-18 15:41:31 trace :
+------------
+Array:
+tousername : gh_9aac6b6c619f ;
+fromusername : o4Uy9vuOH0YH06ZbsU6XLgu7Z1I0 ;
+createtime : 1526629291 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://m.qlchat.com/live/320000044317761.htm ;
+menuid : 425178868 ;
+from : o4Uy9vuOH0YH06ZbsU6XLgu7Z1I0 ;
+to : gh_9aac6b6c619f ;
+time : 1526629291 ;
+type : event ;
+
+2018-05-18 15:41:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:41:31 response :
+------------
+
+2018-05-18 15:41:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526629306 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526629306 ;
+type : event ;
+
+2018-05-18 15:41:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:41:46 response :
+------------
+
+2018-05-18 15:42:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526629345 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526629345 ;
+type : event ;
+
+2018-05-18 15:42:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:42:25 response :
+------------
+
+2018-05-18 15:42:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526629363 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526629363 ;
+type : event ;
+
+2018-05-18 15:42:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:42:43 response :
+------------
+
+2018-05-18 15:45:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526629500 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526629500 ;
+type : event ;
+
+2018-05-18 15:45:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:45:00 response :
+------------
+
+2018-05-18 15:46:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526629588 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526629588 ;
+type : event ;
+
+2018-05-18 15:46:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:46:28 response :
+------------
+
+2018-05-18 15:52:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+createtime : 1526629949 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6FuF7nRHHuo8tGMR8S_P14 ;
+to : gh_0c02969f70a6 ;
+time : 1526629949 ;
+type : event ;
+
+2018-05-18 15:52:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 15:52:29 response :
+------------
+
+2018-05-18 16:02:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526630545 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526630545 ;
+type : event ;
+
+2018-05-18 16:02:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 16:02:25 response :
+------------
+
+2018-05-18 16:32:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526632352 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526632352 ;
+type : event ;
+
+2018-05-18 16:32:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 16:32:32 response :
+------------
+
+2018-05-18 16:38:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526632681 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526632681 ;
+type : event ;
+
+2018-05-18 16:38:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 16:38:01 response :
+------------
+
+2018-05-18 16:42:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526632948 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526632948 ;
+type : event ;
+
+2018-05-18 16:42:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 16:42:29 response :
+------------
+
+2018-05-18 16:43:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526633008 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526633008 ;
+type : event ;
+
+2018-05-18 16:43:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 16:43:29 response :
+------------
+
+2018-05-18 17:01:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj8nwC_ZrGWcnQZVuQLeUjok ;
+createtime : 1526634101 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj8nwC_ZrGWcnQZVuQLeUjok ;
+to : gh_0c02969f70a6 ;
+time : 1526634101 ;
+type : event ;
+
+2018-05-18 17:01:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:01:41 response :
+------------
+
+2018-05-18 17:07:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526634437 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526634437 ;
+type : event ;
+
+2018-05-18 17:07:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:07:17 response :
+------------
+
+2018-05-18 17:08:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526634507 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526634507 ;
+type : event ;
+
+2018-05-18 17:08:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:08:28 response :
+------------
+
+2018-05-18 17:12:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526634738 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526634738 ;
+type : event ;
+
+2018-05-18 17:17:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526635044 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526635044 ;
+type : event ;
+
+2018-05-18 17:17:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:17:24 response :
+------------
+
+2018-05-18 17:17:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526635058 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526635058 ;
+type : event ;
+
+2018-05-18 17:17:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:17:38 response :
+------------
+
+2018-05-18 17:20:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526635205 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526635205 ;
+type : event ;
+
+2018-05-18 17:20:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:20:05 response :
+------------
+
+2018-05-18 17:23:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526635387 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526635387 ;
+type : event ;
+
+2018-05-18 17:23:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:23:07 response :
+------------
+
+2018-05-18 17:24:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526635455 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526635455 ;
+type : event ;
+
+2018-05-18 17:24:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:24:15 response :
+------------
+
+2018-05-18 17:30:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526635834 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526635834 ;
+type : event ;
+
+2018-05-18 17:30:34 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:30:34 response :
+------------
+
+2018-05-18 17:30:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526635837 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526635837 ;
+type : event ;
+
+2018-05-18 17:30:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:30:37 response :
+------------
+
+2018-05-18 17:34:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526636096 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526636096 ;
+type : event ;
+
+2018-05-18 17:34:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:34:56 response :
+------------
+
+2018-05-18 17:35:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526636121 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526636121 ;
+type : event ;
+
+2018-05-18 17:37:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljx9VlMF6DvHJBNimkl7nzdc ;
+createtime : 1526636267 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_96d9b9cb56739c0ed028a01caaa4d2bf ;
+ticket : gQFG8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycWczZEExOGU4YmYxMDAwMHcwN0YAAgRanv5aAwQAAAAA ;
+from : oSI4Ljx9VlMF6DvHJBNimkl7nzdc ;
+to : gh_0c02969f70a6 ;
+time : 1526636267 ;
+type : subscribe ;
+scene : 96d9b9cb56739c0ed028a01caaa4d2bf ;
+
+2018-05-18 17:37:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526636268 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526636268 ;
+type : event ;
+
+2018-05-18 17:37:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:37:48 response :
+------------
+
+2018-05-18 17:37:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljx9VlMF6DvHJBNimkl7nzdc ;
+createtime : 1526636270 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Ljx9VlMF6DvHJBNimkl7nzdc ;
+to : gh_0c02969f70a6 ;
+time : 1526636270 ;
+type : event ;
+
+2018-05-18 17:37:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:37:50 response :
+------------
+
+2018-05-18 17:42:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxRxNElxY1q06aCgzX4v2qI ;
+createtime : 1526636551 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_96d9b9cb56739c0ed028a01caaa4d2bf ;
+ticket : gQFG8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycWczZEExOGU4YmYxMDAwMHcwN0YAAgRanv5aAwQAAAAA ;
+from : oSI4LjxRxNElxY1q06aCgzX4v2qI ;
+to : gh_0c02969f70a6 ;
+time : 1526636551 ;
+type : subscribe ;
+scene : 96d9b9cb56739c0ed028a01caaa4d2bf ;
+
+2018-05-18 17:42:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxRxNElxY1q06aCgzX4v2qI ;
+createtime : 1526636554 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjxRxNElxY1q06aCgzX4v2qI ;
+to : gh_0c02969f70a6 ;
+time : 1526636554 ;
+type : event ;
+
+2018-05-18 17:42:35 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:42:35 response :
+------------
+
+2018-05-18 17:49:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526636948 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526636948 ;
+type : event ;
+
+2018-05-18 17:49:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:49:08 response :
+------------
+
+2018-05-18 17:49:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526636996 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526636996 ;
+type : event ;
+
+2018-05-18 17:49:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:49:56 response :
+------------
+
+2018-05-18 17:53:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526637201 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526637201 ;
+type : event ;
+
+2018-05-18 17:53:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:53:21 response :
+------------
+
+2018-05-18 17:54:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526637248 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526637248 ;
+type : event ;
+
+2018-05-18 17:54:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:54:08 response :
+------------
+
+2018-05-18 17:55:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+createtime : 1526637351 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3lHsSzrVLGfkIdjlz7Bm9Q ;
+to : gh_0c02969f70a6 ;
+time : 1526637351 ;
+type : event ;
+
+2018-05-18 17:55:51 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:55:51 response :
+------------
+
+2018-05-18 17:56:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4cRgzlVbTDrNDVUNICMwDs ;
+createtime : 1526637362 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4Lj4cRgzlVbTDrNDVUNICMwDs ;
+to : gh_0c02969f70a6 ;
+time : 1526637362 ;
+type : subscribe ;
+
+2018-05-18 17:56:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:56:02 response :
+------------
+
+2018-05-18 17:56:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4cRgzlVbTDrNDVUNICMwDs ;
+createtime : 1526637378 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj4cRgzlVbTDrNDVUNICMwDs ;
+to : gh_0c02969f70a6 ;
+time : 1526637378 ;
+type : event ;
+
+2018-05-18 17:56:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:56:18 response :
+------------
+
+2018-05-18 17:59:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526637564 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526637564 ;
+type : event ;
+
+2018-05-18 17:59:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 17:59:24 response :
+------------
+
+2018-05-18 18:07:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526638052 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526638052 ;
+type : event ;
+
+2018-05-18 18:07:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:07:32 response :
+------------
+
+2018-05-18 18:12:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526638376 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526638376 ;
+type : event ;
+
+2018-05-18 18:12:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:12:56 response :
+------------
+
+2018-05-18 18:12:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526638376 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526638376 ;
+type : event ;
+
+2018-05-18 18:12:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:12:56 response :
+------------
+
+2018-05-18 18:22:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526638927 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526638927 ;
+type : event ;
+
+2018-05-18 18:22:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:22:07 response :
+------------
+
+2018-05-18 18:23:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzoubauiDtzqvdyHF3n2Ovo ;
+createtime : 1526638997 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4LjzoubauiDtzqvdyHF3n2Ovo ;
+to : gh_0c02969f70a6 ;
+time : 1526638997 ;
+type : event ;
+
+2018-05-18 18:23:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzoubauiDtzqvdyHF3n2Ovo ;
+createtime : 1526639003 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjzoubauiDtzqvdyHF3n2Ovo ;
+to : gh_0c02969f70a6 ;
+time : 1526639003 ;
+type : event ;
+
+2018-05-18 18:23:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:23:24 response :
+------------
+
+2018-05-18 18:24:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526639057 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526639057 ;
+type : event ;
+
+2018-05-18 18:24:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:24:17 response :
+------------
+
+2018-05-18 18:24:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526639084 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526639084 ;
+type : event ;
+
+2018-05-18 18:24:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:24:44 response :
+------------
+
+2018-05-18 18:30:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526639408 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526639408 ;
+type : event ;
+
+2018-05-18 18:30:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:30:08 response :
+------------
+
+2018-05-18 18:37:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526639838 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526639838 ;
+type : event ;
+
+2018-05-18 18:37:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 18:37:18 response :
+------------
+
+2018-05-18 19:00:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526641231 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526641231 ;
+type : event ;
+
+2018-05-18 19:00:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:00:31 response :
+------------
+
+2018-05-18 19:04:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6ztW-Y-mSjduATEWRJ7Y-g ;
+createtime : 1526641499 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 14123052e102305af980a55ac045f31b ;
+ticket : gQGp8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTlVBcEJ0OGU4YmYxMDAwMHcwN0MAAgQwWeRaAwQAAAAA ;
+from : oSI4Lj6ztW-Y-mSjduATEWRJ7Y-g ;
+to : gh_0c02969f70a6 ;
+time : 1526641499 ;
+type : subscribe ;
+scene : 14123052e102305af980a55ac045f31b ;
+
+2018-05-18 19:05:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526641511 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526641511 ;
+type : event ;
+
+2018-05-18 19:05:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:05:11 response :
+------------
+
+2018-05-18 19:05:28 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6ztW-Y-mSjduATEWRJ7Y-g ;
+createtime : 1526641528 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj6ztW-Y-mSjduATEWRJ7Y-g ;
+to : gh_0c02969f70a6 ;
+time : 1526641528 ;
+type : event ;
+
+2018-05-18 19:05:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:05:28 response :
+------------
+
+2018-05-18 19:10:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6b0Dp2-dtm6thMaqEbWfbE ;
+createtime : 1526641812 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : Array ;
+from : oSI4Lj6b0Dp2-dtm6thMaqEbWfbE ;
+to : gh_0c02969f70a6 ;
+time : 1526641812 ;
+type : subscribe ;
+
+2018-05-18 19:10:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:10:12 response :
+------------
+
+2018-05-18 19:15:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526642115 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526642115 ;
+type : event ;
+
+2018-05-18 19:15:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:15:15 response :
+------------
+
+2018-05-18 19:18:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526642298 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526642298 ;
+type : event ;
+
+2018-05-18 19:18:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:18:18 response :
+------------
+
+2018-05-18 19:51:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526644292 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526644292 ;
+type : event ;
+
+2018-05-18 19:51:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 19:51:32 response :
+------------
+
+2018-05-18 20:27:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526646454 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526646454 ;
+type : event ;
+
+2018-05-18 20:27:34 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 20:27:34 response :
+------------
+
+2018-05-18 20:38:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526647128 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526647128 ;
+type : event ;
+
+2018-05-18 20:38:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 20:38:48 response :
+------------
+
+2018-05-18 20:40:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ZE-3nHROoWue_RLRvjyqs ;
+createtime : 1526647221 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj3ZE-3nHROoWue_RLRvjyqs ;
+to : gh_0c02969f70a6 ;
+time : 1526647221 ;
+type : event ;
+
+2018-05-18 20:40:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 20:40:21 response :
+------------
+
+2018-05-18 20:40:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526647221 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526647221 ;
+type : event ;
+
+2018-05-18 20:40:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 20:40:21 response :
+------------
+
+2018-05-18 20:40:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ZE-3nHROoWue_RLRvjyqs ;
+createtime : 1526647229 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://www.haolangtech.com/index.php/addon/HotActivity/HotActivity/leagueindex/id/1.html?from=groupmessage&isappinstalled=0 ;
+menuid : 425602379 ;
+from : oSI4Lj3ZE-3nHROoWue_RLRvjyqs ;
+to : gh_0c02969f70a6 ;
+time : 1526647229 ;
+type : event ;
+
+2018-05-18 20:40:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 20:40:29 response :
+------------
+
+2018-05-18 21:12:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526649133 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526649133 ;
+type : event ;
+
+2018-05-18 21:12:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 21:12:14 response :
+------------
+
+2018-05-18 21:15:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1PlGaJtnu3ltKmM4IkTgjU ;
+createtime : 1526649331 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : d634d172e7754362ea8b642e285be6b7 ;
+ticket : gQGW8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyb1ZVQ0FrOGU4YmYxMDAwME0wN28AAgQJef1aAwQAAAAA ;
+from : oSI4Lj1PlGaJtnu3ltKmM4IkTgjU ;
+to : gh_0c02969f70a6 ;
+time : 1526649331 ;
+type : subscribe ;
+scene : d634d172e7754362ea8b642e285be6b7 ;
+
+2018-05-18 21:15:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1PlGaJtnu3ltKmM4IkTgjU ;
+createtime : 1526649346 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : d634d172e7754362ea8b642e285be6b7 ;
+ticket : gQGW8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyb1ZVQ0FrOGU4YmYxMDAwME0wN28AAgQJef1aAwQAAAAA ;
+from : oSI4Lj1PlGaJtnu3ltKmM4IkTgjU ;
+to : gh_0c02969f70a6 ;
+time : 1526649346 ;
+type : subscribe ;
+scene : d634d172e7754362ea8b642e285be6b7 ;
+
+2018-05-18 21:39:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526650790 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526650790 ;
+type : event ;
+
+2018-05-18 21:39:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 21:39:50 response :
+------------
+
+2018-05-18 21:43:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526651017 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526651017 ;
+type : event ;
+
+2018-05-18 21:43:37 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-18 21:43:37 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-18 21:44:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526651071 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526651071 ;
+type : event ;
+
+2018-05-18 21:44:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 21:44:31 response :
+------------
+
+2018-05-18 22:10:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_VclHp_Q6s1R2OHQvfVTEs ;
+createtime : 1526652646 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj_VclHp_Q6s1R2OHQvfVTEs ;
+to : gh_0c02969f70a6 ;
+time : 1526652646 ;
+type : event ;
+
+2018-05-18 22:10:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:10:46 response :
+------------
+
+2018-05-18 22:13:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526652782 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526652782 ;
+type : event ;
+
+2018-05-18 22:13:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:13:02 response :
+------------
+
+2018-05-18 22:13:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526652809 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526652809 ;
+type : event ;
+
+2018-05-18 22:13:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:13:29 response :
+------------
+
+2018-05-18 22:15:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526652921 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526652921 ;
+type : event ;
+
+2018-05-18 22:15:22 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:15:22 response :
+------------
+
+2018-05-18 22:19:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526653192 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526653192 ;
+type : event ;
+
+2018-05-18 22:19:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:19:52 response :
+------------
+
+2018-05-18 22:28:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+createtime : 1526653725 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj-fIP2F8q0XTuqCghSV5nvk ;
+to : gh_0c02969f70a6 ;
+time : 1526653725 ;
+type : event ;
+
+2018-05-18 22:28:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:28:45 response :
+------------
+
+2018-05-18 22:31:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526653903 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526653903 ;
+type : event ;
+
+2018-05-18 22:31:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:31:43 response :
+------------
+
+2018-05-18 22:36:03 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526654163 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526654163 ;
+type : event ;
+
+2018-05-18 22:36:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:36:03 response :
+------------
+
+2018-05-18 22:45:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+createtime : 1526654753 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425602379 ;
+from : oSI4Lj03Bm6PdWKPCf_DAlc_yh-Q ;
+to : gh_0c02969f70a6 ;
+time : 1526654753 ;
+type : event ;
+
+2018-05-18 22:45:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-18 22:45:53 response :
+------------
+

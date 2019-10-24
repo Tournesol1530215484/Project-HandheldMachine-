@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="../addons/sz_yi/static/css/font-awesome.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+        <meta name="format-detection" content="telephone=no" />
+        <script language="javascript" src="../addons/sz_yi/static/js/require.js"></script>
+        <script language="javascript" src="../addons/sz_yi/static/js/app/config.js?v=2"></script>
+		<script src="//cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+        
+        <script language="javascript" src="../addons/sz_yi/static/js/dist/jquery.gcjs.js"></script>
+        <!--<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/static/css/style_red.css">-->
+        <link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/static/css/style.css">
+		<!--<script language="javascript" src="../addons/sz_yi/static/js/dist/jquery.touchSwipe.min.js"></script><script language="javascript" src="../addons/sz_yi/static/js/dist/jquery-1.11.1.min.js"></script>-->
+		
+		
+		<link rel="stylesheet" href="../addons/sz_yi/static/css1/amazeui.min.css">
+		<link rel="stylesheet" href="../addons/sz_yi/static/css1/app.css">
+		<link href="../addons/sz_yi/static/css1/style1.css" rel="stylesheet">
+		
+	<!--	<script type="text/javascript" src="../addons/sz_yi/static/js1/detector.js"></script>
+		<script src="../addons/sz_yi/static/js1/jquery.2.2.3.min.js"></script>
+		<script type="text/javascript" src="../addons/sz_yi/static/js1/layer.js"></script>
+		<script type="text/javascript" src="../addons/sz_yi/static/js1/jquery.form.js"></script>
+		<script src="../addons/sz_yi/static/js1/amazeui.min.js"></script>-->
+
+    </head>
+    <body>
+<script language="javascript">
+    require(['core','tpl'],function(core,tpl){
+        core.init({
+            siteUrl: "{$_W['siteroot']}",
+            baseUrl: "{php echo $this->createMobileUrl('ROUTES')}"
+        });
+
+    })
+</script>
+{if is_array($this->header)}
+<div class="follow_topbar"><div class="headimg"><img src="{php echo $this->header['icon']}"></div><div class="info"><div class="i">{php echo $this->header['text']}</div><div class="i">关注公众号，享专属服务</div></div><div class="sub" onClick="location.href='{php echo $this->header['url']}'">立即关注</div></div>
+<div style='height:44px;'>&nbsp;</div>
+{/if}

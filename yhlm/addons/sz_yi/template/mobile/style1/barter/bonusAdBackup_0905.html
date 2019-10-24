@@ -1,0 +1,253 @@
+{template 'common/header'}
+<title>看红包广告赚的{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}易货码{/if}</title><!--  看红包广告赚的 我拆红包的 两种title 需要动态获取-->
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.picker.min.css">
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/bonus_ad.css" />
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">看红包广告赚的{if $_GPC['who'] == 'cash'}现金{elseif $_GPC['who'] == 'code'}易货码{/if}
+        </div> <!--  看红包广告赚的 我拆红包的 两种title 需要动态获取-->
+    </div>
+    <div class="time-container">
+        <div class="time-tips">选择时间查看(年/月)</div>
+        <input data-options='{"type":"month"}' class="search-time" id="search-time" type="text" name="time" value="" placeholder="年-月" readonly="readonly">
+    </div>
+    <div class="show-month-money">当月赚的 <span class="month-money-value"></span></div><!-- 这里根据类型来赋值 -->
+    <div class="list-box">
+        <ul class="list-ul ad-container">      
+            <!-- 下拉加载数据容器 -->
+        </ul> 
+    </div>
+</div>
+<!-- 两种模板 用户拆红包记录 或者 记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item">
+            <div class="flex-center">
+                <div class="pic-container">
+                    <div class="pic-box" style="background: url('<%g.thumb[0]%>') no-repeat center; background-size: cover;"></div>
+                </div>
+                <div class="content-box">
+                    <div class="ad-tag line-clamp2">
+                        <%g.title%>
+                    </div>
+                    <div class="bonusad-time line-clamp1"><!-- 拆红包时间 -->
+                       <%g.ctime%>
+                    </div>
+                </div>
+                <div class="get-how-much"><!-- 红包价值,根据红包类型选择显示 易货码 还是 ￥ -->
+                    <%if g.bonustype == 1%>
+                        +￥<%g.money%>
+                    <%else%>
+                        +<%g.money%>易货码 
+                    <%/if%>
+                </div>
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无记录</div>
+</script>
+<script type="text/javascript">
+    //获取现在的年月
+    function getNowTime(){
+        var d = new Date();
+        //var x = $("#search-time");
+        var y = d.getFullYear();
+        var m = d.getMonth()+1;
+        if(m < 10){
+            m = "0" + m;
+        }
+        //x.val(y + '-' + m);
+        return y + '-' + m;
+    }
+</script>
+<script type="text/javascript">
+    var page = 1; 
+    var search_time = getNowTime();
+    require(['tpl', 'core'], function(tpl, core) {
+        
+        $("#search-time").val(search_time);
+        //初始化时间插件 beginDate: new Date()//设置开始日期
+        var $timebtn = document.getElementById('search-time');
+        $timebtn.addEventListener('tap', function() {
+            var _self = this;
+            var option = {
+                type: "month",//设置日历初始视图模式 
+                endDate: new Date()//设置结束日期 
+            }; 
+            if(_self.picker) {
+                _self.picker.show(function (rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                    if(search_time == rs.text){
+                        return false;
+                    }
+                    page = 1;
+                    search_time = rs.text;
+                    //console.log("2: "+search_time);
+                    core.json('barter/bonus', {page:page,op:'bonusAd',who:'{$_GPC['who']}',search_time: search_time}, function(json) {
+                        console.log(11111111111111111111111111111111);
+                        if (json.result.list.length <= 0) {
+                            $(".list-box .list-ul").html(tpl('tpl_null'));
+                            //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+                            {if $_GPC["who"] == "cash"}
+                                $(".month-money-value").text("￥ 0.00");
+                            {elseif $_GPC["who"] == "code"}
+                                $(".month-money-value").text("0.00 易货码");
+                            {/if}
+                            return;
+                        }
+                        $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+                        //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+
+                        {if $_GPC['who'] == 'cash'}
+                            $(".month-money-value").text("￥"+json.result.total);
+                        {elseif $_GPC['who'] == 'code'}
+                            $(".month-money-value").text(json.result.total+"易货码");
+                        {/if}
+
+                        var loaded = false;         
+                        var stop=true; 
+                        $(window).scroll(function(){ 
+                            if(loaded){
+                                return;
+                            }
+                            totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                            if($(document).height() <= totalheight){
+                                if(stop==true){ 
+                                    stop=false; 
+                                    $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                                    page++;
+                                    core.json('barter/bonus', {page:page,op:'bonusAd',who:'{$_GPC['who']}',search_time: search_time}, function(morejson) {  
+                                        stop = true;
+                                        $('#list_loading').remove();
+                                        $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                                        if (morejson.result.list.length <morejson.result.pagesize) {
+                                            $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                            loaded = true;
+                                            return;
+                                        }
+                                    },true); 
+                                } 
+                            } 
+                        });
+                    }, true);
+                });
+            }else {
+                var id = this.getAttribute('id');
+                _self.picker = new mui.DtPicker(option);
+                _self.picker.show(function(rs) {
+                    _self.value = rs.text;
+                    _self.picker.dispose();
+                    _self.picker = null;
+                    if(search_time == rs.text){
+                        return false;
+                    }
+                    page = 1;
+                    search_time = rs.text;
+                    //console.log("1: "+search_time);
+                    core.json('barter/bonus', {page:page,op:'bonusAd',who:'{$_GPC['who']}',search_time: search_time}, function(json) {
+                        console.log(2222222222222222222222222222222222222222);
+                        if (json.result.list.length <= 0) {
+                            $(".list-box .list-ul").html(tpl('tpl_null'));
+                            //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+
+                            {if $_GPC['who'] == 'cash'}
+                                $(".month-money-value").text("￥0.00");
+                            {elseif $_GPC['who'] == 'code'}
+                                $(".month-money-value").text("0.00易货码");
+                            {/if}
+                            return;
+                        }
+                        $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+                        //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+                        {if $_GPC['who'] == 'cash'}
+                            $(".month-money-value").text("￥"+json.result.total);
+                        {elseif $_GPC['who'] == 'code'}
+                            $(".month-money-value").text(json.result.total+"易货码");
+                        {/if}
+                        var loaded = false;
+                        var stop=true; 
+                        $(window).scroll(function(){ 
+                            if(loaded){
+                                return;
+                            }
+                            totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                            if($(document).height() <= totalheight){
+                                if(stop==true){ 
+                                    stop=false; 
+                                    $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                                    page++;
+                                    core.json('barter/bonus', {page:page,op:'bonusAd',who:'{$_GPC['who']}',search_time: search_time}, function(morejson) {  
+                                        stop = true;
+                                        $('#list_loading').remove();
+                                        $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                                        if (morejson.result.list.length <morejson.result.pagesize) {
+                                            $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                            loaded = true;
+                                            return;
+                                        }
+                                    },true); 
+                                } 
+                            } 
+                        });
+                    }, true);
+                });
+            }
+        }, false);
+        //console.log(search_time);
+        core.json('barter/bonus', {page:page,op:'bonusAd',who:'{$_GPC['who']}',search_time: search_time}, function(json) {
+            console.log(333333333333333333333333333333333333333333333);
+            if (json.result.list.length <= 0) {
+                $(".list-box .list-ul").html(tpl('tpl_null'));
+                //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+                {if $_GPC['who'] == 'cash'}
+                    $(".month-money-value").text("￥0.00");
+                {elseif $_GPC['who'] == 'code'}
+                    $(".month-money-value").text("0.00易货码");
+                {/if}
+                return;
+            }
+            $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+            //这里根据类型来赋值 每个月赚总共赚多少钱 和下拉数据一起返回来
+            {if $_GPC["who"] == "cash"}
+                $(".month-money-value").text("￥"+json.result.total);
+            {elseif $_GPC["who"] == "code"}
+                $(".month-money-value").text(json.result.total+"易货码");
+            {/if}
+
+            var loaded = false;
+            var stop=true; 
+            $(window).scroll(function(){ 
+                if(loaded){
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                if($(document).height() <= totalheight){
+                    if(stop==true){ 
+                        stop=false; 
+                        $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                        page++;
+                        core.json('barter/bonus', {page:page,op:'bonusAd',who:'{$_GPC['who']}',search_time: search_time}, function(morejson) {  
+                            stop = true;
+                            $('#list_loading').remove();
+                            $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                            if (morejson.result.list.length <morejson.result.pagesize) {
+                                $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                loaded = true;
+                                return;
+                            }
+                        },true); 
+                    } 
+                } 
+            });
+        }, true);
+    });
+</script>
+{template 'common/footer'}

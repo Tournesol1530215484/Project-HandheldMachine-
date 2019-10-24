@@ -1,0 +1,836 @@
+{template 'common/header'}
+<title>
+{if $_GPC['type'] ==1}
+    我参与的活动
+{else if $_GPC['type'] ==2}
+    我转发的活动
+{else if $_GPC['type'] ==3}
+    我发布的活动
+{/if}
+
+</title><!-- 这里的标签动态获取  -->
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #eee;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .act-title{
+        background: #fff;
+    }
+    .act-title .act-link{
+        width: 100%;
+        font-size: 16px;
+        color: #333;
+        padding: 10px;
+        text-decoration: none;
+    }
+    .act-title .act-link .flex1{
+        width: calc(100% - 30px);
+        line-height: 1.3;
+    }
+    .act-title .act-link .flex2{
+        width: 30px;
+        text-align: center;
+    }
+    .act-title .act-link .flex2 i{
+        font-size: 24px;
+    }
+    .data-box{
+        background: #fff;
+        padding: 10px 0;
+    }
+    .data-box .data-item{
+        width: 25%;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+        border-right: 1px solid #eee;
+    }
+    .data-box .data-item:last-child{
+        border: 0;
+    }
+    .data-box .data-item .data-item-num{
+        display: block;
+        color: #999;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .operate-box .op-ul{
+        background: #fff; 
+        margin-top: 10px;
+    }
+    .operate-box .op-ul .op-item{
+        float: left;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    .operate-box .op-item{
+        width: calc(100% / 3);
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+    .operate-box .op-item .op-item-link{
+        display: block;
+        color: #999;
+        line-height: 30px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none;
+    }
+    .operate-box .op-item .icon-item{
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        background: #00c1ff;
+        color: #fff;
+        font-size: 25px;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+    }
+    .promotion-layer,
+    .description_layer,
+    .description_layer1{
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 9;
+        display: none;
+    }
+    .promotion-box,
+    .description,
+    .description1{
+        height: auto;
+        width: 96%;
+        background: #fff;
+        position: fixed;
+        z-index: 10;
+        display: none;
+        left: 50%;
+        top: 50%;
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+    .promotion-tips,
+    .description .description-tag,
+    .description1 .description-tag1{
+        font-size: 14px;
+        padding: 10px;
+        background-color: #f1f1f1;
+        position: fixed;
+        width: 100%;
+    }
+    .promotion-link{
+        padding: 50px 10px 10px;
+        width: 100%;
+        font-size: 14px;
+        word-wrap:break-word;
+        word-break:normal;
+        color: #000;
+    }
+    .description .description-cont,
+    .description1 .description-cont1{
+        padding: 50px 10px 10px;
+        height: auto;
+        width: 100%;
+        font-size: 12px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .promotion-box .close.icon,
+    .description .close.icon,
+    .description1 .close1.icon1{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #666;
+        font-weight: normal;
+        z-index: 11;
+        margin-top:0;
+        margin-left:0;
+        width:24px;
+        height:24px;
+    }
+    .promotion-box .close.icon:before,
+    .description .close.icon:before,
+    .description1 .close1.icon1:before{
+        content:'';
+        position:absolute;
+        top:10px;
+        width:24px;
+        height:2px;
+        background-color: currentColor;
+        -webkit-transform:rotate(-45deg);
+        transform:rotate(-45deg);
+    }
+    .promotion-box .close.icon:after,
+    .description .close.icon:after,
+    .description1 .close1.icon1:after{
+        content: '';
+        position: absolute;
+        top: 10px;
+        width: 24px;
+        height: 2px;
+        background-color: currentColor;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .copy-btn1{
+        font-size: 14px;
+        text-align: center;
+        width: 96%;
+        margin: 10px auto;
+        padding: 10px;
+        background: #009BF8;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .layer-btn-box{
+        width: 100%;
+    }
+    .layer-btn{
+        float: left;
+        font-size: 14px;
+        text-align: center;
+        width: 46%;
+        margin: 10px 2%;
+        padding: 10px;
+        background: #009BF8;
+        color: #fff;
+        border-radius: 5px;
+    }
+    .cancel-btn{
+        background: #999;
+    }
+    #address{
+        width: 100%;
+        padding: 10px 3px;
+        resize: none;
+        outline: none;
+        border: 1px solid #eee;
+    }
+    .poster-tpl-box{
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+    .poster-tpl-box .poster-tpl-item,
+    .poster-tpl-box .poster-tpl-item1{
+        width: 46%;
+        margin-right: 2%;
+        margin-left: 2%;
+        position: relative;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+    }
+    .poster-tpl-box .checked-parent{
+        border: 1px solid red;
+    }
+    .poster-tpl-box .poster-tpl-item .tpl-img,
+    .poster-tpl-box .poster-tpl-item1 .tpl-img{
+        width: 100%;
+        max-width: 100%;
+    }
+    .poster-tpl-box .poster-tpl-item .radio-po-tp,
+    .poster-tpl-box .poster-tpl-item1 .radio-po-tp1{
+        display: none;
+    }
+    .poster-tpl-box .poster-tpl-item .radio-po-lb,
+    .poster-tpl-box .poster-tpl-item1 .radio-po-lb{
+        display: block;
+        margin: 0;
+    }
+    .poster-tpl-box .poster-tpl-item .checked-icon,
+    .poster-tpl-box .poster-tpl-item1 .checked-icon{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        font-size: 22px;
+        line-height: 30px;
+        background: rgba(0,0,0,.5);
+        color: #fff;
+    }
+    .poster-tpl-box .poster-tpl-item .no-checked-icon,
+    .poster-tpl-box .poster-tpl-item1 .no-checked-icon{
+        display: none;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">
+            {if $_GPC['type'] ==1}
+                我参与的活动
+            {else if $_GPC['type'] ==2}
+                我转发的活动
+            {else if $_GPC['type'] ==3}
+                我发布的活动
+            {/if}
+    </div><!-- 这里的标签动态获取 我参与的活动 我转发的活动 我发布的活动 -->
+    </div>
+    <div class="act-title">
+        <a href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'detail','id'=>$_GPC['id']))}" class="act-link flex-center">
+            <span class="flex1">{$activity['title']}</span>
+            <span class="flex2"><i class="fa fa-angle-right trun-right"></i></span>
+        </a>
+    </div>
+    {if $_GPC['type'] ==3}
+    <div class="data-box flex-center">
+        <div class="data-item">
+            阅读
+            <span class="data-item-num">{$activity['browse']}</span>
+        </div>
+        <div class="data-item">
+            转发
+            <span class="data-item-num">0</span>
+        </div>
+        <div class="data-item">
+            报名
+            <span class="data-item-num">{$activity['sign']}/{$activity['signup']}</span>
+        </div>
+        <div class="data-item">         
+            签到
+            <span class="data-item-num">0/{$activity['sign']}</span>
+        </div>
+    </div>
+    {/if}
+    <div class="operate-box">
+        <!-- 下面的三个op-ul 使用内置标签来进行判断是 我参与的活动 还是我转发的活动 还是 我发布的活动 -->
+        <!-- 我发布的活动 -->
+        {if $_GPC['type'] == 3}
+        <ul class="op-ul clearfloat">
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'add','id'=>$_GPC['id'],'what'=>'1'))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>编辑活动信息
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'add','id'=>$_GPC['id'],'what'=>'2'))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    </div>编辑活动正文
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="javascript:void(0);" onclick="showdescription1()">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </div>邀请海报
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="javascript:void(0);" onclick="showpromotion()">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                    </div>活动短链接
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="javascript:void(0);" onclick="showdescription()">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </div>签到海报
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'apply','type'=>$_GPC['type'],'id'=>$_GPC['id'],'ro'=>1))}">
+                    <div class="icon-item" style="background:#c1c554;">                  
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>        
+                    </div>报名名单
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'add','copyid'=>$_GPC['id']))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-files-o" aria-hidden="true"></i>      
+                    </div>复制活动
+                </a>        
+            </li>
+            <li class="op-item"> <!-- data-actid 赋值活动的id -->
+                <a class="op-item-link del-activity" href="javascript:void(0);" data-actid="{$_GPC['id']}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </div>删除活动      
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'change','id'=>$_GPC['id']))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </div>活动变更
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'apply','type'=>$_GPC['type'],'id'=>$_GPC['id']))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    </div>报名审核
+                </a> 
+            </li>
+            <li class="op-item"> <!-- data-actid 赋值活动的id -->
+                <a class="op-item-link cancel-sign-up" href="javascript:void(0);" data-actid="1">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                    </div>取消报名
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'withdraw','id'=>$_GPC['id']))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                    </div>活动提现
+                </a> 
+            </li>
+            <li class="op-item">                
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'refund','id'=>$_GPC['id']))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-retweet" aria-hidden="true"></i>
+                    </div>退款信息
+                </a> 
+            </li>
+        </ul>
+        {elseif $_GPC['type'] == 2}
+            <!-- 我转发的活动 -->
+            <ul class="op-ul clearfloat">
+                <li class="op-item"> 
+                    <a class="op-item-link" href="javascript:void(0);" onclick="showdescription1()">
+                        <div class="icon-item" style="background:#10BDFF;">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </div>邀请海报
+                    </a> 
+                </li>
+                <li class="op-item"> 
+                    <a class="op-item-link" href="javascript:void(0);" onclick="showpromotion()">
+                        <div class="icon-item" style="background:#10BDFF;">
+                            <i class="fa fa-link" aria-hidden="true"></i>
+                        </div>活动短链接
+                    </a> 
+                </li>
+                <li class="op-item"> 
+                    <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'apply','type'=>$_GPC['type'],'id'=>$_GPC['id'],'ro'=>1))}">
+                        <div class="icon-item" style="background:#10BDFF;">     
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        </div>报名名单
+                    </a> 
+                </li>
+                {if false}
+                <li class="op-item"> 
+                    <a class="op-item-link" href="javascript:void(0);">
+                        <div class="icon-item" style="background:#10BDFF;">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        </div>转介绍
+                    </a> 
+                </li>
+                {/if}        
+                <li class="op-item"> 
+                    <a class="op-item-link" href="javascript:void(0);">
+                        <div class="icon-item" style="background:#10BDFF;">
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        </div>转活动提现
+                    </a> 
+                </li>
+                <li class="op-item"> 
+                    <a class="op-item-link team" href="javascript:void(0);">
+                        <div class="icon-item" style="background:#10BDFF;">              
+                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                        </div>群发转发
+                    </a> 
+                </li>
+            </ul>
+        {else if $_GPC['type'] == 1}
+            <!-- 我参与的活动 -->
+            <ul class="op-ul clearfloat">
+                <li class="op-item">            
+                    
+                    <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'apply','ro'=>1,'type'=>$_GPC['type'],'id'=>$_GPC['id']))}">
+                        <div class="icon-item" style="background:#44b9c0;">          
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>        
+                        </div>我的报名
+                    </a> 
+                </li>                
+                <li class="op-item">               
+                    <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'order','id'=>$_GPC['id']))}">
+                        <div class="icon-item" style="background:#44b9c0;">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </div>我的订单       
+                    </a>                
+                </li>
+                <li class="op-item">        
+                    <a class="op-item-link refund" href="javascript:void(0);">
+                        <div class="icon-item" style="background:#44b9c0;">
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        </div>退款提现   
+                    </a> 
+                </li>
+                {if false}
+                <li class="op-item"> 
+                    <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                        <div class="icon-item" style="background:#44b9c0;">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>我的足迹
+                    </a> 
+                </li>
+                <li class="op-item"> 
+                    <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                        <div class="icon-item" style="background:#44b9c0;">
+                            <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                        </div>邀约汇总       
+                    </a>         
+                </li>        
+                {/if}       
+                <li class="op-item"> 
+                    <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'paper','actid'=>$_GPC['id']))}">
+                        <div class="icon-item" style="background:#44b9c0;">
+                            <i class="fa fa-ticket" aria-hidden="true"></i>
+                        </div>我的电子票                     
+                    </a>                               
+                </li>                
+                <li class="op-item">                   
+                    <a class="op-item-link setpublic" href="javascript:void(0);">           
+                        <div class="icon-item" style="background:#44b9c0;">              
+                            <i class="fa fa-minus-circle" aria-hidden="true"></i>       
+                        </div>             
+                        <span>      
+                            {if $sginfo['public']}不公开名片{else}公开名片{/if}
+                        </span>                          
+                        
+                    </a> 
+                </li>
+            </ul>
+        {/if}
+    </div>
+</div>
+<!-- 短链接弹出面板 -->
+<div class="promotion-layer" style="display: none;"></div>
+<div class="promotion-box" style="display: none;">
+    <div class="promotion-tips">下面链接为您的短链接,请复制分享给他人</div>
+    <div class="promotion-link"> 
+        <!--下面的textarea赋值上短链接,复制按钮在手机端不一定能复制成功,所以才弄弹出面板显示短链接,复制按钮失效的情况下可以手动复制-->
+        <textarea class="address" id="address" readonly></textarea>
+    </div>
+    <div class="copy-btn1">复制</div>
+    <div class="close icon" onclick="closepromotion()"></div>
+</div>
+<!-- 签到海报模板面板 -->
+<!-- 借用说明的类似结构实现蒙层和弹出框 进行签到海报模选择 -->
+<div class="description_layer"></div> 
+<div class="description">
+    <div class="description-tag">选择签到海报模板</div>
+    <div class="description-cont"><!-- 海报模板 注意li的区别 -->
+        <ul class="poster-tpl-box flex-center">
+            <!-- 默认第一模板被选中 li元素拥有类名checked-parent 其他li没有-->
+            {loop $sgPoster $k $v}
+                {if $k == 0}
+                    <li class="poster-tpl-item checked-parent">
+                        <!-- 默认第一模板被选中 input radio元素拥有属性checked 其他input radio没有-->
+                        <input type="radio" name="radio_a" class="radio-po-tp" value="{$v['id']}" checked>
+                        <label class="radio-po-lb">
+                            <img class="tpl-img" src="{php echo tomedia($v['thumb'])}" alt="" disabled="" data-attr="">
+                        </label>        
+                        <!-- 默认第一模板被选中 i没有类名no-checked-icon 其他i有-->
+                        <i class="fa fa-check checked-icon" aria-hidden="true"></i>
+                    </li>       
+                {else}      
+                    <li class="poster-tpl-item">
+                        <input type="radio" name="radio_a" class="radio-po-tp" value="{$v['id']}">
+                        <label class="radio-po-lb">
+                            <img class="tpl-img" src="{php echo tomedia($v['thumb'])}" alt="" disabled="" data-attr="">
+                        </label>         
+                        <i class="fa fa-check checked-icon no-checked-icon" aria-hidden="true"></i>
+                    </li>
+                {/if}
+            {/loop}
+            
+        </ul>
+    </div>
+    <div class="layer-btn-box clearfloat">
+        <div class="layer-btn cancel-btn" onclick="closedescription()">关闭</div>
+        <div class="layer-btn poster-btn">确认</div>
+    </div>
+    <div class="close icon" onclick="closedescription()"></div>
+</div>
+
+<!-- 邀请海报模板面板 -->
+<!-- 借用说明的类似结构实现蒙层和弹出框 进行邀请海报模选择 -->
+<div class="description_layer1"></div> 
+<div class="description1">
+    <div class="description-tag1">选择邀请海报模板</div>
+    <div class="description-cont1"><!-- 邀请模板 注意li的区别 -->
+        <ul class="poster-tpl-box flex-center">
+            <!-- 默认第一模板被选中 li元素拥有类名checked-parent 其他li没有-->
+            {loop $sgPoster $k $v}
+                {if $k == 0}
+                    <li class="poster-tpl-item1 checked-parent1">
+                        <!-- 默认第一模板被选中 input radio元素拥有属性checked 其他input radio没有-->
+                        <input type="radio" name="radio_b" class="radio-po-tp1" value="{$v['id']}" checked>
+                        <label class="radio-po-lb">
+                            <img class="tpl-img" src="{php echo tomedia($v['thumb'])}" alt="" disabled="" data-attr="">
+                        </label>        
+                        <!-- 默认第一模板被选中 i没有类名no-checked-icon 其他i有-->
+                        <i class="fa fa-check checked-icon" aria-hidden="true"></i>
+                    </li>       
+                {else}      
+                    <li class="poster-tpl-item1">
+                        <input type="radio" name="radio_b" class="radio-po-tp1" value="{$v['id']}">
+                        <label class="radio-po-lb">
+                            <img class="tpl-img" src="{php echo tomedia($v['thumb'])}" alt="" disabled="" data-attr="">
+                        </label>         
+                        <i class="fa fa-check checked-icon no-checked-icon" aria-hidden="true"></i>
+                    </li>
+                {/if}
+            {/loop}
+            
+        </ul>
+    </div>
+    <div class="layer-btn-box clearfloat">
+        <div class="layer-btn cancel-btn" onclick="closedescription1()">关闭</div>
+        <div class="layer-btn in-poster-btn">确认</div>
+    </div>
+    <div class="close1 icon1" onclick="closedescription1()"></div>
+</div>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        
+        $.post('{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'trurl'))}',{id:'{$_GPC['id']}'},function(e){
+            $('#address').text(e.result);
+        },'json');   
+
+
+        $(".setpublic").click(function(){
+                //设置是否公开
+                var o = $(this);                                
+                core.pjson('activity/activity',{op:'adminAct',ac:'setpublic',id:'{$_GPC['id']}'},function(json){                                           
+                    if(json.status==1){                                 
+                        //执行成功 需要运行的代码...       
+                        if (o.find('span').text() == '不公开名片') {
+                            o.find('span').text('公开名片');
+                        }else{                            
+                            o.find('span').text('不公开名片');        
+                        }        
+                        core.tip.show(json.result);            
+                        return;                     
+                    }                                               
+                    core.tip.show(json.result);
+                },true,true);
+        });
+
+        
+
+        $(".refund").click(function(){   
+                //设置是否公开                                                         
+                var o = $(this);                                    
+                core.pjson('activity/activity',{op:'order',ac:'withdraw',id:'{$_GPC['id']}'},function(json){                                                       
+                    if(json.status==1){                                                
+                        //执行成功 需要运行的代码...                
+                        core.tip.show(json.result);  
+                        setTimeout(function(){           
+                            location.reload();                                            
+                        },250);                  
+                        return;                                
+                    }                                                        
+                    core.tip.show(json.result);      
+                },true,true);
+        });
+
+        $(".fa-comments-o").click(function(){
+            core.tip.confirm("确定转发该活动给关注你的粉丝吗?",function(){
+                var actid = $(this).data('actid');           
+                //删除活动异步请求               
+                core.json('plugin/activity/center',{op:'team',id:'{$_GPC['id']}',cate:'act'},function(json){
+                    if(json.status==1){              
+                        //执行成功 需要运行的代码...    
+                        core.tip.show(json.result);            
+                        setTimeout(function(){               
+                            location.reload();                            
+                        },200);                     
+                        return;
+                    }                          
+                    core.tip.show(json.result);
+                },true,true);        
+            });
+        });
+
+        //删除活动
+        $(".del-activity").click(function(){
+            core.tip.confirm("确定要删除此活动吗?",function(){
+                var actid = $(this).data('actid');
+                console.log(actid);
+                //删除活动异步请求
+                core.json('plugin/activity/activity',{op:'delete',id:'{$_GPC['id']}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        setTimeout(function(){
+                            location.href="{php echo $this->createPluginMobileUrl('activity/activity',array('op'=>'myAct','status'=>3))}";                            
+                        },200);             
+                        return;
+                    }
+                    core.tip.show(json.result);
+                },true,true);
+            });
+        });
+        //取消活动报名 这个针对其他用户 应该是取消其他用户可以报名这个活动
+        $(".cancel-sign-up").click(function(){
+            core.tip.confirm("确定要取消此活动的报名吗?",function(){
+                var actid = $(this).data('actid');
+                //取消活动报名异步请求
+                core.json('plugin/activity/activity',{op:'clear',id:'{$_GPC['id']}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        return;
+                    }                   
+                    core.tip.show(json.result);
+                },true,true);
+            });
+        });
+        $(".copy-btn1").click(function(){
+            var e=document.getElementById("address");//对象是contents 
+            e.select(); //选择对象 
+            tag=document.execCommand("Copy"); //执行浏览器复制命令
+            if(tag){
+                core.tip.show('复制短链接成功');
+            }else{
+                core.tip.show('复制失败，请手动复制短链接');
+            }
+            $("#address").blur();//解决点击复制短链接按钮时，手机浏览器弹出输入法面板
+        }); 
+        //签到海报模板选择
+        $(".poster-tpl-item").click(function(){
+            if($(this).hasClass("checked-parent")){
+                return false;
+            }
+            $(this).addClass("checked-parent").find(".checked-icon").removeClass("no-checked-icon");
+            $(this).siblings().removeClass("checked-parent").find(".checked-icon").addClass("no-checked-icon");
+            $(this).find(".radio-po-tp").prop("checked",true);//虽然dom没有显示，但是已有操作
+            //console.log($(".radio-po-tp:checked").val());
+        });
+        $(".poster-btn").click(function(){
+            //获取模板的标志值
+            var poster_tpl = $(".radio-po-tp:checked").val();
+            var act_id = "{$_GPC['id']}";//这里用内置标签获取活动的id
+            //console.log(poster_tpl);
+            //生成签名海报异步请求
+            var poster_tpl_back = $(".checked-parent").find(".radio-po-tp").val();
+            if(poster_tpl != poster_tpl_back){
+                poster_tpl = poster_tpl_back;
+            }
+            location.href='{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'poster'))}&poster_tpl='+poster_tpl+'&act_id='+act_id;
+                     
+            // core.pjson('activity/center',{op:'poster',poster_tpl:poster_tpl,act_id:act_id},function(json){
+            //     if(json.status==1){
+            //         //执行成功 需要运行的代码...
+            //         core.tip.show(json.result);
+            //         //跳转到签到海报生成页面
+            //         //location.href = "";
+            //     }else{
+            //         core.tip.show(json.result);
+            //     }
+            // },true,true);
+        });
+        //邀请海报模板选择
+        $(".poster-tpl-item1").click(function(){
+            if($(this).hasClass("checked-parent1")){
+                return false;
+            }
+            $(this).addClass("checked-parent1").find(".checked-icon").removeClass("no-checked-icon");
+            $(this).siblings().removeClass("checked-parent1").find(".checked-icon").addClass("no-checked-icon");
+            $(this).find(".radio-po-tp1").prop("checked",true);//虽然dom没有显示，但是已有操作
+            console.log($(".radio-po-tp1:checked").val());
+        });
+        $(".in-poster-btn").click(function(){
+            //获取模板的标志值
+            var poster_tpl = $(".radio-po-tp1:checked").val();
+            var act_id = "{$_GPC['id']}";//这里用内置标签获取活动的id
+            var poster_tpl_back = $(".checked-parent1").find(".radio-po-tp1").val();
+            if(poster_tpl != poster_tpl_back){
+                poster_tpl = poster_tpl_back;
+            }
+            //console.log(poster_tpl);
+            //生成邀请海报海报请求
+            location.href='{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'poster'))}&poster_tpl='+poster_tpl+'&act_id='+act_id;
+        });
+    });
+    //点击短链接显示
+    function closepromotion(){
+       $('.promotion-layer').fadeOut(100);
+       $('.promotion-box').fadeOut(100);
+    }
+    function showpromotion(){
+       $('.promotion-layer').fadeIn(200);
+       $('.promotion-layer').unbind('click').click(function(){
+           closepromotion();
+       });
+       $('.promotion-box').fadeIn(200);
+    }
+    //选择签到海报模板显示
+    function closedescription(){
+        $('.description_layer').fadeOut(100);
+        $('.description').fadeOut(100);
+    }
+    function showdescription(){
+        $('.description_layer').fadeIn(200);
+        $('.description_layer').unbind('click').click(function(){
+            closedescription();
+        });
+        $('.description').fadeIn(200);
+    }
+    //选择邀请海报模板显示
+    function closedescription1(){
+        $('.description_layer1').fadeOut(100);
+        $('.description1').fadeOut(100);
+    }
+    function showdescription1(){
+        $('.description_layer1').fadeIn(200);
+        $('.description_layer1').unbind('click').click(function(){
+            closedescription1();
+        });
+        $('.description1').fadeIn(200);
+    }
+</script>
+{template 'common/footer'}

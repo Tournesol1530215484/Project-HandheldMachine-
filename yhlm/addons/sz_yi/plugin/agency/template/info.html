@@ -1,0 +1,171 @@
+{template 'common/header'}
+{template 'tabs'}
+{if $operation == 'display'}
+<div class="panel panel-info">
+    <div class="panel-heading">修改资料</div>
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" name="m" value="sz_yi" />
+        <input type="hidden" name="do" value="plugin" />
+        <input type="hidden" name="p" value="suppliermenu" />
+        <input type="hidden" name="method" value="info" />
+        <input type="hidden" name="op" value="display" />
+        <div class="panel panel-default" style="background-color: transparent; border: none;">
+            <div class="border_bg">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">真实姓名：</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input name="data[realname]" class="form-control" value="{$info['realname']}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">手机号码：</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input name="data[mobile]" class="form-control" value="{$info['mobile']}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">银行卡号：</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input name="data[banknumber]" class="form-control" value="{$info['banknumber']}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">开户行：</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input name="data[accountbank]" class="form-control" value="{$info['accountbank']}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">开户名：</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input name="data[accountname]" class="form-control" value="{$info['accountname']}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                        <div class="col-sm-9 col-xs-12">
+                            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1">
+                            <input type="hidden" name="token" value="{$_W['token']}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+$('form').submit(function(){
+    if ( $('input[name="data[realname]"]').val() == '' ) {
+        alert('真实姓名不能为空！');
+        return false;
+    }
+    if ( $('input[name="data[mobile]"]').val() == '' ) {
+        alert('真实姓名不能为空！');
+        return false;
+    }
+    if ( $('input[name="data[banknumber]"]').val() == '' ) {
+        alert('真实姓名不能为空！');
+        return false;
+    }
+    if ( $('input[name="data[accountbank]"]').val() == '' ) {
+        alert('真实姓名不能为空！');
+        return false;
+    }
+    if ( $('input[name="data[accountname]"]').val() == '' ) {
+        alert('真实姓名不能为空！');
+        return false;
+    }
+});
+</script>
+{elseif $operation == 'editpwd'}
+<div class="panel panel-info">
+    <div class="panel-heading">修改密码</div>
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" name="m" value="sz_yi" />
+        <input type="hidden" name="do" value="plugin" />
+        <input type="hidden" name="p" value="suppliermenu" />
+        <input type="hidden" name="method" value="info" />
+        <input type="hidden" name="op" value="editpwd" />
+        <div class="panel panel-default" style="background-color: transparent; border: none;">
+            <div class="border_bg">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">原密码</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type="password" name="oldpwd" class="form-control" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">新密码</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type="password" name="newpwd1" class="form-control" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-xs-12 col-sm-3 col-md-3 control-label">确认密码</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type="password" name="newpwd2" class="form-control" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                        <div class="col-sm-9 col-xs-12">
+                            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1">
+                            <input type="hidden" name="token" value="{$_W['token']}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $('form').submit(function(){
+        if ( $('input[name="oldpwd"]').val() == '' ) {
+            alert('旧密码不能为空！');
+            return false;
+        }
+        if ( $('input[name="newpwd1"]').val() == '' ) {
+            alert('新密码不能为空！');
+            return false;
+        }
+        if ($('input[name="newpwd1"]').val() == $('input[name="oldpwd"]').val()) {
+            alert('您的密码没有修改！');
+            return false;
+        }
+        if ( $('input[name="newpwd2"]').val() == '' ) {
+            alert('确认密码不能为空！');
+            return false;
+        }
+
+        if ( $('input[name="newpwd1"]').val() != $('input[name="newpwd2"]').val() ) {
+            alert('两次密码不一致！');
+            return false;
+        }
+
+    });
+</script>
+{/if}
+{template 'web/_footer'}
+

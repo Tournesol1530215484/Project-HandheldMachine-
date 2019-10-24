@@ -1,0 +1,116 @@
+{template 'common/header'}
+<div class="ulleft-nav">
+    <ul class="nav nav-tabs">
+        <li {if $_GPC['op']=='display'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/forum')}">论坛</a></li>
+        <li {if $_GPC['op']=='add'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/forum',array('op'=>add))}">添加论坛</a></li>
+
+        <li {if $_GPC['method']=='forum_type'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('bartact/forum_type')}">论坛分类</a></li>
+
+    </ul>
+</div>
+<script type="text/javascript" href="http://jhzh66.com/addons/sz_yi/static/js/dist/area/Area.xml?v=3"></script>
+<style type='text/css'>
+    .trhead td {  background:#efefef;text-align: center}
+    .trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+    .goods_info{position:relative;width:60px;}
+    .goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+    .goods_info:hover {z-index:1;position:absolute;width:auto;}
+    .goods_info:hover img{width:320px; height:320px ;}
+    .mywidth {width: 80px;display: inline-block;text-overflow: ellipsis;}
+    .poster {width:46%;height: 90%;float: left;list-style: none;}
+    .poster img{width: 262px;height:440px;}
+    .checked {border: 2px solid #f00;}
+    .pad {padding:2px;}
+    #menuContent ul{height: auto;}
+    #menuContent li > span:nth-child(2){
+        display: none;
+    }
+    #menuContent a span:nth-child(1){
+        display: none;
+    }
+    #chart-container{overflow: auto;}
+</style>
+{if $_GPC['op'] == 'add'}
+
+{else if $op =='display'}
+<div class="panel panel-info">
+    <div class="panel-heading">筛选</div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="p" value="bartact" />
+            <input type="hidden" name="method" value="activity" />
+            <input type="hidden" name="op" value="display" />
+            <div class="form-group row">
+                <div class="col-xs-12 col-sm-4 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">论坛标题</div>
+                        <input type="text" class="form-control"  name="title" value="{$_GPC['title']}"/>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-lg-2 sx">
+                    <div class="input-group">
+                        <div class="input-group-addon">会员姓名</div>
+                        <input type="text" class="form-control"  name="realname" value="{$_GPC['realname']}" placeholder='可搜索昵称/名称/手机号'/>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-2 sx" style="margin-top: 15px;">
+                    <div class="input-group">
+                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {ifp 'bonus.agent.export'}
+                        <!-- <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button> -->
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class='panel panel-default' style="border-radius: 5px;">
+    <div class='panel-heading'>我发布的一共 <span style="color:#f00">{$totals}</span> 件</div>
+    <div class='panel-body'>
+
+        <table class="table table-hover table-responsive">
+            <thead class="navbar-inner">
+            <tr>
+                <th style="width:8%;">标题</th>
+                <th style="width:5%;">用户</th>
+                <th style="width:5%;">图片</th>
+                <th style="width:5%;">分类</th>
+                <th style="width:11%;">内容</th>
+                <!--<th style="width:5%;">状态</th>-->
+                <th style="width:6%;">发布时间</th>
+
+                <th style="width:8%;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $list  $v}
+            <tr>
+                <td>{$v['title']}</td>
+                <td>{if empty($v['realname'])}{$v['nickname']}{else}{$v['realname']}{/if}</td>
+                <td>{$v['logo']}</td>
+                <td>{$v['typetitle']}</td>
+                <td>{$v['content']}</td>
+                <!--<td></td>-->
+                <td>{php echo date('m-d H:i',$item['ctime'])}</td>
+                <td>
+                   <a href="{php echo $this->createPluginWebUrl('bartact/forum', array('op' => 'delete', 'id' => $v['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此贴?')" title="删除" style="background-color: #000; color:#fff;"><i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+            {/loop}
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</div>
+
+{/if}
+
+{template 'common/footer'}

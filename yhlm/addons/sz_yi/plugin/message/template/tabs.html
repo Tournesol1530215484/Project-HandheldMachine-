@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+    {ifp 'message.jichu'}<li {if $_GPC['method']=='jichu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('message/temp')}" style="cursor: pointer;">留言管理 </a></li>{/if}
+    {ifp 'message.temp'}<li {if $_GPC['method']=='temp'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('message/jichu')}" style="cursor: pointer;">回复管理</a></li>{/if}
+     {ifp 'comeon.data'}
+    {if $_GPC['method']=='data' && $operation=='post'}<li class="active"><a href="javascript:;" style="cursor: pointer;">添加数据</a></li>{/if}
+    {if $_GPC['method']=='data' && $operation=='display'}<li class="active"><a href="javascript:;" style="cursor: pointer;">数据列表</a></li>{/if} 
+    {/if}
+</ul>

@@ -1,0 +1,22 @@
+{template 'common/header'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+            数据库清空
+        </div>
+        
+        <div class='panel-body'>
+           
+               
+                
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 col-lg-4 control-label"></label>
+                <div class="col-xs-8 col-lg-8">
+                    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+        </div>
+</form>
+{template 'web/_footer'}

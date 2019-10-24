@@ -1,0 +1,408 @@
+{template 'common/header'}
+{template 'tabs'}
+
+{if $operation == 'set'}
+	<!-- 全返设置 -->
+	<style>
+	    .panel-heading{background: #E8ECEF;padding:5px 0px 5px 40px;margin: 20px 0px 0 0;border: 1px solid #CFCFCF;
+	        border-bottom: none;font-size: 16px;font-weight: 200;}
+	    .panel-body{padding:20px 0;margin-bottom: 20px;border: 1px solid #CFCFCF;border-top: none;background: #fff;}
+	    .form-group>span{float: left;padding-left: 15px;padding-top: 7px;}
+	    .form-group div.boostrap-switch{float: left;padding-left: 15px;}
+	</style>
+	<form id="setform"  action="" method="post" class="form-horizontal form">
+	    <div class='panel-heading'>
+	        全返设置
+	    </div>
+	    <div class='panel-body'>
+	    	<div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:red;font-size:18px;">递减全返设置</label>
+	            <div class="col-sm-4">
+	                <div class="input-group">
+	                </div>
+	            </div>
+        	</div>
+	        <div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label">开启递减全返系统</label>
+	            <div class="boostrap-switch">
+	                 <label class="radio-inline"><input type="radio"  name="setdata[isopen]" value="0" {if $set['isopen'] ==0} checked="checked"{/if} /> 关闭</label>
+	                <label class="radio-inline"><input type="radio"  name="setdata[isopen]" value="1" {if $set['isopen'] ==1} checked="checked"{/if} /> 开启</label>
+	            </div>
+	        </div>
+
+            <div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label">全返比例</label>
+	            <div class="col-sm-4">
+	                <div class="input-group">
+	                    <input type="text" name="setdata[scale]" class="form-control" value="{$set['scale']}"  />
+	                    <div class="input-group-addon">%</div>
+	                </div>
+	            </div>
+	            <span class='help-block'>设定返现比例 该比例也用于消费返</span>
+        	</div>
+        	<div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label">全返停止条件</label>
+	            <div class="col-sm-4">
+	                <div class="input-group">
+	                    <input type="text" name="setdata[stopcondition]" class="form-control" value="{$set['stopcondition']}"  />
+	                    <div class="input-group-addon">元</div>
+	                </div>
+	            </div>
+	            <span class='help-block'>待全返金额少于这个数字，就停止全返</span>
+        	</div>
+        	<div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label" style="color:red;font-size:18px;">消费返设置</label>
+	            <div class="col-sm-4">
+	                <div class="input-group">
+	                </div>
+	            </div>
+        	</div>
+        	<div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label">消费返给商家比例（立即返到余额）</label>
+	            <div class="col-sm-4">
+	                <div class="input-group">
+	                    <input type="text" name="setdata[sellerscale]" class="form-control" value="{$set['sellerscale']}"  />
+	                    <div class="input-group-addon">%</div>
+	                </div>
+	            </div>
+	            <span class='help-block'>订单完成后，商家会立即拿到这笔钱</span>
+        	</div>
+        	<div class="form-group">
+	            <label class="col-xs-12 col-sm-3 col-md-2 control-label">消费返给供应商比例（每天返到余额）</label>
+	            <div class="col-sm-4">
+	                <div class="input-group">
+	                    <input type="text" name="setdata[userscale]" class="form-control" value="{$set['userscale']}"  />
+	                    <div class="input-group-addon">%</div>
+	                </div>
+	            </div>
+	            <span class='help-block'>订单完成后，系统每天凌晨会返这个比例的余额给供应商</span>
+        	</div>
+        	<div class="form-group">
+        	    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+        	    <div class="col-sm-9">
+        	        <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+        	        <input type="hidden" name="token" value="{$_W['token']}" />
+        	    </div>
+        	</div>
+	    </div>
+	</form>
+{elseif $operation == 'detail'}
+	<div class="panel panel-default">
+	    <div class="panel-heading">筛选</div>
+	    <div class="panel-body">
+	        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+	            <input type="hidden" name="c" value="site" />
+	            <input type="hidden" name="a" value="entry" />
+	            <input type="hidden" name="m" value="sz_yi" />
+	            <input type="hidden" name="do" value="plugin" />
+	            <input type="hidden" name="p" value="descreturn" />
+	            <input type="hidden" name="method" value="index" />
+	            <input type="hidden" name="op" value="detail" />
+	            <div class="row" style="padding: 0 10px;">
+	                <div class="myform col-lg-4">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">按时间</label>
+	                        <div class="">
+	                            {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d  H:i', $endtime)),true);}
+	                        </div>
+	                    </div>
+                	</div>
+
+	                <div class="myform col-lg-4">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">会员信息</label>
+	                        <input type="text" class="form-control"  name="member" value="{$_GPC['member']}" placeholder="可搜索昵称/姓名/手机号"/>
+	                    </div>
+	                </div>
+	                
+	                <div class="myform col-lg-2">
+	                    <div class="input-group">
+	                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+	<!-- 全返明细 -->
+	<div class="panel panel-default ">
+	    <div class="panel-heading">总数：{$total}</div>
+	    <div class="panel-body">
+			<table class="table table-hover">
+			    <thead class="navbar-inner">
+			        <tr>
+			            <th style="width:110px;">序号</th>
+			            <th>购买人</th>
+			            <th>需返还积分</th>
+			            <th>待返还积分</th>
+			            <th>本次返还积分</th>
+			            <th>时间</th>
+			            <th>操作</th>
+			        </tr>
+			    </thead>
+			    <tbody id='tbody-items'>
+			        {loop $list $row}
+			        <tr>
+			            <td>{$row['id']}</td>
+			            <td>
+			            	<p><img src="{$row['avatar']}" alt="" width="30"> {php echo $row['nickname'] ? $row['nickname'] : $row['realname']}  </p>
+			            </td>
+			            <td>{$row['need_price']}</td>
+			            <td>{$row['surplus_price']}</td>
+			            <td>{$row['this_price']}</td>
+			            <td>{php echo date('Y年m月d日 H:i:s', $row['createtime'])}</td>
+			            <td><a onclick="return confirm('您确定要删除此条记录？');" class="btn btn-primary btn-sm disbut" href="{php echo $this->createPluginWebUrl('descreturn/index', array('op'=>'detail', 'action'=>'del', 'id'=>$row['id']))}" title="">删除</a></td>
+			        </tr>
+			        {/loop}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{elseif $operation == 'promptlyorder'}
+	<div class="panel panel-default">
+	    <div class="panel-heading">筛选</div>
+	    <div class="panel-body">
+	        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+	            <input type="hidden" name="c" value="site" />
+	            <input type="hidden" name="a" value="entry" />
+	            <input type="hidden" name="m" value="sz_yi" />
+	            <input type="hidden" name="do" value="plugin" />
+	            <input type="hidden" name="p" value="descreturn" />
+	            <input type="hidden" name="method" value="index" />
+	            <input type="hidden" name="op" value="promptlyorder" />
+	            <div class="row" style="padding: 0 10px;">
+	                <div class="myform col-lg-4">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">按时间</label>
+	                        <div class="">
+	                            {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d  H:i', $endtime)),true);}
+	                        </div>
+	                    </div>
+                	</div>
+
+	                <div class="myform col-lg-4">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">会员信息</label>
+	                        <input type="text" class="form-control"  name="member" value="{$_GPC['member']}" placeholder="可搜索昵称/姓名/手机号"/>
+	                    </div>
+	                </div>
+	                
+	                <div class="myform col-lg-2">
+	                    <div class="input-group">
+	                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+	<!-- 全返明细 -->
+	<div class="panel panel-default ">
+	    <div class="panel-heading">总数：{$total}</div>
+	    <div class="panel-body">
+			<table class="table table-hover">
+			    <thead class="navbar-inner">
+			        <tr>
+			            <th style="width:100px;">序号</th>
+			            <th>订单</th>
+			            <th>购买人</th>
+			            <th>需返还余额</th>
+			            <th>待返还余额</th>
+			            <th>另一半金额的去向</th>
+			            <th>时间</th>
+			            <!-- <th>操作</th> -->
+			        </tr>
+			    </thead>
+			    <tbody id='tbody-items'>
+			        {loop $prolist $row}
+			        <tr>
+			            <td>{$row['id']}</td>
+			            <td>
+			            	订单ID {$row['oid']}
+			            	<br>
+			            	订单金额 {$row['money']}
+			            </td>
+			            <td>
+			            	<p><img src="{$row['avatar']}" alt="" width="30"> {php echo $row['nickname'] ? $row['nickname'] : $row['realname']}  </p>
+			            </td>
+			            <td>{$row['need_price']}</td>
+			            <td>{$row['surplus_price']}</td>
+			            <td>
+			            <img src="{$row['supplier_openid']['avatar']}" alt="" width="30">
+				            {php echo $row['supplier_openid']['realname']?$row['supplier_openid']['realname']:$row['supplier_openid']['nickname']}
+				            <br>
+				            已返至商家 {$row['supplier_return']}
+			            </td>
+			            <td>{php echo date('Y年m月d日 H:i:s', $row['createtime'])}</td>
+			            <!-- <td><a onclick="return confirm('您确定要删除此条记录？');" class="btn btn-primary btn-sm disbut" href="{php echo $this->createPluginWebUrl('descreturn/index', array('op'=>'detail', 'action'=>'del', 'id'=>$row['id']))}" title="">删除</a></td> -->
+			        </tr>
+			        {/loop}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{elseif $operation == 'order'}
+	<!-- 全返订单 -->
+	<div class="panel panel-default">
+	    <div class="panel-heading">筛选</div>
+	    <div class="panel-body">
+	        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+	            <input type="hidden" name="c" value="site" />
+	            <input type="hidden" name="a" value="entry" />
+	            <input type="hidden" name="m" value="sz_yi" />
+	            <input type="hidden" name="do" value="plugin" />
+	            <input type="hidden" name="p" value="descreturn" />
+	            <input type="hidden" name="method" value="index" />
+	            <input type="hidden" name="op" value="order" />
+	            <div class="row" style="padding: 0 10px;">
+	                <div class="myform col-lg-3 col-md-3">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">按时间</label>
+	                        <div class="">
+	                            {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d  H:i', $endtime)),true);}
+	                        </div>
+	                    </div>
+                	</div>
+
+	                <div class="myform col-lg-3 col-md-3">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">会员信息</label>
+	                        <input type="text" class="form-control"  name="member" value="{$_GPC['member']}" placeholder="可搜索昵称/姓名/手机号"/>
+	                    </div>
+	                </div>
+	                <!-- <div class="myform col-lg-3 col-md-3">
+	                    <div class="input-group">
+	                        <label class="input-group-addon">商品名称</label>
+	                        <input type="text" class="form-control"  name="gname" value="{$_GPC['gname']}" placeholder="可搜索商品名称"/>
+	                    </div>
+	                </div> -->
+	                <div class="myform col-lg-2">
+	                    <div class="input-group">
+	                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+	<div class="panel panel-default ">
+	    <div class="panel-heading">总数：{$total}</div>
+	    <div class="panel-body">
+			<table class="table table-hover">
+			    <thead class="navbar-inner">
+			        <tr>
+			            <th style="width:100px;">序号</th>
+			            <th width="200">购买人</th>
+			            <th width="160">应返</th>
+			            <th width="40%">商品</th>
+			            <th width="10%">状态</th>
+			            <!-- <th>全返订单生成时间</th> -->
+			            <!-- <th>操作</th> -->
+			        </tr>
+			    </thead>
+			    <tbody id='tbody-items'>
+			        {loop $list $row}
+			        <tr>
+			            <td>{$row['id']}</td>
+			            <td>
+				            <p><img src="{$row['avatar']}" alt="" width="30"> {php echo $row['nickname'] ? $row['nickname'] : $row['realname']}</p>
+			            </td>
+			            <td>
+		            		{loop $row['goodslist'] $item}
+		            			{php $countP += $item['price']}
+		            		{/loop}
+	            			{$countP} 元
+	            			{php unset($countP);}
+			            </td>
+			            <td>
+				            {loop $row['goodslist'] $i}
+					            <p><img src="/attachment/{$i['thumb']}" alt="" width="50"> 商品名称：{$i['title']} 价格：{$i['price']} <!-- 商品ID：{$i['goodsid']} --> 订单完成时间：{php echo date('Y年m月d日 H:i:s', $i['createtime']);}</p>
+				            {/loop}
+			            </td>
+			            <td>
+			            	{if $row['status'] == 1}<label class="label label-success">正常全返</label>{/if}
+			            	{if $row['status'] == 2}<label class="label label-warning">全返已关闭</label>{/if}
+			            </td>
+			            <!-- <td>{php echo date('Y年m月d日 H:i:s', $row['createtime'])}</td> -->
+			            <!-- <td>操作</td> -->
+			        </tr>
+			        {/loop}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{elseif $operation == 'promptlyd'}
+		<div class="panel panel-default">
+		    <div class="panel-heading">筛选</div>
+		    <div class="panel-body">
+		        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+		            <input type="hidden" name="c" value="site" />
+		            <input type="hidden" name="a" value="entry" />
+		            <input type="hidden" name="m" value="sz_yi" />
+		            <input type="hidden" name="do" value="plugin" />
+		            <input type="hidden" name="p" value="descreturn" />
+		            <input type="hidden" name="method" value="index" />
+		            <input type="hidden" name="op" value="promptlyd" />
+		            <div class="row" style="padding: 0 10px;">
+		                <div class="myform col-lg-4">
+		                    <div class="input-group">
+		                        <label class="input-group-addon">按时间</label>
+		                        <div class="">
+		                            {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d  H:i', $endtime)),true);}
+		                        </div>
+		                    </div>
+	                	</div>
+
+		                <div class="myform col-lg-4">
+		                    <div class="input-group">
+		                        <label class="input-group-addon">会员信息</label>
+		                        <input type="text" class="form-control"  name="member" value="{$_GPC['member']}" placeholder="可搜索昵称/姓名/手机号"/>
+		                    </div>
+		                </div>
+		                
+		                <div class="myform col-lg-2">
+		                    <div class="input-group">
+		                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+		                    </div>
+		                </div>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+		<!-- 消费返明细 -->
+		<div class="panel panel-default ">
+		    <div class="panel-heading">总数：{$total}</div>
+		    <div class="panel-body">
+				<table class="table table-hover">
+				    <thead class="navbar-inner">
+				        <tr>
+				            <th style="width:100px;">序号</th>
+				            <th>供应商</th>
+				            <th>需返还余额</th>
+				            <th>待返还余额</th>
+				            <th>本次返还余额</th>
+				            <th>时间</th>
+				            <th>操作</th>
+				        </tr>
+				    </thead>
+				    <tbody id='tbody-items'>
+				        {loop $list $row}
+				        <tr>
+				            <td>{$row['id']}</td>
+				            <td>
+				            	<p><img src="{$row['avatar']}" alt="" width="30"> {php echo $row['nickname'] ? $row['nickname'] : $row['realname']}  </p>
+				            </td>
+				            <td>{$row['need_price']}</td>
+				            <td>{$row['surplus_price']}</td>
+				            <td>{$row['this_price']}</td>
+				            <td>{php echo date('Y年m月d日 H:i:s', $row['createtime'])}</td>
+				            <td><a onclick="return confirm('您确定要删除此条记录？');" class="btn btn-primary btn-sm disbut" href="{php echo $this->createPluginWebUrl('descreturn/index', array('op'=>'detail', 'action'=>'del', 'id'=>$row['id']))}" title="">删除</a></td>
+				        </tr>
+				        {/loop}
+					</tbody>
+				</table>
+			</div>
+		</div>
+{/if}
+{$pager}
+{template 'web/_footer'}

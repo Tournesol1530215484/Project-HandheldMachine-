@@ -1,0 +1,13 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'dealmerch.set'}<li {if $_GPC['method']=='log'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/log')}">易货码充值记录</a></li>{/if}
+
+    {ifp 'dealmerch.set'}<li {if $_GPC['method']=='cur_log'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/cur_log')}">免换货服务费充值记录</a></li>{/if}
+
+    {ifp 'dealmerch.set'}<li {if $_GPC['method']=='set'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/set')}">商城设置</a></li>{/if}  
+    <!-- <li {if $_GPC['method']=='audit'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/set')}">购买年会员审核</a></li> -->           
+    <li {if $_GPC['method']=='member' && $_GPC['op'] != 'log'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/member')}">年会员设置</a></li>
+
+    <li {if $_GPC['method']=='member' && $_GPC['op'] == 'log'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('dealmerch/member',array('op'=>'log'))}">年会员购买记录</a></li>                                                                                
+</ul>
+</div>

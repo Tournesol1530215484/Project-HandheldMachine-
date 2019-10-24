@@ -1,0 +1,643 @@
+{template 'common/header'}
+<script type="text/javascript" href="http://jhzh66.com/addons/sz_yi/static/js/dist/area/Area.xml?v=3"></script>
+<style type='text/css'>	 	 		 	 
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+	.mywidth {width: 80px;display: inline-block;text-overflow: ellipsis;}
+	.poster {width:46%;height: 90%;float: left;list-style: none;} 
+	.poster img{width: 262px;height:440px;}
+	.checked {border: 2px solid #f00;}
+	.pad {padding:2px;}
+	.diyinput {margin-top: -7.5px;}
+	#menuContent ul{height: auto;}
+	#menuContent li > span:nth-child(2){
+		display: none;		 	  		 			 		 	
+	}	 			 	 	 	 
+	#menuContent a span:nth-child(1){
+		display: none;		 	  		 	
+	}
+	#chart-container{overflow: auto;}	 	
+</style>	 	 
+
+{if $_GPC['op'] == 'basic'}
+	 	 	
+	<div class="main rightlist"> 		 
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+				{if $_GPC['type'] == 1 || empty($_GPC['type'])}
+				<div class='panel panel-default' style="border-radius: 5px;">
+					<div class='panel-heading' style="background: #eee;"></div>
+						<div class='panel-body'>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动主题</label>
+									<div class="col-sm-9 col-xs-12">
+										<input type="" class="form-control" name="data[theme]" value="{$act['theme']}">
+									</div> 	 	
+								</div> 	 	 	 	
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div> 		 
+							</div> 		
+ 	 						 
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  大屏幕生效时间	</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											{php echo tpl_form_field_daterange('data', array('starttime'=>date('Y-m-d H:i',$act['screen_stime']),'endtime'=>date('Y-m-d H:i',$act['screen_etime'])),1)}  
+											</label>  		
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div> 		
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+ 	 	
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  是否报名才能参加	</label>
+									<div class="col-sm-9 col-xs-12"> 		  			
+										{ife 'activity.activity' $su_info} 	 	 	
+											<label class="radio-inline"> 	 	 	 
+											  <input type="radio" name="data[afterTheSignup]" {if $act['afterTheSignup'] == 0}checked{/if} checked id="inlineRadio1" value="0"> 否    	   
+											</label>  	 	
+											<label class="radio-inline"> 	 	 		 
+											  <input type="radio" name="data[afterTheSignup]" {if $act['afterTheSignup'] == 1}checked{/if} id="inlineRadio1" value="1"> 是    	    
+											</label> 	 	 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  公司logo</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}	 		
+										{php echo tpl_form_field_image('data[companyLogo]',$act['companyLogo']);}
+										<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+										{else}
+											<img src=""> 	 	
+										{/if}
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  背景图片</label>
+									<div class="col-sm-9 col-xs-12"> 		 
+										{ife 'activity.activity' $su_info}
+										{php echo tpl_form_field_image('data[background]',$act['background']);}
+										<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+										{else}
+											<img src="">
+										{/if} 		 
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				{/if}
+         
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'activity.activity' $su_info}
+                            <input type="hidden" name="uid" value="{$su_info['uid']}" />
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'activity.activity.add|activity.activity.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+		<div class="form-group col-sm-12">
+         
+        </div>
+    </form>
+</div>
+{else if $op == 'prize'}
+
+{if empty($ac)}
+<div class="panel panel-info">
+	<div class="panel-heading">奖品设置</div>
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:90px'>抽奖顺序</th>					
+                    <th>奖项类别</th>
+                    <th>奖品名称</th>
+                    <th>奖品数量</th>
+                    <th>单次抽奖数</th>
+                    <th>奖品图片</th>
+                    <th>操作</th>
+                </tr>
+            </thead>	 		 	 	
+            <tbody>  
+                {loop $list $row}
+                <tr>
+                    <td> 
+                        {$row['displayorder']}	 
+                    </td>    	 	            
+                    <td>{$row['type']}</td>  	 	 	 	                    
+                    <td>{$row['title']}</td>  	 	 	 	                    
+                    <td>{$row['num']}</td>  	 	 	 	                    
+                    <td>{$row['singleNum']}</td>  		 	  	 	 	                    
+                    <td><img width="50px;" height="auto" src="{php echo tomedia($row['thumb'])}"></td>   
+                    <td style="text-align:left;">
+                        {ifp 'activityba.activity'}                        
+                        <a href="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'prize','ac'=>'post','id'=>$row['id']))}" class="btn btn-default btn-sm"  title="修改" style="background-color: #ffb034; color:#fff;">
+                        	<i class="fa fa-edit">  	 		 	 	 
+                        	</i>	 		 	 	 	 
+                        </a>	 	 
+                        {/if}	 	 	 		 	 	 	 		 	 	 			 	 	 	 		 
+                        {ifp 'activityba.activity'}
+                        <a href="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'prize','ac'=>'delete','id'=>$row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此奖品?')" title="删除" style="background-color: #000; color:#fff;">
+                        	<i class="fa fa-times">
+                        	</i>	 
+                        </a>
+                        {/if}
+                    </td>
+                </tr>	 	
+                {/loop} 
+                <tr>	 	 
+                    <td colspan='6'>	 	 
+                        {ifp 'activityba.activity'}
+                          <a class='btn btn-primary' href="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'prize','ac'=>'post'))}"><i class='fa fa-plus'></i> 添加</a>
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+                       {/if}	  	 	 	 		 	 	 	 	 	 	 		 	 			 	  
+                    </td>
+                </tr>	 	 
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</form>
+</div>
+<script>
+    require(['bootstrap'], function ($) {
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+    });
+</script>
+
+{else}
+
+<div class="main rightlist">	 	 	 	
+    <form action="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'prize','ac'=>'sub'))}" method="post" class="form-horizontal form" enctype="multipart/form-data" onsubmit='return formcheck()'>
+        <input type="hidden" name="id" value="{$item['id']}" />	 
+        <div class="panel panel-info">	 	 	 	 	 	 	 	 
+            <div class="panel-heading">
+                奖品添加       
+            </div>	 	 	 	 
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style="color: #f00;">* </span>抽奖顺序</label>	 
+                    <div class="col-sm-9 col-xs-12">	 	
+                        <input type="text" id="displayorder" name="data[displayorder]" class="form-control" value="{$item['displayorder']}" />	 	 	
+                    </div>
+                </div>	
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	奖项类别
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id='type' name="data[type]" class="form-control" value="{$item['type']}" /> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	奖品名称
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id='title' name="data[title]" class="form-control" value="{$item['title']}" /> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	奖品数量
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id='num' name="data[num]" class="form-control" value="{$item['num']}" /> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	单次抽奖数量
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id='singleNum' name="data[singleNum]" class="form-control" value="{$item['singleNum']}" /> 	 	
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">奖品图片</label>
+                    <div class="col-sm-9 col-xs-12">
+                        {php echo tpl_form_field_image('data[thumb]', $item['thumb'])}
+                        <span class='help-block'>建议尺寸:640 * 350 , 请将所有奖品图片尺寸保持一致</span>
+                    </div>	 	
+                </div>	 	 	 
+               	{if false}
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">奖品连接</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="link" class="form-control" value="{$item['link']}" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">显示位置</label>
+                    <div class="col-sm-9 col-xs-12">      
+                        <label class='radio-inline'>
+                            <input type='radio' name='place' value=0' {if $item['place']==0}checked{/if} /> 首页
+                        </label>                 
+                        <label class='radio-inline'>                                 
+                            <input type='radio' name='place' value=1' {if $item['place']==1}checked{/if} /> 底部
+                        </label>                
+                    </div>
+                </div> 
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否显示</label>
+                    <div class="col-sm-9 col-xs-12">
+                      
+                        <label class='radio-inline'>
+                            <input type='radio' name='status' value=1' {if $item['status']==1}checked{/if} /> 是
+                        </label>
+                        <label class='radio-inline'> 
+                            <input type='radio' name='status' value=0' {if $item['status']==0}checked{/if} /> 否
+                        </label>
+                    </div>
+                </div>
+                
+                {/if}
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                   <input type="button" name="back" onclick='history.back()' {ifp 'activityba.activity'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />	 	 
+                </div>	 	 
+            </div>	 	 
+                
+                
+            </div>
+        </div>
+         
+    </form>
+</div>
+</div>
+<script language='javascript'>
+    function formcheck() {
+        if ($("#title").isEmpty()) {
+            Tip.focus("title", "请填写奖品名称!");
+            return false;
+        }
+
+        if ($("#displayorder").isEmpty()) {
+            Tip.focus("displayorder", "请填写抽奖顺序!");
+            return false;	 	
+        }
+
+        if ($("#type").isEmpty()) {
+            Tip.focus("type", "请填写奖品名称!");
+            return false;
+        }
+
+        if ($("#num").isEmpty()) {
+            Tip.focus("num", "请输入奖品数量!");
+            return false;
+        }
+
+        if ($("#singleNum").isEmpty()) {
+            Tip.focus("singleNum", "请输入单次抽奖数量!");
+            return false;	 	 
+        }
+
+        if ($("[name='data[thumb]']").isEmpty()) {
+            Tip.focus("[name='data[thumb]']", "请填写奖品图片!");
+            return false;		 	 	 		 		 	 	
+        }
+
+        return true;
+    }
+</script>
+	
+{/if}
+{else if $op == 'shake'}
+
+{if empty($ac)}	 	 
+<div class="panel panel-info">
+	<div class="panel-heading">摇一摇设置</div>
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th>摇一摇主题</th>					
+                    <th>关键词</th>
+                    <th>游戏时间</th>
+                    <th>展示人数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>	 		 	 	
+            <tbody>  
+                {loop $list $row}
+                <tr>	 	 	 	  	 
+                    <td>{$row['title']}</td>  	 	 	 	                    
+                    <td>{$row['core']}</td>    	 	
+                    <td>{$row['playtime']}</td>  		 	 	 	 	                    
+                    <td>{$row['people']}</td>  	 	 	 	 	 	                    
+                    <td style="text-align:left;">	 	 	 	 	 
+                        {ifp 'activityba.activity'}                        
+                        <a href="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'shake','ac'=>'post','id'=>$row['id']))}" class="btn btn-default btn-sm"  title="修改" style="background-color: #ffb034; color:#fff;">
+                        	<i class="fa fa-edit">  	 		 	 	 
+                        	</i>	 		 	 	 	 
+                        </a>	 	 
+                        {/if}	 	 	 		 	 	 	 		 	 	 			 	 	 	 		 
+                        {ifp 'activityba.activity'}
+                        <a href="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'shake','ac'=>'delete','id'=>$row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此奖品?')" title="删除" style="background-color: #000; color:#fff;">
+                        	<i class="fa fa-times">
+                        	</i>	 
+                        </a>	 		 	 	 	 	 
+                        {/if}
+                </tr>	 	
+                {/loop} 
+                <tr>	 	 
+                    <td colspan='6'>	 	 
+                        {ifp 'activityba.activity'}
+                          <a class='btn btn-primary' href="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'shake','ac'=>'post'))}"><i class='fa fa-plus'></i> 添加</a>
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+                       {/if}	 	  
+                    </td>
+                </tr>	 	 
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</form>
+</div>
+<script>
+    require(['bootstrap'], function ($) {
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+    });
+</script>
+
+{else}
+
+<div class="main rightlist">	 	 	 	
+    <form action="{php echo $this->createPluginWebUrl('activityba/activity',array('op'=>'shake','ac'=>'sub'))}" method="post" class="form-horizontal form" enctype="multipart/form-data" onsubmit='return formcheck()'>
+        <input type="hidden" name="id" value="{$item['id']}" />	 
+        <div class="panel panel-info">	 	 	 	 	 	 	 	 
+            <div class="panel-heading">	 	 		 	 		 	 		 		 	 	 
+                摇一摇       
+            </div>	 	 	 	 	 			 
+            <div class="panel-body">	 	 	
+
+                <div class="form-group">	 		 
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style="color: #f00;">* </span>摇一摇主题</label>	 
+                    <div class="col-sm-9 col-xs-12">	 	
+                        <input type="text" id="title" name="data[title]" class="form-control" value="{$item['title']}" /> 
+                    </div>
+                </div>	
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	关键词
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id='core' name="data[core]" class="form-control" value="{$item['core']}" /> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	倒计时数
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="number" id='countdown' name="data[countdown]" class="form-control" value="{$item['countdown']}" /> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	游戏时间
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="number" id='playtime' name="data[playtime]" class="form-control" value="{$item['playtime']}" /> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	最大次数
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="number" id='maxnum' name="data[maxnum]" class="form-control" value="{$item['maxnum']}" /> 	 		 	 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    	<span style="color:red">*</span>
+                    	展示人数
+                    </label>	 	 
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="number" id='people' name="data[people]" class="form-control" value="{$item['people']}" /> 	 		 	 
+                    </div>	 	 		 	 	 
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">回复图片</label>
+                    <div class="col-sm-9 col-xs-12">
+                        {php echo tpl_form_field_image('data[reply]', $item['reply'])}
+                        <span class='help-block'>建议尺寸:640 * 350 , 请将所有奖品图片尺寸保持一致</span>
+                    </div>	 		 	 	 	 
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">背景图片</label>
+                    <div class="col-sm-9 col-xs-12">	 	 
+                        {php echo tpl_form_field_image('data[background]', $item['background'])}
+                        <span class='help-block'>建议尺寸:640 * 350 , 请将所有奖品图片尺寸保持一致</span>
+                    </div>	 		 	 	 	 		 		 	 	 	 	 
+                </div>
+
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                   <input type="button" name="back" onclick='history.back()' {ifp 'activityba.activity'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />	 	 
+                </div>	 	 
+            </div>	 	 
+                
+            </div>	 	 	
+        </div>
+         
+    </form>
+</div>
+</div>
+<script language='javascript'>
+    function formcheck() {
+        if ($("#title").isEmpty()) {
+            Tip.focus("title", "请填写摇一摇主题!");
+            return false;
+        }
+
+        if ($("#core").isEmpty()) {
+            Tip.focus("core", "请填写关键词!");
+            return false;	 	
+        }
+
+        if ($("#countdown").isEmpty()) {
+            Tip.focus("countdown", "请输入倒计时数!");
+            return false;
+        }
+
+        if ($("#playtime").isEmpty()) {
+            Tip.focus("playtime", "请输入游戏时间!");
+            return false;		 		 	 	 	 
+        }
+
+        if ($("#maxnum").isEmpty()) {
+            Tip.focus("maxnum", "请输入最大次数!");
+            return false;	 		 	  
+        }
+
+        if ($("#maxnum").isEmpty()) {
+            Tip.focus("maxnum", "请输入最大次数!");
+            return false;	 		 	  
+        }
+
+        if ($("#people").isEmpty()) {
+            Tip.focus("people", "请输入最大次数!");
+            return false;	 		 	  
+        }
+
+        if ($("[name='data[reply]']").isEmpty()) {
+            Tip.focus("maxnum", "请上传回复图片!");
+            return false;	 		 	 	  
+        }	 	 		 	 	 	 
+
+        if ($("[name='data[background]']").isEmpty()) {
+            Tip.focus("[name='data[background]']", "请上传背景图片!");
+            return false;		 	 	 		 		 	 	
+        }
+
+        return true;
+    }
+</script>
+	
+{/if}	 	 
+{/if}
+</div>
+<script language='javascript'>
+ 
+   $(function(){
+ 		$('[name="orther[teamModel]"]').click(function(){
+ 			var o = $(this);
+ 			if (o.val() == 0) {
+ 				$('.teamModelSet').hide();
+ 			}else{
+ 				$('.teamModelSet').show();
+ 			}
+ 		});    
+        $('#dataform').ajaxForm();
+
+        $(':input[name=submit]').click(function(){
+            if($(this).attr('submitting')=='1'){
+                return;
+            }
+//           if ($(':input[name=username]').isEmpty()) {
+//                Tip.focus($(':input[name=username]'), '请填写用户名!');
+//                return;
+//            }
+//
+//            {if empty($su_info)}
+//              if ($(':input[name=password]').isEmpty()) {
+//                Tip.focus($(':input[name=password]'), '请输入用户密码!');
+//                return;
+//            }
+//            {/if}
+//
+//			{if empty($id)}
+//            if ($(':input[name=merchname]').isEmpty()) {
+//                Tip.focus($(':input[name=merchname]'), '请输入商家名!');
+//                return;
+//            }
+//            if ($(':input[name=typeid]').isEmpty()) {
+//                Tip.focus($(':input[name=typeid]'), '请输入行业大类!');
+//                return;
+//            }
+//            if ($(':input[name=mobile]').isEmpty()) {
+//                Tip.focus($(':input[name=mobile]'), '请输入联系电话!');
+//                return;
+//            }
+//            if ($(':input[name=address]').isEmpty()) {
+//                Tip.focus($(':input[name=address]'), '请输入详细地址!');
+//            }
+//			{/if}
+
+            $(this).attr('submitting','1').removeClass('btn-primary');
+            $('#dataform').ajaxSubmit(function(data){
+                data = eval("(" +  data  +")");
+                if(data.status != 1){
+                      $(this).removeAttr('submitting').addClass('btn-primary');
+                      alert(data.result);
+                      return;
+                }else{
+                      alert(data.result);	 	  		  		 
+                      location.reload();
+                }                                                    
+            })
+        })          
+
+   })
+  
+</script>
+{template 'common/footer'}

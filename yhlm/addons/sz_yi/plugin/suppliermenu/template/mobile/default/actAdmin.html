@@ -1,0 +1,375 @@
+{template 'common/header'}
+<title>我发布的活动</title><!-- 这里的标签动态获取 我参与的活动 我转发的活动 我发布的活动 -->
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #eee;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .act-title{
+        background: #fff;
+    }
+    .act-title .act-link{
+        width: 100%;
+        font-size: 16px;
+        color: #333;
+        padding: 10px;
+        text-decoration: none;
+    }
+    .act-title .act-link .flex1{
+        width: calc(100% - 30px);
+        line-height: 1.3;
+    }
+    .act-title .act-link .flex2{
+        width: 30px;
+        text-align: center;
+    }
+    .act-title .act-link .flex2 i{
+        font-size: 24px;
+    }
+    .data-box{
+        background: #fff;
+        padding: 10px 0;
+    }
+    .data-box .data-item{
+        width: 25%;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+        border-right: 1px solid #eee;
+    }
+    .data-box .data-item:last-child{
+        border: 0;
+    }
+    .data-box .data-item .data-item-num{
+        display: block;
+        color: #999;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .operate-box .op-ul{
+        background: #fff; 
+        margin-top: 10px;
+    }
+    .operate-box .op-ul .op-item{
+        float: left;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    .operate-box .op-item{
+        width: calc(100% / 3);
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+    .operate-box .op-item .op-item-link{
+        display: block;
+        color: #999;
+        line-height: 30px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none;
+    }
+    .operate-box .op-item .icon-item{
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        background: #00c1ff;
+        color: #fff;
+        font-size: 25px;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">我发布的活动</div><!-- 这里的标签动态获取 我参与的活动 我转发的活动 我发布的活动 -->
+    </div>
+    <div class="act-title">
+        <a href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi" class="act-link flex-center">
+            <span class="flex1">火爆!才智大脑《世界记忆大师全国巡讲》亲子公益行火热报名中</span>
+            <span class="flex2"><i class="fa fa-angle-right trun-right"></i></span>
+        </a>
+    </div>
+    <div class="data-box flex-center">
+        <div class="data-item">
+            阅读
+            <span class="data-item-num">79</span>
+        </div>
+        <div class="data-item">
+            转发
+            <span class="data-item-num">79</span>
+        </div>
+        <div class="data-item">
+            报名
+            <span class="data-item-num">0/7000009</span>
+        </div>
+        <div class="data-item">
+            签到
+            <span class="data-item-num">0/700000000009</span>
+        </div>
+    </div>
+    <div class="operate-box">
+        <!-- 下面的三个op-ul 使用内置标签来进行判断是 我参与的活动 还是我转发的活动 还是 我发布的活动 -->
+        <!-- 我发布的活动 -->
+        <ul class="op-ul clearfloat">
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>编辑活动信息
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    </div>编辑活动正文
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </div>邀请海报
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                    </div>活动短链接
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </div>签到海报
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    </div>报名名单
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-files-o" aria-hidden="true"></i>
+                    </div>复制活动
+                </a> 
+            </li>
+            <li class="op-item"> <!-- data-actid 赋值活动的id -->
+                <a class="op-item-link del-activity" href="javascript:void(0);" data-actid="1">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </div>删除活动
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </div>活动变更
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    </div>报名审核
+                </a> 
+            </li>
+            <li class="op-item"> <!-- data-actid 赋值活动的id -->
+                <a class="op-item-link cancel-sign-up" href="javascript:void(0);" data-actid="1">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                    </div>取消报名
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                    </div>活动提现
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-retweet" aria-hidden="true"></i>
+                    </div>退款信息
+                </a> 
+            </li>
+        </ul>
+        <!-- 我转发的活动 -->
+        <ul class="op-ul clearfloat">
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#10BDFF;">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </div>邀请海报
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#10BDFF;">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                    </div>活动短链接
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#10BDFF;">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    </div>报名名单
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#10BDFF;">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </div>转介绍
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#10BDFF;">
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                    </div>转活动提现
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#10BDFF;">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                    </div>群发转发
+                </a> 
+            </li>
+        </ul>
+        <!-- 我参与的活动 -->
+        <ul class="op-ul clearfloat">
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    </div>我的报名
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </div>我的订单
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                    </div>退款提现
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>我的足迹
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-ticket" aria-hidden="true"></i>
+                    </div>我的电子票
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                    </div>不公开名片
+                </a> 
+            </li>
+            <li class="op-item"> 
+                <a class="op-item-link" href="http://jhzh66.com/app/index.php?i=8&c=entry&p=info&do=member&m=sz_yi">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                    </div>邀约汇总
+                </a> 
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        //删除活动
+        $(".del-activity").click(function(){
+            core.tip.confirm("确定要删除此活动吗?",function(){
+                var actid = $(this).data('actid');
+                //删除活动异步请求
+                core.json('plugin/suppliermenu/ad',{op:'list',ac:'put',id:actid,merchtype:'{$_GPC["merchtype"]}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        return;
+                    }
+                    core.tip.show(json.result);
+                },true,true);
+            });
+        });
+        //取消活动报名 这个针对其他用户 应该是取消其他用户可以报名这个活动
+        $(".cancel-sign-up").click(function(){
+            core.tip.confirm("确定要取消此活动的报名吗?",function(){
+                var actid = $(this).data('actid');
+                //取消活动报名异步请求
+                core.json('plugin/suppliermenu/ad',{op:'list',ac:'put',id:actid,merchtype:'{$_GPC["merchtype"]}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        return;
+                    }
+                    core.tip.show(json.result);
+                },true,true);
+            });
+        });
+    });
+</script>
+{template 'common/footer'}

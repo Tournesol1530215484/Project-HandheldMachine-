@@ -1,0 +1,316 @@
+{template 'common/header'}
+<title>广告列表</title>
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #fff;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .list-box{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .no-list{
+        text-align: center;
+        color: #999;
+    }
+    .list-box .list-ul .list-item{
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    .list-box .list-ul .goods-link{
+        display: block;
+        text-decoration: none;
+        color: #000;
+    }
+    .list-box .list-ul .goods-link:visited,
+    .list-box .list-ul .goods-link:active{
+        color: #000;
+    }
+    .list-box .list-ul .list-item .floatl{
+        margin-right: 10px;
+        position: relative;
+    }
+    /*按比例750/1084*/
+    .list-box .list-ul .list-item .floatl .pic-box{
+        width: 80px;
+        height: 115px;
+        position: relative;
+    }
+    .list-box .list-ul .list-item .floatr{
+        width: calc(100% - 165px);
+    }
+    .list-box .list-ul .list-item .floatr2{
+        margin-left: 10px;
+        width: 65px;
+        text-align: center;
+    }
+    .list-box .list-ul .goods-tag,
+    .list-box .list-ul .show-tag{
+        margin-bottom: 5px;
+    }
+    .list-box .list-ul .show-tag{
+        font-size: 1.2rem;
+        color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .list-box .list-ul .goods-tag .goods-link{
+        font-size: 1.4rem;
+    }
+    .list-box .list-ul .goods-tag .line-clamp2{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    /*时间导航条件*/
+    .status-nav-container{ 
+        width: 100%;
+        max-width: 720px;
+        border-bottom: 1px solid #ccc;
+    }
+    .status-nav-container .nav-box{
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+    }
+    .status-nav-container .nav-box .nav-item-link{
+        display: block;
+        float: left;
+        width: calc(100% / 3);
+        height: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+    }
+    .status-nav-container .nav-box .nav-item-link.nav-on{
+        border-bottom: 1px solid #009BF8;
+        color: #009BF8;
+    }
+    .status-nav-container .nav-box .nav-item.nav-name{
+        width: 100%;
+        height: 100%;
+    }
+    #list_loading{ 
+        width: 94%;
+        padding: 10px;
+        color: #666;
+        text-align: center;
+    }
+    .status-mark{
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+        padding: 3px 5px;
+        background: #ea7474;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-radius: 3px;
+    }
+    .btn-box{
+        margin-top: 5px;
+    }
+    .btn-box .look-detail,
+    .btn-box .delivery-now,
+    .btn-box .edit-btn{
+        font-size: 1.4rem;
+        float: right;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #eee;
+        margin-right: 10px;
+    }
+</style>
+
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">广告列表</div>
+    </div>
+    <div class="nav-container status-nav-container">
+        <ul class="nav-box clearfloat">
+            <a class="nav-item-link {if $_GPC['status']=='1' || empty($_GPC['status'])}nav-on{/if}" href="javascript:void(0);" data-status="1">
+                <li class="nav-item nav-name">
+                   审核通过
+                </li>
+            </a>
+            <a class="nav-item-link {if $_GPC['status']=='2'}nav-on{/if}" href="javascript:void(0);" data-status="2">
+                <li class="nav-item nav-name">
+                   审核中
+                </li>
+            </a>
+            <a class="nav-item-link {if $_GPC['status']=='3'}nav-on{/if}" href="javascript:void(0);" data-status="3">
+                <li class="nav-item nav-name">
+                   审核失败
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="list-box">
+        <ul class="list-ul">      
+            <!-- 这里循环排行记录 或者 排行记录暂无数据为空 两种选择-->
+            <!-- 这里循环排行记录 或者 排行记录暂无数据为空end 后要删 只是看样式 -->
+        </ul> 
+    </div>
+</div>
+<!-- 两种模板 排行记录 或者 排行记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item clearfloat">
+            <div class="clearfloat flex-center">
+                <a href="javascript:void(0);" class="goods-link floatl"><!-- 商品图片(背景图形式) -->
+                    <div class="pic-box" style="background: url('<%g.thumb[0]%>') no-repeat center; background-size: cover;">
+                    </div>
+                </a>
+                <div class="content-box floatr">
+                    <div class="goods-tag">
+                        <a href="javascript:void(0);" class="goods-link line-clamp2"><!-- 广告名称 -->
+                        <%g.title%>
+                        </a> 
+                    </div>
+                    <div class="show-tag">  
+                        最后投放: <%g.etime%>
+                    </div>
+                    <div class="show-tag">  
+                        审核时间: <%g.audit_time%>
+                    </div>
+                </div>
+                <div class="status-box floatr2">
+                    <span class="status-mark">
+                        <%if g.status == 1%>
+                            播放中
+                        <%else if g.status == 2%>
+                            审核失败
+                        <%else%>
+                            待审核
+                        <%/if%>
+                    </span>
+                </div>
+            </div>
+            <div class="btn-box clearfloat">
+                <%if g.status == 2%>
+                    <div class="edit-btn" data-adid="<%g.id%>">修改</div> <!-- data-adi存储广告id onclick跳转到对应广告的修改页面 只在审核失败才会显示 用标签控制是否显示--> 
+                <%/if%>
+                {if $_GPC['status'] == 1}
+                <%if g.now == 0%>
+                    <div class="delivery-now" data-adid="<%g.id%>">立即投放</div> <!-- data-adi存储广告id -->
+                <%/if%>
+                {/if}
+                <div class="look-detail" data-adid="<%g.id%>">查看详情</div> <!-- data-adi存储广告id onclick跳转到对应广告-->
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无该类型红包</div>
+</script>
+<script type="text/javascript">
+    var page = 1; 
+    require(['tpl', 'core'], function(tpl, core) {
+        function bindEvents(){
+            $('.edit-btn').unbind('click').click(function() {
+                var adid = $(this).data('adid');
+                location.href = core.getUrl('plugin/suppliermenu/ad', {op:'add',id: adid,merchtype:'{$_GPC["merchtype"]}'});
+            });
+            
+            $('.look-detail').unbind('click').click(function() {
+                var adid = $(this).data('adid');
+                location.href = core.getUrl('barter/ad', {op:'detail',id: adid,merchtype:'{$_GPC["merchtype"]}'});
+            });
+            $('.delivery-now').unbind('click').click(function() {       
+                var theadid = $(this).data('adid');
+                //立即投递异步请求      
+                core.pjson('suppliermenu/ad',{op:'list',ac:'put', id:theadid,merchtype:'{$_GPC["merchtype"]}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);
+                        location.reload();      
+                        return;
+                    }
+                    core.tip.show(json.result);
+                 },true,true);
+            });
+        }
+        {if empty($_GPC['status'])}
+        	{php $_GPC['status'] = 1}
+        {/if} 	 		  	 	 	
+        core.pjson('suppliermenu/ad', {page:page,op:'list',ac:'getad', status: '{$_GPC['status']}',merchtype:'{$_GPC["merchtype"]}'}, function(json) {
+            $('.nav-item-link').click(function() {
+                var status = $(this).data('status');
+                location.href = core.getUrl('plugin/suppliermenu/ad', {op:'list',status: status,merchtype:'{$_GPC["merchtype"]}'});
+            })
+            if (json.result.list.length <= 0) {
+                $(".list-box .list-ul").html(tpl('tpl_null'));
+                return;
+            }
+            $(".list-box .list-ul").html(tpl('tpl_list',json.result));
+            bindEvents();
+            
+            var loaded = false;
+            var stop=true; 
+            $(window).scroll(function(){ 
+                if(loaded){
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+                if($(document).height() <= totalheight){
+                    if(stop==true){ 
+                        stop=false; 
+                        $('.list-box .list-ul').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                        page++;
+                        core.pjson('suppliermenu/ad', {op:'list',ac:'getad',page:page, status: '{$_GPC['status']}',merchtype:'{$_GPC["merchtype"]}'}, function(morejson) {  
+                            stop = true;
+                            $('#list_loading').remove();
+                            $(".list-box .list-ul").append(tpl('tpl_list', morejson.result));
+                            bindEvents();
+                            if (morejson.result.list.length <morejson.result.pagesize) {
+                                $('.list-box .list-ul').append('<div id="list_loading">已经加载全部广告</div>');
+                                loaded = true;
+                                return;
+                            }
+                        },true); 
+                    } 
+                } 
+            });
+
+        }, true);
+    });
+</script>
+{template 'common/footer'}

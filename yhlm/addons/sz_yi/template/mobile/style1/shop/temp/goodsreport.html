@@ -1,0 +1,116 @@
+{template 'common/header'}
+<title>商品投诉</title>
+<link rel="stylesheet" href="../addons/sz_yi/static/css/mui.min.css">
+
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/detailad.css" />
+
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/mediaelementplayer.min.css" />
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/mediaelement-and-player.min.js"></script> -->
+<style type="text/css">
+  .mui-slider-item {
+    white-space:nowrap;
+       overflow:hidden;
+  }
+  .mui-slider-item a{
+    white-space:nowrap;
+       overflow:hidden;
+  }
+  .mui-slider-item img{
+     max-height:200px;
+     vertical-align:middle;
+     
+  }
+  
+</style>
+  
+    <div class="report-page" style="left: 0px;">
+
+        <div class="page_topbar">
+
+            <a href="javascript:;" onclick="history.go(-1)"  class="back"><i class="fa fa-angle-left"></i></a>
+
+            <div class="title mark-step">举报</div>
+
+        </div>
+
+      <form id="reportgoods" method="post">
+          <input type="hidden"  value="ajaxreport" name="op">
+
+          <div class="mui-content report-type-box" style="width: 90%;margin: 0 auto;">
+
+          <ul class="mui-table-view mui-table-view-radio">
+
+            {loop $list $k $v}
+
+            <div class="mui-input-row mui-checkbox" style="height: 50px;border-bottom: 1px solid #ccc">
+                <label style="line-height: 30px;font-weight: 400;">{$v['title']} </label>
+                <input name="checkbox1[]" value="{$v['id']}" type="checkbox" >
+           </div>
+            {/loop}
+
+            <div class="mui-input-row mui-checkbox" style="height: 50px;">
+                <label style="line-height: 30px;font-weight: 400;">其他原因 </label>
+                <input name="type" value="100" type="checkbox" >
+           </div>
+          </ul>
+
+        </div>
+
+        <div class="other-reason-box">
+
+          <textarea name="remark" class="other-reason-content" placeholder="请输入其他原因,最多50个字" maxlength="50" ></textarea>
+
+        </div>
+
+          <!-- <div class="report-confirm-btn"  onclick="return formcheck()">提交</div> -->
+          <!-- <input type="submit" id="save-btn" name="submit" value="提交" class="report-confirm-btn" /> -->
+          <input id="save-btn" type="button" id="save-btn"  class="report-confirm-btn" value="保存"/>
+          <input type="hidden" name="goodsid" id="adid_input" value="{$_GPC['goodsid']}"><!-- 商品id -->
+
+          <input type="hidden" name="uid" id="uid_input" value="{$_GPC['openid']}"> <!-- 用户id -->
+      </form> 
+
+    </div>
+
+    <script>
+
+    $(document).ready(function() {
+            //表单异步提交
+            $("#save-btn").on("click",function(){
+                $.ajax({
+
+                    url: "{php echo $this->createMobileUrl('shop/goodreport',array('op'=>'sign'))}",
+
+                    data: $('#reportgoods').serialize(),
+
+
+                    dataType: 'json', 
+
+                    type:'post',
+
+                    success: function(data) {
+                      console.log(data);
+                        if(data.status=='1'){
+                          //console.log(data.msg);
+                          alert(data.msg);
+                          window.location.href = "javascript:history.go(-1)";
+                      }else{
+                        console.log(data.msg);
+                          alert(data.msg);
+                          window.location.href = "javascript:history.go(-1)";
+                      }
+                    },
+
+                });
+                 })
+            })
+</script>
+
+
+  
+{template 'common/footer'}

@@ -1,0 +1,459 @@
+{template 'common/header'}
+{if $op == 'examine'}
+{template 'tabs'}
+{/if}	 
+<script type="text/javascript" href="http://jhzh66.com/addons/sz_yi/static/js/dist/area/Area.xml?v=3"></script>
+
+<style type='text/css'>	 	 	 		 	  		 	  		 	 		 	 		 	 	 	 	 		 	 	 	 		 	 	 	 	 
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+	.mywidth {width: 80px;display: inline-block;text-overflow: ellipsis;}
+	.poster {width:46%;height: 90%;float: left;list-style: none;} 
+	.poster img{width: 262px;height:440px;}
+	.checked {border: 2px solid #f00;}
+	.pad {padding:2px;}
+	.diyinput {margin-top: -7.5px;}
+	#menuContent ul{height: auto;}
+	#menuContent li > span:nth-child(2){
+		display: none;		 	  		 			 		 	
+	}	 			 	 	 	 
+	#menuContent a span:nth-child(1){
+		display: none;		 	  		 	
+	}
+	#chart-container{overflow: auto;}	
+	.bootstrap-switch-container{
+		transition: all 2s;
+	} 	
+</style>	 	 
+{if $_GPC['op'] == 'add'} 	 		
+ 		 	 
+{else if $_GPC['op'] == 'basic'}
+	 	 	
+	<div class="main rightlist"> 		 
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+        <input type="hidden" name="id" value="{$_GPC['id']}" /> 
+        <input type="hidden" name="op" value="add"> 	 	  	 	 		 	 		 	 
+        <input type="hidden" name="ac" value="{$_GPC['op']}"> 	 	  	 	 		 	 		 	 
+ 	 	 	 	 		 		 		 		 	 	 	
+				{if $_GPC['type'] == 1 || empty($_GPC['type'])}
+				<div class='panel panel-default' style="border-radius: 5px;">
+					<div class='panel-heading' style="background: #eee;"></div>
+						<div class='panel-body'>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动主题</label>
+									<div class="col-sm-9 col-xs-12">
+										<input type="" class="form-control" name="data[theme]" value="{$act['theme']}">
+									</div> 	 	
+								</div> 	 	 	 	
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div> 		 
+							</div> 		
+ 	 						 
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  大屏幕生效时间	</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.control' $su_info}
+											{php echo tpl_form_field_daterange('data', array('stime'=>date('Y-m-d H:i',$act['screen_stime']),'etime'=>date('Y-m-d H:i',$act['screen_etime'])),1)}  
+											</label>  		
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div> 		
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+ 	 	
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  是否报名才能参加	</label>
+									<div class="col-sm-9 col-xs-12"> 		  			
+										{ife 'activity.control' $su_info} 	 	 	
+											<label class="radio-inline"> 	 	 	 
+											  <input type="radio" name="data[afterTheSignup]" {if $act['afterTheSignup'] == 0}checked{/if} checked id="inlineRadio1" value="0"> 否    	   
+											</label>  	 	
+											<label class="radio-inline"> 	 	 		 
+											  <input type="radio" name="data[afterTheSignup]" {if $act['afterTheSignup'] == 1}checked{/if} id="inlineRadio1" value="1"> 是    	    
+											</label> 	 	 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  公司logo</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.control' $su_info}	 		
+										{php echo tpl_form_field_image('data[companyLogo]',$act['companyLogo']);}
+										<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+										{else}
+											<img src=""> 	 	
+										{/if}
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  背景图片</label>
+									<div class="col-sm-9 col-xs-12"> 		 
+										{ife 'activity.control' $su_info}
+										{php echo tpl_form_field_image('data[background]',$act['background']);}
+										<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+										{else}
+											<img src="">
+										{/if} 		 
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				{/if}
+         
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'activity.control' $su_info}
+                            <input type="hidden" name="uid" value="{$su_info['uid']}" />
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'activity.control.add|activity.control.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+		<div class="form-group col-sm-12">
+         
+        </div>
+    </form>
+</div>
+{else if $op == 'live'}
+		<!-- 直播台	 	  -->
+<div class="panel panel-info">
+	<div class="panel-heading">直播台</div>
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th width="50%;">直播消息</th>					
+                    <th width="50%;">操作</th>
+            </thead>		  		 		  	
+            <tbody>  
+                {loop $list $row}
+                <tr>
+                    <td>{$row['msg']}</td>  	 	 	 	                    
+                    <td>	 	 	 	 	 
+                        {ifp 'activityba.control'}
+                        <a href="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'live','ac'=>'delete','id'=>$row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此奖品?')" title="删除" style="background-color: #000; color:#fff;">
+                        	<i class="fa fa-times">
+                        	</i>	 	 		 	 	 	 
+                        </a>
+                        {/if}
+                    </td>
+                </tr>	 	
+                {/loop} 
+                <tr>	 	 
+                    <td colspan='6'>	 	 
+                        {ifp 'activityba.control'}
+
+                          <a class='btn btn-primary' data-toggle="modal" data-target="#modal-module-menus" href="javascript:void(0);"><i class='fa fa-plus'></i> 添加</a>	 			 	 	 		 	 	 	 	  	 	
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+                       {/if}	  	 	 	 		 	 	 	 	 	 	 		 	 			 	  
+                    </td>
+                </tr>	 	 	 	 	 	 		 	
+            </tbody>	 		 
+        </table>
+        {$pager}
+    </div>
+</div>	 	 
+</div>
+
+<div id="modal-module-menus" class="modal fade" tabindex="-1" aria-hidden="false" >
+	<div class="modal-dialog" style="width: 450px;margin-top:12%;">
+		<div class="modal-content">
+			<div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>添加直播消息</h3></div>
+			<div class="modal-body">
+				<form action="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'live','ac'=>'sub'))}" method="post">	 	  		 		 		 		 
+					<textarea class="form-control" rows="5" name="data[msg]" placeholder="请输入信息"></textarea>
+					<button class="btn btn-primary" type="submit" style="margin-top:7.5px;float: right;width: 18%;">	 
+						发送
+					</button>	 		 	 	 	 	 	 
+				</form>	 		 	 
+			</div> 	 	 	 			 		 	 	 	 	 	 
+			<div class="modal-footer"><a href="#" class="btn btn-default" style="display: none;" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+		</div>
+	</div>
+</div>
+
+<script>
+    require(['bootstrap'], function ($) {	 		 
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+    });
+</script>	 	 
+{else if $op == 'examine'}	 	 
+		<!--  消息审核	 	  -->
+<div class="panel panel-info">	 	 	 	 
+	<div class="panel-heading">
+
+<link rel="stylesheet" type="text/css" href="/addons/sz_yi/static/css/bootstrap-switch.min.css"> 		 	 
+					人工审核 :
+			<div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate bootstrap-switch-on" style="width: 106px;">	 	 	 	 	  	
+				<div class="bootstrap-switch-container" data-type="autoaudit" style="width: 156px; margin-left:{if $act['autoaudit']}0px{else}-52px{/if};">
+					<span class="bootstrap-switch-handle-on bootstrap-switch-success" style="width: 52px;">ON</span>
+					<span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+					<span class="bootstrap-switch-handle-off bootstrap-switch-danger" style="width: 52px;">OFF</span>
+				</div>
+			</div>
+				 	 		敏感词过滤 :
+			<div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate bootstrap-switch-on" style="width: 106px;">	 	 	 	 	  	
+				<div class="bootstrap-switch-container" data-type="filte"  style="width: 156px; margin-left: {if $act['filte']}0px{else}-52px{/if};">
+					<span class="bootstrap-switch-handle-on bootstrap-switch-success" style="width: 52px;">ON</span>
+					<span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+					<span class="bootstrap-switch-handle-off bootstrap-switch-danger" style="width: 52px;">OFF</span>
+				</div>
+			</div>
+			<a href="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'filte','ac'=>'post'))}" class="btn btn-default setfilte" style="margin-left:15px;">去设置</a>	 	 	 		 	  	
+			<script type="text/javascript"> 	 		  	 		  	
+				$('.bootstrap-switch-container').click(function(){	//开关 	
+					var o = $(this);	 	 	 	 
+					var margin=o.css('margin-left');	 	 	
+					var type = o.data('type');
+					var temp;
+					var tmargin;
+					if (margin == '0px') {
+						temp='off';
+						tmargin='-52px';
+					}else{
+						temp='on';
+						tmargin='0px';
+					}	 		 	 	 	 
+
+					var data={
+						type:type,
+						sure:temp
+					};
+
+					var url='{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'examine','ac'=>'set'))}';
+					$.post(url,data,function(data){
+						if (data.status == 1) {
+							o.css('margin-left',tmargin);
+						}
+					},'json');	 	 	 
+					
+				});
+
+			</script>
+		{if false}	 	 
+		<label>已上墙人数：
+			<span> 0 </span>
+		</label>
+
+		<label>已上墙消息：
+			<span> 0 </span>
+		</label>
+		{/if}	
+		<label>一共
+			<span> {$totals} </span>
+			条消息	 
+		</label> 	 
+
+		<button class="btn btn-info reload" style="margin-left:15px;">刷新消息</button>
+		
+	</div>
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th>头像</th>					
+                    <th>昵称</th>					
+                    <th>发送时间</th>					
+                    <th>内容</th>					
+                    <th>操作</th>
+            </thead>		  		 		  	
+            <tbody>  
+                {loop $list $row}
+                <tr>	 		 
+                    <td><img width="50px" height="auto" src="{$row['avatar']}"></td>  	 	 	 	                    
+                    <td>{$row['nickname']}</td>  	 	 	 	                    
+                    <td>{php echo date('Y-m-d H:i:s',$row['createtime'])}</td>  	 	 	 	                    
+                    <td>		  	 	 	 
+                    	{if $row['type'] == 'text'}
+                    		{$row['content']}
+                    	{else}
+                    	<img width="50px" height="auto" src="{$row['content']}">
+                    	{/if}	 	 	 	
+                    </td>  	 	 	 		 	 	 	 	  	 	                    
+                    <td>	 	 		 	 		 	 	 	 	 
+                        {ifp 'activityba.control'}   	 	                      
+                        <a href="javascript:void(0)" data-id="{$row['id']}" class="btn btn-default btn-sm msgedit" data-do="1" title="通过" style="background-color: #00EE00; color:#fff;">
+                        	<i class="fa fa-thumbs-up">
+                        	</i>	 			 	  	 
+                        </a>	 	 	 	 	 	 
+                        {/if}
+                        {ifp 'activityba.control'}   	 	                      
+                        <a href="javascript:void(0)" data-id="{$row['id']}" class="btn btn-default btn-sm msgedit" data-do="2" title="驳回" style="background-color: #ffb034; color:#fff;">
+                        	<i class="fa fa-thumbs-down">
+                        	</i>	 	 				 	 	 				 	 		 	  	 	 	 
+                        </a>	 	 	 	 			 	 	 
+                        {/if}	 	 
+                        {ifp 'activityba.control'}	 	 			
+                        <a href="javascript:void(0);" data-id="{$row['id']}" class="btn btn-default btn-sm msgedit" data-do="3" onclick="return confirm('确认删除此奖品?')" title="删除" style="background-color: #000; color:#fff;">	 	 	 		 	
+                        	<i class="fa fa-times">
+                        	</i>
+                        </a>	 	 
+                        {/if}
+                    </td>
+                </tr>	 	
+                {/loop} 
+                <tr>	 	 
+                </tr>	 	 	 	 	 	 		 	
+            </tbody>	 		 
+        </table>
+        {$pager}
+    </div>
+</div>	 	 
+</div>
+
+<div id="modal-module-menus" class="modal fade" tabindex="-1" aria-hidden="false" >
+	<div class="modal-dialog" style="width: 450px;margin-top:12%;">
+		<div class="modal-content">
+			<div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>添加直播消息</h3></div>
+			<div class="modal-body">
+				<form action="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'live','ac'=>'sub'))}" method="post">	 	  		 		 		 		 
+					<textarea class="form-control" rows="5" name="data['msg']" placeholder="请输入信息"></textarea>
+					<button class="btn btn-primary" type="submit" style="margin-top:7.5px;float: right;width: 18%;">	 
+						发送
+					</button>	 		 	 	 	 	 	 
+				</form>	 		 	 
+			</div> 	 	 	 			 		 	 	 	 	 	 
+			<div class="modal-footer"><a href="#" class="btn btn-default" style="display: none;" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+		</div>
+	</div>
+</div>
+
+<script>
+    require(['bootstrap'], function ($) {	
+
+    	$('.msgedit').click(function(){
+    		var type = $(this).data('do');
+    		var id = $(this).data('id');
+    		var data={
+    			id:id,
+    			type:type,
+    		};	 	 	
+    		var url='{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'examine','ac'=>'edit'))}';
+    		$.post(url,data,function(e){	 	 	
+    			if (e.status == 1) {
+    				alert(e.result);
+    				location.reload();	 	  	
+    			}else{	 	 	 		 			 	 				 
+    				alert(e.result);
+    				return false;
+    			}
+    		},'json');	 		 	 			 	 	  
+    	}); 	
+
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+        $('.reload').click(function(){
+        	location.reload();	 	
+        });
+    }); 
+</script>
+{else if $op == 'filte'}
+
+	 <div class="panel panel-info">
+	<div class="panel-heading">敏感词过滤</div>
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th width="50%;">敏感词</th>					
+                    <th width="50%;">操作</th>
+            </thead>		  		 		  	
+            <tbody>  
+                {loop $list $row}
+                <tr>
+                    <td>{$row['content']}</td>  	 	 	 	                    
+                    <td>	 			 
+                        {ifp 'activityba.control'}
+                        <a href="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'filte','ac'=>'delete','id'=>$row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此奖品?')" title="删除" style="background-color: #000; color:#fff;">
+                        	<i class="fa fa-times">
+                        	</i>
+                        </a>
+                        {/if}
+                    </td>
+                </tr>	 	
+                {/loop} 
+                <tr>	 	 
+                    <td colspan='6'>	 	 
+                        {ifp 'activityba.control'}
+
+                          <a class='btn btn-primary' data-toggle="modal" data-target="#modal-module-menus" href="javascript:void(0);"><i class='fa fa-plus'></i> 添加敏感词</a>	 			 	 	 		 	 	 	 	  	 	
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+                       {/if}	  	 	 	 		 	 	 	 	 	 	 		 	 			 	  
+                    </td>
+                </tr>	 	 	 	 	 	 		 	
+            </tbody>	 		 
+        </table>
+        {$pager}
+    </div>
+</div>	 	 	 	 	 
+</div>
+
+<div id="modal-module-menus" class="modal fade" tabindex="-1" aria-hidden="false" >
+	<div class="modal-dialog" style="width: 450px;margin-top:12%;">
+		<div class="modal-content">
+			<div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>添加敏感词</h3></div>
+			<div class="modal-body">
+				<form action="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'filte','ac'=>'sub'))}" method="post">	 	  		 		 		 		 	 	 		 	 	 	 	
+					<textarea class="form-control" rows="5" name="data[content]" placeholder="请输入信息"></textarea>
+					<button class="btn btn-primary" type="submit" style="margin-top:7.5px;float: right;width: 18%;">	 
+						确认
+					</button>	 		 	 	 	 	 	 
+				</form>	 		 	 	 
+			</div> 	 	 	 			 		 	 	 	 	 	 
+			<div class="modal-footer"><a href="#" class="btn btn-default" style="display: none;" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+		</div>
+	</div>
+</div>
+
+<script>
+    require(['bootstrap'], function ($) {	 		 
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+    });
+</script>		 
+{/if}	 	 	
+</div>	 	 
+{template 'common/footer'}

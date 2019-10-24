@@ -1,0 +1,298 @@
+﻿{template 'common/header'}
+<!-- center -->
+<title>个人中心</title>
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/static/css/center.css">
+<style type="text/css">
+	.header{
+		background: #282f31;
+	}
+	.header .user .user-info{
+		width: calc(100% - 80px);
+	}
+	.user-recom{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>
+<div id="container"></div>
+<script id="member_center" type="text/html">    
+  <div class="header">
+    <div class="user">
+      <div class="user-left" onclick='location.href="{php echo $this->createMobileUrl('member/info')}"'>
+        <div class="user-head"><img src="<%member.avatar%>"/></div>
+        <div class="user-info">
+          <div class="user-name"><%member.nickname%></div>
+          <div class="user-other user-member" {if !empty($set['shop']['levelurl'])}onclick='location.href="{$set['shop']['levelurl']}"'{/if} ><%level.levelname%></div>
+           <div class="user-other user-recom"><%if shop_set.shop.isreferrer%>推荐人：[<%referrer.realname%>]<%/if%> </div>
+          <div class="user-other">ID：<%member.id%></div>
+         
+        </div>
+      </div>
+      <div class="user-right">
+        <!-- <div> <i></i>余额：<a href="{php echo $this->createMobileUrl('member/transfer')}" class="take">转账</a>{if empty($set['trade']['closerecharge'])}<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}" class="take take1">充值</a>{/if}</div> -->
+        <div style="position: relative;"> <i style="float: left;">余额：</i>{if empty($set['trade']['closerecharge'])}<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid))}" class="take take1">充值</a>{/if}
+        <!-- <div class="t_num hs-min" data-num="<%member.credit2%>"></div> -->
+        <div class="timer" style="font-size:1rem" data-to="<%member.credit2%>" data-speed="1500"></div>
+        </div>
+        <div class="integral"><i style="float: left;">积分：</i><%if open_creditshop%><a href="{php echo $this->createPluginMobileUrl('creditshop')}" class="take">兑换</a><%/if%>
+        <!-- <div class="t_num" data-num="<%member.credit1%>"></div> -->
+        <div class="timer" style="font-size:1rem" data-to="<%member.credit1%>" data-speed="1500"></div>
+        </div>
+        <!-- 易货码/币 -->
+         <div class="integral"><i style="float: left;">易货码：</i>
+        <!-- <div class="t_num" data-num="<%member.credit1%>"></div> -->
+        <div class="timer" style="font-size:1rem" data-to="<%member.credit3%>" data-speed="1500"></div>
+        </div>
+        
+      </div>
+    </div>
+    <ul class="hs-user clearfloat">
+      <li> <a href="{php echo $this->createMobileUrl('order',array('status'=>0))}"><i class="hs hs-daifukuan" style="font-size:30px"></i>
+        <div style="margin-top: -5px;">待付款</div><%if order.status0>0%><span class="count"><%order.status0%></span><%/if%></a> </li>
+      <li> <a href="{php echo $this->createMobileUrl('order',array('status'=>1))}"><i class="hs hs-daifahuo" style="font-size:30px"></i>
+        <div style="margin-top: -5px;">待发货</div><%if order.status0>1%><span class="count"><%order.status1%></span><%/if%></a> </li>
+      <li> <a href="{php echo $this->createMobileUrl('order',array('status'=>2))}"><i class="hs hs-icon3" style="font-size:30px"></i>
+        <div style="margin-top: -5px;">待收货</div><%if order.status0>2%><span class="count"><%order.status2%></span><%/if%></a> </li>
+      <li> <a href="{php echo $this->createMobileUrl('order',array('status'=>4))}"><i class="hs hs-tuikuan" style="font-size:30px"></i>
+        <div style="margin-top: -5px;">待退款</div><%if order.status0>4%><span class="count"><%order.status4%></span><%/if%></a> </li>
+      <li class="hs-order"> <a href="{php echo $this->createMobileUrl('order')}"><i class="hs hs-wodedingdan" style="font-size:30px"></i>
+        <div style="margin-top: -5px;">我的订单</div></a> </li>
+    </ul>
+    <iframe id="vector" src="{php echo $this->createMobileUrl('member/vector',array('openid'=>$openid))}"></iframe>
+  </div>
+  <ul class="cart hs-select clearfloat">
+	<!--我的资料-->
+    <li> <a href="{php echo $this->createMobileUrl('member/info')}"><div class="hs-item" style="background:#c1c554"><i class="hs hs-wodeziliao"></i></div>我的资料 </a> </li>
+	<!--绑定手机-->
+	{if !$member['isbindmobile'] && is_weixin()}    
+	<li> <a href="{php echo $this->createMobileUrl('member/bindmobile')}"><div class="hs-item" style="background:#c1c554"><i class="fa fa-mobile"></i></div>绑定手机 </a> </li>  
+	{/if}
+	<!--我的购物车--> 
+    <li> <a href="{php echo $this->createMobileUrl('shop/cart')}"><div class="hs-item" style="background:#44b9c0"><i class="hs hs-cart"></i><span class="hs-count"><%counts.cartcount%></span></div>我的购物车</a></li>
+	<!--我的收藏--> 
+    <li> <a href="{php echo $this->createMobileUrl('shop/favorite')}"><div class="hs-item" style="background:#e23088"><i class="hs hs-jushoucang"></i><span class="hs-count"><%counts.favcount%></span></div>我的收藏</a></li>
+	<!--我的足迹--> 
+    <li> <a href="{php echo $this->createMobileUrl('shop/history')}"><div class="hs-item" style="background:#0680a9"><i class="hs hs-wodezuji"></i></div>我的足迹 </a> </li>
+	 <!--供应商管理/经销商查询-->
+	{if $member['isagent']==1}
+	<!--显示邀请码,请写在这边-->
+	<!-- <li><a href="{php echo $this->createMobileUrl('member/yaoqingma',array('godg'=>'fenxiang'))}"><div class="hs-item" style="margin-left: 10px; border-bottom:0px;">邀请他人<i class="fa fa-angle-right" style="color:#999; font-size:26px;line-height:44px;"></i></div></a></li> -->
+	<!-- <li><a href="{php echo $this->createMobileUrl('member/yaoqingma',array('godg'=>'fenxiang'))}"><div class="hs-item"><i class="fa" style="color:#999; font-size:26px;line-height:44px;">邀</i></div>邀请他人</a></li> -->
+	{/if}
+	<!--判断上级，手机号码，手机密码是否已经注册，没有的话，其中一个没有就进去-->
+	{if empty($member['agentid']) && empty($member['mobile']) && empty($member['pwd'])}
+	 <!-- <li><a href="{php echo $this->createMobileUrl('member/yaoqingma')}"><div class="hs-item""><i class="fa" style="color:#f10; font-size:26px;line-height:44px;"></i>邀</div>邀请码</a> <li> -->
+	 <!-- <li><a href="{php echo $this->createMobileUrl('member/yaoqingma')}"><div class="hs-item"><i class="fa" style="color:#999; font-size:26px;line-height:44px;">邀</i></div>邀请码</a></li> -->
+	{else}
+		
+	{/if}
+	<!-- <li><a href="{php echo $this->createMobileUrl('member/yaoqingma')}"><div class="hs-item""><i class="fa" style="color:#f10;"></i>邀</div>邀请码</a> <li> -->
+
+	{if 0}
+		{if $rule1['status']==1}
+	    <li> <a href="{php echo $this->createPluginMobileUrl('dis')}"> <div class="hs-item" style="background:#a071a7"><i class="hs hs-guanli"></i></div> 供应商管理 </a> </li>
+		{/if}
+	{/if}
+
+	
+ 
+
+ 
+
+
+	<!--分销中心--> 
+    {if $hascom}
+    <li> <a href="{php echo $this->createPluginMobileUrl('commission')}"><div class="hs-item" style="background:#e84675"><i class="hs hs-fenxiao"></i></div>{php echo $pset['texts']['center']} </a> </li>
+	{/if}
+	<!--分红中心-->
+	{if $pluginbonus}        
+		{if !empty($bonus_set['start'])}           
+			{if empty($bonus_set['bonushow'])}	
+			<li> <a href="{php echo $this->createPluginMobileUrl('bonus/index')}"><div class="hs-item" style="background:#e3378d"><i class="hs hs-fanli"></i></div>{php echo empty($bonus_set['texts']['center']) ? "分红中心" : $bonus_set['texts']['center'];} </a> </li>
+			{/if}       
+		{/if}    
+	{/if}  
+	<!--全返明细-->
+	{if p('return')}
+    <!-- <li> <a href="{php echo $this->createPluginMobileUrl('return/return_log')}"><div class="hs-item" style="background:#2f9321"><i class="hs hs-zijinmingxi"></i></div>全返明细</a></li> -->
+	{/if} 
+	
+  </ul>
+  <ul class="cart"> 
+	<!--文章中心-->
+	{if p('article')}
+    <li class="list1"> <a href="{php echo $this->createPluginMobileUrl('article/article')}"><i class="hs hs-wodewenzhang"></i><%if shopset.article.article_text%><%shopset.article.article_text%><%else%>文章中心<%/if%><i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i></a></li>
+    {/if}
+
+ 
+	<!--供应商申请-->
+	{if p('supplier')}
+		<!--<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier')}"> <i class="hs hs-shenqing"></i>供应商申请  <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>-->
+
+			<!--<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier',array('merch'=>1))}">  <i class="hs hs-shenqing"></i>商家申请 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>-->
+
+			<li class="list1"> <a href="{php echo $this->createMobileUrl('member/merch_center')}"> <i class="hs hs-shenqing"></i>商家管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>     
+	{/if}
+ 
+    <!--排行榜-->	
+	{if $p_status['phstatus'] == 1 && $p_status['jifen'] == 1 || $p_status['xiaofei'] == 1 || $p_status['yongjin'] == 1}
+	{if $p_status['jifen'] == 1}  
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('member/paihang',array('apido' => 'selectlist'))}"> <i class="hs hs-paixingbang"></i>排行榜 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{elseif $p_status['jifen'] == 0 && $p_status['xiaofei'] == 1}
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('member/paihang',array('apido' => 'selectlist1'))}"> <i class="hs hs-paixingbang"></i>排行榜 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{elseif $p_status['jifen'] == 0 && $p_status['xiaofei'] == 0 && $p_status['yongjin'] == 1}
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('member/paihang',array('apido' => 'selectlist2'))}"> <i class="hs hs-paixingbang"></i>排行榜 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{/if}
+	{/if}
+    <!--领取优惠券-->
+	{if $hascoupon}{if $hascouponcenter}
+	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('coupon')}"> <i class="hs hs-youhuiquan1"></i>领取优惠券 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>{/if}
+	<!--我的优惠券-->
+	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('coupon/my')}"> <i class="hs hs-youhuiquan"></i>我的优惠券 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> <span class="count"><%counts.couponcount%></span> </a> </li>
+	{/if}    
+    <!--消息提示设置-->
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('member/notice')}"> <i class="hs hs-tishi"></i>消息提示设置 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> <span class="count">12</span> </a> </li>
+    <!--收货地址管理-->
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('shop/address')}"> <i class="hs hs-shouhuodizhi"></i>收货地址管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	
+	<!--报单中心--> 
+	{if p('bdsite')}
+	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('bdsite/index')}"> <i class="hs hs-dingdan"></i>报单中心 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{/if}
+	<!--余额提现-->
+	{if isset($set['trade']) && $set['trade']['withdraw']==1} 
+	<li class="list1"><a href="javascript:;" id="btnwithdraw"> <i class="hs hs-fanli"></i>余额提现 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{/if}	
+	<!--余额明细/充值记录-->  
+	{if isset($set['trade']) && ($set['trade']['withdraw']==1 || empty($set['trade']['closerecharge']))}   
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('member/log')}"> <i class="hs hs-zijinmingxi"></i>{if isset($set['trade']) && $set['trade']['withdraw']==1}余额明细{else}充值记录{/if} <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{/if}
+	
+    <!--退出-->
+	{if !is_weixin()}
+	<li class="list1"> <a href="{php echo $this->createMobileUrl('member/logout')}"> <i class="fa fa-trash"></i>退出 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{/if}
+  </ul>
+  <div class="copyright">版权所有 © {if empty($set['shop']['name'])}{$_W['account']['name']}{else}{$set['shop']['name']}{/if} </div>
+</script>
+<!-- js --> 
+<script type="text/javascript">
+require(['tpl', 'core'], function(tpl, core) {  
+	core.json('member/center',{},function(json){     
+		$('#container').html(  tpl('member_center',json.result) );   
+		var withdrawmoney = {php echo empty($set['trade']['withdrawmoney'])?0:floatval($set['trade']['withdrawmoney'])};   
+		$('#btnwithdraw').click(function(){       
+			if(json.result.member.credit2<=0){        
+				core.tip.show('无余额可提!');          
+				return;           
+			}             
+			if(withdrawmoney>0 && json.result.member.credit2<withdrawmoney){    
+				core.tip.show('满' +withdrawmoney + "元才能提现!" );        
+				return;              
+			}              
+			location.href = core.getUrl('member/withdraw');       
+		});
+		//new add   
+		$(function(){
+			$.fn.countTo = function (options) {
+				options = options || {};
+				
+				return $(this).each(function () {
+					// set options for current element
+					var settings = $.extend({}, $.fn.countTo.defaults, {
+						from:            $(this).data('from'),
+						to:              $(this).data('to'),
+						speed:           $(this).data('speed'),
+						refreshInterval: $(this).data('refresh-interval'),
+						decimals:        $(this).data('decimals')
+					}, options);
+					
+					// how many times to update the value, and how much to increment the value on each update
+					var loops = Math.ceil(settings.speed / settings.refreshInterval),
+						increment = (settings.to - settings.from) / loops;
+					
+					// references & variables that will change with each update
+					var self = this,
+						$self = $(this),
+						loopCount = 0,
+						value = settings.from,
+						data = $self.data('countTo') || {};
+					
+					$self.data('countTo', data);
+					
+					// if an existing interval can be found, clear it first
+					if (data.interval) {
+						clearInterval(data.interval);
+					}
+					data.interval = setInterval(updateTimer, settings.refreshInterval);
+					
+					// initialize the element with the starting value
+					render(value);
+					
+					function updateTimer() {
+						value += increment;
+						loopCount++;
+						
+						render(value);
+						
+						if (typeof(settings.onUpdate) == 'function') {
+							settings.onUpdate.call(self, value);
+						}
+						
+						if (loopCount >= loops) {
+							// remove the interval
+							$self.removeData('countTo');
+							clearInterval(data.interval);
+							value = settings.to;
+							
+							if (typeof(settings.onComplete) == 'function') {
+								settings.onComplete.call(self, value);
+							}
+						}
+					}
+					
+					function render(value) {
+						// var formattedValue = settings.formatter.call(self, value, settings);
+						var formattedValue = Number(value).toFixed(2);
+						$self.html(formattedValue);
+					}
+				});
+			};
+
+			$.fn.countTo.defaults = {
+				from: 0,               // the number the element should start at
+				to: 0,                 // the number the element should end at
+				speed: 1000,           // how long it should take to count between the target numbers
+				refreshInterval: 100,  // how often the element should be updated
+				decimals: 0,           // the number of decimal places to show
+				formatter: formatter,  // handler for formatting the value before rendering
+				onUpdate: null,        // callback method for every time the element is updated
+				onComplete: null       // callback method for when the element finishes updating
+			};
+
+			function formatter(value, settings) {
+				return value.toFixed(settings.decimals);
+			}
+
+			// custom formatting example
+			$('.count-title').data('countToOptions', {
+				formatter: function (value, options) {
+				  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+				}
+			});
+
+			// start all the timers
+			$('.timer').each(count);  
+			function count(options) {
+				var $this = $(this);
+				options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+				$this.countTo(options);
+			}
+		});
+	},true);   
+})
+</script> 
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

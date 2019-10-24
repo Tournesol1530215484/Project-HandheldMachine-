@@ -1,0 +1,80 @@
+{template 'common/header'}
+<title>供应商提现</title>
+<style type="text/css">
+	 body {margin:0px; background:#eee; padding:0px; -moz-appearance:none; font-family:微软雅黑;overflow-x: hidden;}
+	 #header{ width:100%; border-bottom:1px solid #A1A1A1;   }
+    #user div{ font-family:Arial, Helvetica, sans-serif; }
+    #user-info{width: 100%; height: auto; float: left;background: #10BDFF;color: #fff;
+    	/*background:#fff url(../addons/sz_yi/static/images/gonyingshang_bg.png) no-repeat center top;*/
+    	 background-size: 100% 150px; }
+    #user-info .left{ margin:50px auto 0px;width:102px; height:102px; border-radius:50%; }
+	#user-info .left img{ border: 2px #fff solid; display: block;width:100px; height:100px; border-radius:50%;  }
+    #user-info .title{width:120px;font-size:18px; padding-top: 5px;padding-bottom: 16px; text-align: center;margin: 0px auto;}
+    .mode{width: 100%;height: auto;background: #fff;overflow-x: hidden;}
+    text{font-size: 18px;color: #000;margin-left: 20px;font-weight: 500;}
+    .submint{width: 50%;height: 40px;background: #FF3C3C;color: #fff;font-size:24px ;text-align: center;line-height:40px;margin: 10px auto;border-radius: 20px;}
+    a:hover{text-decoration: none;}
+
+</style>
+<body>
+    
+	<div id="header">
+		<div id="user-info"> 
+	    	<div class="left">
+	            <!-- <img src="<%member.headimgurl%>" /> -->
+	     	 	<img src="{$member['avatar']}" />
+	     	</div>
+	     	<div class="title">
+	     	 	<div >{$member['nickname']}</div>
+	     	 	<div style="line-height:150%; color: #fff; font-size: 14px;">{if $_GPC['merch'] == 5}商家邮费{else}供应商奖金{/if}:{$costmoney}</div>
+	     	</div>
+	    </div>
+	</div>
+	<!--<p>可提现金额 {$costmoney}</p>-->
+	<p style="width: 100%;height: 30px;color: #A1A1A1;font-size: 16px;display: inline-block;line-height:36px ;text-indent: 12px;">提现方式</p>
+	<div class="mode">
+		<div style="margin: 5px;display: inline-block;width: 100%;">
+    {if in_array('suppliermenu.wechat', $authority)} 
+    <div style="border-bottom:1px solid #E7E7E7 ;width: 94%;height: 60px;line-height: 60px;margin: 0 auto;">
+            <a style="display: block;" {if $_GPC['merch'] == 5}onclick="return  confirm('您确定要提现到微信吗？手续费{$sets['bart']['withdraw']}%');"{else}onclick="return confirm('您确定要提现到微信吗？');"{/if} href="{php echo $this->createPluginMobileUrl('suppliermenu/order', array('applytype'=>2, 'merch'=>$_GPC['merch'],'op' => 'withdraw'));}">
+            <p style="width: 40px;height: 40px;margin-left: 10px;background: #08D618;border-radius: 6px;color: #fff;display: inline-block;line-height: 40px;">
+                <img src="/addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/9.png" style="width: 100%;height: 100%;" />
+            </p>
+            <text>微信</text>
+            <!-- <button style="width:30px;height:30px;background: #fff;border: 1px solid #ccc;border-radius: 50%;float: right;margin-top: 16px;"></button> -->
+        </a>
+    </div>
+    {/if} {if in_array('suppliermenu.balance', $authority)} 
+    <div style="border-bottom:1px solid #E7E7E7 ;width: 94%;height: 60px;line-height: 60px;margin: 0 auto;">
+        <a style="display: block;" {if $_GPC['merch'] == 5}onclick="return confirm('您确定要提现到余额吗？手续费{$sets['bart']['withdraw']}%');"{else}onclick="return confirm('您确定要提现到余额吗？');"{/if} href="{php echo $this->createPluginMobileUrl('suppliermenu/order', array('applytype'=>3,'merch'=>$_GPC['merch'], 'op' => 'withdraw'))}">
+            <p style="width: 40px;height: 40px;margin-left: 10px;background:#ff3c3c;border-radius: 6px;color: #fff;display: inline-block;line-height: 40px;">
+                <img src="/addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/8.png" style="width: 100%;height: 100%;" />
+            </p>
+            <text>余额</text>
+            <!-- <button style="width:30px;height:30px;background: #fff;border: 1px solid #ccc;border-radius: 50%;float: right;margin-top: 16px;"></button> -->
+        </a>
+    </div>
+    {/if}
+    <div style="width: 94%;height: 60px;line-height: 60px;margin: 0 auto;">
+        <a style="display: block;" {if $_GPC['merch'] == 5}onclick="return confirm('您确定要提现到银行卡吗？手续费{$sets['bart']['withdraw']}%');"{else}onclick="return confirm('您确定要提现到银行卡吗？');"{/if} href="{php echo $this->createPluginMobileUrl('suppliermenu/order', array('applytype'=>1,'merch'=>$_GPC['merch'], 'op' => 'withdraw'))}"> 
+            <p style="width: 40px;height: 40px;margin-left: 10px;background: #FF8C08;border-radius: 6px;color: #fff;display: inline-block;line-height: 40px;">
+                <img src="/addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/10.png" style="width: 100%;height: 100%;" />
+            </p>
+            <text>银行卡</text>
+            <!-- <button style="width:30px;height:30px;background: #fff;border: 1px solid #ccc;border-radius: 50%;float: right;margin-top: 16px;"></button> -->
+        </a>
+    </div>
+</div>
+
+		
+	</div>
+	<!-- <div class="submint">
+		确认提现 
+	</div> -->
+	
+</body>
+
+
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

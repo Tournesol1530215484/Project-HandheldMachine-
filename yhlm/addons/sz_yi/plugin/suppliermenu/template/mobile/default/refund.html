@@ -1,0 +1,146 @@
+{template 'common/header'}
+<title>退款申请处理</title>
+<style type="text/css">
+body {margin:0px; background:#efefef; font-family:'微软雅黑'; -moz-appearance:none;}
+@font-face {font-family: "iconfont";
+  src: url('../addons/sz_yi/template/mobile/style1/static/fonts/iconfont02.eot?t=1474179952'); /* IE9*/
+  src: url('../addons/sz_yi/template/mobile/style1/static/fonts/iconfont02.eot?t=1474179952#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../addons/sz_yi/template/mobile/style1/static/fonts/iconfont02.woff?t=1474179952') format('woff'), /* chrome, firefox */
+  url('../addons/sz_yi/template/mobile/style1/static/fonts/iconfont02.ttf?t=1474179952') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../addons/sz_yi/template/mobile/style1/static/fonts/iconfont02.svg?t=1474179952#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {font-family: "iconfont";
+  src: url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont1.eot?t=1474179952'); /* IE9*/
+  src: url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont1.eot?t=1474179952#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont1.woff?t=1474179952') format('woff'), /* chrome, firefox */
+  url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont1.ttf?t=1474179952') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../addons/sz_yi/template/mobile/style1/shop/fonts/iconfont1.svg?t=1474179952#iconfont') format('svg'); /* iOS 4.1- */
+}
+.hs {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hs-xuan:before { content: "\e739"; }
+.hs-wei:before { content: "\e651"; }
+.hs-xuanzhong:before { content: "\d622"; }
+.page_topbar{background:#fff;}
+.home{position: absolute;right: 15px;top: 0;color: #000}
+.main-box{
+    font-size: 14px;
+}
+.main-box .box-title{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 10px 0;
+    background: #fff;
+}
+.main-box .handel-ret-box{
+    padding: 5px 10px;
+    background: #fff;
+}
+.main-box .tips-box{
+    font-size: 12px;
+    padding: 0 10px 10px;
+    background: #fff;
+}
+.main-box .reason-box{
+    padding: 10px;
+    background: #fff;
+}
+.main-box .reason{
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid #eee;
+}
+.for-margin{
+    margin-top: 10px;
+}
+.confirm-btn{
+    width: 94%;
+    margin: 14px 3% 0px;
+    background: #ff4f4f;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 0;
+}
+</style>
+<div id="container">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">退款申请处理</div>
+    </div>
+    <div class="main-box">
+        <div class="box-title">处理结果</div>
+        <div class="handel-ret-box">
+            <!-- 默认选中暂不处理 需要与下面的input的val对应 -->
+            <span class="h-result" data-val="0">
+                <i class="hs hs-xuanzhong" style="color:#15a9ff;"></i> 暂不处理
+            </span>&nbsp;&nbsp;
+            <span class="h-result" data-val="-1">
+                <i class="hs hs-wei"></i> 驳回申请
+            </span><br />
+            <span class="h-result" data-val="1">
+                <i class="hs hs-wei"></i> 同意退款
+            </span>&nbsp;&nbsp;
+            <span class="h-result" data-val="2">
+                <i class="hs hs-wei"></i> 手动退款
+            </span>
+            <!-- 默认选中暂不处理 input的val对应默认为0 -->
+            <input type="hidden" id="h-result" value="0" />
+        </div>
+        <div class="tips-box">
+            微信支付方式： 会返回到相应的的支付渠道(如零钱或银行卡)<br />
+            其他支付方式： 会返回到微信钱包(需商户平台余额充足)<br />
+            如有余额抵扣： 会返回金额到商城用户余额<br />
+            如有积分抵扣： 会返回积分到商城用户积分<br />
+            手动退款： 订单会完成退款处理，您用其他方式进行退款
+        </div>
+        <div class="box-title for-margin">驳回原因</div>
+        <div class="reason-box">
+            <textarea class="reason" name="reason" rows="3" placeholder="驳回原因"></textarea>
+        </div>
+        <div class="confirm-btn">确认</div>
+    </div>
+</div>
+<script language="javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        $('.h-result').click(function() {
+            var $this = $(this);
+            var val = $this.data('val');
+            $('.h-result').find('i').css('color', '#999').removeClass('hs-xuanzhong').addClass('hs-wei');
+            $(this).find('i').removeClass('hs-wei').addClass('hs-xuanzhong').css('color', '#15a9ff');
+            $('#h-result').val(val);
+        });
+        $('.confirm-btn').click(function() {
+            if($(this).attr('saving')=='1'){
+                return;
+            }
+            if( $('#h-result').isEmpty()){
+                core.tip.show('请选择处理结果');
+                return;
+            }
+            var refundstatus = $("#h-result").val();
+            var reason = $(".reason").val();
+            $(this).html('正在处理...').attr('saving',1);
+            core.pjson('suppliermenu/order_detail', {op:'refund',refundstatus: refundstatus, reason: reason,id:'{$_GPC['id']}'}, function(json) {
+                if(json.status==1){                                                                                                          
+                    core.tip.show(json.result);
+                    setTimeout(function(){
+                        //跳转链接   
+                        location.href="{php echo $this->createPluginMobileUrl('suppliermenu/order',array('merch'=>$_GPC['merch']))}";                            
+                    },200);
+                }else{
+                    $('.confirm-btn').html('确认').removeAttr('saving');
+                    core.tip.show(json.result);
+                }
+            },true,true);
+        });
+    });
+</script>
+{template 'common/footer'}

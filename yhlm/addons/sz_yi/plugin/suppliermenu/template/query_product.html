@@ -1,0 +1,25 @@
+<div style='max-height:500px;overflow:auto;min-width:1000px;'>
+<table class="table table-hover" style="min-width:1000px;">
+    <thead>
+        <th style="width: auto;">图片</th>
+        <th style="width: auto;">商品名称</th>
+        <th style="width: auto;">价格</th>
+        <th>操作</th>
+    </thead>
+    <tbody>
+        {loop $ds $row}
+        <tr>
+            <td><img style="width:80px;height:80px;" src="{$row['thumb']}" alt=""></td>
+            <td>{$row['title']}</td>
+            <td>{$row['marketprice']}</td>
+            <td style="width:80px;"><a href="javascript:;" onclick='select_saler({php echo json_encode($row);})'>选择</a></td>
+        </tr>
+        {/loop} 
+        {if count($ds)<=0}
+        <tr> 
+            <td colspan='4' align='center'>未找到相关商品, 点击<a href="{php echo $this->createPluginWebUrl('suppliermenu/dealgoods',array('op'=>'post'))}" target='_blank'>【新增商品】</a></td>
+        </tr>
+        {/if}
+    </tbody>
+</table>
+</div> 

@@ -1,0 +1,151 @@
+{template 'common/header'}
+{template 'tabs2'}
+<div class="panel panel-info">
+    <div class="panel-heading">筛选</div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="p" value="dealmerch" />
+            <input type="hidden" name="method" value="dealgoods_for" />
+            <div class="form-group">
+            	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">产品名称</label>
+	                <div class="col-sm-8 col-lg-9 col-xs-12">
+	                    <input type="text" class="form-control"  name="title" value="{$_GPC['title']}" placeholder="可搜索产品名称"/>
+	                </div>	
+	            </div>
+            	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                   <input type="hidden" name="token" value="{$_W['token']}" />
+               </div>
+
+            <div class="form-group">
+            </div>
+        </form>
+    </div>
+</div><div class="clearfix">
+
+<div class="panel panel-default">
+    <div class="panel-heading">总数：{$total}   </div>
+    <div class="">
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:auto;'>商家名称</th>
+                    <th style='width:auto;'>联系人</th>
+                    <th style='width:auto;'> 联系电话</th>
+                    <th style='width:auto;'>详细地址</th>
+                    <!-- <th style='width:auto;'>易货工号</th> -->
+                    <!-- <th style='width:auto;'>所属运营商</th> -->
+                    <!-- <th style='width:auto;'>运营商电话</th> -->
+                    <th style='width:auto;'>企业证照</th>
+                    <th style='width:auto;'>营业执照编号</th>
+                    <th style='width:15%;'>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['merchname']}</td>
+                    <td>{$row['contact']}</td>
+                    <td>{$row['mobile']}</td>
+                    <td>{$row['address']}</td>
+                    <!-- <td>{$row['worknumber']}</td> -->
+                    <!-- <td>{$row['operat']}</td> -->
+                    <!-- <td>{$row['operatmobile']}</td> -->
+                    <td>
+                        {loop $row['BusinessLicensePic'] $key $val}
+                        <span class="preview"><img src="{php echo tomedia($val)}" alt="" height="50"></span>
+                        {/loop}
+                    </td>
+                    <td>
+                        <label class="label label-success label-default">{$row['businessLicenseNo']}</label>
+                    </td>
+                    <td>
+                        <a class="label label-success"  href="{php echo $this->createPluginWebUrl('dealmerch/showmerchinfo',array('uid' => $row['vuid']));}">查看详情</a>
+						<a class="label label-default"  href="#" onclick="return note({$row['vid']})">驳回审核</a> 
+						<a class="label label-default label-info" href="{php echo $this->createPluginWebUrl('dealmerch/dealinfo_for',array('op' => 'check','status'=>1, 'id' => $row['vid']));}">审核通过</a>
+					</td>
+                </tr>
+                {/loop}
+            </tbody>
+        </table>
+           {$pager}
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- modal -->
+<div class="modal fade" tabindex="-1" id="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:60%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">预览图片</h4>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="" width="100%">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <!-- <button type="button" class="btn btn-primary">保存</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-module-menus" class="modal fade" tabindex="-1" aria-hidden="false" >
+    <div class="modal-dialog" style="width: 920px;">
+        <div class="modal-content">
+            <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>驳回原因</h3></div>
+            <div class="modal-body">
+                <div class="row">
+                        <textarea name="note" style="width: 100%;height:168px; "></textarea>
+                </div>
+                <div id="module-menus" style="padding-top:5px;"></div>
+            </div>
+            <div class="modal-footer"><a href="#" data-id="" class="btn btn-default sub" aria-hidden="true">确认</a></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(".preview").click(function(){
+        var src = $(this).find("img").attr("src");
+        // alert(src);
+        $(".modal-body").find("img").attr("src",src);
+        $('#modal').modal('toggle');
+    });
+
+    function note(id) {
+        $('#modal-module-menus').modal('show');
+        $('.sub').data('id',id);
+    }
+
+    $('.sub').click(function () {
+        id=$(this).data('id');
+        note=$('textarea').val();
+        $.post(
+            '{php echo $this->createPluginWebUrl("dealmerch/dealinfo_for",array("op"=>"check"))}',
+            {id:id,status:2,note:note},
+            function (re) {
+                if(re.status == 0){
+                    alert(re.result);
+                    return false;
+                }
+                alert(re.result);
+                location.reload();
+            },"json");
+    });
+</script>
+
+{template 'web/_footer'}

@@ -1,0 +1,209 @@
+body{
+    background: #fff;
+}
+#big_body{
+    width:100%;
+    margin:0px;
+    float: left; 
+    position: relative; 
+    padding-bottom:50px;
+}
+.customer_top{
+    height:44px;
+    width:100%;  
+    background:#009BF8;  
+    border-bottom:1px solid #ccc;
+}
+.customer_top .title{
+    height:44px; 
+    width:auto;
+    margin-left:10px; 
+    float:left; 
+    font-size:16px; 
+    line-height:44px; 
+    color:#fff;}
+.customer_top .title1{
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+    width: calc(100% - 108px);
+    text-align: center;
+    color:#fff;
+    font-size:16px;
+}
+.back{
+    width: 18px;
+    height: 19px;
+    font-size: 22px;
+    border-radius: 50%;
+    float: left;
+    line-height: 44px; 
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+}
+.merchant-base-type{
+    font-size: 16px;
+    color: #000;
+}
+.merchant-base-info,
+.merchant-base-qualification{
+    padding: 10px;
+    font-size: 15px;
+}
+.merchant-base-info input,
+.merchant-base-qualification input{
+    outline: none;
+}
+.merchant-base-info .info-item,
+.merchant-base-qualification .info-item{
+    line-height: 30px;
+    padding: 3px;
+}
+.merchant-base-info .float-l,
+.merchant-base-qualification .float-l{
+    float: left;
+    width: 100px;
+}
+.merchant-base-info .float-r,
+.merchant-base-qualification .float-r{
+    float: right;
+    width: calc(100% - 100px);
+}
+.merchant-base-info .float-r .whole-input,
+.merchant-base-qualification .float-r .whole-input,
+.merchant-base-info .float-r .whole-select,
+.merchant-base-qualification .float-r .whole-select{
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+.merchant-base-info .float-r .location{
+    width: 31%;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+.merchant-base-info .float-r .location.btn{
+    padding: 5px;
+}
+.sel-select{ 
+    border: 1px solid #ddd;
+    height: 100%;
+    width: 31%;
+    background: #fff;
+}
+/*覆盖上面的设置*/
+.merchant-base-info .float-r.float-whole,
+.merchant-base-qualification .float-r.float-whole{
+    width: 100%;
+    margin-top: 5px;
+}
+.merchant-base-info .float-r.float-whole .msbox,
+.merchant-base-qualification .float-r.float-whole .msbox{
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: border-box;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.merchant-base-info .float-r.float-whole .msbox img,
+.merchant-base-qualification .float-r.float-whole .msbox img {
+    width: 100%;
+    margin: 10px 0;
+    height: auto;
+    padding-bottom: 10px;
+}
+.merchant-base-info li.info-item .upload-img-box,
+.merchant-base-qualification li.info-item .upload-img-box{
+    width: 68px;
+    height: 68px;
+    position: relative;
+    box-sizing: border-box;
+    background: #E0E0E0;
+    padding: 10px;
+    padding-top: 0px;
+    float: left;
+}
+.merchant-base-info li.info-item .upload-img-box input[type=file],
+.merchant-base-qualification li.info-item .upload-img-box input[type=file]{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+.merchant-base-qualification .help-box{
+    font-size: 10px;
+    color: #ddd;
+}
+.merchant-base-qualification li.info-item .upload-img-box .btn-icon{
+    text-align: center;
+    font-size: 20px;
+}
+.merchant-base-qualification li.info-item .upload-img-box .btn-tag{
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+}
+.merchant-base-qualification li.info-item .upload-img-box .btn-tag2{
+    line-height: 30px;
+}
+.post-btn{
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 5px;
+    background: #009BF8;
+    border-radius: 10px;
+}
+.merchant-base-qualification li.upload-img-container .img-container{
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 5px;
+}
+.merchant-base-qualification li.upload-img-container .img-container .img-box{
+    width: 68px;
+    height: 68px;
+    margin: auto;
+    position: relative;
+}
+.add-picture-icon{
+    width: 20px;
+    height: 20px;
+}
+.add-picture{
+    float: left;
+    width: 120px;
+    background: #fff;
+    position: relative;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #009BF8;
+    color: #fff;
+    border-radius: 5px;
+}
+.add-picture>button {
+    background: transparent;
+    border: none;
+    line-height: 30px;
+    font-size: 16px;
+}
+.add-picture-input{
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}

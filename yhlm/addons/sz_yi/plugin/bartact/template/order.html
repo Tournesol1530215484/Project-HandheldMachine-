@@ -1,0 +1,227 @@
+﻿{template 'common/header'}
+
+<style type='text/css'>
+.trhead td { background:#f8f8f8;text-align: center}
+.trbody{ position:relative; }
+.trbody td { text-align: center; vertical-align:top;border-left:1px solid #DEDEDE;overflow: hidden;}
+.goods_info{position:relative;width:60px;cursor: pointer; transition: all 2s;}
+.goods_info img {width:50px;background:#fff;border:1px solid #DEDEDE;padding:1px;}
+.goods_info:hover{ transform: scale(6); transition:transform 5s ;position: relative; top: 45%; left:45%; }
+/*.goods_info:hover {z-index:1;position:relative;width:auto; display: block; float: left; top: 0px; left: 0px;}
+.goods_info:hover img{width:260px; height:260px;}*/
+</style>
+
+{if $status != 9}
+<div class="panel panel-default ">
+  <div class="panel-body sx-border">
+    <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+      <input type="hidden" name="c" value="site" />
+      <input type="hidden" name="a" value="entry" />
+      <input type="hidden" name="m" value="sz_yi" />
+      <input type="hidden" name="do" value="plugin" />
+      <input type="hidden" name="p" value="bartact">
+      <input type="hidden" name="method" value="{$_GPC['method']}">
+      <input type="hidden" name="status" value="{$status}" />
+      <input type="hidden" name="agentid" value="{$_GPC['agentid']}" />
+      <input type="hidden" name="refund" value="{$_GPC['refund']}" />
+      <div class="form-group">
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+          <div class='input-group'>
+            <div class='input-group-addon'>订单号</div>
+            <input class="form-control" name="keyword" type="text" value="{$_GPC['keyword']}" placeholder="订单号">
+	        </div>
+	      </div>
+
+      </div>
+
+      <div class='form-group'>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class='input-group'>
+              <!--<div class='input-group-addon'>核销员</div>-->
+              <div class='input-group-addon'>订单状态</div>
+            <!--<input class="form-control" name="saler" type="text" value="{$_GPC['saler']}" placeholder="核销员昵称/姓名/手机号">-->
+              <select name="sta" class="form-control">
+                  <option value="" ></option>
+                  <option value="-1" {if $_GPC['sta'] ==-1} selected="selected" {/if}>已取消</option>
+                  <option value="10" {if $_GPC['sta'] ==10} selected="selected" {/if}>未付款</option>
+                  <option value="1" {if $_GPC['sta'] ==1} selected="selected" {/if}>已付款</option>
+                  <option value="2" {if $_GPC['sta'] ==2} selected="selected" {/if}>已发货</option>
+                  <option value="3" {if $_GPC['sta'] ==3} selected="selected" {/if}>已完成</option>
+
+              </select>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="height: 34px;">
+          <div class='input-group'>
+            <div class='input-group-addon' style="padding: 8px 12px 9px 12px; border-left: 1px #ccc solid; border-right: 1px #ccc solid; border-radius: 2px;">下单时间
+              <label class='radio-inline' style='margin-top:-7px;'><input type='radio' value='0' name='searchtime' {if $_GPC['searchtime']=='0'}checked{/if} checked>不搜索</label>
+              <label class='radio-inline' style='margin-top:-7px;'><input type='radio' value='1' name='searchtime' {if $_GPC['searchtime']=='1'}checked{/if}>搜索</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class='input-group'>
+            {php echo tpl_form_field_daterange('time', array('starttime'=>date('Y-m-d H:i', $starttime),'endtime'=>date('Y-m-d H:i', $endtime)),true);}
+          </div>
+        </div>
+
+        {if !empty($agentid) && $level>0}
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class='input-group'>
+            <div class='input-group-addon'>分销订单级数</div>
+            <select name="olevel" class="form-control">
+            	<option value="" >不限</option>
+              <option value="1" {if $_GPC['olevel'] ==1} selected="selected" {/if}>一级订单</option>
+              <option value="2" {if $_GPC['olevel'] ==2} selected="selected" {/if}>二级订单</option>
+              <option value="3" {if $_GPC['olevel'] ==3} selected="selected" {/if}>三级订单</option>
+            </select>
+          </div>
+        </div>
+        {/if}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+          <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+          <input type="hidden" name="token" value="{$_W['token']}" />
+          <button type="submit" name="export" value="1" class="btn btn-primary">导出 Excel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<table class='table' style='float:left;margin-bottom:5px;table-layout: fixed;line-height: 40px;height: 40px'>
+  <tr class='trhead'>
+    <td width="20%">订单数: {$total}  订单金额: <span style="color:red">{if $totalmoney>0}{$totalmoney}{else}0{/if}</span>元&nbsp;{if $perm_role == 1}结算金额: <span style="color:red">{if $costmoney>0}{$costmoney}</span>元 &nbsp;<a class="btn btn-default" href="{php echo $this->createWebUrl('order/list',array('applytype'=>1))}">提现</a><a class='btn btn-default' onclick="return confirm('确认微信钱包提现?')" href="{php echo $this->createWebUrl('order/list',array('applytype'=>2));}">微信提现</a>{else}没有可提现金额{/if}{/if}</td>
+    <td width="20%">单价/数量</td>
+      <td width="25%">openid</td>
+    <td width="10%">状态</td>
+    <td width="10%">操作</td>
+  </tr>
+</table>
+{loop $list $item}
+<table class='table' style='float:left;border:1px solid #ccc;margin-top:5px;margin-bottom:0px;table-layout: fixed;'>
+  <tr>
+    <td  >
+    	<b>:</b> {$item['dealsn']}
+
+    </td>
+      <td  >
+        <b style="margin-left: 10px;">: </b>{php echo date('Y-m-d H:i:s', $item['dealtime'])}
+      </td>
+      <td >
+          <b>:</b> {$item['openid']}
+      </td>
+	  <td >
+          <b>:</b> {$item['note']}
+	  </td>
+		<td >
+            <b>订单价格:</b> {$item['currency']}
+		</td>
+  </tr>
+</table>
+
+{/loop}
+
+{else}
+<div class="panel panel-info">
+  <div class="panel-heading">筛选</div>
+  <div class="panel-body">
+    <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+      <input type="hidden" name="c" value="site" />
+      <input type="hidden" name="a" value="entry" />
+      <input type="hidden" name="m" value="sz_yi" />
+      <input type="hidden" name="do" value="plugin" />
+      <input type="hidden" name="p" value="commission" />
+      <input type="hidden" name="method" value="supplier_finish" />
+      <input type="hidden" name="op" value="display" />
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">会员信息</label>
+        <div class="col-sm-8 col-lg-9 col-xs-12">
+          <input type="text" class="form-control"  name="uid" value="{$_GPC['uid']}" placeholder='搜索供货商ID'/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">提现单号</label>
+        <div class="col-sm-8 col-lg-9 col-xs-12">
+          <input type="text" class="form-control"  name="applysn" value="{$_GPC['applysn']}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label"></label>
+        <div class="col-sm-8 col-lg-9 col-xs-12">
+          <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+          <input type="hidden" name="token" value="{$_W['token']}" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+    <table class="table table-hover table-responsive">
+      <thead class="navbar-inner" >
+        <tr>
+          <th style='width:6%;'>供应商ID</th>
+          <th style='width:14%;'>提现单号</th>
+          <th style='width:10%;'>开户名</th>
+          <th style='width:10%;'>电话</th>
+          <th style='width:10%;'>开户银行</th>
+          <th style='width:10%;'>银行卡号</th>
+          <th style='width:10%;'>提现金额</th>
+          <th style='width:10%;'>手动/微信</th>
+          <th style='width:10%;'>申请/完成时间</th>
+          <th style='width:10%;'>状态</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {loop $supplierapply $row}
+      {if !empty($row['uid'])}
+      <tr>
+        <td>{$row['uid']}</td>
+        <td>{$row['applysn']}</td>
+        <td>{$row['accountname']}</td>
+        <td>{$row['telephone']}</td>
+        <td>{$row['accountbank']}</td>
+        <td>{$row['banknumber']}</td>
+        <td>{$row['apply_money']}</td>
+        <td>{if $row['type']==1}<span style="color:pink">手动提现</span>{elseif $row['type']==2}<span style="color:green">微信提现</span>{/if}</td>
+        {if $row['status'] == 0}
+        <td><?php echo date('Y-m-d H:i:s',$row['apply_time']);?></td>
+        <td  style="overflow:visible;"><div class="form-group">
+            <div class="col-sm-9 col-xs-9"> <span style='color:blue'>申请中</span> </div>
+          </div></td>
+        {else}
+        <td><?php echo date('Y-m-d H:i:s',$row['finish_time']);?></td>
+        <td  style="overflow:visible;"><div class="form-group">
+            <div class="col-sm-9 col-xs-9"> <span style='color:red'>已打款</span> </div>
+          </div></td>
+        {/if} </tr>
+      {/if}
+      {/loop}
+        </tbody>
+
+    </table>
+  </div>
+</div>
+{/if}
+{$pager}
+</div>
+</div>
+<script language="javascript">
+    function send(btn){
+        var modal =$('#modal-confirmsend');
+        var itemid = $(btn).parent().find('.itemid').val();
+            modal.find(':input[name=id]').val( itemid );
+            var addressdata  = eval('(' +$(btn).parent().find('.addressdata').val()+')');
+            modal.find('.realname').html(addressdata.realname);
+            modal.find('.mobile').html(addressdata.mobile);
+            modal.find('.address').html(addressdata.address);
+    }
+</script>
+{template 'web/order/modals'}
+
+{template 'web/_footer'}

@@ -1,0 +1,34 @@
+{template 'common/header'}
+{template 'tabs'}
+<style>
+    body {margin:0};
+</style>
+<body>
+<table width='100%'>
+    {loop $item_desc $item}
+    <tr>
+        <td><img border='0' src='<?php echo  $_W['siteroot']?>{$item['erweiurl']}' width='200'  style="margin-bottom:30px;" /></td>
+    </tr>
+    {/loop}
+</table>
+<!---<script>
+    function print_qrcode()
+    {
+        $.ajax({
+            //url:'./site.php?act=module&name=unpacking&do=printsubmit&cardid=&start=1&end=10&mode=',
+            url:'./index.php?c=site&a=entry&do=printsubmit&m=shopping&goodsid=29924&desc_id=14562&start=1&end=10&mode=',
+            type:'post',
+            success:function(data)
+            {
+                if(data == 'ok')
+                {
+                    print();
+                    return true;
+                }
+                alert(data);
+            }
+        });
+    }
+    //print_qrcode();
+</script>--->
+{template 'common/footer'}

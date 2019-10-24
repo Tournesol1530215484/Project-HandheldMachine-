@@ -1,0 +1,164 @@
+{template 'common/header'}
+
+{if $op == 'display'}
+<!-- 查询 -->
+<div class="panel panel-default" style="display:block;" id="list">
+	<div class="panel-body">
+    	<a class='btn btn-default' style="background-color: #1E95C9; color: #fff; border-radius: 6px;" href="{php echo $this->createPluginWebUrl('suppliermenu/staff',array('op'=>'add'))}">添加员工</a>
+	</div>
+   <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12"></div>
+    <div class="">
+	<table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:150px;'>工号</th>
+                    <th style='width:150px;'>员工姓名</th>
+                    <th style='width:150px;'>手机号码</th>
+                    <th style='width:150px;'>证件号码</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $info $row}
+                <tr>
+		            <td>{$row['worknumber']}</td>
+               		<td>{$row['name']}</td> 
+					<td>{$row['mobile']}</td>
+					<td>{$row['idcard']}</td>
+					<td>
+						<a href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_exchange',array('op'=>'edit','id'=>$row['id']))}" class="btn btn-default" style="color: #fff; background-color: #8db98d;"> 编辑 </a>
+						<a class="btn btn-danger" data-id="{$row['id']}" onclick="return window.confirm('确定删除？');" href="{php echo $this->createPluginWebUrl('suppliermenu/dealmerch_exchange', array('op' => 'delete', 'id'=>$row['id'])); }"> 删除 </a>
+					</td>
+                </tr>
+            	{/loop}
+            </tbody> 
+    </table>
+    <span class="btn btn-default" id="sel"> 全选 </span>
+    <a href="jasscript:;" class="btn btn-danger" id="del"> 删除 </a>
+    </div>
+    {$pager}
+</div>
+{/if}
+<!-- 添加 -->
+{if $op == 'add' || $op == 'edit'}
+<form method='post' class='form-horizontal' style="display:block;">
+    <input type="hidden" name="id" value="{$addrInfo['id']}">
+    <input type="hidden" name="op" value="post">
+    <input type="hidden" name="do" value="plugin"> 		 	 	
+    <input type="hidden" name="c" value="site" />
+    <input type="hidden" name="a" value="entry" /> 
+    <input type="hidden" name="m" value="sz_yi" />
+    <input type="hidden" name="p" value="suppliermenu" />
+    <input type="hidden" name="method" value="staff" />
+    <div class='panel panel-default'>
+        <div class='panel-body'> 	 	 	 
+            <div class="form-group notice">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+             
+                    <div class="col-sm-4">
+                        <!--<input type='hidden' id='noticeopenid' name='data[openid]' value="{$dealmerchinfo['openid']}" />-->
+              	
+                    </div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+			<div class="form-group">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">员工名称</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       <input type="text" name="name" class="form-control" value="{$addrInfo['name']}" />
+	                </div>	
+	            </div>				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+			</div>	
+
+				
+			<div class="form-group">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">登陆密码</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       <input type="text" name="password" class="form-control" value="" />
+	                </div>	
+	            </div>				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+			</div>
+
+            <div class="form-group">				
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">联系电话</label>	
+	                <div class="col-sm-9 col-xs-12">	
+	                       	<div class="input-group">
+	                       		<input type="text" name="mobile" class="form-control" value="{$addrInfo['mobile']}"/>
+							</div>
+	                </div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+            <div class="form-group">				
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	            	<label class="col-xs-12 col-sm-3 col-md-3 control-label">身份证号码</label>	
+	            	<div class="col-sm-9 col-xs-12">	
+	                       <input type="text" name="idcard" class="form-control" value="{$addrInfo['idcard']}" />
+	            	</div>				
+	            </div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+            <div class="form-group">				
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	            	<label class="col-xs-12 col-sm-3 col-md-3 control-label">证件类型</label>	
+	            	<div class="col-sm-9 col-xs-12">	
+	            		<select name="card_type" class="form-control">
+	            				<option value="1">身份证</option>
+	            				<option value="2">军官证</option>
+	            				<option value="3">护照</option>
+	            				<option value="4">港澳居民来往内地通行证</option>
+	            				<option value="5">台湾居民来往大陆通行证</option>
+	            		</select>
+	            	</div>				
+	            </div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+            <div class="form-group">				
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	            	<label class="col-xs-12 col-sm-3 col-md-3 control-label">证件正面</label>	
+	            	<div class="col-sm-9 col-xs-12">	
+	                       {php echo tpl_form_field_image('front');}
+	            	</div>				
+	            </div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+            <div class="form-group">				
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	            	<label class="col-xs-12 col-sm-3 col-md-3 control-label">证件反面</label>	
+	            	<div class="col-sm-9 col-xs-12">	
+	                       {php echo tpl_form_field_image('reverse');}
+	            	</div>				
+	            </div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				</div>
+            </div>
+
+            <div class="form-group"> 
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                           <button type="submit" value="提交" class="btn btn-primary col-lg-1"  id="onlyone">提交</button>
+                           <input type="hidden" name="token" value="{$_W['token']}" />
+                       <input type="button" name="back" onclick='history.back()' {ifp 'dealmerch.dealmerch_exchange'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+            </div>
+   		 </div>
+   	</div>   
+</form>
+{/if}
+<!-- </div> -->
+<!-- </div> -->
+{template 'common/footer'}

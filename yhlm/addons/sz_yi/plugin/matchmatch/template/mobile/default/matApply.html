@@ -1,0 +1,485 @@
+{template 'common/header'}
+<title>比赛报名</title>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/baidu.js?'.time();?>"></script> 
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/jquery.form.js?'.time();?>"></script>
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/s.js?'.time();?>"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/js/mui.min.js?'.time();?>"></script>
+<script type="text/javascript">
+    System.config({
+        map:{
+          systemJsText:'<?php echo MODULE_URL.'plugin/match/res/txt.js';?>',
+          systemJsCss:'<?php echo MODULE_URL.'plugin/match/res/css.js';?>',
+          systemJsJson:'<?php echo MODULE_URL.'plugin/match/res/json.js';?>'
+        },
+        baseURL: '<?php echo MODULE_URL.'plugin/match/res/';?>',
+    });
+    System['import']('<?php echo MODULE_URL.'plugin/match/res/css/mui.min.css!systemJsCss';?>').then(function (a){});
+</script>
+<style type="text/css">
+    body{
+        background: #eeeeee;
+    }
+    #big_body{
+        width:100%;
+        margin:0px;
+        float: left; 
+        position: relative; 
+        padding-bottom:50px;
+    }
+    .page_topbar{
+       background: #333333;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    .match-box{
+        font-size: 14px;
+        color: #fe4830;
+        text-align: center;
+        padding: 8px 0 6px;
+    }
+    .sign-up-info{
+        padding: 5px 5px 10px;
+        font-size: 14px;
+    }
+    .sign-up-info input{
+        outline: none;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+    .sign-up-info select,
+    .sign-up-info textarea{
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+    .sign-up-info .info-item{
+        line-height: 30px;
+        padding: 5px;
+        background: #fff;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .sign-up-info .upload-img-container{
+        padding: 10px 0 15px;
+    }
+    .sign-up-info .textarea-info-item{
+        padding: 10px 5px;
+    }
+    .sign-up-info .info-value .whole-input{
+        width: 100%;
+        border: 0;
+        background: #fff;
+        height: 30px;
+        line-height: 30px;
+    }
+    .sign-up-info .info-value .whole-textarea{
+        width: 100%;
+        border: 0;
+        background: #fff;
+        line-height: 1.3;
+        vertical-align: bottom;
+        resize: none;
+    }
+    .help-box{
+        display: block;
+        padding: 5px 10px;
+        font-size: 10px;
+        color: #737373;
+        line-height: 1.2;
+    }
+    /*上传图片*/
+    .info-item .upload-img-box{
+        width: 68px;
+        height: 68px;
+        position: relative;
+        box-sizing: border-box;
+        background: #E0E0E0;
+        padding: 10px;
+        padding-top: 0px;
+        margin: 0 auto 5px auto;
+    }
+    .info-item .upload-img-box input[type=file]{
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+    }
+    .info-item .upload-img-box .btn-icon{
+        font-size: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .upload-img-container .parent-box{
+        width: 25%;
+        float: left;
+    }
+    .upload-img-container .img-container{
+        width: 25%;
+        float: left;
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 5px;
+    }
+    .upload-img-container .img-container .img-box{
+        width: 68px;
+        height: 68px;
+        margin: auto;
+        position: relative;
+    }
+    .add-picture{
+        float: left;
+        width: 120px;
+        background: #fff;
+        position: relative;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        background: #009BF8;
+        color: #fff;
+        border-radius: 5px;
+    }
+    .add-picture .add-picture-btn{
+        background: transparent;
+        border: none;
+        line-height: 30px;
+        font-size: 12px;
+        padding: 0;
+        color: #fff;
+    }
+    .add-picture-input{
+        display: inline-block;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+    }
+    .footer-btn{
+        font-size: 15px;
+        text-align: center;
+        color: #fff;
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px 5px;
+        background: #ff472f;
+        border-radius: 10px;
+    }
+    .footer-link .btn-link{
+        display: block;
+        width: 90%;
+        text-decoration: none;
+        font-size: 15px;
+        color: #ff472f;
+        text-align: center;
+        margin: 10px auto;
+        padding: 10px 5px;
+        background: #fff;
+        border: 1px solid #ff472f;
+        border-radius: 10px;
+    }
+</style>
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <div class="page_topbar">
+            <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+            <div class="title">比赛报名</div>
+        </div>
+        <div class="match-box">比赛报名处</div>
+        <form method="post" enctype="multipart/form-data" id="showDataForm">
+            <input type="hidden" id="logid">
+            <input type="hidden" id="payed" value="0">
+
+            <div class="sign-up-info">       
+                <ul>
+                    <!-- 测试数据，到时候去掉 -->
+                    {loop $field $k  $v}
+                    <!-- <li class="info-item clearfloat">
+                        <div class="float-l info-tag">{$v['title']}</div>
+                        <div class="float-r info-value">                                     
+                            <input class="whole-input" type="text" name="{$k}"
+                            <%if result%>       
+                            value="<%if '{$k}'=='realname' && result.realname%><%result.realname.data%><%else if '{$k}'=='mobile' && result.mobile%><%result.mobile.data%><%else if '{$k}'=='unit' && result.unit%><%result.unit.data%><%/if%>"                            
+                            <%else%>
+                            <%/if%> 
+                            placeholder="{$v['title']}" autocomplete="off">                    
+                        </div>                                                      
+                    </li> -->
+                    <!-- 包含value的值的单引号还是双引号不要换行 去除多余空格 -->
+                    <li class="info-item ">
+                        <div class="info-value">
+                            <input class="whole-input" type="text" name="{$k}" value="<%if result%><%if '{$k}'=='name' && result.name%><%result.name.data%><%else if '{$k}'=='mobile' && result.mobile%><%result.mobile.data%><%else if '{$k}'=='slogan' && result.slogan%><%result.slogan.data%><%else if '{$k}'=='desc' && result.desc%><%result.desc.data%><%/if%><%/if%>" placeholder="请输入{$v['title']}">
+                        </div>
+                    </li>
+                    {/loop}   
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="help-box">上传照片，默认第一张为封面图，注:上传的图规格一样或者都是正方形 </div>
+                        <!-- 3张图的时候不显示图标上传按钮 -->
+                        <%each result.icon as img%>
+                        <div class="img-container">
+                            <div class="img-box">           
+                                <img src="<%img[1]%>" style="width:100%; height:100%;">    
+                                <div class="minus-edit" style="position:absolute; top:-10%; left:-10%;">X</div>
+                                <input type="text" name="file1[]" value="<%img[0]%>" style="display:none;" readonly="readonly">       
+                            </div>
+                        </div>
+                        <%/each%>
+                        <!-- 如果有3张图则不显示图标上传按钮 -->
+                        <div id="upload-img-box1" class="parent-box upload-parent-box" <%if result.icon && result.icon.length == 3%>style="display:none;"<%/if%> >
+                            <div class="upload-img-box">
+                                <div class="btn-icon">+</div>
+                                <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="info-item textarea-info-item">
+                        <div class="info-value">
+                            <textarea class="whole-textarea" name="picdesc" maxlength="60" rows="2" value="<%result.picdesc%>" placeholder="你可以在此为您上传的图片添加描述~" autocomplete="off"></textarea>
+                        </div>
+                    </li>
+
+                    <!-- 测试 -->
+                    {if false}                               
+                    <li class="info-item ">
+                        <div class="info-value">
+                            <input class="whole-input" type="text" name="name" value="<%result.name%>" placeholder="请输入您的姓名" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="info-value">
+                            <input class="whole-input" type="text" name="mobile" value="<%result.mobile%>" placeholder="请输入您的手机号码" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="info-value">
+                            <input class="whole-input" type="text" name="slogan" value="<%result.slogan%>" placeholder="口号" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat upload-img-container">
+                        <div class="help-box">上传照片，默认第一张为封面图，注:上传的图规格一样或者都是正方形 </div>
+                        <!-- 3张图的时候不显示图标上传按钮 -->
+                        <%each result.icon as img%>
+                        <div class="img-container">
+                            <div class="img-box">           
+                                <img src="<%img[1]%>" style="width:100%; height:100%;">    
+                                <div class="minus-edit" style="position:absolute; top:-10%; left:-10%;">X</div>
+                                <input type="text" name="file1[]" value="<%img[0]%>" style="display:none;" readonly="readonly">       
+                            </div>
+                        </div>
+                        <%/each%>
+                        <!-- 如果有3张图则不显示图标上传按钮 -->
+                        <div id="upload-img-box1" class="parent-box upload-parent-box" <%if result.icon && result.icon.length == 3%>style="display:none;"<%/if%> >
+                            <div class="upload-img-box">
+                                <div class="btn-icon">+</div>
+                                <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="info-item textarea-info-item">
+                        <div class="info-value">
+                            <textarea class="whole-textarea" name="picdesc" maxlength="60" rows="2" value="<%result.picdesc%>" placeholder="你可以在此为您上传的图片添加描述~" autocomplete="off"></textarea>
+                        </div>
+                    </li>
+                    {/if}
+                </ul>
+            </div>
+            <div class="footer">
+                {if $signup}
+                    <div class="footer-btn post-btn" style="background:#ddd;">你已经报名</div>
+                {else}
+                    {if $timed}
+                        <div class="footer-btn post-btn" style="background:#f00;">比赛已停止报名</div>
+                    {else}
+                        <div class="footer-btn post-btn signup" onclick='a(1);'>报名</div>
+                    {/if}
+                {/if}
+                <div class="footer-link"><a class="btn-link" href="{php echo $this->createPluginMobileUrl('match/match',array('op'=>'detail','id'=>$_GPC['id'],'status'=>'0'))}">返回首页</a></div>
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </form>
+        <div style="width: 100%; height: 50px;"></div>
+        {template 'common/nav_matchsignup'}
+    </div>
+</script>
+<script type="text/html" id="tpl-img-box1">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" class="minus" data-img="<%=data.img[0]%>">X</div>
+           <input type="text" name="file1[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+<script type="text/html" id="tpl-loading">
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+         <img src="<?php echo MODULE_URL.'plugin/match/res/loading.gif?'.time();?>"/>
+    </div>
+</script>
+<script type="text/javascript">
+require(['tpl', 'core'], function(tpl, core) {                                   
+    core.pjson('activity/activity', {op:'getmuser'}, function(json) {
+        //编辑状态返回的图片数组的格式
+        //json.result.icon = [["15373242244138.png","http://jhzh66.com/attachment/15373242244138.png"],["15373242244138.png","http://jhzh66.com/attachment/15373242244138.png"],["15373242244138.png","http://jhzh66.com/attachment/15373242244138.png"]];                       
+        $('body').append(tpl('tpl-big-body',json));
+        //console.log(json.result.realname.data);
+        //console.log(json.result.realname.data.length);
+        //处理编辑状态下,删图后上传图标的按钮出现
+        //编辑状态下初步加载的图标不是真的删除,因为用户不一定保存编辑后的活动
+        $('.minus-edit').unbind("click").click(function() {
+            $(this).parent().parent().remove();
+            $("#upload-img-box1").show();//理论上这一步只需在第三张图被删的时候走一次,但是删除都走这一步不会出错
+        });  
+    }, true,true);
+});
+//上传图片
+function  handleFiles(q,id)
+{
+    var files =  q.files;
+    if(files.length){
+        for(var x =0 ;x<files.length;x++ ){
+            var file = files[x];
+            if(!/image\/\w+/.test(file.type)){
+                alert("文件必须为图片！"+file.type);
+                return ;
+            }
+        }
+        var $fileParent = $("#file"+id).parent().parent();
+        if($("input[name='file1[]']").length == 3){
+            alert("只能上传3张图片");
+            return;
+        }
+        $.ajaxFileUpload({  
+            url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',  
+            secureuri:false,  
+            fileElementId:$(q).attr('id'), //file的id  
+            dataType:"text", // 返回数据类型为文本  
+            success:function(data,status){  
+                //console.log(data);
+                //console.log(status);
+                var obj = JSON.parse(data);
+                for(var x in obj.result.url){
+                    $fileParent.before(baidu.template('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+                }
+                if($("input[name='file1[]']").length == 3){
+                    $fileParent.hide();
+                }
+                //增加删除服务器存储照片的功能,而不是简单地删除页面的dom元素
+                $('.minus').unbind("click").click(function() {
+                    var $reObj = $(this).parent().parent();
+                    var $curObj = $(this);
+                    require(['core'], function(core) {
+                        core.json('util/uploader', {op: 'remove', file: $curObj.data('img')}, function(rjson) {
+                            //删除成功
+                            if (rjson.status == 1) {
+                                $reObj.remove();
+                                $fileParent.show();
+                            }
+                        }, false, true);
+                    });
+                });   
+           }  
+        });
+    }
+}
+//提交活动函数
+function a(status){
+    require(['tpl', 'core'], function(tpl, core) { 
+        if ($(".signup").attr('submitting') == '1') { 
+            return; 
+        }
+        $('#big_body').append(tpl('tpl-loading')); 
+        
+        {loop $field $k  $v}
+            {if $v['must'] == 1}
+                if($("input[name='{$k}']").isEmpty()){
+                    $("#loading").remove();
+                    core.tip.show('{$v['title']}不能为空');
+                    return false;                                
+                }
+            {/if}
+        {/loop}
+        
+        //必要的判断
+        //封面图判断
+        if($("input[name='file1[]']").length == 0){
+            $("#loading").remove();
+            core.tip.show('请上传封面图');
+            return;
+        }
+        //封面图描述
+        if($("textarea[name='picdesc']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('图片描述不能为空');
+            return;
+        }
+        //封面图
+        var files1 = new Array();
+        $("input[name='file1[]']").each(function(){
+            files1.push($(this).val());
+        });
+
+        //提交的数据
+                    
+        var postdata={       
+            {loop $field $k  $v}     
+               {$k}:{
+                    data:$("input[name='{$k}']").val(),
+                    field:'{$k}',    
+                    title:'{$v['title']}'
+                },      
+            {/loop}                     
+        };   
+        //提交的数据
+        var data = {};
+        data['postdata'] = {data:[postdata]};
+        data['post1[]'] = {data:files1};//多张图片
+        data['picdesc'] = {data:[$("textarea[name='picdesc']").val()]};
+
+        $('.signup').attr('submitting', 1); //获取参数
+        System['import']('<?php echo MODULE_URL.'plugin/match/res/js/FormData.js';?>').then(function (a){
+            var fd =  a.append( data);
+            var xhr = new XMLHttpRequest();
+            console.log(data);
+            return;
+            xhr.open('POST', '<?php echo $this->createPluginMobileUrl('match/match',array( 'op'=>'apply','ac'=>'sub','id'=>$_GPC['id'])) ;?>', true);
+            xhr.send(fd);                    
+            xhr.onreadystatechange=function(){
+                if (xhr.readyState==4 && xhr.status==200)
+                {     
+                    var obj = JSON.parse(xhr.responseText);
+                    if(obj.status == 1){
+                        core.tip.show('操作成功');
+                        $('.signup').removeAttr('submitting');
+                        setTimeout(function(){
+                            //应该回到比赛详情首页
+                            location.href="{php echo $this->createPluginMobileUrl('match/match')}";
+                        },250);
+                    }
+                    if(obj.status == 0){
+                        $('.signup').removeAttr('submitting'); 
+                        core.tip.show('操作失败');
+                        return;
+                    }
+                }
+            };
+            $("#loading").remove();
+            $('.signup').removeAttr('submitting');
+        });
+     });
+}
+</script>
+{template 'common/footer'}

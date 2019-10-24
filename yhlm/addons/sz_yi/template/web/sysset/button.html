@@ -1,0 +1,256 @@
+{template 'common/header'}
+
+<div class="ulleft-nav">
+    <ul class="nav nav-tabs">
+        <li class=""><a href="{php echo $this->createWebUrl('sysset',array('op'=>'shop'))}">PC商城设置</a></li>
+        <li {if $_GPC['method']=='button'}class="active"{/if}><a href="{php echo $this->createWebUrl('sysset/button')}">底部导航栏</a></li>
+        <li {if $_GPC['method']=='right'}class="active"{/if}><a href="{php echo $this->createWebUrl('sysset/right')}">右侧导航栏</a></li>
+        <li {if $_GPC['method']=='right'}class="active"{/if}><a href="{php echo $this->createWebUrl('sysset/rightlogo')}">右侧logo导航栏</a></li>
+
+    </ul>
+</div>
+
+{if $operation == 'display'}
+
+<form action="" method="post">
+    <input type="hidden" name="op" value="sort">
+<div class="panel panel-default">
+    <div class="panel-body table-responsive">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style="width:60px;">ID</th>
+
+                    <th>标题</th>
+
+                    <th >操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['id']}</td>
+
+                    <td>{$row['title']}</td>
+
+                    <td style="text-align:left;">
+                        <a href="{php echo $this->createWebUrl('sysset/button', array('op' => 'post', 'id' => $row['id']))}" class="btn btn-default btn-sm"  title="{ifp 'shop.adv.edit'}修改{else}查看{/if}" style="background-color: #ffb034; color:#fff;"><i class="fa fa-edit"></i></a>
+                        <a href="{php echo $this->createWebUrl('sysset/button', array('op' => 'delete', 'id' => $row['id']))}"class="btn btn-default btn-sm" onclick="return confirm('确认删除此幻灯片?')" title="删除" style="background-color: #000; color:#fff;"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                {/loop}
+                <tr>
+                    <td colspan='6'>
+
+                          <a class='btn btn-primary' href="{php echo $this->createWebUrl('sysset/button',array('op'=>'post'))}"><i class='fa fa-plus'></i> 添加幻灯片</a>
+                          <input type="hidden" name="token" value="{$_W['token']}" />
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+</form>
+</div>
+<script>
+    require(['bootstrap'], function ($) {
+        $('.btn').hover(function () {
+            $(this).tooltip('show');
+        }, function () {
+            $(this).tooltip('hide');
+        });
+    });
+</script>
+
+{elseif $operation == 'post'}
+
+<div class="main rightlist">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" onsubmit='return formcheck()'>
+        <input type="hidden" name="id" value="{$item['id']}" />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                底部导航栏设置
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style="color:red">*</span>底部导航栏标题</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id='title' name="title" class="form-control" value="{$item['title']}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-5 col-sm-1 col-md-2 control-label">底部导航栏类型</label>
+                    <div class="col-sm-3 col-xs-6">
+                        <select class='form-control' name='type' id="xuanzhe">
+                            <!-- <option value='0' {if $item['type']==0}selected{/if}></option> -->
+                            <option value='1' {if $item['type']==1}selected{/if}>问答讲解</option>
+                            <option value='2' {if $item['type']==2}selected{/if}>操作讲解</option>
+                        </select>
+                    </div>
+                    <div class="add col-sm-1" id="tianjia" style="height: 33px !important;border: 1px solid #ccc;text-align: center;line-height: 33px;" onclick="add()">添加</div>
+                </div>
+
+                <div class="form-group ask" style="display: none">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">问</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="ask" class="form-control" value="" />
+                    </div>
+                </div>
+                <div class="form-group da" style="display: none" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">答</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="an" class="form-control" value="" />
+                    </div>
+                </div>
+
+                {if $item['type']==1}
+                {loop $list $v}
+                {if !empty($v['wen'])}
+                <div class="form-group ask1">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">问</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="ask" class="form-control" value="{$v['wen']}" />
+                    </div>
+                </div>
+                {/if}
+                {if !empty($v['da'])}
+                <div class="form-group da1">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">答</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="an" class="form-control" value="{$v['da']}" />
+                    </div>
+                </div>
+                {/if}
+
+                {/loop}
+                {/if}
+
+                {if $item['type']==2}
+                {loop $list $v}
+                {if !empty($v['wen'])}
+                <div class="form-group ask2">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">问</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="ask" class="form-control" value="{$v['wen']}" />
+                    </div>
+                </div>
+                <div class="form-group da2"  style="display: none">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">答</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" name="an" class="form-control" value="{$v['da']}" />
+                    </div>
+                </div>
+                {/if}
+                {/loop}
+                {/if}
+                <div id="add">
+                    <div></div>
+                </div>
+                <div class="form-group" id="duo">
+                    <label class="col-sm-3 col-md-2 control-label">其他图片</label>
+                    <div class="col-sm-9 col-md-8">
+
+                        {php echo tpl_form_field_multi_image('thumbs',$piclist)}
+                        <span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+
+                        {loop $pic $p}
+                        <a href='{php echo tomedia($p)}' target='_blank'>
+                            <img src="{php echo tomedia($p)}" style='height:100px;border:1px solid #ccc;padding:1px;float:left;margin-right:5px;' />
+                        </a>
+                        {/loop}
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"  />
+                            <input type="hidden" name="token" value="{$_W['token']}" />
+                       <input type="button" name="back" onclick='history.back()' {ifp 'shop.adv.add|shop.adv.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </form>
+</div>
+</div>
+<script language='javascript'>
+    if( $('#xuanzhe').val() == 1 ){
+        $('#tupian').css('display','none')
+        $('#duo').css('display','none')
+
+    }
+
+    $('#xuanzhe').change(function(){
+
+        $('#add').html('<div></div>')
+        if( $('#xuanzhe').val() == 1 ){
+            $('#tupian').css('display','none')
+            $('#duo').css('display','none')
+            $('.ask2').remove()
+            $('.da2').remove()
+            $('.ask').css('display','block')
+            $('.da').css('display','block')
+        }else if( $('#xuanzhe').val() == 2 ){
+            $('#tupian').css('display','block')
+            $('#duo').css('display','block')
+            $('.da1').remove()
+            $('.ask1').remove()
+            $('.da').css('display','none')
+            $('.ask').css('display','block')
+        }
+    })
+
+    function add() {
+			        var name= $('#add').children('div').length;
+
+                    // $('#add').children('div').last().after('<div class="input-group"><span class="input-group-addon" required="" style="width: 180px;">阅读时长</span><input name=trade[rebate]['+name+'][s] value="" class="form-control" required="" placeholder="请输入秒数"><span class="input-group-addon">秒，增加</span><input name=trade[rebate]['+name+'][p] value="" required="" class="form-control" placeholder="请输入收益金额"><span class="input-group-addon">元收益</span></div>');
+                    if( $('#xuanzhe').val() ==  1){
+                        $('#add').children('div').last().after(`
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-3 col-md-2 control-label">问</label>
+                                <div class="col-sm-9 col-xs-12">
+                                    <input type="text" name="ask${name}" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-3 col-md-2 control-label">答</label>
+                                <div class="col-sm-9 col-xs-12">
+                                    <input type="text" name="an${name}" class="form-control" value="" />
+                            </div>
+                        `);
+                    }else  if( $('#xuanzhe').val() ==  2){
+                        $('#add').children('div').last().after(`
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-3 col-md-2 control-label">问</label>
+                                <div class="col-sm-9 col-xs-12">
+                                    <input type="text" name="ask${name}" class="form-control" value="" />
+                                </div>
+                            </div>
+                        `);
+                        var id = `#tupian${name}`
+                        $(id).children('div').children('div').children('input').attr('name','logo'+name);
+//                        console.log($(id).children('div').children('div').children('input'))
+
+                    }
+
+			    }
+
+    function formcheck() {
+        if ($("#title").isEmpty()) {
+            Tip.focus("title", "请填写导航栏标题!");
+            return false;
+        }
+        return true;
+    }
+</script>
+{/if}
+{template 'web/_footer'}

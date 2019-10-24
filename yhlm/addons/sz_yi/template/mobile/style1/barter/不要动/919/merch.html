@@ -1,0 +1,2062 @@
+{template 'common/header'}
+
+<title>同城换货</title>
+
+<link href="../addons/sz_yi/template/mobile/style1/barter/css/city1.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="../addons/sz_yi/template/mobile/default/member/merch/css/dropload.css">
+
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/style1/barter/css/swiper.min.css" />
+
+<script src="../addons/sz_yi/template/mobile/default/member/merch/js/dropload.min.js"></script>
+
+<!-- <script src="../addons/sz_yi/template/mobile/style1/barter/js/swiper.min.js"></script> -->
+
+<script type="text/javascript" src="../addons/sz_yi/template/mobile/default/member/merch/js/zepto.min.js"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+
+<style type="text/css">
+
+	html,body,ul,li,img,p,div{
+
+		margin: 0;
+
+		padding: 0;
+
+	}
+
+	html{
+
+		font-size: 10px;
+
+	}
+
+	body {
+
+        background: rgb(245, 245, 245);
+
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+        color:#000;
+
+    }
+
+	.top-box{
+
+		height: 44px;
+
+		line-height: 44px;
+
+		background-color: #f00605;
+
+		position: fixed;
+
+		top:0;
+
+		width: 100%;
+
+		z-index: 10000;
+
+	}
+
+	.back{
+
+		height: 100%;
+
+		line-height: 44px;
+
+	    width: 44px;
+
+	    margin-left: 10px;
+
+	    float: left;
+
+	    font-size: 16px;
+
+	    color: #fff;
+
+	    position: relative;
+
+	}
+
+	/*返回大于号按钮样式*/
+
+	.back:after {
+
+		content: "";
+
+		display: block;
+
+		clear: both;
+
+		width: 10px;
+
+		height: 10px;
+
+		border-left: 2px solid rgb(255,255,255);
+
+		border-bottom: 2px solid rgb(255,255,255);
+
+		position: absolute;
+
+		left: 10%;
+
+		top: 50%;
+
+		margin-top: -2px;
+
+		-moz-transform: rotate(45deg) translateY(-50%);
+
+		-ms-transform: rotate(45deg) translateY(-50%);
+
+		-o-transform: rotate(45deg) translateY(-50%);
+
+		-webkit-transform: rotate(45deg) translateY(-50%);
+
+		transform: rotate(45deg) translateY(-50%);
+
+	}
+
+	.flex-center {
+
+	    display: -webkit-box;
+
+	    display: -ms-flexbox;
+
+	    display: -webkit-flex;
+
+	    display: flex;
+
+	    -webkit-box-pack: center;
+
+	    -ms-flex-pack: center;
+
+	    -webkit-justify-content: center;
+
+	    justify-content: center;
+
+	    -webkit-box-align: center;
+
+	    -ms-flex-align: center;
+
+	    -webkit-align-items: center;
+
+	    align-items: center;
+
+	}
+
+	#sou{
+
+		height: 100%;
+
+	    line-height: 44px;
+
+	    display: inline-block;
+
+	    width: calc(100% - 120px);
+
+	    text-align: center;
+
+	    color: #fff;
+
+	    font-size: 1.6rem;
+
+	}
+
+	#sou .nav-city{
+
+		display: inline-block;
+
+		height: 100%;
+
+		padding-right: 25px;
+
+		padding-left: 25px;
+
+		position: relative;
+
+	}
+
+	#sou .nav-city:after {
+
+		content: "";
+
+		display: block;
+
+		clear: both;
+
+		width: 10px;
+
+		height: 10px;
+
+		border-right: 2px solid rgb(255,255,255);
+
+		border-bottom: 2px solid rgb(255,255,255);
+
+		position: absolute;
+
+		right: 8px;
+
+		top: 50%;
+
+		margin-top: -4px;
+
+		-moz-transform: rotate(45deg) translateY(-50%);
+
+		-ms-transform: rotate(45deg) translateY(-50%);
+
+		-o-transform: rotate(45deg) translateY(-50%);
+
+		-webkit-transform: rotate(45deg) translateY(-50%);
+
+		transform: rotate(45deg) translateY(-50%);
+
+	}
+
+	#diqunone{
+
+		margin-top: 59px;
+
+	}
+
+	.img-album-container{
+
+		width: 100%;
+
+	}
+
+	.img-album-container .img-slide{
+
+		width: 105px;
+
+		height: 105px;
+
+		margin-right: 5px;
+
+	}
+
+	.img-album-container .img-slide:last-child{
+
+		margin-right: 0px;
+
+	}
+
+	.goods-link{
+
+		display: inline-block;
+
+		width: 100%;
+
+		height: 100%;
+
+	}
+
+	.barter-unit{
+
+		margin-bottom: 15px;
+
+	}
+
+	.barter-unit .unit-info-box{
+
+		width: 100%;
+
+		padding-bottom: 10px;
+
+		padding-top: 15px;
+
+		background-color: #fff;
+
+	}
+
+	.barter-unit .unit-info-box .unit-link:before,
+
+	.barter-unit .unit-info-box .unit-link:after{
+
+		content: "";
+
+		display: block;
+
+		clear: both;
+
+	}
+
+	.barter-unit .fleft{
+
+		float: left;
+
+	}
+
+	.barter-unit .unit-logo{
+
+		width: 50px;
+
+		height: 50px;
+
+		border-radius: 50%;
+
+		margin-left: 10px;
+
+	}
+
+	.barter-unit .fright{
+
+		float: right;
+
+	}
+
+	.barter-unit .unit-location{
+
+		width: calc(100% - 80px);
+
+		position: relative;
+
+		margin-bottom: 15px;
+
+	}
+
+	.barter-unit .unit-name{
+
+		width: 72%;
+
+		font-size: 1.4rem;
+
+		color: #000;
+
+		white-space: nowrap;
+
+	    overflow: hidden;
+
+	    text-overflow: ellipsis;
+
+	    padding-top: 2px;
+
+	    padding-bottom: 5px;
+
+	}
+
+	.barter-unit .distance,
+
+	.barter-unit .address-box{
+
+		font-size: 1.2rem;
+
+		color: #888585;
+
+		padding-top: 5px;
+
+	    padding-bottom: 5px;
+
+	}
+
+	.barter-unit .distance{
+
+		position: absolute;
+
+		top: 0;
+
+		right: 10px;
+
+	}
+
+	.barter-unit .address-box{
+
+		padding-top: 2px;
+
+		width: 100%;
+
+		white-space: nowrap;
+
+	    overflow: hidden;
+
+	    text-overflow: ellipsis;
+
+	}
+
+	.location-icon{
+
+		font-size: 16px;
+
+		display: inline-block;
+
+		margin-right: 5px;
+
+	}
+
+	#list_loading{ 
+
+	    width: 94%;
+
+	    padding: 10px;
+
+	    color: #666;
+
+	    text-align: center;
+
+	    margin: 0 auto;
+
+	}
+
+	.no-list{
+
+	    padding: 60px;
+
+	    text-align: center;
+
+	    color: #999;
+
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-box">
+
+	<div class="back" onclick='history.back()'></div>
+
+	<form id="post_form" method="post" action="">
+
+		<div id="sou">
+
+			<span class="nav-city">武汉市</span>
+
+		</div>
+
+		
+
+	</form>
+	
+
+</div>
+
+<div id="diqunone">
+
+	<div id='content-rank'>
+
+		<div class="min-a">
+
+			<!-- 这里循环strart 测试样式用 后删除 -->
+
+			
+
+			<!-- 测试样式用end 后删除 -->
+
+		</div>
+
+	</div>
+
+</div>
+
+<div id="diqu" style="display: none;">
+
+	<!--显示点击的是哪一个字母-->
+
+	<div id="showLetter" class="showLetter"><span>A</span></div>
+
+	<!--城市索引查询-->
+
+	<div class="letter">
+
+		<ul>
+
+			<li>
+
+				<a href="javascript:;" data-type="current_city">当前</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;" data-type="hot_city">热门</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">A</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">B</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">C</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">D</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">E</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">F</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">G</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">H</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">J</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">K</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">L</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">M</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">N</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">P</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">Q</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">R</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">S</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">T</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">W</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">X</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">Y</a>
+
+			</li>
+
+			<li>
+
+				<a href="javascript:;">Z</a>
+
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!--城市列表-->
+
+	<div class="city-container">
+
+		<div class="city-list search-btn-box">
+
+			<div class="search-cot-box flex-center">
+
+                <input class="city-cot" type="text" name="keywords" placeholder="输入城市名">
+
+                <div class="city-post">查找</div>
+
+            </div>
+
+		</div>
+
+		<div class="city"><!-- data-id在这里好像并没有用到 -->
+
+			<!-- <div class="city-list search-btn-box">
+
+				<div class="search-cot-box flex-center">
+
+	                <input class="city-cot" type="text" name="keywords" placeholder="输入城市名">
+
+	                <div class="city-post">查找</div>
+
+	            </div>
+
+			</div> -->
+
+			<div class="city-list customize-list clearfloat"><span class="city-letter" id="current_city">定位区域</span>
+
+				<p class="special-city show-current-city" data-id="1">武汉</p>
+
+			</div>
+
+			<div class="city-list customize-list customize-list2 clearfloat"><span class="city-letter" id="hot_city">热门区域</span>
+
+				<!-- 在这里循环后台设置的热门区域 -->
+
+				{loop $city $v}
+
+					<p class="special-city" data-id="{$v['id']}">{$v['title']}</p>
+
+				{/loop}	 	 	
+
+				{if false}	 		 	 		 	 	 	 
+
+				<p class="special-city" data-id="3">济宁市</p>
+
+				<p class="special-city" data-id="4">衡水市</p>
+
+				<p class="special-city" data-id="5">临汾市</p>
+
+				<p class="special-city" data-id="6">石家庄市</p>
+
+				<p class="special-city" data-id="7">伊犁哈萨克自治州</p>
+
+				{/if}	 		 		 	 	 
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="A1">A</span>
+
+				<p data-id="210300">鞍山市</p>
+
+				<p data-id="152900">阿拉善盟</p>
+
+				<p data-id="340800">安庆市</p>
+
+				<p data-id="410500">安阳市</p>
+
+				<p data-id="542500">阿里地区</p>
+
+				<p data-id="610900">安康市</p>
+
+				<p data-id="520400">安顺市</p>
+
+				<p data-id="513200">阿坝藏族羌族自治州</p>
+
+				<p data-id="659002">阿拉尔市</p>
+
+				<p data-id="652900">阿克苏地区</p>
+
+				<p data-id="820100">澳门特别行政区</p>
+
+				<p data-id="654300">阿勒泰地区</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="B1">B</span>
+
+				<p data-id="220800">白城市</p>
+
+				<p data-id="150200">包头市</p>
+
+				<p data-id="150800">巴彦淖尔市</p>
+
+				<p data-id="130600">保定市</p>
+
+				<p data-id="210500">本溪市</p>
+
+				<p data-id="220600">白山市</p>
+
+				<p data-id="341600">亳州市</p>
+
+				<p data-id="340300">蚌埠市</p>
+
+				<p data-id="371600">滨州市</p>
+
+				<p data-id="620400">白银市</p>
+
+				<p data-id="610300">宝鸡市</p>
+
+				<p data-id="530500">保山市</p>
+
+				<p data-id="469030">白沙黎族自治县</p>
+
+				<p data-id="451000">百色市</p>
+
+				<p data-id="522401">毕节市</p>
+
+				<p data-id="450500">北海市</p>
+
+				<p data-id="511900">巴中市</p>
+
+				<p data-id="469035">保亭黎族苗族自治县</p>
+
+				<p data-id="652800">巴音郭楞蒙古自治州</p>
+
+				<p data-id="652700">博尔塔拉蒙古自治州</p>
+
+				<p data-id="110100">北京市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="C1">C</span>
+
+				<p data-id="140400">长治市</p>
+
+				<p data-id="130900">沧州市</p>
+
+				<p data-id="320400">常州市</p>
+
+				<p data-id="330282">慈溪市</p>
+
+				<p data-id="320581">常熟市</p>
+
+				<p data-id="130800">承德市</p>
+
+				<p data-id="150400">赤峰市</p>
+
+				<p data-id="220100">长春市</p>
+
+				<p data-id="431000">郴州市</p>
+
+				<p data-id="430100">长沙市</p>
+
+				<p data-id="341100">滁州市</p>
+
+				<p data-id="430700">常德市</p>
+
+				<p data-id="341400">巢湖市</p>
+
+				<p data-id="341700">池州市</p>
+
+				<p data-id="469027">澄迈县</p>
+
+				<p data-id="451400">崇左市</p>
+
+				<p data-id="469031">昌江黎族自治县</p>
+
+				<p data-id="532300">楚雄彝族自治州</p>
+
+				<p data-id="445100">潮州市</p>
+
+				<p data-id="500100">重庆市</p>
+
+				<p data-id="510100">成都市</p>
+
+				<p data-id="542100">昌都地区</p>
+
+				<p data-id="652300">昌吉回族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="D1">D</span>
+
+				<p data-id="232700">大兴安岭地区</p>
+
+				<p data-id="140200">大同市</p>
+
+				<p data-id="230600">大庆市</p>
+
+				<p data-id="321181">丹阳市</p>
+
+				<p data-id="210200">大连市</p>
+
+				<p data-id="210600">丹东市</p>
+
+				<p data-id="370500">东营市</p>
+
+				<p data-id="371400">德州市</p>
+
+				<p data-id="511700">达州市</p>
+
+				<p data-id="532900">大理白族自治州</p>
+
+				<p data-id="469003">儋州市</p>
+
+				<p data-id="469025">定安县</p>
+
+				<p data-id="533400">迪庆藏族自治州</p>
+
+				<p data-id="510600">德阳市</p>
+
+				<p data-id="469007">东方市</p>
+
+				<p data-id="533100">德宏傣族景颇族自治州</p>
+
+				<p data-id="441900">东莞市</p>
+
+				<p data-id="621100">定西市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="E1">E</span>
+
+				<p data-id="150600">鄂尔多斯市</p>
+
+				<p data-id="420700">鄂州市</p>
+
+				<p data-id="422800">恩施土家族苗族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="F1">F</span>
+
+				<p data-id="210900">阜新市</p>
+
+				<p data-id="210400">抚顺市</p>
+
+				<p data-id="350181">福清市</p>
+
+				<p data-id="341200">阜阳市</p>
+
+				<p data-id="370983">肥城市</p>
+
+				<p data-id="361000">抚州市</p>
+
+				<p data-id="350100">福州市</p>
+
+				<p data-id="440600">佛山市</p>
+
+				<p data-id="450600">防城港市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="G1">G</span>
+
+				<p data-id="440100">广州市</p>
+
+				<p data-id="360700">赣州市</p>
+
+				<p data-id="510800">广元市</p>
+
+				<p data-id="511600">广安市</p>
+
+				<p data-id="450300">桂林市</p>
+
+				<p data-id="450800">贵港市</p>
+
+				<p data-id="520100">贵阳市</p>
+
+				<p data-id="513300">甘孜藏族自治州</p>
+
+				<p data-id="623000">甘南藏族自治州</p>
+
+				<p data-id="640400">固原市</p>
+
+				<p data-id="632600">果洛藏族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="H1">H</span>
+
+				<p data-id="231100">黑河市</p>
+
+				<p data-id="211400">葫芦岛市</p>
+
+				<p data-id="330481">海宁市</p>
+
+				<p data-id="320800">淮安市</p>
+
+				<p data-id="131100">衡水市</p>
+
+				<p data-id="150100">呼和浩特市</p>
+
+				<p data-id="330500">湖州市</p>
+
+				<p data-id="230400">鹤岗市</p>
+
+				<p data-id="150700">呼伦贝尔市</p>
+
+				<p data-id="230100">哈尔滨市</p>
+
+				<p data-id="130400">邯郸市</p>
+
+				<p data-id="330100">杭州市</p>
+
+				<p data-id="410600">鹤壁市</p>
+
+				<p data-id="371700">菏泽市</p>
+
+				<p data-id="420200">黄石市</p>
+
+				<p data-id="431200">怀化市</p>
+
+				<p data-id="340600">淮北市</p>
+
+				<p data-id="421100">黄冈市</p>
+
+				<p data-id="430400">衡阳市</p>
+
+				<p data-id="340100">合肥市</p>
+
+				<p data-id="340400">淮南市</p>
+
+				<p data-id="341000">黄山市</p>
+
+				<p data-id="451200">河池市</p>
+
+				<p data-id="460100">海口市</p>
+
+				<p data-id="441600">河源市</p>
+
+				<p data-id="532500">红河哈尼族彝族自治州</p>
+
+				<p data-id="441300">惠州市</p>
+
+				<p data-id="610700">汉中市</p>
+
+				<p data-id="451100">贺州市</p>
+
+				<p data-id="632800">海西蒙古族藏族自治州</p>
+
+				<p data-id="632100">海东市</p>
+
+				<p data-id="632300">黄南藏族自治州</p>
+
+				<p data-id="652200">哈密地区</p>
+
+				<p data-id="632200">海北藏族自治州</p>
+
+				<p data-id="653200">和田地区</p>
+
+				<p data-id="632500">海南藏族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="J1">J</span>
+
+				<p data-id="210700">锦州市</p>
+
+				<p data-id="330700">金华市</p>
+
+				<p data-id="140700">晋中市</p>
+
+				<p data-id="320281">江阴市</p>
+
+				<p data-id="220200">吉林市</p>
+
+				<p data-id="230800">佳木斯市</p>
+
+				<p data-id="230300">鸡西市</p>
+
+				<p data-id="330400">嘉兴市</p>
+
+				<p data-id="140500">晋城市</p>
+
+				<p data-id="350582">晋江市</p>
+
+				<p data-id="370282">即墨市</p>
+
+				<p data-id="360800">吉安市</p>
+
+				<p data-id="370100">济南市</p>
+
+				<p data-id="420800">荆门市</p>
+
+				<p data-id="410800">焦作市</p>
+
+				<p data-id="370800">济宁市</p>
+
+				<p data-id="410881">济源市</p>
+
+				<p data-id="421000">荆州市</p>
+
+				<p data-id="360400">九江市</p>
+
+				<p data-id="360200">景德镇市</p>
+
+				<p data-id="445200">揭阳市</p>
+
+				<p data-id="620300">金昌市</p>
+
+				<p data-id="440700">江门市</p>
+
+				<p data-id="620200">嘉峪关市</p>
+
+				<p data-id="620900">酒泉市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="K1">K</span>
+
+				<p data-id="320583">昆山市</p>
+
+				<p data-id="410200">开封市</p>
+
+				<p data-id="530100">昆明市</p>
+
+				<p data-id="650200">克拉玛依市</p>
+
+				<p data-id="653000">克孜勒苏柯尔克孜自治州</p>
+
+				<p data-id="653100">喀什地区</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="L1">L</span>
+
+				<p data-id="141000">临汾市</p>
+
+				<p data-id="131000">廊坊市</p>
+
+				<p data-id="211000">辽阳市</p>
+
+				<p data-id="220400">辽源市</p>
+
+				<p data-id="141100">吕梁市</p>
+
+				<p data-id="320700">连云港市</p>
+
+				<p data-id="371200">莱芜市</p>
+
+				<p data-id="411100">漯河市</p>
+
+				<p data-id="331100">丽水市</p>
+
+				<p data-id="341500">六安市</p>
+
+				<p data-id="431300">娄底市</p>
+
+				<p data-id="350800">龙岩市</p>
+
+				<p data-id="370681">龙口市</p>
+
+				<p data-id="371300">临沂市</p>
+
+				<p data-id="410300">洛阳市</p>
+
+				<p data-id="371500">聊城市</p>
+
+				<p data-id="530700">丽江市</p>
+
+				<p data-id="451300">来宾市</p>
+
+				<p data-id="510500">泸州市</p>
+
+				<p data-id="530900">临沧市</p>
+
+				<p data-id="469033">乐东黎族自治县</p>
+
+				<p data-id="511100">乐山市</p>
+
+				<p data-id="620100">兰州市</p>
+
+				<p data-id="450200">柳州市</p>
+
+				<p data-id="513400">凉山彝族自治州</p>
+
+				<p data-id="469034">陵水黎族自治县</p>
+
+				<p data-id="542600">林芝地区</p>
+
+				<p data-id="469028">临高县</p>
+
+				<p data-id="540100">拉萨市</p>
+
+				<p data-id="520200">六盘水市</p>
+
+				<p data-id="621200">陇南市</p>
+
+				<p data-id="622900">临夏回族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="M1">M</span>
+
+				<p data-id="231000">牡丹江市</p>
+
+				<p data-id="340500">马鞍山市</p>
+
+				<p data-id="510700">绵阳市</p>
+
+				<p data-id="511400">眉山市</p>
+
+				<p data-id="440900">茂名市</p>
+
+				<p data-id="441400">梅州市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="N1">N</span>
+
+				<p data-id="320100">南京市</p>
+
+				<p data-id="330200">宁波市</p>
+
+				<p data-id="320600">南通市</p>
+
+				<p data-id="360100">南昌市</p>
+
+				<p data-id="411300">南阳市</p>
+
+				<p data-id="350700">南平市</p>
+
+				<p data-id="350900">宁德市</p>
+
+				<p data-id="350583">南安市</p>
+
+				<p data-id="542400">那曲地区</p>
+
+				<p data-id="450100">南宁市</p>
+
+				<p data-id="511300">南充市</p>
+
+				<p data-id="511000">内江市</p>
+
+				<p data-id="533300">怒江傈僳族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="P1">P</span>
+
+				<p data-id="211100">盘锦市</p>
+
+				<p data-id="360300">萍乡市</p>
+
+				<p data-id="410400">平顶山市</p>
+
+				<p data-id="410900">濮阳市</p>
+
+				<p data-id="350300">莆田市</p>
+
+				<p data-id="510400">攀枝花市</p>
+
+				<p data-id="530800">普洱市</p>
+
+				<p data-id="620800">平凉市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="Q1">Q</span>
+
+				<p data-id="130300">秦皇岛市</p>
+
+				<p data-id="230200">齐齐哈尔市</p>
+
+				<p data-id="230900">七台河市</p>
+
+				<p data-id="350500">泉州市</p>
+
+				<p data-id="429005">潜江市</p>
+
+				<p data-id="370200">青岛市</p>
+
+				<p data-id="330800">衢州市</p>
+
+				<p data-id="441800">清远市</p>
+
+				<p data-id="522700">黔南布依族苗族自治州</p>
+
+				<p data-id="450700">钦州市</p>
+
+				<p data-id="530300">曲靖市</p>
+
+				<p data-id="522300">黔西南布依族苗族自治州</p>
+
+				<p data-id="621000">庆阳市</p>
+
+				<p data-id="522600">黔东南苗族侗族自治州</p>
+
+				<p data-id="469002">琼海市</p>
+
+				<p data-id="469036">琼中黎族苗族自治县</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="R1">R</span>
+
+				<p data-id="320682">如皋市</p>
+
+				<p data-id="371082">荣成市</p>
+
+				<p data-id="371100">日照市</p>
+
+				<p data-id="542301">日喀则市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="S1">S</span>
+
+				<p data-id="220300">四平市</p>
+
+				<p data-id="231200">绥化市</p>
+
+				<p data-id="220700">松原市</p>
+
+				<p data-id="320500">苏州市</p>
+
+				<p data-id="310100">上海市</p>
+
+				<p data-id="321300">宿迁市</p>
+
+				<p data-id="330600">绍兴市</p>
+
+				<p data-id="140600">朔州市</p>
+
+				<p data-id="230500">双鸭山市</p>
+
+				<p data-id="210100">沈阳市</p>
+
+				<p data-id="330682">上虞市</p>
+
+				<p data-id="130100">石家庄市</p>
+
+				<p data-id="440500">汕头市</p>
+
+				<p data-id="350400">三明市</p>
+
+				<p data-id="429021">神农架林区</p>
+
+				<p data-id="361100">上饶市</p>
+
+				<p data-id="411400">商丘市</p>
+
+				<p data-id="421300">随州市</p>
+
+				<p data-id="341300">宿州市</p>
+
+				<p data-id="411200">三门峡市</p>
+
+				<p data-id="420300">十堰市</p>
+
+				<p data-id="440300">深圳市</p>
+
+				<p data-id="430500">邵阳市</p>
+
+				<p data-id="440200">韶关市</p>
+
+				<p data-id="441500">汕尾市</p>
+
+				<p data-id="510900">遂宁市</p>
+
+				<p data-id="611000">商洛市</p>
+
+				<p data-id="542200">山南地区</p>
+
+				<p data-id="460200">三亚市</p>
+
+				<p data-id="640200">石嘴山市</p>
+
+				<p data-id="659001">石河子市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="T1">T</span>
+
+				<p data-id="140100">太原市</p>
+
+				<p data-id="211200">铁岭市</p>
+
+				<p data-id="220500">通化市</p>
+
+				<p data-id="130200">唐山市</p>
+
+				<p data-id="320585">太仓市</p>
+
+				<p data-id="120100">天津市</p>
+
+				<p data-id="321200">泰州市</p>
+
+				<p data-id="150500">通辽市</p>
+
+				<p data-id="331000">台州市</p>
+
+				<p data-id="370900">泰安市</p>
+
+				<p data-id="429006">天门市</p>
+
+				<p data-id="340700">铜陵市</p>
+
+				<p data-id="522201">铜仁市</p>
+
+				<p data-id="469026">屯昌县</p>
+
+				<p data-id="610200">铜川市</p>
+
+				<p data-id="620500">天水市</p>
+
+				<p data-id="654200">塔城地区</p>
+
+				<p data-id="659003">图木舒克市</p>
+
+				<p data-id="652100">吐鲁番地区</p>
+
+				<p data-id="710100">台湾</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="W1">W</span>
+
+				<p data-id="330300">温州市</p>
+
+				<p data-id="320200">无锡市</p>
+
+				<p data-id="150900">乌兰察布市</p>
+
+				<p data-id="150300">乌海市</p>
+
+				<p data-id="340200">芜湖市</p>
+
+				<p data-id="420100">武汉市</p>
+
+				<p data-id="370700">潍坊市</p>
+
+				<p data-id="371000">威海市</p>
+
+				<p data-id="469006">万宁市</p>
+
+				<p data-id="610500">渭南市</p>
+
+				<p data-id="469005">文昌市</p>
+
+				<p data-id="469001">五指山市</p>
+
+				<p data-id="620600">武威市</p>
+
+				<p data-id="450400">梧州市</p>
+
+				<p data-id="532600">文山壮族苗族自治州</p>
+
+				<p data-id="659004">五家渠市</p>
+
+				<p data-id="640300">吴忠市</p>
+
+				<p data-id="650100">乌鲁木齐市</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="X1">X</span>
+
+				<p data-id="140900">忻州市</p>
+
+				<p data-id="152500">锡林郭勒盟</p>
+
+				<p data-id="130500">邢台市</p>
+
+				<p data-id="152200">兴安盟</p>
+
+				<p data-id="320300">徐州市</p>
+
+				<p data-id="410700">新乡市</p>
+
+				<p data-id="420600">襄阳市</p>
+
+				<p data-id="360500">新余市</p>
+
+				<p data-id="411500">信阳市</p>
+
+				<p data-id="429004">仙桃市</p>
+
+				<p data-id="411000">许昌市</p>
+
+				<p data-id="430300">湘潭市</p>
+
+				<p data-id="350200">厦门市</p>
+
+				<p data-id="341800">宣城市</p>
+
+				<p data-id="420900">孝感市</p>
+
+				<p data-id="421200">咸宁市</p>
+
+				<p data-id="433100">湘西土家族苗族自治州</p>
+
+				<p data-id="610100">西安市</p>
+
+				<p data-id="610400">咸阳市</p>
+
+				<p data-id="532800">西双版纳傣族自治州</p>
+
+				<p data-id="630100">西宁市</p>
+
+				<p data-id="810100">香港特别行政区</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="Y1">Y</span>
+
+				<p data-id="320282">宜兴市</p>
+
+				<p data-id="222400">延边朝鲜族自治州</p>
+
+				<p data-id="321000">扬州市</p>
+
+				<p data-id="140800">运城市</p>
+
+				<p data-id="320900">盐城市</p>
+
+				<p data-id="140300">阳泉市</p>
+
+				<p data-id="330281">余姚市</p>
+
+				<p data-id="230700">伊春市</p>
+
+				<p data-id="210800">营口市</p>
+
+				<p data-id="370600">烟台市</p>
+
+				<p data-id="420500">宜昌市</p>
+
+				<p data-id="430600">岳阳市</p>
+
+				<p data-id="360900">宜春市</p>
+
+				<p data-id="430900">益阳市</p>
+
+				<p data-id="330782">义乌市</p>
+
+				<p data-id="360600">鹰潭市</p>
+
+				<p data-id="431100">永州市</p>
+
+				<p data-id="450900">玉林市</p>
+
+				<p data-id="511800">雅安市</p>
+
+				<p data-id="530400">玉溪市</p>
+
+				<p data-id="441700">阳江市</p>
+
+				<p data-id="610800">榆林市</p>
+
+				<p data-id="511500">宜宾市</p>
+
+				<p data-id="445300">云浮市</p>
+
+				<p data-id="610600">延安市</p>
+
+				<p data-id="654000">伊犁哈萨克自治州</p>
+
+				<p data-id="640100">银川市</p>
+
+				<p data-id="632700">玉树藏族自治州</p>
+
+			</div>
+
+			<div class="city-list"><span class="city-letter" id="Z1">Z</span>
+
+				<p data-id="130700">张家口市</p>
+
+				<p data-id="330681">诸暨市</p>
+
+				<p data-id="321100">镇江市</p>
+
+				<p data-id="320582">张家港市</p>
+
+				<p data-id="211300">朝阳市</p>
+
+				<p data-id="430800">张家界市</p>
+
+				<p data-id="410100">郑州市</p>
+
+				<p data-id="370400">枣庄市</p>
+
+				<p data-id="330900">舟山市</p>
+
+				<p data-id="440183">增城市</p>
+
+				<p data-id="440400">珠海市</p>
+
+				<p data-id="411600">周口市</p>
+
+				<p data-id="370300">淄博市</p>
+
+				<p data-id="430200">株洲市</p>
+
+				<p data-id="350600">漳州市</p>
+
+				<p data-id="411700">驻马店市</p>
+
+				<p data-id="440800">湛江市</p>
+
+				<p data-id="520300">遵义市</p>
+
+				<p data-id="510300">自贡市</p>
+
+				<p data-id="530600">昭通市</p>
+
+				<p data-id="441200">肇庆市</p>
+
+				<p data-id="442000">中山市</p>
+
+				<p data-id="620700">张掖市</p>
+
+				<p data-id="512000">资阳市</p>
+
+				<p data-id="640500">中卫市</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<!-- 两种模板 用户报名记录 或者 记录暂无数据为空 -->
+
+<script id="tpl_list" type="text/html">
+
+    <%each list as g%>
+
+	<div class='barter-unit'>
+
+		<div class='unit-info-box'>
+
+			<a class='unit-link' href='<%g.shopurl%>'>
+
+				<div class='unit-logo fleft' style='background: url(<%g.img%>) no-repeat center; background-size: cover;'></div>
+
+				<div class='unit-location fright'>
+
+					<div class='unit-name'><%g.merchname%></div>
+
+					<div class='distance'><%g.distance%><%if g.lat != "" && g.lng != ""%>Km<%/if%></div>
+
+					<div class='address-box'><span class='icon'><i class='fa fa-map-marker location-icon'></i></span><%g.address%>
+
+					</div>
+
+				</div>
+
+			</a>
+
+			<div class='swiper-container img-album-container swcon<%g.id%>'>
+
+				<div class='swiper-wrapper'>
+
+					<%each g.album as b%>
+
+					<div class='swiper-slide img-slide' style='background: url(<%b.img%>) no-repeat center;background-size: cover;'>
+
+						<a class='goods-link' href='<%b.url%>'></a>
+
+					</div>
+
+					<%/each%>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<%/each%>
+
+</script>
+
+<script id="tpl_null" type="text/html">
+
+    <div class="no-list">暂无数据</div>
+
+</script>
+
+<script>
+
+	var lng, lat, city;
+
+	// 页数
+
+	var page = 1;
+
+	var loaded = false;
+
+    var stop = true;
+
+	require(['tpl', 'core', 'swiper'], function(tpl, core, jQuery) {
+
+		/*如果cookie中的lng or lat or city 任意一个为空则授权定位并吧通过经纬度获取的城市名称填入html中*/
+
+	    //获取当前城市
+
+		    /*var map = new BMap.Map("allmap");
+
+		    navigator.geolocation.getCurrentPosition(function (position) {
+
+		    	console.log("1111"+":"+page);
+
+		        lng = position.coords.longitude; //lng
+
+		        lat = position.coords.latitude; //lat
+
+		        var point = new BMap.Point(lng, lat);
+
+		        var gc = new BMap.Geocoder();
+
+		        gc.getLocation(point, function (rs) {
+
+		            var addComp = rs.addressComponents;
+
+		            city = addComp.city;
+
+		            console.log(city);
+
+		            page = 1;
+
+					loaded = false;
+
+		    		stop = true;
+
+		    		changeLoading();
+
+					getList(page);
+
+		            $(".nav-city").html(mysubstr(city));
+
+		        });
+
+		    });*/
+
+		getPosition();
+
+		function getPosition(){
+
+	        //关于状态码
+
+	        //BMAP_STATUS_SUCCESS 检索成功。对应数值“0”。
+
+	        //BMAP_STATUS_CITY_LIST 城市列表。对应数值“1”。
+
+	        //BMAP_STATUS_UNKNOWN_LOCATION  位置结果未知。对应数值“2”。
+
+	        //BMAP_STATUS_UNKNOWN_ROUTE 导航结果未知。对应数值“3”。
+
+	        //BMAP_STATUS_INVALID_KEY 非法密钥。对应数值“4”。
+
+	        //BMAP_STATUS_INVALID_REQUEST 非法请求。对应数值“5”。
+
+	        //BMAP_STATUS_PERMISSION_DENIED 没有权限。对应数值“6”。(自 1.1 新增)
+
+	        //BMAP_STATUS_SERVICE_UNAVAILABLE 服务不可用。对应数值“7”。(自 1.1 新增)
+
+	        //BMAP_STATUS_TIMEOUT 超时。对应数值“8”。(自 1.1 新增)
+
+	        
+
+	        //定位
+
+	        
+
+	        //var options={
+
+	        //  enableHighAccuracy:true, 
+
+	        //  maximumAge:6000,
+
+	        //  timeout:6000
+
+	        //}
+
+	        //if(navigator.geolocation){
+
+	              //浏览器支持geolocation
+
+	             // navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+
+
+
+	         // }else{
+
+	              //浏览器不支持geolocation
+
+	              // console.log("浏览器支持geolocation不支持h5 geolocation");
+
+	              	var myComponents2;
+
+	              	var geolocation = new BMap.Geolocation();
+
+	              	geolocation.getCurrentPosition(function(r){
+
+	              	if(this.getStatus() == BMAP_STATUS_SUCCESS){
+
+	                	var rp = new BMap.Point(r.point.lng,r.point.lat); 
+
+	                	lng = r.point.lng; //lng
+
+//                        console.log(lng);
+
+	                	lat = r.point.lat; //lat 
+
+	                	var gc = new BMap.Geocoder();  
+
+	                	gc.getLocation(rp,function(rs){
+
+	                  		var addComp = rs.addressComponents;
+
+	                  		//区不准
+
+	                  		//alert('您的位置：'+addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street);
+
+	                  		myComponents2=addComp.district;
+
+	                  		//console.log("baidu: "+myComponents2);
+
+	                  		city = addComp.city;
+
+				            console.log(city);
+
+				            page = 1;
+
+							loaded = false;
+
+				    		stop = true;
+
+				    		changeLoading();
+
+							getList(page);
+
+				            $(".nav-city").html(mysubstr(city));
+
+				            $(".show-current-city").html(city);
+
+	                	});
+
+	              	}
+
+	              	else {
+
+	                	alert('您的位置:定位失败');
+
+	              	}        
+
+	            },{enableHighAccuracy: true});
+
+	            
+
+	         // }
+
+	     
+
+	    }
+
+
+
+
+
+	    if(city == '' || city == 'null' || city == 'undefined' || city ==undefined || city ==null){
+
+	        city='武汉市';
+
+		} 
+
+		//加载到选择城市中
+
+		$('.nav-city').html(mysubstr(city));
+
+		getList(page);
+
+		//城市
+
+		$(".nav-city").click(function() {
+
+			$("#diqu").toggle();
+
+			$("#diqunone").toggle();
+
+		});
+
+		$('body').on('click', '.city-list p', function() {
+
+			//点击的时候获取点击的数据
+
+			var res = $(this).html();
+
+			var getCook = res;
+
+			$(".nav-city").html(mysubstr(res));
+
+			page = 1;
+
+			loaded = false;
+
+    		stop = true;
+
+			city = getCook;
+
+			getList(page);
+
+			$("#diqu").toggle();
+
+			$("#diqunone").toggle();
+
+		});
+
+		$(".city-post").click(function(){
+
+			if($(".city-cot").isEmpty()){
+
+				core.tip.show('请输入城市');
+
+            	return;
+
+			}
+
+			var search_city = $.trim($(".city-cot").val());
+
+			var regExp = new RegExp(search_city);
+
+			var city_list = $(".city").text();
+
+			if(!regExp.test(city_list)){
+
+				core.tip.show('没有该城市');
+
+			}else{
+
+				$(".city").find(".city-list p").each(function(){
+
+					var n_city = $(this).text();
+
+					if(regExp.test(n_city)){
+
+						//jquery滚动到页面指定位置定位方法
+
+						$("html,body").animate({scrollTop: $(this).offset().top - ($(window).height() * 0.07 + 20)},1);
+
+					}
+
+				});
+
+			}
+
+		});
+
+		function bindEvent(json){
+
+			var arrLen = json.length;
+
+            if(arrLen > 0) { 
+
+				for(var i = 0; i < arrLen; i++){  
+
+					var swiper = ".swcon"+json[i].id;
+
+					new Swiper(swiper, {
+
+					    slidesPerView: 'auto', 
+
+					});
+
+				}
+
+			}
+
+		}
+
+		function getList(page){
+
+            core.json('barter/merch', {op:'ajaxList',page: page, lng: lng, lat: lat, city: city}, function(json) {
+
+                if (json.result.list.length <= 0) {
+
+                    $(".min-a").html(tpl('tpl_null'));
+
+                    return;
+
+                }
+
+                $(".min-a").html(tpl('tpl_list',json.result));
+
+                removeLoading();
+
+				bindEvent(json.result.list);
+
+                $('.min-a').append('<div id="list_loading" class="getmore">点击加载更多</div>'); 
+
+                getmore(page,loaded,stop);
+
+            }, true);
+
+        }
+
+        function getmore(page,loaded,stop){
+
+            $(".getmore").unbind("click").click(function(){ 
+
+                if(loaded){
+
+                    return;
+
+                }
+
+                if(stop==true){ 
+
+                    stop=false; 
+
+                    page++;
+
+                    console.log("a: "+page);
+
+                    core.json('barter/merch', {op:'ajaxList',page: page, lng: lng, lat: lat, city: city}, function(morejson) {  
+
+                        stop = true;        
+
+                        $('#list_loading').remove();
+
+                        $(".min-a").append(tpl('tpl_list', morejson.result));
+
+                        bindEvent(morejson.result.list);
+
+                        //用下面这种数据结构
+
+                        if (morejson.result.list.length <morejson.result.pagesize) {
+
+                            $('.min-a').append('<div id="list_loading">已经加载全部</div>');
+
+                            loaded = true;
+
+                            return;
+
+                        }else{
+
+                            $('.min-a').append('<div id="list_loading" class="getmore">点击加载更多</div>');
+
+                            getmore(page,loaded,stop);
+
+                        }
+
+                    },true); 
+
+                } 
+
+            });
+
+        }
+
+	});
+
+	function mysubstr(string){
+
+        if(string.length>3){
+
+            temp=string.slice(0,2);
+
+            return temp+'....';
+
+        }
+
+        return string;
+
+    }
+
+	function changeLoading() {
+
+        var u = navigator.userAgent,
+
+            app = navigator.appVersion;
+
+        if ($('#core_loading1').length <= 0) {
+
+            $('body').append('<div id="core_loading1" style="top:50%;left:50%;margin-left:-35px;margin-top:-30px;position:absolute;width:80px;height:80px; z-index:999999;background: rgba(0,0,0,.4);"><img src="../addons/sz_yi/static/images/loading.gif" width="80" /><div style="color:#fff;font-size:12px;text-align:center;">正在转换到<br />当前城市<div></div>')
+
+        } else {
+
+            $('#core_loading1').show();
+
+        }
+
+    }
+
+    function removeLoading() {
+
+        $('#core_loading1').hide();
+
+    }
+
+</script>
+
+<script type="text/javascript">
+
+	$(function () {
+
+	    $('.city-container').show();
+
+	    // 显示选中的城市字母
+
+	    $('body').on('click', '.letter a', function () {
+
+	        var s = $(this).html();
+
+	        var type = $(this).data("type")
+
+	        if( type == "current_city"){
+
+	        	$(window).scrollTop($('#' + type).offset().top);
+
+	        	
+
+	        }else if( type == "hot_city"){
+
+	        	$(window).scrollTop($('#' + type).offset().top);
+
+	        	
+
+	        }else{
+
+	        	$(window).scrollTop($('#' + s + '1').offset().top);
+
+	        }
+
+	        $("#showLetter span").html(s);
+
+	        $("#showLetter").show().delay(500).hide(0);
+
+	    });
+
+	});
+
+</script>
+
+{template 'common/footer'}

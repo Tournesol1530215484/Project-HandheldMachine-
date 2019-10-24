@@ -1,0 +1,10 @@
+	<script type="text/javascript">
+		require(['bootstrap']);
+		$('.js-clip').each(function(){
+			util.clip(this, $(this).attr('data-url'));
+		});
+	</script>
+
+	{if !empty($_W['setting']['copyright']['statcode'])}{$_W['setting']['copyright']['statcode']}{/if}
+</body>
+</html>

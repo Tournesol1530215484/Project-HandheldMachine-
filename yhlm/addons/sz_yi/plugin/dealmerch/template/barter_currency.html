@@ -1,0 +1,314 @@
+﻿{template 'common/header'}
+{template 'currencytabs'}
+
+{if $op == 'display'}  
+
+
+<style type="text/css">
+    .table-info{
+        /*margin:0 auto;
+        text-align: center;
+        width: 40%;
+        border:solid black 1px;*/
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:#333333;
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+
+    }
+    .table-info tr th{
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #ffffff;
+    }
+
+    .table-info tr td{
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #ffffff;
+    }
+</style>  
+    <div class="panel panel-info">
+        <div class="panel-heading">易货额度收支查询</div>
+        <div class="panel-body">
+            <form action="">
+                <input type="hidden" name="c" value="site">
+                <input type="hidden" name="a" value="entry">
+                <input type="hidden" name="m" value="sz_yi">
+                <input type="hidden" name="p" value="dealmerch">
+                <input type="hidden" name="do" value="plugin">
+                <input type="hidden" name="method" value="barter_currency">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <select name="type" class="form-control col-sm-3 col-md-3" style="margin-bottom: 15px">
+                            <option value="0">全部</option>
+                            <option value="1">购买易货额度</option>
+                            <option value="2">下架解冻</option>
+                            <!-- <option value="3">人工冻结</option> -->
+                            <option value="4">上架冻结</option>
+                            <option value="5">购买会员赠送</option>
+                            <!-- <option value="6">首次注册商家成功赠送</option>
+                            <option value="7">定向易货退回</option>
+                            <option value="8">广告资源置换所得</option> -->
+                            <option value="9">购买获取</option>
+                            <option value="10">平台赠送</option>
+                            <option value="11">商家冻结易货码激活</option>
+                            
+                    </select>
+                    <label class="col-sm-3 col-md-3 control-label">可用易货额度 <span class="credit3" style="color: #f00;"></span></label>
+                    <label class="col-sm-3 col-md-3 control-label">已消耗易货额度 <span class="freeze_credit3" style="color: #f00;"></span></label>
+                    <label class="col-sm-3 col-md-3 control-label">上架冻结易货额度 <span style="color: #f00;"></span></label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-sm-2">
+                        <label class="radio-inline"><input type="radio" name="searchtime" value="0" {if empty($_GPC['searchtime'])}checked{/if}>不搜索</label>
+                        <label class="radio-inline"><input type="radio" name="searchtime" value="1" {if !empty($_GPC['searchtime'])}checked{/if}>搜索</label>
+                    </div>
+                    <div class="col-sm-7 col-lg-7 col-xs-12">
+                        {php echo tpl_form_field_daterange('datetime', array('starttime'=>date('Y-m-d H:i',$starttime),'endtime'=>date('Y-m-d H:i',$endtime)), true)}
+                    </div>
+                    <button class="btn btn-default"><i class="fa fa-search"></i> 查询</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="">
+    	   <table class="table table-hover">
+                <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:20%">用户名</th>
+                        <th style="width:20%">交易类型</th>
+                        <th style="width:20%">交易额度</th>
+                        <th style="width:20%">交易日期</th>
+                        <th style="width:20%">交易说明</th>
+                        <th style="width:20%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- <?php print_r($list);?> -->
+
+                    {loop $list $row}
+                    <tr style="background: #eee">
+                        <td>{$row['username']}/{$row['realname']}</td>
+                        <td>
+                            {if $row['type'] == 1}
+                    			购买易货额度
+                			{else if $row['type']  == 2}
+            				下架解冻
+            				{else if $row['type']  == 3}
+            				人工冻结
+            				{else if $row['type']  == 4}
+            				上架解冻
+            				{else if $row['type']  == 5}
+            				购买会员赠送
+            				{else if $row['type']  == 6}
+            				首次注册商家成功赠送
+            				{else if $row['type']  == 7}
+            				定向易货退回
+            				{else if $row['type']  == 8}
+            				广告资源置换所得
+            				{else if $row['type']  == 9}
+            				购买获取
+            				{else if $row['type']  == 10}
+            				平台赠送
+            				{else if $row['type']  == 11}
+                			商家冻结易货码激活
+                            {/if}
+                        </td>
+                        <td>{$row['currency']}</td>
+                        <td><b>{php echo date('Y-m-d H:i',$row['dealtime'])}</b></td>
+                        <td>{$row['note']}</td>
+                        <td>{if $row['type'] == 9}
+                               <label class="label label-info showinfo" data-id="{$row['dealsn']}">点击查看</label>
+                            {else}
+                                无详情
+                            {/if}
+                        </td>
+                    </tr>
+                {/loop}
+            </table>
+            {$pager}
+        </div>
+    </div>
+{else if $op == 'query'}
+    <div class="panel panel-info">
+        <div class="panel-heading">商家查询</div>
+        <div class="panel-body">     
+            <div class="form-group">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class='input-group'> 
+                        <div class='input-group-addon'>商家</div>
+                        <div class='input-group'>                                        
+                            <input type="text" name="saler" disabled="true" maxlength="30" value="{if !empty($selmerch)}{$selmerch['username']}/{$selmerch['realname']}/{$selmerch['mobile']}{/if}" id="saler" class="form-control" readonly />             
+                            <div class='input-group-btn'>                        
+                                <button class="btn btn-default" type="button" onclick="popwin = $('#modal-module-menus').modal();">选择商家</button>                 
+                                <button class="btn btn-danger" type="button">清除</button>
+                                <input type="hidden" name="uid" id="uid" value="{if !empty($selmerch)}{$selmerch['uid']}{/if}">              
+                            </div>                                                                  
+                        </div>  
+
+                       
+
+                        <!-- modal start-->
+                            <div id="modal-module-menus"  class="modal fade" tabindex="-1">
+                                <div class="modal-dialog" style='width: 920px;'>
+                                    <div class="modal-content">
+                                        <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择商家</h3></div>
+                                        <div class="modal-body" >
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="keyword" value="" id="search-kwd" placeholder="请输入用户名/姓名/手机号" />
+                                                    <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_members();">搜索</button></span>
+                                                </div>                               
+                                            </div>                                   
+                                            <div id="module-menus" style="padding-top:5px;"></div>
+                                        </div>               
+                                        <div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a></div>
+                                    </div>
+                                </div>       
+                            </div>                  
+
+                            <script language='javascript'>
+                                function search_members() {
+                                       if( $.trim($('#search-kwd').val())==''){
+                                             Tip.focus('#search-kwd','请输入关键词');
+                                             return;
+                                         }
+                                    $("#module-menus").html("正在搜索....")
+                                    $.get('{php echo $this->createWebUrl('member/selmerch')}', {
+                                        keyword: $.trim($('#search-kwd').val())
+                                    }, function(dat){
+                                        $('#module-menus').html(dat);
+                                    });
+                                }        
+
+                                function select_member(o) {
+                                    $("#uid").val(o.uid);                       
+                                    $("#saler").val( o.username+ "/" + o.realname + "/" + o.mobile );
+                                    $(".close").click();        
+                                }
+                                $('.btn-danger').click(function(){       
+                                    $('[name="saler"]').val(null);      
+                                    $(this).next('input').val(null);     
+                                });
+                                         
+                               </script>            
+
+                        <!-- modal end -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <button class="btn btn-default query" style="margin-right: 25px;">查询</button>
+                    <label class="query-cash">现金:
+                        <span class="text-danger">
+                            
+                        </span>
+                    </label>                                                      
+                    <label class="query-code">换货码:
+                        <span class="text-danger">
+                            
+                        </span>
+                    </label>                                                 
+                    <label class="query-currency">换货额度:
+                        <span class="text-danger">
+                            
+                        </span>
+                    </label>                                                 
+                </div>       
+            </div>
+
+
+        </div>
+    </div>
+    <!-- <div class="panel panel-default">
+        
+    </div> -->
+{/if}           
+
+</div>
+</div>
+
+<div id="modal-module-menus2"  class="modal fade" tabindex="-1" aria-hidden="false" >
+    <div class="modal-dialog" style="width: 920px;height: 100%; display: flex;justify-content: center;align-items: center;">
+        <div class="modal-content" >
+            <div style="width: 100%;height: 80%;display: flex;justify-content: center;align-items: center;padding: 30px;">
+                <table class="table-info" >
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                
+                <a href="#" class="btn btn-default " data-dismiss="modal" aria-hidden="true">确定</a>
+                <a href="#" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <script type="text/javascript">
+        
+        $('.query').click(function(){
+            var data={
+                uid:$("#uid").val()
+            };
+            var url = '{php echo $this->createPluginWebUrl('dealmerch/barter_currency',array('op'=>'query'))}';
+            $.post(url,data,function(data){
+                if (data.status == 1) {
+                    $('.query-cash > span').text(data.result.cash);         
+                    $('.query-code > span').text(data.result.code);         
+                    $('.query-currency > span').text(data.result.currency);
+                }else{                       
+                    alert(data.result);                     
+                }                            
+            },'json');
+        });
+
+
+    </script>
+
+
+    <script type="text/javascript">
+    $('.showinfo').click(function(){        
+        var data={logid:$(this).data('id')};
+        console.log(data);
+      var url = '{php echo $this->createPluginWebUrl('dealmerch/barter_currency',array('op'=>'detailnum'))}';
+        $.post(url,data,function(data){
+            if (data.status == 1) {
+                console.log(data);
+                console.log(3333);
+                var html='';
+                html+='<tr>';
+                html+='<th>'+'经手人'+'</th>';
+                html+='<th>'+'充值金额'+'</th>';
+                html+='<th>'+'充值原因'+'</th>';
+                html+='<th>'+'充值时间'+'</th>';
+                html+='</tr>';
+               
+                    html+='<tr>';                                               
+                    html+='<td>'+data.result.number+'</td>';
+                    html+='<td>'+data.result.money+'</td>';            
+                    html+='<td>'+data.result.why+'</td>';                
+                    html+='<td>'+data.result.createtime+'</td>';       
+                    html+='</tr>';    
+                       
+                $('.table-info').html(html);                                        
+                $('#modal-module-menus2').modal('show');                   
+            }else{   
+                console.log(data);
+                alert('该次会员卡没有分成');                       
+            }        
+        },'json')
+    });
+
+</script>
+
+
+
+{template 'common/footer'}

@@ -1,0 +1,528 @@
+{template 'common/header'}
+<title>
+    {if $_GPC['id']}
+        修改文章
+    {else}
+        发布文章
+    {/if}
+</title><!-- 或者修改文章 用内置标签判断标题 两种标题(新增和修改页面共用)-->
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/baidu.js?'.time();?>"></script> 
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/jquery.form.js?'.time();?>"></script>
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/s.js?'.time();?>"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script> -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script type="text/javascript">
+    System.config({
+        map:{
+          systemJsText:'<?php echo MODULE_URL.'plugin/suppliermenu/res/txt.js';?>',
+          systemJsCss:'<?php echo MODULE_URL.'plugin/suppliermenu/res/css.js';?>',
+          systemJsJson:'<?php echo MODULE_URL.'plugin/suppliermenu/res/json.js';?>'
+        },
+        baseURL: '<?php echo MODULE_URL.'plugin/suppliermenu/res/';?>',
+    });
+    System['import']('<?php echo MODULE_URL.'static/css/mui.min.css!systemJsCss';?>').then(function (a){});
+    //System['import']('<?php echo MODULE_URL.'static/css/mui.picker.min.css!systemJsCss';?>').then(function (a){});
+    System['import']('<?php echo MODULE_URL.'plugin/activity/res/css/artadd.css!systemJsCss';?>').then(function (a){});
+</script>
+
+<script type="text/html" id="tpl-big-body">
+    <div id="big_body" >
+        <form method="post" enctype="multipart/form-data" id="showDataForm" class="mui-input-group mui-input-group-no-bgcl">
+            <div class="customer_top">
+                <div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+                <div class="title1">{if $_GPC['id']}修改文章{else}发布文章{/if}</div><!-- 或者修改文章 用内置标签判断标题 两种标题(新增和修改页面共用)-->
+            </div>
+            <div class="help-box">注: *如需上传视频音乐或者专业排版请登陆网页版后台</div>
+            <div class="activity-info">
+                <ul>
+                    {if $_GPC['what'] == 1 && $_GPC['id']}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章标题 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="title" value="<%result.title%>" placeholder="文章标题" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章摘要 </div>
+                        <div class="float-r info-value">
+                             <textarea class="whole-textarea" placeholder="文章摘要/最多60字" name="desc" maxlength="60" rows="2"><%result.desc%></textarea>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章类别 </div>
+                        <!-- 内置标签循环文章类别 name="cate"时就不显示第一项 要写成reside[cate]才会显示 -->
+                        <div class="float-r info-value activity-type-box">
+                            <select class="select sel-select1 whole-select" name="reside[cate]">
+                                <option class="cate-item" value="">请选择文章类别</option>
+                                <!-- 这里循环文章类别 if修改时判断存储的文章类别 再选中 -->
+                                {loop $cate $k $v}
+                                <option class="cate-item" <%if result.type == {$v['id']}%>selected<%/if%> id="adcate{$v['id']}" value="{$v['id']}" >{$v['title']}</option>
+                                {/loop}
+                            </select>
+                        </div>
+                    </li>
+                    {if false}
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">是否启用团队模式</div>
+                        <div class="float-r float-r5 info-value"><!-- text-right 状态 0否  1是-->
+                            <!-- <div class="mui-switch mui-switch-mini float-r-switch <%if result.teamModel == 1%>mui-active<%else%><%/if%>" id="group-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if result.teamModel == 1%>1<%else%>0<%/if%>" type="hidden" name="teamModel" id="groupmode"> -->
+                            <div class="flex-center radio-box">
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">否</label>
+                                    <input name="teamModel" type="radio" value="0" <%if result.teamModel == 0%>checked<%else if result.teamModel ==1%><%else%>checked<%/if%> >
+                                </div>
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">是</label>
+                                    <input name="teamModel" type="radio" value="1" <%if result.teamModel == 1%>checked<%/if%> >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {/if}
+                    <li class="info-item info-item-address clearfloat">
+                        <div class="float-l info-tag">文章地点 </div>
+                        <div class="float-r info-value">
+                            <select name="reside[province]" id="sel-provance" onChange="selectCity();" class="select sel-select">
+                                <option value="" selected="true">省/直辖市</option>
+                            </select>
+                            <select name="reside[city]" id="sel-city" onChange="selectcounty()" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                            <select name="reside[district]" id="sel-area" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                        </div>
+                    </li>
+                    {if false}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">发布状态</div>
+                        <div class="float-r info-value">
+                            <div class="mui-input-row mui-radio mui-left"> <!-- 默认存为草稿 1发布 2草稿-->
+                                <label class="normal-label">存为草稿</label>
+                                <input name="status" type="radio" value="2" <%if result.status == 2%>checked<%/if%> >
+                            </div>
+                            <div class="mui-input-row mui-radio mui-left">
+                                <label class="normal-label">正式发布</label>
+                                <input name="status" type="radio" value="1" <%if result.status == 1%>checked<%else if result.status ==2%><%else%>checked<%/if%> >
+                            </div>
+                        </div>
+                    </li>
+                    {/if}
+                    {else if $_GPC['what'] == 2 && $_GPC['id']}
+
+                    <!-- 文章详情赋值这里 html代码 -->
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章详情 </div>
+                        <div class="add-picture">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <button class="add-picture-btn">添加图片</button>
+                            <input class="add-picture-input" type="file" id="imgfile" name="details_describe">
+                        </div>
+                        <!-- 文章详情赋值这里 html代码应该不能用异步获取的字符串,需要jquery来实现  jquery已做处理-->
+                        <div class="float-r float-whole info-value activity-detail-box">
+                            <div contenteditable="true" id="activity-detail" class="msbox" style="-webkit-user-select:auto;">
+                            </div>
+                            <textarea name="content" type="text/plain" style="height: 200px; display: none;"><%result.content%></textarea>
+                        </div>
+                    </li>
+                    {else}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章标题 </div>
+                        <div class="float-r info-value">
+                            <input class="whole-input" type="text" name="title" value="<%result.title%>" placeholder="文章标题" autocomplete="off">
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章摘要 </div>
+                        <div class="float-r info-value">
+                             <textarea class="whole-textarea" placeholder="文章摘要/最多60字" name="desc" maxlength="60" rows="2"><%result.desc%></textarea>
+                        </div>
+                    </li>
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章类别 </div>
+                        <!-- 内置标签循环文章类别 name="cate"时就不显示第一项 要写成reside[cate]才会显示 -->
+                        <div class="float-r info-value activity-type-box">
+                            <select class="select sel-select1 whole-select" name="reside[cate]">
+                                <option class="cate-item" value="">请选择文章类别</option>
+                                <!-- 这里循环文章类别 if修改时判断存储的文章类别 再选中 -->
+                                {loop $cate $k $v}
+                                <option class="cate-item" <%if result.type == {$v['id']}%>selected<%/if%> id="adcate{$v['id']}" value="{$v['id']}" >{$v['title']}</option>
+                                {/loop}
+                            </select>
+                        </div>
+                    </li>
+                    {if false}
+                    <li class="info-item info-item-bot clearfloat">
+                        <div class="float-l float-l5 info-tag">是否启用团队模式</div>
+                        <div class="float-r float-r5 info-value "><!--text-right 状态 0否  1是-->
+                            <!-- <div class="mui-switch mui-switch-mini float-r-switch <%if result.teamModel == 1%>mui-active<%else%><%/if%>" id="group-switch">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                            <input class="whole-input swi-input" value="<%if result.teamModel == 1%>1<%else%>0<%/if%>" type="hidden" name="teamModel" id="groupmode"> -->
+                            <div class="flex-center radio-box">
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">否</label>
+                                    <input name="teamModel" type="radio" value="0" <%if result.teamModel == 0%>checked<%else if result.teamModel ==1%><%else%>checked<%/if%> >
+                                </div>
+                                <div class="mui-input-row mui-radio mui-left">
+                                    <label class="normal-label">是</label>
+                                    <input name="teamModel" type="radio" value="1" <%if result.teamModel == 1%>checked<%/if%> >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {/if}
+                    <li class="info-item info-item-address clearfloat">
+                        <div class="float-l info-tag">文章地点 </div>
+                        <div class="float-r info-value">
+                            <select name="reside[province]" id="sel-provance" onChange="selectCity();" class="select sel-select">
+                                <option value="" selected="true">省/直辖市</option>
+                            </select>
+                            <select name="reside[city]" id="sel-city" onChange="selectcounty()" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                            <select name="reside[district]" id="sel-area" class="select sel-select">
+                                <option value="" selected="true">请选择</option>
+                            </select>
+                        </div>
+                    </li>
+                    {if false}
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">发布状态</div>
+                        <div class="float-r info-value">
+                            <div class="mui-input-row mui-radio mui-left"> <!-- 默认存为草稿 1发布 2草稿-->
+                                <label class="normal-label">存为草稿</label>
+                                <input name="status" type="radio" value="2" <%if result.status == 2%>checked<%/if%> >
+                            </div>
+                            <div class="mui-input-row mui-radio mui-left">
+                                <label class="normal-label">正式发布</label>
+                                <input name="status" type="radio" value="1" <%if result.status == 1%>checked<%else if result.status ==2%><%else%>checked<%/if%> >
+                            </div>
+                        </div>
+                    </li>
+                    {/if}
+                    <!-- 文章详情赋值这里 html代码 -->
+                    <li class="info-item clearfloat">
+                        <div class="float-l info-tag">文章详情 </div>
+                        <div class="add-picture">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <button class="add-picture-btn">添加图片</button>
+                            <input class="add-picture-input" type="file" id="imgfile" name="details_describe">
+                        </div>
+                        <!-- 文章详情赋值这里 html代码应该不能用异步获取的字符串,需要jquery来实现  jquery已做处理-->
+                        <div class="float-r float-whole info-value activity-detail-box">
+                            <div contenteditable="true" id="activity-detail" class="msbox" style="-webkit-user-select:auto;">
+                            </div>
+                            <textarea name="content" type="text/plain" style="height: 200px; display: none;"><%result.content%></textarea>
+                        </div>
+                    </li>
+
+                    {/if}
+                </ul>
+            </div>
+            <div class="help-box">注: *如需上传视频音乐或者专业排版请登陆网页版后台</div>
+            <div class="footer flex-center">
+                <div class="post-btn" onclick='a(2);' style="background: #9c9fa0;">存草稿</div>
+                <div class="post-btn" onclick='a(1);'>发布</div>
+            </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </form>
+    </div>
+</script>
+<script type="text/html" id="tpl-loading">
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+         <img src="<?php echo MODULE_URL.'plugin/suppliermenu/res/loading.gif?'.time();?>"/>
+    </div>
+</script>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        core.pjson('activity/article', {op:'add',ac:'get',id:'{$_GPC['id']}'}, function(json) {
+            $('body').append(tpl('tpl-big-body',json));
+            //初始化区域插件       
+            // {if $_GPC['what'] !=2 }      
+            // //cascdeInit(json.result.province,json.result.city,json.result.district);
+            // cascdeInit(json.result.province,json.result.city,json.result.area);
+            // {/if}
+            //初始化文章详情编辑器
+            $('#activity-detail').html( $('textarea[name=\''+'content'+'\']').val());
+            
+            //初始化区域插件,编辑状态获取数据库存储的数据,新增自动获取地理位置
+            {if $_GPC['what'] == 1 && $_GPC['id']}
+            cascdeInit(json.result.province,json.result.city,json.result.area);
+            {else if $_GPC['what'] == 2 && $_GPC['id']}
+            {else}
+                getPosition();
+                function getPosition(){
+                    //关于状态码
+                    //BMAP_STATUS_SUCCESS 检索成功。对应数值“0”。
+                    //BMAP_STATUS_CITY_LIST 城市列表。对应数值“1”。
+                    //BMAP_STATUS_UNKNOWN_LOCATION  位置结果未知。对应数值“2”。
+                    //BMAP_STATUS_UNKNOWN_ROUTE 导航结果未知。对应数值“3”。
+                    //BMAP_STATUS_INVALID_KEY 非法密钥。对应数值“4”。
+                    //BMAP_STATUS_INVALID_REQUEST 非法请求。对应数值“5”。
+                    //BMAP_STATUS_PERMISSION_DENIED 没有权限。对应数值“6”。(自 1.1 新增)
+                    //BMAP_STATUS_SERVICE_UNAVAILABLE 服务不可用。对应数值“7”。(自 1.1 新增)
+                    //BMAP_STATUS_TIMEOUT 超时。对应数值“8”。(自 1.1 新增)
+                    
+                    //定位
+                    
+                    //var options={
+                    //  enableHighAccuracy:true, 
+                    //  maximumAge:6000,
+                    //  timeout:6000
+                    //}
+                    //if(navigator.geolocation){
+                          //浏览器支持geolocation
+                         // navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+
+                     // }else{
+                          //浏览器不支持geolocation
+                          // console.log("浏览器支持geolocation不支持h5 geolocation");
+                            var myComponents2;
+                            var geolocation = new BMap.Geolocation();
+                            geolocation.getCurrentPosition(function(r){
+                            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                                var rp = new BMap.Point(r.point.lng,r.point.lat); 
+                                lng = r.point.lng; //lng
+                                lat = r.point.lat; //lat 
+                                //console.log(lat+","+lng);
+                                var gc = new BMap.Geocoder();  
+                                gc.getLocation(rp,function(rs){
+                                    var addComp = rs.addressComponents;
+                                    //区不准
+                                    //alert('您的位置：'+addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street);
+                                    //myComponents2=addComp.district;
+                                    //console.log("baidu: "+myComponents2);
+                                    province = addComp.province;
+                                    city = addComp.city;
+                                    area = addComp.district;
+                                    //console.log(province+city+area);
+                                    cascdeInit(province,city,area);
+                                });
+                            }
+                            else {
+                                alert('您的位置:定位失败');
+                            }        
+                        },{enableHighAccuracy: true});
+                        
+                     // }
+                 
+                }
+            {/if}
+       }, true,true);
+    });
+</script>
+
+<script type="text/javascript">
+//防编辑器图片上传
+require(['tpl', 'core'], function(tpl, core) {
+    //文章详情图片上传
+    $(document).on('change','#imgfile',function(){
+        core.loading('正在上传');
+        $.ajaxFileUpload({
+            url: core.getUrl('util/uploader'),
+            data: {file: "details_describe"},
+            secureuri: false, 
+            fileElementId: 'imgfile', 
+            dataType: 'json', 
+            success: function(res, status) {
+                console.log(res);
+                core.removeLoading();                                               
+                var img = document.createElement("img");
+                img.src = res.url;
+                $('#activity-detail').append(img);
+            },
+            error: function(data, status, e) {
+                core.removeLoading();
+                core.tip.show('上传失败!');
+            }
+        });
+    });
+})
+//提交文章函数
+function a(status1){
+    require(['tpl', 'core'], function(tpl, core) { 
+        $('#big_body').append(tpl('tpl-loading'));
+
+        {if $_GPC['what'] == 1 && $_GPC['id']}
+
+        if($("input[name='title']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('文章标题不能为空');
+            return;
+        }
+        if($("textarea[name='desc']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('文章摘要不能为空');
+            return;
+        }
+        if($("select[name='reside[cate]']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('文章类别不能为空');
+            return;
+        }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 start
+        // if($("input[name='teamModel']").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('是否启用团队模式项目不能为空');
+        //     return;
+        // }
+        // if($("input[name='teamModel']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('是否启用团队模式项目不能为空');
+        //     return;
+        // }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 end
+        //发布状态也可以不用判断,为空的话默认是正式发布
+        // if($("input[name='status']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('请选择发布状态');
+        //     return;
+        // }
+        if($("select[name='reside[province]']").val() == '请选择省份'){
+            $("#loading").remove();
+            core.tip.show('请选择省/直辖市');
+            return;
+        }
+        if($("select[name='reside[city]']").val() == '请选择城市'){
+            $("#loading").remove();
+            core.tip.show('请选择城市');
+            return;
+        }
+        if($("select[name='reside[district]']").val() == '请选择区域'){
+            $("#loading").remove();
+            core.tip.show('请选择区域');
+            return;
+        }
+        {else if $_GPC['what']==2 && $_GPC['id']}
+        //把文章详情防编辑器里面的html内容扔回去给textarea
+        $('textarea[name=\''+'content'+'\']').val($('#activity-detail').html());
+        //获取textarea文章详情内容进行判断
+        var details = $('textarea[name=\''+'content'+'\']').val();
+        if($.trim(details).length == 0){ 
+             $("#loading").remove();
+             core.tip.show('文章详情不能为空');
+             return;
+        }
+        {else}
+        if($("input[name='title']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('文章标题不能为空');
+            return;
+        }
+        if($("textarea[name='desc']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('文章摘要不能为空');
+            return;
+        }
+        if($("select[name='reside[cate]']").isEmpty()){
+            $("#loading").remove();
+            core.tip.show('文章类别不能为空');
+            return;
+        }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 start
+        // if($("input[name='teamModel']").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('是否启用团队模式项目不能为空');
+        //     return;
+        // }
+        // if($("input[name='teamModel']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('是否启用团队模式项目不能为空');
+        //     return;
+        // }
+        //单选按钮状态的元素 常规不会出现下面的情况 只要是开关状态 除非赋值出错 end
+        //发布状态也可以不用判断,为空的话默认是正式发布
+        // if($("input[name='status']:checked").isEmpty()){
+        //     $("#loading").remove();
+        //     core.tip.show('请选择发布状态');
+        //     return;
+        // }
+        if($("select[name='reside[province]']").val() == '请选择省份'){
+            $("#loading").remove();
+            core.tip.show('请选择省/直辖市');
+            return;
+        }
+        if($("select[name='reside[city]']").val() == '请选择城市'){
+            $("#loading").remove();
+            core.tip.show('请选择城市');
+            return;
+        }
+        if($("select[name='reside[district]']").val() == '请选择区域'){
+            $("#loading").remove();
+            core.tip.show('请选择区域');
+            return;
+        }
+        //把文章详情防编辑器里面的html内容扔回去给textarea
+        $('textarea[name=\''+'content'+'\']').val($('#activity-detail').html());
+        //获取textarea文章详情内容进行判断
+        var details = $('textarea[name=\''+'content'+'\']').val();
+        if($.trim(details).length == 0){ 
+             $("#loading").remove();
+             core.tip.show('文章详情不能为空');
+             return;
+        }
+        {/if}       
+        var data = {};
+        {if $_GPC['what'] == 1 && $_GPC['id']}
+            //提交数据
+            data['title'] = {data:[$("input[name='title']").val()]};
+            data['desc'] = {data:[$("textarea[name='desc']").val()]};
+            data['type'] = {data:[$("select[name='reside[cate]']").val()]};
+            //data['teamModel'] = {data:[$("input[name='teamModel']").val()]};
+            //data['teamModel'] = {data:[$("input[name='teamModel']:checked").val()]};
+            data['status'] = {data:[status1]};//发布状态
+            data['province'] = {data:[$("select[name='reside[province]']").val()]};
+            data['city'] = {data:[$("select[name='reside[city]']").val()]};
+            data['area'] = {data:[$("select[name='reside[district]']").val()]};
+            data['what'] = {data:['{$_GPC['what']}']};
+
+        {else if $_GPC['what']==2 && $_GPC['id']}
+            data['content']   = {data:[details]};
+            data['what'] = {data:['{$_GPC['what']}']};
+            data['status'] = {data:[status1]};//发布状态 这里是加多了(190221)      
+        {else}
+            data['title'] = {data:[$("input[name='title']").val()]};
+            data['desc'] = {data:[$("textarea[name='desc']").val()]};
+            data['type'] = {data:[$("select[name='reside[cate]']").val()]};
+            //data['teamModel'] = {data:[$("input[name='teamModel']").val()]};
+            //data['teamModel'] = {data:[$("input[name='teamModel']:checked").val()]};
+            data['status'] = {data:[status1]};//发布状态
+            data['province'] = {data:[$("select[name='reside[province]']").val()]};
+            data['city'] = {data:[$("select[name='reside[city]']").val()]};
+            data['area'] = {data:[$("select[name='reside[district]']").val()]};
+            data['content']   = {data:[details]};
+        {/if}
+        //console.log(data);
+        //alert(data);
+        System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+            var fd =  a.append( data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '<?php echo $this->createPluginMobileUrl('activity/article',array( 'op'=>'add','ac'=>'sub','id'=>$_GPC['id'])) ;?>', true);
+            xhr.send(fd);                    
+            xhr.onreadystatechange=function(){
+              if (xhr.readyState==4 && xhr.status==200)
+              { 
+                    var obj = JSON.parse(xhr.responseText);
+                    if(obj.status == 1){
+                    	core.tip.show('提交成功');
+                    	setTimeout(function(){
+                    		location.href="{php echo $this->createPluginMobileUrl('activity/article')}";
+                    	},250);
+                    }
+                    if(obj.status == 0){core.tip.show('提交失败');return;}
+              }
+            };
+            $("#loading").remove();
+        });
+     });
+}
+</script>
+{template 'common/footer'}

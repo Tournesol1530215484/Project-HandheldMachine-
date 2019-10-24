@@ -1,0 +1,636 @@
+{template 'common/header'}
+{template 'acttabs'}
+
+<style type='text/css'>
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+</style>
+{if $_GPC['op'] == 'add'}
+<div class="main rightlist">
+    <form id="dataform" action="" method="post" class="form-horizontal form" >
+        <input type="hidden" name="id" value="{$su_info['id']}" />
+        <div class='panel panel-default' style="border-radius: 5px;">
+            <div class='panel-heading' style="background: #eee;">活动基本信息</div>
+            <div class='panel-body'>
+
+	            <div class="form-group">
+                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                    <label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>活动主题</label>
+	                    <div class="col-sm-9 col-xs-12">
+	                        {ife 'activity.activity' $su_info}
+	                        <input type="password" name="data[title]" class="form-control" value="" autocomplete="off" />
+	                        {else}
+	                        <div class='form-control-static'>********</div>
+	                        {/if}
+	                    </div>
+	                </div>
+	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                </div>
+                </div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动时间</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+								{php echo tpl_form_field_daterange('', array('starttime'=>date('Y-m-d H:i',$reply['start_time']),'endtime'=>date('Y-m-d H:i',$reply['end_time'])),1)}
+							<div class="checkbox">
+							  <label>
+							    <input type="checkbox" name="data[afterTheStart]" value="">
+							    开始后不允许报名
+							  </label>
+							</div>
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>活动地点</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+							{php echo tpl_fans_form('reside',array('province' =>'','city' =>'','area' =>''));}
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  地址</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+							<input type="text" name="data[address]" class="form-control" value="" autocomplete="off" />
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动类别</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+							<select class="form-control" name="data[cate]">
+								{loop $cate $k $v}
+								<option value="{$v[id]}">{$v[title]}</option>
+								{/loop}
+							</select>
+							{else}
+							<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
+				</div>
+
+				<!-- <div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label">精准定位</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+							{php echo tpl_form_field_coordinate('map',array('lng'=>$item['lng'],'lat'=>$item['lat']))}
+							{else}
+							<div class='form-control-static'>lng={$item['lng']},lat={$item['lat']}</div>
+							{/if}
+						</div>
+					</div>
+				</div> -->
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动摘要</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+								<input type="text" name="data[desc]" class="form-control">
+							{else}
+								<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动费用</label>
+						<div class="col-sm-9 col-xs-12">
+							{ife 'activity.activity' $su_info}
+								<label class="radio-inline">
+								  <input type="radio" name="data[cost]" checked id="inlineRadio1" value="0"> 免费     
+								</label> 		 
+								<label class="radio-inline">
+								  <input type="radio" name="data[cost]" id="inlineRadio2" value="1"> 收费     
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="data[cost]" id="inlineRadio3" value="2"> 现场AA制 
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="data[cost]" id="inlineRadio4" value="3"> 现场面议
+								</label>
+							{else}
+								<div class='form-control-static'>********</div>
+							{/if}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<!-- <div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  特色优势</label>
+						<div class="col-sm-9 col-xs-12">
+							{php echo tpl_ueditor('special');}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  易货工号</label>
+						<div class="col-sm-9 col-xs-12">
+							<input class="form-control" name="worknumber" type="text" placeholder="请输入易货工号">
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div> -->
+									 
+				<!-- <div class="form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  商家状态</label>
+						<div class="col-sm-9 col-xs-12">
+							<select class="form-control" name="status">
+								<option value="0">未激活</option>
+								<option value="1" selected >已激活</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+				<div class='panel panel-default' style="border-radius: 5px;">
+					<div class='panel-heading' style="background: #eee;">发布人信息</div>
+					<div class='panel-body'>
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  发布机构</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<input type="text" name="relOrg"  disabled class="form-control">
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系人</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<input type="text" name="contactOrg" value="{$info['mobile']}" disabled class="form-control">
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系电话</label>
+								<div class="col-sm-9 col-xs-12"> 	 	
+									{ife 'activity.activity' $su_info} 	 	
+										<input type="text" name="mobileOrg" disabled class="form-control">
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  机构简介</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<textarea class="form-control"  name="descOrg" disabled>{$info['orgDesc']}</textarea> 	 	
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+				<div class='panel panel-default' style="border-radius: 5px;">
+					<div class='panel-heading' style="background: #eee;">报名项目</div>
+					<div class='panel-body'>
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  发布机构</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<input type="text" name="relOrg" disabled class="form-control">
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系人</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<input type="text" name="contactOrg" disabled class="form-control">
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  联系电话</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<input type="text" name="mobileOrg" disabled class="form-control">
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  机构简介</label>
+								<div class="col-sm-9 col-xs-12">
+									{ife 'activity.activity' $su_info}
+										<textarea class="form-control" name="descOrg" disabled>
+
+										</textarea>
+									{else}
+										<div class='form-control-static'>********</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+				<div class='panel panel-default' style="border-radius: 5px;">
+					<div class='panel-heading' style="background: #eee;"></div>
+						<div class='panel-body'>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动标签</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<input type="text" name="orther[label]" class="form-control">
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  邀约模式</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<label class="radio-inline">
+											  <input type="radio" name="orther[joinModel]" checked id="inlineRadio1" value="0"> 报名模式     
+											</label> 
+											<label class="radio-inline">
+											  <input type="radio" name="orther[joinModel]" id="inlineRadio1" value="1"> 邀约模式     
+											</label> 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  团队模式</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<label class="radio-inline">
+											  <input type="radio" name="orther[teamModel]" id="inlineRadio1" value="0"> 否     
+											</label> 
+											<label class="radio-inline">
+											  <input type="radio" name="orther[teamModel]" checked id="inlineRadio1" value="1"> 是     
+											</label> 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  是否审核</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<label class="radio-inline">
+											  <input type="radio" name="orther[isAudit]" checked id="inlineRadio1" value="0"> 不需要审核     
+											</label> 
+											<label class="radio-inline">
+											  <input type="radio" name="orther[isAudit]" id="inlineRadio1" value="1"> 需要审核     
+											</label> 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  是否公开</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<label class="radio-inline">
+											  <input type="radio" name="orther[public]" checked id="inlineRadio1" value="1"> 公开     
+											</label> 
+											<label class="radio-inline">
+											  <input type="radio" name="orther[public]" id="inlineRadio1" value="0"> 不公开     
+											</label> 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  是否允许退票	</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<label class="radio-inline">
+											  <input type="radio" name="orther[recund]" id="inlineRadio1" value="0"> 不允许     
+											</label> 
+											<label class="radio-inline">
+											  <input type="radio" name="orther[recund]" checked id="inlineRadio1" value="1"> 允许     
+											</label> 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  是否隐藏名单	</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+											<label class="radio-inline">
+											  <input type="radio" name="orther[hideList]" checked id="inlineRadio1" value="0"> 否     
+											</label> 
+											<label class="radio-inline">
+											  <input type="radio" name="orther[hideList]" id="inlineRadio1" value="1"> 是     
+											</label> 
+										{else}
+											<div class='form-control-static'>********</div>
+										{/if}
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  活动图标</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+										{php echo tpl_form_field_image('orther[icon]');}
+										<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+										{else}
+											<img src="">
+										{/if}
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="col-xs-12 col-sm-3 col-md-3 control-label"><span style='color:red'>*</span>  微信二维码</label>
+									<div class="col-sm-9 col-xs-12">
+										{ife 'activity.activity' $su_info}
+										{php echo tpl_form_field_image('orther[wechatCode]');}
+										<span class="help-block">建议尺寸: 640 * 640 ，或正方型图片 </span>
+										{else}
+											<img src="">
+										{/if}
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										</div>
+									</div>
+								</div>
+							</div>
+
+					</div>
+				</div>
+
+                <div class="form-group"></div>
+                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-12">
+                         {ife 'activity.activity' $su_info}
+                            <input type="hidden" name="uid" value="{$su_info['uid']}" />
+                        <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {/if}
+                       <input type="button" name="back" onclick='history.back()' {ifp 'activity.activity.add|activity.activity.edit'}style='margin-left:10px;'{/if} value="返回列表" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+		<div class="form-group col-sm-12">
+         
+        </div>
+    </form>
+</div>
+{else if $op =='display'}
+
+<div class='panel panel-default' style="border-radius: 5px;">
+    <div class='panel-heading'>一共 <span style="color:#f00">{$totals}</span> 个</div>
+	    <div class='panel-body'> 		 
+	    	
+	    	<table class="table table-hover table-responsive">
+	    		<thead class="navbar-inner">
+	    			<tr>
+	    				<th style="width:auto;">标题</th>
+	    				<th style="width:auto;">机构名称</th>
+	    				<th style="width:auto;">浏览数</th>
+	    				<th style="width:auto;">转发数</th>
+	    				<th style="width:auto;">报名数</th>
+	    				<th style="width:auto;">发布时间</th>
+	    				<th style="width:auto;">开始时间</th>
+	    				<th style="width:auto;">结束时间</th>
+	    				<th style="width:auto;">操作</th>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			{loop $list $index $item}
+		    			<tr> 	 	  	 	 	
+		    				<td>{$item['title']}</td>
+		    				<td>{$item['orgName']}</td>
+		    				<td>{$item['browse']}</td>
+		    				<td>{$item['forwarding']}</td>
+		    				<td>{$item['signup']}</td>
+		    				<td>{php echo date('Y-m-d H:i:s',$item['createtime'])}</td>
+		    				<td>{php echo date('Y-m-d H:i:s',$item['stime'])}</td>
+		    				<td>{php echo date('Y-m-d H:i:s',$item['etime'])}</td>
+		    				<td>暂无</td> 	 	 		 
+		    			</tr>
+	    			{/loop}
+	    		</tbody>
+	    	</table>
+	    	{$pager}
+		</div>
+	</div>	 	 	
+</div>
+
+{/if}
+</div>
+<script language='javascript'>
+ 
+   $(function(){
+     
+        $('#dataform').ajaxForm();
+
+        $(':input[name=submit]').click(function(){
+            if($(this).attr('submitting')=='1'){
+                return;
+            }
+//           if ($(':input[name=username]').isEmpty()) {
+//                Tip.focus($(':input[name=username]'), '请填写用户名!');
+//                return;
+//            }
+//
+//            {if empty($su_info)}
+//              if ($(':input[name=password]').isEmpty()) {
+//                Tip.focus($(':input[name=password]'), '请输入用户密码!');
+//                return;
+//            }
+//            {/if}
+//
+//			{if empty($id)}
+//            if ($(':input[name=merchname]').isEmpty()) {
+//                Tip.focus($(':input[name=merchname]'), '请输入商家名!');
+//                return;
+//            }
+//            if ($(':input[name=typeid]').isEmpty()) {
+//                Tip.focus($(':input[name=typeid]'), '请输入行业大类!');
+//                return;
+//            }
+//            if ($(':input[name=mobile]').isEmpty()) {
+//                Tip.focus($(':input[name=mobile]'), '请输入联系电话!');
+//                return;
+//            }
+//            if ($(':input[name=address]').isEmpty()) {
+//                Tip.focus($(':input[name=address]'), '请输入详细地址!');
+//            }
+//			{/if}
+
+            $(this).attr('submitting','1').removeClass('btn-primary');
+            $('#dataform').ajaxSubmit(function(data){
+                data = eval("(" +  data  +")");
+                if(data.result!=1){
+                      $(this).removeAttr('submitting').addClass('btn-primary');
+                      Tip.select($(':input[name=username]'), data.message );
+                      return;
+                }
+                location.href= "{php echo $this->createPluginWebUrl('activity/activity')}";
+            })
+        })
+
+   })
+  
+</script>
+{template 'common/footer'}

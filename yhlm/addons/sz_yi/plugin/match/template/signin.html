@@ -1,0 +1,155 @@
+{template 'common/header'}
+{template 'stabs'}
+<style type='text/css'>
+	.trhead td {  background:#efefef;text-align: center}
+	.trbody td {  text-align: center; vertical-align:top;border-left:1px solid #ccc;overflow: hidden;}
+	.goods_info{position:relative;width:60px;}
+	.goods_info img {width:50px;background:#fff;border:1px solid #CCC;padding:1px;}
+	.goods_info:hover {z-index:1;position:absolute;width:auto;}
+	.goods_info:hover img{width:320px; height:320px;}
+</style>
+{if $_GPC['op'] == 'post'}
+
+{elseif $op == 'display'}
+
+<div class='panel panel-default' style="border-radius: 5px;">
+    <div class='panel-heading'>一共 <span style="color:#f00">{$totals}</span>条记录</div>
+	    <div class='panel-body'>
+
+	    	<table class="table table-hover table-responsive">
+	    		<thead class="navbar-inner">
+	    			<tr>
+	    				<th style="width:auto;">打卡时间</th>
+	    				{if false}
+	    				<th style="width:auto;">积分</th>
+	    				<th style="width:auto;">红包</th>
+	    				{/if}
+	    				<th style="width:auto;">连续打卡</th>
+	    				<!-- <th style="width:auto;">操作</th> -->
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			{loop $list $index $item}
+		    			<tr>
+		    				<td>{php echo date('Y年m月d日 H点i分',$item['ctime'])}</td>
+		    				{if false}
+		    				<td>{$item['score']}</td>
+		    				<td>{$item['bonus']}</td>
+		    				{/if}
+		    				<td>{$item['continuous']}</td>
+		    				<!-- <td>暂无</td> -->
+		    			</tr>
+	    			{/loop}
+	    		</tbody>
+	    	</table>
+	    	{$pager}
+		</div>
+	</div>
+</div>
+{elseif $op=='comment'}
+
+<div class="panel panel-info">
+    <div class="panel-heading">筛选</div>
+    <div class="panel-body">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site">
+            <input type="hidden" name="a" value="entry">
+            <input type="hidden" name="m" value="sz_yi">
+            <input type="hidden" name="do" value="plugin">
+            <input type="hidden" name="p" value="activity">
+            <input type="hidden" name="method" value="signin">
+            <input type="hidden" name="op" value="comment">
+            <div class="form-group">                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">评论类型</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <select name="type" class="form-control">
+							<option {if $_GPC['type'] == 1}selected{/if} value="1">活动评论</option>
+							<option {if $_GPC['type'] == 2}selected{/if} value="2">文章评论</option>
+							<option {if $_GPC['type'] == 3}selected{/if} value="3">用户评论</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                    <input type="hidden" name="token" value="41f48483">
+                </div>
+           </div>
+        </form>
+    </div>
+</div>
+
+	<div class='panel panel-default' style="border-radius: 5px;">
+    <div class='panel-heading'>共有<span style="color:#f00">{$totals}</span>条评论</div>
+	    <div class='panel-body'>
+
+	    	<table class="table table-hover table-responsive">
+	    		<thead class="navbar-inner">
+	    			<tr>
+	    				<th style="width:10%;">评论者</th>
+	    				<th style="width:10%;">评论类型</th>
+	    				<th style="width:10%;">
+	    				{if $_GPC['type'] ==1 || $_GPC['type'] == 2}
+	    					标题
+	    				{else}
+	    					用户
+	    				{/if}
+	    				</th>
+	    				<th style="width:auto;">内容</th>
+	    				<th style="width:12%;">发布时间</th>
+	    				<th style="width:10%;">当前状态</th>
+	    				<th style="width:8%;">操作</th>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			{loop $list $index $item}
+		    			<tr>
+		    				<td>{$item['realname']}/{$item['nickname']}</td>
+		    				<td>
+		    					{if $item['type'] == 1}
+		    						活动评论
+		    					{else if $item['type'] == 2}
+									文章评论
+		    					{else if $item['type'] == 3}
+		    						用户评论
+		    					{/if}
+		    				</td>
+		    				<td>
+		    					{if $item['type'] == 1}
+		    						{$item['title']}
+		    					{else if $item['type'] == 2}
+		    						{$item['title']}
+		    					{else if $item['type'] == 3}
+		    						用户:
+		    					{/if}
+		    				</td>
+		    				<td>{$item['content']}</td>
+		    				<td>{php echo date('Y-m-d H:i:s',$item['ctime'])}</td>
+		    				<td>
+		    					{if $item['status'] == 0}
+		    					未审核
+		    					{else if $item['status'] == 1}
+		    					<span class="text-success">通过</span>
+		    					{else if $item['status'] == 2}
+		    					<span class="text-danger">驳回</span>
+		    					{/if}
+		    				</td>
+		    				<td>
+		    					<a class="label label-success" href="{php echo $this->createPluginWebUrl('activity/activity',array('op'=>'audit','id'=>$item['id'],'type'=>$_GPC['type'],'check'=>1))}">通过</a>
+		    					<a class="label label-danger" href="{php echo $this->createPluginWebUrl('activity/activity',array('op'=>'audit','id'=>$item['id'],'type'=>$_GPC['type'],'check'=>2))}">驳回</a>
+		    				</td>
+		    			</tr>
+	    			{/loop}
+	    		</tbody>
+	    	</table>
+	    	{$pager}
+		</div>
+	</div>
+</div>
+
+{/if}
+
+
+</div>
+<script language='javascript'>
+</script>
+{template 'common/footer'}

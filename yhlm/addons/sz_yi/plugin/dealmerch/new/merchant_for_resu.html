@@ -1,0 +1,89 @@
+{template 'common/header'}
+{template 'tabs'}
+<article class="tab_filter">
+    <div class="panel-search">
+        <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+            <input type="hidden" name="c" value="site" />
+            <input type="hidden" name="a" value="entry" />
+            <input type="hidden" name="m" value="sz_yi" />
+            <input type="hidden" name="do" value="plugin" />
+            <input type="hidden" name="p" value="dealmerch" />
+            <input type="hidden" name="method" value="dealmerch_for_resu" />
+            <div class="search-box">
+                <ul>
+                    <li>
+                        <p>搜索</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <ul class="select-cont">
+	                <li>ID:</li>
+	                <li>
+	                    <input type="text" class="form-control input-s-sm"  name="mid" value="{$_GPC['mid']}"/>
+	                </li>
+	            </ul>
+            	<ul class="select-cont">
+	                <li>姓名:</li>
+	                <li>
+	                    <input type="text" class="form-control input-s-sm"  name="realname" value="{$_GPC['realname']}" placeholder="可搜索昵称/姓名/手机号"/>
+	                </li>
+	            </ul>
+            	<ul class="select-cont">
+	                <li>状态:</li>
+	                <li>
+	                    <select name='status' class='form-control input-s-sm'>
+	                        <option value=''>审核状态</option>	
+	                        <option value='1' {if $_GPC['status']=='1'}selected{/if}>驳回</option>	
+	                        <option value='2' {if $_GPC['status']=='2'}selected{/if}>通过</option>	
+	                    </select>	
+	                </li>
+	            </ul>
+            	<ul class="select-cont">
+                    <li>
+                        <button class="search-btn"><span><i class="fa fa-search"></i>搜索</span></button>
+                    </li>
+                    <li>
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                        {ifp 'member.member.export'}
+                        <button type="submit" name="export1" value="1" class="search-btn"><span>导出 Excel</span>导出 Excel</button>
+                        {/if}
+                    </li>
+               </ul>
+            </div>
+        </form>
+</div>
+<div class="panel-show">
+    <div class="panel-heading">总数：{$total}   </div>
+    <div class="">
+        <table class="table table-hover" style="overflow:visible;">
+            <thead class="navbar-inner">
+                <tr>
+                    <th style='width:80px;'>会员ID</th>
+                    <th style='width:80px;'>会员姓名</th>
+                    <th style='width:120px;'>手机号码</th>
+                    <th style='width:120px;'>微信</th>
+                    <th style='width:120px;'>产品名称</th>
+                    <th style='width:120px;'>申请结果</th>
+                </tr>
+            </thead>
+            <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['id']}</td>
+                    <td>{$row['realname']}</td>
+                    <td>{$row['mobile']}</td>
+                    <td>{$row['weixin']}</td>
+                    <td>{$row['productname']}</td>
+                    <td>{if $row['status'] == 1}<span class="label label-default ">驳回审核</span>{elseif $row['status'] == 2}<span class="label label-default label-info">审核通过</span>{/if}</td>
+                </tr>
+                {/loop}
+            </tbody>
+        </table>
+           {$pager}
+    </div>
+</div>
+</div>
+</div>
+</article>
+{template 'web/_footer'}

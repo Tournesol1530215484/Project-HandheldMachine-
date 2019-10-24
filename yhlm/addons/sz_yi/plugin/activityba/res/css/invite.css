@@ -1,0 +1,126 @@
+html{
+    font-size: 10px;
+}
+body{
+    background: #efeff4;
+}
+.page_topbar{
+   background: #009BF8;
+}
+.page_topbar a.back{
+    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    padding-right: 15px;
+    color: #fff;
+}
+.page_topbar .title{
+    color: #fff;
+}
+/*flex居中*/
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.search-filter-container{
+    margin-top: 5px;
+    margin-bottom: 8px;
+    position: relative;
+}
+.search-box{
+    padding: 5px 10px;
+    background: #fff;
+}
+.search-box .activity-search-btn{
+    width: 35px;
+    height: 35px;
+    font-size: 1.8rem;
+    color: #999;
+    line-height: 35px;
+    text-align: center;
+}
+.search-box .activity-search-btn{
+    background: #ccc;
+    color: #fff;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.search-box .activity-search-inp{
+    width: calc(100% - 35px);
+    margin: 0;
+    background: #ccc;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.search-box .activity-search-inp .keywords{
+    width: 100%;
+    height: 35px;
+    font-size: 1.4rem;
+    padding: 5px 5px 5px 10px;
+    margin: 0;
+    border: 0;
+    background: #ccc;
+    display: block;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    outline: none;
+}
+.list-box{
+    margin-bottom: 55px;
+    background: #fff;
+}
+.no-list{
+    padding: 10px;
+    text-align: center;
+    color: #999;
+}
+.list-box .list-item{
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.list-box .list-hd{
+    background: rgba(0,155,248,.5);
+    color: #fff;
+    font-size: 1.4rem;
+}
+.list-box .list-ul .do-link-or-not{
+    text-decoration: none;
+    color: #000;
+}
+.list-box .list-ul .do-link-or-not:visited,
+.list-box .list-ul .do-link-or-not:active{
+    color: #000;
+}
+.for-nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list-box .list-item-cot{
+    width: 60px;
+}
+.list-box .list-item-cot1{
+    width: calc(100% - 240px);
+}
+#list_loading{ 
+    width: 94%;
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}

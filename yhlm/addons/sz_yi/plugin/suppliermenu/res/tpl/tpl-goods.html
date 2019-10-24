@@ -1,0 +1,119 @@
+ 
+
+<div id="big_body" >
+<form method="post" enctype="multipart/form-data"  id="showDataForm">
+     <div id="header">
+           <table>
+               <tr>
+                 {if 0} 
+                  <th style="width:10%;  " align="center"  valign="center" onclick="window.history.go(-1)" >
+                   <img style="width: 25px;height: 25px;" src="http://wx.61wsw.com/addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/arrow-left.svg" alt="">
+                 </th> 
+                  {/if}
+                   <th style="width:80%; " align="center" valign="center" >发布宝贝</th>
+                 {if 0}  <th style="width:10%; background: url(<?php echo MODULE_URL.'plugin/suppliermenu/res/2.png'?>) no-repeat left; background-size:20px 20px; " align="center" valign="center" > </th>{/if}
+               </tr>
+           </table>
+      </div>
+      <ul id="upload_img" class="box">
+
+
+             <li >
+               <div id="select-box"  >
+                       <div style="font-size:30px;">+</div>
+                       <div style="font-size:10px;">添加图片</div>
+                       <input type="file"    onchange="handleFiles(this)"   multiple="true"  />
+               </div>
+             </li>
+      </ul>
+
+      <script type="text/javascript">
+       require(['tpl', 'core'], function(tpl, core) {});
+
+          function  handleFiles(q)
+          {
+            var files =  q.files;
+            if(files.length)
+            {
+                for(var x =0 ;x<files.length;x++ ){
+                   var file = files[x];
+                   if(!/image\/\w+/.test(file.type)){
+                        alert("文件必须为图片！"+file.type);
+                        return ;
+                   }
+                }
+                 System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FileReader.js';?>').then(function (a)
+                 {
+                       for(var x =0 ;x<files.length;x++ ){
+                         var file = files[x];
+       
+                             a.read(file,function(r){
+                                     $("#select-box").parent().before(baidu.template('tpl-img-box',{data:{img:r}}  ));
+                             }); 
+                       }
+                 });
+            }
+
+          }
+
+      </script>
+
+
+      <div id="data-box"  class="box" >
+           <input type="text" name="title" placeholder="输入商品标题">
+           <ul id="price-box">
+               <li>
+                 <div>现在</div>
+                 <div><input type="text" name="marketprice" value="" placeholder="0.00" /></div>
+               </li>
+               <li style="border-left:1px solid #000;border-right:1px solid #000;">
+                 <div >原价</div>
+                 <div><input type="text" name="productprice"  value="" placeholder="0.00" /></div>
+               </li>
+               <li>
+                 <div>成本</div>
+                 <div><input type="text" name="costprice"  value="" placeholder="0.00" /></div>
+               </li>
+           </ul>
+      </div>
+
+
+      <div id="line-box" class="box">
+         <ul >
+           <li onclick=" pcate(); ">
+             <span  >分类</span>
+             <span>></span>
+           </li>
+           <li>
+             <span>运费</span>
+             <span>></span>
+           </li>
+           <li>
+             <span>库存</span>
+             <span>></span>
+           </li>
+         </ul>
+      </div>
+
+      <div id="content-box" class="box">
+         <div onclick="$('#big_body').hide();  require(['<?php echo MODULE_URL.'plugin/suppliermenu/res/bdamd.js';?>'], function (bai ) {  $('body').append(bai.template('tpl-cotent')); });    ">
+            <span  >宝贝描述</span>
+            <span>></span>
+         </div>
+      </div>
+
+      <div id="footer">
+         <span onclick='a(0);'>放入仓库</span>
+         <span onclick='a(1);'>立即上架</span>
+      </div>
+
+      <input type="hidden" name="content" value=""/>
+      <input type="hidden" name="pcate" value=""/>
+      <input type="hidden" name="ccate" value=""/>
+      <!--<input type="hidden" name="tcate" value=""/>-->
+      <input type="hidden" name="token" value="{$_W['token']}" />
+</form>
+</div>
+
+ 
+ 

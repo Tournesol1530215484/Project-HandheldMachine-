@@ -1,0 +1,1357 @@
+{template 'common/header'}
+
+
+
+<title>换货-发布宝贝</title>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/dropload.min.js?'.time();?>"></script>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/baidu.js?'.time();?>"></script>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/jquery.form.js?'.time();?>"></script>
+
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/s.js?'.time();?>"></script>
+
+<script type="text/javascript">
+
+    System.config({
+
+        map:{
+
+            systemJsText:'<?php echo MODULE_URL.'plugin/suppliermenu/res/txt.js';?>',
+
+        systemJsCss:'<?php echo MODULE_URL.'plugin/suppliermenu/res/css.js';?>',
+
+        systemJsJson:'<?php echo MODULE_URL.'plugin/suppliermenu/res/json.js';?>'
+
+    },
+
+    baseURL: '<?php echo MODULE_URL.'plugin/suppliermenu/res/';?>',
+
+    });
+
+
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/css/goods_upload.css!systemJsCss';?>').then(function (a){});
+
+
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-pcate-box.html!systemJsText';?>').then(function (a){$("body").append(a)});
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-ccate-box.html!systemJsText';?>').then(function (a){$("body").append(a)});
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box.html!systemJsText';?>').then(function (a){$("body").append(a)});
+
+
+
+</script>
+
+<style type="text/css">
+
+    .big-body .customer_top { background:#009BF8;}
+
+    .big-body .customer_top .title {color:#fff;}
+
+    .big-body .customer_top .title1{color:#fff;width: calc(100% - 108px);text-align: center;padding-left: 0;}
+
+    .big-body .customer_top .title1 .barter-admin-link{
+
+        text-decoration: none;
+
+        color: #fff175;
+
+    }
+
+    .big-body .customer_top .back{color: #fff;}
+
+    #upload_img>li:nth-of-type(2){
+
+        width:75%;text-align:left;
+
+    }
+
+</style>
+
+<div id="big_body" class="big-body"></div>
+
+<script type="text/html" id="tpl-big-body">
+
+
+
+    <form method="post" enctype="multipart/form-data" id="showDataForm">
+
+        <div class="customer_top">
+
+            <div class="title" onclick='history.back()'><span class="back">&lt;</span>返回</div>
+
+            <div class="title1">
+
+                发布宝贝 <a class="barter-admin-link" href="{php echo $this->createPluginMobileUrl('suppliermenu',array('merch'=>5))}">换货管理</a>
+
+            </div>
+
+        </div>
+
+        <ul id="upload_img" class="box">
+
+            <li>
+
+                <div id="select-box">
+
+                    <div style="font-size:30px;">+</div>
+
+                    <div style="font-size:10px;">添加图片</div>
+
+                    <input type="file" id="file" name="files[]" onchange="handleFiles(this)" multiple="true" />
+
+                </div>
+
+            </li>
+
+            <!--<li>-->
+
+            <!--<p>更多设计用电脑版</p>-->
+
+            <!--<p>jhzh66.com/web</p>-->
+
+            <!--<p>平台换货收费5%，会员低至0.5%（详情见收费表）</p>-->
+
+            <!--</li>-->
+
+        </ul>
+
+        <div id="line-box" class="box">
+
+            <ul>
+
+                <li>
+
+                    <span>商品标题：</span>
+
+                    <div class="for-suitable-width for-suitable-width1">
+
+                        <input type="text" name="title" value="<%if status%><%goods.title%><%/if%>" placeholder="输入商品标题">
+
+                    </div>
+
+                </li>
+
+
+
+
+
+                <!--<li>-->
+
+                <!--<span> 供  货  价：</span>-->
+
+                <!--<div>-->
+
+                <!--<input type="text" name="costprice" value="<%if status%><%goods.costprice%><%/if%>" placeholder="0.00" />-->
+
+                <!--</div>-->
+
+                <!--</li>-->
+
+
+
+                <li  id="ckcsify" style="display: none;">
+
+                    <span>分<i></i>类：</span>
+
+                    <span id="getback"></span>
+
+                    <span>></span>
+
+                </li>
+
+                <li  id="ckcsify1">
+
+                    <span>分<i></i>类：</span>
+
+                    <div class="cat-box">
+
+                        <select class="parent-cat parent-cat1 cat-select">
+
+                            <option class="parent-cat-item" id="pcate1061" value="1061">换货商品</option>
+
+                        </select>
+
+                        <span>&gt;</span>
+
+                        <select class="children-cat children-cat1 cat-select">
+
+                            <option value="">请选择二级分类</option>
+
+                        </select>
+
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <span>发货方式：</span>
+
+                    <div class="flag">
+
+                        <input type="hidden" name="PostFlag" value="">
+
+                        <span> 快递发货</span>
+
+                    </div>
+
+                </li>
+
+                <!-- <li id="option">
+
+                    <span>库存+价格：</span>
+
+                    <span id=""></span>
+
+                    <span>></span>
+
+                </li> -->
+
+                <li class="option-box">
+
+                    <div class="form-group form-group-box form-group-specification">
+
+                        <div class="input-group" style="width: 100%;">
+
+                            <div class="input-group-addon" style="width: 24%;line-height: 1.4px;">规格名</div>
+
+                            <input type="text" class="form-control option-title first-option-title" name="option[title]" style="width: 100%" placeholder="请输入规格名(颜色、大小、尺寸)">
+
+                        </div>
+
+                        <div class="input-group" style="width: 100%;">
+
+                            <div class="input-group-addon" style="width: 24%;line-height: 1.4px;">库存</div>
+
+                            <input type="text" class="form-control option-stock first-option-stock" name="option[stock]" style="width: 100%" placeholder="请输入库存">
+
+                        </div>
+
+                        <div class="input-group" style="width: 100%;">
+
+                            <div class="input-group-addon" style="width: 24%;line-height: 1.4px;">换货价</div>
+
+                            <input type="text" name="option[marketprice]" class="form-control col-xs-9 option-marketprice first-option-marketprice" style="width: 100%" placeholder="请输入换货码数量(商家得到是换货码)">
+
+                        </div>
+
+                        <div class="input-group" style="width: 100%;">
+
+                            <div class="input-group-addon" style="width: 24%;line-height: 1.4px;">市场价</div>
+
+                            <input type="text" name="option[productprice]" class="form-control col-xs-9 option-productprice first-option-productprice" style="width: 100%" placeholder="请输入市场价">
+
+                        </div>
+
+                        <button id="option" type="button" class="btn btn-block" style="width:100%;margin-top: 4px">添加更多规格 <span class="fa fa-angle-right more-option-mark"></span></button>
+
+                    </div>
+
+                </li>
+
+                <li class="dispatch-box">
+
+                    <span>运<i></i>费：</span>
+
+                    <div class="dispatch-choose">
+
+                        <div class="dispatch-1">
+
+                            <label class="dispatch-label">
+
+                                <input class="radio-1" type="radio" name="dispatchtype" {if $_GPC['id']}value="1" <%if status && goods.dispatchtype==1 %>checked="true"<%/if%>{/if} > 统一邮费
+
+                            </label>
+
+                            <input type="text" name="dispatchprice" id="dispatchprice" class="dispatch-2" {if $_GPC['id']}value="<%if status%><%goods.dispatchprice%><%/if%>" {/if}>
+
+                            <span class="">元</span>
+
+                        </div>
+
+                        <div class="dispatch-1">
+
+                            <label class="dispatch-label">
+
+                                <input class="radio-1" type="radio" name="dispatchtype" {if $_GPC['id']} <%if goods.dispatchtype%>value="<%goods.dispatchtype%>"<%/if%> <%if status && goods.dispatchtype==0 %>checked="true"<%/if%> {/if} <%if !status%>checked="true"<%/if%>> 运费模板
+
+                            </label>
+
+                            <select class="dispatch-2" id="dispatchid" name="dispatchid">
+
+                                <option value="0">请选择模板</option>
+
+                                {loop $dispatch_data $k $v}
+
+                                {if $_GPC['id']}
+
+                                <option <%if goods.dispatchid == {$v['id']}%>selected<%/if%> value="{$v['id']}">{$v['dispatchname']}</option>
+
+                                {else}
+
+                                <option value="{$v['id']}">{$v['dispatchname']}</option>
+
+                                {/if}
+
+                                {/loop}
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <span>用户最多购买量(件)：</span>
+
+                    <div class="for-suitable-width">
+
+                        <input type="text" name="usermaxbuy" value="<%if status%><%goods.usermaxbuy%><%/if%>" placeholder="（默认0，无限制）">
+
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <span>单次最多购买量(件)：</span>
+
+                    <div class="for-suitable-width">
+
+                        <input type="text" name="maxbuy" value="<%if status%><%goods.maxbuy%><%/if%>" placeholder="（默认0，无限制）">
+
+                    </div>
+
+                </li>
+
+                <!--<li>-->
+
+                <!--<span>库<i></i>存：</span>-->
+
+                <!--<div>-->
+
+                <!--<input  type="text" name="total" value="<%if status%><%goods.total%><%/if%>">-->
+
+                <!--</div>-->
+
+                <!--</li>-->
+
+                <!--<li>-->
+
+                <!--<span>重<i></i>量：</span>-->
+
+                <!--<div >-->
+
+                <!--<input  type="text" name="weight" value="<%if status%><%goods.weight%><%/if%>"> -->
+
+                <!--</span>-->
+
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+
+        <div id="content-box" class="box">
+
+            <div onclick="
+
+                $('#big_body').hide();
+
+                System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-cotent1.html!systemJsText';?>').then(function (html){
+
+                    $('body').append(  baidu.template(html)  );
+
+                    $('#content').html( $('input[name=\''+'content'+'\']').val() );
+
+                });
+
+
+
+              ">
+
+                <p style="height:40px;line-height:40px;">宝贝描述
+
+                    <span style="font-weight: bold;margin-left:2px; font-size: 16px;line-height: 40px; font-family:serif,'PingFang SC', Helvetica, 'Helvetica Neue', '微软雅黑', Tahoma, Arial, sans-serif;">&gt;</span></p>
+
+            </div>
+
+        </div>
+
+        <span class="tips" style="list-style: none">
+
+                <li style="color:#000">
+
+                    <p>更多设计用电脑版</p>
+
+                    <p>jhzh66.com/web</p>
+
+                    <p>平台换货收费5%，会员低至0.5%（详情见收费表）</p>
+
+                </li>
+
+            <!--电脑版操作更方便<br />-->
+
+            <!--1、百度搜索"易货联盟"<br />或输入网址jhzh66.com或zz11.com.cn<br />-->
+
+            <!--2、点击菜单-商家后台-进入-->
+
+        </span>
+
+        <div id="footer">
+
+
+
+            <span onclick='a(0);'>暂存草稿</span>
+
+            <span onclick='a(1);'>提交审核</span>
+
+        </div>
+
+        <input type="hidden" name="content" value="<%if status%><%goods.content%><%/if%>" />
+
+        <input type="hidden" name="pcate" value="<%if status%><%goods.pcate%><%/if%>" />
+
+        <input type="hidden" name="ccate" value="<%if status%><%goods.ccate%><%/if%>" />
+
+        <!--<input type="hidden" name="tcate" value=""/>-->
+
+        <input type="hidden" name="token" value="{$_W['token']}" />
+
+    </form>
+
+
+
+</script>
+
+
+
+<script type="text/html" id="tpl-childrencate">
+
+    <%each list as l%>
+
+    <option class="children-cat-item" id="ccate<%l.id%>" value="<%l.id%>"><%l.name%></option>
+
+    <%/each%>
+
+</script>
+
+<script type="text/html" id="tpl-loading">
+
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+
+        <img   src="<?php echo MODULE_URL.'plugin/suppliermenu/res/loading.gif?'.time();?>"/>
+
+    </div>
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    $('body').on('click','.fa-remove',function () {
+
+        $('#mymodal').hide();
+
+    });
+
+
+
+    require(['tpl', 'core'], function(tpl, core) {
+
+
+
+        core.pjson('suppliermenu/dealgoods', {id:'<?php echo empty($_GPC['id'])?0:$_GPC['id'];?>',op:'post','ac':'get' }, function(json) {
+
+
+
+            //$('body').append(tpl('tpl-big-body',json.result));
+
+            $('.big-body').append(tpl('tpl-big-body',json.result));
+
+
+
+            //记录修改的宝贝的父子级类型
+
+            var parnet_cat_op = $(".parent-cat").val();//易货商品特殊处理
+
+            var children_cat_op = 0;
+
+            if(json.result.status){
+
+                parnet_cat_op = json.result.goods.pcate;
+
+                children_cat_op = json.result.goods.ccate;
+
+            }
+
+
+
+            //加载易货商品子级分类
+
+
+
+            //其实常理来说易货商品的父级都返回，第一层判断可不要
+
+            if(parnet_cat_op != 0){
+
+                core.pjson('suppliermenu/cate', {type:parnet_cat_op}, function(json){
+
+                    if(json.result.status){
+
+                        $('.children-cat').append(tpl('tpl-childrencate',json.result));
+
+                        if(children_cat_op != 0 && parnet_cat_op != 0){
+
+                            $(".children-cat option[value='"+children_cat_op+"']").attr("selected","selected");
+
+                        }
+
+                    }
+
+                }, true);
+
+            }
+
+
+
+            {if !empty($_GPC['id'])}
+
+            filloption(json.result.goods.option);
+
+            {/if}
+
+
+
+                $("#ckcsify").click(function(){
+
+                    var that= this;
+
+                    pcate(that);
+
+                });
+
+
+
+                $("#option").click(function(){
+
+                    var that= this;
+
+                    getoption(that);
+
+                });
+
+                if(json.result.status){
+
+                    $("#select-box").parent().before( baidu.template('tpl-img-box',{data:{img:json.result.goods.thumb}}  ));
+
+
+
+                    for(var x in json.result.goods.thumb_url ){
+
+                        $("#select-box").parent().before( baidu.template('tpl-img-box',{data:{img:json.result.goods.thumb_url[x]}}  ));
+
+                    }
+
+                }
+
+            }, true,true);
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+
+
+    require(['tpl', 'core'], function(tpl, core) {
+
+        $(document).on('change','#imgfile',function(){
+
+            core.loading('正在上传');
+
+            $.ajaxFileUpload({
+
+                url: core.getUrl('util/uploader'),
+
+                data: {file: "describe"},
+
+                secureuri: false,
+
+                fileElementId: 'imgfile',
+
+                dataType: 'json',
+
+                success: function(res, status) {
+
+                    console.log(res);
+
+                    core.removeLoading();
+
+                    var img = document.createElement("img");
+
+                    img.src = res.url;
+
+                    $('.msbox').append( img );
+
+                },
+
+                error: function(data, status, e) {
+
+                    core.removeLoading();
+
+                    core.tip.show('上传失败!');
+
+                }
+
+            });
+
+        });
+
+    })
+
+    function  handleFiles(q)
+
+    {
+
+        var files =  q.files;
+
+        if(files.length)
+
+        {
+
+            console.log(files.length);
+
+            for(var x =0 ;x<files.length;x++ ){
+
+                var file = files[x];
+
+                if(!/image\/\w+/.test(file.type)){
+
+                    alert("文件必须为图片！"+file.type);
+
+                    return ;
+
+                }
+
+            }
+
+            $.ajaxFileUpload({
+
+                url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',
+
+            secureuri:false,
+
+            fileElementId:$(q).attr('id'), //file的id
+
+            dataType:"text", // 返回数据类型为文本
+
+            success:function(data,status){
+
+            console.log(data);
+
+            console.log(status);
+
+            var obj = JSON.parse(data);
+
+            for(var x in obj.result.url){
+
+                $("#select-box").parent().before( baidu.template('tpl-img-box',{data:{img:obj.result.url[x]}}  ));
+
+            }
+
+
+
+        }
+
+        }) ;
+
+        }
+
+    }
+
+</script>
+
+
+
+<div id="opt_body" class="mycontent"  style="display:none;overflow:auto;position: relative;float: left;z-index:10000;margin: 0px;width: 100%; background: #eee;padding-bottom: 50px;">
+
+
+
+    <div id="header" style="background:#fff; color:#000;">
+
+        <table>
+
+            <tr>
+
+                <th style="width:10%;  " align="center"  valign="center" onclick="$(this).parents('.mycontent').hide();$('#big_body').show();" ><</th>
+
+                <th style="width:80%; " align="center" valign="center" >规格</th>
+
+                <th style="width:10%;   background-size:20px 20px; " align="center" valign="center" > </th>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- 内容 -->
+    <p style="width:100%;width: 96%;margin: 7px;" class="mycontent2">
+        <button id="addoption" class="btn btn-success" style="width:100%;z-index: 99999">添加库存+价格</button>
+    </p>
+
+    <button  class="btn btn-success" onclick="$(this).parents('.mycontent').hide();$('#big_body').show();" style="width:100%;position: fixed;bottom: 0%;z-index: 99999;width: 96%;margin: 7px;">提交</button>
+    <div style="clear: both"></div>
+    <!--<div class="box" style="background:rgba(0,0,0,0); padding:0px; margin: 0px; border-bottom:1px solid  rgba(221,221,221,1); overflow-y: auto; overflow-x: hidden;  ">-->
+
+    <!--<ul style="float:left;width:100%;padding:0px;">-->
+
+
+
+    <!--</ul>-->
+
+    <!--</div>-->
+
+
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    var ol1,ol2,ol3;
+
+
+
+    function filloption(obj){
+
+        if(obj.length >= 1){
+
+            $(".first-option-title").val(obj[0].title);
+
+            $(".first-option-stock").val(obj[0].stock);
+
+            $(".first-option-marketprice").val(obj[0].marketprice);
+
+            $(".first-option-productprice").val(obj[0].productprice);
+
+        }
+
+        var html='';
+
+        for (var i = 1; i < obj.length; i++) {
+
+            html+='<div class="form-group form-group-specification" style="margin: 7px;">';
+
+            html+='<div class="input-group" style="width: 100%;">';
+
+            html+='<div class="input-group-addon"  style="width: 24%;line-height: 1.4px;" >规格名</div>';
+
+            html+='<input type="text" class="form-control option-title" name="option['+i+'][title]" value="'+obj[i].title+'" style="width: 100%" placeholder="请输入规格名">';
+
+            html+='</div>';
+
+            html+='<div class="input-group" style="width: 100%;">'
+
+            html+='<div class="input-group-addon"  style="width: 24%;line-height: 1.4px;" >库存</div>';
+
+            html+='<input type="text" class="form-control option-stock" name="option['+i+'][stock]" value="'+obj[i].stock+'" style="width: 100%" placeholder="请输入库存">';
+
+            html+='</div>';
+
+            html+='<div class="input-group" style="width: 100%;">';
+
+            html+='<div class="input-group-addon" style="width: 24%;line-height: 1.4px;" >换货价</div>';
+
+            html+='<input type="text" name="option['+i+'][marketprice]" value="'+obj[i].marketprice+'" class="form-control col-xs-9 option-marketprice" style="width: 100%" placeholder="请输入换货码数量(商家得到是换货码)">';
+
+            html+='</div>';
+
+            html+='<div class="input-group" style="width: 100%;">';
+
+            html+='<div class="input-group-addon" style="width: 24%;line-height: 1.4px;" >市场价</div>';
+
+            html+='<input type="text" name="option['+i+'][productprice]" value="'+obj[i].productprice+'" class="form-control col-xs-9 option-productprice" style="width: 100%" placeholder="请输入市场价">';
+
+            html+='</div>';
+
+            html+='<button class="btn btn-danger btn-block del" style="width:100%;margin-top: 4px">删除此规格</button>';
+
+            html+='</div>';
+
+        }
+
+        $('.mycontent2').before(html);
+
+    }
+
+
+
+    function pcate(){
+
+        $('#big_body').hide();
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            core.pjson('suppliermenu/cate', {type:0}, function(json) {
+
+                console.log(json);
+
+                $('body').append(tpl('tpl-pcate-box',json.result));
+
+
+
+            }, true);
+
+        });
+
+    }
+
+
+
+    function getoption(){
+
+        $('#big_body').hide();
+
+        $('#opt_body').show();
+
+//        require(['tpl', 'core'], function(tpl, core) {
+
+//            $('body').append(tpl('tpl-option-box',null));
+
+//        });
+
+
+
+    }
+
+
+
+
+
+    //    $('body').on('click','#mymodal >',function () {
+
+    //
+
+    //    });
+
+
+
+    //var optionNum=0;
+
+    var optionNum = 1;
+
+
+
+    $('body').on('click','#addoption',function () {
+
+
+
+        var html='<div class="form-group form-group-specification" style="margin: 7px;">';
+
+        html+='<div class="input-group" style="width: 100%;">';
+
+        html+='<div class="input-group-addon"  style="width: 24%;line-height: 1.4px;" >规格名</div>';
+
+        html+='<input type="text" class="form-control option-title" name="option['+optionNum+'][title]" style="width: 100%" placeholder="请输入规格名">';
+
+        html+='</div>';
+
+        html+='<div class="input-group" style="width: 100%;">'
+
+        html+='<div class="input-group-addon"  style="width: 24%;line-height: 1.4px;" >库存</div>';
+
+        html+='<input type="text" class="form-control option-stock" name="option['+optionNum+'][stock]" style="width: 100%" placeholder="请输入库存">';
+
+        html+='</div>';
+
+        html+='<div class="input-group" style="width: 100%;">';
+
+        html+='<div class="input-group-addon" style="width: 24%;line-height: 1.4px;" >换货价</div>';
+
+        html+='<input type="text" name="option['+optionNum+'][marketprice]" class="form-control col-xs-9 option-marketprice" style="width: 100%" placeholder="请输入换货码数量(商家得到是换货码)">';
+
+        html+='</div>';
+
+        html+='<div class="input-group" style="width: 100%;">';
+
+        html+='<div class="input-group-addon" style="width: 24%;line-height: 1.4px;" >市场价</div>';
+
+        html+='<input type="text" name="option['+optionNum+'][productprice]" class="form-control col-xs-9 option-productprice" style="width: 100%" placeholder="请输入市场价">';
+
+        html+='</div>';
+
+        html+='<button class="btn btn-danger btn-block del" style="width:100%;margin-top: 4px">删除此规格</button>';
+
+        html+='</div>';
+
+
+
+        optionNum++;
+
+        $(this).parents('.mycontent .mycontent2').before(html);
+
+    });
+
+
+
+    $('html').on('click','.del',function () {
+
+        $(this).parent().remove();
+
+    });
+
+
+
+
+
+
+
+
+
+    function ccate(a){
+
+        ol1=$(a).text();
+
+        $('#big_body').hide();
+
+        $("input[name='pcate']").val($(a).attr('id'));
+
+
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            core.pjson('suppliermenu/cate', {type:$(a).attr('id')}, function(json) {
+
+                if(json.result.status){
+
+                    $('body').append(tpl('tpl-ccate-box',json.result));
+
+                }else{
+
+                    core.tip.show('没有下级分类');
+
+                }
+
+            }, true);
+
+        });
+
+
+
+    }
+
+
+
+
+
+    function tcate(a){
+
+        ol2=$(a).text();
+
+        console.log(ol1+"-"+ol2);
+
+        $('#big_body').hide();
+
+        $("input[name='ccate']").val($(a).attr('id'));
+
+        $("#getback").text(ol1+"-"+ol2);
+
+        return ol1+"-"+ol2;
+
+    }
+
+
+
+    function dataURLtoBlob(dataurl) {
+
+        var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+
+            bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+
+        while(n--){
+
+            u8arr[n] = bstr.charCodeAt(n);
+
+        }
+
+        return new Blob([u8arr], {type:mime});
+
+    }
+
+
+
+
+
+    function a(status){
+
+
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            $('#big_body').append(tpl('tpl-loading'));
+
+
+
+            var data = {};
+
+            if($("input[name='title']").val()==''){
+
+                $("#loading").remove();
+
+                core.tip.show('商品标题不能为空');
+
+                return;
+
+            }
+
+
+
+            data['title'] = {data:[$("input[name='title']").val()]};
+
+
+
+//        if($("input[name='marketprice']").val()==''){
+
+//          $("#loading").remove();
+
+//          core.tip.show('市场价不能为空');
+
+//          return;
+
+//        }
+
+//        data['marketprice'] = {data:[$("input[name='marketprice']").val()]};
+
+
+
+            /*if($("input[name='productprice']").val()==''){
+
+              $("#loading").remove();
+
+              core.tip.show('原价不能为空');
+
+              return;
+
+            }*/
+
+
+
+//        data['productprice'] = {data:[$("input[name='productprice']").val()]};
+
+
+
+//        if($("input[name='costprice']").val()==''){
+
+//
+
+//          $("#loading").remove();
+
+//          core.tip.show('成本价不能为空');
+
+//          return;
+
+//        }
+
+
+
+//        data['costprice'] = {data:[$("input[name='costprice']").val()]};
+
+            var files = new Array();
+
+            $("input[name='file[]']").each(function(){
+
+                files.push($(this).val());
+
+            });
+
+
+
+            // var opArr= new Array();
+
+//        $("input[name='option[]']").each(function(){
+
+////            opArr.push($(this).val());
+
+//            alert(12312313);
+
+//            console.log($(this));
+
+//        });
+
+            var oparr=[];
+
+            /*$("#opt_body .form-group").each(function(index,item){
+
+                // oparr[index]["marketprice"]=$("input[name='option[" + index + "][marketprice]']").val();
+
+                // oparr[index]["stock"]=$("input[name='option[" + index + "][stock]']").val();
+
+                // oparr[index]["name"]=$("input[name='option[" + index + "][name]']").val();
+
+                var productprice =$("input[name='option[" + index + "][marketprice]']").val();
+
+                var marketprice =$("input[name='option[" + index + "][marketprice]']").val();
+
+                var stock = $("input[name='option[" + index + "][stock]']").val();
+
+                var title = $("input[name='option[" + index + "][title]']").val();
+
+                //eval("(oparr.aa = {marketprice : " + marketprice + ",stock: " + stock + ",title: " + title + "})");
+
+                oparr[index]=productprice +','+ marketprice +','+ stock +','+ title;
+
+                // eval("(oparr."+(index+1)+".marketprice="+marketprice+")");
+
+                // eval("(oparr."+(index+1)+".stock="+stock+")");
+
+                // eval("(oparr."+(index+1)+".title="+title+")");
+
+
+
+               // eval("oparr."+index+"="+{'marketprice':marketprice,'stock':stock,"title" :title});
+
+               // oparr.push({'marketprice':marketprice,'stock':stock,"title" :title});
+
+            });*/
+
+
+
+            //修改 start 修改了页面dom的布局顺序，让主页面的option在更多规格选择伪页面前面,确保编辑状态下第一个添加的规格显示在主页面
+
+            //换货的marketprice和productprice一样
+
+            var null_mark = true;
+
+            $(".form-group-specification").each(function(index,item){
+
+                if($(this).find(".option-title").isEmpty()){
+
+                    null_mark = false;
+
+                }
+
+                var productprice = $(this).find(".option-marketprice").val();
+
+                var marketprice = $(this).find(".option-marketprice").val();
+
+                var stock = $(this).find(".option-stock").val();
+
+                var title = $(this).find(".option-title").val();
+
+                oparr[index]=productprice +','+ marketprice +','+ stock +','+ title;
+
+            });
+
+            if(!null_mark){
+
+                $("#loading").remove();
+
+                core.tip.show('添加的所有规格不能留空');
+
+                return;
+
+            }
+
+            //修改 end
+
+
+
+            data['option[]']={data:oparr};
+
+            /*$("input[name='option[]']").each(function(){
+
+                    oparr.push($(this).val());
+
+            }); */
+
+            // console.log($('[name="option[]"]'));
+
+            console.log(data);
+
+
+
+            data['post[]'] = {data:files };
+
+
+
+            //给pcate和ccate赋值
+
+            $("input[name='pcate']").val($(".parent-cat").val());
+
+            $("input[name='ccate']").val($(".children-cat").val());
+
+
+
+            if($("input[name='pcate']").val()==''){
+
+                $("#loading").remove();
+
+                core.tip.show('分类不能为空');
+
+                return;
+
+            }
+
+
+
+            data['pcate'] = {data:[$("input[name='pcate']").val()]};
+
+
+
+            if($("input[name='ccate']").val()==''){
+
+                $("#loading").remove();
+
+                core.tip.show('分类不能为空');
+
+                return;
+
+            }
+
+            //处理购买量
+
+            if($("input[name='usermaxbuy']").val()==''){
+
+                $("#loading").remove();
+
+                core.tip.show('用户最多购买量不能为空');
+
+                return;
+
+            }
+
+            if($("input[name='maxbuy']").val()==''){
+
+                $("#loading").remove();
+
+                core.tip.show('单次最多购买量不能为空');
+
+                return;
+
+            }
+
+            if(parseInt($("input[name='maxbuy']").val()) > parseInt($("input[name='usermaxbuy']").val())){
+
+                $("#loading").remove();
+
+                core.tip.show('用户最多购买量不能比单次最多购买量小');
+
+                return;
+
+            }
+
+            data['usermaxbuy'] = {data:[$("input[name='usermaxbuy']").val()]};
+
+            data['maxbuy'] = {data:[$("input[name='maxbuy']").val()]};
+
+
+
+            //判断运费这一块
+
+            var dispatchtype = $("input[name='dispatchtype']:checked").val();
+
+            var dispatchprice = $.trim($("#dispatchprice").val());
+
+            var dispatchid = $("#dispatchid").val();
+
+            if(dispatchtype == 1 && dispatchprice.length == 0){
+
+                $("#loading").remove();
+
+                core.tip.show('统一邮费不能为空');
+
+                console.log("dispatchtype： "+dispatchtype+",dispatchprice: " + dispatchprice + ",dispatchid: "+ dispatchid);
+
+                return;
+
+            }
+
+            data['dispatchtype']   = {data:[dispatchtype]};
+
+            data['dispatchprice'] = {data:[dispatchprice]};
+
+            data['dispatchid']  = {data:[dispatchid]};
+
+
+
+            data['ccate']   = {data:[$("input[name='ccate']").val()]};
+
+            data['content'] = {data:[$("input[name='content']").val()]};
+
+            data['status']  = {data:[status]};
+
+//        data['total']   = {data:[$("input[name='total']").val()]};
+
+//        data['weight']  = {data:[$("input[name='weight']").val()]};
+
+
+
+            System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+
+                var fd =  a.append( data);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('POST', '<?php echo $this->createPluginMobileUrl('suppliermenu/dealgoods',array( 'op'=>'post','ac'=>'sub','id'=>$id)) ;?>', true);
+
+                xhr.send(fd);
+
+                xhr.onreadystatechange=function(){
+
+                    if (xhr.readyState==4 && xhr.status==200)
+
+                    {
+
+                        var obj = JSON.parse(xhr.responseText);
+
+
+                        if(!obj)  {core.tip.show('提交失败');return;}
+
+                        if(!obj.result.status) {core.tip.show(obj.result.msg); return;}
+
+                        alert('成功');
+
+                        window.location.href = '<?php echo  $this->createPluginMobileUrl('suppliermenu/goods',array('merch'=>5));?>';
+
+
+
+                    }
+
+                };
+
+                $("#loading").remove();
+
+            });
+
+        });
+
+    }
+
+
+
+</script>
+
+<!--编辑文字图片-->
+

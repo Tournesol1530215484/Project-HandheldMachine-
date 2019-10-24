@@ -1,0 +1,506 @@
+{template 'common/header1116'}
+<title>比赛</title> <!-- 上面使用新的头部模板 header1116 区别:字体图标文件比较新 -->
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/iconfontby.css';?>"/>
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/match_detail.css?2';?>"/>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/match/res/js/jQueryRotate.js';?>"></script>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/foxuitimer.js"></script>
+<style>
+    .z-img{
+        width: 25px;
+        height: 25px;
+        z-index: 101;
+    }
+</style>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">比赛</div>
+    </div>
+    <div class="tab_con">
+        <div class="con {if $_GPC['status']=='' || $_GPC['status']==0}active{/if}" id="con_0">
+            <div class="slide-container">
+                <!-- 轮播图 -->
+                <div class="mui-slider">
+                    <div class="mui-slider-group mui-slider-loop">
+                        <!--支持循环，需要重复图片节点 最大的元素-->
+                        {php $max=count($banner)-1}
+                        {if $banner}
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="{$banner[$max]['link']}"><img src="{php echo tomedia($banner[$max])}" /></a>
+                        </div>      
+                        {/if}                               
+                        {loop $banner $key $val}
+                            <div class="mui-slider-item">
+                                <a href="javascript:void(0);"><img src="{php echo tomedia($val)}" /></a>
+                            </div>                                      
+                        {/loop}                                          
+                        <!--支持循环，需要重复图片节点 最小的元素-->
+                        {if $banner}
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="{$banner[0]['link']}"><img src="{php echo tomedia($banner[0])}" /></a>
+                        </div>          
+                        {/if}                           
+                         <!-- 测试s 到时候去掉 -->
+                         <!-- 测试e 到时候去掉 -->
+                    </div>
+                    <!-- 轮播图圆点 --> 
+                    <div class="mui-slider-indicator">       
+                        {loop $banner $key $val}         
+                            <div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+                        {/loop}
+                        <!-- 测试s 到时候去掉 -->
+                        <!-- 测试e 到时候去掉 -->
+                    </div> 
+                </div>                       
+            </div>
+            <div class="search-signup-box flex-center">
+                <div class="search-box flex-center">
+                    <div class="input-box">
+                        <input type="text" name="keywords" class="keywords" placeholder="按名称或者编号搜索">
+                    </div>
+                    <div class="search-btn">搜索</div>
+                </div>
+                <div class="signup-btn" onclick="location.href='{php echo $this->createPluginMobileUrl('match/match',array('op'=>'apply','id'=>$_GPC['id']))}'">我要报名</div>
+            </div>          
+            <!-- {php echo date('Y-m-d H:i:s', $match['timestart'])} -->
+            <!-- {php echo date('Y-m-d H:i:s', $match['timeend'])} -->
+            <!-- data-now="{php echo date('Y-m-d H:i:s')}" --> 
+            <div id="time-container" class="remaining-time-box flex-center time-labeltext" 
+            data-start-label="距离比赛开始"
+            data-end-label="距离比赛结束"
+            data-end-text='比赛已经结束，下次早点来~'
+            data-start="{$match['ctime']}"
+            data-end="{$match['etime']}"
+            >
+                <div class='label'>距离比赛结束</div>
+                <div class='text'>
+                    <span class="day number"></span><span class="time">天</span><span class="hour number"></span><span class="time">小时</span><span class="minute number"></span><span class="time">分</span><span class="second number"></span><span class="time">秒</span>
+                </div>
+            </div>
+            <div class="list-box">
+                <div class="list-tab flex-box">
+                    <div class="list-tab-item active" data-type="0">最新参与</div>
+                    <div class="list-tab-item" data-type="1">人气选手</div>
+                </div>
+                <ul class="list-ul clearfloat">      
+                    <!-- 下拉加载数据容器 -->
+                </ul> 
+            </div>
+        </div>
+        <div class="con {if $_GPC['status']==1}active{/if}" id="con_1">
+            <div class="list-box1">
+                <div class="hd-box flex-center">
+                    <div class="sortnum-hd nowrap">名次</div>
+                    <div class="avatar-hd nowrap">封面图</div>
+                    <div class="no-hd nowrap">编号</div>
+                    <div class="name-hd nowrap">姓名</div>
+                    <div class="votenum-hd nowrap">点赞数</div>
+                </div>
+                <ul class="list-ul1 clearfloat">      
+                    <!-- 排行榜下拉加载数据容器 -->
+                </ul> 
+            </div>
+        </div>                      
+        <div class="con detail-content-box can-user-select {if $_GPC['status']==2}active{/if}" id="con_2">
+            <div class="detail-content">
+                <!-- 评选详情内容 内置标签在这里赋值-->
+                {php echo html_entity_decode($match['content'])}
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; height: 50px;"></div>
+    {template 'common/nav_matchdetail'}
+    <div class="go-to-top-con">
+        <a class="gotop" id="gotop" data-i=""><i class="fa fa-caret-up icon-block" aria-hidden="true"></i>TOP</a>
+    </div>
+    <!-- 音乐音频部分 有则显示，无则不显示下面的dom元素-->
+    {if $match['bgm'] &&false}
+    <div id="audio_btn" class="video_exist rotate" data-event="11205" style="display: block;" onclick="playmusic()">
+        <i id="audio_img" class="fa fa-music" aria-hidden="true" style="transform: rotate(0deg); transform-origin: 50% 50% 0px;"></i>
+        <audio loop="" src="{php echo tomedia($match['bgm'])}" id="media" autoplay="autoplay" preload=""></audio>
+    </div>
+    {/if}
+    {if $match['bgm'] &&true}
+        <div id="audio_btn" class="video_exist rotate" data-event="11205" style="display: block;" onclick="playmusic()">
+            <i id="audio_img" class="fa fa-music" aria-hidden="true" style="transform: rotate(0deg); transform-origin: 50% 50% 0px;"></i>
+            <audio loop="" src="{php echo tomedia($match['bgm'])}" id="media" autoplay="autoplay" preload=""></audio>
+        </div>
+    {/if}
+</div>           
+<!-- 两种模板 参赛者记录 或者 参赛者记录暂无数据为空 -->
+<script id="tpl_list" type="text/html">
+    <%each list as g%>
+        <li class="list-item">              
+            <div class="list-item-wrapper">              
+                <a href="<%g.link%>" class="link-box" style="display: block;text-decoration: none;">
+                <div class="pic-box"><!-- 图片 如果是空的,则显示默认图片 -->
+                    <img class="pic" src="<%if g.thumbs && g.thumbs != 'undefined'%><%g.thumbs[0]%><%else%>../addons/sz_yi/plugin/match/template/mobile/default/images/default_activity.png<%/if%>">                                                 
+                    <div class="wechat-name nowrap"><%g.sgno%>号
+                        <%g.data.name.data%>
+                    </div><!-- 参赛号码+姓名 -->
+                </div>                                      
+                </a>                                
+                <div class="bottom-box flex-center">
+                    <div class="vote-btn" data-id="<%g.id%>">点赞</div>
+                    <div class="nowrap vote-num">  <!-- 显示票数 -->
+                        <%g.vote%> <img class="z-img" src="../addons/sz_yi/plugin/match/res/images/a2.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </li>
+    <%/each%>
+</script>
+<script id="tpl_null" type="text/html">
+    <div class="no-list">暂无参赛者</div>
+</script>
+<!-- 排行榜记录模板 -->
+<script id="tpl_sort" type="text/html">
+    <%each list as g index%>
+    <li class="record-item">            
+        <a class="flex-center record-item-link" href="<%g.link%>"><!-- 这里赋值参赛选手页面链接 -->
+            <div class="sort-num-box nowrap">
+                <%if g.no == 1%>
+                    <i class="iconfontby icon-huangguanguanjundiyihuiyuan icon-size" style="color: #f2ea2b;font-weight: bold;"></i>
+                <%else if g.no == 2%>
+                    <i class="iconfontby icon-huangguanguanjundiyihuiyuan icon-size" style="color: #e19520;font-weight: bold;"></i>
+                <%else if g.no == 3%>
+                    <i class="iconfontby icon-huangguanguanjundiyihuiyuan icon-size" style="color: #bfbfbf;font-weight: bold;"></i>
+                <%/if%> <%g.no%>  
+            </div> <!-- 排行名次 -->                                              
+            <div class="avatar-box">
+                <img class="avatar-cot" src="<%g.thumbs[0]%>"> <!-- 头像 -->
+            </div>
+            <div class="no-box nowrap"><%g.sgno%></div>
+            <div class="name-box nowrap"><%g.data.name.data%></div>
+            <div class="votenum-box nowrap"><%g.vote%></div>
+        </a>            
+    </li>
+    <%/each%>           
+</script>
+<script type="text/javascript">
+    //浏览
+    $.post('{php echo $this->createPluginMobileUrl("activity/index",array("op"=>"browse"))}',{id:'{$_GPC["id"]}',type:'5'},function(e){},'json');
+    var loaded = false;         
+    var stop = true;
+    var loaded1 = false;
+    var stop1 = true;
+    //测试
+    /*var def_args = args  = {
+        page:"{$_GPC['page']}",
+        keywords: "{$_GPC['keywords']}",
+        province: "广东省",
+        city: "广州市",
+        ac:'get',
+        status:'3'
+    };  */
+    //参赛者提交数据 //这里用type,不用status,因为下面底部的固定栏菜单用status
+    var def_args = args  = {
+        page:1,         
+        id: "{$_GPC['id']}",
+        op:'{$_GPC['op']}',
+        ac:'get'
+    };  
+    //排行版提交数据
+    //测试
+    /*var args1  = {
+        page: 1,                   
+        ac:'get',                                                   
+        op:'sort',                                                   
+        status:'3{$_GPC['status']}',
+        time: 4     
+    }; */
+    var args1  = {
+        page: 1,                   
+        ac:'get',   
+        id:'{$_GPC['id']}',                                                
+        op:'sort'                   
+    }; 
+    require(['tpl', 'core', '../addons/sz_yi/plugin/match/res/js/masonry.pkgd.min.js','../addons/sz_yi/plugin/match/res/js/jquery-bridget.js', '../addons/sz_yi/plugin/match/res/js/imagesloaded.pkgd.min.js'], function(tpl, core, Masonry, jQueryBridget, jQuery) {
+        $.bridget( 'masonry', Masonry );
+        //轮播图
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+          interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+        });
+        menushowheight();
+        rotation();
+        {if $match['bgm']}
+            //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以 
+            document.getElementById('media').play();
+            //微信必须加入Weixin JSAPI的WeixinJSBridgeReady才能生效 
+            require(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js'],function(wx){
+                wx.ready(function() {
+                    document.getElementById('media').play(); 
+                    core.tip.show("音乐自动播放成功");
+                });
+            });
+        {/if}
+        $(window).scroll(function() {
+            menushowheight();  
+        });
+        $("#gotop").click(function(){
+            $("html,body").stop().animate({scrollTop: 0}, 500);
+        });
+        //切换标签
+        /*$(".nav-item-tab").unbind("click").click(function(){
+            var type = $(this).data("type");
+            if(type == 0 || type == 1){
+                $(".match-page").removeClass("hidden-box");
+                $(".activity-page").addClass("hidden-box");
+            }else if(type == 2){
+                $(".match-page").addClass("hidden-box");
+                $(".activity-page").removeClass("hidden-box");
+            }
+            $('#con_'+type).show().addClass('active');
+            $('#con_'+type).siblings().hide().removeClass('active');
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+        });*/
+        //获取参赛者 strat
+        getMatchs(true);
+        function getMatchs(mark) {
+            core.pjson('match/match', args, function (json) {
+                if(mark){
+                    $('.list-ul').html(tpl('tpl_list',json.result));
+                    bindMasonryEvent();                 
+                    bindEvent();
+                }else{          
+                    $('.list-ul').html("");         
+                    $('#list_loading').remove();
+                    var $content = $(tpl('tpl_list',json.result));
+                    $('.list-ul').append($content);
+                    bindEvent();                                            
+                    $content.imagesLoaded(function(){
+                        $('.list-ul').masonry("appended",$content,true);
+                        $('.list-ul').masonry('reloadItems').masonry('layout');
+                    });
+                }
+                if (json.result.list.length <= 0) {
+                    loaded = true;
+                    $(window).scroll = null;
+                    $(".list-box .list-ul").html(tpl('tpl_null'));
+                    return;
+                }
+                stop =true;
+                bindMore();
+            }, true);
+        }
+        function getMatchMore() {
+            core.pjson('match/match', args, function (json) {
+                var $content = $(tpl('tpl_list',json.result));
+                $('.list-ul').append($content);
+                bindEvent();
+                $content.imagesLoaded(function(){
+                    $('.list-ul').masonry("appended",$content,true);
+                });
+                $('#list_loading').remove();
+                //这里的pagesize必须大一点，现在的五个有bug出现
+                //if(json.result.list.length <json.result.pagesize) {
+                if (json.status == 0){
+                    $('.list-box').append('<div id="list_loading">已经加载全部参赛者</div>');
+                    loaded = true;
+                    $(window).scroll = null;
+                    return;
+                }
+                stop=true;
+                bindMore();   
+            });
+        }
+        function bindMore() {
+            $(window).scroll(function () {
+                if (loaded) {
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+                if ($(document).height() <= totalheight) {
+                    if (stop == true) {
+                        stop = false;
+                        $('.list-box').append('<div id="list_loading"><i class="fa fa-spinner fa-spin"></i> 正在加载更多参赛者</div>');
+                        if(args.page=='' || args.page=='undefined'){
+                            args.page = 1;
+                        }
+                        args.page++;
+                        getMatchMore();
+                    }
+                }
+            });
+        }
+        //瀑布流事件
+        function bindMasonryEvent(){
+            /*响应式瀑布流实现关键代码*/
+            var $grid = $('.list-ul').masonry({
+                itemSelector: '.list-item',
+                isAnimated: true  /*启用动画效果*/
+            });
+            $grid.imagesLoaded().progress(function(){
+                $grid.masonry('layout');
+            });
+        }
+        function bindEvent(){               
+            $(".vote-btn").unbind("click").click(function(e){
+                if($(this).attr('submitting') == '1') { 
+                    return; 
+                }
+                var participant_id = $(this).data("id");//获取参赛者id
+                $(this).attr('submitting', 1);
+                //到时候该异步请求url                                       
+                core.pjson('match/match', {op:'vote',type:1,sgid:participant_id,id:'{$_GPC['id']}'}, function(json) {
+                    //json.status 这里的标识字段随便取，跟后台返回的对应就可以了
+                    if (json.status == 1) {
+                        $('.vote-btn').removeAttr('submitting');                             
+                        core.tip.show('操作成功','bottom',500);
+                        window.location.reload();
+                        return;      
+                    }               
+                    $('.vote-btn').removeAttr('submitting');
+                    core.tip.show(json.result,'bottom',500);
+                }, true);
+            });
+        }                                
+        //获取参赛者 end
+        $('.search-btn').unbind('click').click(function(){
+            if($('.keywords').isEmpty()){
+                core.tip.show('请输入搜索词');
+                return false;
+            }
+            var keywords = $.trim($('.keywords').val());
+            //测试
+            // args  = {
+            //     page:1,
+            //     keywords: keywords,
+            //     province: args.province,
+            //     city: args.city,
+            //     ac:'get',
+            //     status:'2'
+            // };
+            args  = {
+                page:1,
+                ac:'get',
+                op:'detail',
+                id:{$_GPC['id']},
+                keywords: keywords,
+            };
+            loaded = false;
+            stop = true;
+            getMatchs(false);
+        });
+        $(".list-tab-item").click(function(){
+            if($(this).hasClass("active")){
+                return;
+            }
+            $(this).addClass("active").siblings().removeClass("active");
+            var type = $(this).data("type");
+            //测试
+            // args  = {
+            //     page:1,
+            //     province: "湖北省",
+            //     city: "武汉市",
+            //     ac:'get',
+            //     status: status
+            // };
+            args  = {
+                page:1,             
+                ac:'get',
+                type: type,
+                op:'detail',
+                id:{$_GPC['id']},
+            };
+            loaded = false;
+            stop = true;
+            getMatchs(false);
+        });
+        //获取排行榜
+        getSortList();          
+        //排行榜 改异步请求连接
+        function getSortList(){
+            core.pjson("match/match", args1, function(json) {
+                if (json.result.list.length <= 0) {
+                    loaded1 = true;
+                    $(window).scroll = null;
+                    $(".list-ul1").html(tpl('tpl_null'));
+                    return;
+                }            
+                $(".list-ul1").html(tpl("tpl_sort",json.result));
+                loaded1 = false;
+                stop1 =true;         
+                getSortMore();
+            }, true);
+        }
+        //排行榜 改异步请求连接
+        function getSortMore(){
+            $(window).scroll(function () { 
+                if(loaded1){
+                    return;
+                }
+                totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+                if($(document).height() <= totalheight) {
+                    if(stop1==true){ 
+                        stop1=false;
+                        $('.list-ul1').append('<div id="list_loading1"><i class="fa fa-spinner fa-spin"></i> 正在加载更多记录</div>');      
+                        args1.page++;
+                        core.pjson("activity/center", args1, function(morejson) {
+                            $(".list-ul1").append(tpl("tpl_sort", morejson.result));
+                            $('#list_loading1').remove();
+                            //到时候返回数据用下面这种数据结构(这种前端比较容易纠错) 或者status          
+                            if (morejson.result.list.length <morejson.result.pagesize) {
+                                $('.list-ul1').append('<div id="list_loading1">已经加载全部</div>');
+                                loaded1 = true;
+                                $(window).scroll = null;
+                                return;
+                            }
+                            stop1 = true;               
+                            getSortMore();
+                        },true); 
+                    } 
+                }
+            });
+        } 
+    });
+    function menushowheight(){
+        var bt=$(window).scrollTop();
+        if(bt>=400){
+            $("#gotop").slideDown(200);
+            $("#gotop").attr({"data-i":"1"});
+        }else{
+            $("#gotop").slideUp(200);
+            $("#gotop").attr({"data-i":""});
+        }
+    }
+    function playmusic()
+    {
+        var media = document.getElementById("media");
+        if(media.paused){
+            rotation();
+            media.play();
+        }else{
+            $('#audio_img').rotate({angle:0,callback:"",animateTo:0});
+            $("#audio_img").stopRotate();
+            media.pause();
+        }
+    }
+    function rotation(){
+        $("#audio_img").rotate({
+            angle:0, 
+            animateTo:360, 
+            callback: rotation,
+            easing: function (x,t,b,c,d){      
+                return c*(t/d)+b;
+            }
+        });
+    }
+    $(function(){
+        if ($('#time-container').length > 0) {
+            $('.time-labeltext').timer({
+                onEnd: function() {
+                    location.reload()
+                },
+                onStart: function() {
+                    location.reload()
+                }
+            })
+        }
+    });
+</script>
+{template 'common/footer'}

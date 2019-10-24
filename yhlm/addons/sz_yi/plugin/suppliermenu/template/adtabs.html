@@ -1,0 +1,23 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    <li {if $_GPC['op'] == 'post'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/ad',array('op'=>'post'))}">新增广告</a></li>
+    <li {if $_GPC['op'] == 'draft'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/ad',array('op'=>'draft'))}">草稿箱</a></li>
+    <li {if $_GPC['op'] == 'list'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/ad',array('op'=>'list'))}">广告列表</a></li>
+    <li {if $_GPC['op'] == 'code'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/ad',array('op'=>'code'))}">换货码投放列表</a></li>
+    <li {if $_GPC['op'] == 'bonus'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('suppliermenu/ad',array('op'=>'bonus'))}">红包投放列表</a></li>
+
+     {if $_GPC['method'] == 'ad' && $_GPC['op'] == 'more'}
+    <li {if $_GPC['method'] == 'ad' && $_GPC['op'] == 'more'}class="active"{/if}>                                 
+        <a href="javascript:void(0);">拆红包详情</a>         
+    </li>           
+    {/if} 
+
+    {if $_GPC['method'] == 'ad' && $_GPC['op'] == 'palyDetail'}
+    <li {if $_GPC['method'] == 'ad' && $_GPC['op'] == 'palyDetail'}class="active"{/if}>                                 
+        <a href="javascript:void(0);">播放详情</a>                                 
+    </li>                                
+    {/if}        
+
+
+</ul>
+</div>

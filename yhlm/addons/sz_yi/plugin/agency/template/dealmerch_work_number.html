@@ -1,0 +1,42 @@
+﻿{template 'common/header'}
+{template 'tabs'}
+<div class="panel panel-info">
+    <div class="panel-heading">开户工号管理</div>
+    <select name="uid" class="form-control">
+        {loop $merch $row}
+        <option value="{$row['uid']}">{$row['username']}/{$row['realname']}/{$row['merchname']}</option>
+        {/loop}
+    </select>
+    <div class="panel-body">
+        <table >
+            <tr style="; margin-left: 15px;">
+                <td style="display: block ; margin-bottom: 15px;">所属易货渠道 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">所属易货运营商/经纪人 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">运营商/经纪人工号 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">运营商/经纪人电话 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">易货开拓工号 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">开拓日期 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">易货服务工号 : <span></span></td>
+                <td style="display: block; margin-bottom: 15px;">服务开始时间 : <span></span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</div>
+</div>
+<script>
+    $('[name="uid"]').change(function () {
+        var uid=$(this).val();
+        $.post(
+            '{php echo $this->createPluginWebUrl("dealmerch/dealmerch_work_number",array("op"=>"getinfo"))}',
+            {uid:uid},
+            function (data) {
+                $('tr td:nth-child(1) span').html(data.result.city);
+                $('tr td:nth-child(2) span').html(data.result.operat);
+                $('tr td:nth-child(4) span').html(data.result.operatmobile);
+
+            },'json');
+    });
+</script>
+{template 'common/footer'}

@@ -1,0 +1,457 @@
+{template 'common/header'}
+<title>论坛中心</title>
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.min.css">
+<link rel="stylesheet" href="../addons/sz_yi/plugin/match/res/css/mui.picker.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MODULE_URL.'plugin/match/res/css/match.css?'.time();?>" />
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/plugin/match/res/js/mui.picker.min.js"></script>
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+<!-- 位置相关 -->
+<!-- <script src="../addons/sz_yi/plugin/match/res/js/jquery.cookie.js"></script> -->
+<script src="../addons/sz_yi/plugin/match/res/js/cookie.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2SxShLokVzpxylYYQXNvr4WEQnO5wD8E"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<style type="text/css">
+    body{
+        background: white
+    }
+    p{margin:0;}
+    .search-box .activity-search-inp,.search-box .activity-search-btn,.search-box .activity-search-inp .keywords{
+        background: #eee
+    }
+    .search-box .activity-search-inp{
+        width: calc(100% - 145px);
+        /*width: 80%;*/
+        border-top-right-radius: 5px;border-bottom-right-radius: 5px;border-top-left-radius: 0px;border-bottom-left-radius: 0px
+    }
+    .search-box .activity-search-btn{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px
+    }
+    .mui-slider .mui-slider-group .mui-slider-item img{
+        height: 130px;
+    }
+    .kinds{
+        position: relative;
+    }
+    .kinds-top{
+        border-bottom: 3px solid #eee;
+        margin: 0 0 5px 0;
+        padding: 8px 0;
+    }
+    .kinds-top img{
+        width: 60px;
+        height: 55px;
+        position: absolute;
+        left: 10px;
+        top: -30px;z-index: 9;
+    }
+    .kinds-top p {
+        padding-left: 85px;
+    }
+    .kinds-top p a{
+        float: right;
+        margin-right: 10px;
+        color: #333;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .kinds-kind{
+        padding: 0 10px 13px 10px;
+        margin: 13px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .kinds-kind span{
+        width: 20%;
+        margin: 4px 2%;
+        display: inline-block;
+        line-height: 24px;
+        border: 1px solid #009BF8;
+        text-align: center;
+        font-size: 13px;box-shadow: 0px 0px 0.01px 0px #009BF8;
+    }
+    .kinds-kind span.active{
+        background:#009BF8;color:white;box-shadow: 0px 0px 0.01px 0px white;
+    }
+    .list-box>ul{
+        background: #f0f0f0
+    }
+    .list-box li{
+        margin:10px 0;position: relative;background: white;padding:10px;
+    }
+    .list-box li .li-top{
+        display: flex;position: relative;
+    }
+    .list-box li .li-top img{
+        width: 50px;height:50px;border-radius: 50%;    position: relative;
+        top: -6px;
+    }
+    .list-box li .li-top .user-info{
+        margin:0 10px;color:#999;
+    }
+    .list-box li .li-top .edit{
+        position: absolute;
+        right: 10px;
+        font-size: 21px;
+        font-weight: bold;
+        height: 34px;
+        width: 35px;
+        text-align: center;
+    }
+    .li-content{
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .li-content .content-title{
+        color: #333;
+        margin: 3px 0;
+    }
+    .li-content .content video{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /*视频控件*/
+    .progressTime{
+        width: 80%;
+        margin-top: 6px;
+        margin-right: 10px;
+    }
+    .progressBar
+    {
+       position: relative;
+       width: 100%;
+       height:10px;
+       background-color: #000;
+    }
+    .timeBar
+    {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 0;
+       height: 100%;
+       background-color: rgba(255,255,255,.5);border-top-right-radius:25px;border-bottom-right-radius:25px
+    }
+    /*小方块*/
+    /*.timeBari{
+        display: inline-block;
+        width: 30px;height: 100%;border-radius:50px;float: right;background: white;
+    }*/
+    .control{
+        display: none;
+    }
+    .control img{
+        width: 25px;
+    }
+    .search-container img{
+        width: 19px;
+        height: 19px;
+        position: relative;
+        top: 0px;
+        margin: 0 2px;
+    }
+    .search-box .activity-user-btn1{
+        display: flex;    width: 80px;    justify-content: center;
+    }
+    .search-box .qiandao{
+        background: #15b2eb;color:white;
+    }
+    .search-box .qiandao img{
+        height: 17px;
+        width: 18px;
+    }
+    .activity-user-btn1 .activity-bg1{
+        font-size: 14px;line-height: 35px
+    }
+    .icon1{
+        width: 20px;
+        position: relative;
+        top: -1px;margin: 0 6px;
+    }
+    .pinglun , .zan{
+        position: absolute;
+        bottom: -15px;
+    }
+    .pinglun{
+        right: 70px;
+    }
+    .zan{
+        right: 10px;
+    }
+    .zan img{width: 17px;top: -2px;}
+    .li-foot,.li-foot ul{
+        display: flex;width: 100%;
+    }
+    .li-foot li{
+        flex:1;text-align: center;    margin: 10px 0 0 0;
+        padding: 0;border-right: 1px solid #eee;
+    }
+    .li-foot li:nth-of-type(4){
+        border:none;
+    }
+    .fa-user{
+        /*position: relative;
+        top: 9px;*/
+    }
+</style>
+<div class="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">论坛中心</div>
+    </div>
+    <div class="search-container">
+        <div class="search-box flex-center">
+            <div class="activity-user-btn1">
+                <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/adress.png">
+                <span class="current-city"></span>
+            </div>
+            <div class="activity-search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <div class="activity-search-inp">
+                <input type="text" name="keywords" id="keywords" class="keywords" placeholder="请输入标题搜索">
+            </div>
+
+            <div class="activity-user-btn" onclick="location.href='{php echo $this->createPluginMobileUrl('activity/center')}'">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <!-- <img src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/qiandao.png"> -->
+               <span class="activity-bg">每日打卡</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 轮播图 -->
+    <div class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <!--支持循环，需要重复图片节点 最大的元素-->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <img src="https://f11.baidu.com/it/u=2282481429,82123937&fm=72">
+            </div>
+            {php $max=count($banner)-1}
+            {if $banner}
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="{$banner[$max]['link']}"><img src="{php echo tomedia($banner[$max]['thumb'])}" /></a>
+            </div>
+            {/if}
+            {loop $banner $key $val}
+            <div class="mui-slider-item">
+                <a href="{$val['link']}"><img src="{php echo tomedia($val['thumb'])}" /></a>
+            </div>
+            {/loop}
+            <!--支持循环，需要重复图片节点 最小的元素-->
+            {if $banner}
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="{$banner[0]['link']}"><img src="{php echo tomedia($banner[0]['thumb'])}" /></a>
+            </div>
+            {/if}
+        </div>
+        <!-- 轮播图圆点 -->
+        <div class="mui-slider-indicator">
+            {loop $banner $key $val}
+            <div class="mui-indicator {if $key == 0} mui-active{/if}"></div>
+            {/loop}
+        </div>
+    </div>
+    <!-- 类别 -->
+    <div class="kinds">
+        <div class="kinds-top">
+            <img src="https://f11.baidu.com/it/u=2282481429,82123937&fm=72">
+            <p>话题&nbsp;{$forumtotal}&nbsp;访问&nbsp;{$pingluntotal}
+                <a href="{php echo $this->createMobileUrl('shop')}">平台首页</a></p>
+        </div>
+        <div class="kinds-kind">
+            <span {if empty($_GPC['type'])}class="active"{/if} data-type=''>全部</span>
+            {loop $cate $v}
+            <span {if $_GPC['type']==$v['id']}class="active"{/if} data-type='{$v['id']}'>{$v['title']}</span>
+            {/loop}
+
+        </div>
+    </div>
+
+    <div class="list-box">
+        <ul class="list-ul">
+            <!-- 下拉加载数据容器 -->
+            {if count($list)>0}
+            {loop $list $v}
+            <li data-id='{$v['id']}' >
+                <!-- 用户信息及帖子操作 -->
+                <div class="li-top">
+                    {if empty($v['avatar'])}
+                    <img src="https://f11.baidu.com/it/u=2282481429,82123937&fm=72">
+                    {else}
+                    <img src="{$v['avatar']}">
+                    {/if}
+                    <div class="user-info">
+                        <p>{$v['realname']}</p>
+                        <p>{php echo date('m-d H:i',$v['ctime'])}</p>
+                    </div>
+                    <span class="edit">···</span>
+                </div>
+                <!-- 帖子内容 -->
+                <div class="li-content" onclick='location.href="{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>'detail','id'=>$v['id']))}"'>
+                    <p class="content-title">{$v['title']}</p>
+                    <p class="content">
+                        {$v['content']}
+                    </p>
+                    <!-- <span class="pinglun" >
+                        <img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/pinglun.png">58
+                    </span>
+                    <span class="zan">
+                        <img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan0.png">12
+                    </span> -->
+                </div>
+                <div class="li-foot">
+                    <ul>
+                        <li onclick='location.href="{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>'detail','id'=>$v['id']))}"'><img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zhuan.png">详情</li>
+                        <li onclick='location.href="{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>'reward','id'=>$v['id']))}"'><img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/shang.png">打赏</li>
+                        {if empty($v['exist'])}
+                        <li class="praise-btn-item" data-id="{$v['id']}"><img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan1.png">点赞1</li>
+                        {else}
+                        <li class="praise-btn-item" data-id="{$v['id']}"><img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png" >点赞</li>
+
+                        {/if}
+                        <li onclick='location.href="{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>'detail','id'=>$v['id']))}"'><img class="icon1" src="../addons/sz_yi/plugin/bartact/template/mobile/default/img/pinglun.png">评论</li>
+                    </ul>
+                </div>
+            </li>
+            <!-- <hr> -->
+            {/loop}
+            {else}
+            <div style="text-align: center"><span>暂无论坛信息</span></div>
+            {/if}
+        </ul>
+    </div>
+    <div style="width: 100%; height: 55px;"></div>
+    {template 'nav_forum'}
+</div>
+
+<script type="text/javascript">
+    function getSearch(keywords,type){
+//        console.log(keywords,type)
+//        $.ajax({
+//            url:"{php echo $this->createPluginMobileUrl('bartact/forum')}",
+//            type:"post",
+//            data:{keywords:keywords,type:type},
+//            dataType:"json",
+//            success:function(data){
+//                console.log(data)
+//            },error:function(e){
+//
+//            }
+//        })
+      window.location.href="{php echo $this->createPluginMobileUrl('bartact/forum')}&key="+keywords;
+    }
+    $('.activity-search-btn').click(function(){
+        var type = $('.kinds-kind .active').data('type');
+        var keywords = $('#keywords').val();
+        window.location.href="{php echo $this->createPluginMobileUrl('bartact/forum')}&key="+keywords;
+//        getSearch(keywords,type)
+    })
+    $('.kinds-kind span').click(function(){
+        // 获取选择的种类
+        var type = $(this).data('type');
+        var keywords = $('#keywords').val();
+
+        $(this).addClass('active').siblings().removeClass('active');
+        window.location.href="{php echo $this->createPluginMobileUrl('bartact/forum')}&type="+type;
+//        getSearch(keywords,type)
+    })
+//    $('.list-box').on('click','li',function(){
+//        var id = $(this).data('id');
+//        console.log(id)
+//        window.location.href="{php echo $this->createPluginMobileUrl('bartact/forum',array('op'=>'detail'))}"
+//    })
+    $('.list-box').on('click','.zan',function(){
+
+        console.log($(this).find('img').attr('src'))
+        if($(this).find('img').attr('src') == '../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png'){
+            // zanStatus = true;
+            $(this).find('img').attr({'src':'../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan0.png'})
+        }else{
+            // zanStatus = false;
+            $(this).find('img').attr({'src':'../addons/sz_yi/plugin/bartact/template/mobile/default/img/zan.png'})
+        }
+
+    })
+    // 阻止跳转
+    $('video').click(function(e){
+        e.stopPropagation()
+    })
+
+    $(".praise-btn-item").click(function(){
+        if ($(this).attr('submitting') == '1') {
+            return;
+        }
+        var id = $(this).data('id');
+
+        var op = "like";
+        $(this).attr('submitting', 1);
+        $.ajax({
+            url:"{php echo $this->createPluginMobileUrl('bartact/forum')}",
+            type:"post",
+            data:{op:op,id:id},
+            dataType:"json",
+            success:function(data){
+                if(data.status==1){
+                    alert("点赞成功");
+                }else{
+                    alert("你已经点赞过了");
+                }
+            },error:function(e){
+
+            }
+        })
+//        core.pjson('bartact/forum', {op:'like',id:id}, function(json) {
+//            //json.status 这里的标识字段随便取，跟后台返回的对应就可以了
+//            if (json.status == 1) {
+//                $('.praise-btn-item').removeAttr('submitting');
+//                core.tip.show('点赞成功','bottom',500);
+//                $(".praise-user-ul").append(tpl('tpl_praise',json.result));
+//                return;
+//            }
+//            $('.praise-btn-item').removeAttr('submitting');
+//            core.tip.show('你已经加油过了','bottom',500);
+//        }, true);
+    });
+    getPosition();
+    function getPosition(){
+        var myComponents2;
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                var rp = new BMap.Point(r.point.lng,r.point.lat);
+                lng = r.point.lng; //lng
+//                        console.log(lng);
+                lat = r.point.lat; //lat
+                var gc = new BMap.Geocoder();
+                gc.getLocation(rp,function(rs){
+                    var addComp = rs.addressComponents;
+                    //区不准
+                    //alert('您的位置：'+addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street);
+                    myComponents2=addComp.district;
+                    //console.log("baidu: "+myComponents2);
+                    city = addComp.city;
+//                        console.log(city);
+                    page = 1;
+                    loaded = false;
+                    stop = true;
+                    $(".current-city").html(city);
+                    changeLoading();
+
+                    getActivitys();
+
+                    cascdeInit(province,city,'');
+                });
+            }
+            else {
+                city = "武汉市";
+                $(".current-city").html(city);
+            }
+        },{enableHighAccuracy: true});
+
+    }
+</script>

@@ -1,0 +1,115 @@
+{template 'common/header'}
+{template 'tabs'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <div class='panel panel-default'>
+        <div class='panel-heading'>供应商设置</div>
+        <div class='panel-body'>
+            <div class="form-group">
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	                <label class="col-xs-12 col-sm-3 col-md-3 control-label">开启会员申请供应商</label>
+	                <div class="col-sm-9 col-xs-12">
+	                    <label class="radio-inline"><input onclick="showtip(0)" type="radio"  name="setdata[switch]" value="0" {if $set['switch'] ==0} checked="checked"{/if} /> 关闭</label>
+	                    <label class="radio-inline"><input onclick="showtip(1)" type="radio"  name="setdata[switch]" value="1" {if $set['switch'] ==1} checked="checked"{/if} /> 开启</label>
+                        <br><br>
+                        &nbsp &nbsp<span id="tip" style="font-size:10px; color:red; {if $set['switch'] ==0} display: none;{/if}"><font style="font-size:20px; color:red;">*</font>商城开启供应商功能后，商品须设置为包邮。商城后台已作提醒，为避免造成不必要的错误，请按提示操作。</span>
+	                </div>
+	            </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">供应商权限设置</label>
+            <div class="col-sm-9">
+
+
+               <?php foreach($power as $key => $value){?>
+
+
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="{$key}" name="power[{$key}]" {if !empty($_power[$key])}checked {/if}>{$value}
+                    </label>
+
+
+               <?php }?>
+ 
+            </div>
+        </div>
+
+<div class='panel panel-default'>
+        <div class='panel-heading'>商家设置</div> 
+        <div class='panel-body'>
+            <div class="form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-xs-12 col-sm-3 col-md-3 control-label">开启会员申请商家</label>
+                    <div class="col-sm-9 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="setdata[storeswitch]" value="0" {if $set['storeswitch'] ==0} checked="checked"{/if} /> 关闭</label>
+                        <label class="radio-inline"><input type="radio"  name="setdata[storeswitch]" value="1" {if $set['storeswitch'] ==1} checked="checked"{/if} /> 开启</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">商家权限设置</label>
+                <div class="col-sm-9">
+
+
+                   <?php foreach($power as $key => $value){?>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="{$key}" name="storepower[{$key}]" {if !empty($storepower[$key])}checked {/if}>{$value}
+                        </label>
+                   <?php }?>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">分销佣金比例</label>
+            <div class="col-sm-2">
+                <div class="input-group">
+                  <input type="text" name="brokerage" class="form-control" value="{$set['moneyratio']}"  />
+                  <div class="input-group-addon">%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+          <div class="col-sm-4">
+            <div class="input-group"></div>
+            <span class='help-block'>请输入0-100的数字，推荐制造商佣金采用此比例</span> </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="col-sm-9">
+                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+
+
+ 
+
+
+
+
+
+    </div>
+</form>
+</div>
+</div>
+<script language='javascript'>
+    function showtip(n) {
+        if (n == 1) {
+            var tip = document.getElementById('tip');
+            tip.style.display = "block";
+        } else {
+            var tip = document.getElementById('tip');
+            tip.style.display = "none";
+        }
+    }
+</script>
+{template 'web/_footer'}

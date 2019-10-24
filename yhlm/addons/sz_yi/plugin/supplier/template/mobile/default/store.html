@@ -1,0 +1,311 @@
+{template 'common/header'}
+<title>商家列表</title>
+{if $op == 'list'}
+<style type="text/css">
+	html,body{
+		width:100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	/*.headermes{
+		width: 100%;
+		height: 54px;
+		display: flex;
+		display: -webkit-flex;
+		align-items: center;
+		-webkit-align-items: center;
+		background: #eee;
+		
+	}
+	.headermes 	input{
+		width: 86%;
+		height:40px;	
+		border-radius:5px ;
+		padding-left:12px ;
+		border: 1px solid #ccc;
+		display: flex;
+		margin-top: 3px;
+		align-items: center;
+		display: -webkit-flex;
+		-webkit-align-items: center;
+		line-height: 40px;
+		
+	}*/
+	#inputsele::-webkit-input-placeholder{
+		color: #555;
+		font-weight: 650;
+		font-size: 16px;
+		
+	}
+	.contents .contents_list{
+		height: 91px;
+		border-bottom: 1px solid #eee;
+		width: 92%;
+		margin: 0 auto;
+		line-height: 91px;
+	}
+
+
+	.contents_list >div{
+	   float: left;
+	}
+	
+	.contents_list_left{
+		display: flex;
+		display: -webkit-flex;
+		justify-content: center;
+		-webkit-justify-content: center;
+		width:80%;
+		height:80px;
+		
+	
+	}
+	.contents_list_rigth{
+		width: 20%;
+		height:91px;
+		line-height:91px;
+	}	
+	#spanbtn{
+		display:inline-block;
+		width:95%;
+		height: 30px;
+		color: #31A4F0;
+		border: 1px solid #31A4F0;
+		text-align: center;
+		line-height: 30px;
+		border-radius:15px ;
+	}
+	.contents_list_img{
+		width:48px;
+		height:48px;
+		
+	}
+	.contents_list_img img{
+		width: 100%;
+		height: 100%;
+	}
+	.contents_list_text{
+		width: 83%;
+		padding-left: 8px;
+		font-size: 13px;
+		color: #555;
+		 margin-top: 18px;
+	}
+	.contents_list_text li{
+		list-style: none;
+		line-height:30px;
+	}
+	.contents_list1{
+		padding: 16px 0;
+		width: 100%;
+		margin: auto;
+		display:flex;
+		display: -webkit-flex;
+		justify-content: center;
+		-webkit-justify-content: center;
+	}
+	.contents_list1 a{
+		display: flex;
+		display: -webkit-flex;
+		justify-content: center;
+		-webkit-justify-content: center;
+		width: 33%;
+		height:123.75px;
+	}
+	.contents_list1 img{
+		width: 86%;
+		height: 86%;
+	}
+	.customer_top {height:44px; width:100%;}
+    .customer_top .title {height:28px; width:10%; float:left; font-size:16px; line-height:44px; color:#000;}
+    .back{width: 15px;height: 30px;font-size: 28px;border-radius: 50%;float: left;line-height: 46px;text-align: center; font-family: arial, helvetica, sans-serif;}
+	#container{padding-bottom: 18px;}
+	.headermes {height:40px; width:100%; margin:5px 0; background:transparent; color:#000; line-height:40px; font-size:14px;z-index: 999;}
+
+</style>
+
+<!--搜索-->
+<div class="search1"> 
+    <div class="topbar1">
+        <div class='right'>
+            <button class="sub1"><i class="fa fa-search"></i></button>
+            <div class="home1">取消</div>
+        </div>
+        <div class='left_wrap'> 
+            <div class='left'>
+                <input type="text" id='keywords' class="input1" placeholder='请输入店铺名'/>
+            </div>
+        </div>
+    </div>
+    <div id='search_container' class='result1'>
+    </div>
+   
+</div>
+<div class="headermes">
+	<!--<div class="customer_top">
+	    <div class="title" onclick='history.back()'><img style="width: 100%;height: 100%;" src="/addons/sz_yi/plugin/supplier/template/mobile/default/img/left-ico.png"/></div>
+	    <input type="text" name="" id="inputsele" value="" placeholder="店铺  | 请输入店铺名" />
+	</div>-->
+	
+	<div class='headermes'>
+		<div style="width:18%;height: 40px;display: inline-block;text-align: center;"  onclick='history.back()'><img style="width:40%;height: 80%;"  src="/addons/sz_yi/plugin/supplier/template/mobile/default/img/Left_Arrow1.png"/></div>
+		
+		<div style="width: 78%;display: inline-block;" id='search'>
+			<div style="display: inline-block;width: 80%;border-bottom: 1px solid #000;height: 35px;"><text style="display: inline-block;margin-left:10px ;font-size: 16px;">在店铺内搜索</text>			
+			</div>
+			<div style="display: inline-block;width: 14%;font-size: 16px;">搜索</div>
+		</div>
+	</div>
+	
+	
+</div>
+
+<!-- <div class="title_top">
+    <span class='active'>综合排行 </span><span>销售优先</span>
+</div> -->
+<div id='container'></div>
+<!-- 商家列表 -->
+<script id='tpl_list' type='text/html'>
+    
+       <%each list as sl%>
+        <div class="contents" style="margin-bottom: 10px;background: #fff;">
+       	<a  href="<%sl.url%>">
+		<div class="contents_list">
+			<div class="contents_list_left">
+				<div class='contents_list_img'><img src="<%if sl.logo%> <%sl.logo%> <%else%> ../addons/sz_yi/icon.jpg <%/if%>"/></div>
+				<div class='contents_list_text'>
+					<li style="font-size: 17px;"><%sl.storename%></li>
+					<li>共有<%sl.goodstatol%>件宝贝 销量:<%sl.to ? sl.to : 0%></li>						
+				</div>
+			</div>
+			<div class="contents_list_rigth">
+				 <span id="spanbtn">进店 </span>
+			</div>
+		</div>
+		</a>
+		 <%if sl.goods.length>0%>
+		<div class="contents_list1">
+		 <%each sl.goods as item%>
+			<a href="<%item.gurl%>"><img src="<%item.thumb%>"/></a>	       
+		 <%/each%>
+			 <%if sl.goods.length<2%>
+			    <a href ='javascript:void(0)'><img src='/addons/sz_yi/plugin/supplier/template/mobile/default/img/6.jpg'/></a>
+			    <a href ='javascript:void(0)'><img src='/addons/sz_yi/plugin/supplier/template/mobile/default/img/6.jpg'/></a>
+			    <%else if sl.goods.length<3%>
+			    <a href ='javascript:void(0)'><img src='/addons/sz_yi/plugin/supplier/template/mobile/default/img/6.jpg'/></a>
+			 <%/if%>
+		</div>
+		 
+		<%else%>
+		<div class="contents_list1">
+			<a href ='javascript:void(0)'><img src='/addons/sz_yi/plugin/supplier/template/mobile/default/img/1.png'/></a>
+			<a href ='javascript:void(0)'><img src='/addons/sz_yi/plugin/supplier/template/mobile/default/img/2.png'/></a>
+			<a href ='javascript:void(0)'><img src='/addons/sz_yi/plugin/supplier/template/mobile/default/img/3.png'/></a>			
+		</div>
+		<%/if%>
+    <%/each%>
+    
+</script>
+<!-- 空 -->
+<script id='tpl_empty' type='text/html'>
+    <div class="log_no">
+        <i class="fa fa-file-text-o" style="font-size:100px;"></i><br><br>
+        <span style="line-height:18px; font-size:16px;">您还没有相关 ~</span>
+    </div>
+</script>
+<!-- 搜索 -->
+<script id='tpl_search_list' type='text/html'>
+     <ul>
+	     <%each list as value%>
+			<li><i class="fa fa-angle-right"></i> <a href="<%value.url%>"><%value.storename%></a></li>
+	     <%/each%>
+    </ul>      	
+</script>
+<script>
+
+var page = 1;
+require(['core', 'tpl'], function(core, tpl) {
+    // 搜索店铺
+$('.headermes').click(function(){
+ $(".search1").animate({bottom:"0px"},100);
+ $('#keywords').focus();
+ $('#keywords').unbind('keyup').keyup(function(){
+     var keywords = $.trim( $(this).val());
+     if(keywords==''){
+         $('#search_container').html("");
+         return;
+     }
+     core.pjson('supplier/store',{op:'searchstore',keywords:keywords }, function (json) {
+         console.log(json);
+         var result = json.result;
+         if(result.list.length > 0){
+             $('#search_container').html(tpl('tpl_search_list', result));
+         } else {
+             $('#search_container').html("");
+         }
+      }, true);
+ });
+
+ $('.search1 .home1').unbind('click').click(function(){
+     $(".search1").animate({bottom:"-100%"},100);
+        $('#keywords').val('');
+        $('#search_container').html("");
+ });
+
+});
+
+
+    // End 搜索店铺
+
+    core.pjson('supplier/store', {
+        page: page,
+        op : 'list'
+    }, function(json) {
+        console.log(json);
+        if (!json.result.list.length) {
+            $('#container').html(tpl('tpl_empty'));
+            return; 
+        } else if (json.result.list.length > 0) {
+            var list = json.result;
+            $('#container').html(tpl('tpl_list',list));
+        }
+        var loaded = false;
+        var stop = true;
+        $(window).scroll(function() {
+            if (loaded) {
+                return;
+            }
+            totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+            if ($(document).height() <= totalheight) {
+
+                if (stop == true) {
+                    stop = false;
+                    $('#container').append('<div id="coupon_loading" style="text-align: center;><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>');
+                    page++;
+                    core.pjson('supplier/store', {
+                        page: page,
+                        op : 'list'
+                    },
+                    function(morejson) {
+                        console.log(morejson);
+                        stop = true;
+                        $('#coupon_loading').remove();
+                        $("#container").append(tpl('tpl_list', morejson.result));
+                        if (morejson.result.list.length < morejson.result.pagesize) {
+                            $('#container').append('<div id="coupon_loading" style="text-align: center;">已经加载全部</div>');
+                            loaded = true;
+                            return;
+                        }
+                    },
+                    true);
+                }
+            }
+        });
+    },
+    true);
+});
+</script>
+{/if}
+{php $show_footer=true;}
+{template 'common/footer'}

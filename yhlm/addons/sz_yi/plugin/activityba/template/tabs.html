@@ -1,0 +1,17 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+
+  	<li {if $_GPC['method']=='control' && $_GPC['op'] == 'examine' && $status == 1}class="active"{/if}>
+  		<a href="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'examine','status'=>'1'))}">待审核</a>
+  	</li>	 	 
+   	 	 
+	<li {if $_GPC['method']=='control' && $_GPC['op'] == 'examine' && $status == 2}class="active"{/if}>	 
+		<a href="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'examine','status'=>'2'))}">已上墙</a>	 
+	</li>	 
+    	 		 	 	 	 	 		 
+    <li {if $_GPC['method']=='control' && $_GPC['op'] == 'examine' && $status == 3}class="active"{/if}>	 	 
+    	<a href="{php echo $this->createPluginWebUrl('activityba/control',array('op'=>'examine','status'=>'3'))}">未通过</a>			 	  	 	 	  	 	 	 
+    </li>	  	 	 	 	 	 	 
+   		 	 	 		 	 	 	 
+</ul>	 	
+</div>		 	 	 

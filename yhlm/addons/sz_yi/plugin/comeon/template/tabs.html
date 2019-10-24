@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+    {ifp 'comeon.jichu'}<li {if $_GPC['method']=='jichu'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/jichu')}" style="cursor: pointer;">基础管理 </a></li>{/if}
+    {ifp 'comeon.temp'}<li {if $_GPC['method']=='temp'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/temp')}" style="cursor: pointer;">助手管理</a></li>{/if}
+    {ifp 'comeon.pinpai'}<li {if $_GPC['method']=='pinpai'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/pinpai')}" style="cursor: pointer;">品牌管理</a></li>{/if}
+    {ifp 'comeon.cangshang'}<li {if $_GPC['method']=='cangshang'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/cangshang')}" style="cursor: pointer;">厂商管理</a></li>{/if}
+    {ifp 'comeon.chexing'}<li {if $_GPC['method']=='chexing'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/chexing')}" style="cursor: pointer;">车型管理</a></li>{/if}
+    {ifp 'comeon.pailiang'}<li {if $_GPC['method']=='pailiang'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/pailiang')}" style="cursor: pointer;">排量管理</a></li>{/if}
+    {ifp 'comeon.scri'}<li {if $_GPC['method']=='scri'}class="active"{/if}><a href="{php echo $this->createPluginWebUrl('comeon/scri')}" style="cursor: pointer;">生产日期管理</a></li>{/if}
+     {ifp 'comeon.data'}
+    {if $_GPC['method']=='data' && $operation=='post'}<li class="active"><a href="javascript:;" style="cursor: pointer;">添加数据</a></li>{/if}
+    {if $_GPC['method']=='data' && $operation=='display'}<li class="active"><a href="javascript:;" style="cursor: pointer;">数据列表</a></li>{/if} 
+    {/if}
+</ul>

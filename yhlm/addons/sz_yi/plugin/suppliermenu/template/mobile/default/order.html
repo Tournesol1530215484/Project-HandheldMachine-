@@ -1,0 +1,314 @@
+{template 'common/header'}
+<title>订单管理</title>   
+<style type="text/css">
+    th{font-weight: 200;}
+    body {margin:0px; background:#f1f1f1; padding:0px; -moz-appearance:none; font-family:微软雅黑;}
+	button{border:none;background:transparent;outline:none;}
+	p{margin:0px;}
+    #big_body{width:100%;margin:0px; float: left;}
+
+
+    #header{ width:100%; padding-top:10px; padding-bottom: 10px; background:#10BDFF;  text-align: center; color:#fff;  }
+    #header table{margin: auto; width:95%; font-size: 16px;  }
+
+    #list{width:100%;   background: #fff;} 
+    #list table{width:100%;}
+    #list table th{color: #787878 ;width:25%;text-decoration:none; padding-top:10px; padding-bottom:10px;}
+
+    #list table th#action{color:#00c1ff; border-bottom: 1px solid #00c1ff ; }
+    #list  ul{float: left; width: 100%; background: #fff;border-bottom: 1px solid #ccc; padding: 0px 10px; }
+    #list ul li{float: left; width: 25%; text-align: center; padding-top: 10px; padding-bottom: 10px; color: #787878 ;}
+    #list  ul li#action{  color:#00c1ff; border-bottom: 2px solid #00c1ff ;  }
+
+    #list-body{width:100%; float: left; margin-bottom: 10px; text-align: center;background: #fff}
+    #list-body>ul{width: 95%; padding-top: 10px; padding-bottom: 10px; margin: auto; background: #fff; font-size:11px; }
+     #list-body>ul>li{width:100%;float: left; border-bottom:1px solid #CFCFCF; padding-bottom:8px;padding-top:8px; line-height: 100%; word-break:break-all;   }
+    #list-body #center{}
+    #list-body #center>li{float:left;}
+
+    #big_body #box{width:100%;margin:0px; float: left;padding-bottom: 45px;}
+	#header table th>span{font-size:16px;font-family: serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;font-weight: bold; padding-right: 4px; }
+	.orderDet{width:100%;background:#fff;}
+	.orderDet>tbody>tr{margin:10px;}
+	.orderDet  .lineb{background: #F2F2F2;}
+	.orderDet>tbody>tr>td{padding:8px;}
+	.orderDet  .lineh>span{color:#aaa;float: left;font-size: 13px;}
+	.orderDet  .lineh>time,.orderDet  .lineh>p{float:right;}
+	.orderDet  .lineh>time>i,.orderDet  .lineh>p>i{font-size:1.3em;margin-right:5px;vertical-align: middle;color: #949495;}
+	.orderDet  .linep{border-top:1px solid #F2F1F1;}
+	.orderDet  .linef>p{float:right;font-size:0.95em;color:#989898;}
+	.orderDet  .linef>p>b{color:#00c1ff;font-size:1.49em;font-weight:normal;line-height: 1.0em;}
+	.orderDet  .linef>p>span{padding: 0 5px;}
+
+	.lineb>p{padding-bottom:8px;text-align: left;}
+	/*.orderDet  li.prod{border-top:1px solid #ccc;padding:8px 0px;}*/
+	.orderDet  li.prod:after{content:"";display:block;clear:both;}
+	.orderDet  .prod>div{float:left;}
+	.orderDet  .prod  .img{width:20%;}
+	.orderDet  .prod  .img>img{width:90%;height: 5.3em;}
+	.orderDet  .prod  .info{width:54%;text-align: left;padding: 0px 7px;}
+	.orderDet  .prod  .info>span{color:#989898;}
+	.orderDet  .prod  .price{width:26%;text-align:right;}
+	.orderDet  .linep>button{border: 1px solid #00c1ff;color: #00c1ff;border-radius:7px;padding:5px 23px;float:right;margin-left:10px;}
+
+</style>
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/dropload.min.js?'.time();?>"></script>
+
+<div id="big_body">
+      <div id="header">
+           <table>
+               <tr>
+                   <th style="width:10%;" align="center"  valign="center" onclick="window.history.go(-1)" ><span>&lt;</span>返回</th>
+                   <th style="width:56%;padding-right: 30px;text-align:center;"  valign="center" >订单管理</th>
+               </tr>
+           </table>
+      </div>
+
+     <div id="list">
+        <ul>
+            <li {if $type==0}id="action"{/if} onclick="window.location.href = '<?php echo $this->createPluginMobileUrl('suppliermenu/order',array('type'=>0,'merch'=>$_GPC['merch'])); ?>' "    >全部</li>
+            <li {if $type==1}id="action"{/if} onclick="window.location.href = '<?php echo $this->createPluginMobileUrl('suppliermenu/order',array('type'=>1,'merch'=>$_GPC['merch'])); ?>' "    >待付款</li>
+            <li {if $type==2}id="action"{/if} onclick="window.location.href = '<?php echo $this->createPluginMobileUrl('suppliermenu/order',array('type'=>2,'merch'=>$_GPC['merch'])); ?>' "    >待发货</li>
+            <li {if $type==3}id="action"{/if} onclick="window.location.href = '<?php echo $this->createPluginMobileUrl('suppliermenu/order',array('type'=>3,'merch'=>$_GPC['merch'])); ?>' "    >待收货</li>
+        </ul>
+     </div>
+
+    <div id="box">
+	</div>
+	<!--
+		没商品时显示的图片和提示【您还没有相关订单】来自
+		目录下的/public_html/addons/sz_yi/plugin/suppliermenu/res/
+		dropload.min.js
+	-->
+</div>
+
+<script id="tpl_list" type="text/html">
+      <div id="list">
+        <ul>
+            <%each data as  d%>
+            <li><%d.name%></li>
+            <%/each%>
+        </ul>
+     </div>
+</script>
+
+<script id="tpl-list-body" type="text/html">
+<%each order as d%>
+    <div id="list-body" data-orderid="<%d.id%>" class="order_list">
+		<table class="orderDet">
+			<tbody>
+				<tr>
+					<td class="lineh">
+							<span id="status-<%d.id%>">订单号：<%d.ordersn%></span>
+						<%if d.status==0%>
+							<time><i class="fa fa-clock-o"></i>等待付款</time>
+						<%/if%>
+
+                        <%if d.status==1%>
+                          <%if d.refundid > 0 %>
+                              <p><i class="fa fa-reply"></i>退款申请中</p>
+                          <%else%>
+                              <p><i class="fa fa-file-text-o"></i>买家已付款</p>
+                          <%/if%>
+                        <%/if%>
+
+                        <%if d.status == -1%>
+                            <p><i class="fa fa-repeat"></i>订单已取消</p>
+                        <%/if%>
+
+                        <%if d.status==2%>
+                            <p><i class="fa fa-truck"></i>已发货</p>
+                        <%/if%>		
+                        <%if d.status==3%>
+                            <p><i class="fa fa-truck"></i>已完成</p>
+                        <%/if%>				
+					</td>
+				</tr>
+                <%each d.goods as g%>
+				<tr>
+					<td class="lineb">
+						<!-- <p>布尔根兰旗舰店</p> <button>查看物流</button>-->
+						<ul>
+							<li class="prod" onclick="location.href='{php echo $this->createPluginMobileUrl('suppliermenu/order_detail',array("merch"=>$_GPC["merch"]))}&id=<%g.id%>'">
+								<!-- ../addons/sz_yi/plugin/suppliermenu/template/mobile/default/images/7.png -->
+								<div class="img"><img src="<%g.thumb%>"></div>
+								<div class="info"><p><%g.title%></p><span><!-- 净重：500g --></span></div>
+								<div class="price"><p>￥<%g.realprice%></p><span>×<%g.total%></span></div>
+							</li>
+						</ul>
+					</td>
+				</tr>
+                <%/each%>
+
+				<!-- <%if d.status==0%>
+				<tr><td class="linef"><p>总计：￥<b><%d.price%></b></td></tr>
+				<tr><td class="linep"><button>确认付款</button></td></tr>
+				<%/if%> -->
+
+				<%if d.status==1%>
+				<tr><td class="linef"><p>共<span><%d.total%></span>件商品，实付：￥<b><%d.price%></b></td></tr>
+				<%/if%>
+
+				<%if d.status==2%>
+				<tr><td class="linef"><p>共<span><%d.total%></span>件商品，实付：￥<b><%d.price%></b></td></tr>
+				<!-- <tr><td class="linep"> <button class="order_express">查看物流</button><button>确认收货</button></td></tr> -->
+                <%/if%>
+				<%if d.status==3%>
+				<tr><td class="linef"><p>共<span><%d.total%></span>件商品</td></tr>
+                <%/if%>
+				<tr><td class="linef">
+                      <!-- 待发货部分 -->
+                     <%if d.status==1 && d.refundid == 0 && d.refundtime == 0%>
+                        <!--如果是易货订单 并且地址id为空-->
+                              <%if d.isexchange == 1 && d.addressid == 0%>
+                                <div style="text-decoration:none;float:left;color:#FF8A15;display: inline-block" class="order_complete" value="d.ordersn">上门提货</div>
+
+                                  <a style="text-decoration:none;float:right;color:#FF8A15;display: inline-block" >等待兑换</a>
+                             <%else%>
+                                    <a href="<%d.url%>" style="text-decoration:none;float:right;color:#FF8A15;display: inline-block" >发货</a>
+                             <%/if%>
+                      <%/if%>
+
+                 </td></tr>
+			</tbody>
+		</table>
+    </div>
+	
+<%/each%>
+
+
+</script>
+
+
+<script type="text/javascript">
+
+//window.location.href ='<?php echo $this->createPluginMobileUrl('suppliermenu/order',array('op'=>'delete'));?>&orderid=<%d.id%>'
+        function delete_sure(id){
+           if(window.confirm('你确定要取消订单吗？')) {
+
+              require(['core'], function( core) {
+
+                    core.pjson('suppliermenu/order', {op:'delete',id:id}, function(json) {
+                             if(json.result.status){
+                                $("#staFtus-"+id).text('已取消');
+                                $("#delete-"+id).hide();
+
+                                alert('取消成功');
+                             }else{
+                                alert('取消失败');
+                             }
+
+                    }, true);
+
+              });
+
+
+           }
+
+        }
+
+   require(['tpl', 'core'], function(tpl, core) {
+
+    var page = 0;
+    $('#big_body').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+            if(page<0) { alert();me.noData();return ;}
+            core.pjson('suppliermenu/order', {merch:{$_GPC['merch']},op:'order',page:page,type:{$type}}, function(json) {
+                if (json.result){
+                    if(json.result.order.length>0){
+                        $(".dropload-down").css("display","none");
+                    }
+                }
+                $("#box").append(  tpl('tpl-list-body',json.result) );
+				$('.order_express').unbind('click').click(function() {
+                    var orderid = $(this). parents('.order_list').data('orderid');
+                    location.href = core.getUrl('order/express', {id: orderid});
+				});
+
+
+         //确认上么提货
+        $(".order_complete").unbind('click').click(function(){
+                              var orderid = $(this).closest('.order_list').data('orderid');
+                              core.tip.confirm('确认您已经收货?',function(){
+                                console.log("test");
+                                console.log(orderid);
+                                 core.json('order/op',{'op':'complete', orderid:orderid},function(json){
+                                         if(json.status==1){
+                                              location.reload();
+                                              console.log(1111);
+                                              return;
+                                         }
+                                         core.tip.show(json.result);
+                                         console.log(2222);
+                                     },true,true);
+                               });
+                         });
+
+
+				if (json.result){
+                    if(json.result.status==true){
+                        page++;
+                        me.resetload();
+                    }else{
+                        page=-1;
+                        me.lock();
+                        me.noData();
+                        me.resetload();
+                    }
+                }
+
+                    }, true);
+                }
+            });
+
+
+        });
+
+
+       // function order_complete(orderid){
+
+           // if(window.confirm('您确定已经提到货了吗？')) {
+
+           //     require(['core'], function( core) {
+
+
+           //          core.json('order/op',{'op':'complete', orderid:orderid},function(json){
+           //                               if(json.status==1){
+           //                                    location.reload();
+           //                                    return;
+           //                               }
+           //                               core.tip.show(json.result);
+           //                           },true,true);
+
+           //    });
+           //     //console.log(1111);
+
+
+           // }
+
+         
+        //确认上么提货
+        // $(".order_complete").unbind('click').click(function(){
+        //                       var orderid = $(this).closest('.order_main').data('orderid');
+        //                       core.tip.confirm('确认您已经收货?',function(){
+        //                         console.log("test");
+                                 // core.json('order/op',{'op':'complete', orderid:orderid},function(json){
+                                 //         if(json.status==1){
+                                 //              location.reload();
+                                 //              return;
+                                 //         }
+                                 //         core.tip.show(json.result);
+                                 //     },true,true);
+                         //       });
+                         // });
+    //  }
+
+
+</script>
+
+
+
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

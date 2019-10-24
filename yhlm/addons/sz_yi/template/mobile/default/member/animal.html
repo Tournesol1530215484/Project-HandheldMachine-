@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<html class="wrapper2" style="overflow: hidden;">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		{template 'common/header'}
+		<link href="../addons/sz_yi/static/e/css/font-awesome.min.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/e/css/style.css">
+	</head>
+
+	<body class="wrapper2" style="overflow: hidden;">
+		<title>鹅场</title>
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/e/css/base.css">
+		<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/e/css/warren.css">
+
+		<style>
+			.regular_btn,
+			.Inbox_btn {
+				color: #fff;
+				text-shadow: 1px 0px 0px #864714, -1px 0px 0px #864714, 0px -1px 0px #864714, 0px 1px 0px #864714;
+				line-height: 25px;
+				position: relative;
+				left: 10px;
+				text-align: center;
+			}
+			
+			.model_text p {
+				display: block;
+				text-align: justify;
+				text-justify: inter-ideograph;
+				word-wrap: break-word;
+				overflow: hidden;
+				font-size: 12px;
+			}
+			
+			.regular_ul .regular_ul_top img {
+				width: 30px;
+				height: 30px;
+			}
+			
+			.regular_ul>li {
+				position: relative;
+			}
+			
+			.regular_ul_top span {
+				position: absolute;
+				top: 4px;
+				left: 28px;
+				font-size: 14px;
+			}
+			
+			.color-black {
+				color: #000;
+			}
+			
+			.regular_ul_user span {
+				font-size: 14px;
+			}
+			
+			.model-weilan,
+			.model-dog,
+			.model-fuhua,
+			.model-harvest,
+			.model-zengyang {
+				display: none;
+			}
+			
+			.regular_ul_user {
+				float: left;
+			}
+			
+			.regular_ul_user img {
+				width: 10px;
+				height: 10px;
+			}
+			
+			.regular_ul_user:nth-of-type(3) {
+				float: left;
+			}
+			.model-jihuo{
+				display: block;
+			}
+		</style>
+	
+		<!-- 公告 -->
+		<div class="notice">
+			<div class="notice_body">
+				<div class="notice_close"></div>
+				<div class="notice_header">公告</div>
+				<div class="notice_border">
+					<ul class="notice_ul">
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!-- 分享 -->
+		<div class="model">
+			<div class="model_main">
+				<div class="model_text">
+					<p size="1"></p>
+				</div>
+				<div class="confirm_btn"></div>
+			</div>
+
+		</div>
+
+		<!-- 模态框 -->
+		<div class="model1">
+			<div class="model_main1">
+				<div class="model_text1">开地需要消耗300只鹅仔</div>
+				<div class="button_ground">
+					<div class="confirm_btn1">确定</div>
+					<div class="qx_btn">取消</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modelf1">
+			<div class="model_mainf1">
+				<div class="model_textf1">
+					<div class="model_textf1_p f-marginB10">请输入增养数量</div>
+					<input type="text" name="">
+				</div>
+				<div class="button_groundf1">
+					<div class="confirm_btnf1">确定</div>
+					<div class="qx_btnf1">取消</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modelf2">
+			<div class="model_mainf2">
+				<div class="model_textf2">
+					<div class="model_textf2_p f-marginB10">请输入孵化数量</div>
+					<input type="text" name="">
+				</div>
+				<div class="button_groundf2">
+					<div class="confirm_btnf2">确定</div>
+					<div class="qx_btnf2">取消</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 提示模态框 -->
+		<div class="model2">
+			<div class="model_main2">
+				<div class="model_text2">22222</div>
+				<div class="confirm_btn2"></div>
+			</div>
+
+		</div>
+
+		<div class="header">
+			<div class="f-fl header_left_youxi header_left">
+				<span></span>(点我查看完整公告)
+			</div>
+			<div class="f-fr header_right_youxi">
+				邀请码：{$member['code']}<span></span>
+			</div>
+		</div>
+
+		<!-- 收件箱 --><br />
+		<div class="Inbox">
+			<div class="Inbox_body">
+				<div class="Inbox_close "></div>
+				<div class="Inbox_header">我的仓库</div>
+				<div class="Inbox_border">
+					<ul class="Inbox_ul">
+						<li class="">
+							<div class=" Inbox_ul_img f-cb">
+								<img src="../addons/sz_yi/static/e/img/jizai2.png"><span>
+								<span>小鹅</span><br>
+								<span>0.00</span>
+								</span>
+								<div class="Inbox_button" op="zengyang">去增养</div>
+							</div>
+						</li>
+						<li class="">
+							<div class=" Inbox_ul_img f-cb">
+								<img src="../addons/sz_yi/static/e/img/xiaoji.png"><span>
+								<span>鹅仔</span><br>
+								<span>100.00</span>
+								</span>
+								<div class="Inbox_button" op="fuhua">去孵化</div>
+							</div>
+						</li>
+						<li class="">
+							<div class=" Inbox_ul_img f-cb">
+								<img src="../addons/sz_yi/static/e/img/weilang2.png"><span>
+								<span>围栏</span><br>
+								<span>尚未购买围栏</span>
+								</span>
+								<div class="Inbox_button" op="weilan" isempty="0">去购买</div>
+							</div>
+						</li>
+						<li class="">
+							<div class=" Inbox_ul_img f-cb">
+								<img src="../addons/sz_yi/static/e/img/dog2.png"><span>
+								<span>狗</span><br>
+								<span>尚未购买哈士奇</span>
+								</span>
+								<div class="Inbox_button" op="dog" isempty="0">去购买</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 好友 -->
+		<div class="regular">
+			<div class="regular_body">
+				<div class="regular_close"></div>
+				<div class="regular_header" uid="">好友列表</div>
+				<div class="regular_border">
+					<ul class="regular_ul">
+						<li>
+							<div class="regular_ul_top">
+								<img src="../addons/sz_yi/static/e/img/fuhua.png" alt="" />
+								<span>0.00</span>
+								<div class="Inbox_button color-black" op="zengyang">去拜访</div>
+							</div>
+							<div class="regular_ul_user">
+								<span>个人信息</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									叶
+								</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									18924269043
+								</span>
+							</div>
+
+						</li>
+
+						<li>
+							<div class="regular_ul_top">
+								<img src="../addons/sz_yi/static/e/img/fuhua.png" alt="" />  
+								<span>0.00</span>
+								<div class="Inbox_button color-black" op="zengyang">去拜访</div>
+							</div>
+							<div class="regular_ul_user">
+								<span>个人信息</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									叶
+								</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									18924269043
+								</span>
+							</div>
+
+						</li>
+
+						<li>
+							<div class="regular_ul_top">
+								<img src="../addons/sz_yi/static/e/img/fuhua.png" alt="" />
+								<span>0.00</span>
+								<div class="Inbox_button color-black" op="zengyang">去拜访</div>
+							</div>
+							<div class="regular_ul_user">
+								<span>个人信息</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									叶
+								</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									18924269043
+								</span>
+							</div>
+
+						</li>
+
+						<li>
+							<div class="regular_ul_top">
+								<img src="../addons/sz_yi/static/e/img/fuhua.png" alt="" />
+								<span>0.00</span>
+								<div class="Inbox_button color-black" op="zengyang">去拜访</div>
+							</div>
+							<div class="regular_ul_user">
+								<span>个人信息</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									叶
+								</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									18924269043
+								</span>
+							</div>
+
+						</li>
+
+						<li>
+							<div class="regular_ul_top">
+								<img src="../addons/sz_yi/static/e/img/fuhua.png" alt="" />
+								<span>0.00</span>
+								<div class="Inbox_button color-black" op="zengyang">去拜访</div>
+							</div>
+							<div class="regular_ul_user">
+								<span>个人信息</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									叶
+								</span>
+								<span>
+									<img src="../addons/sz_yi/static/e/img/heart1.png" alt="" />
+									18924269043
+								</span>
+							</div>
+
+						</li>
+					</ul>
+				</div>
+				<div class="regular_bottom">
+					<a href="clean.html">
+						<div class="regular_bottomCd btn_dasao f-fl">
+							
+							一键打扫
+						
+						</div>
+						</a>
+					<div class="regular_bottomCd f-fr">
+						<a href="">
+							<!-- 交易中心 -->
+							邀请伙伴
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 主体内容 -->
+		<div class="nav">
+			<div class="bgLeft">
+				<img src="../addons/sz_yi/static/e/img/shuye.png">
+			</div>
+			<div class="bgRight">
+				<img src="../addons/sz_yi/static/e/img/shouye3.png">
+			</div>
+			<div class="nav_logo f-fl">
+
+				<img src="../addons/sz_yi/static/e/img/tuwang.png">
+			</div>
+
+			<ul class="nav_ul f-fl">
+				<li class="bgcolor xiumi">
+					张小刚 </li>
+				<li class="bgcolor">
+					<span></span>0 </li>
+				<li class="bgcolor">
+					<span></span>0.00 </li>
+				<li class="bgcolor">
+					<span></span>100.00 </li>
+				<li class="bgcolor" style="width: auto;">
+					<span></span>300 </li>
+				<li style="margin-left:20px;">
+					<span class="regular_btn">好友</span>
+					<span class="Inbox_btn">仓库</span>
+				</li>
+			</ul>
+
+			<div class="return_btn">
+				<a href="index.html" style="width: 100%; height: 100%; display: block;"></a>
+			</div>
+			<div class="reload_btn">
+				<a href="" style="width: 100%; height: 100%; display: block;"></a>
+			</div>
+		</div>
+
+		<div class="main list">
+			<ul class="main_ul">
+				<li data-hrabit="1">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit"></div>
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="display: none;">
+						<span>鹅仔总数:<b>300</b></span>
+						<span>本日产仔:0.00</span>
+						<span>历史产仔:0.00</span>
+					</div>
+					<!-- zrcz 可收获就显示,不可收获就不显示 -->
+				</li>
+				<li data-hrabit="1">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit"></div>
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+				</li>
+				<li data-hrabit="1">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo0.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b></b>0</span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b></b>0</span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+
+				</li>
+				<li data-hrabit="0">
+					<img src="../addons/sz_yi/static/e/img/huo.png">
+					<div class="rabit_model"></div>
+					<div class="main_tips" style="">
+						<span>鹅仔总数:<b>0</b></span>
+						<span>本日产仔:</span>
+						<span>历史产仔:</span>
+					</div>
+				</li>
+				<div style="clear: both;"></div>
+			</ul>
+		</div>
+
+		<div class="Cfooter">
+			<li>
+				<img src="../addons/sz_yi/static/e/img/kaidi.png">
+			</li>
+			<li class="zengyang">
+				<img src="../addons/sz_yi/static/e/img/btnf1.png">
+			</li>
+			<li class="fuhua">
+				<img src="../addons/sz_yi/static/e/img/fuhua.png">
+			</li>
+			<li>
+				<img src="../addons/sz_yi/static/e/img/btnf2.png">
+			</li>
+			<li style="position:relative;height:100%;">
+				<img src="../addons/sz_yi/static/e/img/zengchang.png">
+				<div style="position:absolute;top:-9px;width:100%;">
+					<div style="width:26px;margin:0 auto;">
+						<img style="width:100%;margin-left:3px;" src="../addons/sz_yi/static/e/img/xiaoji.png" alt="">
+
+					</div>
+				</div>
+			</li>
+		</div>
+		<!--
+      		孵化
+        -->
+		<div class="model-all model-fuhua">
+			<div class="model_mainf-all">
+				<div class="model_text-all">
+					<div class="model_textf2_p-all f-marginB10">请输入孵化数量</div>
+					<input type="text" name="">
+				</div>
+				<div class="button_groundf-all">
+					<div class="confirm_btn-all yes"></div>
+					<div class="qx_btnf-all"></div>
+				</div>
+			</div>
+		</div>
+		<!--
+        	狗
+        -->
+		<div class="model-all model-weilan">
+			<div class="model_mainf-all">
+				<div class="model_text-all">
+					<div class="model_textf2_p-all f-marginB10">直推人数不足20人！无法购买！</div>
+
+				</div>
+				<div class="button_groundf-all">
+					<div class="confirm_btn-all yes"></div>
+
+				</div>
+			</div>
+		</div>
+		<!--
+        	增养
+        -->
+		<div class="model-all model-zengyang">
+			<div class="model_mainf-all">
+				<div class="model_text-all">
+					<div class="model_textf2_p-all f-marginB10">请输入增养数量</div>
+					<input type="text" name="">
+				</div>
+				<div class="button_groundf-all">
+					<div class="confirm_btn-all yes"></div>
+					<div class="qx_btnf-all"></div>
+				</div>
+			</div>
+		</div>
+		<!--
+        	围栏
+        -->
+		<div class="model-all model-dog">
+			<div class="model_mainf-all">
+				<div class="model_text-all">
+					<div class="model_textf2_p-all f-marginB10">升级哈士奇需要等到每月1号！</div>
+
+				</div>
+				<div class="button_groundf-all">
+					<div class="confirm_btn-all yes"></div>
+
+				</div>
+			</div>
+		</div>
+
+		<!--
+        	收获
+        -->
+		<div class="model-all model-harvest">
+			<div class="model_mainf-all">
+				<div class="model_text-all">
+					<div class="model_textf2_p-all f-marginB10">收获成功了，收获鹅仔5700！</div>
+				</div>
+				<div class="button_groundf-all">
+					<div class="confirm_btn-all yes"></div>
+
+				</div>
+			</div>
+		</div>
+		<!--
+        	激活
+        	
+        -->
+        {if empty($member['isstatus'])}
+        	<div class="model-all model-jihuo" >
+			<div class="model_mainf-all">
+				<div class="model_text-all">
+					<div class="model_textf2_p-all f-marginB10">你的账户没有激活，无法游戏！</div>
+					
+				</div>
+				<div class="button_groundf-all">
+					<div class="confirm_btn-all yes"></div>
+					
+				</div>
+			</div>
+		</div>
+		{/if}
+		<script>
+
+		var op = "def",pid,bools = "false",uicontrol = "true";
+		// dialog函数
+		function showMsg(msg){
+			// console.log("start showMsg()")
+			$(".model-all .model_textf2_p-all").html(msg);
+			bools == "true" ? $(".model-all .model_text-all input").show() : $(".model-all .model_text-all input").hide();
+			// console.log("open confirm")
+			if(bools == "false"){
+				// console.log("bools = 'false'")
+				$(".qx_btnf-all").hide()
+				$(".confirm_btn-all").addClass("yes");
+				$(".confirm_btn-all").html("");
+			}else{
+				// console.log("bools = 'true'")
+				if(op == "sbgoumai"){
+					$(".model-all .model_text-all input").hide()
+				}
+				$(".qx_btnf-all").show()
+				$(".confirm_btn-all").removeClass("yes");
+				$(".confirm_btn-all").html("确定");
+			}
+			$(".model-all").show();
+			// console.log("stop showMsg")
+		}
+
+		var isyy = 1;
+		if(isyy == 0) {
+			showMsg('你的账户没有激活，无法游戏！');
+			window.setTimeout(function(){window.location.href = "http://jxj.aaxa.top/app/index.php?i=10&c=entry&p=center&do=member&m=sz_yi"},4000); 
+			// window.location.href = "http://jxj.aaxa.top/app/index.php?i=10&c=entry&p=center&do=member&m=sz_yi";
+
+		}
+	// showMsg(123)
+	require(['core','tpl'],function(core,tpl){
+		// dialog 确定
+		$(".confirm_btn-all").click(function(){
+			// console.log("close confirm")
+			$(".model-all").hide();
+			var num = 0;
+			if(uicontrol == "true"){
+				if (op == "dasao" ||  op == "saoba"){
+					window.location.href = "";
+				 return false;
+				}
+				if(op == "sbgoumai"){
+					// console.log(op);
+					core.json("member/youxi",{op:op},function(json){
+						if(json.status == 1){
+							window.location.href = "";
+						}else{
+							uicontrol = "true";
+							showMsg(json.result);
+						}
+					})
+					return false;
+				}
+				if (op == "zengzhang"){
+					return false;
+				}
+				if (op == "shouhuo"){
+					console.log(op);
+				}
+				
+				// console.log("ajax");
+				num = $(".model_text-all input").val();
+				console.log(num);console.log(pid);
+				$(".model_text-all input").val("0");
+				console.log(op);	
+				// 开地
+				core.json('member/animal', {op: op,pid:pid,num: num}, function(json) {
+					// console.log("ajax success");
+				
+			        if(json.status == 1) {
+			        	if(op == "shouhuo"){
+			        		return false;
+			        	}
+			        	// console.log("json.status = 1");
+			        	bools = "false";
+			        	showMsg(json.result);
+			        } else if (json.status == -1) {
+			        	// console.log("json.status = -1");
+			        	bools = "false";
+			        	// console.log("json.result = "+json.result);
+			        	showMsg(json.result);
+		                // return;
+			        }
+		    	},true,true);
+		    	// console.log("ajax done")
+		    	uicontrol = "false";
+		    	return false
+			}else if(uicontrol == "false"){ //确认 提交
+				// 回调
+				if(uicontrol == "flalse") op = "def";
+				// console.log("done"+"op="+op);
+				window.location.href = " "; //指向本页面地址 
+			}
+		})
+		// dialog 取消
+		$("body").on("click",".qx_btnf-all",function(){
+			$(".model-all").hide();
+			$(".model-all .model_text-all input").val("");
+		})
+		// 浮层展示 开
+		var hidetips;
+		$(".main_ul li .rabit").click(function(){
+			clearTimeout(hidetips);
+			$(".main_tips").hide(200);
+			$(this).parent().find(".main_tips").show(200)
+			var t = $(this);
+			hidetips = setTimeout(function(){
+				t.parent().find(".main_tips").hide(200)
+			}, 2000);
+		})
+		// 浮层展示 关
+		$(".main_tips").click(function(){
+			$(this).hide();
+		})
+		$(".main_ul li>img").click(function(){
+			clearTimeout(hidetips);
+			$(".main_tips").hide(200);
+			if($(this).next().hasClass(".rabit")) $(this).parent().find(".main_tips").show(200);
+			var t = $(this);
+			hidetips = setTimeout(function(){
+				t.parent().find(".main_tips").hide(200)
+			}, 2000);
+		})
+		// 打开公告
+		$('.header_left').click(function(){
+			core.json("member/center",{op:"gonggao"},function(json){
+				// console.log(json);
+				for (var i = 0; i < json.result.list.length; i++) {
+					var html = '<li class="f-cb"><a href="javascript:void(0)">\
+						<div class="f-fl notice_ul_img">\
+							<img src="../addons/sz_yi/template/mobile/default/member/img/rizi2.png"><span>'+json.result.list[i].content+'</span>\
+						</div>\
+						<div class="f-fr ">'+json.result.list[i].createtime+'</div>\
+					</a></li>';
+					$(".notice_ul").html(html)
+				}
+			})
+			$('.notice').show();
+		});
+		// 其他dialog
+		$(function(){
+			// 公告展开
+			$("body").on("click",".notice_ul *",function(){
+				var t = $(this).parent("li");
+				t.toggleClass('active');
+				t.siblings().removeClass('active');
+			})
+			//关闭公告
+			$('.notice_close').click(function(){
+				$('.notice').hide();
+			});
+
+			//复制
+			$('.header_right_youxi span').click(function(){
+				$('.model').show();
+			});
+			//关闭复制
+			$('.confirm_btn').click(function(){
+				$('.model').hide();
+			});
+			//收信箱
+			$('.Inbox_btn').click(function(){
+				$('.Inbox').show();
+			});
+
+			$('.Inbox_close').click(function(){
+				$('.Inbox').hide();
+			});
+			//好友
+			$('.regular_btn').click(function(){
+				$('.regular').show();
+
+			});
+
+			$('.regular_close').click(function(){
+				$('.regular').hide();
+			});
+		// 主流程 footer点击事件
+		$('.Cfooter li').click(function(){
+			$(".main_tips").hide(200);
+			var index = $(this).index();
+			var num = $(".model_text-all input").val();
+			var obj = $(this);
+			var opdata = [
+				"kaidi",
+				"zengyang",
+				"fuhua",
+				"shouhuo",
+				"zengzhang"
+				]
+			if($(".list li .rabit_model").css("display") == "block"){
+				if (opdata[$(this).index()] == op) {
+					$(".list li .rabit_model").hide();
+					op = "dis";
+					return;
+				}
+			}
+			op = opdata[$(this).index()];
+			$(this).index() == 1 || $(this).index() == 2 ? bools = "true" : bools = "false";
+			// console.log(op);
+
+			if(op == "kaidi"){
+				$(".rabit_model:nth-child(2)").show();
+				$(".rabit_model:nth-child(3)").hide();
+			}else {
+				$(".rabit_model:nth-child(3)").show();
+				$(".rabit_model:nth-child(2)").hide();
+			}
+		});
+		$(".Inbox_ul .Inbox_button").click(function(){
+			// console.log($(this));
+			var level = $(this).attr("isempty");
+			op = $(this).attr("op");
+			if(op != "" && level != ""){
+				// console.log(op)
+				// console.log(level)
+				if(op == "fuhua" ){
+					$(".Cfooter li.fuhua").click();
+					$(".Inbox").hide()
+					return;
+				}
+				if(op == "zengyang"){
+					$(".Cfooter li.zengyang").click();
+					$(".Inbox").hide();
+					return;
+				}
+				bools = "false"; uicontrol = "false";
+				core.json("member/youxi",{op:op,level:level},function(json){
+					// this.attr("isempty")
+					console.log(json)
+					showMsg(json.result);
+				},true,true)
+			}else{
+				console.log(op)
+				console.log(level)
+			}
+		})
+		// 收获鸡仔
+		$(".zrcz").click(function(){
+			$(this).hide(100);
+				var $this = $(this);
+				uicontrol = "false"
+
+				pid = $(this).parent().index();
+				pid ++;
+				// 可收获小鸡的数量
+				op = "jizai";
+				core.json('member/youxi', {op: op,pid:pid}, function(json) {
+					if(json.status == 1){
+					$this.remove();
+						bools = "false";
+						uicontrol = "false";
+						showMsg(json.result);
+					}else if (json.status == -1) {
+						$this.remove();
+						bools = "false";
+						showMsg(json.result);
+					    // return;
+					}
+				},true,true);
+			// core.json("member/youxi",{})
+		});
+		// 业务处理中心 controller
+		$("body").on("click",".list li .rabit_model",function(){
+			// console.log("操作");
+			var num = 0;
+			pid = $(this).parent().index();
+			pid ++;
+			// console.log("pid ="+pid);
+			$(".list li .rabit_model").hide();
+			if(op == "kaidi"){
+				uicontrol = "true"
+				showMsg("是否开地?")
+			}else if (op == "zengyang"){
+
+				$(".model-all .model_text-all input").val(1000.00);
+				uicontrol = "true"
+				showMsg("请输入增养数量")
+			}else if(op == "fuhua"){
+				uicontrol = "true"
+				$(".model-all .model_text-all input").val(0.00);
+
+				showMsg("请输入孵化数量:");
+			}else if (op == "shouhuo") {
+				uicontrol = "true"
+				console.log(op);
+				// 可收获小鸡的数量
+			/* 	core.json('member/youxi', {op: op,pid:pid}, function(json) {
+					if(json.status == 1){
+						bools = "false";
+						showMsg(json.result);
+					}else if (json.status == -1) {
+						bools = "false";
+						showMsg(json.result);
+					    // return;
+					}
+				},true,true); */
+			}else if (op == "zengzhang"){
+				uicontrol = "true"
+				showMsg("功能开发中 ...")
+			}
+		})
+		//确定开地
+		$('.confirm_btn1').click(function(){
+			$('.model1').hide();
+			$('.rabit_model').hide();
+			var pid = $(this).parent().index();
+			console.log(pid);
+			// alert(1);
+			// pid
+			// $("body").on("click",".list li .rabit_model",function(){
+			// 	// alert(111)
+			// 	var pid = $(this).parent().index();
+			// 	// pid ++;
+			// 	console.log(pid)
+			// 	core.json('member/youxi', {op: 'kaidi',pid:pid}, function(json) {   
+			//         if(json.status == 1) {
+			//         	alert(json.result);
+			//         } else if (status == -1) {
+			//         	core.tip.show(json.result);
+		 //                return;
+
+			//         }
+
+			//     },true,true);
+			// })
+
+		});
+		// 一键打扫
+		$(".btn_dasao").click(function(){
+			var dasao = "0"; //一键打扫关键参数
+			if(dasao == 0){
+				op = "sbgoumai";
+				bools = "true";
+				uicontrol = "true";
+				showMsg("将花费100只小鸡购买一键打扫,继续吗?");
+			}else {
+				bools = "false";
+				uicontrol = "true";
+				op = "saoba";
+				core.json("member/youxi",{op:op},function(json){
+					if(json.status == 1){
+						showMsg(json.result);
+					}else{
+						showMsg(json.result);
+					}
+				})
+			}
+			// core.json("shop/hyyouxi",{op:})
+		})
+
+		//取消
+		$('.qx_btn').click(function(){
+			$('.model1').hide();
+			$('.rabit_model').hide();
+			$('.Cfooter li').eq(0).attr('data-index','0');
+			$('.Cfooter li').eq(3).attr('data-index','0');
+			$('.Cfooter li').eq(4).attr('data-index','0');
+		});
+
+		//增产
+		//确定开地
+		$('.confirm_btnf1').click(function(){
+			$('.modelf1').hide();
+			$('.rabit_model').hide();
+			$('.Cfooter li').eq(1).attr('data-index','0')
+		});
+
+		//取消
+		$('.qx_btnf1').click(function(){
+			$('.modelf1').hide();
+			$('.rabit_model').hide();
+			$('.Cfooter li').eq(1).attr('data-index','0')
+		});
+
+		//孵化
+		//
+		$('.confirm_btnf2').click(function(){
+			$('.modelf2').hide();
+			$('.rabit_model').hide();
+			$('.Cfooter li').eq(2).attr('data-index','0')
+		});
+
+		//取消孵化
+		$('.qx_btnf2').click(function(){
+			$('.modelf2').hide();
+			$('.rabit_model').hide();
+			$('.Cfooter li').eq(2).attr('data-index','0')
+		});
+		})
+	});
+
+
+	// ui 兼容
+	// 阻止ios拖拽
+	$("document,body,html").css({"overflow":"hidden","-webkit-overflow-scrolling":"touch"});
+	/*阻止ios拖拽到底部还能继续拖拽*/
+
+	var ScrollFix = function(elem) {
+	    // Variables to track inputs
+	    var startY, startTopScroll;
+	    
+	    elem = elem || document.querySelector(elem);
+	    
+	    // If there is no element, then do nothing    
+	    if(!elem)
+	        return;
+
+	    // Handle the start of interactions
+	    elem.addEventListener('touchstart', function(event){
+	        startY = event.touches[0].pageY;
+	        startTopScroll = elem.scrollTop;
+	        
+	        if(startTopScroll <= 0)
+	            elem.scrollTop = 1;
+
+	        if(startTopScroll + elem.offsetHeight >= elem.scrollHeight)
+	            elem.scrollTop = elem.scrollHeight - elem.offsetHeight - 1;
+	    }, false);
+	};
+
+	/*判断设备调用ScrollFix*/
+
+	var sUserAgent=navigator.userAgent.toLowerCase();
+	if(sUserAgent.match(/iphone os/i) == "iphone os"){
+	    $('document,html,body').addClass('wrapper2');
+	    ScrollFix($('.wrapper2')[0]); 
+	}
+
+	/*阻止用户双击使屏幕上滑*/
+	var agent = navigator.userAgent.toLowerCase();        //检测是否是ios
+	var iLastTouch = null;                                //缓存上一次tap的时间
+	if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0)
+	{
+	    document.body.addEventListener('touchend', function(event)
+	    {
+	        var iNow = new Date()
+	            .getTime();
+	        iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */ ;
+	        var delta = iNow - iLastTouch;
+	        if (delta < 500 && delta > 0)
+	        {
+	            event.preventDefault();
+	            return false;
+	        }
+	        iLastTouch = iNow;
+	    }, false);
+	}
+		
+
+		</script>
+	</body>
+
+</html>

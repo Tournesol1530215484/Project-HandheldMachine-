@@ -1,0 +1,47 @@
+{template 'common/header'}
+<title>观看视频</title>
+<style type="text/css">
+.order_topbar {height:44px; width:100%; background:#fff; border-bottom:1px solid #e3e3e3;}
+    .order_topbar .nav {height:44px; width:50%; line-height:44px; text-align:center; font-size:14px; float:left; color:#666;}
+    .order_topbar .on {height:42px; color:#ff771b; border-bottom:2px solid #ff771b;}
+    body {margin:0px; background:#eee; font-family:'微软雅黑'; -moz-appearance:none;}
+    .credit_list {height:40px; width:94%; background:#fff; padding:10px 3%;margin-top:5px;}
+    
+    .credit_list .info {height:40px; width:70%; float:left;  font-size:16px; color:#666; line-height:20px; text-align:left;}
+    .credit_list .info span {font-size:14px; color:#999;}
+    .credit_list .num {height:40px; border-left:1px solid #eaeaea; width:20%;line-height:40px; float:right; text-align:right; font-size:16px; color:#666;}
+    .credit_list .num span {font-size:14px; color:#999;}
+    .credit_tab {height:30px; margin:5px; border:1px solid #ff6801; border-radius:5px; overflow:hidden;font-size:13px;background:#fff;padding-right: -2px;}
+    .credit_nav {height:30px; width:50%;  background:#fff; color:#666; text-align:center; line-height:30px; float:left;}
+    .credit_navon {color:#fff; background:#ff6801;}
+    .credit_no {height:100px; width:100%; margin:50px 0px 60px; color:#ccc; font-size:12px; text-align:center;}
+    #credit_loading { padding:10px;color:#666;text-align: center;}
+	.credit_list .sub {height:50px; width:100%;}
+    .credit_list .sub1 {height:30px; width:auto; padding:0px 3px; border:1px solid #ff771b; float:right; border-radius:5px; line-height:30px; font-size:14px; margin:10px 5px 10px 0px; color:#fff; background:#ff771b;}
+    .credit_list .sub2 {height:30px; width:auto; padding:0px 3px; border:1px solid #ccc; float:right; border-radius:5px; line-height:30px; font-size:14px; margin:10px 5px 10px 0px; color:#fff; background:#ccc;}
+    
+
+</style>
+<div class="page_topbar">
+    <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+    <div class="title">观看视频</div>
+</div>
+
+
+<div id='container'>
+{php foreach($allvideo as $g){} 
+<div style="text-align: center;">
+{if $g['goods'][0]['videotimeend']>0 && $g['goods'][0]['videotimeend']>time()}
+视频已到期！
+{else}
+<iframe src="{php echo $g['goods'][0]['videourl']}" width="100%" height="250px" frameborder="0" allowfullscreen="allowfullscreen" align="none"></iframe>
+{/if}
+</div><br/>
+{php }}
+<script type="text/javascript">
+document.getElementById("movie").style.height=document.getElementById("movie").scrollWidth*0.8+"px";
+</script>
+</div>
+
+{php $show_footer=true}
+{template 'common/footer'}

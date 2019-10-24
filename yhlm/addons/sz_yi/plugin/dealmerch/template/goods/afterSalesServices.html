@@ -1,0 +1,11 @@
+<div class="form-group">
+	<label class="col-xs-12 col-sm-3 col-md-1 control-label">售后服务</label>
+	<div class="col-sm-9 col-xs-12">
+      {ife 'dealmerch.goods.edit' $item}
+        {php echo tpl_ueditor('salesServices',$item['afterSalesServices'])}
+        {else}
+        <textarea id='salesServices' style='display:none'>{$item['afterSalesServices']}</textarea>
+        <a href='javascript:preview_html("#salesServices")' class="btn btn-default">查看内容</a>
+        {/if}
+	</div>
+</div>

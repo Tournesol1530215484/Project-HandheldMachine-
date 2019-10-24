@@ -1,0 +1,236 @@
+{template 'common/header'}
+<title> 
+{if $_GPC['type'] ==1}
+    我发布的文章
+{else}
+    我转发的文章
+{/if}
+</title><!-- 这里的标签动态获取  --><!-- 安定type==1为我发布的文章 要修改的话改对应的地方就ok了 -->
+<style type="text/css">
+    html{
+        font-size: 10px;
+    }
+    body{
+        background: #eee;
+    }
+    #big_body{width:100%;margin:0px;}
+    .page_topbar{
+       background: #009BF8;
+    }
+    .page_topbar a.back{
+        font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+        font-weight: bold;
+        padding-right: 15px;
+        color: #fff;
+    }
+    .page_topbar .title{
+        color: #fff;
+    }
+    /*flex居中*/
+    .flex-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .act-title{
+        background: #fff;
+    }
+    .act-title .act-link{
+        width: 100%;
+        font-size: 16px;
+        color: #333;
+        padding: 10px;
+        text-decoration: none;
+    }
+    .act-title .act-link .flex1{
+        width: calc(100% - 30px);
+        line-height: 1.3;
+    }
+    .act-title .act-link .flex2{
+        width: 30px;
+        text-align: center;
+    }
+    .act-title .act-link .flex2 i{
+        font-size: 24px;
+    }
+    .data-box{
+        background: #fff;
+        padding: 10px 0;
+    }
+    .data-box .data-item{
+        width: calc(100% / 3);
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+        border-right: 1px solid #eee;
+    }
+    .data-box .data-item:last-child{
+        border: 0;
+    }
+    .data-box .data-item .data-item-num{
+        display: block;
+        color: #999;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .operate-box .op-ul{
+        background: #fff; 
+        margin-top: 10px;
+    }
+    .operate-box .op-ul .op-item{
+        float: left;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    .operate-box .op-item{
+        width: calc(100% / 3);
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+    .operate-box .op-item .op-item-link{
+        display: block;
+        color: #999;
+        line-height: 30px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none;
+    }
+    .operate-box .op-item .icon-item{
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        background: #00c1ff;
+        color: #fff;
+        font-size: 25px;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+    }
+</style>
+<div id="big_body">
+    <div class="page_topbar">
+        <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+        <div class="title">
+            {if $_GPC['type'] ==1}
+			    我发布的文章
+			{else}
+			    我转发的文章
+			{/if}
+    </div><!-- 这里的标签动态获取 我发布的文章 我转发的文章 -->
+    </div>
+    <div class="act-title">
+        <a href="{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'detail','id'=>$_GPC['id']))}" class="act-link flex-center">
+            <span class="flex1">{$activity['title']}</span>
+            <span class="flex2"><i class="fa fa-angle-right trun-right"></i></span>
+        </a>
+    </div>
+    {if $_GPC['type'] == 1}
+    <div class="data-box flex-center">
+        <div class="data-item">
+            阅读
+            <span class="data-item-num">{$activity['browse']}</span>
+        </div>
+        <div class="data-item">
+            转发
+            <span class="data-item-num">{$share}</span>
+        </div>
+        <div class="data-item">         
+            互动
+            <span class="data-item-num">{$comment}</span>
+        </div>
+    </div>
+    {/if}
+    <div class="operate-box">
+        <!-- 下面的两个op-ul 使用内置标签来进行判断是 我转发的活动 还是 我发布的文章 -->
+        <!-- 我发布的文章 -->
+        {if $_GPC['type'] == 1}
+        <ul class="op-ul clearfloat">
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'add','id'=>$_GPC['id'],'what'=>'1'))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>编辑文章信息
+                </a> 
+            </li>       
+            <li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'add','id'=>$_GPC['id'],'what'=>'2'))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    </div>编辑文章正文
+                </a> 
+            </li> 
+            {if false}        
+   			<li class="op-item"> 
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'invite','type'=>1,'cate'=>'art','id'=>$_GPC['id']))}">
+                    <div class="icon-item" style="background:#44b9c0;">
+                        <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                    </div>邀约汇总
+                </a>            
+            </li>    
+            {/if}  
+            <li class="op-item">
+                <a class="op-item-link del-btn" href="javascript:void(0);" data-actid="{$_GPC['id']}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </div>删除      
+                </a> 
+            </li>
+            <li class="op-item">                
+                <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity',array('id'=>$_GPC['id'],'type'=>2,'op'=>'settop'))}">
+                    <div class="icon-item" style="background:#c1c554;">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    </div>置顶推广
+                </a> 
+            </li>  
+        </ul>
+        {elseif $_GPC['type'] == 2}     
+        <!-- 我转发的文章 -->              
+        <ul class="op-ul clearfloat">       
+            {if false}                      
+       			<li class="op-item">      
+                    <a class="op-item-link" href="{php echo $this->createPluginMobileUrl('activity/center',array('op'=>'invite','type'=>2,'cate'=>'art','id'=>$_GPC['id']))}">
+                        <div class="icon-item" style="background:#44b9c0;">
+                            <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                        </div>邀约汇总      
+                    </a>        
+                </li>               
+            {/if}    
+        </ul>
+        {/if}
+    </div>
+</div>
+<script type="text/javascript">
+    require(['tpl', 'core'], function(tpl, core) {
+        //删除文章
+        $(".del-btn").click(function(){
+            core.tip.confirm("确定要删除此文章吗?",function(){
+                //删除文章异步请求
+                core.json('plugin/activity/article',{op:'delete',id:'{$_GPC['id']}'},function(json){
+                    if(json.status==1){
+                        //执行成功 需要运行的代码...
+                        core.tip.show(json.result);                                
+                        setTimeout(function(){
+                            location.href="{php echo $this->createPluginMobileUrl('activity/article',array('op'=>'myAct','status'=>1))}";                            
+                        },200);             
+                        return;             
+                    }
+                    core.tip.show(json.result);
+                },true,true);
+            });
+        });
+    });
+</script>
+{template 'common/footer'}

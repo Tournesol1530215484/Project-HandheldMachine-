@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+	<title>个人中心 </title>
+	<link href="../addons/sz_yi/static/css/font-awesome.min1.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/style1.css">
+	<meta name="format-detection" content="telephone=no">
+	<style type="text/css">
+		
+		body { margin: 0px; background: #eee; -moz-appearance: none; }
+		a { text-decoration: none; }
+		img { width: 100%; }
+		
+		#container .top_bg { height: 50px; background: #000; color: #fff; }		
+		#container .center_title { display: inline-block; font-size: 18px; margin-top: 4%; margin-left: 7%; }
+		#container .div_1 { width: 5%; display: inline-block; }
+		#container .div_2 { margin-top: 5%; margin-left: 5%; }
+		#container .div_3 { width: 4%; margin-top: 4%; margin-right: 3%; }
+		#container .div_3 img { width: 40%; }
+		.header { height: 120px; width: 100%; padding: 0px;
+			background: url(../addons/sz_yi/static/images/bg2.png) 0 0 no-repeat;
+			background-size: 100% 100%; }
+		
+		.header .user { height: 48px; padding: 10px; padding-top: 45px; }
+		
+		.header .phone { width: 18%; line-height: 20px; text-align: center; float: right;
+			font-size: 12px; margin-top: 7px; margin-right: 10px;
+			background: #f48093; border: 1px #ccc solid; border-radius: 5px; }
+		
+		.header .phone a { color: #fff; }
+		
+		.header .user .user-head { height: 48px; width: 48px; background: #fff; border-radius: 50%; float: left; border: 2px solid #fff; }
+		
+		.header .user .user-head img { height: 48px; width: 48px; border-radius: 24px; }
+		
+		.header .user .user-info { line-height: 24px; height: 60px; float: left; margin-left: 14px; color: #fff; padding-top: 5px; }
+		
+		.header .user .user-info .user_name { float: left; height: 24px; max-width: 148px;overflow:hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 18px; line-height: 24px; }
+		
+		.header .user .user-info .user_other { padding-left:5px;padding-right: 5px;
+			background: #fff; border-radius: 10px; color: #FF0000; text-align: center; margin: 4px;
+			float: left; height: 16px; line-height: 16px; font-size: 12px; }
+		
+		.header .user .user-info .user_balance { font-size: 12px; clear: both; }
+		
+		.header .user-gold { height: 35px; width: 94%; padding: 5px 3%;
+							border-bottom: 1px solid #ddd; background: #fff; font-size: 16px; line-height: 35px; }
+		
+		.header .user-gold .title { height: 35px; width: auto; float: left; color: #666; }
+		
+		.header .user-gold .num { height: 35px; width: auto; float: left; color: #f90; }
+		
+		.header .user-gold .draw { width: 80px; height: 30px; background: #6c9; float: right; }
+		
+		.header .user .set { height: 26px; width: 20px; float: right; margin-top: 10px; }
+		.header .user .set a{ display: inline-block; width: inherit; height: inherit;
+				background:url(../addons/sz_yi/static/images/icon_right.png) no-repeat center center; background-size: 100% 100%; }
+		
+		
+		.header .user-op { height: 35px; width: 94%; padding: 5px 3%; border-bottom: 1px solid #ddd; background: #fff; font-size: 16px; line-height: 35px; }
+		
+		.take { height: 30px; width: auto; padding: 0 10px; line-height: 30px; font-size: 16px;
+			float: right; background: #ff6600; border-radius: 5px; margin-top: 5px; color: #fff; }
+		
+		.take1 { height: 30px; width: auto; padding: 0 10px; line-height: 30px; font-size: 16px;
+			float: right; background: #00cc00; border-radius: 5px; margin-top: 5px; color: #fff; }
+		
+		.order { height: 135px; width: 100%; background: #fff; border-bottom: 1px solid #ddd; }
+		
+		.order_all { height: 90px; width: 100%; color: #666; }
+		.order_all a{ display: inline-block; margin-top: 16px; height: 74px; width: 25%; float: left;}
+		.order_all a p{ margin: 0px; }
+
+		.order_all .order_pub { width: 100%; height: inherit; text-align: center; color: #000; position: relative;}
+		.order_all .order_pub .iconfont_6{ display: block; color:#7e7e7e; font-size: 30px; width: 100%; height: 40px;
+											font-family:"iconfont"; font-style:normal; -webkit-font-smoothing: antialiased;
+											-webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;}
+		.order_all .order_pub span { position: relative; display: inline-block; top: -60px; float: right; background: #f30;
+									color: #fff; padding-left:5px; padding-right: 5px; border-radius: 50%; }
+
+		.a_list { display: inline-block; width: 33%; font-size: 14px; height: 90px; float: left; text-align: center; vertical-align: middle; }
+		.a_list .list3 { height: 90px; width: 100%; background: #fff; line-height: 44px; color: #666; }
+		.a_list .list3 p{ margin: 0px; display: block; height: 45px; line-height: 45px }
+		.list1 { height: 44px; width: 94%; background: #fff; margin: 0px 3%; position: relative;
+			border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; color: #666; }
+
+		.list1 i { margin-right: 10px; }
+		
+		.list1 .fa_angle_right { color: #666; font-size: 26px; float: right; line-height: 44px; }
+		
+		.cart a:first-child div { border-top: none; }
+		
+		.cart a:last-child div { border-bottom: none; }
+		
+		.list2 { border-bottom: 0px; }
+
+		.allorder { float: right; color: #aaa; margin-right: 45px; text-decoration: none; }
+		
+		.cart { height: auto; width: 100%; background: #fff; margin-top: 20px; border-bottom: 1px solid #ddd; }
+		
+		.cart .list_1{ display: inline-block; width: 100%; }
+		.list1 span{ line-height: 44px; }
+		
+		.address { height: 38px; width: 100%; background: #fff;
+			margin-top: 20px; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; line-height: 38px; }
+		
+		.copyright {
+			height: 40px; width: 100%; text-align: center; line-height: 40px;
+			font-size: 12px; color: #999; margin-top: 10px; }
+		
+		span.count {
+			float: right; margin-top: 15px; margin-right: 5px; height: 16px;
+			padding: 3px; background: #f30; border-radius: 8px; font-size: 12px;
+			color: #fff; line-height: 16px; text-align: center; }
+
+	</style>
+	<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/iconfont.css" />
+	<script language="javascript">
+		require(['core', 'tpl'], function(core, tpl) {
+			core.init({
+				siteUrl: "{$_W['siteroot']}",
+				baseUrl: "{php echo $this->createMobileUrl('ROUTES')}"
+			});
+		})
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div class="header">
+			{if !$member['isbindmobile'] && is_weixin()}
+			<div class="phone">
+				<a href="{php echo $this->createMobileUrl('member/bindmobile',array('style'=>$member[style]))}">绑定手机</a>
+			</div>
+			{/if}
+			<div class="user">
+				<div class="user-head"><img src="{$member['avatar']}" /></div>
+				<div class="user-info">
+					<div class="user_name">{$member['nickname']}</div>
+					<div class="user_other" {if !empty($set[ 'shop'][ 'levelurl'])}onclick='location.href="{$set[' shop ']['levelurl ']}"'{/if}> [{$level['levelname']}] </div>
+					<div class="user_balance">当前账户余额：{$member['credit2']}</div>
+				</div>
+				<div class="set"><a href="{php echo $this->createMobileUrl('member/info',array('style'=>$member[style]))}"></a></div>
+			</div>
+		</div>
+		<div class="order">
+			<a href="{php echo $this->createMobileUrl('order',array('style'=>$member[style]))}" style="height: 46px; display: block;" >
+				<div class="list1"><i class="iconfont" style="width: 24px; font-size:22px; background: #facd89;">&#xe608;</i>
+					<span>我的订单</span><i class="fa fa-angle-right fa_angle_right"></i> </div>
+			</a>
+			<div class="order_all">
+				<a href="{php echo $this->createMobileUrl('order',array('status'=>0,'style'=>$member[style]))}">
+					<div class="order_pub"><i class="iconfont_6">&#xe609;</i><p>待付款</p>{if $order['status0']}<span>{$order['status0']}</span>{/if}</div>
+				</a>
+				<a href="{php echo $this->createMobileUrl('order',array('status'=>1,'style'=>$member[style]))}">
+					<div class="order_pub"><i class="iconfont_6">&#xe60c;</i><p>待发货</p>{if $order['status1']}<span>{$order['status1']}</span>{/if}</div>
+				</a>
+				<a href="{php echo $this->createMobileUrl('order',array('status'=>2,'style'=>$member[style]))}">
+					<div class="order_pub"><i class="iconfont_6">&#xe605;</i><p>待收货</p>{if $order['status2']}<span>{$order['status2']}</span>{/if}</div>
+				</a>
+				<a href="{php echo $this->createMobileUrl('order',array('status'=>4,'style'=>$member[style]))}">
+					<div class="order_pub"><i class="iconfont_6">&#xe613;</i><p>待退款</p>{if $order['status4']}<span>{$order['status4']}</span>{/if}</div>
+				</a>
+			</div>
+		</div>
+		
+		
+		<div class="cart" style="height: 135px;">
+			<a href="{php echo $this->createMobileUrl('member/info',array('style'=>$member[style]))}" class="list_1" style="height: 45px;">
+				<div class="list1"><i class="iconfont_2" style="font-size:18px; background: #c0c553;">&#xe60f;</i><span>我的资料</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+			<a href="{php echo $this->createMobileUrl('member/recharge',array('openid'=>$openid,'style'=>$member[style]))}" class="a_list" style="padding-left: 1%;;">
+				<div class="list3">
+					<p><i class="iconfont_3">&#xe615;</i><span style="display: inline;">余额: </span></p>
+					<span style="color:#ec408c; line-height:28px; display: block;">{$member['credit2']}</span></div>
+			</a>
+			<a href="javascript:;" class="a_list">
+				<div class="list3">
+					<p><i class="iconfont_3" >&#xe611;</i><span style="display: inline;">积分: </span></p>
+					<span style="color:#ec408c; line-height:28px; display: block;">{$member['credit1']}</span></div>
+			</a>
+			<a href="{php echo $this->createPluginMobileUrl('commission/withdraw')}" class="a_list">
+				<div class="list3">
+					<p><i class="iconfont_3">&#xe607;</i><span style="display: inline;">佣金: </span></p>
+					<span style="color:#ec408c; line-height:28px; display: block;">{$member['credit7']}</span></div>
+			</a>
+		</div>
+		<div class="cart"> 
+			{if $hascom}
+			<a href="{php echo $this->createPluginMobileUrl('commission',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #e84675;">&#xe618;</i><span>{php echo $pset['texts']['center']}</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a> 
+			{/if}
+			{if $pluginbonus}
+				{if !empty($bonus_set['start'])}
+					{if empty($bonus_set['bonushow'])}
+			<a href="{php echo $this->createPluginMobileUrl('bonus/index',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #e33089;">&#xe614;</i><span>分红中心</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+					{/if}
+				{/if}
+			{/if}
+
+
+	<!--供应商申请-->
+	{if p('supplier')}
+	{if empty($supplier) }
+	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('supplier/af_supplier')}"> <i class="hs hs-shenqing"></i>供应商申请  <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>
+	{else}
+	<li class="list1"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu')}"> <i class="hs hs-shenqing"></i>供应商管理 <i class="fa fa-angle-right" style="font-size:26px; line-height:44px;float: right;"></i> </a> </li>	
+	{/if}    
+	{/if}
+
+	 
+
+
+			
+			<!--经销商查询-->
+			{if $rule1['status']==1}
+			<a href="{php echo $this->createPluginMobileUrl('dis')}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #9f71a6;">&#xe60b;</i><span>经销商查询</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+			{/if}
+		</div>
+		{if p('bdsite')}
+		<div class="cart"> 
+			<a href="{php echo $this->createPluginMobileUrl('bdsite/index')}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #e33089;">&#xe614;</i><span>报单中心</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+		</div>
+		{/if}
+		<div class="cart">
+			{if $hascouponcenter}
+			<a href="{php echo $this->createPluginMobileUrl('coupon',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #de318c;">&#xe604;</i><span>领取优惠券</span><i class="fa fa-angle-right fa_angle_right"></i> </div>
+			</a>
+			{/if}
+			<a href="{php echo $this->createPluginMobileUrl('coupon/my',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f89628;">&#xe601;</i><span>我的优惠券</span><i class="fa fa-angle-right fa_angle_right"></i> <span class="count">0</span></div>
+			</a>
+		</div>
+		<div class="cart">
+			<a href="{php echo $this->createMobileUrl('shop/cart',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #44b9bf;">&#xe602;</i><span>我的购物车</span><i class="fa fa-angle-right fa_angle_right"></i> <span class="count">0</span></div>
+			</a>
+			<a href="{php echo $this->createMobileUrl('shop/favorite',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #e23088;">&#xe617;</i><span>我的收藏</span><i class="fa fa-angle-right fa_angle_right"></i><span class="count">0</span></div>
+			</a>
+			<a href="{php echo $this->createMobileUrl('shop/history',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #067fa8;">&#xe603;</i><span>我的足迹</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a> 
+			
+			<!--<a href="{php echo $this->createPluginMobileUrl('yipinyima')}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #067fa8;">&#xe603;</i><span>一品一码</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a> -->
+			
+			{if $p_status['phstatus'] == 1 && $p_status['jifen'] == 1 || $p_status['xiaofei'] == 1 || $p_status['yongjin'] == 1}
+			{if $p_status['jifen'] == 1}	
+			<a href="{php echo $this->createMobileUrl('member/paihang',array('apido' => 'selectlist'))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f9b979;">&#xe60a;</i><span>排行榜</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+			{elseif $p_status['jifen'] == 0 && $p_status['xiaofei'] == 1}
+				<a href="{php echo $this->createMobileUrl('member/paihang',array('apido' => 'selectlist1'))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f9b979;">&#xe60a;</i><span>排行榜</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+			{elseif $p_status['jifen'] == 0 && $p_status['xiaofei'] == 0 && $p_status['yongjin'] == 1}
+				<a href="{php echo $this->createMobileUrl('member/paihang',array('apido' => 'selectlist2'))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f9b979;">&#xe60a;</i><span>排行榜</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+			{/if}
+			{/if}
+			<a href="{php echo $this->createMobileUrl('member/transfer',array('op'=>'display'))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f9b979;">&#xf155;</i><span>转账</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+
+			<a href="{php echo $this->createMobileUrl('member/log',array('style'=>$member[style]))}">
+				<div class="list1 list2"><i class="iconfont_2" style="font-size:18px; background: #f9b979;">&#xe60e;</i><span>充值记录</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+		</div>
+		<div class="cart">
+			<a href="{php echo $this->createMobileUrl('member/notice',array('style'=>$member[style]))}">
+				<div class="list1"><i class="iconfont_2" style="font-size:18px; background: #71aca2;">&#xe60a;</i><span>消息提醒设置</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+		</div>
+		<div class="cart">
+			<a href="{php echo $this->createMobileUrl('shop/address',array('style'=>$member[style]))}">
+				<div class="list1"><i class="iconfont_2" style="font-size:18px; background: #ecbbae;">&#xe606;</i><span>收货地址管理</span><i class="fa fa-angle-right fa_angle_right"></i></div>
+			</a>
+		</div>
+		<div class="copyright">版权所有 ©{if empty($set['shop']['name'])}{$_W['account']['name']}{else}{$set['shop']['name']}{/if} </div>
+	</div>
+	<script language="javascript">
+		require(['tpl', 'core'], function(tpl, core) {
+			core.json('member/center', {}, function(json) {
+				$('#container').html(tpl('member_center', json.result));
+				var withdrawmoney = 0;
+				$('#btnwithdraw').click(function() {
+					if(json.result.member.credit2 <= 0) {
+						core.tip.show('无余额可提!');
+						return;
+					}
+					if(withdrawmoney > 0 && json.result.member.credit2 < withdrawmoney) {
+						core.tip.show('满' + withdrawmoney + "元才能提现!");
+						return;
+					}
+					location.href = core.getUrl('member/withdraw');
+				})
+			}, true);
+		})
+	</script>
+	<div style="height:50px; width:100%;margin:0;padding:0;float:left;display:block;"></div>
+	<style type="text/css">
+		footer#footer-nav .menu-list li { width: 20%; }
+	</style>
+
+	<script id="tpl_show_message" type="text/html">
+		<div class="sweet-alert" style="display:block;"> {if type=='error'}
+			<div class="icon error animateErrorIcon" style="display: block;"><span class="x-mark animateXMark"><span class="line left"></span><span class="line right"></span></span>
+			</div>{/if} {if type=='warning'}
+			<div class="icon warning pulseWarning" style="display: block;"><span class="body pulseWarningIns"></span><span class="dot pulseWarningIns"></span></div>{/if} {if type=='success'}
+			<div class="icon success animate" style="display: block;"><span class="line tip animateSuccessTip"></span><span class="line long animateSuccessLong"></span>
+				<div class="placeholder"></div>
+				<div class="fix"></div>
+			</div>{/if}
+			<div class="info">{message}{if url}<br><span>如果您的浏览器没有自动跳转请点击此处</span>{/if}</div>
+			<div class="sub" {if url} onclick="location.href='{url}'" {else} {if js} onclick="{js}" {else} onclick="history.back()" {/if} {/if}> {if type=='success'}
+				<div class="green">确认</div>{/if} {if type=='warning'}
+				<div class="grey">确认</div>{/if} {if type=='error'}
+				<div class="red">确认</div>{/if} </div>
+	</script>
+	</span>
+	<script language="javascript">
+		$(function() {
+			$.ajax({
+				url: "{php echo $this->createMobileUrl('runtasks')}",
+				cache: false
+			});
+		})
+	</script>
+	<script>
+		require(['js/jweixin-1.0.0.js'], function(wx) {
+			window.shareData = {
+				"title": "\u9753\u6cb9\u5546\u57ce",
+				"imgUrl": "http:\/\/m1.47cu.com\/attachment\/images\/6\/2016\/06\/S6IDXIKxUK94XYUDOgsXnNyuLFygsC.jpg",
+				"desc": null,
+				"link": "http:\/\/m1.47cu.com\/app\/index.php?i=6&c=entry&do=shop&m=sz_yi"
+			};
+			jssdkconfig = {
+				"appId": "wx5a4a5143ea93277c",
+				"nonceStr": "b9994z4ubl4I2UTs",
+				"timestamp": "1467705143",
+				"signature": "577822d9bd834090c9a49b839376360703bb8aed"
+			} || {
+				jsApiList: []
+			};
+			jssdkconfig.debug = false;
+			jssdkconfig.jsApiList = ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'showOptionMenu', ];
+			wx.config(jssdkconfig);
+			wx.ready(function() {
+				wx.showOptionMenu();
+				wx.onMenuShareAppMessage(window.shareData);
+				wx.onMenuShareTimeline(window.shareData);
+				wx.onMenuShareQQ(window.shareData);
+				wx.onMenuShareWeibo(window.shareData);
+			});
+		});
+	</script>
+	<div id="core_loading" style="top: 50%; left: 50%; margin-left: -35px; margin-top: -30px; position: absolute; width: 80px; z-index: 999999; display: none;">
+		<img src="../addons/sz_yi/static/images/loading.svg" width="80"> </div>
+</body></html>
+{php $show_footer=true}
+{php $footer_current='member'}
+{template 'common/footer'}

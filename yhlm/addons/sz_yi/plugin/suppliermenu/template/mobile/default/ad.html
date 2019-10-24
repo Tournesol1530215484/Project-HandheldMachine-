@@ -1,0 +1,355 @@
+{template 'common/header'}
+
+<style type="text/css">
+
+	.page_topbar{
+
+	   background: #009BF8;
+
+	}
+
+	.page_topbar a.back{
+
+	    font-family:serif,"PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+
+	    font-weight: bold;
+
+	    padding-right: 15px;
+
+	    color: #fff;
+
+	}
+
+	.page_topbar .title{
+
+	    color: #fff;
+
+	}
+
+	.page_topbar .home {
+
+	    position: absolute;
+
+	    right: 15px;
+
+	    top: 0;
+
+	    color: #fff;
+
+	    font-size: 14px;
+
+	    text-decoration: none;
+
+	}
+
+	.menu-part-box{
+
+		height: auto;
+
+	    width: 100%;
+
+	    background: #fff;
+
+	    margin-bottom: 10px;
+
+	    margin-top: 10px;
+
+	}
+
+	.list1 {
+
+	    height: 50px;
+
+	    width: 94%;
+
+	    background: #fff;
+
+	    margin: 0px 3%;
+
+	    border-bottom: 1px solid #eee;
+
+	    line-height: 50px;
+
+	    color: #666;
+
+	}
+
+	.menu-part-box a.go-link{
+
+		display: block;
+
+		color: #000;
+
+		font-size: 14px;
+
+		text-decoration: none;
+
+	}
+
+	.menu-part-box a.go-link:visited,
+
+	.menu-part-box a.go-link:active{
+
+		text-decoration: none;
+
+	}
+
+	.list1 i.trun-right {
+
+	    font-size: 20px;
+
+	    margin-right: 10px;
+
+	    color: #969696;
+
+	}
+
+	.menu-part-box .num-value{
+
+		float: right;
+
+	    margin-top: 15px;
+
+	    margin-right: 10px;
+
+	    font-size: 14px;
+
+	    line-height: 16px;
+
+	    text-align: center;
+
+	    color: #f16b6b;;
+
+	}
+
+	.description_layer{
+
+	    height: 100%;
+
+	    width: 100%;
+
+	    background: rgba(0, 0, 0, 0.6);
+
+	    position: fixed;
+
+	    top: 0px;
+
+	    left: 0px;
+
+	    z-index: 9;
+
+	    display: none;
+
+	}
+
+	.description{
+
+	    height: auto;
+
+	    width: 100%;
+
+	    background: #fff;
+
+	    position: fixed;
+
+	    bottom: 0px;
+
+	    left: 0px;
+
+	    z-index: 10;
+
+	    display: none;
+
+	}
+
+	.description .description-tag{
+
+	    font-size: 14px;
+
+	    padding: 10px;
+
+	    background-color: #f1f1f1;
+
+	    position: fixed;
+
+	    width: 100%;
+
+	}
+
+	.description .description-cont{
+
+	    padding: 50px 10px 10px;
+
+	    height: 500px;
+
+	    width: 100%;
+
+	    font-size: 12px;
+
+	    overflow-x: hidden;
+
+	    overflow-y: auto;
+
+	}
+
+	.description .close.icon{
+
+	    position: absolute;
+
+	    right: 10px;
+
+	    top: 10px;
+
+	    color: #666;
+
+	    font-weight: normal;
+
+	    z-index: 11;
+
+	    margin-top:0;
+
+		margin-left:0;
+
+		width:24px;
+
+		height:24px
+
+	}
+
+	.description .close.icon:before{
+
+		content:'';
+
+		position:absolute;
+
+		top:10px;
+
+		width:24px;
+
+		height:2px;
+
+		background-color: currentColor;
+
+		-webkit-transform:rotate(-45deg);
+
+		transform:rotate(-45deg);
+
+	}
+
+	.description .close.icon:after {
+
+  		content: '';
+
+		position: absolute;
+
+		top: 10px;
+
+		width: 24px;
+
+		height: 2px;
+
+		background-color: currentColor;
+
+		-webkit-transform: rotate(45deg);
+
+        transform: rotate(45deg);
+
+	}
+
+</style>
+
+<!-- 广告管理 -->
+
+<title>广告管理</title>
+
+<div id="container">
+
+	<div class="page_topbar">
+
+        <a href="javascript:;" class="back" onclick="history.go(-1)"><i class="fa fa-angle-left"></i></a>
+
+        <div class="title">广告管理</div>
+
+        <a href="javascript:;" class="home" onClick="showdescription()">说明</a>
+
+    </div>
+
+	<ul class="menu-part-box">
+
+		<!--模板管理-->
+
+		<li class="list1 other-type"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('op'=>'demo','merchtype'=>$_GPC['merchtype']))}" class="go-link">模板管理<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i></a></li>
+
+		<!--新增广告-->
+
+	    <li class="list1 in-type"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('op'=>'add','merchtype'=>$_GPC['merchtype']))}" class="go-link">新增广告<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i></a></li>
+
+		<!--草稿箱-->
+
+		<li class="list1 in-type"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('op'=>'draft','merchtype'=>$_GPC['merchtype']))}" class="go-link">草稿箱<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i></a></li>
+
+		<!--广告列表-->
+
+		<li class="list1 in-type"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('op'=>'list','merchtype'=>$_GPC['merchtype']))}" class="go-link">广告列表<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i></a></li>
+
+	    <!--现金\易货码红包广告投放列表-->
+
+		<li class="list1 out-type"> <a href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('op'=>'bonusAd','merchtype'=>$_GPC['merchtype']))}" class="go-link">红包广告投放列表<i class="fa fa-angle-right trun-right" style="font-size:26px; line-height:44px;float: right;"></i></a></li>
+
+	    <!--剩余红包广告条数-->
+
+	    {if false}
+
+		<li class="list1 out-type"> <a href="javascript:void(0);" class="go-link">剩余红包广告条数<span class="num-value">10条</span></a></li>
+
+		{/if}
+
+  	</ul>
+
+  	<div class="description_layer"></div>
+
+    <div class="description">
+
+        <div class="description-tag">广告管理说明</div>
+
+
+
+        <div class="description-cont"><!-- 这里加载广告管理说明 -->
+
+        	{php echo html_entity_decode($sets['bart']['protocol'][1]['content'])}
+
+        </div>
+
+        <div class="close icon" onClick="closedescription()"></div>
+
+    </div>
+
+</div>
+
+<script language="javascript">
+
+	function closedescription(){
+
+        $('.description_layer').fadeOut(100);
+
+        $('.description').fadeOut(100);
+
+    }
+
+    function showdescription(){
+
+        $('.description_layer').fadeIn(200);
+
+        $('.description_layer').unbind('click').click(function(){
+
+            closedescription();
+
+        });
+
+        $('.description').fadeIn(200);
+
+    }
+
+</script>
+
+{template 'common/footer'}

@@ -1,0 +1,11 @@
+<script type="text/html" id="tpl-img-box2">
+    <div class="img-container" >
+       <div class="img-box">
+           <img src="<%=data.img[1]%>" style="width:100%; height:100%;"/>
+           <div style="position:absolute; top:-10%; left:-10%;" onclick=" $(this).parent().parent().remove(); ">X</div>
+           <input type="text" name="file2[]" value="<%=data.img[0]%>" style="display:none;" readonly="readonly" />
+       </div>
+    </div>
+</script>
+
+

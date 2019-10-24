@@ -1,0 +1,288 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<title>{$share['title']}</title>
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+<meta name="format-detection" content="telephone=no" />
+<script>var require = {urlArgs: 'v={php echo date('YmdHis');}'};</script>
+<script language="javascript" src="../addons/sz_yi/static/js/require.js"></script>
+<script language="javascript" src="../addons/sz_yi/static/js/app/config.js"></script>
+<script language="javascript" src="../addons/sz_yi/static/js/dist/jquery-1.11.1.min.js"></script>
+<script language="javascript" src="../addons/sz_yi/static/js/dist/jquery.gcjs.js"></script>
+<link href="../addons/sz_yi/static/css/font-awesome.min.css" rel="stylesheet">
+<link href="../addons/sz_yi/plugin/designer/template/imgsrc/designer.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="../addons/sz_yi/static/css/bootstrap.min.css">
+<style>
+body {margin:0px; background:#f9f9f9; }
+.fe-mod:hover{border:2px dashed rgba(0,0,0,0); cursor:default;}
+.fe-mod,.fe-mod:hover {border:0px;}
+.fe-mod-cube td {height:auto;}
+ul,li{margin:0;padding:0}
+#scrollDiv{width:250px;height:35px;line-height:35px;overflow:hidden; color:#FFF;}
+#scrollDiv li{height:35px;padding-left:20px;}
+#scrollDiv li p{ position:relative;}
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript">
+function AutoScroll(obj){
+        $(obj).find("ul:first").animate({
+                marginTop:"-25px"
+        },500,function(){
+                $(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+        });
+}
+$(document).ready(function(){
+setInterval('AutoScroll("#scrollDiv")',4500)
+});
+</script>
+</head>
+<body >
+    <div ng-controller="MainCtrl">
+
+        <!-- 悬浮机器人按钮 -->
+	 <div class="fe-floatico1" style="position: fixed;"  ng-class="{'fe-floatico1-left':pages[0].params.floatstyle=='left'}" ng-show="pages[0].params.roll==1	">
+		<div  id="QQFloat"  style="Z-INDEX:100000;left:20px;padding-top:20px;VISIBILITY:visible;WIDTH:107px;POSITION:absolute;TOP:30px;HEIGHT:100px;">
+				<div id="scrollDiv" >
+		  <ul>		
+				<li  style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;"><p ><img src="http://wx.qlogo.cn/mmopen/rZAn2LP5MoedMB3DQ1s1ITa1WDzDTvtxx35hPM9t5q6iapx98fG1N61h5ZM6zI6gKPQlDnmnWnLmoD8wBPrGiboo3CibRhM2x1B/132" style="width:35px;border-radius:20px;"" />  柯生   下了1笔订单 4秒前</p></li>
+				<li></li>
+				<li style="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK1BoO3EMCzuPU2pITSCVlNwLGHquHW1HpwmuSH7OLaWXIQprc48ghyvJTTzia2Iw6QYwAvYHgVRBa/132" ><p>
+				<img src="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK61pPyl8nIia9oIu2BsO0ia3FF8MpImOKPHg3FhnV6YKHVkxWuUb4R14n6uG975zYoKxJpvOibumaId/132" style="width:35px;border-radius:20px;"" />  何先生  下了2笔订单  14秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK01MqHrV5c2SX8YiceypibuSC8KUZSCfTAIM8AGdAsRYg2icZBVWyxMtur6e856pSnlgbJicFCTXQuux/132" style="width:35px;border-radius:20px;" /> 妍妍  下了2笔订单  15秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/Nd0Jb0Y0AibRSebkzLsnMuZcmCjFMU72rF89EyrdRFHE6Ziao86YkTaIlePWjyMaOb0AkyFNpclwVlVRK4KfcicoxejUD4TnPLd/132" style="width:35px;border-radius:20px;" />  刘少伟  下了2笔订单  19秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fHuOibqSuDBictR7SbITm3MxLFghC2D2qna0UZnPNWqZ3Wf0541wgp7MYB8icAWzVH0GkC5Hfaf48BMo16bZ8fJa5z/132" style="width:35px;border-radius:20px;" />  超能妈妈  下了1笔订单  23秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p> 
+				 <img src="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK4icnYB9NM6mRngcQwQfP5UH1eAJum85mI0TAn0QZibVOkFlowWvr1KOLYL23CKMJibsB2R19L1PIhH/132" style="width:35px;border-radius:20px;" />  流星星  下了1笔订单  24秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fExPKLa9tJS1ueUYNxgb7ZVaZibIR1EDdIOWM5ULsmSGxxb2KsNI1m9xkGlqIPjhjZS8BbdfjT9ImdUsgF6D99qL/132" style="width:35px;border-radius:20px;" />  Dream...  下了1笔订单  30秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fFFkOFZeDLrXeC0PjFyaict8vmcCicjl4AdTvuhGicdTUicMZEjWFfhE8pEvw6WFC7v3x2fU6I0NAZkZ1dDXMpp85Dib/132" style="width:35px;border-radius:20px;" />  A慧心  下了1笔订单  34秒前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fH1O88mxxRhU2Q5TOVwdOordkkvESdPtoKBqxDYJElG9K5TY3HsEBl6cOdvwSAqJLjooTT7LLnycIAWTXp7Yl0C/132" style="width:35px;border-radius:20px;" />  冯珍  下了1笔订单  1分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK4OItBlMVq2UvAW2yoHFCEczbjETGStBFXhbvXS4yBXPh8OrzqN7k2a6GjUibZzNrtQuf09bymOPu/132" style="width:35px;border-radius:20px;" />  慧一...  下了2笔订单  1分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK61pPyl8nIia9oIu2BsO0ia3FF8MpImOKPHg3FhnV6YKHVkxWuUb4R14n6uG975zYoKxJpvOibumaId/132" style="width:35px;border-radius:20px;" />  布布  下了1笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/rZAn2LP5MoeyhUruGnYb8hFaAMmRjTIV5r4bVKh2Yxl0H91dJaEY1HQI0cRlTbElSFuiaJ2Jq3IozCibRp91jzhQ/132" style="width:35px;border-radius:20px;" />  似水流年  下了2笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p> 
+				 \<img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fFhGpUEHfFY3ZyLEndgdxs7KU391ghmQLwwCicN4kp6xbL0XvLH3rY3tpLN13iagiaEicS9wT5O78q9Oeaz8ONibCpMf/132" style="width:35px;border-radius:20px;"/>  化羽  下了1笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/Nd0Jb0Y0AibQsGj92p8u2x9w4HlicuO4hmUndO91RXO39MxegNGFc90bgfsLNKrP68UQB81NJq2O0wfJ4UKds2PYAVw0Cjg3EO/132" style="width:35px;border-radius:20px;" />  二姐  下了2笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fExPKLa9tJS1licAwib0O7uG43AcBHdiacwa4su1LZJMkwZiajNChlwyhg0FMavhyjyWp3oibZaPxNRI4OF2ia1pXiakN4/132" style="width:35px;border-radius:20px;" />  Jessie夏...  下了1笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/rZAn2LP5MocCSQ6ElhzZoDZVhBE8Ru7Jb8YVia4NE1gMpjIJX5xpice6c2jgrQ6MUic49nEj2Rh70No94TZacvf3NT6SlzUcwj0/132" style="width:35px;border-radius:20px;" />  巩海燕  下了1笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/n4ZKjv9d6fGuLpf8fOyn5vpXxITTJtHk3w1YWUhhEVrWEuWtXC4S9Eormx6Jzxveb3clSBA41ZKDUTzy4nwcHic6gKAVnZe1u/132" style="width:35px;border-radius:20px;" />  亢萌   下了1笔订单  2分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/rZAn2LP5ModZbazloClrZKrYcODr39uHNaibbeALL6ZGrpF9Qva6TSZRJtQrEMVH02HOP3skheuX7e38aPQ5qsqczjV9ibVe1A/132" style="width:35px;border-radius:20px;" />  王珠丽   下了1笔订单  3分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/rZAn2LP5MoedMB3DQ1s1IRWSNFGLUkjKA6qZY9vx1MeGPCKBtWsLV79nPg2mNw4Jmf7qlXXglHK9SuINDrotaehmWJgIseJ1/132" style="width:35px;border-radius:20px;" />  何先生  下了1笔订单  3分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/Nd0Jb0Y0AibTYa6YGZ44iaDO9cdIrnL4dqrkQ7KdX9LibU0Uia1Ypgk1ib4Z5mkqO0gstdQJIcFD3dfsoWm3JpmiaqDGx23dpIJUtq/132" style="width:35px;border-radius:20px;" />  刘元武   下了1笔订单  5分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/jG6ZXszeEqPEVsVR0H3FQzpT7OMZ5f7SDFhDicSXNtlpclIUGouap8ibaD4158WuCRttpzeHD75WG2ov75W3v3Jb4aqeCyrAIj/132" style="width:35px;border-radius:20px;" />  梁婉   下了1笔订单  5分钟前</p></li>
+				<li></li>
+				 <li style=" background:rgba(255, 255, 255, 0.1)!important;filter:Alpha(opacity=60); background:#fff;border-radius:20px;" ><p>
+				 <img src="http://wx.qlogo.cn/mmopen/GqIlejFTbNiaSXnj7fxrJK1BoO3EMCzuPU2pITSCVlNwLGHquHW1HpwmuSH7OLaWXIQprc48ghyvJTTzia2Iw6QYwAvYHgVRBa/132" style="width:35px;border-radius:20px;" />  穆文雨   下了2笔订单  6分钟前</p></li>
+				<li></li>
+			</ul>
+				</div>
+		</div>
+	</div>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+var tips; var theTop = 5/*这是默认高度,越大越往下*/; var old = theTop;
+function initFloatTips() {
+  tips = document.getElementById('QQFloat');
+  moveTips();
+};
+function moveTips() {
+  var tt=30;
+  if (window.innerHeight) {
+    pos = window.pageYOffset
+  }
+  else if (document.documentElement && document.documentElement.scrollTop) {
+    pos = document.documentElement.scrollTop
+  }
+  else if (document.body) {
+    pos = document.body.scrollTop;
+  }
+  pos=pos-tips.offsetTop+theTop;
+  pos=tips.offsetTop+pos/10;
+ 
+  if (pos < theTop) pos = theTop;
+  <!--if (pos != old) {
+    tips.style.top = pos+"px";
+    tt=10;
+  //alert(tips.style.top);
+  }-->
+ 
+  old = pos;
+  setTimeout(moveTips,tt);
+}
+
+initFloatTips();
+</script>
+		
+        <!-- 浮动按钮 -->
+        <div class="fe-floatico" style="position: fixed;" ng-style="{'width':pages[0].params.floatwidth,'top':pages[0].params.floattop}" ng-class="{'fe-floatico-right':pages[0].params.floatstyle=='right'}" ng-show="pages[0].params.floatico==1">
+            <a href="{{pages[0].params.floathref || 'javascript:;'}}">
+                <img ng-src="{{pages[0].params.floatimg || '../addons/sz_yi/plugin/designer/template/imgsrc/init-data/init-image-7.png'}}" style="width:100%;" />
+            </a>
+        </div>
+        <!-- 关注按钮 -->
+        {if $guide['followed']!=1}
+            <div style="height: 50px;" ng-show="pages[0].params.guide==1"></div>
+            <a href="{$guide['followurl']}">
+                <div class="fe-guide" style="position: fixed;" ng-style="{'display':'block','background-color':pages[0].params.guidebgcolor,'opacity':pages[0].params.guideopacity}" ng-show="pages[0].params.guide==1">
+                    <div class="fe-guide-faceimg" ng-style="{'border-radius':pages[0].params.guidefacestyle}">
+                        <img src="{$guide['logo']}" ng-style="{'border-radius':pages[0].params.guidefacestyle}" />
+                    </div>
+                    <div class="fe-guide-sub" ng-style="{'color':pages[0].params.guidenavcolor,'background-color':pages[0].params.guidenavbgcolor}">{{pages[0].params.guidesub ||'立即关注'}}</div>
+                    <div class="fe-guide-text"  ng-style="{'font-size':pages[0].params.guidesize,'color':pages[0].params.guidecolor}">
+                        <p {if empty($guide['title2'])} style="line-height:40px;"{/if}>{$guide['title1']}</p>
+                        <p {if empty($guide['title1'])} style="line-height:40px;"{/if}>{$guide['title2']}</p>
+                    </div>
+                </div>
+            </a>
+        {/if}
+        <div ng-repeat="Item in Items" class="fe-mod-repeat">
+            <div ng-include="'../addons/sz_yi/plugin/designer/template/temp/show-'+Item.temp+'.html'" class="fe-mod-parent" id="{{Item.id}}" mid="{{Item.id}}" on-finish-render-filters></div>
+        </div>
+        <div ng-show="Items==''" style="line-height: 300px; text-align: center; font-size: 14px; color: #999;">
+            <div id="core_loading" style="top:50%;left:50%;margin-left:-35px;margin-top:-50%;position:absolute;width:80px;height:60px;"><img src="../addons/sz_yi/static/images/loading.svg" width="80" /></div>
+        </div>
+        <div style="height: 50px;" ng-show="pages[0].params.footer==2"></div>
+    </div>
+<script type="text/javascript" src="../addons/sz_yi/plugin/designer/template/imgsrc/angular.min.js"></script>
+{php $_W['angular_loaded']=true}
+<script type="text/javascript" src="../addons/sz_yi/plugin/designer/template/imgsrc/hhSwipe.js"></script>
+<script type="text/javascript">
+    function initswipe(jobj){
+        var bullets = jobj.next().get(0).getElementsByTagName('a');
+        var banner = Swipe(jobj.get(0), {
+            auto: 4000,
+            continuous: true,
+            disableScroll:false,
+            callback: function(pos) {
+                var i = bullets.length;
+                while (i--) {
+                    $(bullets[i]).css("opacity",0.4);
+                }
+                $(bullets[pos]).css("opacity",0.6);
+            }
+        })
+    }
+    var app = angular.module('myApp', []);
+    app.controller('MainCtrl', ['$scope', function($scope){
+            $scope.shop = {
+                uniacid:'{$_W["uniacid"]}'
+            };
+            $scope.cols = [0,1,2,3];
+            $scope.size = $(document.body).width()/4;
+            $scope.pages = [{$pageinfo}];
+            $scope.system = [{$system}];
+            $scope.Items = [{$data}];
+            $scope.show = '1';
+            
+            $scope.hasCube = function(Item){
+             
+            	 var has = false;
+                 var row=0,col = 0;
+            	 for(var i=row;i<4;i++){
+                    for(var j=col;j<4;j++){
+                      if (Item.params.layout[i][j] && !Item.params.layout[i][j].isempty) {
+                          has = true;
+                          break;
+                      }
+                    }
+                }
+                return has;
+                
+
+            }
+            
+            $scope.$on('ngRepeatFinished',function(){
+                $('.fe-mod-2 .swipe').each(function(){
+                        initswipe($(this));
+                 });
+                 $('.fe-mod-8-main-img img').each(function(){
+                     $(this).height($(this).width());    
+                 });
+                 $('.fe-mod-12 img').each(function(){
+                     $(this).height($(this).width());    
+                 });
+                 $('.fe-mod-cube table  tr').each(function(){
+                 	if( $(this).children().length<=0){
+                 		$(this).html('<td></td>');
+                 	}
+                 });
+            });
+          
+          
+    }]);
+    
+    app.directive('stringHtml' , function(){
+        return function(scope , el , attr){
+            if(attr.stringHtml){
+                scope.$watch(attr.stringHtml , function(html){
+                    el.html(html || '');
+                });
+            }
+        };
+    });  
+    app.directive("onFinishRenderFilters",function($timeout){
+        return{
+            restrict: 'A',
+            link: function(scope,element,attr){
+                if(scope.$last === true){
+                    $timeout(function(){
+                        scope.$emit('ngRepeatFinished');
+                    });
+                }
+            }
+        };
+    });
+</script>
+
+{if $footertype==1}
+    {php $show_footer=true;$footer_current ='first'}
+{else if $footertype==2}
+    {php $show_footer=false;}
+    {template 'designer/menu'}
+{else}
+    {php $show_footer=false;}
+{/if}
+{template 'common/footer'}
+
+

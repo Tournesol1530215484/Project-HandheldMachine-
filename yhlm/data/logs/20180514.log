@@ -1,0 +1,3681 @@
+2018-05-14 00:24:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9Yf39FYjzdipfcOQVSzfIE ;
+createtime : 1526228654 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : ee395d04ec5fadc2f67c47c95fdc0447 ;
+ticket : gQFT8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycGRmMEJPOGU4YmYxMDAwMDAwN2YAAgRE9rxaAwQAAAAA ;
+from : oSI4Lj9Yf39FYjzdipfcOQVSzfIE ;
+to : gh_0c02969f70a6 ;
+time : 1526228654 ;
+type : subscribe ;
+scene : ee395d04ec5fadc2f67c47c95fdc0447 ;
+
+2018-05-14 00:24:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9Yf39FYjzdipfcOQVSzfIE ;
+createtime : 1526228669 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj9Yf39FYjzdipfcOQVSzfIE ;
+to : gh_0c02969f70a6 ;
+time : 1526228669 ;
+type : event ;
+
+2018-05-14 00:24:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 00:24:29 response :
+------------
+
+2018-05-14 06:54:50 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526252089 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526252089 ;
+type : event ;
+
+2018-05-14 06:54:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 06:54:50 response :
+------------
+
+2018-05-14 08:59:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1526259584 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1526259584 ;
+type : event ;
+
+2018-05-14 08:59:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 08:59:44 response :
+------------
+
+2018-05-14 09:00:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+createtime : 1526259620 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj-mQFi0cVrtdhb5LRhxTXRo ;
+to : gh_0c02969f70a6 ;
+time : 1526259620 ;
+type : event ;
+
+2018-05-14 09:00:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 09:00:20 response :
+------------
+
+2018-05-14 10:07:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526263667 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 5141e420449e42c7df87975ef87074b6 ;
+ticket : gQHp8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZjNCWkJmOGU4YmYxMDAwMDAwN2oAAgTj86RaAwQAAAAA ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526263667 ;
+type : subscribe ;
+scene : 5141e420449e42c7df87975ef87074b6 ;
+
+2018-05-14 10:07:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526263675 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526263675 ;
+type : event ;
+
+2018-05-14 10:07:55 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:07:55 response :
+------------
+
+2018-05-14 10:11:22 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526263882 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526263882 ;
+type : event ;
+
+2018-05-14 10:11:22 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:11:22 response :
+------------
+
+2018-05-14 10:16:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526264218 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526264218 ;
+type : event ;
+
+2018-05-14 10:16:58 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 10:16:58 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 10:23:33 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526264613 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526264613 ;
+type : event ;
+
+2018-05-14 10:23:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:23:33 response :
+------------
+
+2018-05-14 10:26:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526264799 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526264799 ;
+type : event ;
+
+2018-05-14 10:26:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:26:39 response :
+------------
+
+2018-05-14 10:28:04 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+createtime : 1526264884 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_cD__365bOSvZnftSowkUQ ;
+to : gh_0c02969f70a6 ;
+time : 1526264884 ;
+type : event ;
+
+2018-05-14 10:28:04 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:28:04 response :
+------------
+
+2018-05-14 10:33:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526265206 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526265206 ;
+type : event ;
+
+2018-05-14 10:33:26 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:33:26 response :
+------------
+
+2018-05-14 10:33:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526265235 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526265235 ;
+type : event ;
+
+2018-05-14 10:33:55 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:33:55 response :
+------------
+
+2018-05-14 10:36:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzP3HyhUqIG-CmdgTLIjRgI ;
+createtime : 1526265389 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzP3HyhUqIG-CmdgTLIjRgI ;
+to : gh_0c02969f70a6 ;
+time : 1526265389 ;
+type : event ;
+
+2018-05-14 10:36:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:36:29 response :
+------------
+
+2018-05-14 10:43:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+createtime : 1526265795 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+to : gh_0c02969f70a6 ;
+time : 1526265795 ;
+type : event ;
+
+2018-05-14 10:43:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:43:15 response :
+------------
+
+2018-05-14 10:45:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+createtime : 1526265943 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+to : gh_0c02969f70a6 ;
+time : 1526265943 ;
+type : event ;
+
+2018-05-14 10:45:43 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 10:45:43 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 10:46:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+createtime : 1526265992 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj103JIOC8uXSNrf0QfR2spY ;
+to : gh_0c02969f70a6 ;
+time : 1526265992 ;
+type : event ;
+
+2018-05-14 10:46:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 10:46:32 response :
+------------
+
+2018-05-14 11:10:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526267432 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526267432 ;
+type : event ;
+
+2018-05-14 11:10:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 11:10:32 response :
+------------
+
+2018-05-14 12:19:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526271589 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526271589 ;
+type : event ;
+
+2018-05-14 12:21:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+createtime : 1526271685 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 5141e420449e42c7df87975ef87074b6 ;
+ticket : gQHp8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZjNCWkJmOGU4YmYxMDAwMDAwN2oAAgTj86RaAwQAAAAA ;
+from : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+to : gh_0c02969f70a6 ;
+time : 1526271685 ;
+type : subscribe ;
+scene : 5141e420449e42c7df87975ef87074b6 ;
+
+2018-05-14 12:28:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+createtime : 1526272082 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+to : gh_0c02969f70a6 ;
+time : 1526272082 ;
+type : event ;
+
+2018-05-14 12:28:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 12:28:02 response :
+------------
+
+2018-05-14 12:36:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+createtime : 1526272592 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+to : gh_0c02969f70a6 ;
+time : 1526272592 ;
+type : event ;
+
+2018-05-14 12:36:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 12:36:32 response :
+------------
+
+2018-05-14 12:36:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+createtime : 1526272599 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://m.qlchat.com/live/320000044317761.htm ;
+menuid : 425552920 ;
+from : oSI4Lj4m3y9OhppojmByFzNNZVlY ;
+to : gh_0c02969f70a6 ;
+time : 1526272599 ;
+type : event ;
+
+2018-05-14 12:36:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 12:36:39 response :
+------------
+
+2018-05-14 13:19:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526275152 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526275152 ;
+type : event ;
+
+2018-05-14 13:19:12 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 13:19:12 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 13:19:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526275156 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://www.haolangtech.com/index.php/addon/HotActivity/HotActivity/leagueindex/id/1.html?from=groupmessage&isappinstalled=0 ;
+menuid : 425552920 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526275156 ;
+type : event ;
+
+2018-05-14 13:19:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 13:19:16 response :
+------------
+
+2018-05-14 13:54:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526277266 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526277266 ;
+type : event ;
+
+2018-05-14 13:54:26 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 13:54:26 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+5月19-20日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 13:54:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526277271 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526277271 ;
+type : event ;
+
+2018-05-14 13:54:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 13:54:31 response :
+------------
+
+2018-05-14 14:16:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526278573 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526278573 ;
+type : event ;
+
+2018-05-14 14:16:26 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526278586 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526278586 ;
+type : event ;
+
+2018-05-14 14:16:26 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 14:16:26 response :
+------------
+
+2018-05-14 14:28:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526279333 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526279333 ;
+type : event ;
+
+2018-05-14 14:28:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 14:28:53 response :
+------------
+
+2018-05-14 14:34:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526279665 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526279665 ;
+type : event ;
+
+2018-05-14 14:34:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 14:34:25 response :
+------------
+
+2018-05-14 14:50:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ggYB4eD48tEAWGlyXMkpg ;
+createtime : 1526280624 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj3ggYB4eD48tEAWGlyXMkpg ;
+to : gh_0c02969f70a6 ;
+time : 1526280624 ;
+type : event ;
+
+2018-05-14 14:50:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 14:50:24 response :
+------------
+
+2018-05-14 15:12:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526281974 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526281974 ;
+type : event ;
+
+2018-05-14 15:12:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 15:12:54 response :
+------------
+
+2018-05-14 15:13:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4D4s1OS7Tx2J5YcCVk40og ;
+createtime : 1526281992 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj4D4s1OS7Tx2J5YcCVk40og ;
+to : gh_0c02969f70a6 ;
+time : 1526281992 ;
+type : event ;
+
+2018-05-14 15:13:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 15:13:12 response :
+------------
+
+2018-05-14 15:13:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526282016 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526282016 ;
+type : event ;
+
+2018-05-14 15:13:36 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 15:13:36 response :
+------------
+
+2018-05-14 15:20:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526282456 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526282456 ;
+type : event ;
+
+2018-05-14 15:20:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 15:20:57 response :
+------------
+
+2018-05-14 15:31:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2DQYY0wM1n3J37jCwW541o ;
+createtime : 1526283104 ;
+msgtype : event ;
+event : subscribe ;
+eventkey : qrscene_8c59efb26220d2bbd8820b073d6f4491 ;
+ticket : gQHE8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyb3F6aUI0OGU4YmYxMDAwMDAwNzMAAgQLl9haAwQAAAAA ;
+from : oSI4Lj2DQYY0wM1n3J37jCwW541o ;
+to : gh_0c02969f70a6 ;
+time : 1526283104 ;
+type : subscribe ;
+scene : 8c59efb26220d2bbd8820b073d6f4491 ;
+
+2018-05-14 15:31:58 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2DQYY0wM1n3J37jCwW541o ;
+createtime : 1526283118 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj2DQYY0wM1n3J37jCwW541o ;
+to : gh_0c02969f70a6 ;
+time : 1526283118 ;
+type : event ;
+
+2018-05-14 15:31:58 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 15:31:58 response :
+------------
+
+2018-05-14 16:07:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526285240 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526285240 ;
+type : event ;
+
+2018-05-14 16:07:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:07:20 response :
+------------
+
+2018-05-14 16:07:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526285251 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526285251 ;
+type : event ;
+
+2018-05-14 16:07:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:07:31 response :
+------------
+
+2018-05-14 16:15:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526285714 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526285714 ;
+type : event ;
+
+2018-05-14 16:15:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:15:14 response :
+------------
+
+2018-05-14 16:18:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526285896 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526285896 ;
+type : event ;
+
+2018-05-14 16:18:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:18:16 response :
+------------
+
+2018-05-14 16:19:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+createtime : 1526285975 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+to : gh_0c02969f70a6 ;
+time : 1526285975 ;
+type : event ;
+
+2018-05-14 16:19:35 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:19:35 response :
+------------
+
+2018-05-14 16:21:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+createtime : 1526286072 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+to : gh_0c02969f70a6 ;
+time : 1526286072 ;
+type : event ;
+
+2018-05-14 16:21:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:21:12 response :
+------------
+
+2018-05-14 16:23:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+createtime : 1526286218 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+to : gh_0c02969f70a6 ;
+time : 1526286218 ;
+type : event ;
+
+2018-05-14 16:34:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526286867 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526286867 ;
+type : event ;
+
+2018-05-14 16:34:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:34:27 response :
+------------
+
+2018-05-14 16:39:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526287159 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526287159 ;
+type : event ;
+
+2018-05-14 16:39:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:39:19 response :
+------------
+
+2018-05-14 16:47:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_VclHp_Q6s1R2OHQvfVTEs ;
+createtime : 1526287651 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_VclHp_Q6s1R2OHQvfVTEs ;
+to : gh_0c02969f70a6 ;
+time : 1526287651 ;
+type : event ;
+
+2018-05-14 16:47:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 16:47:31 response :
+------------
+
+2018-05-14 17:01:38 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6NZXiXqE8GjcxDkqq21EQ0 ;
+createtime : 1526288498 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj6NZXiXqE8GjcxDkqq21EQ0 ;
+to : gh_0c02969f70a6 ;
+time : 1526288498 ;
+type : event ;
+
+2018-05-14 17:01:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:01:38 response :
+------------
+
+2018-05-14 17:13:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526289190 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526289190 ;
+type : event ;
+
+2018-05-14 17:13:10 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 17:13:10 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+6月23-24日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 17:15:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_VclHp_Q6s1R2OHQvfVTEs ;
+createtime : 1526289345 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_VclHp_Q6s1R2OHQvfVTEs ;
+to : gh_0c02969f70a6 ;
+time : 1526289345 ;
+type : event ;
+
+2018-05-14 17:15:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:15:45 response :
+------------
+
+2018-05-14 17:29:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526290167 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526290167 ;
+type : event ;
+
+2018-05-14 17:29:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:29:27 response :
+------------
+
+2018-05-14 17:35:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526290515 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526290515 ;
+type : event ;
+
+2018-05-14 17:35:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:35:15 response :
+------------
+
+2018-05-14 17:39:44 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526290784 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526290784 ;
+type : event ;
+
+2018-05-14 17:39:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:39:44 response :
+------------
+
+2018-05-14 17:41:51 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+createtime : 1526290910 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-27DdP2V42OyJpyJg9E_co ;
+to : gh_0c02969f70a6 ;
+time : 1526290910 ;
+type : event ;
+
+2018-05-14 17:41:51 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:41:51 response :
+------------
+
+2018-05-14 17:42:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526290941 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526290941 ;
+type : event ;
+
+2018-05-14 17:42:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:42:21 response :
+------------
+
+2018-05-14 17:52:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526291527 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526291527 ;
+type : event ;
+
+2018-05-14 17:52:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 17:52:07 response :
+------------
+
+2018-05-14 18:00:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526292019 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526292019 ;
+type : event ;
+
+2018-05-14 18:00:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:00:19 response :
+------------
+
+2018-05-14 18:08:56 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4D4s1OS7Tx2J5YcCVk40og ;
+createtime : 1526292535 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj4D4s1OS7Tx2J5YcCVk40og ;
+to : gh_0c02969f70a6 ;
+time : 1526292535 ;
+type : event ;
+
+2018-05-14 18:08:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:08:56 response :
+------------
+
+2018-05-14 18:13:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526292789 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526292789 ;
+type : event ;
+
+2018-05-14 18:13:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:13:09 response :
+------------
+
+2018-05-14 18:14:47 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526292887 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526292887 ;
+type : event ;
+
+2018-05-14 18:14:47 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:14:47 response :
+------------
+
+2018-05-14 18:32:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0FvXHivaaeZ1i_t4zsdg1c ;
+createtime : 1526293930 ;
+msgtype : event ;
+event : MASSSENDJOBFINISH ;
+msgid : 1000000057 ;
+status : send success ;
+totalcount : 2970 ;
+filtercount : 2970 ;
+sentcount : 2970 ;
+errorcount : 0 ;
+copyrightcheckresult : Array ;
+from : oSI4Lj0FvXHivaaeZ1i_t4zsdg1c ;
+to : gh_0c02969f70a6 ;
+time : 1526293930 ;
+type : event ;
+
+2018-05-14 18:32:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:32:10 response :
+------------
+
+2018-05-14 18:33:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj78dYB5NncTeUv4fNenoK8I ;
+createtime : 1526293995 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj78dYB5NncTeUv4fNenoK8I ;
+to : gh_0c02969f70a6 ;
+time : 1526293995 ;
+type : event ;
+
+2018-05-14 18:33:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:33:15 response :
+------------
+
+2018-05-14 18:34:55 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxUSd-CIjzvFWg-fkpTQrx0 ;
+createtime : 1526294095 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425552920 ;
+from : oSI4LjxUSd-CIjzvFWg-fkpTQrx0 ;
+to : gh_0c02969f70a6 ;
+time : 1526294095 ;
+type : event ;
+
+2018-05-14 18:34:55 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:34:55 response :
+------------
+
+2018-05-14 18:37:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljy6F1aJZ_5vpKHVxqMPFMZ0 ;
+createtime : 1526294241 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Ljy6F1aJZ_5vpKHVxqMPFMZ0 ;
+to : gh_0c02969f70a6 ;
+time : 1526294241 ;
+type : event ;
+
+2018-05-14 18:37:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:37:21 response :
+------------
+
+2018-05-14 18:39:23 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+createtime : 1526294363 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+to : gh_0c02969f70a6 ;
+time : 1526294363 ;
+type : event ;
+
+2018-05-14 18:39:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:39:23 response :
+------------
+
+2018-05-14 18:40:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+createtime : 1526294410 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+to : gh_0c02969f70a6 ;
+time : 1526294410 ;
+type : event ;
+
+2018-05-14 18:40:24 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+createtime : 1526294424 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+to : gh_0c02969f70a6 ;
+time : 1526294424 ;
+type : event ;
+
+2018-05-14 18:40:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:40:24 response :
+------------
+
+2018-05-14 18:42:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+createtime : 1526294537 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+to : gh_0c02969f70a6 ;
+time : 1526294537 ;
+type : event ;
+
+2018-05-14 18:42:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:42:17 response :
+------------
+
+2018-05-14 18:44:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6HQjoLnkBXrUp4m2hLZ_Bo ;
+createtime : 1526294647 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj6HQjoLnkBXrUp4m2hLZ_Bo ;
+to : gh_0c02969f70a6 ;
+time : 1526294647 ;
+type : event ;
+
+2018-05-14 18:44:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:44:08 response :
+------------
+
+2018-05-14 18:44:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+createtime : 1526294679 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+to : gh_0c02969f70a6 ;
+time : 1526294679 ;
+type : event ;
+
+2018-05-14 18:44:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:44:39 response :
+------------
+
+2018-05-14 18:45:01 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+createtime : 1526294701 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://m.qlchat.com/live/320000044317761.htm ;
+menuid : 425552920 ;
+from : oSI4LjxMKL3VOxfVIgiWDPhkPkoc ;
+to : gh_0c02969f70a6 ;
+time : 1526294701 ;
+type : event ;
+
+2018-05-14 18:45:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 18:45:01 response :
+------------
+
+2018-05-14 18:46:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj1CkCgzWmiLydLThvq9AX3w ;
+createtime : 1526294819 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4Lj1CkCgzWmiLydLThvq9AX3w ;
+to : gh_0c02969f70a6 ;
+time : 1526294819 ;
+type : event ;
+
+2018-05-14 18:46:59 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 18:46:59 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj1CkCgzWmiLydLThvq9AX3w ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+6月23-24日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 19:07:41 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4I_CaIUhYArE97P5I1zV2o ;
+createtime : 1526296061 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj4I_CaIUhYArE97P5I1zV2o ;
+to : gh_0c02969f70a6 ;
+time : 1526296061 ;
+type : event ;
+
+2018-05-14 19:07:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:07:41 response :
+------------
+
+2018-05-14 19:09:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4I_CaIUhYArE97P5I1zV2o ;
+createtime : 1526296185 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj4I_CaIUhYArE97P5I1zV2o ;
+to : gh_0c02969f70a6 ;
+time : 1526296185 ;
+type : event ;
+
+2018-05-14 19:09:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:09:45 response :
+------------
+
+2018-05-14 19:15:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj5QFZfs3Gt5Csf3nEOAqS8E ;
+createtime : 1526296508 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj5QFZfs3Gt5Csf3nEOAqS8E ;
+to : gh_0c02969f70a6 ;
+time : 1526296508 ;
+type : event ;
+
+2018-05-14 19:15:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:15:08 response :
+------------
+
+2018-05-14 19:16:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj5QFZfs3Gt5Csf3nEOAqS8E ;
+createtime : 1526296570 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj5QFZfs3Gt5Csf3nEOAqS8E ;
+to : gh_0c02969f70a6 ;
+time : 1526296570 ;
+type : event ;
+
+2018-05-14 19:16:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:16:10 response :
+------------
+
+2018-05-14 19:26:13 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+createtime : 1526297173 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+to : gh_0c02969f70a6 ;
+time : 1526297173 ;
+type : event ;
+
+2018-05-14 19:26:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:26:13 response :
+------------
+
+2018-05-14 19:26:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+createtime : 1526297199 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+to : gh_0c02969f70a6 ;
+time : 1526297199 ;
+type : event ;
+
+2018-05-14 19:26:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:26:39 response :
+------------
+
+2018-05-14 19:27:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+createtime : 1526297219 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+to : gh_0c02969f70a6 ;
+time : 1526297219 ;
+type : event ;
+
+2018-05-14 19:27:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:27:00 response :
+------------
+
+2018-05-14 19:28:37 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+createtime : 1526297317 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+to : gh_0c02969f70a6 ;
+time : 1526297317 ;
+type : event ;
+
+2018-05-14 19:28:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:28:37 response :
+------------
+
+2018-05-14 19:29:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+createtime : 1526297399 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+to : gh_0c02969f70a6 ;
+time : 1526297399 ;
+type : event ;
+
+2018-05-14 19:29:59 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:29:59 response :
+------------
+
+2018-05-14 19:30:02 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+createtime : 1526297402 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzpxpH0cEqR6ODnmuVSciCs ;
+to : gh_0c02969f70a6 ;
+time : 1526297402 ;
+type : event ;
+
+2018-05-14 19:30:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:30:02 response :
+------------
+
+2018-05-14 19:32:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-k1u3wmgSLcc7faYk2brbk ;
+createtime : 1526297549 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://h.eqxiu.com/s/U4YBmmJj ;
+menuid : 425552920 ;
+from : oSI4Lj-k1u3wmgSLcc7faYk2brbk ;
+to : gh_0c02969f70a6 ;
+time : 1526297549 ;
+type : event ;
+
+2018-05-14 19:32:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:32:29 response :
+------------
+
+2018-05-14 19:35:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_r_zki7_W6k9FseFmInMmA ;
+createtime : 1526297715 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj_r_zki7_W6k9FseFmInMmA ;
+to : gh_0c02969f70a6 ;
+time : 1526297715 ;
+type : event ;
+
+2018-05-14 19:35:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:35:15 response :
+------------
+
+2018-05-14 19:35:45 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_r_zki7_W6k9FseFmInMmA ;
+createtime : 1526297744 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj_r_zki7_W6k9FseFmInMmA ;
+to : gh_0c02969f70a6 ;
+time : 1526297744 ;
+type : event ;
+
+2018-05-14 19:35:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:35:45 response :
+------------
+
+2018-05-14 19:37:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-k1u3wmgSLcc7faYk2brbk ;
+createtime : 1526297838 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425552920 ;
+from : oSI4Lj-k1u3wmgSLcc7faYk2brbk ;
+to : gh_0c02969f70a6 ;
+time : 1526297838 ;
+type : event ;
+
+2018-05-14 19:37:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:37:18 response :
+------------
+
+2018-05-14 19:37:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3LQsEyPAxHp4ehFKDOZjK0 ;
+createtime : 1526297845 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://h.eqxiu.com/s/U4YBmmJj ;
+menuid : 425552920 ;
+from : oSI4Lj3LQsEyPAxHp4ehFKDOZjK0 ;
+to : gh_0c02969f70a6 ;
+time : 1526297845 ;
+type : event ;
+
+2018-05-14 19:37:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:37:25 response :
+------------
+
+2018-05-14 19:38:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3LQsEyPAxHp4ehFKDOZjK0 ;
+createtime : 1526297915 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4Lj3LQsEyPAxHp4ehFKDOZjK0 ;
+to : gh_0c02969f70a6 ;
+time : 1526297915 ;
+type : event ;
+
+2018-05-14 19:38:35 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 19:38:35 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj3LQsEyPAxHp4ehFKDOZjK0 ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+6月23-24日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 19:43:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+createtime : 1526298237 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj2Yef0zxzFqreV4g3fl-vfI ;
+to : gh_0c02969f70a6 ;
+time : 1526298237 ;
+type : event ;
+
+2018-05-14 19:43:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:43:57 response :
+------------
+
+2018-05-14 19:45:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6DbJJWna-oiC4VIzcTcsW8 ;
+createtime : 1526298316 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj6DbJJWna-oiC4VIzcTcsW8 ;
+to : gh_0c02969f70a6 ;
+time : 1526298316 ;
+type : event ;
+
+2018-05-14 19:45:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:45:16 response :
+------------
+
+2018-05-14 19:48:34 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6DbJJWna-oiC4VIzcTcsW8 ;
+createtime : 1526298514 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425552920 ;
+from : oSI4Lj6DbJJWna-oiC4VIzcTcsW8 ;
+to : gh_0c02969f70a6 ;
+time : 1526298514 ;
+type : event ;
+
+2018-05-14 19:48:34 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 19:48:34 response :
+------------
+
+2018-05-14 19:49:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj6DbJJWna-oiC4VIzcTcsW8 ;
+createtime : 1526298576 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4Lj6DbJJWna-oiC4VIzcTcsW8 ;
+to : gh_0c02969f70a6 ;
+time : 1526298576 ;
+type : event ;
+
+2018-05-14 20:22:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+createtime : 1526300520 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+to : gh_0c02969f70a6 ;
+time : 1526300520 ;
+type : event ;
+
+2018-05-14 20:22:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 20:22:00 response :
+------------
+
+2018-05-14 20:23:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+createtime : 1526300626 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+to : gh_0c02969f70a6 ;
+time : 1526300626 ;
+type : event ;
+
+2018-05-14 20:23:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 20:23:46 response :
+------------
+
+2018-05-14 20:32:19 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+createtime : 1526301139 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjyHUqsKQ2U6jJYcy4lCjBVA ;
+to : gh_0c02969f70a6 ;
+time : 1526301139 ;
+type : event ;
+
+2018-05-14 20:32:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 20:32:19 response :
+------------
+
+2018-05-14 20:48:12 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526302092 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526302092 ;
+type : event ;
+
+2018-05-14 20:48:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 20:48:12 response :
+------------
+
+2018-05-14 20:49:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljy71TjVVKORrwGzxJcXmPA0 ;
+createtime : 1526302148 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Ljy71TjVVKORrwGzxJcXmPA0 ;
+to : gh_0c02969f70a6 ;
+time : 1526302148 ;
+type : event ;
+
+2018-05-14 20:49:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 20:49:08 response :
+------------
+
+2018-05-14 20:50:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Ljy71TjVVKORrwGzxJcXmPA0 ;
+createtime : 1526302216 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Ljy71TjVVKORrwGzxJcXmPA0 ;
+to : gh_0c02969f70a6 ;
+time : 1526302216 ;
+type : event ;
+
+2018-05-14 20:50:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 20:50:16 response :
+------------
+
+2018-05-14 21:01:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526302906 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526302906 ;
+type : event ;
+
+2018-05-14 21:01:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:01:46 response :
+------------
+
+2018-05-14 21:02:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_JS0Up1z-dZXPjAquesYeY ;
+createtime : 1526302940 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_JS0Up1z-dZXPjAquesYeY ;
+to : gh_0c02969f70a6 ;
+time : 1526302940 ;
+type : event ;
+
+2018-05-14 21:02:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:02:20 response :
+------------
+
+2018-05-14 21:02:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_JS0Up1z-dZXPjAquesYeY ;
+createtime : 1526302966 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_JS0Up1z-dZXPjAquesYeY ;
+to : gh_0c02969f70a6 ;
+time : 1526302966 ;
+type : event ;
+
+2018-05-14 21:02:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:02:46 response :
+------------
+
+2018-05-14 21:05:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526303113 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526303113 ;
+type : event ;
+
+2018-05-14 21:05:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:05:14 response :
+------------
+
+2018-05-14 21:08:27 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526303307 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526303307 ;
+type : event ;
+
+2018-05-14 21:08:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:08:27 response :
+------------
+
+2018-05-14 21:08:52 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0PbpBtttwfUiU1SJIZO4VA ;
+createtime : 1526303332 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj0PbpBtttwfUiU1SJIZO4VA ;
+to : gh_0c02969f70a6 ;
+time : 1526303332 ;
+type : event ;
+
+2018-05-14 21:08:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:08:52 response :
+------------
+
+2018-05-14 21:11:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+createtime : 1526303519 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+to : gh_0c02969f70a6 ;
+time : 1526303519 ;
+type : event ;
+
+2018-05-14 21:11:59 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:11:59 response :
+------------
+
+2018-05-14 21:13:20 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+createtime : 1526303600 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+to : gh_0c02969f70a6 ;
+time : 1526303600 ;
+type : event ;
+
+2018-05-14 21:13:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:13:20 response :
+------------
+
+2018-05-14 21:14:17 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj0PbpBtttwfUiU1SJIZO4VA ;
+createtime : 1526303657 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj0PbpBtttwfUiU1SJIZO4VA ;
+to : gh_0c02969f70a6 ;
+time : 1526303657 ;
+type : event ;
+
+2018-05-14 21:14:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:14:17 response :
+------------
+
+2018-05-14 21:14:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+createtime : 1526303661 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj2VTimHJhoknnYk7bBF0Zlc ;
+to : gh_0c02969f70a6 ;
+time : 1526303661 ;
+type : event ;
+
+2018-05-14 21:14:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:14:21 response :
+------------
+
+2018-05-14 21:16:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxgPvF9iMHSyO55h3cZ7WMg ;
+createtime : 1526303789 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e63f191ace780031e0e627a9424150eb ;
+ticket : gQHE8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySUcxYUFYOGU4YmYxMDAwME0wNzAAAgRxrMFaAwQAAAAA ;
+from : oSI4LjxgPvF9iMHSyO55h3cZ7WMg ;
+to : gh_0c02969f70a6 ;
+time : 1526303789 ;
+type : subscribe ;
+scene : e63f191ace780031e0e627a9424150eb ;
+
+2018-05-14 21:16:35 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjxgPvF9iMHSyO55h3cZ7WMg ;
+createtime : 1526303795 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4LjxgPvF9iMHSyO55h3cZ7WMg ;
+to : gh_0c02969f70a6 ;
+time : 1526303795 ;
+type : event ;
+
+2018-05-14 21:16:35 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:16:35 response :
+------------
+
+2018-05-14 21:22:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7OZUh-hZStTBajm0NMqphc ;
+createtime : 1526304177 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj7OZUh-hZStTBajm0NMqphc ;
+to : gh_0c02969f70a6 ;
+time : 1526304177 ;
+type : event ;
+
+2018-05-14 21:22:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:22:57 response :
+------------
+
+2018-05-14 21:24:15 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj7OZUh-hZStTBajm0NMqphc ;
+createtime : 1526304255 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://h.eqxiu.com/s/U4YBmmJj ;
+menuid : 425552920 ;
+from : oSI4Lj7OZUh-hZStTBajm0NMqphc ;
+to : gh_0c02969f70a6 ;
+time : 1526304255 ;
+type : event ;
+
+2018-05-14 21:24:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:24:15 response :
+------------
+
+2018-05-14 21:24:25 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526304265 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526304265 ;
+type : event ;
+
+2018-05-14 21:24:25 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:24:25 response :
+------------
+
+2018-05-14 21:24:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526304289 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526304289 ;
+type : event ;
+
+2018-05-14 21:24:49 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:24:49 response :
+------------
+
+2018-05-14 21:27:10 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526304430 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526304430 ;
+type : event ;
+
+2018-05-14 21:27:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:27:10 response :
+------------
+
+2018-05-14 21:29:43 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526304583 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526304583 ;
+type : event ;
+
+2018-05-14 21:29:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:29:43 response :
+------------
+
+2018-05-14 21:33:32 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj5ACGQKNt4ghEonrA2V49eo ;
+createtime : 1526304811 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425552920 ;
+from : oSI4Lj5ACGQKNt4ghEonrA2V49eo ;
+to : gh_0c02969f70a6 ;
+time : 1526304811 ;
+type : event ;
+
+2018-05-14 21:33:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:33:32 response :
+------------
+
+2018-05-14 21:35:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526304905 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526304905 ;
+type : event ;
+
+2018-05-14 21:35:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:35:05 response :
+------------
+
+2018-05-14 21:35:14 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526304914 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526304914 ;
+type : event ;
+
+2018-05-14 21:35:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:35:14 response :
+------------
+
+2018-05-14 21:35:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526304957 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526304957 ;
+type : event ;
+
+2018-05-14 21:35:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:35:57 response :
+------------
+
+2018-05-14 21:36:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526304969 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526304969 ;
+type : event ;
+
+2018-05-14 21:36:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:36:09 response :
+------------
+
+2018-05-14 21:36:53 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+createtime : 1526305013 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj95EWi6-qifEuK2-xlggHx4 ;
+to : gh_0c02969f70a6 ;
+time : 1526305013 ;
+type : event ;
+
+2018-05-14 21:36:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:36:53 response :
+------------
+
+2018-05-14 21:36:57 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+createtime : 1526305017 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj_rLxHEZZK3F9vMv7gxSslk ;
+to : gh_0c02969f70a6 ;
+time : 1526305017 ;
+type : event ;
+
+2018-05-14 21:36:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:36:57 response :
+------------
+
+2018-05-14 21:38:31 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526305111 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526305111 ;
+type : event ;
+
+2018-05-14 21:38:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:38:31 response :
+------------
+
+2018-05-14 21:38:59 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+createtime : 1526305139 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 关注 ;
+from : oSI4LjzGDzCztrhCP10C7-4flpE4 ;
+to : gh_0c02969f70a6 ;
+time : 1526305139 ;
+type : event ;
+
+2018-05-14 21:40:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9ApVsy6Pyh6Qg3WrBjNxuM ;
+createtime : 1526305209 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj9ApVsy6Pyh6Qg3WrBjNxuM ;
+to : gh_0c02969f70a6 ;
+time : 1526305209 ;
+type : event ;
+
+2018-05-14 21:40:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:40:09 response :
+------------
+
+2018-05-14 21:42:07 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ilp7lEZNN-BhFTyvbbiQ4 ;
+createtime : 1526305327 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : 5141e420449e42c7df87975ef87074b6 ;
+ticket : gQHp8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZjNCWkJmOGU4YmYxMDAwMDAwN2oAAgTj86RaAwQAAAAA ;
+from : oSI4Lj3ilp7lEZNN-BhFTyvbbiQ4 ;
+to : gh_0c02969f70a6 ;
+time : 1526305327 ;
+type : subscribe ;
+scene : 5141e420449e42c7df87975ef87074b6 ;
+
+2018-05-14 21:42:16 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3ilp7lEZNN-BhFTyvbbiQ4 ;
+createtime : 1526305336 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425552920 ;
+from : oSI4Lj3ilp7lEZNN-BhFTyvbbiQ4 ;
+to : gh_0c02969f70a6 ;
+time : 1526305336 ;
+type : event ;
+
+2018-05-14 21:42:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:42:16 response :
+------------
+
+2018-05-14 21:44:29 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+createtime : 1526305469 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4LjzJByoabCukpZmqyDV_0mMI ;
+to : gh_0c02969f70a6 ;
+time : 1526305469 ;
+type : event ;
+
+2018-05-14 21:44:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:44:29 response :
+------------
+
+2018-05-14 21:45:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj9ApVsy6Pyh6Qg3WrBjNxuM ;
+createtime : 1526305545 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj9ApVsy6Pyh6Qg3WrBjNxuM ;
+to : gh_0c02969f70a6 ;
+time : 1526305545 ;
+type : event ;
+
+2018-05-14 21:45:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:45:46 response :
+------------
+
+2018-05-14 21:46:00 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526305560 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526305560 ;
+type : event ;
+
+2018-05-14 21:46:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:46:00 response :
+------------
+
+2018-05-14 21:51:21 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526305881 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://h.eqxiu.com/s/U4YBmmJj ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526305881 ;
+type : event ;
+
+2018-05-14 21:51:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:51:21 response :
+------------
+
+2018-05-14 21:52:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526305969 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526305969 ;
+type : event ;
+
+2018-05-14 21:52:49 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:52:49 response :
+------------
+
+2018-05-14 21:55:54 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+createtime : 1526306154 ;
+msgtype : event ;
+event : CLICK ;
+eventkey : 介绍 ;
+from : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+to : gh_0c02969f70a6 ;
+time : 1526306154 ;
+type : event ;
+
+2018-05-14 21:55:54 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 1013 ;
+priority : 0 ;
+keyword : Array ;
+
+2018-05-14 21:55:54 response :
+------------
+Array:
+FromUserName : gh_0c02969f70a6 ;
+ToUserName : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+MsgType : text ;
+Content : 易货联盟平台介绍 https://u.eqxiu.com/s/6szkjdIq   
+
+代理商收益介绍 https://h.eqxiu.com/s/U4YBmmJj   
+
+6月23-24日阿里梦-全国易货联盟商家对接峰会 https://b.eqxiu.com/s/nBIsBaiB ;
+
+2018-05-14 21:56:05 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+createtime : 1526306165 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://www.haolangtech.com/index.php/addon/HotActivity/HotActivity/leagueindex/id/1.html?from=groupmessage&isappinstalled=0 ;
+menuid : 425552920 ;
+from : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+to : gh_0c02969f70a6 ;
+time : 1526306165 ;
+type : event ;
+
+2018-05-14 21:56:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:56:05 response :
+------------
+
+2018-05-14 21:56:18 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+createtime : 1526306178 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : https://h.eqxiu.com/s/U4YBmmJj ;
+menuid : 425552920 ;
+from : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+to : gh_0c02969f70a6 ;
+time : 1526306178 ;
+type : event ;
+
+2018-05-14 21:56:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:56:18 response :
+------------
+
+2018-05-14 21:56:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+createtime : 1526306208 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=site&a=site&do=detail&id=2 ;
+menuid : 425552920 ;
+from : oSI4Lj759jKKkGMtPMwoDcGZh8Vs ;
+to : gh_0c02969f70a6 ;
+time : 1526306208 ;
+type : event ;
+
+2018-05-14 21:56:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 21:56:48 response :
+------------
+
+2018-05-14 22:00:49 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+createtime : 1526306448 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj-O-Eod_Ei4-dlQqmCmYhwk ;
+to : gh_0c02969f70a6 ;
+time : 1526306448 ;
+type : event ;
+
+2018-05-14 22:00:49 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 22:00:49 response :
+------------
+
+2018-05-14 22:14:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526307248 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526307248 ;
+type : event ;
+
+2018-05-14 22:14:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 22:14:08 response :
+------------
+
+2018-05-14 22:18:36 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj_r_zki7_W6k9FseFmInMmA ;
+createtime : 1526307516 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj_r_zki7_W6k9FseFmInMmA ;
+to : gh_0c02969f70a6 ;
+time : 1526307516 ;
+type : event ;
+
+2018-05-14 22:18:36 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 22:18:36 response :
+------------
+
+2018-05-14 22:28:11 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526308091 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&p=merch&do=member&m=sz_yi&wxref=mp.weixin.qq.com&from=groupmessage&isappinstalled=0#wechat_redirect ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526308091 ;
+type : event ;
+
+2018-05-14 22:28:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 22:28:11 response :
+------------
+
+2018-05-14 22:32:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj3MXo4tWo4HQ_3-ocXJB5AQ ;
+createtime : 1526308329 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj3MXo4tWo4HQ_3-ocXJB5AQ ;
+to : gh_0c02969f70a6 ;
+time : 1526308329 ;
+type : event ;
+
+2018-05-14 22:32:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 22:32:09 response :
+------------
+
+2018-05-14 22:33:39 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj92b6mk95Zdok-bi_PjQ0No ;
+createtime : 1526308419 ;
+msgtype : event ;
+event : SCAN ;
+eventkey : e2a3a05106d2bad9265ce585b7742510 ;
+ticket : gQEZ8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyc01KUEF6OGU4YmYxMDAwME0wN3MAAgR0t8FaAwQAAAAA ;
+from : oSI4Lj92b6mk95Zdok-bi_PjQ0No ;
+to : gh_0c02969f70a6 ;
+time : 1526308419 ;
+type : subscribe ;
+scene : e2a3a05106d2bad9265ce585b7742510 ;
+
+2018-05-14 22:33:46 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj92b6mk95Zdok-bi_PjQ0No ;
+createtime : 1526308426 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj92b6mk95Zdok-bi_PjQ0No ;
+to : gh_0c02969f70a6 ;
+time : 1526308426 ;
+type : event ;
+
+2018-05-14 22:33:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 22:33:46 response :
+------------
+
+2018-05-14 23:11:09 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj4yFCpcS4tKrigfMl85T0o0 ;
+createtime : 1526310669 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj4yFCpcS4tKrigfMl85T0o0 ;
+to : gh_0c02969f70a6 ;
+time : 1526310669 ;
+type : event ;
+
+2018-05-14 23:11:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 23:11:09 response :
+------------
+
+2018-05-14 23:22:48 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj5CKJ7lK8ct3uURL_qd-B-0 ;
+createtime : 1526311368 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=198 ;
+menuid : 425552920 ;
+from : oSI4Lj5CKJ7lK8ct3uURL_qd-B-0 ;
+to : gh_0c02969f70a6 ;
+time : 1526311368 ;
+type : event ;
+
+2018-05-14 23:22:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 23:22:48 response :
+------------
+
+2018-05-14 23:29:08 trace :
+------------
+Array:
+tousername : gh_0c02969f70a6 ;
+fromusername : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+createtime : 1526311748 ;
+msgtype : event ;
+event : VIEW ;
+eventkey : http://zz.jhzh66.com/app/index.php?i=8&c=entry&eid=194 ;
+menuid : 425552920 ;
+from : oSI4Lj97Jm2kdczJ4OHYMLb017pk ;
+to : gh_0c02969f70a6 ;
+time : 1526311748 ;
+type : event ;
+
+2018-05-14 23:29:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2018-05-14 23:29:08 response :
+------------
+

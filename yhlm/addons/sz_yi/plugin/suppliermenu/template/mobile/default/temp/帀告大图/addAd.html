@@ -1,0 +1,3842 @@
+{template 'common/header'}
+
+<title>{if $_GPC['id']}修改广告{else}新增广告{/if}</title>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/supp
+liermenu/res/baidu.js?'.time();?>"></script>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/jquery.form.js?'.time();?>"></script>
+
+<script src="../addons/sz_yi/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="<?php echo MODULE_URL.'plugin/suppliermenu/res/s.js?'.time();?>"></script>
+
+
+
+<link rel="stylesheet" href="../addons/sz_yi/template/mobile/default/member/merch/css/dropload.css">
+
+<script src="../addons/sz_yi/template/mobile/default/member/merch/js/dropload.min.js"></script>
+
+
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/dist/area/cascade.js"></script>
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.min.js"></script>
+
+<script type="text/javascript" src="../addons/sz_yi/static/js/mui.picker.min.js"></script>
+
+<!-- <script type="text/javascript" src="../addons/sz_yi/static/js/mediaelement-and-player.min.js"></script> -->
+
+<script type="text/javascript">
+
+    System.config({
+
+        map:{
+
+            systemJsText:'<?php echo MODULE_URL.'plugin/suppliermenu/res/txt.js';?>',
+
+        systemJsCss:'<?php echo MODULE_URL.'plugin/suppliermenu/res/css.js';?>',
+
+        systemJsJson:'<?php echo MODULE_URL.'plugin/suppliermenu/res/json.js';?>'
+
+    },
+
+    baseURL: '<?php echo MODULE_URL.'plugin/suppliermenu/res/';?>',
+
+    });
+
+    System['import']('<?php echo MODULE_URL.'static/css/mui.min.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/mui.picker.min.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/mediaelementplayer.min.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/ion.rangeSlider.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'static/css/ion.rangeSlider.skinNice.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/css/adadd.css!systemJsCss';?>').then(function (a){});
+
+    System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/tpl/tpl-img-box1.html!systemJsText';?>').then(function (a){$("body").append(a)});
+
+</script>
+
+<script type="text/html" id="tpl-big-body">
+
+    <div class="recom-goods-box recm-box">
+
+        <div class="page_topbar">
+
+            <a href="javascript:;" class="back"><i class="fa fa-angle-left"></i></a>
+
+            <div class="title mark-step">推荐商品</div>
+
+        </div>
+
+        <div id='recom-goods-container' class='recom-goods-b recom-ret-b'>
+
+            <ul class="recom-goods-result recom-ret"></ul>
+
+        </div>
+
+        <p class="recom-btn-box">
+
+            <button id="recom-goods-confirm" class="btn confirm-btn">确认选择</button>
+
+        </p>
+
+    </div>
+
+    <div class="recom-shop-box recm-box">
+
+        <div class="page_topbar">
+
+            <a href="javascript:;" class="back"><i class="fa fa-angle-left"></i></a>
+
+            <div class="title mark-step">推荐店铺</div>
+
+        </div>
+
+        <div id='recom-shop-container' class='recom-shop-b recom-ret-b'>
+
+            <ul class="recom-shop-result recom-ret"></ul>
+
+        </div>
+
+        <p class="recom-btn-box">
+
+            <button id="recom-shop-confirm" class="btn confirm-btn">确认选择</button>
+
+        </p>
+
+    </div>
+
+    <div class="serving-target-box recm-box"><!-- 本页面的相关赋值使用js来控制 -->
+
+        <div class="page_topbar">
+
+            <a href="javascript:;" class="back"><i class="fa fa-angle-left"></i></a>
+
+            <div class="title mark-step">投放目标</div>
+
+        </div>
+
+        <div class="mark-tips">请根据您的需求进行选择您想投放的目标人群：</div>
+
+        <div class='serving-target-set recom-ret-b'>
+
+            <div class="switch-box clearfloat serving-area">
+
+                <div class="switch-tag float-switch">投放区域</div>
+
+                <div class="float-switch-r">
+
+                    <button type="button" class="mui-btn mui-btn-outlined add-area">添加</button>
+
+                </div>
+
+                <div class="select-ret">
+
+                    <!-- 这里利用模板标签进行判断是否有设置值start -->
+
+                    <div class="select-ret-tag">广东省 广州市</div>
+
+                    <div class="select-ret-remove"></div>
+
+                    <!-- 这里利用模板标签进行判断是否有设置值end -->
+
+                </div>
+
+            </div>
+
+            <div class="switch-box clearfloat serving-sex">
+
+                <!-- 根据模板标签来赋值 五处地方牵连 默认0 即不限性别-->
+
+                <input class="whole-input" value="" type="hidden" id="gender" name="gender">
+
+                <div class="switch-tag float-switch">性别</div>
+
+                <div class="float-switch-r">
+
+                    <div class="mui-switch customize-switch sex-switch mui-active" id="sex-switch">
+
+                        <div class="mui-switch-handle"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- 根据前一个页面的相应input来判断是否显示,即是否加上select-hide来控制隐藏掉下面这一模块 五处地方牵连 默认不显示-->
+
+                <div class="sex-container">
+
+                    <form class="sex-container-form">
+
+                        <div class="sex-choose-box mui-input-row mui-radio mui-left">
+
+                            <label class="label-tag">男</label>
+
+                            <input class="sex-selected" name="sex" type="radio" value="1" id="gender-1"> <!-- 用js判断是否选中 -->
+
+                        </div>
+
+                        <div class="sex-choose-box mui-input-row mui-radio mui-left">
+
+                            <label class="label-tag">女</label>
+
+                            <input class="sex-selected" name="sex" type="radio" value="2" id="gender-2"><!-- 用js判断是否选中 -->
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="switch-box clearfloat serving-income">
+
+                <div class="switch-tag float-switch">年收入</div>
+
+                <div class="float-switch-r">
+
+                    <div class="mui-switch customize-switch income-switch mui-active" id="income-switch">
+
+                        <div class="mui-switch-handle"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="range-box income-container"><!-- 这里用最大值来判断?如果为0则视为不限制 -->
+
+                    <!-- 这里 根据前一个页面的相应input,用js来赋值 edit:from(数据库存储的minimum值) to(数据库存储的maximum值)  如果是新增(10000,300000默认),对应值取范围两端的值-->
+
+                    <input type="text" id="income_range_id" name="income_range" value="11000,200000" data-from="" data-to="" />
+
+                    <input type="hidden" id="income_range_id1" name="income_range1" value="11000,200000" /> <!--  这个用来看值 因为上面那个插件设置为readonly 只能读,不能看出value,虽然实质上是有变化了-->
+
+                </div>
+
+            </div>
+
+            <div class="switch-box clearfloat serving-age">
+
+                <div class="switch-tag float-switch">年龄段</div>
+
+                <div class="float-switch-r">
+
+                    <div class="mui-switch customize-switch age-switch mui-active" id="age-switch">
+
+                        <div class="mui-switch-handle"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="range-box age-container"><!-- 这里用最大值来判断?如果为0则视为不限制 -->
+
+                    <!-- 这里 根据前一个页面的相应input,用js来赋值 edit:from(数据库存储的minage值) to(数据库存储的maxage值) 如果是新增(10,60默认),对应值取范围两端的值 -->
+
+                    <input type="text" id="age_range_id" name="age_range" value="" data-from="" data-to="" />
+
+                    <input type="hidden" id="age_range_id1" name="age_range1" value="" /> <!--  这个用来看值 因为上面那个插件设置为readonly 只能读,不能看出value,虽然实质上是有变化了-->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="recom-btn-box">
+
+            <button id="serving-target-confirm" class="btn confirm-btn">完成设置</button>
+
+        </p>
+
+    </div>
+
+    <div class="serving-area-box recm-box">
+
+        <div class="page_topbar">
+
+            <a href="javascript:;" class="back"><i class="fa fa-angle-left"></i></a>
+
+            <div class="title mark-step">投放区域</div>
+
+            <a href="javascript:;" class="home" onClick="showdescription()">说明</a>
+
+        </div>
+
+        <div class="mark-tips">通过设置区域投放广告</div>
+
+        <div id='serving-area-container' class='recom-ret-b'>
+
+            <ul class="serving-area-ul">
+
+                <li class="info-item clearfloat no-all-radius-b">
+
+                    <div class="float-l info-tag">全国投放</div>
+
+                    <div class="float-r info-value right-text">
+
+                        <div class="mui-switch mui-switch-mini national-switch" id="national-switch">
+
+                            <div class="mui-switch-handle"></div>
+
+                        </div>
+
+                        <input class="whole-input" value="" type="hidden" name="national" readonly="readonly" id="national">
+
+                    </div>
+
+                </li>
+
+                <li class="info-item clearfloat no-all-radius-b">
+
+                    <div class="float-l info-tag">省级区域投放</div>
+
+                    <div class="float-r info-value right-text">
+
+                        <button class="select-btn select-pro-btn" type='button'>未设置</button>
+
+                        <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                        <input class="whole-input" value="" type="hidden" id="province" name="province" readonly="readonly">
+
+                    </div>
+
+                </li>
+
+                <li class="info-item clearfloat no-all-radius-b">
+
+                    <div class="float-l info-tag">市级区域投放</div>
+
+                    <div class="float-r info-value right-text">
+
+                        <button class="select-btn select-cit-btn" type='button'></button>
+
+                        <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                        <input class="whole-input" value="" type="hidden" id="city" name="city" readonly="readonly">
+
+                    </div>
+
+                </li>
+
+                <li class="info-item clearfloat no-all-radius-b">
+
+                    <div class="float-l info-tag">区级区域投放</div>
+
+                    <div class="float-r info-value right-text">
+
+                        <button class="select-btn select-are-btn" type='button'></button>
+
+                        <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                        <input class="whole-input" value="" type="hidden" id="area" name="area" readonly="readonly">
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- <p class="recom-btn-box">
+
+            <button id="serving-area-confirm" class="btn confirm-btn">完成设置</button>
+
+        </p> -->
+
+        <div class="description_layer"></div>
+
+        <div class="description">
+
+            <div class="description-tag">广告投放区域说明</div>
+
+            <div class="description-cont"><!-- 这里加载广告投放区域说明 -->
+
+                按具体区域设置:<br />
+
+                1. 选定具体你要投放的区域（可同时对多个省、市、区进行设置<br />
+
+                2. 如选“全国”，则对全国进行投放，无需再设置具体区域
+
+            </div>
+
+            <div class="close icon" onClick="closedescription()"></div>
+
+        </div>
+
+    </div>
+
+    <!-- 选择投放的省级 选择投放的市级 选择投放的区级 -->
+
+    <div class="province-box recm-box serving-p-c-a">
+
+        <div class="page_topbar">
+
+            <a href="javascript:;" class="back"><i class="fa fa-angle-left"></i></a>
+
+            <div class="title mark-step">选择投放的省级</div>
+
+            <a href="javascript:;" class="home province-home">保存</a>
+
+        </div>
+
+        <div class="mark-tips">请在下拉框中选择对应的区域,再点击保存按钮</div>
+
+        <div id='province-container' class='province-b recom-ret-b serving-p-c-a-sle'>
+
+            <select class="whole-select add-select" id="sel-provance" onChange="selectCity();">
+
+                <option value="">省/直辖市</option>
+
+            </select>
+
+            <select class="whole-select add-select select-hide" id="sel-city" onChange="selectcounty();">
+
+                <option value="">请选择</option>
+
+            </select>
+
+            <select class="whole-select add-select select-hide" id="sel-area">
+
+                <option value="">请选择</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <div id="big_body" class="big_body">
+
+        <form method="post" enctype="multipart/form-data" id="showDataForm">
+
+            <div class="page_topbar">
+
+                <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+
+                <div class="title mark-step">{if $_GPC['id']}修改广告{else}新增广告{/if}</div>
+
+                <a href="javascript:;" class="home" onclick='draft(3)'>存入草稿</a>
+
+            </div>
+
+            <div class="menu clearfloat">
+
+                <div id="nav_1" class="nav navon" onClick="tab(1)">图文详情</div>
+
+                <div id="nav_2" class="nav" onClick="adValidate()">产品参数</div>
+
+            </div>
+
+            <div class="tab_con">
+
+                <div class="ad-base-info con conon" id="con_1">
+
+                    <ul class="ad-base-info-ul">
+
+                        <!-- 广告类型 -->
+
+                        <li class="info-item clearfloat ad-cate-box">
+
+                            <div class="float-l info-tag"> 广告类型</div>
+
+                            <div class="float-r info-value">
+
+                                <select class="ad-cate cate-select" id="cate-select-id">
+
+                                    <option class="cate-item" value="">请选择广告分类</option>
+
+                                    <!-- 这里循环广告分类 if修改时判断存储的广告类型 再选中 -->
+
+                                    {loop $cate $k $v}
+
+                                    <option class="cate-item" <%if result.cate == {$v['id']}%>selected<%/if%> id="adcate{$v['id']}" value="{$v['id']}" >{$v['title']}</option>
+
+                                    {/loop}
+
+                                </select>
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat no-all-radius-b">
+
+                            <div class="float-l info-tag">广告名称</div>
+
+                            <div class="float-r info-value">
+
+                                <input class="whole-input" type="text" name="title" value="<%result.title%>" maxlength="25" placeholder="最多25个字" autocomplete="off">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat no-all-radius-t">
+
+                            <div class="float-l info-tag">核心记忆词</div>
+
+                            <div class="float-r info-value">
+
+                                <input class="whole-input core" type="text"  name="core" value="<%result.core%>" maxlength="5"  placeholder="少于5字" autocomplete="off">
+                            </div>
+
+                        </li>
+
+                        <!--外链 根据模板类型来决定是否显示-->
+
+                        <!--<li class="info-item clearfloat external-link">-->
+
+                        <!--<div class="float-l info-tag">广告链接</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="link" value="<%result.links%>" placeholder="广告url地址" autocomplete="off">-->
+
+                        <!--</div>-->
+
+                        <!--</li>-->
+
+                        {if empty($_GPC['id'])}
+
+                        <!--{if $_GPC['type'] == 2}-->
+
+                        <!--&lt;!&ndash; 外链 根据模板类型来决定是否显示 &ndash;&gt;-->
+
+                        <!--<li class="info-item clearfloat external-link">-->
+
+                        <!--<div class="float-l info-tag">外部网页链接1</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="outside" value="<%result.outside%>" placeholder="外链url地址" autocomplete="off">-->
+
+                        <!--</div>-->
+
+                        <!--</li>-->
+
+                        <!--{elseif $_GPC['type'] == 3}-->
+
+                        <!--&lt;!&ndash; 视频 根据模板类型来决定是否显示 &ndash;&gt;-->
+
+                        <!--<li class="info-item clearfloat video-box">-->
+
+                        <!--<div class="float-l info-tag">视频链接</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="video" value="<%result.video%>" placeholder="视频链接" autocomplete="off">-->
+
+                        <!--</div>-->
+
+                        <!--</li>-->
+
+                        <!--{elseif empty($_GPC['type']) && $member['default_ad_model'] == 2}-->
+
+                        <!--&lt;!&ndash; 外链 根据模板类型来决定是否显示 &ndash;&gt;-->
+
+                        <!--<li class="info-item clearfloat external-link">-->
+
+                        <!--<div class="float-l info-tag">外部网页链接</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="outside" value="<%result.outside%>" placeholder="外链url地址" autocomplete="off">-->
+
+                        <!--</div>-->
+
+                        <!--</li>-->
+
+                        <!--{elseif empty($_GPC['type']) && $member['default_ad_model'] == 3 }-->
+
+                        <!--&lt;!&ndash; 视频 根据模板类型来决定是否显示 &ndash;&gt;-->
+
+                        <!--<li class="info-item clearfloat video-box">-->
+
+                        <!--<div class="float-l info-tag">视频链接</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="video" value="<%result.video%>" placeholder="视频链接" autocomplete="off">-->
+
+                        <!--</div>-->
+
+                        <!--</li>-->
+
+                        <!--{/if}-->
+
+                        {/if}
+
+
+
+                        {if isset($_GPC['id'])}
+
+                        <!--<%if result.type == 2 %>-->
+
+                        <!--&lt;!&ndash; 外链 根据模板类型来决定是否显示 &ndash;&gt;-->
+
+                        <!--<li class="info-item clearfloat external-link">-->
+
+                        <!--<div class="float-l info-tag">外部网页链接</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="outside" value="<%result.outside%>" placeholder="外链url地址" autocomplete="off">      -->
+
+                        <!--</div>       -->
+
+                        <!--</li>-->
+
+                        <!--<%else if result.type == 3 %>-->
+
+                        <!--&lt;!&ndash; 视频 根据模板类型来决定是否显示 &ndash;&gt;-->
+
+                        <!--<li class="info-item clearfloat video-box">-->
+
+                        <!--<div class="float-l info-tag">视频链接</div>-->
+
+                        <!--<div class="float-r info-value">-->
+
+                        <!--<input class="whole-input" type="text" name="video" value="<%result.video%>" placeholder="视频链接" autocomplete="off">-->
+
+                        <!--</div>          -->
+
+                        <!--&lt;!&ndash; <div class="float-r float-whole video-source-box">-->
+
+                        <!--<embed class="mosaic-url" src="http://www.w3school.com.cn/tiy/loadtext.asp?f=html5_embed_src" />-->
+
+                        <!--</div> &ndash;&gt;-->
+
+                        <!--</li>-->
+
+                        <!--<%/if%>-->
+
+                        {/if}
+
+                        <!-- <li class="info-item clearfloat upload-img-container">
+
+                        <div class="float-l info-tag carousel-tag">广告大图</div>
+
+                        <div class="float-r help-box">
+
+                        <span class="help-tips">(最少一张)</span>
+
+                        </div>
+
+
+
+                        <div id="" class="upload-img-box">
+
+                        <div class="btn-icon"></div>
+
+                        <input type="file" id="" name="img"  multiple="true" value="" />
+
+                        </div>
+
+                        </li> -->
+
+                        <!-- 新增一个广告主图 -->
+
+                        <!-- 
+                        <li class="info-item clearfloat upload-img-container">
+
+                            <div class="float-l info-tag carousel-tag">广告主图</div>
+
+                            <div class="float-r help-box">
+
+                                <span class="help-tips">(广告首页主图，单张图片大小不超过2M)</span>
+
+                            </div>
+
+
+                             <div id="upload-img-box1" class="upload-img-box">
+
+                                <div class="btn-icon"></div>
+
+                                <input type="file" id="file2" name="filed[]" onchange="handleFile(this,'2')" multiple="true" value="BusinessLicensePic" />
+
+                            </div>
+                         
+
+                        </li> -->
+                        
+
+                        <!-- 新增一个广告主图 -->
+
+                        <li class="info-item clearfloat upload-img-container">
+
+                            <div class="float-l info-tag carousel-tag">广告轮播大图</div>
+
+                            <div class="float-r help-box">
+
+                                <span class="help-tips">(最少一张,所上传的图片大小必须一样,单张图片大小不超过2M,最多添加10张,不能连续上传同一张图片)</span>
+
+                            </div>
+
+                            
+
+                            <div id="upload-img-box1" class="upload-img-box">
+
+                                <div class="btn-icon"></div>
+
+                                <input type="file" id="file1" name="files[]" onchange="handleFiles(this,'1')" multiple="true" value="BusinessLicensePic" />
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat external-link">
+
+                            <div class="float-l info-tag">广告链接</div>
+
+                            <div class="float-r info-value">
+
+                                <input class="whole-input" type="text" name="link" value="<%result.links%>" placeholder="广告url地址" autocomplete="off">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat ad-introduction">
+
+                            <div class="float-l info-tag">广告描述</div>
+
+                            <div class="float-r float-whole info-value ad-intro-cot">
+
+                                <textarea class="intro-area msbox" name="desc" placeholder="最多500个字" maxlength="500"><%result.desc%></textarea>
+
+                            </div>
+
+                        </li>
+
+                        <!-- 商家简介赋值这里 html代码 --><!-- merchant.details -->
+
+                        <li class="info-item clearfloat">
+
+                            <div class="float-l info-tag">联系电话 : </div>
+
+                            <div class="float-r info-value">
+
+                                <input class="whole-input" type="text" name="mobile" value="<%result.mobile%>" placeholder="请输入联系电话/座机号码" autocomplete="off">
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="mark-tips">注:广告内容有限期为2年</div>
+
+                    <div class="btn-container-1">
+
+                        <ul class="btn-box">
+
+                            <li class="btn-item btn-link-box">
+
+                                <a class="btn-link" href="javascript:void(0);" onclick='preview(1);'>预览 </a>
+
+                            </li>
+
+                            <li class="btn-item" onclick='a(1);'>提交审核</li>
+
+                            <li class="btn-item next-step" onclick='a(2);'>下一步</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="ad-base-setting con" id="con_2">
+
+                    <ul class="ad-base-setting-ul">
+
+                        <li class="info-item clearfloat margin-bot">
+
+                            <div class="float-l info-tag">选择投放类型 </div>
+
+                            <div class="float-r info-value right-text"><!-- 默认是现金红包广告,编辑读取保存在数据库中的 -->
+
+                                <button id='show-ad-type' class="select-btn" type='button'><%if result.putInType == 2%>换货码红包广告<%else%>现金红包广告<%/if%></button><!-- 换货码红包广告2 现金红包广告1 -->
+
+                                <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                                <input class="whole-input" id="ad-type" value="<%if result.putInType == 2 %><%result.putInType%><%else%>1<%/if%>" type="hidden" name="putInType" placeholder="选择投放类型" readonly="readonly">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat margin-bot no-all-radius-t"><!-- 这里有默认店铺 用内置标签来赋值-->
+
+                            <div class="float-l info-tag">推荐店铺</div>
+
+                            <div class="float-r info-value right-text"><!-- 这里赋值上推荐店铺/公司的名称 -->
+
+                                <button class="select-btn show-recom-s-btn" type='button'><%if result.recuid > 0%><%result.merchname%><%else%>未设置<%/if%></button>
+
+                                <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                                <!-- 这里赋值上推荐店铺/公司的id -->
+
+                                <input class="whole-input" value="<%if result.recuid %><%result.recuid%><%else%><%/if%>" type="hidden" id="uid" name="uid"  readonly="readonly">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat margin-bot"><!-- no-all-radius-b -->
+
+                            <div class="float-l info-tag">推荐商品<span class="little-tips">(选填)</span> </div>
+
+                            <div class="float-r info-value right-text">
+
+                                <button class="select-btn show-recom-g-btn" type='button'><%if result.goodsid%>已设置<%else%>未设置<%/if%></button>
+
+                                <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                                <input class="whole-input" value="<%if result.goodsid %><%result.goodsid%><%else%><%/if%>" type="hidden" name="goodsid" readonly="readonly">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat margin-bot">
+
+                            <div class="float-l info-tag larger-l">投放红包个数</div>
+
+                            <div class="float-r info-value larger-r">
+
+                                <input class="whole-input" type="number" name="bonus" value="<%result.bonus%>" placeholder="红包个数">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat margin-bot">
+
+                            <div class="float-l info-tag">余额</div>
+
+                            <div class="float-r info-value balance"><!-- 这里标签赋值上余额和可投红包个数 -->
+
+                                <span class="balance-value"><!-- 300元 --></span>,可投<span class="red-envelope-num"><!-- 1000 --></span>多个(广告元: <span class="red-envelope-unit"><!-- 0.3元 --></span>/个)
+
+                                <input type="hidden" class="red-envelope-num-input" value=""><!-- 这里不用管，只是作用户填写的红包个数不能大于可投数 -->
+
+                            </div>
+
+                            <input type="hidden" class="barter-balance" name="barter-balance" value="{$currency['credit3']}"> <!-- 换货码红包广告 余额 -->
+
+                            <input type="hidden" class="barter-balance-unit" name="barter-balance-unit" value="0.3"> <!-- 换货码红包广告 广告元 -->
+
+                            <input type="hidden" class="cash-balance" name="cash-balance" value="{$currency['credit2']}"> <!-- 现金红包广告 余额 -->
+
+                            <input type="hidden" class="cash-balance-unit" name="cash-balance-unit" value="0.3"> <!-- 现金红包广告 广告元 -->
+
+                        </li>
+
+                        <li class="info-item clearfloat no-all-radius-b">
+
+                            <div class="float-l info-tag larger-l">每个用户最多收到广告数</div>
+
+                            <div class="float-r info-value larger-r">
+
+                                <input class="whole-input" type="number" id="usermax" name="usermax" value="<%result.usermax%>" placeholder="不超过500">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat margin-bot no-all-radius-t">
+
+                            <div class="float-l info-tag larger-l">每个用户每天最多收到广告数</div>
+
+                            <div class="float-r info-value larger-r">
+
+                                <input class="whole-input" type="number" id="daymax" name="daymax" value="<%result.daymax%>" placeholder="不超过10">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat no-all-radius-b"><!-- 这里的事件相关字段name属性没有按数据库字段命名 -->
+
+                            <div class="float-l info-tag">投放时间</div>
+
+                            <div class="float-r info-value right-text float-r-time">
+
+                                <input data-options='{"type":"datetime"}' class="serving-time serving-start" id="serving_start" type="text" name="serving_start" value="<%result.stime%>" placeholder="开始时间" readonly="readonly">
+
+                                至
+
+                                <input data-options='{"type":"datetime"}' class="serving-time serving-end" id="serving_end" type="text" name="serving_end" value="<%result.etime%>" placeholder="结束时间" readonly="readonly">
+
+                            </div>
+
+                        </li>
+
+                        <li class="info-item clearfloat no-all-radius-t">
+
+                            <div class="float-l info-tag">投放目标</div>
+
+                            <div class="float-r info-value right-text">
+
+                                <button class="select-btn show-serv-tar-btn" type='button'><%if (result.national && result.national !=0) || result.province || result.city || result.area || (result.maximum && result.maximum !=0) || (result.minimum && result.minimum !=0)|| (result.minage && result.minage !=0) || (result.maxage && result.maxage !=0)%>已设置<%else%>未设置<%/if%></button><!-- 这里使用模板标签来判断是否已设置 -->
+
+                                <i class="fa fa-angle-right right-mark" aria-hidden="true"></i>
+
+                                <!-- 赋上相应的值 注意这里的id和name名称跟数据库字段不一样-->
+
+                                <input type="hidden" id="national2" name="national2" value="<%result.national%>" />
+
+                                <input type="hidden" id="province2" name="province2" value="<%result.province%>" />
+
+                                <input type="hidden" id="city2" name="city2" value="<%result.city%>" />
+
+                                <input type="hidden" id="area2" name="area2" value="<%result.area%>" />
+
+                                <!-- <input type="hidden" id="setarea" name="setarea" value="" /> -->
+
+                                <input type="hidden" id="gender2" name="gender2" value="<%result.gender%>" />
+
+                                <input type="hidden" id="minimum2" name="minimum2" value="<%result.minimum%>" />
+
+                                <input type="hidden" id="maximum2" name="maximum2" value="<%result.maximum%>" />
+
+                                <input type="hidden" id="minage2" name="minage2" value="<%result.minage%>" />
+
+                                <input type="hidden" id="maxage2" name="maxage2" value="<%result.maxage%>" />
+
+                                <!-- 是否设置年收入和年龄,默认没有设置的话为0,已设置的话则为1 -->
+
+                                <input type="hidden" id="setincome" name="setincome" value="<%if result.minimum%><%if result.maximum != 0 ||  result.minimum != 0%>1<%else%>0<%/if%><%else%>0<%/if%>" />
+
+                                <input type="hidden" id="setage" name="setage" value="<%if result.minage%><%if result.maxage != 0 || result.minage != 0%>1<%else%>0<%/if%><%else%>0<%/if%>" />
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="mark-tips">发布广告即默认同意<a class="protocol-link" href="javascript:void(0);">《换货广告商户服务协议》</a></div>
+
+                    <div class="btn-container-1 btn-container-2">
+
+                        <ul class="btn-box">
+
+                            <li class="btn-item prev-step">上一步</li>
+
+                            <li class="btn-item" onclick='a(2);'>提交审核并投放</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="hidden" name="token" value="{$_W['token']}" />
+
+        </form>
+
+    </div>
+
+</script>
+
+<script type="text/html" id="tpl-loading">
+
+    <div id="loading" style="position: absolute; top:0px; left:0px; width:100%;padding-top:200px; text-align: center; height:100%; ">
+
+        <img   src="<?php echo MODULE_URL.'plugin/suppliermenu/res/loading.gif?'.time();?>"/>
+
+    </div>
+
+</script>
+
+<!-- 模板 推荐商品-->
+
+<script id="tpl_recn_goods" type="text/html">
+
+    <%each list as g%>
+
+    <li class="ret-item clearfloat flex-center">
+
+        <a href="javascript:void(0);" class="goods-link floatl"><!-- 商品图片(背景图形式) -->
+
+            <div class="pic-box" style="background: url(<%g.thumb%>) no-repeat center; background-size: cover;"></div>
+
+        </a>
+
+        <div class="content-box floatr">
+
+            <div class="content-tag">
+
+                <a href="javascript:void(0);" class="goods-link"><!-- 商品名称 -->
+
+                    <%g.title%>
+
+                </a>
+
+            </div>
+
+            <div class="num-value-box">
+
+                <div class="num-tag"><span class="font-color"><%if g.type != 8%>￥<%/if%><%if g.marketprice%><%g.marketprice%><%else%>0.00<%/if%><%if g.type == 8%>换货码<%/if%></span></div><!-- 商品价格 如果是换货类型商品,则加上'换货码',如果是普通商品,则不加-->
+
+                <div class="value-tag"> 市场价 ￥<%if g.productprice%><%g.productprice%><%else%>0.00<%/if%></div><!-- 市场价或者价格 简而言之就是市场价-->
+
+            </div>
+
+        </div>
+
+        <div class="selected-box mui-input-row mui-checkbox">
+
+            <input class="recom-selected" name="recom_goods" type="checkbox" data-goodsid="<%g.id%>"> <!-- data-goodsid赋值商品id -->
+
+        </div>
+
+    </li>
+
+    <%/each%>
+
+</script>
+
+<!-- 推荐店铺没有使用到 -->
+
+<script id="tpl_recn_shops" type="text/html">
+
+    <%each list as g%>
+
+    <li class="ret-item clearfloat flex-center">
+
+        <a href="javascript:void(0);" class="goods-link floatl"><!-- 店铺图片(背景图形式) -->
+
+            <div class="pic-box" style="background: url(<%g.logo%>) no-repeat center; background-size: cover;"></div>
+
+        </a>
+
+        <div class="content-box floatr">
+
+            <div class="content-tag">
+
+                <a href="javascript:void(0);" class="shop-link"><!-- 公司名称 -->
+
+                    <%g.merchname%>
+
+                </a>
+
+            </div>
+
+            <div class="num-value-box clearfloat">
+
+                <div class="num-tag">销量: <%g.sales%></div><!-- 销售数量 -->
+
+                <div class="num-tag" style="margin-left: 5px;"> <%g.merchtype%></div>
+
+                <div class="value-tag">关注: <%g.favorite%></div><!-- 关注数量 -->
+
+            </div>
+
+        </div>
+
+        <div class="selected-box mui-input-row mui-radio">
+
+            <input class="recom-selected" name="recom_shop" type="radio" data-shopid='<%g.uid%>' data-shoptitle='<%g.merchname%>'><!-- 公司店铺id+名称 -->
+
+        </div>
+
+    </li>
+
+    <%/each%>
+
+</script>
+
+<script type="text/javascript">
+
+    //菜单标签1.广告信息 2.投放设置 切换
+
+
+
+    function tab(n){
+
+        $('#con_'+n).fadeIn();
+
+        $('#con_'+n).siblings().hide();
+
+        $('#nav_'+n).addClass('navon');
+
+        $('#nav_'+n).siblings().removeClass('navon');
+
+    }
+
+    //根据投放类型初始化对应的余额
+
+    function changeBalance(){
+
+        var putintype = $("#ad-type").val();
+
+        if(putintype == 1){
+
+            var balance_val = $(".cash-balance").val();
+
+            var envelope_unit = $(".cash-balance-unit").val();
+
+            var envelope_num = parseInt(parseFloat(balance_val)/parseFloat(envelope_unit));
+
+            $(".balance-value").text(balance_val + "元");
+
+            $(".red-envelope-unit").text(envelope_unit + "元");
+
+            $(".red-envelope-num").text(envelope_num);
+
+            $(".red-envelope-num-input").val(envelope_num);
+
+        }else{
+
+            var balance_val = $(".barter-balance").val();
+
+            var envelope_unit = $(".barter-balance-unit").val();
+
+            var envelope_num = parseInt(parseFloat(balance_val)/parseFloat(envelope_unit));
+
+            $(".balance-value").text(balance_val + "换货码");
+
+            $(".red-envelope-unit").text(envelope_unit + "换货码");
+
+            $(".red-envelope-num").text(envelope_num);
+
+            $(".red-envelope-num-input").val(envelope_num);
+
+        }
+
+    }
+
+    var page = 1;  //推荐商品下拉加载页码
+
+    var loaded = false; //推荐商品下拉加载只有第一次click时就绑定dropload,后面不重复绑定
+
+    var page1 = 1;  //推荐店铺下拉加载页码
+
+    var loaded1 = false; //推荐店铺下拉加载只有第一次click时就绑定dropload,后面不重复绑定
+
+    require(['tpl', 'core'], function(tpl, core) {
+
+        core.pjson('suppliermenu/ad', {op:'add',ac:'getad',id:'{$_GPC['id']}'}, function(json) {
+
+            var data = json.result;
+
+            //初始化所在地区//cascdeInit(data.province,data.city,data.dist);
+
+            $('body').append(tpl('tpl-big-body',json));
+
+            //初始化广告轮播大图 用模板标签填充了
+
+            //根据投放类型初始化对应的余额
+
+            changeBalance();
+
+            //下一步按钮,先检验首页面是否按要求完成填写
+
+            $(".next-step").unbind('click').click(function(){
+
+                adValidate();
+
+            });
+
+            //上一步按钮,点击返回首页面
+
+            $(".prev-step").unbind('click').click(function(){
+
+                tab(1);
+
+            });
+
+            //动态添加的 Switch 开关组件需要手动初始化
+
+            mui('.mui-switch')['switch']();
+
+            //初始化投放类型
+
+            var ad_type_picker = new mui.PopPicker();
+
+            ad_type_picker.setData([{value:'1',text:'现金红包广告'},{value:'2',text:'换货码红包广告'}]);
+
+            //初始化选择中的项或者默认的项
+
+            var sel_type = $("#ad-type").val();
+
+            ad_type_picker.pickers[0].setSelectedValue(sel_type, 2000);
+
+            var showAdTypePickerButton = document.getElementById('show-ad-type');
+
+            var adTypeResult =document.getElementById('ad-type');
+
+            showAdTypePickerButton.addEventListener('tap', function(event) {
+
+                ad_type_picker.show(function (selectItems) {
+
+                    adTypeResult.value = selectItems[0].value;
+
+                    showAdTypePickerButton.innerText = selectItems[0].text;
+
+                    //根据投放类型改变对应的余额
+
+                    changeBalance();
+
+                    //console.log(selectItems[0].text);
+
+                    //console.log(selectItems[0].value);
+
+                });
+
+            }, false);
+
+            //初始化时间插件
+
+            var $startbtn = document.getElementById('serving_start');
+
+            var $endbtn = document.getElementById('serving_end');
+
+            $startbtn.addEventListener('tap', function() {
+
+                var _self = this;
+
+                var option = {
+
+                    type: "datetime",//设置日历初始视图模式 完整日期视图(年月日时分)
+
+                    beginDate: new Date()//设置开始日期
+
+                };
+
+                if($.trim($('.serving-end').val()).length != 0){
+
+                    //设置在已经选择结束时间后再重新选择开始时间
+
+                    option.endDate = new Date(new Date($('.serving-end').val()).getTime() - 1000*60*60*24);
+
+                }
+
+                if(_self.picker) {
+
+                    _self.picker.show(function (rs) {
+
+                        _self.value = rs.text;
+
+                        _self.picker.dispose();
+
+                        _self.picker = null;
+
+                    });
+
+                }else {
+
+                    var id = this.getAttribute('id');
+
+                    _self.picker = new mui.DtPicker(option);
+
+                    _self.picker.show(function(rs) {
+
+                        _self.value = rs.text;
+
+                        _self.picker.dispose();
+
+                        _self.picker = null;
+
+                    });
+
+                }
+
+            }, false);
+
+            $endbtn.addEventListener('tap', function() {
+
+                var _self = this;
+
+                var time_start = $startbtn.value;
+
+                if($.trim($('.serving-start').val()).length == 0){
+
+                    core.tip.show('请先选择投放开始时间');
+
+                    return false;
+
+                }
+
+                if(_self.picker) {
+
+                    _self.picker.show(function (rs) {
+
+                        _self.value = rs.text;
+
+                        _self.picker.dispose();
+
+                        _self.picker = null;
+
+                    });
+
+                }else {
+
+                    var id = this.getAttribute('id');
+
+                    _self.picker = new mui.DtPicker({
+
+                        type: "datetime",//设置日历初始视图模式 完整日期视图(年月日时分)
+
+                        beginDate: new Date(new Date(time_start).getTime() + 1000*60*60*24)//设置开始日期 大一天
+
+                    });
+
+                    _self.picker.show(function(rs) {
+
+                        _self.value = rs.text;
+
+                        _self.picker.dispose();
+
+                        _self.picker = null;
+
+                    });
+
+                }
+
+            }, false);
+
+            //根据推荐商品input渲染被选中的checkbox
+
+            function setCheckbox(){
+
+                //解决选中推荐商品但是没有按确认按钮
+
+                var goodsids_input = $('input[name="goodsid"]').val().split(',');
+
+                //先设置全部未选中,再根据原先确认的值来渲染
+
+                $("input[name='recom_goods']").each(function(){
+
+                    $(this).prop("checked",false);
+
+                    var mark = $.inArray($(this).data('goodsid').toString(),goodsids_input);
+
+                    var n = $(this).data('goodsid');
+
+                    if(mark != -1){
+
+                        $(this).prop("checked",true);
+
+                    }
+
+                });
+
+            }
+
+            //最多只能选择三个推荐商品
+
+            function setRecomGoodsNum(){
+
+                $("input[name='recom_goods']").unbind('click').click(function(){
+
+                    var goodsids = new Array();
+
+                    $("input[name='recom_goods']:checked").each(function(){
+
+                        goodsids.push($(this).data('goodsid'));
+
+                    });
+
+                    if(goodsids.length > 3){
+
+                        core.tip.show('最多只能选择三个推荐商品');
+
+                        $(this).prop("checked",false);
+
+                    }
+
+                });
+
+            }
+
+            //弹出推荐商品版面
+
+            $('.show-recom-g-btn').click(function(){
+
+                $(".recom-goods-box").animate({left:"0px"},100);
+
+                $(".recom-goods-box .confirm-btn").css("display","block");
+
+                $('.recom-goods-box .back').unbind('click').click(function(){
+
+                    $(".recom-goods-box").animate({left:"-100%"},100);
+
+                    $(".recom-goods-box .confirm-btn").css("display","none");
+
+                });
+
+                //选择推荐商品 点击该版面确定选择按钮后 相应元素将会填充对应的信息
+
+                $('#recom-goods-confirm').unbind('click').click(function(){
+
+                    var goodsids = new Array();
+
+                    $("input[name='recom_goods']:checked").each(function(){
+
+                        goodsids.push($(this).data('goodsid'));
+
+                    });
+
+                    if(goodsids.length == 0){
+
+                        $(".show-recom-g-btn").text("未设置");
+
+                    }else{
+
+                        $(".show-recom-g-btn").text("已设置");
+
+                    }
+
+                    $('input[name="goodsid"]').val(goodsids.join(','));
+
+                    $(".recom-goods-box").animate({left:"-100%"},100);
+
+                    $(".recom-goods-box .confirm-btn").css("display","none");
+
+                });
+
+                setCheckbox();
+
+                //注意下面4行代码，顺序不能调换
+
+                if(loaded){
+
+                    return;
+
+                }
+
+                loaded = true;
+
+                //有内容加载
+
+                $('.recom-goods-box').dropload({
+
+                    scrollArea : window,
+
+                    loadDownFn : function(me){
+
+                        console.log("page: "+page);
+
+                        if(page<0) {me.noData();return ;}
+
+                        core.pjson('suppliermenu/ad', {op:'add',ac:'getgoods',page:page}, function(json) {
+
+                            //json.result.count !=0 && $(".recom-goods-result").append(tpl('tpl_recn_goods',json.result) );
+
+                            //测试 到时候用上一行注释的代码
+
+                            json.result.count !=0 && $(".recom-goods-result").append(tpl('tpl_recn_goods',json.result));
+
+                            //最多只能选择三个推荐商品
+
+                            setRecomGoodsNum();
+
+                            setCheckbox();
+
+                            if(json.status == 0 || json.result.count != json.result.pageNum){
+
+                                page=-1;
+
+                                me.lock();
+
+                                me.noData();
+
+                            }else{
+
+                                page++;
+
+                            }
+
+                            me.resetload();
+
+                        }, true);
+
+                    }
+
+                });
+
+            });
+
+            //根据推荐店铺input渲染被选中的radio
+
+            function setRadio(){
+
+                //解决选中推荐店铺但是没有按确认按钮
+
+                var shopid_input = $('input[name="uid"]').val();
+
+                //console.log("hhhhhh"+shopid_input);
+
+                //先设置全部未选中,再根据原先确认的值来渲染
+
+                $("input[name='recom_shop'][data-shopid='" + shopid_input +"']").prop("checked",true);
+
+            }
+
+            //弹出推荐店铺版面
+
+            $('.show-recom-s-btn').unbind('click').click(function(){
+
+                $(".recom-shop-box").animate({left:"0px"},100);
+
+                $(".recom-shop-box .confirm-btn").css("display","block");
+
+                $('.recom-shop-box .back').unbind('click').click(function(){
+
+                    $(".recom-shop-box").animate({left:"-100%"},100);
+
+                    $(".recom-shop-box .confirm-btn").css("display","none");
+
+                });
+
+                //点击该版面确定选择按钮后 相应元素将会填充对应的信息
+
+                $('#recom-shop-confirm').unbind('click').click(function(){
+
+                    var o_id = $("input[name='recom_shop']:checked").data('shopid');
+
+                    var o_title = $("input[name='recom_shop']:checked").data('shoptitle');
+
+                    //console.log("title: "+o_title + "id: "+o_id);
+
+                    $("#uid").val(o_id);
+
+                    $(".show-recom-s-btn").text(o_title);
+
+                    $(".recom-shop-box").animate({left:"-100%"},100);
+
+                    $(".recom-shop-box .confirm-btn").css("display","none");
+
+                });
+
+                setRadio();
+
+                // 注意下面4行代码，顺序不能调换
+
+                if(loaded1){
+
+                    return;
+
+                }
+
+                loaded1 = true;
+
+                $('.recom-shop-box').dropload({
+
+                    scrollArea : window,
+
+                    loadDownFn : function(me){
+
+                        console.log("page1: "+page1);
+
+                        if(page1<0) {me.noData();return ;}
+
+                        core.pjson('suppliermenu/ad', {op:'add',ac:'getmerch',page:page1,merchtype:'{$_GPC['merchtype']}'}, function(json) {
+
+                            //填充模板
+
+                            json.result.count !=0 && $(".recom-shop-result").append(tpl('tpl_recn_shops',json.result));
+
+                            setRadio();
+
+                            if(json.status == 0 || json.result.count != json.result.pagesize){
+
+                                page1=-1;
+
+                                me.lock();
+
+                                me.noData();
+
+                            }else{
+
+                                page1++;
+
+                            }
+
+                            me.resetload();
+
+                        }, true);
+
+                    }
+
+                });
+
+            });
+
+            //弹出投放目标版面
+
+            $('.show-serv-tar-btn').unbind('click').click(function(){
+
+                $("#national").val($("#national2").val());
+
+                $("#province").val($("#province2").val());
+
+                $("#city").val($("#city2").val());
+
+                $("#area").val($("#area2").val());
+
+                $("#gender").val($("#gender2").val());
+
+                $("#income_range_id").data("from",$("#minimum2").val());
+
+                $("#income_range_id").data("to",$("#maximum2").val());
+
+                $("#age_range_id").data("to",$("#minage2").val());
+
+                $("#age_range_id").data("to",$("#maxage2").val());
+
+                initRange();
+
+                initServingTarget();
+
+                $(".serving-target-box").animate({left:"0px"},100);
+
+                $(".serving-target-box .confirm-btn").css("display","block");
+
+                $('.serving-target-box .back').unbind('click').click(function(){
+
+                    $(".serving-target-box").animate({left:"-100%"},100);
+
+                    $(".serving-target-box .confirm-btn").css("display","none");
+
+                });
+
+                $('#serving-target-confirm').unbind('click').click(function(){
+
+                    $("#national2").val($("#national").val());
+
+                    $("#province2").val($("#province").val());
+
+                    $("#city2").val($("#city").val());
+
+                    $("#area2").val($("#area").val());
+
+                    $("#gender2").val($("#gender").val());
+
+                    var incomeIsActive = document.getElementById("income-switch").classList.contains("mui-active");
+
+                    if(!incomeIsActive){
+
+                        $("#setincome").val("0");
+
+                        $("#minimum2").val("0");
+
+                        $("#maximum2").val("0");
+
+                    }else{
+
+                        $("#setincome").val("1");
+
+                        $("#minimum2").val($("#income_range_id").data("from"));
+
+                        $("#maximum2").val($("#income_range_id").data("to"));
+
+                    }
+
+                    var ageIsActive = document.getElementById("age-switch").classList.contains("mui-active");
+
+                    if(!ageIsActive){
+
+                        $("#setage").val("0");
+
+                        $("#minage2").val("0");
+
+                        $("#maxage2").val("0");
+
+                    }else{
+
+                        $("#setage").val("1");
+
+                        $("#minage2").val($("#age_range_id").data("from"));
+
+                        $("#maxage2").val($("#age_range_id").data("to"));
+
+                    }
+
+                    /*if(!$("#national2").isEmpty() || !$("#province2").isEmpty() || $("#gender2").val() != 0 || $("#minimum2").val() != 10000 || $("#maximum2").val() != 300000 || $("#minage2").val() != 10 || $("#maxage2").val() != 60  ){
+
+                        $(".show-serv-tar-btn").text("已设置");
+
+                    }*/
+
+                    if((!$("#national2").isEmpty() && $("#national2").val() != 0)|| !$("#province2").isEmpty() || ($("#gender2").val() != 0 && !$("#gender2").isEmpty()) || $("#setincome").val() != 0 || $("#setage").val() != 0 ){
+
+                        $(".show-serv-tar-btn").text("已设置");
+
+                    }else{
+
+                        $(".show-serv-tar-btn").text("未设置");
+
+                    }
+
+                    $(".serving-target-box").animate({left:"-100%"},100);
+
+                    $(".serving-target-box .confirm-btn").css("display","none");
+
+                });
+
+            });
+
+            //弹出投放区域版面
+
+            $('.add-area').unbind('click').click(function(){
+
+                //根据对应的input存储容器初始化区域,按步骤来 night start
+
+                var national = $("#national").val();
+
+                var province = $("#province").val();
+
+                var city = $("#city").val();
+
+                var area = $("#area").val();
+
+                //如果是新增操作 input的情况全国value:""，其他省市区也为""  当编辑的时候为全国时1,其他省市区应为"";当其他省市区不为空的时候,全国为0
+
+                //1.新增情况 没有设置区域的编辑情况 没默认情况是什么? 新增下没有设置区域提交数据后后台会默认为全国1 前端没有设置默认全国0(建议后台设置为全国的话用1) 省市区:""
+
+                if(($("#national").isEmpty() && $("#province").isEmpty()) || (national == 0 && $("#province").isEmpty())) {
+
+                    //如果之前是全国投放设置
+
+                    var isActive = document.getElementById("national-switch").classList.contains("mui-active");
+
+                    if(isActive){
+
+                        mui("#national-switch").switch().toggle();
+
+                    }
+
+                    $("#national").parent().parent().siblings().removeClass("national-pointer-no");
+
+                }else if(national == 1){ //2.全国 新增或者编辑
+
+                    var isActive = document.getElementById("national-switch").classList.contains("mui-active");
+
+                    if(!isActive){
+
+                        mui("#national-switch").switch().toggle();
+
+                    }
+
+                    $("#national").parent().parent().siblings().addClass("national-pointer-no");
+
+                }
+
+                if(!$("#province").isEmpty()){//3.具体 新增或者编辑
+
+                    $(".select-pro-btn").text(province);
+
+                }else{
+
+                    $(".select-pro-btn").text("未设置");
+
+                }
+
+                if(!$("#city").isEmpty()){
+
+                    $(".select-cit-btn").text(city);
+
+                }else{
+
+                    $(".select-cit-btn").text("未设置");
+
+                }
+
+                if(!$("#area").isEmpty()){
+
+                    $(".select-are-btn").text(area);
+
+                }else{
+
+                    $(".select-are-btn").text("未设置");
+
+                }
+
+                //night end
+
+
+
+                $(".serving-area-box").animate({left:"0px"},100);
+
+                $(".serving-area-box .confirm-btn").css("display","block");
+
+                $('.serving-area-box .back').unbind('click').click(function(){
+
+                    $(".serving-area-box").animate({left:"-100%"},100);
+
+                    $(".serving-area-box .confirm-btn").css("display","none");
+
+                });
+
+
+
+            });
+
+            //弹出投放的省级版面
+
+            $('.select-pro-btn').unbind('click').click(function(){
+
+                $(".province-box .mark-step").text("选择投放的省级");
+
+                $("#sel-city").addClass("select-hide");
+
+                $("#sel-area").addClass("select-hide");
+
+                var province = $("#province").val();
+
+                cascdeInit(province,"","");
+
+                //selectCity();
+
+                //console.log("province: "+province);
+
+                $(".province-box").animate({left:"0px"},100);
+
+                $('.province-box .back').unbind('click').click(function(){
+
+                    $(".province-box").animate({left:"-100%"},100);
+
+                });
+
+                $(".province-home").unbind('click').click(function(){
+
+                    var last_province = $("#sel-provance").val();
+
+                    $("#city").val("");
+
+                    $("#area").val("");
+
+                    $(".select-cit-btn").text("未设置");
+
+                    $(".select-are-btn").text("未设置");
+
+                    //console.log("last_province: "+last_province);
+
+                    if($.trim(last_province) == "请选择省份"){
+
+                        $("#province").val("");
+
+                        $(".select-pro-btn").text("未设置");
+
+                        $(".select-ret").remove();
+
+                    }else{
+
+                        $("#province").val(last_province);
+
+                        $(".select-pro-btn").text(last_province);
+
+                        $(".select-ret").remove();
+
+                        var retobj = '<div class="select-ret"><div class="select-ret-tag">'+ last_province + '</div><div class="select-ret-remove"></div></div>';
+
+                        $(".serving-area").append(retobj);
+
+                        removeServingRet();
+
+                    }
+
+                    $(".province-box").animate({left:"-100%"},100);
+
+                });
+
+            });
+
+            //弹出投放的市级版面
+
+            $('.select-cit-btn').unbind('click').click(function(){
+
+                $(".province-box .mark-step").text("选择投放的市级");
+
+                $("#sel-city").removeClass("select-hide");
+
+                $("#sel-area").addClass("select-hide");
+
+                var province = $("#province").val();
+
+                var city = $("#city").val();
+
+                var area = $("#area").val();
+
+                if(city.length == 0){
+
+                    province = "";
+
+                    city = "";
+
+                }
+
+                //console.log("province1: "+province+"city1: "+city);
+
+                $(".province-box").animate({left:"0px"},100);
+
+                cascdeInit(province,city,"");
+
+                //一个bug init bug
+
+                if(city.length == 0){
+
+                    $("#sel-city").find("option").remove();
+
+                    $("#sel-city").append('<option value="请选择城市">请选择城市</option>');
+
+                }
+
+                //console.log("province: "+province+"city: "+city);
+
+                $('.province-box .back').unbind('click').click(function(){
+
+                    $(".province-box").animate({left:"-100%"},100);
+
+                });
+
+                $(".province-home").unbind('click').click(function(){
+
+                    var last_province = $("#sel-provance").val();
+
+                    var last_city = $("#sel-city").val();
+
+                    $("#area").val("");
+
+                    $(".select-are-btn").text("未设置");
+
+                    //console.log("last_province: "+last_province+"last_city: "+last_city);
+
+                    if($.trim(last_province) == "请选择省份"){
+
+                        $("#province").val("");
+
+                        $("#city").val("");
+
+                        $(".select-pro-btn").text("未设置");
+
+                        $(".select-cit-btn").text("未设置");
+
+                        $(".select-ret").remove();
+
+                    }else{
+
+                        $("#province").val(last_province);
+
+                        $("#city").val(last_city);
+
+                        $(".select-pro-btn").text(last_province);
+
+                        $(".select-cit-btn").text(last_city);
+
+                        $(".select-ret").remove();
+
+                        var retobj = '<div class="select-ret"><div class="select-ret-tag">'+ last_province + ' ' + last_city + '</div><div class="select-ret-remove"></div></div>';
+
+                        $(".serving-area").append(retobj);
+
+                        removeServingRet();
+
+                    }
+
+                    $(".province-box").animate({left:"-100%"},100);
+
+                });
+
+            });
+
+            //弹出投放的区级版面
+
+            $('.select-are-btn').unbind('click').click(function(){
+
+                $(".province-box .mark-step").text("选择投放的区级");
+
+                $("#sel-city").removeClass("select-hide");
+
+                $("#sel-area").removeClass("select-hide");
+
+                var province = $("#province").val();
+
+                var city = $("#city").val();
+
+                var area = $("#area").val();
+
+                if(area == ""){
+
+                    province = "";
+
+                    city = "";
+
+                }
+
+                cascdeInit(province,city,area);
+
+                console.log("province: "+province+"city: "+city+"area: "+area);
+
+                //一个bug init bug
+
+                if(city.length == 0){
+
+                    $("#sel-city").find("option").remove();
+
+                    $("#sel-city").append('<option value="请选择城市">请选择城市</option>');
+
+                }
+
+                $(".province-box").animate({left:"0px"},100);
+
+                $('.province-box .back').unbind('click').click(function(){
+
+                    $(".province-box").animate({left:"-100%"},100);
+
+                });
+
+                $(".province-home").unbind('click').click(function(){
+
+                    var last_province = $("#sel-provance").val();
+
+                    var last_city = $("#sel-city").val();
+
+                    var last_area = $("#sel-area").val();
+
+                    //console.log("last_province: "+last_province+"last_city: "+last_city+"last_area: "+last_area);
+
+                    if($.trim(last_province) == "请选择省份"){
+
+                        $("#province").val("");
+
+                        $("#city").val("");
+
+                        $("#area").val("");
+
+                        $(".select-pro-btn").text("未设置");
+
+                        $(".select-cit-btn").text("未设置");
+
+                        $(".select-are-btn").text("未设置");
+
+                        $(".select-ret").remove();
+
+                    }else{
+
+                        $("#province").val(last_province);
+
+                        $("#city").val(last_city);
+
+                        $("#area").val(last_area);
+
+                        $(".select-pro-btn").text(last_province);
+
+                        $(".select-cit-btn").text(last_city);
+
+                        $(".select-are-btn").text(last_area);
+
+                        $(".select-ret").remove();
+
+                        var retobj = '<div class="select-ret"><div class="select-ret-tag">'+ last_province + ' ' + last_city + ' ' + last_area + '</div><div class="select-ret-remove"></div></div>';
+
+                        $(".serving-area").append(retobj);
+
+                        removeServingRet();
+
+                    }
+
+                    $(".province-box").animate({left:"-100%"},100);
+
+                });
+
+            });
+
+            //处理投放区域选择全国
+
+            //已选择具体区域,若确定选择全国投放则会删除具体区域
+
+            document.getElementById("national-switch").addEventListener("toggle",function(event){
+
+                //如果省市区级三者之一已有已被选，则会提示 end
+
+                if(event.detail.isActive){
+
+                    console.log("你启动了开关");
+
+                    //如果省市区级三者之一已有已被选，则会提示 start
+
+                    // $('#setarea').val(1);
+
+                    var $province = $("#province");
+
+                    var $city = $("#city");
+
+                    var $area = $("#area");
+
+                    var ret_choose = false;
+
+                    if(!$province.isEmpty() || !$city.isEmpty() || !$area.isEmpty()){
+
+                        nationalConfirm("已选择具体区域,若确定选择全国投放则会删除具体区域",function(){
+
+                            $province.val("");
+
+                            $city.val("");
+
+                            $area.val("");
+
+                            $(".select-pro-btn").text("未设置");
+
+                            $(".select-cit-btn").text("未设置");
+
+                            $(".select-are-btn").text("未设置");
+
+                            console.log("result0: "+ret_choose);
+
+                            $("#national").val("1");//$("#national").val("0");当全国手动设置的时候,则设置national为1
+
+                            $("#national").parent().parent().siblings().addClass("national-pointer-no");
+
+                            ret_choose = true;
+
+                            $(".select-ret").remove();
+
+                            var retobj = '<div class="select-ret"><div class="select-ret-tag">全国</div><div class="select-ret-remove"></div></div>';
+
+                            $(".serving-area").append(retobj);
+
+                            removeServingRet();
+
+                        },function(){
+
+                            console.log("result1: "+ret_choose);
+
+                            mui("#national-switch").switch().toggle();
+
+                        });
+
+                    }else{
+
+                        $("#national").val("1");//$("#national").val("0");当全国手动设置的时候,则设置national为1
+
+                        $("#national").parent().parent().siblings().addClass("national-pointer-no");
+
+                        $(".select-ret").remove();
+
+                        var retobj = '<div class="select-ret"><div class="select-ret-tag">全国</div><div class="select-ret-remove"></div></div>';
+
+                        $(".serving-area").append(retobj);
+
+                        removeServingRet();
+
+                        return false;
+
+                    }
+
+                }else{
+
+                    console.log("你关闭了开关");
+
+                    $("#national").val("0");//$("#national").val("1");关闭设置全国,则把全国设置为0,当然这种关闭设置全国，如果也没有选择其他省市区，提交数据后后台默认会是全国
+
+                    //$('#setarea').val("0");
+
+                    $("#national").parent().parent().siblings().removeClass("national-pointer-no");
+
+                    $(".select-ret").remove();
+
+                }
+
+            });
+
+            //点击删除之前选择好的投放区域
+
+            removeServingRet();
+
+            //选择性别
+
+            document.getElementById("sex-switch").addEventListener("toggle",function(event){
+
+                if(event.detail.isActive){
+
+                    //此处默认选中男
+
+                    $("#gender-1").prop("checked",true);
+
+                    $(".sex-container").removeClass('select-hide');
+
+                    var gender = $("input[name='sex']:checked").val();
+
+                    $("#gender").val(gender);
+
+                }else{
+
+                    $("#gender").val("0");
+
+                    $(".sex-container").addClass('select-hide');
+
+                }
+
+            });
+
+            $("input[name='sex']").unbind("click").click(function(){
+
+                if($("sex-container").hasClass("select-hide")){
+
+                    return false;
+
+                }else{
+
+                    var gender = $("input[name='sex']:checked").val();
+
+                    $("#gender").val(gender);
+
+                }
+
+            });
+
+            //选择年收入
+
+            document.getElementById("income-switch").addEventListener("toggle",function(event){
+
+                if(event.detail.isActive){
+
+                    $(".income-container").removeClass('select-hide');
+
+                    var slider = $("#income_range_id").data("ionRangeSlider");
+
+                    // Fire public method
+
+                    slider.reset();
+
+                    //$("#setincome").val("1");
+
+                }else{
+
+                    $(".income-container").addClass('select-hide');
+
+                    //$("#setincome").val("0");
+
+                }
+
+            });
+
+            //选择年龄段
+
+            document.getElementById("age-switch").addEventListener("toggle",function(event){
+
+                if(event.detail.isActive){
+
+                    $(".age-container").removeClass('select-hide');
+
+                    var slider = $("#age_range_id").data("ionRangeSlider");
+
+                    // Fire public method
+
+                    slider.reset();
+
+                    //$("#setage").val("1");
+
+                }else{
+
+                    $(".age-container").addClass('select-hide');
+
+                    //$("#setage").val("0");
+
+                }
+
+            });
+
+        }, true,true);
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //上传图片
+
+    function  handleFiles(q,id)
+
+    {
+
+        if($("input[name='file1[]']").length > 9){
+
+            alert("最多添加10张广告轮播大图!");
+
+            return false;
+
+        }
+
+        //console.log($("input[name='file1[]']").length);
+
+        var files =  q.files;
+
+        if(files.length)
+
+        {
+
+            console.log(files.length);
+
+            for(var x =0 ;x<files.length;x++ ){
+
+                var file = files[x];
+
+                if(!/image\/\w+/.test(file.type)){
+
+                    alert("文件必须为图片！"+file.type);
+
+                    return ;
+
+                }
+
+            }
+
+            $.ajaxFileUpload({
+
+                url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',
+
+            secureuri:false,
+
+            fileElementId:$(q).attr('id'), //file的id
+
+            dataType:"text", // 返回数据类型为文本
+
+            success:function(data,status){
+
+            console.log(data);
+
+            //console.log(status);
+
+            var obj = JSON.parse(data);
+
+            for(var x in obj.result.url){
+
+                $("#file"+id).parent().before( baidu.template('tpl-img-box'+id,{data:{img:obj.result.url[x]}}));
+
+            }
+
+        }
+
+        });
+
+        }
+
+    }
+
+
+    //上传商品主图
+
+    function  handleFile(q,id)
+
+    {
+        if($("input[name='file2[]']").length > 1){
+
+            alert("最多添加1张大图!");
+
+            return false;
+
+        }
+
+
+        var files =  q.files;
+
+        if(files.length)
+
+        {
+
+           // console.log(files.length);
+
+            for(var x =0 ;x<files.length;x++ ){
+
+                var file = files[x];
+
+                if(!/image\/\w+/.test(file.type)){
+
+                    alert("文件必须为图片！"+file.type);
+
+                    return ;
+
+                }
+
+            }
+
+            $.ajaxFileUpload({
+
+                url:'<?php echo $this->createPluginMobileUrl('suppliermenu/goods',array( 'op'=>'upload')) ;?>',
+
+            secureuri:false,
+
+            fileElementId:$(q).attr('id'), //file的id
+
+            data:{ggggtttt:1},
+
+            dataType:"text", // 返回数据类型为文本
+
+            success:function(data,status){
+
+            console.log(status);
+            console.log(data);
+
+            var obj = JSON.parse(data);
+
+            for(var x in obj.result.url){
+
+                $("#file"+id).parent().before( baidu.template('tpl-img-box'+1,{data:{img:obj.result.url[x]}}));
+
+            }
+
+        }
+
+        });
+
+        }
+
+    }
+
+
+    /*投放区域说明弹出板关开*/
+
+    function closedescription(){
+
+        $('.description_layer').fadeOut(100);
+
+        $('.description').fadeOut(100);
+
+    }
+
+    function showdescription(){
+
+        $('.description_layer').fadeIn(200);
+
+        $('.description_layer').unbind('click').click(function(){
+
+            closedescription();
+
+        });
+
+        $('.description').fadeIn(200);
+
+    }
+
+    //选择全国投放选择是否删除具体区域的确认弹出框
+
+    function nationalConfirm(msg, callback, callback1) {
+
+        var html = '<div id="core_alert"><div class="layer"></div><div class="tips"><div class="title">';
+
+        html += msg;
+
+        html += '</div><div class="sub"><nav data-action="cancel">取消</nav><nav data-action="ok">确定</nav>';
+
+        html += '</div></div></div>';
+
+        if ($('#core_tip').length > 0) {
+
+            $('#core_tip').remove();
+
+        }
+
+        var div = $(html);
+
+        $(document.body).append(div);
+
+        $('.layer', div).fadeIn(100);
+
+        $('.tips', div).fadeIn(100);
+
+        div.find('nav').unbind('click').click(function(){
+
+            var action = $(this).data('action');
+
+            if (action == 'ok') {
+
+                if (callback) {
+
+                    callback();
+
+                }
+
+            }else{
+
+                if (callback1) {
+
+                    callback1();
+
+                }
+
+            }
+
+            div.remove();
+
+        });
+
+    }
+
+    //点击删除之前选择好的投放区域
+
+    function removeServingRet(){
+
+        $(".select-ret-remove").unbind('click').click(function(){
+
+            $(".select-ret").remove();
+
+            var $national = $("#national");
+
+            var $province = $("#province");
+
+            var $city = $("#city");
+
+            var $area = $("#area");
+
+            $national.val("");
+
+            $province.val("");
+
+            $city.val("");
+
+            $area.val("");
+
+            $(".select-pro-btn").text("未设置");
+
+            $(".select-cit-btn").text("未设置");
+
+            $(".select-are-btn").text("未设置");
+
+            //如果之前是全国投放设置
+
+            var isActive = document.getElementById("national-switch").classList.contains("mui-active");
+
+            if(isActive){
+
+                mui("#national-switch").switch().toggle();
+
+            }
+
+        });
+
+    }
+
+    //初始化投放区域和性别
+
+    function initServingTarget(){
+
+        var gender2 = $("#gender2").val();
+
+        $("#gender").val(gender2);
+
+        //如果不是默认值
+
+        if(gender2 == 0 || gender2 == ""){
+
+            var isActive = document.getElementById("sex-switch").classList.contains("mui-active");
+
+            if(isActive){
+
+                mui("#sex-switch").switch().toggle();//$(".income-switch").removeClass("mui-active");//这种方法不生效
+
+            }
+
+            $(".sex-container").addClass("select-hide");
+
+        }else if(gender2 == 1){
+
+            $("#gender-1").prop("checked",true);
+
+        }else{
+
+            $("#gender-2").prop("checked",true);
+
+        }
+
+        var national2 = $("#national2").val();
+
+        var province2 = $("#province2").val();
+
+        var city2 = $("#city2").val();
+
+        var area2 = $("#area2").val();
+
+
+
+        //新编辑 night 23:04
+
+        //如果是新增操作 存储的input全国value:"" 当为全国时1,其他省市区应为"" 没有做区域设置时，提交后后台默认存储的数据为：1 NULL NULL NULL
+
+        //1.新增情况 没有设置区域的编辑情况 没默认情况是什么? 新增下没有设置区域提交数据后(全为"")后台会默认为全国1 前端没有设置默认全国0(建议后台设置为全国的话用1) 省市区:""
+
+        if(($("#national2").isEmpty() && $("#province2").isEmpty()) || (national2 == 0 && $("#province2").isEmpty())) {
+
+            $(".select-ret").remove();
+
+        }else if(national2 == 1){ //2.全国 新增或者编辑
+
+            $(".select-ret").remove();
+
+            var retobj = '<div class="select-ret"><div class="select-ret-tag">全国</div><div class="select-ret-remove"></div></div>';
+
+            $(".serving-area").append(retobj);
+
+            removeServingRet();
+
+        }else if(!$("#province2").isEmpty()){//3.具体 新增或者编辑
+
+            $(".select-ret").remove();
+
+            var retobj = '<div class="select-ret"><div class="select-ret-tag">'+ province2 + ' ' + city2 + ' ' + area2 + '</div><div class="select-ret-remove"></div></div>';
+
+//        console.log(retobj);
+
+            $(".serving-area").append(retobj);
+
+            removeServingRet();
+
+        }
+
+    }
+
+    //初始化range
+
+    function initRange(){
+
+        require(['ion.rangeSlider'], function() {
+
+            //年收入range范围 grid: true,
+
+            var income_from = $("#minimum2").val();
+
+            var income_to = $("#maximum2").val();
+
+            var age_from = $("#minage2").val();
+
+            var age_to = $("#maxage2").val();
+
+            console.log("income_from: "+income_from+"income_to: "+income_to);
+
+            //如果没有设置 如果不是默认值X
+
+            if($("#setincome").val() == 0){//income_from ==0 && income_to == 0
+
+                var isActive = document.getElementById("income-switch").classList.contains("mui-active");
+
+                if(isActive){
+
+                    mui("#income-switch").switch().toggle();//$(".income-switch").removeClass("mui-active");//这种方法不生效
+
+                }
+
+                $(".income-container").addClass("select-hide");
+
+            }
+
+            if($("#setage").val() == 0){//age_from ==0 && age_to == 0
+
+                var isActive1 = document.getElementById("age-switch").classList.contains("mui-active");
+
+                if(isActive1){
+
+                    mui("#age-switch").switch().toggle();//$(".age-switch").removeClass("mui-active");//这种方法不生效
+
+                }
+
+                $(".age-container").addClass("select-hide");
+
+            }
+
+            //
+
+            // var slider = $("#income_range_id").data("ionRangeSlider");
+
+            // slider.reset();
+
+            $("#income_range_id").ionRangeSlider({
+
+                type: "double",
+
+                min: 10000,
+
+                max: 300000,
+
+                from: income_from ? income_from : 10000,
+
+                to: income_to ? income_to : 300000,
+
+                prefix: "￥",
+
+                onChange: function(){
+
+                    var c_val = $("#income_range_id").data("from") + "," + $("#income_range_id").data("to");
+
+                    //console.log("v: "+c_val);
+
+                    $("#income_range_id1").val(c_val);
+
+                }
+
+            });
+
+            //根据input存储的更新 不可跟下一个if语句该顺序
+
+            var slider = $("#income_range_id").data("ionRangeSlider");
+
+            // UPDATE - updates slider to any new values
+
+            slider.update({
+
+                from:  income_from ? income_from : 10000,
+
+                to: income_to ? income_to : 300000
+
+            });
+
+            if($("#setincome").val() == 0){//income_from ==0 && income_to == 0
+
+                // Saving it's instance to var
+
+                var slider = $("#income_range_id").data("ionRangeSlider");
+
+                // Fire public method
+
+                slider.reset();
+
+            }
+
+            //console.log("range: "+$("#income_range_id").val());
+
+            //console.log("range: "+$("#income_range_id").data("from"));
+
+            //console.log("range: "+$("#income_range_id").data("to"));
+
+            //年龄range范围 grid: true,
+
+            $("#age_range_id").ionRangeSlider({
+
+                type: "double",
+
+                min: 10,
+
+                max: 60,
+
+                from: age_from ? age_from : 10,
+
+                to: age_to ? age_to : 60,
+
+                postfix: "岁",
+
+                onChange: function(){
+
+                    var c_val = $("#age_range_id").data("from") + "," + $("#age_range_id").data("to");
+
+                    $("#age_range_id1").val(c_val);
+
+                }
+
+            });
+
+            //根据input存储的更新 不可跟下一个if语句该顺序
+
+            var slider2 = $("#age_range_id").data("ionRangeSlider");
+
+            // UPDATE - updates slider to any new values
+
+            slider2.update({
+
+                from: age_from ? age_from : 10,
+
+                to: age_to ? age_to : 60
+
+            });
+
+            if($("#setage").val() == 0){//age_from ==0 && age_to == 0
+
+                // Saving it's instance to var
+
+                var slider2 = $("#age_range_id").data("ionRangeSlider");
+
+                // Fire public method
+
+                slider2.reset();
+
+            }
+
+        });
+
+    }
+
+    //console.log($(".info-tag").html())
+
+</script>
+
+
+
+<script type="text/javascript">
+
+
+
+    var core_orlength = $("input[name='core']").val();
+
+
+
+    $("input[name='core']").blur(function(){
+
+        var core_orlength = $("input[name='core']").val().length;
+
+
+        if(core_orlength >= 5 ){
+
+            $("#loading").remove();
+
+            core.tip.show('核心记忆词的长度必须小于5');
+
+            return;
+
+        }
+
+    })
+
+    //广告信息版面验证
+
+    function adValidate(){
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            if($("#cate-select-id").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('请选择广告分类');
+
+                return;
+
+            }
+
+            if($("input[name='title']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('广告名称不能为空');
+
+                return;
+
+            }
+
+            if($("input[name='core']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('核心记忆词不能为空');
+
+                return;
+
+            }
+
+            var core_orlength = $("input[name='core']").val().length;
+
+            var core_length = ($("input[name='core']").val().replace(/\s+/g,"")).length;
+
+            if(core_orlength != core_length){
+
+                $("#loading").remove();
+
+                core.tip.show("核心记忆词中不能包含空格");
+
+                return;
+
+            }
+
+            if(core_length >= 5 ){
+
+
+
+                $("#loading").remove();
+
+
+                core.tip.show('核心记忆词的长度必须小于5');
+
+                return;
+
+            }
+
+
+            {if empty($_GPC['id'])}
+
+            {if $_GPC['type'] == 2}
+
+            if($("input[name='outside']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('外部网页链接不能为空');
+
+                return;
+
+            }
+
+            {elseif $_GPC['type'] == 3}
+
+            if($("input[name='video']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('视频链接不能为空');
+
+                return;
+
+            }
+
+            {elseif empty($_GPC['type']) && $member['default_ad_model'] == 2}
+
+            if($("input[name='outside']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('外部网页链接不能为空');
+
+                return;
+
+            }
+
+            {elseif empty($_GPC['type']) && $member['default_ad_model'] == 3 }
+
+            if($("input[name='video']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('视频链接不能为空');
+
+                return;
+
+            }
+
+            {/if}
+
+                {/if}
+
+
+
+                    {if isset($_GPC['id'])}
+
+                    {if $ad['type'] == 2}
+
+                    if($("input[name='outside']").isEmpty()){
+
+                        $("#loading").remove();
+
+                        core.tip.show('外部网页链接不能为空');
+
+                        return;
+
+                    }
+
+                    {elseif $ad['type'] == 3}
+
+                    if($("input[name='video']").isEmpty()){
+
+                        $("#loading").remove();
+
+                        core.tip.show('视频链接不能为空');
+
+                        return;
+
+                    }
+
+                    {/if}
+
+                        {/if}
+
+                            if($("textarea[name='desc']").isEmpty()){
+
+                                $("#loading").remove();
+
+                                core.tip.show('广告描述不能为空');
+
+                                return;
+
+                            }
+
+                            if($("input[name='mobile']").isEmpty()){
+
+                                $("#loading").remove();
+
+                                core.tip.show('联系电话不能为空');
+
+                                return;
+
+                            }
+
+                            if(!$("input[name='mobile']").isMobile()){
+
+                                $("#loading").remove();
+
+                                core.tip.show('请填写正确格式的联系电话');
+
+                                return;
+
+                            }else{
+                                if(!$("input[name='mobile']").isZMobile()){
+                                    $("#loading").remove();
+
+                                    core.tip.show('请填写正确格式的联系电话');
+
+                                    return;
+                                }
+                            }
+
+                            var files1 = new Array();
+
+                            $("input[name='file1[]']").each(function(){
+
+                                files1.push($(this).val());
+
+                            });
+
+                            if(files1.length == 0){
+
+                                $("#loading").remove();
+
+                                core.tip.show('尚未上传广告轮播大图');
+
+                                return;
+
+                            }
+
+
+                            //修改大图
+
+                            var filed1 = new Array();
+
+                            $("input[name='file1[]']").each(function(){
+
+                                filed1.push($(this).val());
+
+                            });
+
+                            // if(filed1.length == 0){
+
+                            //     $("#loading").remove();
+
+                            //     core.tip.show('尚未上传广告大图');
+
+                            //     return;
+
+                            // }
+
+                            tab(2);
+
+                            //点击下一步按钮或者产品参数的时候,就把数据存储到草稿箱里,也可以不存
+
+                            b(1);
+
+                        });
+
+    }
+
+    //提交审核 \ 提交审核并投放 验证
+
+    function a(status){
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            $('#big_body').append(tpl('tpl-loading'));
+
+            if($("#cate-select-id").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('请选择广告分类');
+
+                return;
+
+            }
+
+            if($("input[name='title']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('广告名称不能为空');
+
+                return;
+
+            }
+
+            if($("input[name='core']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('核心记忆词不能为空');
+
+                return;
+
+            }
+
+            var core_orlength = $("input[name='core']").val().length;
+
+            var core_length = ($("input[name='core']").val().replace(/\s+/g,"")).length;
+
+            if(core_orlength != core_length){
+
+                $("#loading").remove();
+
+                core.tip.show("核心记忆词中不能包含空格");
+
+                return;
+
+            }
+
+            if(core_length >= 5 ){
+
+                $("#loading").remove();
+
+                core.tip.show('核心记忆词的长度必须小于5');
+
+                return;
+
+            }
+
+            {if empty($_GPC['id']) && $member['default_ad_model'] == 2 || $_GPC['type'] == 2}
+
+            if($("input[name='outside']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('外部网页链接不能为空');
+
+                return;
+
+            }
+
+            {/if}
+
+                {if empty($_GPC['id']) && $member['default_ad_model'] == 3 || $_GPC['type'] == 3}
+
+                if($("input[name='video']").isEmpty()){
+
+                    $("#loading").remove();
+
+                    core.tip.show('视频链接不能为空');
+
+                    return;
+
+                }
+
+                {/if}
+
+                    if($("textarea[name='desc']").isEmpty()){
+
+                        $("#loading").remove();
+
+                        core.tip.show('广告描述不能为空');
+
+                        return;
+
+                    }
+
+                    if($("input[name='mobile']").isEmpty()){
+
+                        $("#loading").remove();
+
+                        core.tip.show('联系电话不能为空');
+
+                        return;
+
+                    }
+
+                    if(!$("input[name='mobile']").isMobile()){
+
+                        $("#loading").remove();
+
+                        core.tip.show('请填写正确格式的联系电话');
+
+                        return;
+
+                    }
+
+                    var files1 = new Array();
+
+                    $("input[name='file1[]']").each(function(){
+
+                        files1.push($(this).val());
+
+                    });
+
+                    if(files1.length == 0){
+
+                        $("#loading").remove();
+
+                        core.tip.show('尚未上传广告轮播大图');
+
+                        return;
+
+                    }
+
+                    //广告大图
+
+                     var filed1 = new Array();
+
+                            $("input[name='file2[]']").each(function(){
+
+                                filed1.push($(this).val());
+
+                            });
+
+                            // if(filed1.length == 0){
+
+                            //     $("#loading").remove();
+
+                            //     core.tip.show('尚未上传广告大图222');
+
+                            //     return;
+
+                            // }
+
+                    //投放红包个数不能大于余额所计算出来的可投红包个数
+
+                    var mark = false;
+
+                    if(!$("input[name='bonus']").isEmpty()){
+
+                        var bonus_num = parseInt($("input[name='bonus']").val());
+
+                        var envelope_num = parseInt($(".red-envelope-num-input").val());
+
+                        if(bonus_num > envelope_num){
+
+                            $("#loading").remove();
+
+                            core.tip.show('投放红包个数不能大于可投红包个数');
+
+                            mark = true;
+
+                        }
+
+                    }
+
+                    if(mark){
+
+                        return;
+
+                    }
+
+
+
+                    var data = {};
+
+                    //status 标志区分是预览啊,还是提交审核啊,还是提交审核并投放
+
+                    data['status']    = {data:[status]};
+
+                    data['adcate']     = {data:[$("#cate-select-id").val()]};
+
+                    data['title']     = {data:[$("input[name='title']").val()]};
+
+                    data['core']      = {data:[$("input[name='core']").val()]};
+
+                    data['link']      = {data:[$("input[name='link']").val()]};
+
+                    data['outside']   = {data:[$("input[name='outside']").val()]};
+
+                    data['video']     = {data:[$("input[name='video']").val()]};
+
+                    data['desc']      = {data:[$("textarea[name='desc']").val()]};
+
+                    data['mobile']    = {data:[$("input[name='mobile']").val()]};
+
+                    data['post1[]']   = {data:files1 };
+
+                    data['post2[]']   = {data:filed1 };     //修改广告
+
+
+
+                    data['putInType'] = {data:[$("input[name='putInType']").val()]};
+
+                    data['goodsid']   = {data:[$("input[name='goodsid']").val()]};
+
+                    data['uid'] = {data:[$("input[name='uid']").val()]};//推荐店铺
+
+                    data['usermax']    = {data:[$("#usermax").val()]};
+
+                    data['daymax']= {data:[$("#daymax").val()]};
+
+                    data['bonus']     = {data:[$("input[name='bonus']").val()]};
+
+                    data['stime']     = {data:[$("input[name='serving_start']").val()]};
+
+                    data['etime']     = {data:[$("input[name='serving_end']").val()]};
+
+                    // data['setarea']= {data:[$("#setarea").val()]};
+
+                    data['national']  = {data:[$("#national2").val()]};
+
+                    {if $_GPC['type']}
+
+                    data['type']  = {$_GPC['type']};
+
+                    {/if}
+
+                        data['province']  = {data:[$("#province2").val()]};
+
+                        data['city']      = {data:[$("#city2").val()]};
+
+                        data['area']      = {data:[$("#area2").val()]};
+
+                        data['gender']    = {data:[$("#gender2").val()]};
+
+                        data['usermax']   = {data:[$("#usermax").val()]};
+
+                        data['daymax']   = {data:[$("#daymax").val()]};
+
+                        data['minimum']   = {data:[$("#minimum2").val()]};
+
+                        data['maximum']   = {data:[$("#maximum2").val()]};
+
+                        data['minage']    = {data:[$("#minage2").val()]};
+
+                        data['maxage']    = {data:[$("#maxage2").val()]};
+
+                        //是否设置年收入和年龄
+
+                        data['setage']    = {data:[$("#setage").val()]};
+
+                        data['setincome'] = {data:[$("#setincome").val()]};
+
+
+
+                        System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+
+                        var fd =  a.append(data);
+
+                        var xhr = new XMLHttpRequest();
+
+                        xhr.open('POST', '<?php echo $this->createPluginMobileUrl('suppliermenu/ad',array( 'op'=>'add','ac'=>'sub','id'=>$_GPC['id'],'merchtype'=>$_GPC['merchtype'])) ;?>', true);
+
+                        xhr.send(fd);
+
+                        xhr.onreadystatechange=function(){
+
+                            if (xhr.readyState==4 && xhr.status==200)
+
+                            {
+
+                                var obj = JSON.parse(xhr.responseText);
+
+                                if(obj.status == 1){
+
+                                    core.tip.show('提交成功,等待审核');
+
+                                    setTimeout(function(){
+
+                                        location.href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('merchtype'=>$_GPC['merchtype']))}";
+
+                                    },250);
+
+                                }
+
+                                if(obj.status == 0){core.tip.show('提交失败');return;}
+
+                            }
+
+                        };
+
+                        $("#loading").remove();
+
+                    });
+
+                    });
+
+    }
+
+    function b(){
+
+        console.log("hello");
+
+    }
+
+    //预览 提交数据
+
+    function preview(status){
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            $('#big_body').append(tpl('tpl-loading'));
+
+            // if($("input[name='core']").isEmpty()){
+
+            //     $("#loading").remove();
+
+            //     core.tip.show('核心记忆词不能为空');
+
+            //     return;
+
+            // }
+
+            // var core_orlength = $("input[name='core']").val().length;
+
+            // var core_length = ($("input[name='core']").val().replace(/\s+/g,"")).length;
+
+            // if(core_orlength != core_length){
+
+            //     $("#loading").remove();
+
+            //     core.tip.show("核心记忆词中不能包含空格");
+
+            //     return;
+
+            // }
+
+            // if(core_length != 5 ){
+
+            //     $("#loading").remove();
+
+            //     core.tip.show('核心记忆词的长度只能为5');
+
+            //     return;
+
+            // }
+
+            {if empty($_GPC['id']) && $member['default_ad_model'] == 2 || $_GPC['type'] == 2}
+
+            if($("input[name='outside']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('外部网页链接不能为空');
+
+                return;
+
+            }
+
+            {/if}
+
+
+
+                var files1 = new Array();
+
+                $("input[name='file1[]']").each(function(){
+
+                    files1.push($(this).val());
+
+                });
+
+                if(files1.length == 0){
+
+                    $("#loading").remove();
+
+                    core.tip.show('尚未上传广告轮播大图');
+
+                    return;
+
+                }
+
+
+                //修改广告大图
+
+                 var filed1 = new Array();
+
+                            $("input[name='file1[]']").each(function(){
+
+                                filed1.push($(this).val());
+
+                            });
+
+                            // if(filed1.length == 0){
+
+                            //     $("#loading").remove();
+
+                            //     core.tip.show('尚未上传广告大图333');
+
+                            //     return;
+
+                            // }
+
+
+                var data = {};
+
+                //status 标志区分是预览啊,还是提交审核啊,还是提交审核并投放
+
+                data['status']  = {data:[status]};
+
+                data['adcate']     = {data:[$("#cate-select-id").val()]};
+
+                data['title'] = {data:[$("input[name='title']").val()]};
+
+                data['core'] = {data:[$("input[name='core']").val()]};
+
+                data['link'] = {data:[$("input[name='link']").val()]};
+
+                data['outside'] = {data:[$("input[name='outside']").val()]};
+
+                data['video'] = {data:[$("input[name='video']").val()]};
+
+                data['desc'] = {data:[$("textarea[name='desc']").val()]};
+
+                data['mobile'] = {data:[$("input[name='mobile']").val()]};
+
+                data['post1[]'] = {data:files1 };
+                
+                data['post2[]'] = {data:filed1 };
+
+
+                data['putInType'] = {data:[$("input[name='putInType']").val()]};
+
+                data['goodsid'] = {data:[$("input[name='goodsid']").val()]};
+
+                data['uid'] = {data:[$("input[name='uid']").val()]};//推荐店铺
+
+                data['usermax'] = {data:[$("#usermax").val()]};
+
+                data['daymax'] = {data:[$("#daymax").val()]};
+
+                data['bonus'] = {data:[$("input[name='bonus']").val()]};
+
+                data['stime'] = {data:[$("input[name='serving_start']").val()]};
+
+                data['etime'] = {data:[$("input[name='serving_end']").val()]};
+
+                data['national'] = {data:[$("#national2").val()]};
+
+                data['province'] = {data:[$("#province2").val()]};
+
+                data['city'] = {data:[$("#city2").val()]};
+
+                data['area'] = {data:[$("#area2").val()]};
+
+                data['gender'] = {data:[$("#gender2").val()]};
+
+                data['minimum'] = {data:[$("#minimum2").val()]};
+
+                data['maximum'] = {data:[$("#maximum2").val()]};
+
+                data['minage'] = {data:[$("#minage2").val()]};
+
+                data['maxage'] = {data:[$("#maxage2").val()]};
+
+                //是否设置年收入和年龄
+
+                data['setage'] = {data:[$("#setage").val()]};
+
+                data['setincome'] = {data:[$("#setincome").val()]};
+
+                // console.log(data);
+
+                // return false;
+
+                System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+
+                var fd =  a.append( data);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('POST', '<?php echo $this->createPluginMobileUrl('suppliermenu/ad',array( 'op'=>'preview','merchtype'=>$_GPC['merchtype'])) ;?>', true);
+
+                xhr.send(fd);
+
+                xhr.onreadystatechange=function(){
+
+                    if (xhr.readyState==4 && xhr.status==200)
+
+                    {
+
+                        var obj = JSON.parse(xhr.responseText);
+
+                        if(obj.status == 1){
+
+                            core.tip.show('提交成功');//,等待审核
+
+                            setTimeout(function(){
+
+                                location.href=obj.result;
+
+                            },250);
+
+                        }
+
+                        if(obj.status == 0){core.tip.show('提交失败');return;}
+
+                    }
+
+                };
+
+                $("#loading").remove();
+
+            });
+
+            });
+
+    }
+
+
+
+    function draft(status){
+
+        require(['tpl', 'core'], function(tpl, core) {
+
+            $('#big_body').append(tpl('tpl-loading'));
+
+            if($("input[name='title']").isEmpty()){
+
+                $("#loading").remove();
+
+                core.tip.show('广告名称不能为空');
+
+                return;
+
+            }
+
+            // if($("input[name='core']").isEmpty()){
+
+            //     $("#loading").remove();
+
+            //     core.tip.show('核心记忆词不能为空');
+
+            //     return;
+
+            // }
+
+            // if($("input[name='link']").isEmpty()){
+
+            //     $("#loading").remove();
+
+            //     core.tip.show('广告链接不能为空');
+
+            //     return;
+
+            // }
+
+            {if empty($_GPC['id']) && $member['default_ad_model'] == 2 || $_GPC['type'] == 2}
+
+            // if($("input[name='outside']").isEmpty()){
+
+            //     $("#loading").remove();
+
+            //     core.tip.show('外部网页链接不能为空');
+
+            //     return;
+
+            // }
+
+            {/if}
+
+                {if empty($_GPC['id']) && $member['default_ad_model'] == 3 || $_GPC['type'] == 3}
+
+                // if($("input[name='video']").isEmpty()){
+
+                // $("#loading").remove();
+
+                //     core.tip.show('视频链接不能为空');
+
+                //     return;
+
+                // }
+
+                {/if}
+
+                    //  if($("textarea[name='desc']").isEmpty()){
+
+                    //     $("#loading").remove();
+
+                    //     core.tip.show('广告描述不能为空');
+
+                    //     return;
+
+                    // }
+
+                    var files1 = new Array();
+
+                    $("input[name='file1[]']").each(function(){
+
+                        files1.push($(this).val());
+
+                    });
+
+                    if(files1.length == 0){
+
+                        $("#loading").remove();
+
+                        core.tip.show('尚未上传广告轮播大图');
+
+                        return;
+
+                    }
+
+
+                    //修改广告大图
+
+               var filed1 = new Array();
+
+                            $("input[name='file2[]']").each(function(){
+
+                                filed1.push($(this).val());
+
+                            });
+
+                            if(filed1.length == 0){
+
+                                $("#loading").remove();
+
+                                core.tip.show('尚未上传广告轮播大图');
+
+                                return;
+
+                            }
+                    //投放红包个数不能大于余额所计算出来的可投红包个数
+
+                    var mark = false;
+
+                    if(!$("input[name='bonus']").isEmpty()){
+
+                        var bonus_num = parseInt($("input[name='bonus']").val());
+
+                        var envelope_num = parseInt($(".red-envelope-num-input").val());
+
+                        if(bonus_num > envelope_num){
+
+                            $("#loading").remove();
+
+                            core.tip.show('投放红包个数不能大于可投红包个数');
+
+                            mark = true;
+
+                        }
+
+                    }
+
+                    if(mark){
+
+                        return;
+
+                    }
+
+                    var data = {};
+
+                    //status 标志区分是预览啊,还是提交审核啊,还是提交审核并投放
+
+                    data['status']    = {data:[status]};
+
+                    data['adcate']     = {data:[$("#cate-select-id").val()]};
+
+                    data['title']     = {data:[$("input[name='title']").val()]};
+
+                    data['core']      = {data:[$("input[name='core']").val()]};
+
+                    data['link']      = {data:[$("input[name='link']").val()]};
+
+                    data['outside']   = {data:[$("input[name='outside']").val()]};
+
+                    data['video']     = {data:[$("input[name='video']").val()]};
+
+                    data['desc']      = {data:[$("textarea[name='desc']").val()]};
+
+                    data['mobile']    = {data:[$("input[name='mobile']").val()]};
+
+                    data['post1[]']   = {data:files1 };
+
+                    data['post2[]']   = {data:filed1 };
+                    
+
+                    data['putInType'] = {data:[$("input[name='putInType']").val()]};
+
+                    data['goodsid']   = {data:[$("input[name='goodsid']").val()]};
+
+                    data['uid'] = {data:[$("input[name='uid']").val()]};//推荐店铺
+
+                    data['usermax']    = {data:[$("#usermax").val()]};
+
+                    data['daymax']= {data:[$("#daymax").val()]};
+
+                    data['bonus']     = {data:[$("input[name='bonus']").val()]};
+
+                    data['stime']     = {data:[$("input[name='serving_start']").val()]};
+
+                    data['etime']     = {data:[$("input[name='serving_end']").val()]};
+
+                    // data['setarea']= {data:[$("#setarea").val()]};
+
+                    data['national']  = {data:[$("#national2").val()]};
+
+                    {if $_GPC['type']}
+
+                    data['type']  = {$_GPC['type']};
+
+                    {/if}
+
+                        data['province']  = {data:[$("#province2").val()]};
+
+                        data['city']      = {data:[$("#city2").val()]};
+
+                        data['area']      = {data:[$("#area2").val()]};
+
+                        data['gender']    = {data:[$("#gender2").val()]};
+
+                        data['minimum']   = {data:[$("#minimum2").val()]};
+
+                        data['maximum']   = {data:[$("#maximum2").val()]};
+
+                        data['minage']    = {data:[$("#minage2").val()]};
+
+                        data['maxage']    = {data:[$("#maxage2").val()]};
+
+                        //是否设置年收入和年龄
+
+                        data['setage']    = {data:[$("#setage").val()]};
+
+                        data['setincome'] = {data:[$("#setincome").val()]};
+
+                        System['import']('<?php echo MODULE_URL.'plugin/suppliermenu/res/js/FormData.js';?>').then(function (a){
+
+                        var fd =  a.append(data);
+
+                        var xhr = new XMLHttpRequest();
+
+                        xhr.open('POST', '<?php echo $this->createPluginMobileUrl('suppliermenu/ad',array( 'op'=>'add','ac'=>'sub','id'=>$_GPC['id'],'merchtype'=>$_GPC['merchtype'])) ;?>', true);
+
+                        xhr.send(fd);
+
+                        xhr.onreadystatechange=function(){
+
+                            if (xhr.readyState==4 && xhr.status==200)
+
+                            {
+
+                                var obj = JSON.parse(xhr.responseText);
+
+                                if(obj.status == 1){
+
+                                    core.tip.show('提交草稿成功');
+
+                                    setTimeout(function(){
+
+                                        location.href="{php echo $this->createPluginMobileUrl('suppliermenu/ad',array('merchtype'=>$_GPC['merchtype']))}";
+
+                                    },250);
+
+                                }
+
+                                if(obj.status == 0){core.tip.show('提交失败');return;}
+
+                            }
+
+                        };
+
+                        $("#loading").remove();
+
+                    });
+
+                    });
+
+    }
+
+
+
+</script>
+
+{template 'common/footer'}
