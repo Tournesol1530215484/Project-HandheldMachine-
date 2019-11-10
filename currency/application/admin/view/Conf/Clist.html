@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head>
+	    <meta charset="utf-8">
+   <title>{$AllConf.sitename}</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" />
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+    
+</head>
+<body>
+	<!-- 头部 -->
+    {include file='public/top'/}
+	<!-- /头部 -->
+	
+	<div class="main-container container-fluid">
+		<div class="page-container">
+            <!-- Page Sidebar -->
+            {include file='public/left'/}
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">系统</a>
+                        </li>
+                        <li>
+                            <a href="{:url('Conf/ConfList')}">配置项管理</a>
+                        </li>
+                        <li class="active">添加配置项</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+
+                <!-- Page Body -->
+                <div class="page-body">
+                    
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">新增配置项</span>
+            </div>
+            <div class="widget-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="{:url('Conf/Clist')}" method="post" enctype="multipart/form-data" >
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs tabs-flat  nav-justified" id="myTab11">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#SConf" aria-expanded="true">
+                                       店铺属性配置
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#Spdesc" aria-expanded="false">
+                                        商品属性配置
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content tabs-flat no-padding">
+                                <!--店铺配置-->
+                                <div id="SConf" class="tab-pane padding-5 animated fadeInUp active" style="margin-top: 20px">
+                                    <?php foreach($ShopConf as $key =>$SConf):?>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label no-padding-right">{$SConf.cname}</label>
+                                        <div class="col-sm-4">
+                                            <!--input类型-->
+                                            {if condition="$SConf['from_type'] eq 'input'"}
+                                                <input class="form-control"  placeholder="" name="{$SConf.ename}" value="{$SConf.value}"  type="text">
+                                            <!--radio类型-->
+                                            {elseif condition="$SConf['from_type'] eq 'radio'"}
+                                                <?php foreach($SConf['values'] as $k => $v):?>
+                                                    <div class="radio" style="float: left;margin-left: 10px">
+                                                        <label>
+                                                            <input <?php if($SConf['value']==$v):?><?php echo"class='inverted' checked='checked'";?><?php endif;?>  name=" {$SConf.ename}" type="radio" value="{$v}" >
+                                                            <span class="text"><?php echo $v; ?></span>
+                                                        </label>
+                                                    </div>
+                                                <?php endforeach;?>
+                                            <!--checked类型-->
+                                            {elseif condition="$SConf['from_type'] eq 'checked'"}
+                                                <?php if($SConf['values']):
+                                                        $attr_value=explode(',',$SConf['value']);
+                                                        foreach($SConf['values'] as $k => $v):
+                                                        ?>
+                                                    <label>
+                                                        <input id="form-field-checkbox" <?php if(in_array($v,$attr_value)){echo 'checked="checked"';}?>   name="{$SConf.ename}[]" value="{$v}" type="checkbox">
+                                                        <span class="text"><?php echo $v; ?></span>
+                                                    </label>
+                                                <?php endforeach; endif;?>
+                                            <!--file类型-->
+                                            {elseif condition="$SConf['from_type'] eq 'file'"}
+                                                <input name="{$SConf.ename}"  type="file">
+                                            <!--selected类型-->
+                                            {elseif condition="$SConf['from_type'] eq 'selected'"}
+                                                <select name="{$SConf.ename}">
+                                                    <?php if($SConf['values']):
+                                                      foreach($SConf['values'] as $k1 => $v1):?>
+                                                    <option <?php if($SConf['value']==$v1){echo 'selected="selected"';}?> value="{$v1}"><?php echo $v1; ?></option>
+                                                    <?php endforeach; endif;?>
+                                                </select>
+                                            {else\}
+                                            <!--textarea类型-->
+                                                <textarea style="resize:none; width:100%;height: 115px" name="{$SConf.ename}" >{$SConf.value}</textarea>
+                                            {/if}
+                                        </div>
+                                    </div>
+                                    <?php endforeach;?>
+                                </div>
+
+                                <!--商品配置-->
+                                <div id="Spdesc" class="tab-pane  animated fadeInUp" style="margin-top: 20px;padding-bottom: 20px">
+                                        <div class="form-group">
+                                            <?php foreach($GoodsConf as $key =>$GConf):?>
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label no-padding-right">{$GConf.cname}</label>
+                                                <div class="col-sm-4">
+                                                    <!--input类型-->
+                                                    {if condition="$GConf['from_type'] eq 'input'"}
+                                                    <input class="form-control"  placeholder="" name="{$GConf.ename}" value="{$GConf.value}"  type="text">
+                                                    <!--radio类型-->
+                                                    {elseif condition="$GConf['from_type'] eq 'radio'"}
+                                                    <?php foreach($GConf['values'] as $k => $v):?>
+                                                    <div class="radio" style="float: left;margin-left: 10px">
+                                                        <label>
+                                                            <input <?php if($GConf['value']==$v):?><?php echo"class='inverted' checked='checked'";?><?php endif;?>  name=" {$GConf.ename}" type="radio" value="{$v}" >
+                                                            <span class="text"><?php echo $v; ?></span>
+                                                        </label>
+                                                    </div>
+                                                    <?php endforeach;?>
+                                                    <!--checked类型-->
+                                                    {elseif condition="$GConf['from_type'] eq 'checked'"}
+                                                    <?php if($GConf['values']):
+                                                        $attr_value=explode(',',$GConf['value']);
+                                                        foreach($GConf['values'] as $k => $v):
+                                                    ?>
+                                                    <label>
+                                                        <input  <?php if(in_array($v,$attr_value)){echo 'checked="checked"';}?>   name="{$GConf.ename}[]" value="{$v}" type="checkbox">
+                                                        <span class="text"><?php echo $v; ?></span>
+                                                    </label>
+                                                    <?php endforeach; endif;?>
+                                                    <!--file类型-->
+                                                    {elseif condition="$GConf['from_type'] eq 'file'"}
+                                                    <input name="{$GConf.ename}"  type="file">
+                                                    <!--selected类型-->
+                                                    {elseif condition="$GConf['from_type'] eq 'selected'"}
+                                                    <select name="{$GConf.ename}">
+                                                        <?php if($GConf['values']):
+                                                      foreach($GConf['values'] as $k1 => $v1):?>
+                                                        <option <?php if($GConf['value']==$v1){echo 'selected="selected"';}?> value="{$v1}"><?php echo $v1; ?></option>
+                                                        <?php endforeach; endif;?>
+                                                    </select>
+                                                    {else\}
+                                                    <!--textarea类型-->
+                                                    <textarea style="resize:none; width:100%;height: 115px" name="{$GConf.ename}" >{$GConf.value}</textarea>
+                                                    {/if}
+                                                </div>
+                                            </div>
+                                            <?php endforeach;?>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+		</div>	
+	</div>
+
+	    <!--Basic Scripts-->
+    <script src="__ADMIN__/style/jquery_002.js"></script>
+    <script src="__ADMIN__/style/bootstrap.js"></script>
+    <script src="__ADMIN__/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__ADMIN__/style/beyond.js"></script>
+    <!--引入百度编辑器-->
+    <script src="__ADMIN__/ueditor/ueditor.config.js"></script>
+    <script src="__ADMIN__/ueditor/ueditor.all.min.js"></script>
+    <script src="__ADMIN__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+    <!--实例化百度编辑器-->
+    <script type="text/javascript">
+
+        //实例化编辑器
+        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+        UE.getEditor('content',{initialFrameWidth:700,initialFrameHeight:600});
+    </script>
+
+
+
+
+</body></html>

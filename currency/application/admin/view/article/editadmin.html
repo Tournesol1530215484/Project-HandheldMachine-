@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+  <title></title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <!-- <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" /> -->
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+
+    <!-- 图片上传css -->
+    
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <link href="__ADMIN__/style/IMGUP.css" rel="stylesheet" />
+
+    <!-- 图片上传 -->
+    <style>
+    .upload-thumb {
+        display: block !important;
+        float: left;
+        width: 147px !important;
+        height: 147px !important;
+        position: relative;
+    }
+
+    .upload-thumb img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .img-box, .sku-img-box {
+        overflow: hidden;
+    }
+
+    .off-box, .sku-off-box {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        right: 0;
+        top: 0;
+        line-height: 18px;
+        background-color: #FFF;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .black-bg {
+        position: absolute;
+        right: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .img-error {
+        color: red;
+        height: 25px;
+        line-height: 25px;
+        display: none;
+    }
+
+    .hint {
+        font-size: 12px;
+        line-height: 16px;
+        color: #BBB;
+        margin-top: 10px;
+    }
+
+    .ncsc-goods-default-pic .goodspic-uplaod .handle {
+        height: 30px;
+        margin: 10px 0;
+    }
+
+    .ncsc-upload-btn, .upload-btn {
+        vertical-align: top;
+        width: 80px;
+        height: 30px;
+        margin: 10px 5px 0 0;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ncsc-upload-btn {
+        display: inline-block;
+        margin: 0 5px 0;
+        vertical-align: middle;
+    }
+
+    .ncsc-upload-btn span, .upload-btn span {
+        width: 80px;
+        height: 30px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .ncsc-upload-btn .input-file, .upload-btn .input-file {
+        width: 80px;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+        border: none 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+    }
+
+    .ncsc-upload-btn p, .upload-btn p {
+        font-size: 12px;
+        line-height: 20px;
+        background-color: #F5F5F5;
+        text-align: center;
+        color: #666;
+        width: 78px;
+        height: 20px;
+        padding: 4px 0;
+        border: solid 1px;
+        border-color: #DCDCDC #DCDCDC #B3B3B3 #DCDCDC;
+        position: absolute;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    select, input[type="file"] {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .base {
+        width: 80%;
+        background-color: #fff;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+</style>
+
+
+</head>
+<body>
+<!-- 头部 -->
+{include file='public/top'/}
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file='public/left'/}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="">文章管理</a>
+                    </li>
+                    <li class="active">添加文章</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增文章</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="{:url('/admin/Index/editadmin')}" method="post" enctype="multipart/form-data" >
+                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="fun" value="editinfo">
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章标题</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control"   placeholder="" name="article_title" value="" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章作者</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control"   placeholder="" name="article_author" value="" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">关键词</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control"   placeholder="" name="article_keywords" value="" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                                            <div class="col-sm-6">
+                                                <select name="pid">
+                                                    {volist name="Cate" id="CateRes"}
+                                                    <option value="{$CateRes.cat_id}"
+                                                            {in name="$CateRes.cat_id" value="1,2,3,5"}disabled="disabled"{/in}
+                                                            {if condition="$CateRes.cat_id eq $Article.pid"}selected="selected"{/if}>
+                                                    <!--设置前面的标签-->
+                                                    {if condition="$CateRes['lever'] neq 0"}{/if}<?php echo str_repeat('-',$CateRes['lever']*6)?>
+                                                    {$CateRes.cat_name}</option>
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章logo</label>
+                                             <!-- 图片上传开始 -->
+
+                                             <div class="base">
+                                                <div id="goods_picture_box" class="controls" style="background-color:#FFF;border: 1px solid #E9E9E9;">
+                                                    <div class="ncsc-goods-default-pic">
+                                                        <div class="goodspic-uplaod" style="padding: 15px;">
+                                                            <div class='img-box' style="min-height:160px;">
+                                                                <div class="upload-thumb" id="default_uploadimg">
+                                                                    <img src="album/default_goods_image_240.gif">
+                                                                </div>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                            <div class="handle">
+                                                                <div class="ncsc-upload-btn">
+                                                                    <a href="javascript:void(0);">
+                                                                        <span>
+                                                                            <input style="cursor:pointer;font-size:0;" type="file" id="fileupload" hidefocus="true" class="input-file" name="file_upload" multiple="multiple"/>
+                                                                        </span>
+                                                                        <p>图片上传</p>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="album_id" value="1"/>
+
+                                              <!-- 图片上传结束 -->
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">前台显示</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input  name="satus" value="1" type="radio"><span class="text">显示</span>
+                                                    </label>
+                                                    <label>
+                                                        <input class="inverted"  name="satus" value="0" type="radio"><span class="text">不显示</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">审核状态</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input   name="article_type" value="0" type="radio"><span class="text">未通过</span>
+                                                    </label>
+                                                    <label>
+                                                        <input  name="article_type" value="1" type="radio"><span class="text">待审核</span>
+                                                    </label>
+                                                    <label>
+                                                        <input   name="article_type" value="2" type="radio"><span class="text">通过</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">资源类型</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input  name="resource_type" value="0" type="radio"><span class="text">ed2k资源</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="resource_type" value="1" type="radio"><span class="text">磁力资源</span>
+                                                    </label>
+                                                    <label>
+                                                        <input  name="resource_type" value="2" type="radio"><span class="text">网盘资源</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章描述</label>
+                                            <div class="col-sm-6">
+                                                <textarea style="resize:none; width:523px;height: 115px" name="article_description" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章内容</label>
+                                            <div class="col-sm-6">
+                                                <textarea id="content" name="article_content" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__ADMIN__/style/jquery_002.js"></script>
+<script src="__ADMIN__/style/bootstrap.js"></script>
+<script src="__ADMIN__/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__ADMIN__/style/beyond.js"></script>
+
+
+
+<!--引入百度编辑器-->
+<script src="__ADMIN__/ueditor/ueditor.config.js"></script>
+<script src="__ADMIN__/ueditor/ueditor.all.min.js"></script>
+<script src="__ADMIN__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<!--实例化百度编辑器-->
+<script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    UE.getEditor('content',{initialFrameWidth:1100,initialFrameHeight:800});
+</script>
+
+<link href="__ADMIN__/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />  
+
+<script type="text/javascript" src="__ADMIN__/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>  
+
+<script type="text/javascript">      
+
+SyntaxHighlighter.all();       
+
+</script>
+
+
+<!-- 图片上传 -->
+<script src="__ADMIN__/style/IMGUP.js"></script>
+
+<!-- 图片上传新 -->
+<script src="__ADMIN__/style/js/jquery-1.8.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__ADMIN__/style/js/drag-arrange.js" type="text/javascript" charset="utf-8"></script>
+<script src="__ADMIN__/style/js/ajax_file_upload.js" type="text/javascript"></script>
+<script type="text/javascript" src="__ADMIN__/style/js/jquery.ui.widget.js" charset="utf-8"></script>
+<script type="text/javascript" src="__ADMIN__/style/js/jquery.fileupload.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+    var dataAlbum;
+    var UPLOADGOODS = 'UPLOAD_GOODS';//存放商品图片
+    $(function () {
+        //给图片更换位置事件
+        $('.draggable-element').arrangeable();
+
+        var album_id = $("#album_id").val();
+        dataAlbum = {
+            "album_id": album_id,
+            "type": "1,2,3,4",
+            'file_path': UPLOADGOODS
+        };
+        // ajax 上传图片
+        var upload_num = 0; // 上传图片成功数量
+        $('#fileupload').fileupload({
+            url: "admin/Base/upload",
+            dataType: 'json',
+            //formData:dataAlbum,
+            add: function (e, data) {
+                $("#goods_picture_box .img-error").hide();
+                $("#goods_picture_box #default_uploadimg").remove();
+                //显示上传图片框
+                var html = "";
+                $.each(data.files, function (index, file) {
+                    html += '<div class="upload-thumb draggable-element"  nstype="' + file.name + '">';
+                    html += '<img nstype="goods_image" src="album/uoload_ing.gif">';
+                    html += '<input type="hidden"  class="upload_img_id" nstype="goods_image" value="">';
+                    html += '<div class="black-bg hide">';
+                    html += '<div class="off-box">&times;</div>';
+                    html += '</div>';
+                    html += '</div>';
+                });
+                $(html).appendTo('#goods_picture_box .img-box');
+                //模块可拖动事件
+                $('#goods_picture_box .draggable-element').arrangeable();
+                data.submit();
+            },
+            done: function (e, data) {
+                var param = data.result;
+                $this = $('#goods_picture_box div[nstype="' + param.origin_file_name + '"]');
+                if (param.state > 0) {
+                    $this.removeAttr("nstype");
+                    $this.children("img").attr("src", param.file_name);
+                    $this.children("input[type='hidden']").val(param.file_id);
+                } else {
+                    $this.remove();
+                    if ($("#goods_picture_box .img-box .upload-thumb").length == 0) {
+                        var img_html = '<div class="upload-thumb" id="default_uploadimg">';
+                        img_html += '<img src="album/default_goods_image_240.gif">';
+                        img_html += '</div>';
+                        $("#goods_picture_box .img-box").append(img_html);
+                    }
+                    $("#goods_picture_box .img-error").html("请检查您的上传参数配置或上传的文件是否有误").show();
+                }
+            }
+        })
+
+        //图片幕布出现
+        $(".draggable-element").live('mouseenter', function () {
+            $(this).children(".black-bg").show();
+        });
+        //图片幕布消失
+        $(".draggable-element").live('mouseleave', function () {
+            $(this).children(".black-bg").hide();
+        });
+
+        //删除页面图片元素
+        $(".off-box").live('click', function () {
+            if ($(".img-box .upload-thumb").length == 1) {
+                var html = "";
+                html += '<div class="upload-thumb" id="default_uploadimg">';
+                html += '<img nstype="goods_image" src="album/default_goods_image_240.gif">';
+                html += '<input type="hidden" name="image_path" id="image_path" nstype="goods_image" value="">';
+                html += '</div>';
+                $(html).appendTo('.img-box');
+            }
+            $(this).parent().parent().remove();
+        });
+
+
+    });
+    //备用
+    function img_upload() {
+
+    }
+    //图片上传方法
+    //此方法备用，后续在使用中需要进行相应的修改，不能直接使用。
+    //有的一个页面有可能有两个上传图片地方，所以添加此方法。届时在
+    //<input style="cursor:pointer;font-size:0;" type="file" id="fileupload" hidefocus="true" class="input-file" name="file_upload" multiple="multiple"/>
+    //增加一个onclick事件就可以了：onclick="file_upload(this);"
+    function file_upload(obj) {
+        var spec_id = $(obj).attr("spec_id");
+        var spec_value_id = $(obj).attr("spec_value_id");
+        $('.sku-draggable-element' + spec_id + '-' + spec_value_id).arrangeable();
+        $(obj).fileupload({
+            url: "admin/Base/upload",
+            dataType: 'json',
+            formData: dataAlbum,
+            add: function (e, data) {
+                var box_obj = $(this).parent().parent().parent().parent().parent().parent().parent().parent();
+                var spec_id = box_obj.attr("spec_id");
+                var spec_value_id = box_obj.attr("spec_value_id");
+                box_obj.find(".img-error").hide();
+                box_obj.find("#sku_default_uploadimg").remove();
+                //显示上传图片框
+                var html = "";
+                $.each(data.files, function (index, file) {
+                    html += '<div class="upload-thumb sku-draggable-element' + spec_id + '-' + spec_value_id + ' sku-draggable-element"  nstype="' + file.name + '">';
+                    html += '<img nstype="goods_image" src="album/uoload_ing.gif">';
+                    html += '<input type="hidden"  class="sku_upload_img_id" nstype="goods_image" spec_id="" spec_value_id="" value="">';
+                    html += '<div class="black-bg hide">';
+                    html += '<div class="sku-off-box">&times;</div>';
+                    html += '</div>';
+                    html += '</div>';
+                });
+
+                box_obj.find('.sku-img-box').append(html);
+                //模块可拖动事件
+                $('.sku-draggable-element' + spec_id + '-' + spec_value_id).arrangeable();
+                data.submit();
+            },
+            done: function (e, data) {
+                var box_obj = $(this).parent().parent().parent().parent().parent().parent().parent().parent();
+                var spec_id = box_obj.attr("spec_id");
+                var spec_value_id = box_obj.attr("spec_value_id");
+                var param = data.result;
+                $this = box_obj.find('div[nstype="' + param.origin_file_name + '"]');
+                if (param.state > 0) {
+                    $this.removeAttr("nstype");
+                    $this.children("img").attr("src", __IMG(param.file_name));
+                    $this.children("input[type='hidden']").val(param.file_id);
+                    $this.children("input[type='hidden']").attr("spec_id", spec_id);
+                    $this.children("input[type='hidden']").attr("spec_value_id", spec_value_id);
+                    //将上传的规格图片记录
+                    for (var i = 0; i < $sku_goods_picture.length; i++) {
+                        if ($sku_goods_picture[i].spec_id == spec_id && $sku_goods_picture[i].spec_value_id == spec_value_id) {
+                            $sku_goods_picture[i]["sku_picture_query"].push({
+                                "pic_id": param.file_id,
+                                "pic_cover_mid": param.file_name
+                            });
+                        }
+                    }
+                } else {
+                    $this.remove();
+                    if (box_obj.find(".upload-thumb").length == 0) {
+                        var img_html = '<div class="upload-thumb" id="default_uploadimg">';
+                        img_html += '<img src="album/default_goods_image_240.gif">';
+                        img_html += '</div>';
+                        box_obj.find(".sku-img-box").append(img_html);
+                    }
+                    box_obj.find(".img-error").html("请检查您的上传参数配置或上传的文件是否有误").show();
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

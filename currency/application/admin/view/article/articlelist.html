@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>{$AllConf.sitename}</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" />
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+    
+    <!-- 时间筛选css -->
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/style/jedate.css" />
+
+</head>
+<body>
+<!-- 头部 -->
+{include file='public/top'/}
+<!-- /头部 -->
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file='public/left'/}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li class="active">文章新闻模块</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body" >
+                <!--查询操作结束-->
+                <!--添加链接开始-->
+                <!-- action="{:url('admin/index/Index')}" -->
+             <form  method="post" action="{:url('admin/Article/ArticleSelect')}" class="form-horizontal form" enctype="multipart/form-data" class="form-inline" id="search-form2">
+                <button type="button"  class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('/admin/Index/addadmin')}'" style=" display: inline-block; padding: 8px 9px;"> <i class="fa fa-plus"></i> 添加文章</button>
+                <!--添加链接结束-->
+                <input type="hidden" name="fun" value="select"  />
+                <span class="label label-sky graded " style="margin-left: 30px;padding: 11px 6px;">I D</span>
+                <input type="id" class="form-control" name="article_id"  placeholder="文章id" style="width: 150px; display: inline-block;" >
+
+                <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">文章标题</span>
+                <input type="name" class="form-control" name="title" placeholder="文章标题" style="width: 150px; display: inline-block;" >
+
+                <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">状态</span>
+                
+                <select name="is_open" class="form-control" style="width: 138px; display: inline-block;" >
+                        <option value="" style="text-align: center;"></option>
+                        <option value="1" style="text-align: center;">显示</option>
+                        <option value="0" style="text-align: center;">未显示</option>                  
+                </select>
+
+                <!-- 筛选时间 -->
+                
+
+                <label >
+                    <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">开始时间</span>
+                    <input type="" class="form-control" style="width: 150px; display: inline-block;" name="startTime" id="startTime" value="" readonly="" />
+                </label>
+
+                <label>
+                    <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">结束时间</span>
+                    <input type="" class="form-control" style="width: 150px; display: inline-block;" name="endTime" id="endTime" value="" readonly />
+                </label>
+              
+
+                <div class="checkbox" style=" display: inline-block;">
+                    <label>
+                        <input type="checkbox" class="colored-blue"  name="opentime">
+                        <span class="text">开启时间查询</span>
+                    </label>
+                 </div>
+              
+
+                <button type="submit" id="screen" class="btn btn-blue" style="float: right;margin-right: 60px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查 询</font></font></button>
+
+                <!-- <button type="submit" class="btn btn-blue" style="float: right;margin-right: 60px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">导 出Excel</font></font></button> -->
+                <a href="javascript:;" onclick="exportUser()" class="btn btn-blue" style="float: right;margin-right: 60px;" name="Excel" value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">导 出Excel</font></font></a>
+
+            </form>
+
+            
+
+                <div class="row" style="padding-top: 20px">
+
+                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                    <div class="flip-scroll">
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="">
+                                            <tr>
+                                                <th class="text-center" width="4%">ID</th>
+                                                <th class="text-center">标题</th>
+                                                <th class="text-center">文章分类</th>
+                                                <th class="text-center">添加时间</th>
+                                                <th class="text-center">点击率</th>
+                                                <th class="text-center">排序</th>
+                                                <th class="text-center">文章类型</th>
+                                                <th class="text-center">是否显示</th>
+                                                <th class="text-center" width="15%">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                {volist name="Article" id="ArticleRes"}
+                                                
+                                            <tr>
+                                                <td align="center" >{$ArticleRes.article_id}</td>
+                                                <td align="center">{$ArticleRes.title}</td>
+                                                <td align="center">{$ArticleRes.cat_name}</td>
+                                                <td align="center">{$ArticleRes.publish_time}</td>
+                                                <td align="center">
+                                                    <input type="" name="editArticleclick" value="{$ArticleRes.click}" style="width: 60px;">
+                                                </td>
+                                                 <td align="center">
+                                                    <input type="" name="editArticlescort" value="{$ArticleRes.scort}" style="width: 60px;">
+                                                </td>
+                                               <td align="center">{$ArticleRes.article_type}</td>
+                                                <td align="center">
+                                                    <label>
+                                                        <input class="checkbox-slider toggle colored-blue flag" <?php if($ArticleRes['is_open']==1){echo 'checked="checked"';}?>   name="checled" value="{$ArticleRes.is_open}"  type="checkbox" >
+                                                        <span class="text"></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                        
+                                                       <a href="{:url('/admin/Article/editadmin',array('id'=>$ArticleRes['article_id']))}"  class="btn btn-primary btn-sm shiny editinfo">
+                                                        <i class="fa fa-edit "></i> 编辑
+                                                    </a>
+
+                                                    <a href="{:url('/admin/Article/editadmin',array('id'=>$ArticleRes['article_id']))}" onClick="warning('确实要删除吗', '')" class="btn btn-danger btn-sm shiny" >
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {/volist}
+                                            </tbody>
+                                        </table>
+
+                                        
+
+                                    </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                     
+                                     {$page}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__ADMIN__/style/jquery_002.js"></script>
+<script src="__ADMIN__/style/bootstrap.js"></script>
+<script src="__ADMIN__/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__ADMIN__/style/beyond.js"></script>
+
+<!--排序-->
+<script style="text/javascript">
+    $(function (){
+        $('#pai').click(function(){
+            $(['name=cateid']).each(function(){
+                alert($(this).val());
+            });
+
+//            var url="{:url('/admin/Cate/Catesort')}";
+//            $.ajax({
+//                method:'POST',
+//                url:url,
+//                data:{
+//                    ids:ids,
+//                    sort:sort
+//                },
+//                dataType:'JSON',
+//                success: function (msg) {
+//                    console.log(111);
+//                },
+//                error:function(){
+//                    console.log('error');
+//                }
+//
+//            })
+        });
+    })
+
+</script>
+
+<script type="text/javascript">
+
+    //点击查询筛选
+    // $("#screen").bind("click",function(){
+
+    //     //获取筛选里面的输入值
+    //     // e.preventDefault();
+
+    //     var id = $(this).find('input.article_id').val();
+    //     alert(id)
+    //     // var fun="editArticlestatus";
+    //     // var url="{:url('/admin/Article/screenArticleinfo')}";
+    //     //    $.ajax({
+    //     //        method:'POST',
+    //     //        url:url,
+    //     //        data:{
+    //     //            fun:fun,
+    //     //            // statu:statu,
+    //     //            // atid:atid
+    //     //        },
+    //     //        dataType:'JSON',
+    //     //        success: function (result) {
+    //     //         if(result.code==1){ //成功修改，改变value的值
+    //     //             var newvalue =result.data.atid
+    //     //             $(this).val(newvalue); 
+    //     //             console.log(result);
+    //     //         }else{
+    //     //              console.log(result.msg)
+    //     //         }
+
+    //     //        },
+    //     //        error:function(){
+
+    //     //            console.log('error');
+    //     //        }
+
+    //     //    })
+
+        
+    // });
+
+
+    //是否启用
+    $('.flag').on('click',function() {
+        //获取当前状态
+        var statu=$(this).val();
+        var a = $(this).parent().parent().siblings().eq(0).addClass("add");
+        var atid = $(this).parent().parent().siblings(".add").text();
+        var fun="editArticlestatus";
+        var url="{:url('/admin/Article/editArticleinfo')}";
+           $.ajax({
+               method:'POST',
+               url:url,
+               data:{
+                   fun:fun,
+                   statu:statu,
+                   atid:atid
+               },
+               dataType:'JSON',
+               success: function (result) {
+                if(result.code==1){ //成功修改，改变value的值
+                    var newvalue =result.data.atid
+                    $(this).val(newvalue); 
+                    console.log(result);
+                }else{
+                     console.log(result.msg)
+                }
+
+               },
+               error:function(){
+
+                   console.log('error');
+               }
+
+           })
+
+    })
+
+
+    //鼠标移出输入框后修改输入框的值,修改点击率
+    $('input[name="editArticleclick"]').change(function() {
+        var num=$(this).val();
+        var fun="editArticleclick";
+        var a = $(this).parent().siblings().eq(0).addClass("add");
+        var atid = $(this).parent().siblings(".add").text();
+        var url="{:url('/admin/Article/editArticleinfo')}";
+           $.ajax({
+               method:'POST',
+               url:url,
+               data:{
+                   fun:fun,
+                   num:num,
+                   atid:atid
+               },
+               dataType:'JSON',
+               success: function (result) {
+                if(result.code==1){ //成功修改，改变value的值
+                    var newvalue =result.data.atid
+                    $(this).val(newvalue); 
+                    console.log(result);
+                    //alert("修改成功")
+                }else{
+                     console.log(result.msg)
+                }
+
+               },
+               error:function(){
+
+                   console.log('error');
+               }
+
+           })
+    })
+
+    //修改排序
+    $('input[name="editArticlescort"]').change(function() {
+        var num=$(this).val();
+        var fun="editArticlescort";
+        var a = $(this).parent().siblings().eq(0).addClass("add");
+        var atid = $(this).parent().siblings(".add").text();
+        var url="{:url('/admin/Article/editArticleinfo')}";
+           $.ajax({
+               method:'POST',
+               url:url,
+               data:{
+                   fun:fun,
+                   num:num,
+                   atid:atid
+               },
+               dataType:'JSON',
+               success: function (result) {
+                if(result.code==1){ //成功修改，改变value的值
+                    var newvalue =result.data.atid
+                    $(this).val(newvalue); 
+                    console.log(result);
+                    //alert("修改成功")
+                }else{
+                     console.log(result.msg)
+                }
+
+               },
+               error:function(){
+
+                   console.log('error');
+               }
+
+           })
+    })
+
+
+       // 导出excel 
+       function exportUser() {
+        //action="{:url('admin/index/Index')}"
+        // $('input[name="user_ids"]').val('');
+         $('#search-form2').attr('action',"{:url('admin/Article/downExcel')}")
+        // var selected_ids = '';
+        // $('.trSelected' , '#flexigrid').each(function(i){
+        //     selected_ids += $(this).data('id')+',';
+        // });
+        // if(selected_ids != ''){
+        //     $('input[name="user_ids"]').val(selected_ids.substring(0,selected_ids.length-1));
+        // }
+        $('#search-form2').submit();
+    }
+
+
+
+    //修改商品信息
+    // $('.editinfo').on('click',function(){
+    //      var a = $(this).parent().siblings().eq(0).addClass("add");
+    //     var atid = $(this).parent().siblings(".add").text();
+    //      var fun="editinfo";
+    //     var url="{:url('/admin/Index/edit')}";
+    //     $.ajax({
+    //            method:'POST',
+    //            url:url,
+    //            data:{
+    //                fun:fun,
+    //                statu:statu,
+    //                atid:atid
+    //            },
+    //            dataType:'JSON',
+    //            success: function (result) {
+    //             if(result.code==1){ //成功修改，改变value的值
+    //                 // var newvalue =result.data.atid
+    //                 // $(this).val(newvalue); 
+    //             }else{
+    //                  console.log(result.msg)
+    //             }
+
+    //            },
+    //            error:function(){
+
+    //                console.log('error');
+    //            }
+
+    //        })
+        
+    // })
+
+
+</script>
+
+
+<!-- 时间筛选js -->
+ <script src="__ADMIN__/style/jquery.min.js"></script>
+ <script src="__ADMIN__/style/jedate.min.js"></script>
+ <script src="__ADMIN__/style/coomselectjs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>{$AllConf.sitename}</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" />
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+
+
+</head>
+<body>
+<!-- 头部 -->
+{include file='public/top'/}
+
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file='public/left'/}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li class="active">文章栏目</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <button type="button" tooltip="添加栏目" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = 'CateAdd'"> <i class="fa fa-plus"></i> Add
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                        <tr>
+                                            <th class="text-center" width="4%">ID</th>
+                                            <th class="text-center">栏目名称</th>
+                                            <th class="text-center">栏目类型</th>
+                                            <th class="text-center">关 键 字</th>
+                                            <th class="text-center">导航显示</th>
+                                            <th class="text-center">排序</th>
+                                            <th class="text-center" width="15%">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {volist name="Cate" id="CateRes"}
+                                        <tr>
+                                            <td align="center" name="cateid">{$CateRes.cat_id}</td>
+                                            <td align="left"> {if condition="$CateRes['lever'] neq 0"}{/if}<?php echo str_repeat('-',$CateRes['lever']*6)?>{$CateRes.cat_name}</td>
+                                            <td align="center">
+                                                {if condition="$CateRes.cat_type eq 1"}
+                                                    系统分类
+                                                {elseif condition="$CateRes.cat_type eq 2"/}
+                                                    帮助分类
+                                                {elseif condition="$CateRes.cat_type eq 3"/}
+                                                    网店帮助
+                                                {elseif condition="$CateRes.cat_type eq 4"/}
+                                                    网店信息
+                                                {else/}
+                                                    普通分类
+                                                {/if}
+                                            </td>
+                                            <td align="center">{$CateRes.keywords}</td>
+                                            <td align="center">
+                                                {if condition="$CateRes.show_in_nav eq 0"}
+                                                <img src="__PICTURE__/no.png" style="width: 25px" height="25px">
+                                                {else\}
+                                                <img src="__PICTURE__/yes.png " style="width: 25px" height="25px">
+                                                {/if}
+                                            </td>
+                                            <td align="center"><input type="text" value="{$CateRes.sort_order}"  name="sort_order" style="width: 30px;height: 30px;text-align: center" ></td>
+                                            
+                                            <td align="center">
+                                                <a href="{:url('CateEdit',array('cat_id'=>$CateRes['cat_id']))}" class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-edit"></i> 编辑
+                                                </a>
+
+                                                <a href="#" onClick="warning('确实要删除吗', '{:url('CateDel',array('cat_id'=>$CateRes['cat_id']))}')"
+                                                   {in name="$CateRes.cat_id" value="1,2,3,4"}
+                                                        disabled="disabled"
+                                                   {/in}
+                                                   class="btn btn-danger btn-sm shiny" >
+                                                    <i class="fa fa-trash-o"></i> 删除
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {/volist}
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__ADMIN__/style/jquery_002.js"></script>
+<script src="__ADMIN__/style/bootstrap.js"></script>
+<script src="__ADMIN__/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__ADMIN__/style/beyond.js"></script>
+
+<!--排序-->
+<script style="text/javascript">
+    $(function (){
+        $('#pai').click(function(){
+            $(['name=cateid']).each(function(){
+                alert($(this).val());
+            });
+
+//            var url="{:url('/admin/Cate/Catesort')}";
+//            $.ajax({
+//                method:'POST',
+//                url:url,
+//                data:{
+//                    ids:ids,
+//                    sort:sort
+//                },
+//                dataType:'JSON',
+//                success: function (msg) {
+//                    console.log(111);
+//                },
+//                error:function(){
+//                    console.log('error');
+//                }
+//
+//            })
+        });
+    })
+
+</script>
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>网上商城</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" />
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+
+
+</head>
+<body>
+<!-- 头部 -->
+{include file='public/top'/}
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file='public/left'/}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li class="active">文章管理员</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body" >
+                <!--查询操作结束-->
+                <!--添加链接开始-->
+
+             <form action="{:url('admin/index/Index')}" method="post" class="form-horizontal form" enctype="multipart/form-data" class="form-inline" >
+                <button type="button"  class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('/admin/Index/addadmin')}'" style=" display: inline-block; padding: 8px 9px;"> <i class="fa fa-plus"></i> 添加管理员</button>
+                <!--添加链接结束-->
+               
+
+                <input type="hidden" name="fun" value="select"  />
+
+               
+                <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">I D</span>
+                <input type="id" class="form-control" name="id"  placeholder="输出用户ID" style="width: 150px; display: inline-block;" >
+
+                <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">姓名</span>
+                <input type="name" class="form-control" name="realname" placeholder="输出用户姓名" style="width: 150px; display: inline-block;" >
+
+                <span class="label label-sky graded" style="margin-left: 30px;padding: 11px 6px;">启用</span>
+                
+                <select name="status" class="form-control" style="width: 138px; display: inline-block;" >
+                        <option value="" style="text-align: center;"></option>
+                        <option value="1" style="text-align: center;">启用</option>
+                        <option value="0" style="text-align: center;">禁用</option>                  
+                </select>
+                
+
+                <button type="submit" class="btn btn-blue" style="float: right;margin-right: 60px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查 询</font></font></button>
+
+                <button type="submit" class="btn btn-blue" style="float: right;margin-right: 60px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">导 出Excel</font></font></button>
+
+
+               <!--  <input type="hidden" name="a" value="entry" />
+
+                <input type="hidden" name="m" value="sz_yi" />
+
+                <input type="hidden" name="do" value="plugin" />
+
+                <input type="hidden" name="p" value="suppliermenu" />
+
+                <input type="hidden" name="method" value="info" />
+
+                <input type="hidden" name="op" value="display" /> -->
+                <div class="row" style="padding-top: 20px">
+
+                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="">
+                                    <div class="flip-scroll">
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="">
+                                            <tr>
+                                                <th class="text-center" width="4%">ID</th>
+                                                <th class="text-center">真实姓名</th>
+                                                <th class="text-center">银行信息</th>
+                                                <th class="text-center">手机</th>
+                                                <th class="text-center">微信</th>
+                                                <th class="text-center">是否启用</th>
+                                                <th class="text-center" width="15%">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                {volist name="Info" id="InfoRes"}
+                                                
+                                            <tr>
+                                                <td align="center" >{$InfoRes.id}</td>
+                                                <td align="center">{$InfoRes.realname}</td>
+                                                <td align="center">{$InfoRes.bank}</td>
+                                                <td align="center">{$InfoRes.mobile}</td>
+                                                <td align="center">{$InfoRes.weixin}</td>
+                                                <td align="center">
+                                                    <label>
+                                                        <input class="checkbox-slider toggle colored-blue flag" <?php if($InfoRes['status']==1){echo 'checked="checked"';}?>   name="checled" value="{$InfoRes.status}"  type="checkbox" >
+                                                        <span class="text"></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                        
+                                                       <a href="{:url('/admin/Index/editadmin',array('id'=>$InfoRes['id']))}"  class="btn btn-primary btn-sm shiny editinfo">
+                                                        <i class="fa fa-edit "></i> 编辑
+                                                    </a>
+
+                                                    <a href="{:url('/admin/Index/editadmin',array('id'=>$InfoRes['id']))}" onClick="warning('确实要删除吗', '')" class="btn btn-danger btn-sm shiny" >
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {/volist}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__ADMIN__/style/jquery_002.js"></script>
+<script src="__ADMIN__/style/bootstrap.js"></script>
+<script src="__ADMIN__/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__ADMIN__/style/beyond.js"></script>
+
+<!--排序-->
+<script style="text/javascript">
+    $(function (){
+        $('#pai').click(function(){
+            $(['name=cateid']).each(function(){
+                alert($(this).val());
+            });
+
+//            var url="{:url('/admin/Cate/Catesort')}";
+//            $.ajax({
+//                method:'POST',
+//                url:url,
+//                data:{
+//                    ids:ids,
+//                    sort:sort
+//                },
+//                dataType:'JSON',
+//                success: function (msg) {
+//                    console.log(111);
+//                },
+//                error:function(){
+//                    console.log('error');
+//                }
+//
+//            })
+        });
+    })
+
+</script>
+
+<script type="text/javascript">
+
+    //是否启用
+    $('.flag').on('click',function() {
+        //获取当前状态
+        var statu=$(this).val();
+        var a = $(this).parent().parent().siblings().eq(0).addClass("add");
+        var atid = $(this).parent().parent().siblings(".add").text();
+        var fun="clickedit";
+        var url="{:url('/admin/Index/editadmin')}";
+           $.ajax({
+               method:'POST',
+               url:url,
+               data:{
+                   fun:fun,
+                   statu:statu,
+                   atid:atid
+               },
+               dataType:'JSON',
+               success: function (result) {
+                if(result.code==1){ //成功修改，改变value的值
+                    var newvalue =result.data.atid
+                    $(this).val(newvalue); 
+                    console.log(result);
+                }else{
+                     console.log(result.msg)
+                }
+
+               },
+               error:function(){
+
+                   console.log('error');
+               }
+
+           })
+
+    })
+
+    //修改商品信息
+    // $('.editinfo').on('click',function(){
+    //      var a = $(this).parent().siblings().eq(0).addClass("add");
+    //     var atid = $(this).parent().siblings(".add").text();
+    //      var fun="editinfo";
+    //     var url="{:url('/admin/Index/edit')}";
+    //     $.ajax({
+    //            method:'POST',
+    //            url:url,
+    //            data:{
+    //                fun:fun,
+    //                statu:statu,
+    //                atid:atid
+    //            },
+    //            dataType:'JSON',
+    //            success: function (result) {
+    //             if(result.code==1){ //成功修改，改变value的值
+    //                 // var newvalue =result.data.atid
+    //                 // $(this).val(newvalue); 
+    //             }else{
+    //                  console.log(result.msg)
+    //             }
+
+    //            },
+    //            error:function(){
+
+    //                console.log('error');
+    //            }
+
+    //        })
+        
+    // })
+
+
+</script>
+
+</body>
+</html>

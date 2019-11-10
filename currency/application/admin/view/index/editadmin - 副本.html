@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+  <title></title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <!-- <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" /> -->
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+
+    <!-- 图片上传css -->
+    
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/style/common.css" />
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/style/style.css" />
+
+</head>
+<body>
+<!-- 头部 -->
+{include file='public/top'/}
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file='public/left'/}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="">文章管理</a>
+                    </li>
+                    <li class="active">添加文章</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增文章</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="{:url('/admin/Index/editadmin')}" method="post" enctype="multipart/form-data" >
+                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="fun" value="editinfo">
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章标题</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control"   placeholder="" name="article_title" value="" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章作者</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control"   placeholder="" name="article_author" value="" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">关键词</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control"   placeholder="" name="article_keywords" value="" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                                            <div class="col-sm-6">
+                                                <select name="pid" style="height: 35px;">
+                                                    {volist name="Cate" id="CateRes"}
+                                                    <option value="{$CateRes.cat_id}"
+                                                            {in name="$CateRes.cat_id" value="1,2,3,5"}disabled="disabled"{/in}
+                                                            {if condition="$CateRes.cat_id eq $Article.cat_id"}selected="selected"{/if}>
+                                                    <!--设置前面的标签-->
+                                                    {if condition="$CateRes['lever'] neq 0"}{/if}<?php echo str_repeat('-',$CateRes['lever']*6)?>
+                                                    {$CateRes.cat_name}</option>
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章logo</label>
+                                            <!--  <div class="img-box full">
+                                                <section class=" img-section">
+                                                    <div class="z_photo upimg-div clear" >
+                                                             <section class="z_file fl">
+                                                                <img src="__ADMIN__/images/a11.png" class="add-img">
+                                                                <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+                                                             </section>
+                                                     </div>
+                                                 </section>
+                                            </div>
+                                            <aside class="mask works-mask">
+                                                <div class="mask-content">
+                                                    <p class="del-p">您确定要删除作品图片吗？</p>
+                                                    <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                                                </div>
+                                            </aside> -->
+
+                                            <div class="demo">
+                                                <a class="btn" id="btn">上传图片</a> 最大500KB，支持jpg，gif，png格式。
+                                                <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">前台显示</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input  name="satus" value="1" type="radio"><span class="text">显示</span>
+                                                    </label>
+                                                    <label>
+                                                        <input class="inverted"  name="satus" value="0" type="radio"><span class="text">不显示</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">审核状态</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input   name="article_type" value="0" type="radio"><span class="text">未通过</span>
+                                                    </label>
+                                                    <label>
+                                                        <input  name="article_type" value="1" type="radio"><span class="text">待审核</span>
+                                                    </label>
+                                                    <label>
+                                                        <input   name="article_type" value="2" type="radio"><span class="text">通过</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">资源类型</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input  name="resource_type" value="0" type="radio"><span class="text">ed2k资源</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="resource_type" value="1" type="radio"><span class="text">磁力资源</span>
+                                                    </label>
+                                                    <label>
+                                                        <input  name="resource_type" value="2" type="radio"><span class="text">网盘资源</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章描述</label>
+                                            <div class="col-sm-6">
+                                                <textarea style="resize:none; width:523px;height: 115px" name="article_description" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label   class="col-sm-2 control-label no-padding-right">文章内容</label>
+                                            <div class="col-sm-6">
+                                                <textarea id="content" name="article_content" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__ADMIN__/style/jquery_002.js"></script>
+<script src="__ADMIN__/style/bootstrap.js"></script>
+<script src="__ADMIN__/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__ADMIN__/style/beyond.js"></script>
+
+
+
+<!--引入百度编辑器-->
+<script src="__ADMIN__/ueditor/ueditor.config.js"></script>
+<script src="__ADMIN__/ueditor/ueditor.all.min.js"></script>
+<script src="__ADMIN__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<!--实例化百度编辑器-->
+<script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    UE.getEditor('content',{initialFrameWidth:700,initialFrameHeight:600});
+</script>
+
+<link href="__ADMIN__/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />  
+
+<script type="text/javascript" src="__ADMIN__/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>  
+
+<script type="text/javascript">      
+
+SyntaxHighlighter.all();       
+
+</script>
+
+
+<!-- 图片上传 -->
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="__ADMIN__/style/plupload.full.min.js"></script>
+    <script type="text/javascript">
+
+       // var ajax_brand_url="{:url('admin/Base/Imgsuploade')}";
+        var ajax_brand_url="admin/Base/Imgsuploade";
+
+        // let path2 = path1.substring(0,path1.indexOf('.'));
+        //ajax_brand_url=ajax_brand_url.substring(0,ajax_brand_url=.indexOf('.'))
+        //ajax_brand_url=ajax_brand_url.substring(-4,5);
+        console.log(ajax_brand_url);
+
+            var uploader = new plupload.Uploader({ //创建实例的构造方法
+                runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+                browse_button: 'btn', // 上传按钮
+                url: ajax_brand_url, //远程上传地址
+                flash_swf_url: '/static/admin/plupload/Moxie.swf', //flash文件地址
+                silverlight_xap_url: '/static/admin/plupload/Moxie.xap', //silverlight文件地址
+                filters: {
+                    max_file_size: '500kb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+                    mime_types: [ //允许文件上传类型
+                        {
+                            title: "files",
+                            extensions: "jpg,png,gif,ico"
+                        }
+                    ]
+                },
+                multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+                init: {
+                    FilesAdded: function(up, files) { //文件上传前
+                        if ($("#ul_pics").children("li").length > 30) {
+                            alert("您上传的图片太多了！");
+                            uploader.destroy();
+                        } else {
+                            var li = '';
+                            plupload.each(files, function(file) { //遍历文件
+                                li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                            });
+                            $("#ul_pics").append(li);
+                            uploader.start();
+                        }
+                    },
+                    UploadProgress: function(up, file) { //上传中，显示进度条
+                        var percent = file.percent;
+                        $("#" + file.id).find('.bar').css({
+                            "width": percent + "%"
+                        });
+                        $("#" + file.id).find(".percent").text(percent + "%");
+                    },
+                    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+
+                        console.log(file);
+                        console.log(up);
+                        console.log(info);
+                        var data = eval("(" + info.response + ")");
+                        $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/></div><p>" + data.name + "</p>");
+                    },
+                    Error: function(up, err) { //上传出错的时候触发
+                        alert(err.message);
+                    }
+                }
+            });
+            uploader.init();
+    </script>
+</body>
+</html>
