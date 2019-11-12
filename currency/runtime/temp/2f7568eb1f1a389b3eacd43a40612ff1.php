@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"E:\phpstudy\PHPTutorial\WWW\currency\public/../application/admin\view\index\index.html";i:1573133419;s:75:"E:\phpstudy\PHPTutorial\WWW\currency\application\admin\view\Public\top.html";i:1572663696;s:76:"E:\phpstudy\PHPTutorial\WWW\currency\application\admin\view\Public\left.html";i:1573094587;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"E:\phpstudy\PHPTutorial\WWW\currency\public/../application/admin\view\index\index.html";i:1573133419;s:75:"E:\phpstudy\PHPTutorial\WWW\currency\application\admin\view\Public\top.html";i:1572663696;s:76:"E:\phpstudy\PHPTutorial\WWW\currency\application\admin\view\Public\left.html";i:1573435020;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -351,13 +351,13 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="<?php echo url('Nav/NavList'); ?>">
+                    <a href="<?php echo url('Inform/Sms'); ?>">
                         <span class="menu-text">短信</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo url('Nav/NavList'); ?>">
+                    <a href="<?php echo url('Inform/Mail'); ?>">
                         <span class="menu-text">邮件</span>
                         <i class="menu-expand"></i>
                     </a>

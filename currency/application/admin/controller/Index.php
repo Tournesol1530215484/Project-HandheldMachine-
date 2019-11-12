@@ -12,31 +12,6 @@ class Index extends Coom
     {
          $Info= Db::query('select * from wb_fz_member'); 
 
-     //      if(request()->isPost()){
-     //        $data=input('post.');
-
-     //        $data['id']=$_POST['id'];
-     //        $data['realname']=$_POST['realname'];
-     //        $data['status']=$_POST['status'];
-     //         if(empty($data)){
-     //            $Info= Db::query('select * from wb_fz_member');  
-     //        }else{
-     //            $sql='';
-     //            if($data['id']){
-     //                $sql=" and id = ".$data['id'];
-     //            }
-     //            if($data['realname']){
-     //                $sql=" and realname like '".$data['realname']."'";
-     //            }
-     //            if($data['status']){
-     //                $sql=" and status = ".$data['status'];
-     //            }
-
-     //            $Info= Db::query('select * from wb_fz_member where 1'.$sql);
-     //      }
-     // }
-
-
         $this->assign([
           'Info'=>$Info
         ]);

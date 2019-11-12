@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use app\admin\controller\Coom;
 use Catetree\Catetree;
 use think\Db;
+use think\Session;
 use think\paginator\driver\Bootstrap;
 
 class Article extends Coom{
@@ -13,10 +14,14 @@ class Article extends Coom{
 		$pageSize=$AllConf['page'];
 	    $currPage=input('page',1);
 	    $list = Db::query("select a.* ,c.cat_name from wb_article a left join wb_article_cat c on a.cat_id=c.cat_id limit ?,?",[($currPage-1)*$pageSize,$pageSize]); 
+	    $sqls[]=Db::getLastSql();
 		$total = Db::query("select count(*) cat_id from wb_article")[0]['cat_id'];
+		$sqls[]=Db::getLastSql();
 		$Article = Bootstrap::make($list,$pageSize,$currPage,$total,false,['path'=>Bootstrap::getCurrentPath(),'query'=>request()->param()]);
 		$page = $Article->render();
-
+		//写入日志
+		$fun=request()->controller().'/'.request()->action();
+		$this->systemlog($fun,Session::get('auth')['username'],$sqls);
 		$this->assign([
           'Article'=>$Article,
           'page'=>$page,
@@ -202,6 +207,7 @@ class Article extends Coom{
             
     }
 
+    //数据导出
     public function downExcel(){
     	//数据导出
     	$title=array('文章id','标题','是否显示','发布时间','所属栏目');
@@ -238,5 +244,8 @@ class Article extends Coom{
         $this->assign('Cate',$Cate);
         return view('Article/CateList');
 	}
+
+
+	
 
 }

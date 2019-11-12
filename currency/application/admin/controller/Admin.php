@@ -52,30 +52,6 @@ class Admin extends Coom{
      */
 
     public function editAdmin(){
-//        //找到要修改的管理员
-//        $admin=db('admin')->find($id);
-//        //判断修改后和修改前的差别
-//        if(request()->isPost()){
-//            $date=input('post.');
-//            $Admin=new AdminModel();
-//            $res=$Admin->editAdmin($date,$admin);
-//            if($res=='2'){
-//                $this->error('管理员名字不得为空');
-//            }else if($res!==false){
-//                $this->success('修改管理员成功',url('Admin/lisAdmin'));
-//            }else{
-//                $this->error('修改管理员失败');
-//            }
-//            return ;
-//        }
-//        if(!$admin){
-//            $this->error('该管理员不存在');
-//        }
-//        else{
-//            $this->assign('AdminRes',$admin);
-//
-//        }
-//
         //找到这个用户信息
         $id=input('id','0','int');
         if($id==0){
@@ -98,6 +74,7 @@ class Admin extends Coom{
 
         return view('Admin/editAdmin');
     }
+    
     /**
      * [SaveAdmin 保存管理员]
      * @return string
