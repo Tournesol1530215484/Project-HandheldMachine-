@@ -15,9 +15,6 @@ class User extends Base
     		//Inspection_account,巡检系统用户表
     		if($data['user']=='great'){	  //超级用户
     			while ($data['password']==123456) {
-                    //调用文件日志
-
-                    $this->makeLog('ymd','登录成功');
     				$this->get_duty_finished('1','登录成功');	
     			}	
                 $this->ajax_return('-1','账号密码不匹配');
@@ -29,10 +26,8 @@ class User extends Base
                         $returndata['user']=$res[0]['user'];
                         $returndata['workerID']=$res[0]['workerID'];
 
-                        //账户信息存到session中,有效期为1天
-                        //session('user',$returndata['user'],3600*24);
-                        //session('workerID',$returndata['workerID'],3600*24);
-
+                        $returndata['userID']=$res[0]['list'];
+                        $this->log('用户登录成功',$returndata);
                         $this->ajax_return('1','登录成功',$returndata);
     				}
     				$this->ajax_return('2','账号密码不匹配');
@@ -114,19 +109,17 @@ class User extends Base
             $data=input('post.');
             $routeID=$data['routeID'];//巡检路径id
             //如果是未完成状态
-            //session('mapstatus','false');
+            session('mapstatus','false');
             $duty_route=db('inspection_route')->where(['list'=>$routeID])->select();
-            
-
             //获取list的值
             if(empty($duty_route)){
                 $this->ajax_return('2','没有该路线点');
             }
+            
             $routelist=$duty_route[0]['list'];//用于获取对应点的地址
+
             //数组重组，改造数组,默认的最高100条
             $templist=array();
-
-
             for($i=1;$i<89;$i++){
                 if(!empty($duty_route[0]['point'.$i]) || ($duty_route[0]['point'.$i]!=0) ){
                     $templist[$i]['point']=$i;
@@ -135,9 +128,17 @@ class User extends Base
                     $templist[$i]['routeurl']=$this->get_routeurl($routelist,$i);
                     //$duty_route[0]['point'.$i]
                     $templist[$i]['project']=$this->get_inspec_data($duty_route[0]['point'.$i]);
+
+                    
                     if(empty($templist[$i]['routeurl'])){
                         $templist[$i]['routeurl']='';
                     }
+
+                    //修改这里20191213
+                    if(!empty($templist[$i]['project'])){
+                        $templist[$i]['point']=$templist[$i]['project']['list'];
+                    }
+
                     unset($duty_route[0]['point'.$i]);
                     unset($duty_route[0]['arrive_time'.$i]);
                     unset($duty_route[0]['leave_time'.$i]);
@@ -153,7 +154,7 @@ class User extends Base
             $returnlist=$duty_route[0];
             $returnlist['pointList']=$templist; //合并数组
             if($duty_route){
-                // session('mapstatus','true');
+                 session('mapstatus','true');
                 $this->ajax_return('1','获取巡检路线点成功',$returnlist);
             }else{
 
@@ -174,7 +175,7 @@ class User extends Base
         $retunlist=array();
         if($point_details){
             for($i=1;$i<21;$i++){
-                if($point_details[0]['check'.$i]=='' || $point_details[0]['check'.$i]=='0' ){
+                if($point_details[0]['check'.$i]=='' || $point_details[0]['check'.$i]=='0'){
                         unset($point_details[0]['process'.$i]);
                         unset($point_details[0]['check'.$i]);
                         unset($point_details[0]['range'.$i]);
@@ -199,6 +200,7 @@ class User extends Base
             $templist=array_values($templist);  //去除数组的建
         }
         $retunlist['Projectpoint']=$templist;
+        $retunlist['list']=$point_details[0]['list'];   //修改这里===20191213
         $retunlist['IC'] =strtoupper($point_details[0]['IC']);  //增加返回IC卡号信息
         return $retunlist;
     }
@@ -208,6 +210,9 @@ class User extends Base
 
     //获取巡检界面巡检点列表，获取地图 返回下载地址(接口已经被合并)
     public function get_duty_map(){
+
+
+    
 
     } 
 
@@ -240,10 +245,14 @@ class User extends Base
             $begintime=date("Y-m-d H:i:s",time());
             $res= db('inspection_carry_out')->insert(['dutyID'=>$dutyID,'carry_out_datetime'=>$begintime]);
             //更新巡检状态为巡检中
-            $resss=db('inspection_duty')->where('list',$dutyID)->update(['state'=>2]);
+            db('inspection_duty')->where('list',$dutyID)->update(['state'=>2]);
             $status=db('inspection_duty')->where(['list'=>$dutyID])->find();
+
+            $returnnum['state']=$status['state'];
+            $returnnum['carry_ID']=$res;
+
            if($res){
-                $this->ajax_return('1','开始巡检任务',$status['state']);
+                $this->ajax_return('1','开始巡检任务',$returnnum);
            }else{
                 $this->ajax_return('1','参数异常，无法开始巡检');
            }
@@ -321,31 +330,41 @@ class User extends Base
             $data=input('post.');
             //判断是新增还是更新
             $res=db('inspection_report')->where(['pointID'=>$data['pointID']])->select();
+
             $data['report_date']=date("Y-m-d H:i:s",time());    //完成时间
             $data['leaveTime']=date("Y-m-d H:i:s",time());    //离开的时间，完成时间
+
+            $userID=$data['userID'];
+            unset($data['userID']);
+
             if(!empty($res)){
                  $data['list']=$res[0]['list'];
                  $res=db('inspection_report')->update($data);
                  $ids=$data['list'];    //更新数据，
 
             }else{
-                //生成巡检报告inspection_report
-                //$ids=Db::name('inspection_report')->insert($data)->getLastInsID();
                 $ids=Db::name('inspection_report')->insertGetId($data);     //把数据进行存入inspection_report，生成巡检报告
                 //更新inspection_duty中的对应设置，把巡检结果变成状态为已巡检
 
-                $resss=db('inspection_duty')->where('workerID',$data['carry_outID'])->update(['state'=>1]);
+                db('inspection_duty')->where('carry_outID',$data['carry_outID'])->update(['state'=>1]);
 
             }
             $id['id']=$ids;
             if($ids){
-                  $this->ajax_return('1','巡检点上报完成',$id);
+                //上报完成之后，吧上报结果获取并上传,根据carry_outID 去inspection_carry_out 更新状态
+                db('inspection_carry_out')->where(['list'=>$data['carry_outID']])->update(['state'=>1,'accountID'=>$userID]);
+                //根据carry_outID，去inspection_duty表（list），更新状态
+                $list=db('inspection_carry_out')->find($data['carry_outID']);
+                $this->log('巡检任务id',$list);
+                db('inspection_duty')->where('list',$list['dutyID'])->update(['state'=>1]);
+                $this->log($data['carry_outID'].'/'.$userID.'上报巡检结果成功',$data);
+                $this->ajax_return('1','巡检点上报完成',$id);
             }else{
                  $this->ajax_return('1','参数异常，巡检点上报失败');
             }
   
         }else{
-             $this->ajax_return('0','请求参数异常','');
+             $this->ajax_return('0','请求参数异常');
         }
     
     }
@@ -354,14 +373,13 @@ class User extends Base
     public function upload_all_info(){
         //更新inspection_report
         if(request()->isPost()){
-
             $data=input('post.');
             $data['carry_out_datetime']=date("Y-m-d H:i:s");
             $list=db('inspection_report')->where(['list'=>$data['dutyID']])->select();
             $res=db('inspection_carry_out')->where(['list'=>$list[0]['list']])->update($data);
             //更新巡检状态为巡检中
-            $resss=db('inspection_duty')->where('list',$data['dutyID'])->update(['state'=>1]);
-            $status=db('inspection_duty')->where(['list'=>$data['dutyID']])->find();
+            $resss=db('inspection_duty')->where('list',$dutyID)->update(['state'=>1]);
+            $status=db('inspection_duty')->where(['list'=>$dutyID])->find();
             if($res){
                 $this->ajax_return('1','成功提交',$status['state']);
             }else{
@@ -478,8 +496,7 @@ class User extends Base
         if($id==''&&$list!=''){
             //获取某个文件下所有的地图信息
             $dir=ROOT_PATH.'/public/map/List'.$list;
-            $sitepath='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'\\';
-           // $sitepath='http://172.16.22.102/map/List'.$list.'\\';
+            $sitepath='http://172.16.22.102/map/List'.$list.'\\';
             //遍历文件夹下所有文件
             if (false != ($handle = opendir ( $dir ))) {
                 $i = 0;
@@ -496,13 +513,12 @@ class User extends Base
         }else{  //获取某个文件夹下的指定文件
                 //只做常见的三种处理
             //http://139.224.8.92/zhaowei/HandheldMachine/public/map/List1/img1.png
-            $dir='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'/'.'img'.$id.'.png';
-            $dir1='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'/'.'img'.$id.'.jpeg';
-            $dir2='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'/'.'img'.$id.'.gif';
-            //  $dir='http://172.16.22.102/map/List'.$list.'/'.'img'.$id.'.png';
-            // $dir1='http://172.16.22.102/map/List'.$list.'/'.'img'.$id.'.jpeg';
-            // $dir2='http://172.16.22.102/map/List'.$list.'/'.'img'.$id.'.gif';
-            
+            // $dir='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'/'.'img'.$id.'.png';
+            // $dir1='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'/'.'img'.$id.'.jpeg';
+            // $dir2='http://139.224.8.92/zhaowei/HandheldMachine/public/map/List'.$list.'/'.'img'.$id.'.gif';
+             $dir='http://172.16.22.102/map/List'.$list.'/'.'img'.$id.'.png';
+            $dir1='http://172.16.22.102/map/List'.$list.'/'.'img'.$id.'.jpeg';
+            $dir2='http://172.16.22.102/map/List'.$list.'/'.'img'.$id.'.gif';
             if(@fopen($dir,'r')){
 
                 $imgurl=$dir;

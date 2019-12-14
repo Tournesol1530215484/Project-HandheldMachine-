@@ -20,5 +20,7 @@ define('PICTURE', __DIR__ . '/../public/static/uploads/');
 define('MAP', __DIR__ . '/../public/static/uploads');
 //定义地图目录
 define('MAPList', __DIR__ . '/../public/map/List');
+
+//定义图片上传地址
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
