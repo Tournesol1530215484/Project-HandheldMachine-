@@ -1,0 +1,152 @@
+<?php /*a:1:{s:72:"E:\phpstudy\PHPTutorial\WWW\Tp6Public\view\admin\admin\Adminruledit.html";i:1589182504;}*/ ?>
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="/static/admin/css/font.css">
+        <link rel="stylesheet" href="/static/admin/css/xadmin.css">
+        <script type="text/javascript" src="/static/admin/lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/static/admin/js/xadmin.js"></script>
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <form class="layui-form">
+                    <input name="action" value="adminruleeditinfo" type="hidden">
+                    <input name="id" value="<?php echo htmlentities($Rule['id']); ?>" type="hidden">
+                  <div class="layui-form-item">
+                      <label for="pid" class="layui-form-label">
+                          <span class="x-red">*</span>权限分类
+                      </label>
+                      <div class="layui-input-inline">
+                          <select name="pid">
+                              <option>规则分类</option>
+                              <?php if(is_array($Cate) || $Cate instanceof \think\Collection || $Cate instanceof \think\Paginator): $i = 0; $__LIST__ = $Cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Cateres): $mod = ($i % 2 );++$i;?>
+                              <option value="<?php echo htmlentities($Cateres['id']); ?>" name="pid"  <?php if($Rule['pid'] == $Cateres['id']): ?>selected="selected"<?php endif; ?> ><?php echo htmlentities($Cateres['catename']); ?></option>
+                              <?php endforeach; endif; else: echo "" ;endif; ?>
+                          </select>
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span>权限分类
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="title" class="layui-form-label">
+                          <span class="x-red">*</span>权限名称
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="title" name="title" value="<?php echo htmlentities($Rule['title']); ?>" required="" lay-verify="title"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span>权限名称
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="name" class="layui-form-label">
+                          <span class="x-red">*</span>控制器方法
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="name" name="name" value="<?php echo htmlentities($Rule['name']); ?>" required="" lay-verify="name"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span>
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="" class="layui-form-label">
+                      </label>
+                      <button  class="layui-btn" lay-filter="add" lay-submit="">
+                          修改
+                      </button>
+                  </div>
+              </form>
+            </div>
+        </div>
+        <script>layui.use(['form', 'layer'],
+            function() {
+                $ = layui.jquery;
+                var form = layui.form,
+                layer = layui.layer;
+
+                //自定义验证规则
+                form.verify({
+                    title: function(value) {
+                        if (value.length < 1) {
+                            return '权限名称不得为空';
+                        }
+                    },
+                    name: function(value) {
+                        if (value.length < 1) {
+                            return '控制器方法不得为空';
+                        }
+                    },
+                });
+
+
+
+                //监听提交
+                form.on('submit(add)',
+                function(data) {
+                    $.ajax({
+                        url: "<?php echo url('Admin/Adminrule'); ?>",
+
+                        data: {'data':data.field,'action':'adminruleeditinfo'},
+                        type: 'POST',
+                        dataType: 'JSON',
+                        success:function (data) {
+                            if(data.msg=='ok'){
+                                layer.msg('修改成功', {icon: 1});
+                                // xadmin.close();
+                                // xadmin.father_reload();
+                            }else{
+                                layer.msg('删除失败', {icon: 2});
+                                // xadmin.close();
+                                // xadmin.father_reload();
+                            }
+                        },
+                        error:function (data) {
+                            console.log(data);
+                            layer.msg(data.msg,{icon:3,time:1000})
+                            // xadmin.close();
+                            // xadmin.father_reload();
+                        }
+                    })
+
+
+                    // console.log(data);
+                    // //发异步，把数据提交给php
+                    // layer.alert("增加成功", {
+                    //     icon: 6
+                    // },
+                    // function() {
+                    //     //关闭当前frame
+                    //     xadmin.close();
+                    //
+                    //     // 可以对父窗口进行刷新
+                    //     xadmin.father_reload();
+                    // });
+                    // return false;
+                });
+
+            });</script>
+        <script>var _hmt = _hmt || []; (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();</script>
+    </body>
+
+</html>
